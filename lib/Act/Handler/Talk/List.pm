@@ -32,7 +32,8 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         talks => [ sort {
-            lc $a->{user}->last_name  cmp lc $b->{user}->last_name
+            $a->lightning <=> $b->lightning
+            || lc $a->{user}->last_name  cmp lc $b->{user}->last_name
             || lc $a->{user}->first_name cmp lc $b->{user}->first_name
             || $a->talk_id <=> $b->talk_id
         } @$talks ],
