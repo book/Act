@@ -81,7 +81,7 @@
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <tt><a href="[% web_page %]" >[% web_page %]</a></tt>
+         <tt><a href="[% web_page %]">[% web_page %]</a></tt>
       </td>
 [% END %]
 [%- IF pause_id %]
