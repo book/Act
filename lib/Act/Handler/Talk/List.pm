@@ -15,11 +15,11 @@ sub handler
     if ($Request{user} && $Request{user}->is_orga && $Request{args}{ok}) {
         for my $t (@$talks) {
             if ($t->accepted && !$Request{args}{$t->talk_id}) {
-                $t->update(accepted => 'f');
+                $t->update(accepted => 0 );
                 $t->{accepted} = undef;
             }
             elsif (!$t->accepted && $Request{args}{$t->talk_id}) {
-                $t->update(accepted => 't');
+                $t->update(accepted => 1 );
             }
         }
     }
