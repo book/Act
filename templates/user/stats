@@ -135,7 +135,7 @@
       <th align="right">[% pm.count %]<!--&nbsp;([% pm.committed %])--></th>
      [% ELSE %]
       <td valign="top" align="left">
-      <a href="[% make_uri('search', 'pm_group', pm.name) %]=">[% pm.name %]</td>
+      <a href="[% make_uri('search', 'pm_group', pm.name) %]">[% pm.name %]</td>
       <td align="right">[% pm.count %]<!--&nbsp;([% pm.committed %])--></td>
      [% END %]
      </tr>
