@@ -27,6 +27,10 @@
 [% END %]
 [% FOREACH lang = global.languages %]
    <span id="goto-lang">[% WRAPPER menus/item %]
-   <a href="[% lang.uri %]">&#x2192;&nbsp;[% lang.name %]</a></li>
+   <a href="[% lang.uri %]" title="[%
+        SWITCH lang.code;
+            CASE 'en'; "Click here for an English version of this site";
+            CASE 'fr'; "Cliquer ici pour une version française de ce site";
+        END %]">&#x2192;&nbsp;[% lang.name %]</a></li>
    [% END %]</span>
 [% END %]

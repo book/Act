@@ -91,6 +91,7 @@ sub process
          $global{languages} = [
            map {{
                  %{$Languages{$_}},
+                 code => $_,
                  uri => self_uri(%{$Request{args}}, language => $_),
                }}
            grep { $_ ne $Request{language} }
