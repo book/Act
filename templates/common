@@ -25,3 +25,13 @@
     "</a>";
   END;
 %]
+[% MACRO timeslot(t)
+   BLOCK;
+    IF t.type == 'Act::Talk' %]
+<a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
+    [% ELSIF t.type == 'Act::Event' %]
+<a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
+    [% ELSE ; t %]
+[% END;
+   END;
+%]

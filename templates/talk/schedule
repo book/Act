@@ -1,3 +1,4 @@
+[% PROCESS common %]
 [% WRAPPER ui
    title = { en => 'Schedule', fr => 'Emploi du temps' }
 %]
@@ -6,8 +7,9 @@
 <p>Date [% d %]</p>
 <table border=1>
  <tr>
- <th>
-  <t><en>Time</en><fr>Heure</fr></t>
+  <th>
+   <t><en>Time</en><fr>Heure</fr></t>
+  </th>
   [% FOREACH r IN room.keys %]
   <th colspan="[% room.$r.$d %]">[% r %]</th>
   [% END %]
@@ -18,7 +20,9 @@
    [% IF loop.first %]
      <td>[% col %]</td>
    [% ELSE %]
-     <td rowspan="[% col.height %]">[% col.title %]</td>
+     <td rowspan="[% col.height %]">
+       [% timeslot(col) %]
+     </td>
    [% END %]
   [% END %]
  </tr>
