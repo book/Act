@@ -8,6 +8,9 @@ use vars qw(@ISA @EXPORT $Config %Request);
 use AppConfig qw(:expand :argcount);
 
 # load global configuration
+load_global_config();
+
+# load global configuration
 sub load_global_config
 {
     my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";

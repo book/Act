@@ -3,19 +3,20 @@ package Act::Dispatcher;
 
 use Apache::Constants qw(OK DECLINED);
 use Apache::Cookie ();
+use DBI;
 
 use Act::Config;
 
 use constant DEFAULT_PAGE => 'index.html';
 
-# load global configuration
-Act::Config::load_global_config();
-
 # main dispatch table
 my %dispatch = (
     coucou => sub {
+        my $sth = $Request{dbh}->prepare('SELECT NOW()');
+        $sth->execute();
+        my ($now) = $sth->fetchrow_array();
         $Request{r}->send_http_header('text/plain');
-        $Request{r}->print("conférence ", $Request{conference});
+        $Request{r}->print("$now - conférence ", $Request{conference});
     },
 );
 
@@ -34,6 +35,7 @@ sub trans_handler
         path_info => join('/', @c),
     );
     _set_language();
+    _db_connect();
 
     # see if URI starts with a conf name
     if (@c && exists $Config->conferences->{$c[0]}) {
@@ -123,5 +125,19 @@ sub _set_language
         );
         $cookie->bake;
     }
+}
+
+sub _db_connect
+{
+    $Request{dbh} = DBI->connect(
+        $Config->database_dsn,
+        $Config->database_user,
+        $Config->database_passwd,
+        { AutoCommit => 0,
+          PrintError => 0,
+          RaiseError => 1,
+        }
+    ) or die "can't connect to database: " . $DBI::errstr;
+    $Request{r}->register_cleanup( sub { $Request{dbh}->disconnect } );
 }
 1;
