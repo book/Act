@@ -32,6 +32,7 @@ sub trans_handler
     # initialize our per-request variables
     %Request = (
         r         => $r,
+        args      => { $r->args },
         path_info => join('/', @c),
     );
     _set_language();
@@ -94,6 +95,14 @@ sub _set_language
             $sendcookie = 0;
         }
     }
+
+    # language override supplied in query string
+    my $force_language = $Request{args}{language};
+    if ($force_language && $Config->languages->{$force_language}) {
+        $sendcookie = $force_language ne $language;
+        $language = $force_language;
+    }
+
     # otherwise try one of the browser's languages
     unless ($language) {
         my $h = $Request{r}->header_in('Accept-Language') || '';
