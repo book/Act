@@ -171,6 +171,9 @@ A hash of invalid fields. There is one entry for each invalid field.
 For each entry, the key is the field name and the value is the name
 of the error: either 'required', or a constraint type such as
 'email' or 'numeric'.
+Note that currenty, one error is reported per field. In other words,
+once a field has been found to be in error, it is excluded from
+further checks.
 
 =back
 
