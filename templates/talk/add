@@ -92,7 +92,7 @@
         <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
      </option>
      [% FOREACH d = global.config.talks_durations.keys.nsort %]
-     <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %]</option>
+     <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><fr>minutes</fr></t></option>
      [% END %]
     </select>
   </td>
