@@ -33,6 +33,7 @@ sub _init
     # default options
     $self->{$_} = 1 for qw(POST_CHOMP);
     $options->{PARSER} ||= Act::Template::Parser->new($options);
+    $options->{PLUGIN_BASE} = 'Act::Plugin';
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs
