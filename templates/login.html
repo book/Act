@@ -6,17 +6,11 @@
 [% IF global.request.user %]
 [% username = join(" ", global.request.user.first_name, global.request.user.last_name) %]
 <t>
- <fr>
-  Vous êtes déjà authentifié en tant que
-  <b>[% global.request.user.login %]</b>
-  [% IF username %]([% username %])[% END %]
- </fr>
- <en>
-  You are already authenticated as
-  <b>[% global.request.user.login %]</b>
-  [% IF username %]([% username %])[% END %]
- </en>
+ <fr>Vous êtes déjà authentifié en tant que</fr>
+ <en>You are already authenticated as</en>
 </t>
+<b>[% global.request.user.login %]</b>
+[% "($username)" IF username %]
 <!-- logout form -->
 [% ELSE %]
 <form method="post" action="/LOGIN">
