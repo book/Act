@@ -26,7 +26,7 @@
    [% END %]
 [% END %]
 [% FOREACH lang = global.languages %]
-   [% WRAPPER menus/item %]
-   <a href="[% lang.uri %]">([% lang.name %])</a>
-   [% END %]
+   <span id="goto-lang">[% WRAPPER menus/item %]
+   <a href="[% lang.uri %]">&#x2192;&nbsp;[% lang.name %]</a></li>
+   [% END %]</span>
 [% END %]
