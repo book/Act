@@ -61,7 +61,7 @@ sub handler
             @part{@partfields} = delete @$fields{@partfields};
 
             # extract bio data
-            my %bio;
+            my %bio = map { $_ => '' } keys %{ $Config->languages };
             for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
             {
                 $bio{$lang} = delete $fields->{"bio_$lang"};
