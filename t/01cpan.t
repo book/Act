@@ -3,6 +3,7 @@
 use strict;
 my @modules = (
                  'Apache',
+                 'Apache::Cookie',
                  'AppConfig',
                  'DBD::Pg',
                  'DBI',
