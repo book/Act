@@ -2,9 +2,25 @@ package Act::Template;
 
 use strict;
 use Carp;
+use Act::Config;
 use Act::Template::Parser ();
 use base qw(Template);
 
+my %templates;
+
+sub new
+{
+    my $class = shift;
+
+    # return a cached template if we have one
+    my $conf = $Request{conference} || '-global';
+    return $templates{$conf} if exists $templates{$conf};
+
+    # otherwise create one
+    my $self = $class->SUPER::new(@_);
+    $templates{$conf} = $self;
+    return $self;
+}
 sub _init
 {
     my ($self, $options) = @_;
@@ -12,6 +28,11 @@ sub _init
     # default options
     $self->{$_} = 1 for qw(POST_CHOMP);
     $options->{PARSER} ||= Act::Template::Parser->new($options);
+    $options->{INCLUDE_PATH} ||=
+       join '/', $Config->home,
+                 $Request{conference}
+               ? join('/', $Request{conference}, 'static')
+               : 'static';
 
     # supplied options
     $self->{$_} = $options->{$_} for keys %$options;

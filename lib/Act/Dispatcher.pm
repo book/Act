@@ -20,8 +20,22 @@ my %dispatch = (
 sub trans_handler
 {
     # the Apache request object
-    my $r = $Request{r} = shift;
+    my $r = shift;
 
+    # break it up in components
+    my @c = grep $_, split '/', $r->uri;
+
+    # initialize our per-request variables
+    %Request = (
+        r         => $r,
+        path_info => join('/', @c),
+    );
+
+    # see if URI starts with a conf name
+    if (@c && exists $Config->conferences->{$c[0]}) {
+        $Request{conference} = shift @c;
+        $Request{path_info}  = join '/', @c;
+    }
     # pseudo-static pages
     if ($r->uri =~ /\.html$/) {
         $r->push_handlers(PerlHandler => 'Act::Static');
@@ -30,17 +44,9 @@ sub trans_handler
     # we're looking for /x/y where
     # x is a conference name, and
     # y is an action key in %dispatch
-    my @c = grep $_, split '/', $r->uri;
-    if (   @c >= 2
-        && exists $Config->conferences->{$c[0]}
-        && exists $dispatch{$c[1]}
-       )
-    {
-        # initialize our per-request variables
-        %Request = (
-            conference => $c[0],
-            action     => $c[1],
-        );
+    if (@c && $Request{conference} && exists $dispatch{$c[0]}) {
+        $Request{action}     = shift @c;
+        $Request{path_info}  = join '/', @c;
         $r->push_handlers(PerlHandler => 'Act::Dispatcher');
         return OK;
     }
