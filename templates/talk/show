@@ -1,0 +1,52 @@
+[% WRAPPER ui
+   title = { en => title, fr => title }
+%]
+
+<b><t>
+  <en>By</en>
+  <fr>Par</fr>
+</t></b>
+[% PROCESS user/info u=user %]
+</a>
+[% IF user.pm_group %]
+  <t> <en> from </en> <fr> de </fr> </t>
+  [% IF user.pm_group_url %]
+    <a href="[% user.pm_group_url %]">[% user.pm_group %]</a>
+  [% ELSE %]
+    [% user.pm_group %]
+  [% END %]		
+[% END %]
+<br />
+
+[% IF lightning %]
+  <t><en>Lightning talk</en><fr>Communication éclair</fr></t> <br />
+[% ELSE %]
+  <b><t><en>Date:</en><fr>Date :</fr></t></b> [% given %] <br />
+[% END %]
+
+<b><t><en>Duration:</en><fr>Durée :</fr></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr></t><br />
+
+[% IF url_abstract || url_talk %]
+ <t>  <en>You can find more information on the speaker's site:</en>
+      <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
+ </t>
+ <ul>
+  [% IF url_abstract %]
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en></t>
+         <a href="[% url_abstract %]">[% url_abstract %]</a>
+      </li>
+  [% END %]
+  [% IF url_talk %]
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en></t>
+         <a href="[% url_talk %]">[% url_talk %]</a>
+      </li>
+  [% END %]
+ </ul>
+[% END %]
+
+<br />
+[% abstract %]
+
+[%END %]
+

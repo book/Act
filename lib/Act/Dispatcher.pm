@@ -19,7 +19,8 @@ my %dispatch = (
     register => { handler => 'Act::Handler::User::Register' },
     user     => { handler => 'Act::Handler::User::Show' },
     stats    => { handler => 'Act::Handler::User::Stats' },
-    
+    talk     => { handler => 'Act::Handler::Talk::Show' },
+
     # protected handlers
     logout   => { handler => 'Act::Handler::Logout',         private => 1 },
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
