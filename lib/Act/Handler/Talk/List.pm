@@ -29,7 +29,11 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        talks => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} } @$talks ],
+        talks => [ sort {
+            lc $a->{user}->last_name  cmp lc $b->{user}->last_name
+            || lc $a->{user}->first_name cmp lc $b->{user}->first_name
+            || $a->talk_id <=> $b->talk_id
+        } @$talks ],
         talks_total    => scalar @$talks,
         talks_accepted => $accepted
     ); 
