@@ -8,7 +8,10 @@ use Act::Talk;
 sub handler
 {
     # retrieve talk
-    my $talk = Act::Talk->new(talk_id => $Request{path_info});
+    my $talk = Act::Talk->new(
+        talk_id => $Request{path_info},
+        $Request{conference} ? ( conf_id => $Request{conference} ) : ()
+    );
 
     # available only if submissions open or organizer
     unless ($talk
