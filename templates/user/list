@@ -23,7 +23,7 @@
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
  <th><t><en>Name</en><fr>Nom</fr><it>Nome</it></t></th>
- <th><t><en>City</en><fr>Ville</fr><it>Cognome</it></t></th>
+ <th><t><en>City</en><fr>Ville</fr><it>Città</it></t></th>
  <th><t><en>Country</en><fr>Pays</fr><t>Nazione</it></t></th>
  <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</ih></t></th>
  [% IF global.user.is_admin %]
