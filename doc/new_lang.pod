@@ -67,6 +67,14 @@ In English, these are:
 
 =back
 
+You can extract the English list from F<database/fill_db.sql> with
+the following one-liner:
+
+    perl -ne'$p=$1eq"ENGLISH"if/\/\*\* (\w+)/;print if$p' database/fill_db.sql
+
+Then you'll just have to translate it. Unless otherwise specified,
+you do not need to translate the country names.
+
 =head2 Act::Util
 
 The Act::Util module contains some information about how dates are
