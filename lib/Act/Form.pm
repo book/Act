@@ -62,10 +62,6 @@ sub validate
                 or $self->{invalid}{$field} = $type;
         }
     }
-    # empty optional fields should exist and be empty
-    if( my $optional = $self->_profile_fields( 'optional' ) ) {
-        $self->{fields}{$_} ||= undef for @$optional;
-    }
     # return true if validation successful
     return 0 == keys %{$self->{invalid}};
 }
