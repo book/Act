@@ -31,6 +31,7 @@ else {
     # conference templates
     for my $conf (sort keys %{$Config->conferences}) {
         $Request{conference} = $conf;
+        $template = Act::Template->new;
         _extract(join '/', $Config->home, $conf, $_) for TEMPLATE_DIRS;
     }
 }
