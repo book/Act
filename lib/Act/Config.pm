@@ -75,6 +75,7 @@ sub load_configs
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, "$home/actdocs/$conf");
+        _make_hash($ConfConfigs{$conf}, languages => $ConfConfigs{$conf}->general_languages);
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
@@ -131,7 +132,6 @@ sub _load_config
         my $path = "$dir/conf/$file.ini";
         $cfg->file($path) if -e $path;
     }
-    _make_hash($cfg, languages => $cfg->general_languages);
 }
 
 sub _make_hash

@@ -11,9 +11,10 @@ $Request{dbh} = DBI->connect(
     $Config->database_user,
     $Config->database_passwd,
 );
+$Config->set(general_default_language => 'en');
 
 my %t;
-for my $language (sort keys %{$Config->languages}) {
+for my $language (qw(de en es fr it pt)) {
     $Request{language} = $language;
     my $c = Act::Country::CountryNames;
     isa_ok($c, 'ARRAY');
