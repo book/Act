@@ -31,9 +31,9 @@ sub handler
 
     # process the template
     my $template = Act::Template::HTML->new();
-    my $bio = $user->bio;
-    ( exists $Config->languages->{$_} && $bio->{$_} !~ /^\s*$/ )
-    || delete $bio->{$_} for keys %$bio;
+    my %bio = %{$user->bio};  # deep copy avoid double encoding bug
+    ( exists $Config->languages->{$_} && $bio{$_} !~ /^\s*$/ )
+    || delete $bio{$_} for keys %bio;
     
     $template->variables(
         %$user,
@@ -51,7 +51,7 @@ sub handler
                    )
                  },
         ],
-        bio => $bio,
+        bio => \%bio,
     );
     $template->process('user/show');
 }

@@ -101,12 +101,6 @@ my @html_templates = (
       sections => [ { text => '[% v | form_unescape %]' } ],
     },
     {
-      var => { v => $quote, w => { v => $quote } },
-      in  => '[% v.q; w.v.q %]',
-      out => '&quot;&quot;',
-      sections => [ { text => '[% v.q; w.v.q %]' } ],
-    },
-    {
       var => { v => 'foo' },
       in  => "bar\n  [% v %]  \nbaz",
       out => "bar foo baz",

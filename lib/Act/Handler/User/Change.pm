@@ -94,7 +94,8 @@ sub handler
     }
     else {
         $fields = $Request{user};
-        my $bio = $Request{user}->bio;
+        # deep copy bios to avoid double encoding issue
+        $fields->{bio} = {%{$Request{user}->bio}};
 
         # participation to this conference
         if (my $part = $Request{user}->participation) {
