@@ -1,13 +1,14 @@
-use Test::More tests => 7;
+use Test::More tests => 11;
 use strict;
-use Act::User;
-use Act::Talk;
 use t::Util;
+use Act::Talk;
+use Act::User;
 
 # load some users
 db_add_users();
 
-my $user = Act::User->new( login => 'book' );
+my $user  = Act::User->new( login => 'book' );
+my $user2 = Act::User->new( login => 'echo' );
 my ( $talks, $talk, $talk1, $talk2, $talk3 );
 
 # manually insert a talk
@@ -39,7 +40,7 @@ is_deeply( $talk, {}, "create empty talk with new()" );
 # create a talk
 $talk2 = Act::Talk->create(
    title     => 'test',
-   user_id   => $user->user_id,
+   user_id   => $user2->user_id,
    duration  => 5,
    lightning => 'true',
    accepted  => '0',
@@ -49,7 +50,7 @@ isa_ok( $talk2, 'Act::Talk' );
 
 # talks are sorted by ids, which are incremental
 $talks = $user->talks;
-is_deeply( $talks, [ $talk1, $talk2 ], "Got the user's talk" );
+is_deeply( $talks, [ $talk1 ], "Got the user's talk" );
 
 # add another talk
 $talk3 = Act::Talk->create(
@@ -66,8 +67,10 @@ $talks = Act::Talk->get_talks( duration => 40 );
 is_deeply( $talks, [ $talk3 ], "40 minute talks" );
 $talks = Act::Talk->get_talks( lightning => 'TRUE' );
 is_deeply( $talks, [ $talk2 ], "lightning talks" );
+$talks = Act::Talk->get_talks( user_id => $user->user_id );
+is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
 
 # this a Act::User method that encapsulate get_talks
 $talks = $user->talks;
-is_deeply( $talks, [ $talk, $talk2 ], "Got the user's talks" );
+is_deeply( $talks, [ $talk1, $talk3 ], "Got the /'s talks" );
 
