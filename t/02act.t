@@ -13,4 +13,11 @@ find( sub {
 
 plan tests => scalar(@modules);
 
+# Apache::Constants only works under mod_perl
+package Apache::Constants;
+use constant OK       =>  0;
+use constant DECLINED => -1;
+use constant DONE     => -2;
+
+package main;
 require_ok($_) for @modules;
