@@ -106,7 +106,7 @@ CREATE TABLE events
     conf_id    text      NOT NULL,
     title      text      NOT NULL,
     abstract   text,
-    url_event  text,
+    url_abstract text,
     room       text, 
     duration   integer,
     datetime   timestamp without time zone

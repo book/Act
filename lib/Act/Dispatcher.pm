@@ -23,6 +23,7 @@ my %dispatch = (
     stats    => { handler => 'Act::Handler::User::Stats' },
     talk     => { handler => 'Act::Handler::Talk::Show' },
     talks    => { handler => 'Act::Handler::Talk::List' },
+    event    => { handler => 'Act::Handler::Event::Show' },
 
     # protected handlers
     logout   => { handler => 'Act::Handler::Logout',         private => 1 },
@@ -34,6 +35,8 @@ my %dispatch = (
     rights   => { handler => 'Act::Handler::User::Rights',   private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
     edittalk => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
+    newevent  => { handler => 'Act::Handler::Event::Edit',  private => 1 },
+    editevent => { handler => 'Act::Handler::Event::Edit',  private => 1 },
     import   => { handler => 'Act::Handler::Talk::Import',   private => 1 },
     export   => { handler => 'Act::Handler::Talk::Export',   private => 1 },
 );

@@ -1,0 +1,34 @@
+[% PROCESS common %]
+[% WRAPPER ui
+   title = { en => title, fr => title }
+%]
+
+<p>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr></t></b>
+  [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]<br />
+
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr></t><br />
+[% IF global.request.user.is_orga %]
+(<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
+ <en>edit</en><fr>modifier</fr></t></a>)
+[% END %]
+</p>
+
+[% IF url_abstract %]
+<p> <t>  <en>You can find more information on the following site:</en>
+      <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
+ </t></p>
+ <ul>
+   <li>
+         <a href="[% url_abstract %]">[% url_abstract %]</a>
+   </li>
+ </ul>
+[% END %]
+
+<p>
+[% abstract | html_line_break %]
+</p>
+[%END %]
+

@@ -1,0 +1,89 @@
+[% WRAPPER ui
+   title = {
+     en => 'Submit/Edit a non-talk event'
+     fr => 'Soumettre/Modifier un évenement'
+   }
+%]
+
+<center>
+
+<span class="error">
+[% PROCESS error
+   msgs = {
+     ERR_TITLE => {
+         en => "You must enter a title for the event"
+         fr => "La désignation est obligatoire"
+     },
+     ERR_ABSTRACT => {
+         en => "You must enter a short description for the event"
+         fr => "Une courte description est obligatoire"
+     },
+     ERR_DURATION => {
+         en => "Please choose a duration",
+         fr => "Vous devez choisir une durée"
+     },
+     ERR_URL_ABSTRACT => {
+         en => "Event URL is not a valid URL",
+         fr => "L'URL de l'événement n'est pas une URL valide"
+     },
+  }
+%]
+</span><br />
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+[% IF event_id %]
+<input type="hidden" name="event_id" value="[% event_id %]" />
+[% END %]
+[% IF event_id %]
+<p>
+ <t><en>View</en><fr>Voir</fr></t>
+ <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
+</p>
+[% END %]
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+<tr>
+  <td align="right"><t><en>Title</en><fr>Titre</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
+  </td>
+</tr>
+<tr>
+  <td align="right" valign="top">
+  <t><en>Abstract<br />(plain text)</en>
+     <fr>Description<br />(texte brut)</fr>
+  </t></td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="abstract" cols="50" rows="10">[% abstract %]</textarea>
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>External URL</en><fr>URL externe</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input name="duration" value="[% duration %]" size="3" />
+    <t><fr>minutes</fr><en>minutes</en></t>
+  </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+
+[% END %]
