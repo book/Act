@@ -19,7 +19,7 @@ sub handler
         destination => $r->prev && $r->prev->uri
                      ? $r->prev->uri
                      : Act::Util::make_uri(''),
-        action      => Act::Util::make_uri('LOGIN'),
+        action      => join('/', '', $Request{conference}, 'LOGIN'),
         domain      => join('.', (split /\./, $r->server->server_hostname)[-2, -1]),
     );
     $template->process('login');
