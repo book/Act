@@ -93,7 +93,7 @@ sub _dispatch
 {
     my ($r, $handler) = @_;
 
-    $Request{args} = $r->method eq 'POST' ? $r->content : $r->args;
+    $Request{args} = { $r->method eq 'POST' ? $r->content : $r->args };
     $r->handler("perl-script");
     $r->push_handlers(PerlHandler => $handler);
     return OK;
