@@ -129,29 +129,6 @@ Act::Form - Form object class
     }
   );
 
-  sub handler
-  {
-      my $fields;
-      if ($Request{args}{OK}) {   # form has been submitted
-          if ($form->validate($Request{args})) {
-              update_database($form->{fields});
-              $template->process("thanks");
-              return;
-          }
-          else {
-              $template->variables(errors => $form->{invalid});
-              $fields = $form->{fields};
-          }
-      }
-      else {                      # display initial form
-          # pull $fields from somewhere
-          $fields = read_database();
-      }
-      # (re-)display form
-      $template->variables(%$fields);
-      $template->process("form");
-  }
-
 =head1 DESCRIPTION
 
 =over 4
