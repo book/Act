@@ -155,7 +155,6 @@ sub _set_language
             -name    =>  $cookie_name,
             -value   =>  { language => $language },
             -expires =>  '+6M',
-            -domain  =>  $Request{r}->server->server_hostname,
             -path    =>  '/',
         );
         $cookie->bake;
