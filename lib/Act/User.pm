@@ -27,7 +27,7 @@ our %sql_mapping = (
     pm_group   => "(u.pm_group~*?)",
     # standard stuff
     map( { ($_, "(u.$_=?)") }
-      qw( user_id session_id login country ) )
+      qw( user_id session_id login email country ) )
 );
 our %sql_opts = ( 'order by' => 'user_id' );
 

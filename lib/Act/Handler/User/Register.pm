@@ -32,15 +32,23 @@ sub handler
         # form has been submitted
         my @errors;
 
+        # lower case some fields
+        for my $f (qw(login email)) {
+            $Request{args}{$f} = lc $Request{args}{$f}
+                if defined $Request{args}{$f};
+        }
+
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
         if ($ok) {
-            $fields->{login} = lc $fields->{login};
             # check for existing user
             if (Act::User->new(login => $fields->{login})) {
                 push @errors, 'ERR_IDENTIFIER_EXISTS';
+            }
+            elsif (Act::User->new(email => $fields->{email})) {
+                push @errors, 'ERR_EMAIL_EXISTS';
             }
             # create this user
             else {

@@ -36,7 +36,8 @@ CREATE TABLE users
     language     text,
     timezone     text         DEFAULT 'Europe/Paris'   NOT NULL
 );
-CREATE INDEX users_session_id ON users (session_id);
+CREATE UNIQUE INDEX users_session_id ON users (session_id);
+CREATE UNIQUE INDEX users_login ON users (login);
 
 /* users' rights */
 DROP   TABLE rights;

@@ -70,6 +70,10 @@
          en => "Identifier ${login} is already in use. Please choose another."
          fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
      },
+     ERR_EMAIL_EXISTS => {
+         en => "The address ${email} is already registered."
+         fr => "L'adresse ${email} est déjà enregistrée."
+     },
      ERR_IDENTIFIER => {
          en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
          fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
