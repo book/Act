@@ -109,7 +109,7 @@ sub handler {
             $fields->{duration} = 'lightning' if delete $fields->{is_lightning};
             $fields->{lightning} = 0;
             # boolean fields
-            $fields->{$_} = $fields->{$_} ? 1 : 0 for qw( accepted confirmed );
+            $fields->{$_} = $fields->{$_} ? 't' : 'f' for qw( accepted confirmed );
 
             # separate lightning from duration
             if ($fields->{duration} eq 'lightning') {
