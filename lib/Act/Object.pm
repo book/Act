@@ -87,8 +87,6 @@ sub init {
     my $class = shift;
     $class = (ref $class) || $class;
 
-    return unless %Request;
-
     no strict 'refs';
     my $table = ${"${class}::table"};
     my $sth   = $Request{dbh}->prepare("SELECT * from $table limit 0;");
