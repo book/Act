@@ -10,13 +10,13 @@ Create a system user named act (for example):
 
     $ adduser act
 
-AS the postgres user, create a database user named act (for example):
+As the postgres superuser, create a database user named act (for example):
 
     $ createuser act
     Shall the new user be allowed to create databases? (y/n)        y
     Shall the new user be allowed to create more new users? (y/n)        n
 
-Still as the postgres user, create a database named act (for example)
+Still as the postgres superuser, create a database named act (for example)
 and install the plpgsql language for it
 
     $ su - postgres
