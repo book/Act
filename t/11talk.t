@@ -1,4 +1,4 @@
-use Test::More tests => 11;
+use Test::More tests => 12;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -88,4 +88,8 @@ is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
 # this a Act::User method that encapsulate get_talks
 $talks = $user->talks;
 is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
+
+# reload the user, since the talks were added after we got him
+$user = Act::User->new( user_id => $user->user_id );
+ok( $user->have_talk, "User actually has talks" );
 
