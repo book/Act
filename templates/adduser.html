@@ -1,0 +1,165 @@
+[% WRAPPER ui
+   title = { en => 'Registration', fr => 'Inscription' },
+%]
+
+<p>
+ <t>
+  <en>
+   To register, you first need to create an account on the site.
+  </en>
+  <fr>
+   Pour vous inscrire, vous devez d'abord vous créer un compte sur le site.
+  </fr>
+ </t>
+</p>
+<p>
+ <t>
+  <en>
+   The personal data that will be gathered here will be used to create
+   an <a href="/[% global.request.conference %]/search/">online
+   <i>who's who</i></a> of all the attendees. This will be very useful after
+   the conference, when you'll want to get in touch with someone you
+   met during the conference. Or even before, if you want to know
+   which gurus will be there.
+  </en>
+  <fr>
+   Les données personnelles qui sont récupérées ici seront utilisées
+   pour créer un <a href="/[% global.request.conference %]/search/">trombinoscope en ligne</a>
+   des participants. Ceci sera bien utile après
+   la conférence, si vous cherchez à contacter quelqu'un que vous avez
+   rencontré pendant celle-ci. Ou même avant, pour savoir quels
+   gourous comptent venir.
+  </fr>
+ </t>
+</p>
+<p>
+ <t>
+  <en>
+   Once you have an account, you'll be able to use our secure payment
+   platform to buy your ticket for the conference. Please note that
+   everything regarding your bank account and credit card number
+   is handled by the bank. <b>We do not have access to your credit
+   information at any time during the payment process.</b> We just
+   get the money in the end. <tt>;-)</tt>
+  </en>
+  <fr>
+   Une fois que vous avez un compte, vous pourrez utiliser notre
+   plate-forme de paiement sécurisé pour acheter votre billet
+   d'entrée à la conférence. Veuillez noter que tout ce qui concerne
+   votre compte en banque et votre numéro de carte bleue est géré
+   par la banque. <b>Nous n'avons à aucun moment accès aux informations
+   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
+   à la fin. <tt>;-)</tt>
+  </fr>
+ </t>
+</p>
+
+<p>
+ <t>
+  <en>Please create your user below.</en>
+  <fr>Vous pouvez créer votre utilisateur ci-dessous.</fr>
+ </t>
+</p>
+
+<center>
+
+[% PROCESS error                                                             
+      msgs = {                                                                  
+          ERR_COUNTRY => {                                                      
+              fr => "Vous devez donner votre pays",                             
+              en => "You must enter your country name",                         
+          },                                                                    
+          ERR_NAME => { ... },                                                  
+      },                                                                        
+   %]       
+
+<span class="error">
+[% PROCESS err_messages = {
+     ERR_IDENTIFIER_EXISTS => {
+         en => "Identifier [% fixme %] is already in use. Please choose another."
+         fr => "L'identifiant [% fixme %] est déjà utilisé.  Veuillez en choisir un autre."
+     },
+     ERR_IDENTIFIER => {
+         en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters ([a-zA-Z0-9_])"
+         fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques ([a-zA-Z_])"
+     },
+     ERR_FIRST_NAME => {
+         en => "You must enter your first name"
+         fr => "Le prénom est obligatoire"
+     },
+     ERR_LAST_NAME => {
+         en => "You must enter your last name"
+         fr => "Le nom est obligatoire"
+     },
+     ERR_EMAIL => {
+         en => "You must enter your email"
+         fr => "L'adresse email est obligatoire"
+     },
+     ERR_COUNTRY => {
+         en => "You must enter a country from the list"
+         fr => "Un pays est obligatoire"
+     },
+     ERR_EMAIL_SYNTAX => {
+         en => "Your email address looks bogus."
+         fr => "Adresse email&nbsp;: syntaxe incorrecte."
+     },
+   [% END %]
+</span><br /><br />
+
+<form method="post" action="/[% global.request.conference %]/join/" enctype="application/x-www-form-urlencoded">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+  <td align="right"><t><en>Login</en><fr>Identifiant</fr></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="login" value="[% login%]" size="11" maxlength="10" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>First Name</en><fr>Prénom</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="first_name" value="[% first_name %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Last Name</en><fr>Nom</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="last_name" value="[% last_name %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right">Email</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Country</en><fr>Pays</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <select name="country">
+     <option value=""[% ' selected="selected"' UNLESS country %]></option>
+     [% FOREACH c = countries %]
+     <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+     [% END %]
+    </select>
+ </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="<t><en>Join!</en><fr>Inscription !</fr></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+
+[% END %]
