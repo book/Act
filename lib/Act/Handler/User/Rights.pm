@@ -59,7 +59,7 @@ sub handler
     $template->variables(
         rights => $rights,
         users  => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
-                    @{Act::User->get_users(conf_id => $Request{conference})}
+                    @{Act::User->get_users()}
                   ],
     );
     $template->process('user/rights');
