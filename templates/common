@@ -28,7 +28,9 @@
 [% MACRO timeslot(t)
    BLOCK;
     IF t.type == 'Act::Talk' %]
+[% user_info(t.user) %] -
 <a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
+([% t.duration %])
     [% ELSIF t.type == 'Act::Event' %]
 <a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
     [% ELSE ; t %]

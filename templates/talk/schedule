@@ -18,9 +18,9 @@
  <tr>
   [% FOREACH col IN row %]
    [% IF loop.first %]
-     <td>[% col %]</td>
+     <td align="center" valign="top">[% col %]</td>
    [% ELSE %]
-     <td rowspan="[% col.height %]">
+     <td valign="top" rowspan="[% col.height %]">
        [% timeslot(col) %]
      </td>
    [% END %]

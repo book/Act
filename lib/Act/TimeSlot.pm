@@ -1,6 +1,7 @@
 package Act::TimeSlot;
 use Act::Event;
 use Act::Talk;
+use Act::User;
 
 sub get_items {
     my ( undef, %args ) = @_;
@@ -18,8 +19,9 @@ sub get_items {
             $_->{id}   = delete($_->{talk_id}) || delete($_->{event_id});
             bless $_, 'Act::TimeSlot';
         }
-        @{ Act::Talk->get_talks( %args_talk ) },
-        @{ Act::Event->get_events( %args_event ) }
+        @{ Act::Event->get_events( %args_event ) },
+        map { $_->{user} = Act::User->new( user_id => $_->user_id ); $_ }
+        @{ Act::Talk->get_talks( %args_talk ) }
     ];
 }
 *get_slots = \&get_items;
