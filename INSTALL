@@ -1,15 +1,18 @@
+Installing Act on your system
+-----------------------------
+
 Install (or cvs checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 
 First thing is to enable Perl (and mod_perl) to find the Act modules
 and to map Act::Foo to /home/act/lib/Foo.pm.
 
-mkdir ~/lib; ln -s /home/act/lib lib/Act; export PERL5LIB=~/lib
+    mkdir ~/lib; ln -s /home/act/lib lib/Act; export PERL5LIB=~/lib
 
 Act needs to know its home directory so that it can find its
 config file. This is done by setting the ACTHOME environment variable:
 
-export ACTHOME=/home/act
+    export ACTHOME=/home/act
 
 Make sure both ACTHOME and PERL5LIB are set and exported when
 running httpd.
@@ -17,39 +20,46 @@ running httpd.
 Next, define a virtual host in your Apache configuration file
 (httpd.conf) for Act. Here's an example:
 
-<VirtualHost *>
-  ServerName   localhost
-  ServerAdmin  webmaster@example.com
-  DocumentRoot /home/act/wwwdocs
-  Include      /home/act/conf/httpd.conf
-</VirtualHost>
+    <VirtualHost *>
+      ServerName   localhost
+      ServerAdmin  webmaster@example.com
+      DocumentRoot /home/act/wwwdocs
+      Include      /home/act/conf/httpd.conf
+    </VirtualHost>
 
 For code development it is useful to install the Apache::Reload
 module. Enable it in httpd.conf (outside of any VirtualHost
 containers):
 
-PerlModule Apache::Reload
-PerlInitHandler Apache::Reload
-PerlSetVar ReloadAll Off
+    PerlModule Apache::Reload
+    PerlInitHandler Apache::Reload
+    PerlSetVar ReloadAll Off
 
 Then and add this inside Act's VirtualHost container:
 
-  PerlSetVar ReloadModules "Act::*"
+    PerlSetVar ReloadModules "Act::*"
 
 If you don't want to mess with name-based virtual hosts and DNS,
 an easy setup is to use a port-based virtual host:
 
-Listen 9000
-<VirtualHost *:9000>
-  Port 9000
-  ServerName   localhost
-  ServerAdmin  webmaster@example.com
-  DocumentRoot /home/act/wwwdocs
-  Include      /home/act/conf/httpd.conf
-</VirtualHost>
+    Listen 9000
+    <VirtualHost *:9000>
+      Port 9000
+      ServerName   localhost
+      ServerAdmin  webmaster@example.com
+      DocumentRoot /home/act/wwwdocs
+      Include      /home/act/conf/httpd.conf
+    </VirtualHost>
 
-
-Next, create a local configuration file in /home/act/conf/local.ini.
+Next, create a local configuration file in $ACTHOME/conf/local.ini.
 This file is not part of the distribution: its contents override
-the global settings in /home/act/conf/act.ini. If you have no need
+the global settings in $ACTHOME/conf/act.ini. If you have no need
 to override these standard settings, just create an empty file.
+
+To make sure that your system has all the requirements to run Act,
+and that Act works correctly on it, you can now run Act's test suite:
+
+    cd $ACTHOME
+    make test
+
+
