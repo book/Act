@@ -1,5 +1,6 @@
 package Act::Handler::User::Change;
 
+use strict;
 use DateTime::TimeZone;
  
 use Act::Config;
@@ -9,26 +10,34 @@ use Act::Template::HTML;
 use Act::User;
 use Act::Util;
 
+# participation fields
+my @partfields = qw(tshirt_size nb_family);
+
 # registration form
 my $form = Act::Form->new(
   required => [qw(first_name last_name email country)],
-  optional => [qw(im bio civility email_hide gpg_pub_key im pause_id monk_id pm_group pm_group_url timezone town web_page)],
+  optional => [qw(im bio civility email_hide gpg_pub_key im pause_id monk_id
+                  pm_group pm_group_url timezone town web_page),
+                  @partfields
+              ],
   dependencies => {
     pseudonymous => [qw(nick_name)],
   },
   constraints => {
     email        => 'email',
     monk_id      => 'numeric',
+    nb_family    => 'numeric',
     pm_group_url => 'url',
     web_page     => 'url',
     pm_group     => sub { $_[0] =~ /\.pm$/ },
+    tshirt_size  => sub { $_[0] =~ /^(?:S|M|X{0,2}L)$/ },
   }
 );
 
 sub handler
 {
     my $template = Act::Template::HTML->new();
-    my $fields = {};
+    my $fields;
 
     if ($Request{args}{join}) {
         # form has been submitted
@@ -39,8 +48,13 @@ sub handler
         $fields = $form->{fields};
 
         if ($ok) {
+            # extract participation data
+            my %part;
+            @part{@partfields} = delete @$fields{@partfields};
+
             # update user
-            $Request{user}->update(%$fields);
+            $Request{user}->update(%$fields, participation => \%part);
+            @$fields{@partfields} = @part{@partfields};
         }
         else {
             # map errors
@@ -51,6 +65,8 @@ sub handler
             $form->{invalid}{pm_group}   && push @errors, 'ERR_PMGROUP';
             $form->{invalid}{web_page}   && push @errors, 'ERR_WEBPAGE';
             $form->{invalid}{monk_id}    && push @errors, 'ERR_MONKID';
+            $form->{invalid}{nb_family}  && push @errors, 'ERR_NBFAMILY';
+            $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
             $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
             $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
         }
@@ -58,6 +74,10 @@ sub handler
     }
     else {
         $fields = $Request{user};
+        # participation to this conference
+        if (my $part = $Request{user}->participation) {
+            @$fields{@partfields} = @$part{@partfields};
+        }
     }
     # display form
     $template->variables(

@@ -135,6 +135,21 @@ sub create {
     return $user;
 }
 
+sub update {
+    my ($self, %args) = @_;
+    my $class = ref $self;
+
+    my $part = delete $args{participation};
+    $self->SUPER::update(%args);
+    if ($part && $Request{conference}) {
+        delete $part->{$_} for qw(conf_id user_id);
+        my $SQL = sprintf 'UPDATE participations SET %s WHERE conf_id=? AND user_id=?',
+                          join(',', map "$_=?", keys %$part);
+        my $sth = $Request{dbh}->prepare_cached($SQL);
+        $sth->execute(values %$part, $Request{conference}, $self->{user_id});
+        $Request{dbh}->commit;
+    }
+}
 1;
 
 __END__

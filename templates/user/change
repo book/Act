@@ -46,6 +46,14 @@
        en => "Your perlmonks id must be a number",
        fr => "Votre id perlmonks doit être un nombre",
      },
+     ERR_NBFAMILY = {
+       en => "Number of family members attending must be a number",
+       fr => "Le nombre de personnes vous accompagnant doit être un nombre",
+     },
+     ERR_TSHIRT => {
+       en => "Not a valid T-shirt size",
+       fr => "Taille de T-shirt incorrecte",
+     },
   }
 %]
 </span><br /><br />
@@ -120,6 +128,39 @@
    <td>
       <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> <t><en>Yes</en><fr>Oui</fr></t>
       <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> <t><en>No</en><fr>Non</fr></t>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+    <t><en>Coming with</en><fr>Je viens avec</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="nb_family">
+         <option value="0"[% ' selected="selected"' UNLESS nb_family %]>0</option>
+         [% FOREACH c = [ 1..5 ] %]
+         <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
+         [% END %]
+         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]><t><en>6 or more</en><fr>6 ou plus</fr></t></option>
+      </select>
+      <t>
+      <en>people (who will not attend the conference)</en>
+      <fr>personne(s) (qui n'assisteront pas à la conférence)</fr>
+      </t>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+    <t><en>T-shirt size</en><fr>Taille du T-shirt</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="tshirt_size">
+         [% UNLESS tshirt_size %]<option value="" selected="selected" />[% END %]
+         [% FOREACH t = [ 'S', 'M', 'L', 'XL', 'XXL' ] %]
+         <option value="[% t %]"[% ' selected="selected"' IF tshirt_size == t %]>[% t %]</option>
+         [% END %]
+      </select>
    </td>
 </tr>
 <tr>
@@ -251,7 +292,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="aim"  value="[% aim %]" size="25" maxlength="60" />
+      <input type="text" name="im" value="[% im %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
