@@ -1,4 +1,4 @@
-[% MACRO modify_link(talk)
+[% MACRO talk_modify_link(talk)
    BLOCK;
      IF global.request.user.is_orga
         || global.request.user.user_id == talk.user_id
@@ -6,5 +6,19 @@
 (<a href="[% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]"><t>
 <en>edit</en><fr>modifier</fr></t></a>)
 [%   END;
+  END;
+%]
+[% MACRO user_info(user)
+   BLOCK;
+     # committed = user.have_paid OR user.have_talk
+%]<a href="[% make_uri_info('user', user.user_id) %]">[%
+    IF user.pseudonymous;
+      user.nick_name;
+    ELSE;
+      user.first_name;
+      user.last_name;
+      "(${user.nick_name})" IF user.nick_name;
+    END;
+    "</a>";
   END;
 %]
