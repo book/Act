@@ -25,6 +25,7 @@ my %dispatch = (
 
     # special stuff
     login    => { handler => 'Act::Handler::Login', status => DONE },
+    logout   => { handler => 'Act::Handler::Logout', private => 1 },
 );
 
 # translation handler

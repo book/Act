@@ -1,0 +1,21 @@
+[% WRAPPER ui
+   title = {
+       en => 'Logout',
+       fr => 'Déconnexion',
+   }
+%]
+<center>
+
+<p>
+<t>
+ <en>
+   You have been logged out and the cookie deleted from you browser.
+ </en>
+ <fr>
+   Vous êtes déconnecté et le cookie a été supprimé.
+ </fr>
+</t>
+</font>
+
+</center>
+[% END %]
