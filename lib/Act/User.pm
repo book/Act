@@ -39,7 +39,7 @@ sub new {
     $class = ref $class  || $class;
 
     # can only create users based on login or id
-    /^(?:login|id|session_id)$/ or delete $args{$_} for keys %args;
+    /^(?:login|user_id|session_id)$/ or delete $args{$_} for keys %args;
 
     return bless {}, $class unless %args;
 
