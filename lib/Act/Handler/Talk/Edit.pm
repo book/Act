@@ -91,7 +91,7 @@ sub handler {
             # limited duration choices for new talks
             else {
                 unless ( exists $Config->talks_durations->{$fields->{duration}}
-                         || $fields->duration eq 'lighting' ) {
+                         || $fields->{duration} eq 'lighting' ) {
                     $form->{invalid}{duration} = 'invalid';
                     $ok = 0;
                 }
