@@ -160,9 +160,9 @@
           <ul>
            [% FOREACH t = talks %]
 	    <li>[% talk_link(t) %]
-            ([% IF t.duration ; t.duration %] minutes[% ELSE %]
-            <t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])</li>
-           [% talk_modify_link(t) %]
+            ([% IF t.duration ; t.duration %]
+            <t><fr>minutes</fr><en>minutes</en></t>[% ELSE %]<t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])
+           [% talk_modify_link(t) %]</li>
              [% END %]
           </ul>
          </td></tr></table>
