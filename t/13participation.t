@@ -15,9 +15,9 @@ is_deeply(
     {
         conf_id     => 'conf',
         user_id     => $user->user_id,
-        registered  => undef,
+        registered  => '0',
         tshirt_size => undef,
-        nb_family   => undef,
+        nb_family   => '0',
         payment     => undef,
     }, "Correct participation information"
 );
@@ -33,7 +33,6 @@ is_deeply( $user,
         gpg_pub_key  => undef,
         last_name    => 'Bruhat',
         email        => 'book@yyy.zzz',
-        icq          => undef,
         email_hide   => '1',
         bio          => undef,
         civility     => undef,
@@ -49,7 +48,9 @@ is_deeply( $user,
         pseudonymous => '0',
         pm_group_url => undef,
         user_id      => $user->user_id,
-        first_name   => 'Philippe'
+        first_name   => 'Philippe',
+        im           => undef,
+        photo_name   => undef,
     }, "Got the user and the new fields" );
 
 my $user2 = Act::User->new( login => 'book', conf_id => 'conf' );
