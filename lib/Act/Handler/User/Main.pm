@@ -14,3 +14,14 @@ sub handler {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+Act::Handler::User::Main - user's main page
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

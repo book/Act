@@ -70,3 +70,14 @@ sub handler
 }
 
 1;
+__END__
+
+=head1 NAME
+
+Act::Handler::User::Change - update a user's profile
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

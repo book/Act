@@ -96,3 +96,15 @@ sub _make_hash
     }
 }
 1;
+__END__
+
+=head1 NAME
+
+Act::Config - read configuration files
+
+=head1 SYNOPSIS
+
+    use Act::Config;
+    Act::Config::get_config($conference);
+
+=cut

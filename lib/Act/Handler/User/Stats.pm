@@ -91,3 +91,12 @@ sub handler {
 
 1;
 
+=head1 NAME
+
+Act::Handler::User::Stats - display user statistics
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

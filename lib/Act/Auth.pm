@@ -113,3 +113,13 @@ sub _update_language
 
 1;
 __END__
+
+=head1 NAME
+
+Act::Auth - authentication handler and callbacks
+
+=head1 SYNOPSIS
+
+See F<INSTALL> and F<conf/httpd.conf>
+
+=cut

@@ -75,3 +75,12 @@ sub handler
 
 1;
 
+=head1 NAME
+
+Act::Handler::User::Register - create a new user
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

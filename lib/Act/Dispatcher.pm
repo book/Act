@@ -175,3 +175,14 @@ sub _db_connect
     $Request{r}->register_cleanup( sub { $Request{dbh}->disconnect } );
 }
 1;
+__END__
+
+=head1 NAME
+
+Act::Dispatcher - Dispatch web request
+
+=head1 SYNOPSIS
+
+No user-serviceable parts. Warranty void if open.
+
+=cut

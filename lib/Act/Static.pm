@@ -13,3 +13,14 @@ sub handler
     $template->process($Request{path_info});
 }
 1;
+__END__
+
+=head1 NAME
+
+Act::Static - serve multilingual "static" pages
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

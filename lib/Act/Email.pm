@@ -75,3 +75,15 @@ sub send
     $smtp->quit()                      or die $smtp->message;
 }
 1;
+__END__
+
+=head1 NAME
+
+Act::Email - send email
+
+=head1 SYNOPSIS
+
+    use Act::Email;
+    Act::Email::send_email(%args);
+
+=cut

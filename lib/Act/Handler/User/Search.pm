@@ -48,3 +48,12 @@ sub handler {
 
 1;
 
+=head1 NAME
+
+Act::Handler::User::Search - search for users
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut

@@ -22,3 +22,15 @@ sub CountryName
 1;
 
 __END__
+
+=head1 NAME
+
+Act::Country - get country information
+
+=head1 SYNOPSIS
+
+    use Act::Country;
+    my $countries = Act::Country::CountryNames;
+    my $country_name = Act::Country::CountryName($iso_code);
+
+=cut

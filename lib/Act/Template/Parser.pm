@@ -67,3 +67,13 @@ sub _tokenize
 1;
 
 __END__
+
+=head1 NAME
+
+Act::Template::Parser - parse multilingual text in templates
+
+=head1 DESCRIPTION
+
+This is called by Act::Template.
+
+=cut
