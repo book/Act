@@ -2,6 +2,7 @@ package Act::Handler::Payment::List;
 use strict;
 use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
+use Act::Invoice;
 use Act::Order;
 use Act::Template::HTML;
 use Act::User;
@@ -31,6 +32,25 @@ sub handler
             }
             elsif (!$o->invoice_ok && $Request{args}{$o->order_id}) {
                 $o->update(invoice_ok => 1);
+                # create invoice if it doesn't exist
+                my $invoice = Act::Invoice->new(order_id => $o->order_id);
+                unless ($invoice) {
+                    my $u = Act::User->new(user_id => $o->user_id);
+                    Act::Invoice->create(
+                        order_id  => $o->order_id,
+                        # order info
+                        amount      => $o->amount,
+                        currency    => $o->currency,
+                        means       => $o->means,
+                        # user info
+                        first_name  => $u->first_name,
+                        last_name   => $u->last_name,
+                        # billing info
+                        company     => $u->company,
+                        company_url => $u->company_url,
+                        address     => $u->address,
+                    );
+                }
             }
         }
     }
