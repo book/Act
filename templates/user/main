@@ -106,6 +106,10 @@
           <pt>alterar a sua foto</pt>
           <it>cambiare la vostra foto</it></t></a><br />
     </li>
+    <li><a href="[% make_uri('updatepw') %]"><t>
+          <fr>modifier votre mot de passe</fr>
+          <en>change your password</en>
+    </li>
     [% IF global.request.conference
        AND talks.size %]
         <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
