@@ -86,6 +86,7 @@ sub handler {
         while($i < @$row and $row->[$i][0] < $_->{end}) {
             my @globals = map { $row->[$i][1]{$_} ? (@{ $row->[$i][1]{$_} }): () } qw( out venue );
             if( @globals ) { # we only care about the longuest
+                # split the talk in two
                 my $new = bless { %$_, height => 1 }, 'Act::TimeSlot';
                 $new->{datetime} = $globals[-1]->{end}->clone;
                 $new->{duration} = ($_->{end} - $globals[-1]->datetime)->delta_minutes;
@@ -97,7 +98,9 @@ sub handler {
                 unless( $row->[$j][0] == $new->datetime ) {
                     splice @$row, $j, 0, [ $new->datetime, {} ];
                 }
-                unshift @$todo, $new;
+                $j = 0;
+                $j++ while $todo->[$j]->datetime < $new->datetime;
+                splice @$todo, $j, 0, $new;
             }
             else {
                 $room{$r}{$day}[$i]++;
@@ -105,7 +108,6 @@ sub handler {
             }
             $i++;
         }
-        # FIXME check conflicts with globals
     }
     # compute the max
     my ( %width, %maxwidth );
@@ -127,10 +129,12 @@ sub handler {
         for my $row ( @{$table{$day}} ) {
             my $global = 0;
             my @row = ( $row->[0]->strftime('%H:%M') );
-            for( sort keys %room ) {
+            for( keys %room ) {
                 for( @{$row->[1]{$_}}) {
                     $global++ if $_->room =~ $out;
                 }
+            }
+            for( sort keys %room ) {
                 push @row, @{ $row->[1]{$_} };
                 push @row, ( $global ? () : ("[$_]") x ( $width{$_}{$day} - $room{$_}{$day}[$i] ) )
                     unless m/$out/;
