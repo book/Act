@@ -51,6 +51,7 @@ sub send
         $args{to}      = [ $Config->email_test ];
     }
     # create message
+    chomp $args{subject};
     my $msg = MIME::Lite->new (
         From            => $from->{name}
                          ? "$from->{name} <$from->{email}>"
