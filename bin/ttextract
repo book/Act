@@ -20,13 +20,19 @@ my $parser = Act::Template::Parser->new;
 my %opts;
 getopts('cvl:', \%opts) or usage();
 
-# global templates
-_extract(join '/', $Config->home, $_) for TEMPLATE_DIRS;
+# optional template files to process
+if (@ARGV) {
+    _extract($_) for @ARGV;
+}
+else {
+    # global templates
+    _extract(join '/', $Config->home, $_) for TEMPLATE_DIRS;
 
-# conference templates
-for my $conf (sort keys %{$Config->conferences}) {
-    $Request{conference} = $conf;
-    _extract(join '/', $Config->home, $conf, $_) for TEMPLATE_DIRS;
+    # conference templates
+    for my $conf (sort keys %{$Config->conferences}) {
+        $Request{conference} = $conf;
+        _extract(join '/', $Config->home, $conf, $_) for TEMPLATE_DIRS;
+    }
 }
 
 # process a directory
