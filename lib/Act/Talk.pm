@@ -13,7 +13,7 @@ our %sql_stub    = (
 our %sql_mapping = (
     title     => "(t.title~*?)",
     abstract  => "(t.abstract~*?)",
-    # given    => recherche par date ?
+    # datetime    => recherche par date ?
     # standard stuff
     map( { ($_, "(t.$_=?)") }
          qw( talk_id user_id conf_id duration room

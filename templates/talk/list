@@ -80,7 +80,7 @@
         [% END %]
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
-    <td align="center" nowrap="nowrap">[% IF t.given; date_format(t.given, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>
+    <td align="center" nowrap="nowrap">[% IF t.datetime; date_format(t.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>
     [% END %]
     [% IF global.request.user.is_orga %]
     <td align="center">
