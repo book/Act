@@ -61,6 +61,19 @@ TODO
 - un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
   juste aux users
 
+- vu que Act gère des conférences multiples, qui n'offrent pas toujours
+  les mêmes langues (e.g. fr+en ou pt+en), est-ce qu'il ne faut pas
+  gérer la liste des langues comme une liste de préférences ?
+  à chaque fois qu'un user sélectionne une liste, elle passe en
+  premier sur sa liste. exemple d'un portugais :
+  + sur ye2005,  pt => liste = pt
+  + sur fpw2005, fr => liste = fr,pt
+  + sur ipw2005, en => liste = en,fr,pt
+  Arrivé à ce stade, il faut reconfigurer la langue préférée sur les deux
+  autres sites, pour arriver à pt,fr,en ou fr,pt,en, ce qui lui donnera
+  la langue voulue partout. Ca va ?
+  ou alors, on ajoute encore un truc à gérer, mais bof.
+
 MAIN
 ====
 la page main d'un user contient:
