@@ -2,6 +2,7 @@ use strict;
 package Act::Dispatcher;
 
 use Apache::Constants qw(OK DECLINED);
+use Apache::Cookie ();
 
 use Act::Config;
 
@@ -30,6 +31,7 @@ sub trans_handler
         r         => $r,
         path_info => join('/', @c),
     );
+    _set_language();
 
     # see if URI starts with a conf name
     if (@c && exists $Config->conferences->{$c[0]}) {
@@ -63,5 +65,53 @@ sub handler
     $dispatch{$Request{action}}->();
 
     return OK;
+}
+
+sub _set_language
+{
+    my $language = undef;
+    my $sendcookie = 1;
+
+    # see if we have a cookie
+    my $cookie_name = $Config->general_cookie_name;
+    my $cookies = Apache::Cookie->fetch;
+    if (my $c = $cookies->{$cookie_name}) {
+        my %v = $c->value;
+        if ($v{language} && $Config->languages->{$v{language}}) {
+            $language = $v{language};
+            $sendcookie = 0;
+        }
+    }
+    # otherwise try one of the browser's languages
+    unless ($language) {
+        my $h = $Request{r}->header_in('Accept-Language') || '';
+        for (split /,/, $h) {
+            s/;.*$//;
+            s/-.*$//;
+            if ($_ && $Config->languages->{$_}) {
+                $language = $_;
+                $sendcookie = 1;
+                last;
+            }
+        }
+    }
+    # last resort, use our default language
+    $language ||= $Config->general_default_language;
+
+    # remember it for this request
+    $Request{language} = $language;
+
+    # send the cookie if needed
+    if ($sendcookie) {
+        my $cookie = Apache::Cookie->new(
+        $Request{r},
+            -name    =>  $cookie_name,
+            -value   =>  { language => $language },
+            -expires =>  '+6M',
+            -domain  =>  $Request{r}->server->server_hostname,
+            -path    =>  '/',
+        );
+        $cookie->bake;
+    }
 }
 1;

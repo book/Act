@@ -72,9 +72,12 @@ sub process
     my ($self, $filename, $output) = @_;
     $output ||= $Request{r};
 
-    # language must be defined at this point
-    #$self->{vars}{global}{language}
-    #   or croak "undefined language";
+    # set global variables
+    $self->variables(
+      global => {
+         language   => $Request{language},
+      }
+    );
 
     # process and output
     my $ok;

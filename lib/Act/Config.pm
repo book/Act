@@ -23,6 +23,18 @@ sub load_global_config
     );
     $Config->set(home => $home);
     $Config->file(map "$home/conf/$_.ini", qw(act local));
-    $Config->set(conferences => { map { $_ => 1 } split /\s+/, $Config->general_conferences });
+
+    # some prefs are useful as hash keys
+    _make_hash(conferences => $Config->general_conferences,
+               languages   => $Config->general_languages,
+    );
+}
+
+sub _make_hash
+{
+    my %h = @_;
+    while (my ($key, $value) = each %h) {
+        $Config->set($key => { map { $_ => 1 } split /\s+/, $value });
+    }
 }
 1;
