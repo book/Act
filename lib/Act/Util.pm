@@ -5,6 +5,7 @@ use Apache::Constants qw(M_GET REDIRECT);
 use Crypt::RandPasswd ();
 use DateTime::Format::Pg;
 use Digest::MD5 ();
+use Text::Iconv ();
 use URI::Escape ();
 
 use Act::Config;
@@ -12,6 +13,9 @@ use Act::Config;
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
 @EXPORT = qw(make_uri make_uri_info self_uri );
+
+# utf8 to latin1 converter
+my $utf8_latin1 = Text::Iconv->new('UTF-8', 'ISO-8859-1');
 
 # create a uri for an action with args
 sub make_uri
@@ -130,7 +134,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"});
+    return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
 
 1;
