@@ -31,7 +31,7 @@ sub parse
         my $translated = $section->{text};
         if ($section->{lang}) {
             $translated =~ s/@{[LANG_RE]}/\[% CASE '$1' %\]$2/gs;
-            $text .= '[% SWITCH global.language %]'.$translated.'[% END %]';
+            $text .= '[% SWITCH global.request.language %]'.$translated.'[% END %]';
         }
         else {
             $text .= $translated;
