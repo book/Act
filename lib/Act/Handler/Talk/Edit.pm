@@ -28,6 +28,7 @@ my $form = Act::Form->new(
      url_talk     => 'url',
      date         => 'date',
      time         => 'time',
+     room         => sub { exists $Config->{rooms}{$_[0]} },
   }
 );
 
@@ -170,6 +171,7 @@ sub handler {
             $form->{invalid}{date}         && push @errors, 'ERR_DATE';
             $form->{invalid}{time}         && push @errors, 'ERR_TIME';
             $form->{invalid}{period}       && push @errors, 'ERR_DATERANGE';
+            $form->{invalid}{room}         && push @errors, 'ERR_ROOM';
         }
         $template->variables(errors => \@errors);
     }
@@ -186,6 +188,7 @@ sub handler {
         users => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
+        rooms => { %{ $Config->{rooms} } },
     ) if $Request{user}->is_orga;
     $template->process('talk/add');
 }

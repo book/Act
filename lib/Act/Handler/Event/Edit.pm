@@ -20,6 +20,7 @@ my $form = Act::Form->new(
      url_abstract => 'url',
      date         => 'date',
      time         => 'time',
+     room         => sub { exists $Config->{rooms}{$_[0]} or $_[0] =~ /^(?:out|venue)$/},
   }
 );
 
@@ -100,12 +101,18 @@ sub handler {
             $form->{invalid}{date}         && push @errors, 'ERR_DATE';
             $form->{invalid}{time}         && push @errors, 'ERR_TIME';
             $form->{invalid}{period}       && push @errors, 'ERR_DATERANGE';
+            $form->{invalid}{room}         && push @errors, 'ERR_ROOM';
         }
         $template->variables(errors => \@errors);
     }
 
     # display the event submission form
-    $template->variables( dates => \@dates, defined $event ? ( %$event ) : ( %$fields ) );
+    $template->variables(
+        dates => \@dates, defined $event ? ( %$event ) : ( %$fields ),
+        room  => { %{ $Config->{rooms} },
+                   venue => get_translation( 'room', 'venue' ),
+                   out   => get_translation( 'room', 'out' ),
+    );
     $template->process('event/add');
 }
 

@@ -38,6 +38,10 @@
          en => "Event URL is not a valid URL",
          fr => "L'URL de l'événement n'est pas une URL valide"
      },
+     ERR_ROOM => {
+         en => "Incorrect room submitted",
+         fr => "Salle incorrecte",
+     },
   }
 %]
 </span><br />
@@ -76,8 +80,9 @@
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
    <t><en>Room</en><fr>Salle</fr></t>
     <select name="room">
-    [% FOREACH r=rooms %]
-     <option value="[% r %]"[% ' selected="selected"' IF room == r %] />
+     <option value=""[% ' selected="selected"' UNLESS room %] />
+    [% FOREACH r = rooms.keys.sort %]
+     <option value="[% r %]"[% ' selected="selected"' IF room == r %] />[% rooms.$r %]
     [% END %]
     </select>
    </td>
