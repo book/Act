@@ -43,7 +43,7 @@ sub validate
             next if $self->{invalid}{$field}; # already in error
             my $c = $constraints{$type}
                 or die "unknown constraint type: $type\n";
-            $c->($self->{fields}{$field})
+            !defined($self->{fields}{$field}) || $c->($self->{fields}{$field})
                 or $self->{invalid}{$field} = $type;
         }
     }
