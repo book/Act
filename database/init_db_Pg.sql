@@ -136,10 +136,14 @@ CREATE TABLE orders
     order_id   serial    NOT NULL    PRIMARY KEY,
     conf_id    text      NOT NULL,
     user_id    integer   NOT NULL,
+    datetime   timestamp without time zone NOT NULL,
 
     /* order info */
-    amount     integer               NOT NULL,
-    paid       boolean DEFAULT false NOT NULL,
+    amount     integer   NOT NULL,
+    means      text,
+    currency   text,
+    status     text      NOT NULL,
+    invoice_ok boolean   DEFAULT false,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );

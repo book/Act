@@ -1,4 +1,6 @@
 package Act::Order;
+use strict;
+use DateTime;
 use Act::Object;
 use base qw( Act::Object );
 
@@ -13,10 +15,20 @@ our %sql_stub    = (
 our %sql_mapping = (
     # standard stuff
     map( { ($_, "(o.$_=?)") }
-         qw( order_id user_id conf_id amount paid ) )
+         qw( order_id user_id conf_id amount means currency status invoice_ok) )
 );
 our %sql_opts    = ( 'order by' => 'order_id' );
 
+sub create {
+    my ($class, %args ) = @_;
+    $args{datetime} = DateTime->now();
+    return $class->SUPER::create(%args);
+}
+sub update {
+    my ($self, %args ) = @_;
+    $args{datetime} = DateTime->now();
+    return $self->SUPER::update(%args);
+}
 =head1 NAME
 
 Act::Order - An Act object representing an order.

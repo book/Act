@@ -13,8 +13,8 @@ our %sql_stub    = (
     select     => "u.*",
     select_opt => {
         has_talk  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=?) AS has_talk" ] : () },
-        has_paid  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.paid) AS has_paid" ] : () },
-        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE)OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.paid)) AS committed" ] : () },
+        has_paid  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = 'paid') AS has_paid" ] : () },
+        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = ?)) AS committed" ] : () },
     },
     from       => "users u",
     from_opt   => [
