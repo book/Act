@@ -5,7 +5,6 @@ use DateTime::TimeZone;
  
 use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
-use Act::Country;
 use Act::Form;
 use Act::Template::HTML;
 use Act::User;
