@@ -1,4 +1,5 @@
 use strict;
+use Digest::MD5 ();
 package Act::Util;
 
 use vars qw(@ISA @EXPORT);
@@ -53,9 +54,11 @@ sub _build_uri
 
 sub gen_password
 {
-   my $clear_passwd = Crypt::RandPasswd->word(7, 7);
-   my $crypt_passwd = crypt( $clear_passwd, '/' );
-   return ($clear_passwd, $crypt_passwd);
+    my $clear_passwd = Crypt::RandPasswd->word(7, 7);
+    my $digest = Digest::MD5->new;
+    $digest->add(lc $clear_passwd);
+    my $crypt_passwd = $digest->b64digest();
+    return ($clear_passwd, $crypt_passwd);
 }
 
 # get all texts for a specific table/column/language
