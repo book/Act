@@ -15,7 +15,7 @@ config file. This is done by setting the ACTHOME environment variable:
     export ACTHOME=/home/act
 
 Make sure both ACTHOME and PERL5LIB are set and exported when
-running httpd.
+running httpd or 'make test'.
 
 Next, define a virtual host in your Apache configuration file
 (httpd.conf) for Act. Here's an example:
