@@ -34,9 +34,13 @@
        en => "The Perl monger group must end with <tt>.pm</tt>",
        fr => "Le groupe de mongueurs doit se terminer par <tt>.pm</tt>",
      },
-     ERR_PMURL => {
+     ERR_PM_URL => {
        en => "The Perl monger group URL must start with http://",
        fr => "URL du groupe de mongueurs&nbsp;: syntaxe incorrecte",
+     },
+     ERR_COMPANY_URL => {
+       en => "The company URL must start with http://",
+       fr => "URL de la société&nbsp;: syntaxe incorrecte",
      },
      ERR_WEBPAGE => {
        en => "Your web site URL must start with http://",
@@ -187,6 +191,15 @@
    </td>
 </tr>
 <tr>
+   <td align="right" valign="top">
+      <t><en>Full address</en><fr>Adresse complète</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <textarea name="address" cols="25" rows="5" >[% address %]</textarea>
+   </td>
+</tr>
+<tr>
    <td align="right">
       <t><en>Timezone</en><fr>Fuseau horaire</fr></t>
    </td>
@@ -215,7 +228,7 @@
    </td>
 </tr>
 <tr>
-   <td align="right">
+   <td align="right" valign="top">
       [%- IF pm_group_url %]
          <a href="[% pm_group_url %]" >
       [% END %]
@@ -225,7 +238,7 @@
       [% END %]
    </td>
    <td>&nbsp;</td>
-   <td>
+   <td valign="top">
       <input type="text" name="pm_group"  value="[% pm_group %]" size="40" maxlength="120" /><br />
       <t><en>(city.pm, city name in English, please)</en>
          <fr>(ville.pm avec le nom de ville en anglais, merci)</fr></t>
@@ -245,10 +258,39 @@
    <td>
       <input type="text" name="pm_group_url"  value="[% pm_group_url %]" size="40" maxlength="120" />
    </td>
+</tr>
+<tr>
+   <td align="right" valign="top">
+      [%- IF company_url %]
+         <a href="[% company_url %]" >
+      [% END %]
+      <t><en>Company</en><fr>Société</fr></t>
+      [%- IF company_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td valign="top">
+      <input type="text" name="company"  value="[% company %]" size="40" maxlength="120" /><br />
+   </td>
+</tr>
 <tr>
    <td align="right">
+      [%- IF company_url %]
+         <a href="[% company_url %]" >
+      [% END %]
+      <t><en>Company URL</en><fr>URL de la société</fr></t>
+      [%- IF company_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="company_url"  value="[% company_url %]" size="40" maxlength="120" />
+   </td>
+</tr>
 <tr>
-   <td align="right">
+   <td align="right" valign="top">
       <t><en>GPG public key</en><fr>Clé publique GPG</fr></t>
    </td>
    <td>&nbsp;</td>
@@ -296,7 +338,7 @@
    </td>
 </tr>
 <tr>
-   <td align="right">
+   <td align="right" valign="top">
       Bio
    </td>
    <td>&nbsp;</td>

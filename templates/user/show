@@ -54,6 +54,16 @@
       [% ELSE %][% pm_group %][% END %]
    </td>
 [% END %]
+[% IF company %]
+   </tr><tr>
+      <td align="right">
+         <t><en>Company</en><fr>Société</fr></t>
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         [% "<a href=\"$company_url\">" IF company_url %][% company %][% '</a>' IF company_url %]
+      </td>
+[% END %]
 [%- UNLESS email_hide and not global.request.user.is_orga %]
    </tr><tr>
       <td align="right">

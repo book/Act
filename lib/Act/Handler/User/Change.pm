@@ -17,7 +17,8 @@ my @partfields = qw(tshirt_size nb_family);
 my $form = Act::Form->new(
   required => [qw(first_name last_name email country)],
   optional => [qw(im bio civility email_hide gpg_pub_key im pause_id monk_id
-                  pm_group pm_group_url timezone town web_page),
+                  pm_group pm_group_url timezone town web_page
+                  company company_url address ),
                   @partfields
               ],
   filters => {
@@ -33,6 +34,7 @@ my $form = Act::Form->new(
     nb_family    => 'numeric',
     pm_group_url => 'url',
     web_page     => 'url',
+    company_url  => 'url',
     pm_group     => sub { $_[0] =~ /\.pm$/ },
     tshirt_size  => sub { $_[0] =~ /^(?:S|M|X{0,2}L)$/ },
   }
@@ -73,6 +75,9 @@ sub handler
             $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
             $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
             $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+            $form->{invalid}{web_page}     && push @errors, 'ERR_WEBPAGE';
+            $form->{invalid}{pm_group_url} && push @errors, 'ERR_PM_URL';
+            $form->{invalid}{company_url}  && push @errors, 'ERR_COMPANY_URL';
         }
         $template->variables(errors => \@errors);
     }
