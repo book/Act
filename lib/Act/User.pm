@@ -8,7 +8,8 @@ Act::User - A user object
 
 =head1 SYNOPSIS
 
-    $user = Act::User->new();
+    $user = Act::User->new();  # empty user
+    $user = Act::User->new( login => $login );
 
     # check the user's rights
     $ok = $user->rights()->{orga};
@@ -23,26 +24,57 @@ The Act::User class implements the following methods:
 
 =over 4
 
-=item new( $login )
+=item new( %args )
 
-The constructor returns a new Act::User object, given either a login
-name. If no user by this name exists, return C<undef>.
+The constructor returns a new Act::User object.
+If %args is empty, return a new, empty Act::User.
+
+If called with C<login>, C<id> or C<sid>, return the user
+with the corresponding login, id or session id.
 
 =cut
 
 sub new {
     my ( $class, %args ) = @_;
+    $class = ref $class  || $class;
 
     # can only create users based on login or id
-    /^(?:login|id|sid)$/ or delete $args{$_} for keys %args;
+    /^(?:login|id|session_id)$/ or delete $args{$_} for keys %args;
 
-    return unless %args;
+    return bless {}, $class unless %args;
 
     my $users = Act::User->get_users( %args );
     return undef if @$users != 1;
 
     $users->[0];
 }
+
+=item create( %fields )
+
+Create a new user in the database.
+
+=cut
+
+sub create {
+    my ($class, %args ) = @_;
+    $class = ref $class  || $class;
+
+    my $user = Act::User->new( %args );
+    return undef if $user;
+
+    my $SQL = sprintf "INSERT INTO users (%s) VALUES (%s);",
+                      join(",", keys %args), join(",", ( "?" ) x keys %args);
+    my $sth = $Request{dbh}->prepare_cached( $SQL );
+    $sth->execute( values %args );
+    $sth->finish();
+    $Request{dbh}->commit;
+
+    return Act::User->new( %args );
+}
+
+=item update( %fields )
+
+Update the user's entry in the database.
 
 =item rights()
 
@@ -60,7 +92,7 @@ sub rights {
     $self->{rights} = {};
 
     $sth = $Request{dbh}->prepare_cached('SELECT right_id FROM rights WHERE conf_id=? AND user_id=?');
-    $sth->execute($Request{conference}, $self->{user_id});
+    $sth->execute($Request{conference}, $self->user_id);
     $self->{rights}{$_->[0]}++ for @{ $sth->fetchall_arrayref };
     $sth->finish;
 
@@ -176,14 +208,13 @@ sub get_users {
 
     # search field to SQL mapping
     my %req = (
-        id       => "(u.user_id=?)",
-        sid      => "(u.session_id=?)",
-        login    => "(u.login=?)",
-        conf     => "(p.conf_id=? AND p.user_id=u.user_id)",
-        country  => "(u.country=?)",
-        town     => "(u.town~*?)",
-        name     => "(u.nick_name~*? OR (u.pseudonymous=FALSE AND (u.first_name~*? OR last_name~*?)))",
-        pm_group => "(u.pm_group~*?)",
+        # standard stuff
+        map { ($_, "(u.$_=?)") }
+          qw( user_id conf_id session_id login country ),
+        conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
+        town       => "(u.town~*?)",
+        name       => "(u.nick_name~*? OR (u.pseudonymous=FALSE AND (u.first_name~*? OR last_name~*?)))",
+        pm_group   => "(u.pm_group~*?)",
     );
 
     # SQL options
@@ -204,9 +235,12 @@ sub get_users {
 
     # special cases
     $args{name} = [ ( $args{name} ) x 3 ] if exists $args{name};
+    my $conf_id = $args{conf_id};
 
     # build the request string
-    my $SQL = "SELECT DISTINCT u.* FROM users u, participations p WHERE ";
+    my $SQL = "SELECT DISTINCT u.* FROM users u"
+            . ($conf_id ? ", participation p" : "" )
+            . " WHERE ";
     $SQL .= join " AND ", "TRUE", @req{keys %args};
     $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
                           keys %opt;

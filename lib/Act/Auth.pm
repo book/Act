@@ -94,7 +94,7 @@ sub authen_ses_key ($$$)
     my ($self, $r, $sid) = @_;
 
     # search for this user in our database
-    my $user = Act::User->new( sid => $sid );
+    my $user = Act::User->new( session_id => $sid );
 
     # unknown session id
     return () unless $user;
