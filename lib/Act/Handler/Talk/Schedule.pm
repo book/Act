@@ -131,7 +131,7 @@ sub compute_schedule {
             my $max;
             $max = $max < $room{$r}{$day}[$_] ? $room{$r}{$day}[$_] : $max
                 for 0 .. @{ $room{$r}{$day} } - 1;
-            $width{$r}{$day} = $max;
+            $width{$r}{$day} = $max || 1;
         }
         $maxwidth{$day} = 0;
         $maxwidth{$day} += $width{$_}{$day} for keys %room;
@@ -147,7 +147,7 @@ sub compute_schedule {
             $global++ if @{ $row->[2] };
             for( sort keys %room ) {
                 push @row, @{ $row->[1]{$_} };
-                push @row, ( $global ? () : ("[$_]") x ( $width{$_}{$day} - $room{$_}{$day}[$i] ) );
+                push @row, ( $global ? () : (" ") x ( $width{$_}{$day} - $room{$_}{$day}[$i] ) );
             }
             push @row, @{$row->[2]};
             # fill the blanks
