@@ -31,6 +31,6 @@
         SWITCH lang.code;
             CASE 'en'; "Click here for an English version of this site";
             CASE 'fr'; "Cliquer ici pour une version française de ce site";
-        END %]">&#x2192;&nbsp;[% lang.name %]</a></li>
+        END %]">&#x2192;&nbsp;[% lang.name %]</a>
    [% END %]</span>
 [% END %]
