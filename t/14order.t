@@ -16,7 +16,7 @@ db_add_users();
 my $user = Act::User->new( login => 'echo' );
 
 # create an order
-my $order = Act::Order->create(
+$order = Act::Order->create(
    user_id   => $user->user_id,
    conf_id   => 'conf',
    amount    => AMOUNT,
