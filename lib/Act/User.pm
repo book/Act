@@ -36,41 +36,6 @@ our %sql_opts = ( 'order by' => 'user_id' );
 
 *get_users = \&Act::Object::get_items;
 
-sub rights {
-    my $self = shift;
-    return $self->{rights} if exists $self->{rights};
-    
-    # get the user's rights
-    $self->{rights} = {};
-
-    $sth = $Request{dbh}->prepare_cached('SELECT right_id FROM rights WHERE conf_id=? AND user_id=?');
-    $sth->execute($Request{conference}, $self->user_id);
-    $self->{rights}{$_->[0]}++ for @{ $sth->fetchall_arrayref };
-    $sth->finish;
-
-    return $self->{rights};
-}
-
-# generate the is_right methods
-sub AUTOLOAD {
-
-    # don't DESTROY
-    return if $AUTOLOAD =~ /::DESTROY/;
-
-    # methods is_something regard the user rights
-    if( $AUTOLOAD =~ /::is_(\w+)$/ ) {
-        my $attr = $1;
-        no strict 'refs';
-    
-        # create the method and call it
-        *{$AUTOLOAD} = sub { $_[0]->rights()->{$attr} };
-        goto &{$AUTOLOAD};
-    }
-    
-    # die on error
-    croak "AUTOLOAD: Unknown method $AUTOLOAD";
-}
-
 sub talks {
     my ($self, %args) = @_;
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
@@ -132,23 +97,6 @@ Act::User - A user object for the Act framework
 This is a standard Act::Object class. See Act::Object for details.
 
 A few methods have been added.
-
-=head2 Methods
-
-=over 4
-
-=item rights()
-
-Returns a hash reference which keys are the rights awarded to the
-user. Lazy loading is used to fetch the data from the database only
-if necessary. The data is then cached for the duration of the request.
-
-=item is_I<right>()
-
-Returns a boolean value indicating if the current user has the corresponding
-I<right>. These convenience methods are autoloaded.
-
-=back
 
 =head2 Class methods
 
