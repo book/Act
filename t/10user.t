@@ -1,4 +1,5 @@
-use Test::More tests => 13;
+use Test::More tests => 38;
+use strict;
 use Act::User;
 use t::Util;   # load the test database
 
@@ -57,3 +58,15 @@ $user = Act::User->new( login => 'frobb' );
 isa_ok( $user, 'Act::User' );
 is($user->login, 'frobb', 'Updated login');
 is($user->email, 'bar@baz.com', 'Updated email');
+
+# test clone
+$user  = Act::User->new( login => 'frobb' );
+$user2 = $user->clone;
+is_deeply( $user2, $user, "clone copies everything" );
+
+for( keys %$user2 ) {
+    $user2->{$_} = reverse $user2->$_;
+    is( $user2->$_, reverse( $user->$_ ),
+        "clone has a distinct $_");
+}
+

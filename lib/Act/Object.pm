@@ -53,6 +53,11 @@ sub update {
     @$self{keys %args} = values %args;
 }
 
+sub clone {
+    my $self = shift;
+    return bless { %$self }, ref $self;
+}
+
 sub init {
     my $class = shift;
     $class = (ref $class) || $class;
