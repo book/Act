@@ -9,6 +9,7 @@ my @modules = (
                  'DBD::Pg',
                  'DBI',
                  'Digest::MD5',
+                 'Email::Valid',
                  'HTML::Entities',
                  'MIME::Lite',
                  'Net::SMTP',
