@@ -160,4 +160,12 @@ sub compute_schedule {
 
 1;
 
-__END__
+=head1 NAME
+
+Act::Handler::Talk::Schedule - Compute and display the conference schedule
+
+=head1 DESCRIPTION
+
+See F<DEVDOC> for a complete discussion on handlers.
+
+=cut
