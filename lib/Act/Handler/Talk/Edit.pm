@@ -7,7 +7,6 @@ use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
 use Act::Country;
 use Act::Form;
-use Act::Handler::Talk::Util;
 use Act::Template::HTML;
 use Act::User;
 use Act::Talk;
