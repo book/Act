@@ -11,6 +11,8 @@ my @modules = (
                  'Digest::MD5',
                  'HTML::Entities',
                  'Template',
+                 'Test::MockObject',
+                 'URI::Escape',
               );
 use Test::More;
 plan tests => 1 + scalar(@modules);

@@ -2,9 +2,11 @@ package Act::Template;
 
 use strict;
 use Carp;
-use Apache::Util ();
+
 use Act::Config;
-use Act::Template::Parser ();
+use Act::Template::Parser;
+use Act::Util;
+
 use base qw(Template);
 
 use constant TEMPLATE_DIRS => qw(static templates);
@@ -89,7 +91,7 @@ sub process
          $global{languages} = [
            map {{
                  %{$Config->languages->{$_}},
-                 uri => _self_uri($_),
+                 uri => self_uri(%{$Request{args}}, language => $_),
                }}
            grep { $_ ne $Request{language} }
            sort keys %{$Config->languages}
@@ -109,24 +111,6 @@ sub process
 
     return $ok;
 }
-
-sub _self_uri
-{
-   my $language = shift;
-
-   # build a self-referential uri, adding
-   # the language parameter to its query string
-   return
-     $Request{r}->uri
-   . '?'
-   . join '&',
-      map( "$_=" . Apache::Util::escape_uri( $Request{args}{$_} ),
-           grep { $_ ne 'language' }
-           keys %{ $Request{args} }
-         ),
-      "language=$language";
-}
-
 1;
 
 __END__
