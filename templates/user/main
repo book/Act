@@ -4,44 +4,54 @@
 %]
 <p>
  <t>
-  <en>
-   This is your personal page. From here you can manage everything
-   regarding your participation to [% global.conference.name %].
-  </en>
-  <fr>
-   Ceci est votre page personnelle. D'ici vous pouvez gérer tout ce
-   qui concerne votre participation à [% global.conference.name %].
-  </fr>
+  <en>This is your personal page.
+      From here you can manage everything regarding your participation</en>
+  <fr>Ceci est votre page personnelle.
+      D'ici vous pouvez gérer tout ce qui concerne votre participation</fr>
  </t>
+ [% IF global.request.conference %]
+ <t>
+  <en>to [% global.conference.name %].</en>
+  <fr>à [% global.conference.name %].</fr>
+ </t>
+ [% ELSE %]
+ <t>
+  <en>to Act-enabled conferences.</en>
+  <fr>aux conférences gérées par Act.</fr>
+ </t>
+ [% END %]
 </p>
 
-[% UNLESS global.request.user.has_paid %]
-<p>
- <t>
-  <en>
-   You have not bought your conference ticket yet.
-   [% IF global.config.payment_open %]
-   Please consider doing so using our online payment system.
+[% IF global.request.conference %]
+ [% UNLESS global.request.user.has_paid %]
+ <p>
+  <t>
+   <en>You have not bought your conference ticket yet.</en>
+   <fr>Vous n'avez pas encore acheté votre billet pour la conférence.</fr>
+  </t>
+  [% IF global.config.payment_open %]
+   <t>
+    <en>Please consider doing so using our online payment system.</en>
+    <fr>Merci de penser à le faire en utilisant notre système
+        de vente en ligne.</fr>
+   </t>
    [% ELSE %]
-   Please consider doing so once our online payment system is ready.
-   [% END %]
-  </en>
-  <fr>
-   Vous n'avez pas encore acheté votre billet pour la conférence.
-   [% IF global.config.payment_open %]
-   Merci de penser à le faire en utilisant notre système de vente en ligne.
-   [% ELSE %]
-   Merci de penser à le faire dès que le système de vente en ligne
-   sera opérationnel.
-   [% END %]
-  </fr>
- </t>
-</p>
+   <t>
+    <en>Please consider doing so once our online payment system is ready.</en>
+    <fr>Merci de penser à le faire dès que le système de vente en ligne
+   sera opérationnel.</fr>
+   </t>
+  [% END %]
+ </p>
+ [% END %]
+[% ELSE %]
 [% END %]
 
 <p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en></t></b></p>
    <ul>
-    [% IF global.config.payment_open AND NOT global.request.user.has_paid %]
+    [% IF global.request.conference
+       AND global.config.payment_open
+       AND NOT global.request.user.has_paid %]
     <li><a href="[% make_uri('purchase') %]"><t>
           <fr>acheter votre billet pour la conférence</fr>
           <en>purchase your conference ticket</en></t></a><br />
@@ -55,7 +65,8 @@
           <fr>modifier votre photo</fr>
           <en>manage your photo</en></t></a><br />
     </li>
-      [% IF talks.size %]
+    [% IF global.request.conference
+       AND talks.size %]
         <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
         <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr></t>:
           <br />
@@ -74,5 +85,13 @@
     [% END %]
    <li><a href="[% make_uri('logout') %]"><t><en>log out</en><fr>vous déconnecter</fr></t></a></li>
    </ul>
+
+<p><b><t>
+ <fr>Autres conférences Act&nbsp;:</fr>
+ <en>Other Act conferences:</en>
+</t></b></p>
+<ul>
+[% FOREACH p = global.request.user.participations %]<li>[% p.conf_id %]</li>[% END %]
+</ul>
 
 [% END %]
