@@ -60,13 +60,13 @@ sub handler
                 delete $fields->{duration};
             }
             # add this talk
-            Act::Talk->create(
+            my $talk = Act::Talk->create(
               %$fields,
               user_id   => $user_id,
               conf_id   => $Request{conference},
             );
             # thanks, come again
-            $template->variables(%$fields);
+            $template->variables(%$fields, talk_id => $talk->talk_id);
             $template->process('talk/added');
         }
         else {

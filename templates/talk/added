@@ -5,10 +5,12 @@
 <p>
  <t>
   <en>
-   Thanks, your talk submission has been recorded.
+   Thanks, your talk submission has been recorded
+   as <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
   </en>
   <fr>
-   Merci, votre soumission de présentation est enregistrée.
+   Merci, votre soumission de présentation est enregistrée
+   en tant que <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
   </fr>
  </t>
 </p>
