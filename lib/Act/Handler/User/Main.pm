@@ -25,7 +25,9 @@ sub handler {
             conf_id => $conf_id,
             url     => '/' . $cfg->uri . '/',
             name    => $cfg->name->{$Request{language}},
+            start   => $cfg->talks_start_date,
             participation => 0,
+            # opened => ?
         };
     }
     # add this guy's participations
@@ -35,7 +37,7 @@ sub handler {
 
     $template->variables(
         talks => $talks,
-        conferences => [ values %confs ],
+        conferences => [ sort { $b->{start} cmp $a->{start} } values %confs ],
     );
     $template->process('user/main');
 }
