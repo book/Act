@@ -6,6 +6,11 @@ TODO
 - sortir 2004/ de conferences/
 - faire fonctionner le site en multiconference
 
+- il y a un module Act::Invoice (pour les factures), mais je ne vois
+  pas de Act::Handler::User::Invoice pour les afficher.
+  + le lien vers cette page devrait apparaitre seulement si invoice_ok
+    a été coché par le trésorier
+
 - template générique pour les factures, modifiable localement par chaque
   conf
 - bio multilingue
