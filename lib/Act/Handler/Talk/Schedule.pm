@@ -36,12 +36,13 @@ sub handler {
     # [ $dt, { r1 => [], r2 => [] } ]
 
     # insert the rest of the talks
+    my @started; # started talks but not finished
     for( @$todo ) {
         my $dt  = $_->datetime;
         my $day = $dt->ymd;
         my $row = $table{$day};
-        my $end = $_->datetime->clone;
-        $end->add( minutes => $_->duration );
+        $_->{end} = $_->datetime->clone;
+        $_->{end}->add( minutes => $_->duration );
 
         # skip to find our place
         $index{$day}++
@@ -49,44 +50,51 @@ sub handler {
                    $row->[ $index{$day} ][0] < $dt );
         # update the table structure
         my $i = $index{$day};
+        @started = grep { $_->{end} > $dt } @started;
         my $added = 0;
         # insert the beginning if necessary (yuck, dups)
         if( $row->[$i] and $row->[$i][0] != $dt ) {
-            splice( @$row, $index{$day}, 0, [ $dt->clone, { $_->room => [ $_ ] } ] );
+            splice( @$row, $i, 0, [ $dt->clone, { $_->room => [ $_ ] } ] );
             $room{$_->room}{$day} = 1;
             $added = 1;
+            $i++;
         }
-        while( $row->[$i] and $row->[$i][0] < $end ) {
-            # FIXME cut off by a global
-            # push the item on the list of talks happening now
-            # the talk is "extended" on all the corresponding slots
-            my $count = push @{ $row->[$i][1]{$_->room} ||= [] }, $_;
-            # compute each columns total width on the fly
-            $room{$_->room}{$day} = $count if $room{$_->room}{$day} < $count;
-            $added = 1;
+        # insert the event several times if it spans several blocks
+        while( $row->[$i] and $row->[$i][0] < $_->{end} ) {
+            for($_, @started){
+                # FIXME cut off by a global
+                # push the item on the list of talks happening now
+                # the talk is "extended" on all the corresponding slots
+                my $count = push @{ $row->[$i][1]{$_->room} ||= [] }, $_;
+                # compute each columns total width on the fly
+                $room{$_->room}{$day} = $count if $room{$_->room}{$day} < $count;
+                $added = 1;
+            }
             $i++;
         }
         # insert a new row structure if necessary
         splice( @$row, $index{$day}, 0, [ $dt->clone, { $_->room => [ $_ ] } ] ),
-        $room{$_->room}{$day} = 1
+        $room{$_->room}{$day} ||= 1
           unless $added;
         # insert the ending moment
-        push @$row, [ $end, { } ];
+        push @$row, [ $_->{end}, { } ];
+        push @started, $_;
     }
     # finish line
     my %seen;
+    my $def = '-';
     for my $day ( keys %table ) {
         for my $row ( @{$table{$day}} ) {
             for my $room ( keys %room ) {
                 # fill with blanks
                 $row->[1]{$room} ||= [];
                 push @{ $row->[1]{$room} },
-                     ('-') x ( $room{$room}{$day} - @{ $row->[1]{$room} } );
+                     ($def) x ( $room{$room}{$day} - @{ $row->[1]{$room} } );
             }
             # remove duplicate talks
             @$row = (
                 $row->[0]->strftime('%H:%M'),
-                grep { $seen{$_}++ ? ( $_ eq '-' ? $_ : () ) : $_ }
+                grep { $seen{$_}++ ? ( $_ eq $def ? $_ : () ) : $_ }
                 map { ref and $_->{height}++; $_ }
                 # from the list of items
                 map { @{ $row->[1]{$_} } } keys %room
