@@ -30,17 +30,17 @@
 [% IF lightning %]
   <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it> <pt>Apresentação Relâmpago</pt><de>Lightning talk</de></t> <br />
 [% ELSE %]
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt><de>Datum</de></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt><de>Datum:</de></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
   <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><pt>Ainda não marcado.</pt><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it><de>Dauer</de></t></b> [% duration %] 
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it><de>Dauer:</de></t></b> [% duration %] 
    <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t><br />
 [% END %]
 
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
-<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it><de>Kommentar</de></t></b>
+<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it><de>Kommentar:</de></t></b>
 [% comment %]
 [% END %]
 </p>
@@ -53,12 +53,12 @@
 </t></p>
  <ul>
   [% IF url_abstract %]
-      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt><de>Kurzbeschreibung</de></t>
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt><de>Weitere Infos:</de></t>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
       </li>
   [% END %]
   [% IF url_talk %]
-      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt><de>Vortrag</de></t>
+      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt><de>Vortrag (Slides etc):</de></t>
          <a href="[% url_talk %]">[% url_talk %]</a>
       </li>
   [% END %]

@@ -67,13 +67,14 @@
          fr => "L'URL du résumé n'est pas une URL valide"
          it => "La URL indicata per l'abstract non è valida"
          pt => "O URL indicado para o resumo não é válido"
+	 de => "Die URL weiter Infos ist nicht gültig"
      },
      ERR_URL_TALK => {
          en => "Talk URL is not a valid URL"
          fr => "L'URL de la présentation n'est pas une URL valide"
          it => "La URL indicata per l'intervento non è valida"
          pt => "O URL indicado para a apresentação não é válida"
-	 de => "Die URL ist nicht gültig"
+	 de => "Die URL Slides ist nicht gültig"
      },
      ERR_ROOM => {
          en => "Incorrect room submitted",
@@ -93,7 +94,7 @@
 [% END %]
 [% IF talk_id %]
 <p>
- <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><de>Anzeigen</de></t>
+ <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><de>Zeige: </de></t>
  <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
 </p>
 [% END %]
@@ -157,14 +158,14 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr><pt>URL do resumo</pt><it>URL dell'abstract</it><de>URL Kurzbeschreibung</t></td>
+  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr><pt>URL do resumo</pt><it>URL dell'abstract</it><de>URL weitere Infos</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Talk URL</en><pt>URL da apresentação</pt><fr>URL présentation</fr><it>URL dell'intervento</it><de>URL Vortrag</de></t></td>
+  <td align="right"><t><en>Talk URL</en><pt>URL da apresentação</pt><fr>URL présentation</fr><it>URL dell'intervento</it><de>URL Slides etc</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
@@ -255,14 +256,14 @@
   <td>
     [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
-    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></de>angenommen</de></t><br />
+    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it><de>angenommen</de></t><br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
     <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de></t><br />
     [% ELSE %]
       [% IF accepted %]
-        <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>Angenommen</de></t><br />
+        <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>angenommen</de></t><br />
         <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>besteätigt</de></t><br />
+        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de></t><br />
       [% ELSE %]
         <t><en>Pending</en><fr>En attente</fr><it>In attesa</it><pt>Pendente</pt><de>in Bearbeitung</de></t>
       [% END %]

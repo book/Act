@@ -34,7 +34,7 @@
        <en>[% global.config.rooms.$r %] Room</en>
        <pt>Sala [% global.config.rooms.$r %]</pt>
        <it>Stanza [% global.config.rooms.$r %]</it>
-       <de>Raum [% global.config.rooms.$r %]</de>
+       <de>Raum: [% global.config.rooms.$r %]</de>
        </t></th>
   [% END %]
  </tr>

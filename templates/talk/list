@@ -5,7 +5,8 @@
      fr => 'Liste des présentations'
      it => 'Elenco degli interventi'
      pt => 'Lista de apresentações'
-   },
+     de => 'Liste der Vortr&auml;ge'
+},
 %]
 <div align="center">
 <p>
@@ -14,6 +15,7 @@
     <en>No talk was submitted yet.</en>
     <pt>Nenhuma apresentação proposta.</pt>
     <it>Nessun intervento proposto.</it>
+    <de>Es wurde noch kein Vortrag eingereicht.</de>
  </t>
  [% ELSE %]
  <t>
@@ -25,6 +27,8 @@
       Interventi accettati: [% talks_accepted %]</it>
   <pt>Apresentações propostas: [% talks_total %]<br />
       Apresentações aceites: [% talks_accepted %]</pt>
+  <de>Eingereichte Vortr&auml;ge: [% talks_total %]<br />
+      Angenommene Vortr&auml;ge: [% talks_accepted %]</de>
  </t>
  [% END %]
 </p>
@@ -41,7 +45,8 @@
    Gli interventi accettati sono mostrati in <b>grassetto</b>.
   </it>
   <pt>As apresentações aceites são mostradas a <b>negrito</b>.</pt>
- </t>
+    <de>Angenommene Vortr&auml;ge werden in <b>fett</b> angezeigt.</de>
+</t>
 </p>
 [% END %]
 [% IF global.request.user.is_orga %]
@@ -51,15 +56,17 @@
   <en>Total duration of accepted talks:</en>
   <it>Durata totale degli interventi accettati:</it>
   <pt>Duração total das apresentações aceites:</pt>
+  <de>L&auml;nge der angenommenen Vortr&auml;ge:</de>
  </t>
- [% talks_duration div 60 %] <t><fr>heures</fr><pt>horas</pt><en>hours</en><it>ore</it></t>
- [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><pt>minutos</pt><it>minuti</it></t>
+ [% talks_duration div 60 %] <t><fr>heures</fr><pt>horas</pt><en>hours</en><it>ore</it><de>Stunden</de></t>
+ [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
  <br />
  <t>
   <fr>Communications éclair acceptées&nbsp;:</fr>
   <en>Accepted lightning talks:</en>
   <it>Interventi lampo accettati:</it>
   <pt>Apresentações relâmpago aceites:</pt>
+  <de>Angenommene Lightning Talks:</de>
  </t>
  [% talks_lightning %]
 </p> 
@@ -69,14 +76,14 @@
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it></t></th>
- <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it></t></th>
- <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt></t></th>
+ <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de></t></th>
+ <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de></t></th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
- <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it></t></th>
+ <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it><de>Datum</de></t></th>
  [% END %]
  [% IF global.request.user.is_orga %]
- <th><t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it></t></th>
+ <th><t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>Angenommen</de></t></th>
  [% END %]
 </tr>
 [% FOREACH t = talks %]
@@ -91,9 +98,9 @@
         [% talk_modify_link(t) %]
     </td>
     <td nowrap="nowrap">[% IF t.lightning %]
-          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</it></t>
+          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</it><de>lightning talk</de></t>
         [% ELSE %]
-         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t>
+         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
         [% END %]
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
@@ -110,7 +117,7 @@
 </table>
 [% IF global.request.user.is_orga %]
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><pt>Modificar</pt><fr>Modifier</fr><it>Aggiorna</it></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><pt>Modificar</pt><fr>Modifier</fr><it>Aggiorna</it><de>Speichern</de></t>" />
 </form>
 [% END %]
 </div>
