@@ -6,6 +6,14 @@
 </t>
 [% END %]
 [% WRAPPER menus/item %]
+<a href="[% make_uri('search') %]">
+ <t>
+  <fr>Recherche</fr>
+  <en>Search</en>
+ </t>
+</a>
+[% END %]
+[% WRAPPER menus/item %]
 <a href="[% make_uri('stats') %]">
  <t>
   <fr>Statistiques</fr>
