@@ -81,6 +81,12 @@
   <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr></t></th>
  </tr>
   <!-- cities within countries -->
+  [% IF stats.towns.size == 0 %]
+  <td><t>
+    <en>No city information entered</en>
+    <fr>Aucune ville n'a été renseignée</fr>
+  </t></td>
+  [% END %]
   [% FOREACH c = stats.countries %]
   [% UNLESS count %]<tr>[% END %]
    [% UNLESS stats.towns.${c.iso} %][% NEXT %][% END %]
@@ -127,6 +133,7 @@
   <!-- PM groups -->
   <td valign="top">
    <table cellpadding="4">
+    [% '&nbsp;' UNLESS stats.pm.size %]
     [% FOREACH pm = stats.pm %]
     <tr>
      [% IF loop.count == 1 %]
