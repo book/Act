@@ -46,12 +46,35 @@ sub gen_password
    return ($clear_passwd, $crypt_passwd);
 }
 
+# get all texts for a specific table/column/language
+sub get_translations
+{
+    my ($tbl, $col) = @_;
+
+    my $sql = 'SELECT id, text, lang FROM translations WHERE '
+            . join(' AND ', map "$_=?", qw(tbl col));
+    my $sth = $Request{dbh}->prepare_cached($sql);
+    $sth->execute($tbl, $col);
+    my %alltexts;
+    while (my ($id, $text, $lang) = $sth->fetchrow_array()) {
+        $alltexts{$id}{$lang} = $text;
+    }
+    $sth->finish;
+
+    my %texts;
+    while (my ($id, $t) = each %alltexts) {
+        $texts{$id} = $t->{$Request{language}} || $t->{$Config->general_default_language};
+    }
+    return \%texts;
+}
+    
+# get one translation
 sub get_translation
 {
     my ($tbl, $col, $id) = @_;
 
     # retreive text in current language
-    my $lang = $Request{language} || $Config->general_default_language;
+    my $lang = $Request{language};
     my $sql = 'SELECT text FROM translations WHERE '
             . join(' AND ', map "$_=?", qw(tbl col id lang));
     my $sth = $Request{dbh}->prepare_cached($sql);
