@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;">
+  </head>
+  <body>
+    <table border=0 width="600" height="100%">
+      <tr>
+        <td>&nbsp;</td>
+        <td />
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                <img src="http://conferences.mongueurs.net/2004/images/journees-perl-2004.png" alt="Logo Conférence" />
+              </td>
+              <td width="20%" />
+              <td>
+                <b>Facture N° [%NUM_FACTURE%]</b><br>
+                <b>En date du [%DATE_FACTURE%]</b><br>
+                <b>Editée le [%TODAY%]</b><br>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>
+          Description
+        </td>
+        <td>
+          Client / Raison sociale
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table border width="100%">
+            <tr>
+              <th colspan="2">&nbsp;</th>
+              <th colspan="2">devise</th>
+            </tr>
+            <tr>
+              <th>Désignation</th>
+              <th>Quantité</th>
+              <th>Prix Unitaire</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td align="left">Inscription "Les journées Perl 2004"</td>
+              <td align="center">1</td>
+              <td align="right">25.00</td>
+              <td align="right">25.00</td>
+            </tr>
+            <tr>
+              <td colspan="3" align="right">Total à payer</td>
+              <td align="right">25.00</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2">
+          <font size="1">
+          Les Mongueurs de Perl chez M. David Landgren<br>
+          30, rue Volta / 75003 Paris / France
+          </font>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2">
+          <font size="1">
+          Association sans but lucratif, régie par la loi du 1er juillet 1901.<br>
+          Parution au JO le 15/12/2001 (N° de parution 20010050, N° d'annonce 2200)<br>
+          </font>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
