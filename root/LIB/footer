@@ -10,7 +10,7 @@ HTML</a></font>
 </td><td align="right">
 <font size="-2">Paris, le 
 [% date.format(template.modtime, '%e %B %Y') %]<br>
-Copyright &copy; The Paris Perl Mongers, [% date.format(format = '%Y') %]<br>
+Copyright &copy; Les Mongueurs de Perl, [% date.format(format = '%Y') %]<br>
 </td>
 </tr>
 </table>
