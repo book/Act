@@ -153,6 +153,7 @@
             [% t.title %][% "</b>" IF t.accepted %]</a>
             ([% IF t.duration ; t.duration %] minutes[% ELSE %]
             <t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])</li>
+           [% talk_modify_link(t) %]
              [% END %]
           </ul>
          </td></tr></table>
