@@ -5,6 +5,30 @@
    },
 %]
 <div align="center">
+<p>
+ [% IF talks_total == 0 %]
+ <t><fr>Aucune présentation n'a encore été proposée.</fr>
+    <en>No talks was submitted yet.</en>
+ </t>
+ [% ELSE %]
+ <t>
+   <fr>[% talks_total > 1 ? "$talks_total présentations ont été proposées,"
+                          : "Une présentation a été proposée" %] dont
+       [% talks_accepted == 0
+          ? "aucune n'a encore été acceptée."
+          : talks_accepted == 1
+          ? "une seule est acceptée."
+          : "$talks_accepted ont été acceptées." %]</fr>
+   <en>[% talks_total > 1 ? "$talks_total talks were submitted,"
+                          : "one talk was submitted" %] of which
+       [% talks_accepted == 0
+          ? "none were accepted yet."
+          : talks_accepted == 1
+          ? "one was accepted."
+          : "$talks_accepted were accepted." %]</en>
+ </t>
+ [% END %]
+</p>
 [% IF global.request.user.is_orga %]
 <p>
  <t>
@@ -16,7 +40,7 @@
   </fr>
  </t>
 </p>
-<form method="POST">
+<form method="POST" action="[% make_uri('talks') %]">
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
