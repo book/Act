@@ -82,7 +82,7 @@ my %methods = (
     has_paid  => 
         "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
     participation => 
-        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?',
+        'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=?',
 );
 
 for my $meth (keys %methods) {
@@ -96,7 +96,9 @@ for my $meth (keys %methods) {
         # compute and cache the data
         my $sth = $Request{dbh}->prepare_cached( $methods{$meth} );
         $sth->execute( $_[0]->user_id, $Request{conference} );
-        $_[0]{cache}{$meth} = $sth->fetchrow_arrayref()->[0];
+        $_[0]{cache}{$meth} = $sth->fetchrow_arrayref()->[0]; 
+        $sth->finish();
+        return $_[0]{cache}{$meth};
     };
 }
 
