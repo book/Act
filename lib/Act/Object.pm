@@ -124,6 +124,7 @@ the number of results. All other parameters are ignored.
 sub get_items {
     my ( $class, %args ) = @_;
     $class = ref $class  || $class;
+    $class->init;
 
     # search field to SQL mapping
     my %req;
