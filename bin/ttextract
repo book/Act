@@ -1,0 +1,88 @@
+#!/usr/bin/perl
+#
+# extract multilingual text (<t>...</t>)
+# from templates
+
+use strict;
+
+use File::Find     qw(find);
+use Getopt::Std    qw(getopts);
+
+use Act::Config;
+use Act::Template::Parser;
+
+use constant TEMPLATE_DIRS => qw(static templates);
+
+# global template parser object
+my $parser = Act::Template::Parser->new;
+
+# parse command line options
+my %opts;
+getopts('cvl:', \%opts) or usage();
+
+# global templates
+_extract(join '/', $Config->home, $_) for TEMPLATE_DIRS;
+
+# conference templates
+for my $conf (sort keys %{$Config->conferences}) {
+    $Request{conference} = $conf;
+    _extract(join '/', $Config->home, $conf, $_) for TEMPLATE_DIRS;
+}
+
+# process a directory
+sub _extract
+{
+    my $dir = shift;
+
+    # read directory
+    my @files;
+    find(sub {
+              local $_ = $File::Find::name;
+              -f && !/CVS/ && push @files, $_;
+             },
+         $dir
+    );
+
+    # process each file
+    for my $file (sort @files) {
+        (my $fname = $file) =~ s!^$dir/!!;
+        my $input;
+        {
+            local $/ = undef;
+            open my $fh, $file or die "can't open $file: $!\n";
+            $input = <$fh>;
+            close $fh;
+        }
+        $parser->parse($input);
+
+        # loop on multilingual text sections
+        my $num = 0;
+        for my $section (grep $_->{lang}, @{$parser->{sections}}) {
+            my $text = $section->{text};
+            ++$num;
+            print "$fname-$num\t$text\n" if $opts{v};
+            if ($opts{l}) {
+                my ($ltext) = ($text =~ m!<$opts{l}>(.*?)</$opts{l}>!s);
+                print "$fname-$num\t$ltext\n";
+            }
+            if ($opts{c}) {
+                for my $language (sort keys %{$Config->languages}) {
+                    my ($ltext) = ($text =~ m!<$language>(.*?)</$language>!s);
+                    print "$fname-$num: missing $language\n" unless $ltext;
+                }
+            }
+        }
+    }
+}
+##########
+sub usage
+{
+    die <<EOF;
+Usage: $0 [-vc] [-l language]
+
+options:
+  -v            verbose (prints all text sections)
+  -l language   display a specific language
+  -c            check for missing text
+EOF
+}
