@@ -7,9 +7,12 @@ my @simple = qw(
     general_default_language
     general_dir_photos
     general_searchlimit
+    database_name
     database_dsn
     database_user
     database_passwd
+    database_pg_dump
+    database_dump_file
     email_smtp_server
     email_sender_address
 );

@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+#
+# dbbackup: backup the act database
+
+use strict;
+
+use Expect      qw();
+use Getopt::Std qw(getopts);
+
+use Act::Config;
+
+use constant TIMEOUT     => 30;
+
+# command line options
+my %opts;
+getopts('nv', \%opts) or die "usage: $0 [-nv]\n";
+$|++;
+
+# -n implies -v
+$opts{v} = 1 if $opts{n};
+
+# build pg_dump command line
+my @cmd = (
+            $Config->database_pg_dump,
+            '-aOR',
+            '-Fp',
+            -U => $Config->database_user,
+            -f => $Config->database_dump_file,
+            $Config->database_name,
+          );
+
+print join(' ', @cmd), "\n" if $opts{v};   # verbose
+exit(0)                     if $opts{n};   # dry run
+
+# spawn it
+my $e = Expect->spawn(@cmd)
+    or die "Cannot spawn: $!\n";
+
+# wait for password prompt, but not forever
+if ($Config->database_dump_needs_password) {
+    $e->expect(TIMEOUT, 'Password: ')
+        or die "Timeout waiting for password prompt\n";
+    $e->send($Config->database_passwd, "\n");
+}
+# let it be
+$e->expect(undef);
