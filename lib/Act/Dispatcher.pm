@@ -1,9 +1,9 @@
 use strict;
 package Act::Dispatcher;
 
-use vars qw(@ISA @EXPORT $Config);
+use vars qw(@ISA @EXPORT $Config %Request);
 @ISA    = qw(Exporter);
-@EXPORT = qw($Config);
+@EXPORT = qw($Config %Request);
 
 use Apache::Constants qw(OK DECLINED);
 use AppConfig qw(:expand :argcount);
@@ -14,8 +14,8 @@ _load_global_config();
 # main dispatch table
 my %dispatch = (
     coucou => sub {
-        $Config->r->send_http_header('text/plain');
-        $Config->r->print("conférence ", $Config->conference);
+        $Request{r}->send_http_header('text/plain');
+        $Request{r}->print("conférence ", $Request{conference});
     },
 );
 
@@ -23,15 +23,21 @@ my %dispatch = (
 sub trans_handler
 {
     my $r = shift;
-    my @c = grep $_, split '/', $r->uri;
 
+    # we're looking for /x/y where
+    # x is a conference name, and
+    # y is an action key in %dispatch
+    my @c = grep $_, split '/', $r->uri;
     if (   @c >= 2
         && exists $Config->conferences->{$c[0]}
         && exists $dispatch{$c[1]}
        )
     {
-        $Config->set(conference => $c[0]);
-        $Config->set(action     => $c[1]);
+        # initialize our per-request variables
+        %Request = (
+            conference => $c[0],
+            action     => $c[1],
+        );
         $r->push_handlers(PerlHandler => 'Act::Dispatcher::handler');
         return OK;
     }
@@ -42,10 +48,10 @@ sub trans_handler
 sub handler
 {
     # the Apache request object
-    $Config->set(r => shift);
+    $Request{r} = shift;
 
     # dispatch
-    $dispatch{$Config->action}->();
+    $dispatch{$Request{action}}->();
 
     return OK;
 }
