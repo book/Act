@@ -51,6 +51,7 @@ is_deeply( $user,
         first_name   => 'Philippe',
         im           => undef,
         photo_name   => undef,
+        committed    => '1',
     }, "Got the user and the new fields" );
 
 my $user2 = Act::User->new( login => 'book', conf_id => 'conf' );
