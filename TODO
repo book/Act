@@ -23,7 +23,7 @@ TODO
 
 - template générique pour les factures, modifiable localement par chaque
   conf
-- bio multilingue
+
 - les photos doivent être stockées dans endroit commun ?
   ou est-ce qu'on permet à un user d'avoir une photo différente par
   conférence ? dans ce cas, doit-il l'uploader chaque année ?
@@ -37,9 +37,11 @@ TODO
   
 - possibilité pour les orga/admin de modifier le fait que l'utilisateur
   a participé ou non, pour avoir une liste correcte à la fin de la conf
+
 - test de la fermeture/ouverture des diverses options
 
 - le nom "orga" est-il bien choisi ?
+
 - creation de roles globaux ?
   + gestion des users (ajout, suppression, edition)
   + gestion des photos/videos (si on fait une gallerie)
@@ -52,6 +54,7 @@ TODO
 - réflexion sur les urls, vhosts, etc
 
 - gestion des favicon.ico/png en fonction de la conf
+  => peut-être avec le Referer, mais je crois qu'en général il n'y en a pas
 
 - virer le '/' de conferences.mongueurs.net de Act
 
