@@ -11,7 +11,7 @@ use Act::Util;
 my $form = Act::Form->new(
   required => [qw(login first_name last_name email country)],
   constraints => {
-     login => sub { $_[0] =~ /^[A-Za-z0-9_]+$/ },
+     login => sub { $_[0] =~ /^[A-Za-z0-9_]{3,}$/ },
      email => 'email',
   }
 );
@@ -66,7 +66,6 @@ sub register
         }
         else {
             # map errors
-            my @errors;
             $form->{invalid}{login}      && push @errors, 'ERR_IDENTIFIER';
             $form->{invalid}{first_name} && push @errors, 'ERR_FIRST_NAME';
             $form->{invalid}{last_name}  && push @errors, 'ERR_LAST_NAME';

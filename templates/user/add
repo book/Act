@@ -72,7 +72,7 @@
      },
      ERR_IDENTIFIER => {
          en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
-         fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z_]</tt>)"
+         fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
      },
      ERR_FIRST_NAME => {
          en => "You must enter your first name"
