@@ -4,7 +4,7 @@ use Email::Valid;
 
 my %constraints = (
   email   => sub { Email::Valid->address($_[0]) },
-  numeric => sub { $_[0] =~ /^\d*$/ },
+  numeric => sub { $_[0] =~ /^\d+$/ },
   url     => sub { $_[0] =~ m!^(?:http|ftp)://\S+$! },
 );
 
@@ -57,7 +57,7 @@ sub validate
                 $code = $constraints{$type}
                     or die "unknown constraint type: $type\n";
             }
-            !defined($self->{fields}{$field}) || $code->($self->{fields}{$field})
+            !$self->{fields}{$field} || $code->($self->{fields}{$field})
                 or $self->{invalid}{$field} = $type;
         }
     }
