@@ -14,14 +14,14 @@ use Act::Util;
 use Act::Email;
 use Act::Template;
 
-# participation fields
-my @partfields = qw(tshirt_size nb_family);
-
-# registration form
+# form
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
                   accepted confirmed)],
+  filters  => {
+     map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
+  },
   constraints => {
      duration     => sub { $_[0] =~ /^(lightning|\d+)$/ },
      url_abstract => 'url',
