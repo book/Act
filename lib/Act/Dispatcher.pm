@@ -18,6 +18,7 @@ my %dispatch = (
     search   => { handler => 'Act::Handler::User::Search' },
     register => { handler => 'Act::Handler::User::Register' },
     user     => { handler => 'Act::Handler::User::Show' },
+    resetpw  => { handler => 'Act::Handler::User::ResetPassword' },
     stats    => { handler => 'Act::Handler::User::Stats' },
     talk     => { handler => 'Act::Handler::Talk::Show' },
     talks    => { handler => 'Act::Handler::Talk::List' },

@@ -40,6 +40,18 @@
 
 </form>
 
+<p>
+ <t>
+  <en>
+    Forgot your password? Click <a href="[% make_uri('resetpw') %]">here</a>.
+  </en>
+  <fr>
+    Mot de passe oublié ? Cliquez <a href="[% make_uri('resetpw') %]">ici</a>.
+  </fr>
+ </t>
+</p>
+
+<p>
 <font size="-1">
 <t>
  <en>
@@ -53,6 +65,7 @@
  </fr>
 </t>
 </font>
+</p>
 
 </center>
 [% END %]

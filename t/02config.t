@@ -11,6 +11,7 @@ my @simple = qw(
     database_user
     database_passwd
     email_smtp_server
+    email_sender_address
 );
 my @conf_simple = qw(
     talks_submissions_open
