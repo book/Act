@@ -19,7 +19,7 @@
 [% END %]
 [% IF global.request.user.is_orga %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('export') %]">
+   <a href="[% make_uri('timetable.ics') %]">
     <t>
      <fr>Export iCal</fr>
      <en>iCal export</en>
@@ -27,7 +27,7 @@
    </a>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('import') %]">
+   <a href="[% make_uri('ical_import') %]">
     <t>
      <fr>Import iCal</fr>
      <en>iCal import</en>

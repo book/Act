@@ -38,8 +38,8 @@ my %dispatch = (
     edittalk => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
     newevent  => { handler => 'Act::Handler::Event::Edit',  private => 1 },
     editevent => { handler => 'Act::Handler::Event::Edit',  private => 1 },
-    import   => { handler => 'Act::Handler::Talk::Import',   private => 1 },
-    export   => { handler => 'Act::Handler::Talk::Export',   private => 1 },
+    ical_import => { handler => 'Act::Handler::Talk::Import',   private => 1 },
+    'timetable.ics' => { handler => 'Act::Handler::Talk::Export',   private => 1 },
 );
 
 # translation handler
