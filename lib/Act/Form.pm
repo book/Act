@@ -41,9 +41,16 @@ sub validate
             exists $self->{fields}{$field}
                 or die "unknown field: $field\n";
             next if $self->{invalid}{$field}; # already in error
-            my $c = $constraints{$type}
-                or die "unknown constraint type: $type\n";
-            !defined($self->{fields}{$field}) || $c->($self->{fields}{$field})
+            my $code;
+            if (ref($type) eq 'CODE') {
+                $code = $type;
+                $type = 'custom';
+            }
+            else {
+                $code = $constraints{$type}
+                    or die "unknown constraint type: $type\n";
+            }
+            !defined($self->{fields}{$field}) || $code->($self->{fields}{$field})
                 or $self->{invalid}{$field} = $type;
         }
     }

@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 50;
+use Test::More tests => 60;
 
 my @tests = (
 { profile => {
@@ -96,6 +96,26 @@ my @tests = (
       fields => { r1 => 'abc' },
       valid  => 0,
       invalid => { r1 => 'numeric' },
+    },
+  ],
+},
+{ profile => {
+      optional    => 'r1',
+      constraints => { r1 => sub { $_[0] =~ /^[A-Z]*$/ } },
+  },
+  inputs => [
+    { input  => { r1 => 'ABC' },
+      fields => { r1 => 'ABC' },
+      valid  => 1,
+    },
+    { input  => {  },
+      fields => { r1 => undef },
+      valid  => 1,
+    },
+    { input  => { r1 => 'abc' },
+      fields => { r1 => 'abc' },
+      valid  => 0,
+      invalid => { r1 => 'custom' },
     },
   ],
 },
