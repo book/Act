@@ -2,33 +2,6 @@ package Act::Object;
 use Act::Config;
 use Carp;
 
-=head1 NAME
-
-Act::Object - A base object for Act objects
-
-=head1 SYNOPSIS
-
-  use base 'Act::Object';
-
-=head1 DESCRIPTION
-
-=head2 Methods
-
-The Act::Object class implements the following methods:
-
-=over 4
-
-=item new( %args )
-
-The constructor returns an existing Act::Object object, given 
-enough parameters to select a single entry.
-
-Calling new() without parameters returns an empty Act::Object.
-
-If no entry is found, return C<undef>.
-
-=cut
-
 sub new {
     my ( $class, %args ) = @_;
     $class->init();
@@ -45,16 +18,6 @@ sub new {
 
     $items->[0];
 }
-
-=item create( %args )
-
-Create a new entry in the database with the corresponding parameters
-set and return a Act::Object corresponding to the newly created object.
-
-FIXME: if %args correspond to several entries in the database,
-create() will return undef.
-
-=cut
 
 sub create {
     my ($class, %args ) = @_;
@@ -76,10 +39,6 @@ sub create {
     return $class->new( %args );
 }
 
-=item update
-
-=cut
-
 sub update {
     my ($self, %args) = @_;
     my $class = ref $self;
@@ -97,14 +56,6 @@ sub update {
     $Request{dbh}->commit;
     @$self{keys %args} = values %args;
 }
-
-=item accessors
-
-All the accessors give read access to the data held in the entry.
-The accessors are automatically named and created after the database
-columns.
-
-=cut
 
 sub init {
     my $class = shift;
@@ -124,27 +75,6 @@ sub init {
     # let's disappear ;-)
     *{"${class}::init"} = sub {};
 }
-
-=back
-
-=head2 Class methods
-
-Act::Object also defines the following class methods:
-
-=over 4
-
-=item get_items( %req )
-
-Return a reference to an array of Act::Object objects matching the request
-parameters.
-
-Acceptable parameters depend on the actual Act::Object subclass
-(See L<SUBCLASSES>).
-
-The C<limit> and C<offset> options can be given to limit
-the number of results. All other parameters are ignored.
-
-=cut
 
 sub get_items {
     my ( $class, %args ) = @_;
@@ -193,6 +123,70 @@ sub get_items {
     return $items;
 }
 
+1;
+
+__END__
+
+=head1 NAME
+
+Act::Object - A base object for Act objects
+
+=head1 SYNOPSIS
+
+  use base 'Act::Object';
+
+=head1 DESCRIPTION
+
+=head2 Methods
+
+The Act::Object class implements the following methods:
+
+=over 4
+
+=item new( %args )
+
+The constructor returns an existing Act::Object object, given 
+enough parameters to select a single entry.
+
+Calling new() without parameters returns an empty Act::Object.
+
+If no entry is found, return C<undef>.
+
+
+=item create( %args )
+
+Create a new entry in the database with the corresponding parameters
+set and return a Act::Object corresponding to the newly created object.
+
+FIXME: if %args correspond to several entries in the database,
+create() will return undef.
+
+=item accessors
+
+All the accessors give read access to the data held in the entry.
+The accessors are automatically named and created after the database
+columns.
+
+=back
+
+=head2 Class methods
+
+Act::Object also defines the following class methods:
+
+=over 4
+
+=item get_items( %req )
+
+Return a reference to an array of Act::Object objects matching the request
+parameters.
+
+Acceptable parameters depend on the actual Act::Object subclass
+(See L<SUBCLASSES>).
+
+The C<limit> and C<offset> options can be given to limit
+the number of results. All other parameters are ignored.
+
+
 =back
 
 These classes can also be called on an object instance.
@@ -210,6 +204,7 @@ Creating a subclass of Act::Object should be quite easy:
 
     # information used by create()
     our $table = "foos";     # the table holding object data
+    out $primary_key = 'foo_id';  # used by update()
 
     # information used by get_items()
     our $sql_stub = "SELECT f.* FROM foos f WHERE ";
@@ -219,7 +214,7 @@ Creating a subclass of Act::Object should be quite easy:
           map { ( $_, "(f.$_=?)" ) } qw( foo_id conf_id ),
     );
 
-    # Your class now inherits new(), create(), get_items()
+    # Your class now inherits new(), create(), update(), get_items()
     # and the AUTOLOADED accessors (for the column names)
 
     # Alias the search method
@@ -231,6 +226,3 @@ Creating a subclass of Act::Object should be quite easy:
 See Act::User for a slightly more complicated setup.
 
 =cut
-
-1;
-
