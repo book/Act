@@ -3,6 +3,7 @@ use Act::Config;
 use DBI;
 use Act::Talk;
 use Act::User;
+use Act::Event;
 
 $Request{dbh} = DBI->connect(
     $Config->database_test_dsn,
@@ -19,6 +20,9 @@ $Request{dbh}->do("DELETE FROM orders");
 $Request{dbh}->do("DELETE FROM users");
 $Request{dbh}->do("DELETE FROM news");
 $Request{dbh}->do("DELETE FROM translations");
+$Request{dbh}->do("DELETE FROM events");
+
+# shall we remove sequence numbers? (users_user_id_seq, etc)
 
 # fill the database with simple default data
 sub db_add_users {
@@ -88,6 +92,17 @@ sub db_add_talks {
         duration  => 20,
     );
     
+}
+
+sub db_add_events {
+    Act::Event->create(
+        title    => 'Lunch',
+        duration => 90,
+        conf_id  => 'conf',
+        title    => 'Lunch',
+        abstract => 'Lunch, outside of the conference premises',
+        room     => 'out',
+    );
 }
 
 # export the subs
