@@ -84,12 +84,12 @@ sub load_configs
         $ConfConfigs{$conf}->set(name => { });
         for( keys %Languages ) {
             $ConfConfigs{$conf}->name->{$_} =
-              # name in the langague
-              $ConfConfigs{$conf}->get("general_name_$_")
+              # name in the language
+              _get( $ConfConfigs{$conf}, "general_name_$_")
               # or in English
-              || $ConfConfigs{$conf}->get("general_name_en")
+              || _get( $ConfConfigs{$conf}, "general_name_en")
               # or in the conference default language (if defined)
-              || $ConfConfigs{$conf}->get("general_name_"
+              || _get( $ConfConfigs{$conf}, "general_name_"
                  . $ConfConfigs{$conf}->get("general_default_language") )
               # or in the first available language for the conference
               || $ConfConfigs{$conf}->get("general_name_"
@@ -136,7 +136,11 @@ sub _init_config
     $cfg->set(home => $home);
     return $cfg;
 }
-
+sub _get
+{
+    my ($cfg, $name) = @_;
+    return $cfg->_exists($name) ? $cfg->get($name) : '';
+}
 sub _load_config
 {
     my ($cfg, $dir) = @_;
