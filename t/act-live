@@ -1,0 +1,55 @@
+#!/usr/bin/perl -w
+use strict;
+use Test::More tests => 10;
+use WWW::Mechanize;
+
+# local config
+my $base = "http://127.0.0.1:2004/2004/";
+
+# restaure une base clean chez book
+if( @ARGV ) {
+system( "psql act < /home/book/sources/mongueurs/conferences/database/init_db_Pg.sql" );
+system( "psql act < /home/book/sources/mongueurs/conferences/actdb" );
+system( "psql act < /home/book/sources/mongueurs/conferences/database/local.sql" );
+}
+
+# lance le robot
+my $m = WWW::Mechanize->new;
+
+$m->get( $base );
+ok( $m->success, $m->uri . " is a success" );
+
+$m->follow_link( url_regex => qr/register/ );
+ok( $m->success, $m->uri . " is a success" );
+
+$m->submit_form(
+    button      => 'join',
+    form_number => 1,
+    fields      => {
+        login      => 'mech',
+        first_name => 'WWW',
+        last_name  => 'Mechanize',
+        email      => 'mech@mongueurs.net',
+        country    => 'zw',
+    }
+);
+ok( $m->success, $m->uri . " is a success" );
+
+$m->content =~ m!<b>mech</b>,.*?<b>(\w+)</b>\.!s;
+my $passwd = $1;
+like( $passwd, qr/^[a-z]{7}$/, "$passwd looks correct" );
+
+# FIXME  erreurs à la création d'un user
+
+# try to login
+$m->get( $base );
+ok( $m->success, $m->uri . " is a success" );
+
+$m->follow_link( url_regex => qr!/main! );
+
+
+
+
+
+
+
