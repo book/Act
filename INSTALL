@@ -1,0 +1,5 @@
+
+There is no Act/ directory in lib/, how will Apache find the modules?
+
+mkdir ~/lib; ln -s .../conferences/lib Act; export PERL5LIB=~/lib
+
