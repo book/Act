@@ -76,7 +76,8 @@ sub process
     # set global variables
     $self->variables(
       global => {
-         language   => $Request{language},
+         language         => $Request{language},
+         default_language => $Config->general_default_language,
       }
     );
 
