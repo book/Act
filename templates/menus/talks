@@ -50,7 +50,7 @@
      <fr>Soumettre une présentation</fr>
      <en>Submit a talk proposal</en>
      <it>Invia una proposta di intervento</it>
-     <pt>Submeter uma proposta de apresentação</pt>
+     <pt>Propôr apresentação</pt>
     </t>
    </a>
    [% END %]

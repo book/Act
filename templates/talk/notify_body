@@ -18,7 +18,7 @@
 <t><en>Lightning talk</en><pt>Apresentação relâmpago</pt><fr>Communication éclair</fr><it>Intervento lampo</it></t>
 [% ELSE -%]
 <t><en>Date</en><fr>Date </fr><pt>Data</pt><it>Data</it></t>: [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><pt>Ainda não marcada.</pt><en>Not scheduled yet.</en><it>Non ancora pianificato</it></t>[% END %]
-<t><en>Duration</en><pt>Duração</pt><fr>Durée </fr></t>: [% talk.duration %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it</t>
+<t><en>Duration</en><pt>Duração</pt><fr>Durée </fr><it>Durata</it></t>: [% talk.duration %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it</t>
 [%- END -%]
 
 [% IF talk.url_abstract -%]
