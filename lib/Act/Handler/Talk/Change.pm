@@ -72,12 +72,14 @@ sub handler
         } else {
             # a normal user can only edit his own talks
             if( $talk->user_id != $Request{user}->user_id ) {
-                $form->{invalid}{user_id} = 'invalid';
-                $ok = 0;
+                require Act::Handler::Talk::Show;
+                Act::Handler::Talk::Show->handler;
+                return;
             }
             # a normal user cannot comment a talk or edit the duration
             delete $fields->{comment};
-            $fields->{duration} = $talk->duration || $talk->lightning;
+            delete $fields->{is_lightning};
+            $fields->{duration} = $talk->lightning ? 'lightning' : $talk->duration;
         }
 
         if( not $fields->{duration} and not $fields->{is_lightning} ){
