@@ -11,6 +11,9 @@ use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
+    login => { handler => \&Act::Auth::login_form_handler },
+
+# for testing...
     coucou => {
       handler => sub {
         my $sth = $Request{dbh}->prepare('SELECT NOW()');

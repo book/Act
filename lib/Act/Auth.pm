@@ -10,6 +10,8 @@ use Act::Template::HTML;
 
 use base qw(Apache::AuthCookie);
 
+use constant LOGIN_PAGE => 'login';  # must match <Files login> section in httpd.conf
+
 sub access_handler ($$)
 {
     my ($self, $r) = @_;
@@ -17,6 +19,13 @@ sub access_handler ($$)
     # disable authentication unless required
     # (Apache doesn't let us do it the other way around)
     if ($Request{private}) {
+        # set correct login script url
+        $r->dir_config(ActLoginScript => 
+                  $Request{conference}
+                ? join('/', undef, $Request{conference}, LOGIN_PAGE)
+                : join('/', undef, LOGIN_PAGE));
+
+        # don't recognize_user
         $r->set_handlers(PerlFixupHandler  => [\&OK]);
     }
     else {
@@ -69,9 +78,9 @@ sub authen_cred ($$\@)
     return $sid;
 }
 
-sub login_form_handler ($$)
+sub login_form_handler
 {
-    my ($self, $r) = @_;
+    my $r = $Request{r};
 
     # HTTP header
     $r->content_type('text/html; charset=iso-8859-1');
