@@ -4,6 +4,11 @@ TODO
   + la mise en place dans le bon répertoire sur le site web
     peut se faire autrement, non ?
 - sortir 2004/ de conferences/
+  + repository act/ pour le code de la conf,
+  + conferences/ pour les conférences mongueurs (2004/, 2005, etc.)
+  + un repository par conférence/année gérée par YEF: YE 2005, les divers
+    workshops, etc.
+
 - faire fonctionner le site en multiconference
 
 - il y a un module Act::Invoice (pour les factures), mais je ne vois
@@ -32,6 +37,8 @@ TODO
   + aujourd'hui, le problème a été réglé en créant un événement LT,
     et en copiant la liste dedans
   => est-ce la solution définitive ?
+
+- réflexion sur les urls, vhosts, etc
 
 
 WISHLIST
