@@ -24,9 +24,8 @@
           <fr>modifier votre photo</fr>
           <en>manage your photo</en></t></a><br />
     </li>
-    [% IF global.config.talks_submissions_open %]
       [% IF talks.size %]
-        <li><t><en>Your talks</en><fr>Vos présentations </fr></t>:
+        <li><t><en>your talks</en><fr>vos présentations&nbsp;</fr></t>:
           <br />
           <ul>
            [% FOR t = talks %]
@@ -39,6 +38,7 @@
           </ul>
         </li>
       [% END %]
+    [% IF global.config.talks_submissions_open %]
       <li><a href="[% make_uri('newtalk') %]"><t>
             <fr>soumettre une présentation</fr>
             <en>submit a talk</en></t></a><br />
