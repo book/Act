@@ -21,9 +21,9 @@
 [% IF lightning %]
   <t><en>Lightning talk</en><fr>Communication éclair</fr></t> <br />
 [% ELSE %]
-  <b><t><en>Date:</en><fr>Date :</fr></t></b> [% given %] <br />
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr></t></b> [% given %] <br />
 
-<b><t><en>Duration:</en><fr>Durée :</fr></t></b> [% duration %] 
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 
    <t><en>minutes</en><fr>minutes</fr></t><br />
 [% END %]
 
