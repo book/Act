@@ -56,9 +56,7 @@
 [% END %]
 
 <br />
-<pre>
-[% abstract %]
-</pre>
+<pre>[% abstract %]</pre>
 
 [%END %]
 
