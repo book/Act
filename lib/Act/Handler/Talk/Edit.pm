@@ -68,7 +68,7 @@ sub handler {
 
         # validate form fields
         my $ok = $form->validate($Request{args});
-        $fields = { accepted => 0, confirmed => 0, %{$form->{fields}} };
+        $fields = { %{$form->{fields}}, accepted => 0, confirmed => 0 };
 
         # organizer specifies user id
         my $user_id = $Request{user}->is_orga
