@@ -34,7 +34,7 @@ sub validate
     if ($self->{profile}{dependencies}) {
         while (my ($field, $deps) = each %{$self->{profile}{dependencies}}) {
             $self->_set_field($field, $input->{$field});
-            if ($self->{fields}{$field}) {
+            if (exists $self->{fields}{$field}) {
                 $self->_required_fields($deps, $input);
             }
             else {
@@ -45,8 +45,7 @@ sub validate
     # check constraints
     if ($self->{profile}{constraints}) {
         while (my ($field, $type) = each %{$self->{profile}{constraints}}) {
-            exists $self->{fields}{$field}
-                or die "unknown field: $field\n";
+            next if not exists $self->{fields}{$field}; # useless check
             next if $self->{invalid}{$field}; # already in error
             my $code;
             if (ref($type) eq 'CODE') {
@@ -57,7 +56,7 @@ sub validate
                 $code = $constraints{$type}
                     or die "unknown constraint type: $type\n";
             }
-            !$self->{fields}{$field} || $code->($self->{fields}{$field})
+            $code->($self->{fields}{$field})
                 or $self->{invalid}{$field} = $type;
         }
     }
@@ -81,7 +80,7 @@ sub _required_fields
     for my $field (@$fields) {
         $self->_set_field($field, $input->{$field});
         $self->{invalid}{$field} = 'required'
-            unless $self->{fields}{$field};
+            unless exists $self->{fields}{$field};
     }
 }
 sub _optional_fields
@@ -101,7 +100,7 @@ sub _set_field
             s/\s+$//;
         }
     }
-    $self->{fields}{$field} = $value;
+    $self->{fields}{$field} = $value if defined $value and $value ne '';
 }
 
 1;
