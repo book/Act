@@ -1,5 +1,8 @@
 [% WRAPPER ui
-   title = { en => 'YAPC::Europe Statistics', fr => "Statistiques pour YAPC::Europe" },
+   title = {
+     en => "[% global.conference.name %] Statistics"
+     fr => "Statistiques pour [% global.conference.name %]"
+   }
 %]
 
 <p>
