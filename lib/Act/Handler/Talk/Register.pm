@@ -16,7 +16,10 @@ my $form = Act::Form->new(
   required => [qw(title abstract duration)],
   optional => [qw(url_abstract url_talk)],
   constraints => {
-     duration     => sub { $_[0] eq 'lightning' || exists $Config->talks_durations->{$_[0]} },
+     duration     => sub { $_[0] eq 'lightning'
+                       || $Request{user}->is_orga && $_[0] =~ /^\d+$/
+                       || exists $Config->talks_durations->{$_[0]}
+                     },
      url_abstract => 'url',
      url_talk     => 'url',
   }
@@ -72,6 +75,7 @@ sub handler
 
             # optional email notification
             Act::Handler::Talk::Util::notify(insert => $talk);
+            return;
         }
         else {
             # map errors
