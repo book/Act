@@ -40,7 +40,7 @@ sub validate
         while (my ($field, $type) = each %{$self->{profile}{constraints}}) {
             exists $self->{fields}{$field}
                 or die "unknown field: $field\n";
-            next if $self->{invalid}{$field}; # missing required field
+            next if $self->{invalid}{$field}; # already in error
             my $c = $constraints{$type}
                 or die "unknown constraint type: $type\n";
             $c->($self->{fields}{$field})
@@ -130,21 +130,25 @@ The value is a list of names of mandatory fields.
 
    optional => [ 'field3', 'field4' ]
 
-The value is a list of names of optional fields. The C<fields>
-method will return all fields.
+The value is a list of names of optional fields.
+A simple scalar can be used instead of an array reference when
+only one field needs to be specified:
+
+   required => 'field'
+
+The constraints key introduces specific validation schemes.
 
    constraints => {
       field1  => type1,
       field2  => type2,
    }
 
-The constraints key introduces specific validation schemes.
 For each entry, the key is the name of the field the constraint
 is to be applied to, and the value is the type of the constraint;
 The following constraint types are currently available:
 
-   email       # field value must be a syntaxically valid email address
-   numeric     # field value must be a number
+email       field value must be a syntaxically valid email address
+numeric     field value must be a number
 
 =item validate($input)
 
