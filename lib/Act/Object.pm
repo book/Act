@@ -53,7 +53,7 @@ sub create {
     my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
                       join(",", keys %args), join(",", ( "?" ) x keys %args);
     my $sth = $Request{dbh}->prepare_cached( $SQL );
-    normalize( \%args, 'pg', $data_type );
+    _normalize( \%args, 'pg', $data_type );
     $sth->execute( values %args );
 
     # retrieve inserted row's id
@@ -80,11 +80,11 @@ sub update {
             . join(',', map "$_=?", keys %args)
             . " WHERE $pkey=?";
     my $sth = $Request{dbh}->prepare_cached( $SQL );
-    normalize( \%args, 'pg', $data_type );
+    _normalize( \%args, 'pg', $data_type );
     $sth->execute(values %args, $self->{$pkey});
     $Request{dbh}->commit;
     @$self{keys %args} = values %args;
-    $self->normalize( 'perl' );
+    $self->_normalize( 'perl' );
 }
 
 sub clone {
@@ -93,7 +93,7 @@ sub clone {
 }
 
 # type: pg | perl
-sub normalize {
+sub _normalize {
     my ( $self, $type, $data_type ) = @_;
     my $class = ref $self;
     $data_type ||= do { no strict 'refs'; \%{"${class}::data_type"} };
@@ -203,7 +203,7 @@ sub get_items {
 
     my ($items, $item) = [ ];
     push @$items, bless $item, $class
-      and $item->normalize( 'perl' )
+      and $item->_normalize( 'perl' )
       while $item = $sth->fetchrow_hashref();
 
     $sth->finish();
