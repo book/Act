@@ -2,6 +2,13 @@ TODO
 ====
 - faire fonctionner le site en multiconference
 
+- gestion de l'inscription :
+  + sur sa page main, le WebUser doit voir :
+    - les conférences Act auquelles il a participé/est inscrit
+      (possibilité de désincription pour celle qui sont ouvertes
+      et pour lesquelles il n'est pas committed)
+    - les conférences Act ouvertes auxquelles il peut s'inscrire
+
 - un user doit pouvoir accéder à une page perso HORS CONFERENCE,
   par exemple, pour éditer sa bio, changer sa photo, s'inscrire
   à une ou plusieurs conférences, voir toutes ses factures, etc.
@@ -36,6 +43,13 @@ TODO
   => est-ce la solution définitive ?
 
 - réflexion sur les urls, vhosts, etc
+
+- gestion des favicon.ico/png en fonction de la conf
+
+- virer le '/' de conferences.mongueurs.net de Act
+
+- un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
+  juste aux users
 
 
 WISHLIST
