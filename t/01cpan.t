@@ -10,6 +10,8 @@ my @modules = (
                  'DBI',
                  'Digest::MD5',
                  'HTML::Entities',
+                 'MIME::Lite',
+                 'Net::SMTP',
                  'Template',
                  'Test::MockObject',
                  'URI::Escape',

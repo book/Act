@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 9;
+use Test::More tests => 10;
 
 BEGIN { use_ok('Act::Config') }
 ok($Config, "config chargée");
@@ -13,5 +13,7 @@ for my $key (qw(dsn user passwd)) {
   my $pref = "database_$key";
   ok($Config->$pref, $pref);
 }
+
+ok($Config->email_smtp_server);
 
 __END__
