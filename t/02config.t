@@ -26,7 +26,6 @@ my @conf_simple = qw(
     talks_start_date
     talks_end_date
     payment_open
-    payment_amount
     payment_type
 );
 
