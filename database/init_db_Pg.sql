@@ -75,3 +75,14 @@ CREATE TABLE translations
 );
 CREATE INDEX translations_idx ON translations ( tbl, col, id );
 
+/* conference news */
+DROP   TABLE news;
+CREATE TABLE news
+(
+    conf_id  text,
+    lang     text,
+    date     date,
+    text     text
+);
+CREATE INDEX news_idx ON news ( conf_id, lang );
+
