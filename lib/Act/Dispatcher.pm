@@ -6,12 +6,14 @@ use Apache::Cookie ();
 use DBI;
 
 use Act::Config;
+use Act::Handler::User;
 
 use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
-    login => { handler => \&Act::Auth::login_form_handler, status => DONE },
+    login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
+    search => { handler => \&Act::Handler::User::search },
 
 # for testing...
     coucou => {
