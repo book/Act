@@ -18,7 +18,8 @@ my @partfields = qw(tshirt_size nb_family);
 # registration form
 my $form = Act::Form->new(
   required => [qw(title abstract)],
-  optional => [qw(url_abstract url_talk comment duration is_lightning)],
+  optional => [qw(url_abstract url_talk comment duration is_lightning
+                  accepted confirmed)],
   constraints => {
      duration     => sub { $_[0] =~ /^(lightning|\d+)$/ },
      url_abstract => 'url',
@@ -77,8 +78,7 @@ sub handler
                 return;
             }
             # a normal user cannot comment a talk or edit the duration
-            delete $fields->{comment};
-            delete $fields->{is_lightning};
+            delete @{$fields}{qw( comment is_lightning accepted )};
             $fields->{duration} = $talk->lightning ? 'lightning' : $talk->duration;
         }
 
@@ -91,6 +91,8 @@ sub handler
             # handle is_lightning (from orga's form)
             $fields->{duration} = 'lightning' if delete $fields->{is_lightning};
             $fields->{lightning} = 0;
+            # boolean fields
+            $fields->{$_} = $fields->{$_} ? 1 : 0 for qw( accepted confirmed );
 
             # separate lightning from duration
             if ($fields->{duration} eq 'lightning') {

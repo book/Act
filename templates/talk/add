@@ -130,6 +130,16 @@
     <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
   </td>
 </tr>
+<tr>
+  <td align="right" valign="top"><t><en>Status</en><fr>État</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
+    <t><en>accepted</en><fr>accepté</fr></t><br />
+    <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+    <t><en>confirmed</en><fr>confirmé</fr></t><br />
+   </td>
+</tr>
 [% END %]
 <tr>
    <td colspan="3" align="right">
