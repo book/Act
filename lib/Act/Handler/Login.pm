@@ -17,7 +17,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         destination => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
-        action      => '/LOGIN',
+        action      => Act::Util::make_uri('LOGIN'),
     );
     $template->process('login');
     $Request{status} = DONE;
