@@ -1,11 +1,17 @@
 TODO
 ====
 
+- gestion des talks:
+  + maintenant que l'on peut afficher les talks non acceptés, il faut
+    regarder les divers templates et vérifier qu'on est cohérent sur
+    accepté/non accepté
+
 - gestion de l'inscription :
   + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
     les participants qui ne sont pas venus
 
 - page de modification du mot de passe
+- quid de resetpw si le user est loggé ? redirection vers updatepw ?
 
 - possibilite (dans act.ini) de rendre visible les talks non acceptés
   (demandé par ambs sur irc)
