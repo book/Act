@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More tests => 11;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -40,6 +40,27 @@ $talk2 = Act::Talk->create(
    confirmed => 'false',
 );
 isa_ok( $talk2, 'Act::Talk' );
+
+# check the talk value (it works because $user2 has only one talk)
+is_deeply( Act::Talk->new( user_id => $user2->user_id ),
+   {
+   talk_id      => $talk2->talk_id,
+   user_id      => $user2->user_id,
+   title        => 'test',
+   conf_id      => 'conf',
+   duration     => 5,
+   given        => undef,
+   url_talk     => undef,
+   url_abstract => undef,
+   abstract     => undef,
+   room         => undef,
+   comment      => undef,
+   # boolean values
+   lightning    => 1,
+   accepted     => 0,
+   confirmed    => 0,
+   },
+  "User 2's talk" );
 
 # talks are sorted by ids, which are incremental
 $talks = $user->talks;
