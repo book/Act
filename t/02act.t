@@ -7,9 +7,9 @@ my @modules;
 
 find( sub {
           return unless /\.pm$/; local $_ = $File::Find::name;
-          s!/!::!g; s/^lib/Act/; s/\.pm$//;
+          s!^lib/!!; s!/!::!g; s/\.pm$//;
           push @modules, $_;
-      }, 'lib' );
+      }, 'lib/Act' );
 
 plan tests => scalar(@modules);
 
