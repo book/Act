@@ -3,6 +3,8 @@ package Act::Template::Parser;
 use strict;
 use base qw(Template::Parser);
 use constant LANG_RE => qr{<([a-z]{2})>(.*?)</\1>}s;
+# FIXME D@vid
+# $1 plutôt ?
 
 sub new
 {
