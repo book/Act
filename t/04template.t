@@ -95,9 +95,9 @@ my @html_templates = (
       sections => [ { text => '[% v %]' } ],
     },
     {
-      var => { v => 'a"b' },
+      var => { v => '<">' },
       in  => '[% v | form_unescape %]',
-      out => 'a"b',
+      out => '&lt;"&gt;',
       sections => [ { text => '[% v | form_unescape %]' } ],
     },
     {

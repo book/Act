@@ -8,7 +8,7 @@ use base 'Act::Template';
 use Act::Config;
 
 my %filters = (
-    form_unescape  => sub { HTML::Entities::decode($_[0], '"') },
+    form_unescape  => sub { (my $x = $_[0]) =~ s/&quot;/"/g; $x },   # "
 );
 
 sub _init
