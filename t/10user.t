@@ -1,4 +1,4 @@
-use Test::More tests => 8;
+use Test::More tests => 9;
 use Act::User;
 use t::Util;   # load the test database
 
@@ -26,6 +26,11 @@ $user = Act::User->create(
 );
 isa_ok( $user, 'Act::User' );
 is( $user->login, 'test2', "check accessor" );
+
+# check the Act::User::fields hash
+my %h = %{ $user };
+@h{keys %h} = ( 1 ) x keys %h;
+is_deeply( \%h, \%Act::User::fields, "All the fields are here" );
 
 # ENOSUCHUSER
 $user = Act::User->new( login => 'foo' );

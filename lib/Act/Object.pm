@@ -95,6 +95,7 @@ sub init {
 
     # create all the accessors at once
     for my $a (@$fields) { *{"${class}::$a"} = sub { $_[0]{$a} } }
+    *{"${class}::fields"} = { map { ($_=> 1) } @$fields };
 
     # let's disappear ;-)
     *{"${class}::init"} = sub {};
