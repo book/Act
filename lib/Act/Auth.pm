@@ -6,7 +6,7 @@ use Apache::Constants qw(OK);
 use Digest::MD5 ();
 
 use Act::Config;
-use Act::User;
+use Act::WebUser;
 use Act::Util;
 
 use base qw(Apache::AuthCookie);
@@ -54,7 +54,7 @@ sub authen_cred ($$\@)
     $sent_pw or do { $r->log_error("$prefix No password");   return undef; };
 
     # search for this user in our database
-    my $user = Act::User->new( login => lc $login );
+    my $user = Act::WebUser->new( login => lc $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
     # compare passwords
     my $digest = Digest::MD5->new;
@@ -81,7 +81,7 @@ sub authen_ses_key ($$$)
     my ($self, $r, $sid) = @_;
 
     # search for this user in our database
-    my $user = Act::User->new( session_id => $sid );
+    my $user = Act::WebUser->new( session_id => $sid );
 
     # unknown session id
     return () unless $user;

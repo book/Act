@@ -108,11 +108,6 @@ sub handler
     # the Apache request object
     $Request{r} = Apache::Request->instance(shift);
 
-    # if we're in a conference we can know more about the current user
-    $Request{user} = Act::User->new(user_id => $Request{user}->user_id,
-                                    conf_id => $Request{conference})
-        if $Request{user} && $Request{conference};
-
     # dispatch
     if( ref $dispatch{$Request{action}}{handler} eq 'CODE' ) {
         $dispatch{$Request{action}}{handler}->();
