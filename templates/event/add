@@ -104,7 +104,7 @@
   </t></td>
   <td>&nbsp;</td>
   <td>
-    <textarea name="abstract" cols="50" rows="10">[% abstract %]</textarea>
+    <textarea name="abstract" cols="50" rows="10">[% abstract | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>

@@ -7,9 +7,16 @@ use base 'Act::Template';
 
 use Act::Config;
 
+my %filters = (
+    form_unescape  => sub { HTML::Entities::decode($_[0], '"') },
+);
+
 sub _init
 {
     my ($self, $options) = @_;
+
+    $options->{FILTERS} ||= {};
+    @{$options->{FILTERS}}{keys %filters} = values %filters;
 
     for (qw(PRE_CHOMP POST_CHOMP)) {
         $options->{$_} = CHOMP_COLLAPSE

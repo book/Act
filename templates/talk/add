@@ -130,7 +130,7 @@
   </t></td>
   <td>&nbsp;</td>
   <td>
-    <textarea name="abstract" cols="50" rows="10">[% abstract %]</textarea>
+    <textarea name="abstract" cols="50" rows="10">[% abstract | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@
     <it>Il campo dei commenti serve per fornire informazioni
     aggiuntive sull'intervento agli organizzatori.</it>
     </t><br />
-    <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
+    <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>

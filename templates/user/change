@@ -210,7 +210,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <textarea name="address" cols="25" rows="5" >[% address %]</textarea>
+      <textarea name="address" cols="25" rows="5" >[% address | form_unescape %]</textarea>
    </td>
 </tr>
 <tr>
@@ -310,7 +310,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <textarea name="gpg_pub_key" cols="25" rows="5">[% gpg_pub_key %]</textarea>
+      <textarea name="gpg_pub_key" cols="25" rows="5">[% gpg_pub_key | form_unescape %]</textarea>
    </td>
 </tr>
 <tr>
@@ -365,7 +365,7 @@
          <fr>(merci de compléter au moins celle-ci)</fr>
          <it>(scrivete almeno questa)</it></t>
       [% END %]<br />
-      <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang %]</textarea>
+      <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang | form_unescape %]</textarea>
       <br />
       [% END %]
    </td>
