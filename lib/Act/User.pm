@@ -69,6 +69,8 @@ sub AUTOLOAD {
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
 
+sub pm_group { ucfirst $_[0]{pm_group} }
+
 sub talks {
     my ($self, %args) = @_;
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
