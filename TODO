@@ -11,6 +11,11 @@ TODO
 
 - faire fonctionner le site en multiconference
 
+- un user doit pouvoir accéder à une page perso HORS CONFERENCE,
+  par exemple, pour éditer sa bio, changer sa photo, s'inscrire
+  à une ou plusieurs conférences, voir toutes ses factures, etc.
+  + aujourd'hui, le site suppose toujours que conf_id est défini...
+
 - il y a un module Act::Invoice (pour les factures), mais je ne vois
   pas de Act::Handler::User::Invoice pour les afficher.
   + le lien vers cette page devrait apparaitre seulement si invoice_ok
