@@ -26,6 +26,13 @@ my ($GlobalConfig, %ConfConfigs);
             fmt_date_short     => '%m/%d/%y',
             fmt_time           => '%H:%M',
           },
+    pt => { name               => 'Português',
+            fmt_datetime_full  => '%A, %e de %B de %Y, %H:%M',
+            fmt_datetime_short => '%y/%m/%d %H:%M',
+            fmt_date_full      => '%A, %e de %B de %Y',
+            fmt_date_short     => '%y/%m/%d',
+            fmt_time           => '%H:%M',
+          },
 );
 
 # load configurations

@@ -4,6 +4,15 @@ INSERT INTO translations VALUES('users', 'civility', 1, 'en', 'Mr.');
 INSERT INTO translations VALUES('users', 'civility', 2, 'en', 'Mrs.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'en', 'Ms.');
 
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'en', 'Outside' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'en', 'Cheque' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'en', 'Cash' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
+
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'en', 'Andorra');
 INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'en', 'United Arab Emirates');
@@ -210,20 +219,20 @@ INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'en', 'Zambia');
 INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'en', 'Zaire');
 INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'en', 'Zimbabue');
 
-/* hard coded rooms */
-INSERT INTO translations VALUES ('rooms', 'name', 'out', 'en', 'Outside' );
-INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
-
-/* payment means */
-INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'en', 'Cheque' );
-INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'en', 'Cash' );
-INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
-
 /** FRENCH */
 /* civility */
 INSERT INTO translations VALUES('users', 'civility', 1, 'fr', 'M.');
 INSERT INTO translations VALUES('users', 'civility', 2, 'fr', 'Mme.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'fr', 'Mlle.');
+
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'fr', 'Extérieur' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Liquide' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'fr', 'En ligne' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'fr', 'Andorre');
@@ -432,12 +441,19 @@ INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'fr', 'Zambie');
 INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'fr', 'Zaïre');
 INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'fr', 'Zimbabwe');
 
+/** PORTUGUESE */
+/* civility */
+INSERT INTO translations VALUES('users', 'civility', 1, 'pt', 'Sr.');
+INSERT INTO translations VALUES('users', 'civility', 2, 'pt', 'Sra.');
+INSERT INTO translations VALUES('users', 'civility', 3, 'pt', 'Sra.');
+
 /* hard coded rooms */
-INSERT INTO translations VALUES ('rooms', 'name', 'out', 'fr', 'Extérieur' );
-INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'pt', 'Exterior' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'pt', 'Local da conferência' );
 
 /* payment means */
-INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );
-INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Liquide' );
-INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'fr', 'En ligne' );
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'pt', 'Cheque' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
+/* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
