@@ -16,7 +16,7 @@ my $form = Act::Form->new(
   }
 );
 
-sub register
+sub handler
 {
     # this is not for logged in users!
     defined($Request{user}) and die "don't call register() for logged users!";

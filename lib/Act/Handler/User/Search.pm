@@ -5,7 +5,7 @@ use Act::Template::HTML;
 use Act::User;
 use Act::Country;
 
-sub search {
+sub handler {
 
     # process the search template
     my $template = Act::Template::HTML->new();

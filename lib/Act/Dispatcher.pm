@@ -6,18 +6,19 @@ use Apache::Cookie ();
 use DBI;
 
 use Act::Config;
-use Act::Handler::User::Search;
-use Act::Handler::User::Register;
 use Act::Util;
+use Act::Auth;
 
 use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
     # regular handlers
-    search   => { handler => \&Act::Handler::User::Search::search },
-    register => { handler => \&Act::Handler::User::Register::register },
-
+    search   => { handler => 'Act::Handler::User::Search' },
+    register => { handler => 'Act::Handler::User::Register' },
+    newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
+    user     => { handler => 'Act::Handler::User::Show' },
+    
     # special stuff
     login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
 
@@ -105,7 +106,14 @@ sub handler
     $Request{r} = shift;
 
     # dispatch
-    $dispatch{$Request{action}}{handler}->();
+    if( ref $dispatch{$Request{action}}{handler} eq 'CODE' ) {
+        $dispatch{$Request{action}}{handler}->();
+    }
+    else {
+        eval "require $dispatch{$Request{action}}{handler};";
+        die "require $dispatch{$Request{action}}{handler} failed!" if $@;
+        $dispatch{$Request{action}}{handler}->handler();
+    }
 
     return $dispatch{$Request{action}}{status} || OK;
 }
