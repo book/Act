@@ -120,6 +120,27 @@ Act::Template::HTML is a subclass of Act::Template which adds the following feat
   &amp; &lt; and &gt;. This works on nested data structures as well.
 
 
+* Adding a new conference
+
+Decide the name of your conference. We'll use act-2004 as an example.
+
+    $ACTHOME/
+        act-2004/
+            conf/             # local configuration
+            static/           # "static" multilingual .html pages
+            templates/        # TT templates
+        wwwdocs/              # static files
+            photos/           # user photos (general_dir_photos conf item)
+            act-2004/
+                conf/         # local configuration items
+                images/
+                static/       # "static" multilingual .html pages
+                templates/    # local templates or global overrides
+
 Several forms used by Act used the WRAPPER "ui" for adding the local
 look&feel. The name "ui" is therefore the standard template for redefining
 the user interface.
+
+If you plan to modify some default templates, you should copy/paste*
+them to the local templates/ directory.
+
