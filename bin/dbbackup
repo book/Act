@@ -22,7 +22,7 @@ $opts{v} = 1 if $opts{n};
 # build pg_dump command line
 my @cmd = (
             $Config->database_pg_dump,
-            '-aOR',
+            '-cORx',
             '-Fp',
             -U => $Config->database_user,
             -f => $Config->database_dump_file,
