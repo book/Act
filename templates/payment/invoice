@@ -13,7 +13,7 @@
           <table>
             <tr>
               <td>
-                <img src="http://conferences.mongueurs.net/2004/images/journees-perl-2004.png" alt="Logo Conférence" />
+                <img src="/2004/images/journees-perl-2004.png" alt="Logo Conférence" />
               </td>
               <td width="20%" />
               <td>
@@ -29,10 +29,10 @@
         <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td>
+        <td valign="top" width="50%">
           [% means %]
         </td>
-        <td>
+        <td valign="top" width="50%">
           [% first_name %]&nbsp;[% last_name %]<br>
           [% company %]<br>
           [% address %]
@@ -57,12 +57,12 @@
             <tr>
               <td align="left">Inscription "Les journées Perl 2004"</td>
               <td align="center">1</td>
-              <td align="right">25.00</td>
-              <td align="right">25.00</td>
+              <td align="right">[% amount %]</td>
+              <td align="right">[% amount %]</td>
             </tr>
             <tr>
               <td colspan="3" align="right">Total à payer</td>
-              <td align="right">25.00</td>
+              <td align="right">[% amount %]</td>
             </tr>
           </table>
         </td>
