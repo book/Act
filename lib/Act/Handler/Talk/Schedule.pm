@@ -7,7 +7,6 @@ use strict;
 sub handler {
     my (%table, %index, %room, %time); # helpful structures
     my ($todo, $globals) = ([],[]);    # events lists
-    my $out = qr/^(?:out|venue)$/;
 
     # sort and separate global and normal items
     # compute the times to show in the chart
@@ -18,17 +17,18 @@ sub handler {
     # default date
     map { $_->{datetime} ||= DateTime::Format::Pg->parse_timestamp($Config->talks_start_date); $_ }
     @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
-        my $day = $_->datetime->ymd; # current day
-        $table{$day} ||= [];         # create table structure
-        $room{$_->room}++;           # compute the room list
-        $_->{height} = 1;            # minimum height
+        my $day = $_->datetime->ymd;  # current day
+        $table{$day} ||= [];          # create table structure
+        $room{$_->room}++             # compute the room list
+            unless $_->is_global;
+        $_->{height} = 1;             # minimum height
         # fill the rows
         $_->{end} = $_->datetime->clone;
         $_->{end}->add( minutes => $_->duration );
         $time{$day}{$_->datetime->strftime('%H:%M')} = $_->datetime->clone;
         $time{$day}{$_->{end}->strftime('%H:%M')}    = $_->{end};
         # separate global and local items
-        push @{ $_->room =~ $out ? $globals : $todo }, $_;
+        push @{ $_->is_global ? $globals : $todo }, $_;
     }
 
     # create the room structures
@@ -39,7 +39,7 @@ sub handler {
     # create the empty table
     for my $day (keys %table) {
         $table{$day} = [
-            map { [ $time{$day}{$_}, { map { $_ => [] } keys %room } ] }
+            map { [ $time{$day}{$_}, { map { $_ => [] } keys %room }, [] ] }
                 sort keys %{$time{$day}}
         ];
         $index{$day} = 0;
@@ -50,21 +50,19 @@ sub handler {
     for( @$globals ) {
         my $dt  = $_->datetime;
         my $day = $dt->ymd;
-        my $r   = $_->room;
         my $row = $table{$day};
         
         # skip to find where to put this event
         $index{$day}++ while $row->[ $index{$day} ][0] < $dt;
         my $i = $index{$day};
-        push @{ $row->[$i][1]{$r} }, $_;
-        $room{$r}{$day}[$i]++;
-        #$room{$_}{$day}[$i] = 1 for keys %room;
+        push @{ $row->[$i][2] }, $_;
         $i++;
         splice @$row, $i++, 1 while $i < @$row and $row->[$i][0] < $_->{end};
     }
 
     # the %table structure is made of rows like the following
-    # [ $dt, { r1 => [], r2 => [] } ]
+    #  date, normal talks,           globals
+    # [ $dt, { r1 => [], r2 => [] }, [] ]
 
     # insert the rest of the talks
     $index{$_} = 0 for keys %table;
@@ -79,17 +77,20 @@ sub handler {
         $index{$day}++ while $row->[ $index{$day} ][0] < $dt;
         # update the table structure
         my $i = $index{$day};
+        # FIXME move away if there's a global talk
+        #if( @{ $row->[$i][2] } ) {
+        #    
+        #}
         push @{ $row->[$i][1]{$r} }, $_;
         $room{$r}{$day}[$i++]++;
         # insert the event several times if it spans several blocks
         my $n = 1;
         while($i < @$row and $row->[$i][0] < $_->{end}) {
-            my @globals = map { $row->[$i][1]{$_} ? (@{ $row->[$i][1]{$_} }): () } qw( out venue );
-            if( @globals ) { # we only care about the longuest
+            if( @{ $row->[$i][2] } ) { # we only care about the longuest
                 # split the talk in two
                 my $new = bless { %$_, height => 1 }, 'Act::TimeSlot';
-                $new->{datetime} = $globals[-1]->{end}->clone;
-                $new->{duration} = ($_->{end} - $globals[-1]->datetime)->delta_minutes;
+                $new->{datetime} = $row->[$i][2][-1]->{end}->clone;
+                $new->{duration} = ($_->{end} - $row->[$i][2][-1]->datetime)->delta_minutes;
                 $_->{duration} -= $new->{duration};
                 $new->{end} = $new->{datetime}->clone->add( minutes => $new->duration );
                 ( $new->{title} = $_->title ) =~ s/(?: \((\d+)\))?$/ (@{[($1||1)+1]})/;
@@ -119,7 +120,7 @@ sub handler {
             $width{$r}{$day} = $max;
         }
         $maxwidth{$day} = 0;
-        $maxwidth{$day} += $width{$_}{$day} for grep { !m/$out/ } keys %room;
+        $maxwidth{$day} += $width{$_}{$day} for keys %room;
     }
 
     # finish line
@@ -129,22 +130,17 @@ sub handler {
         for my $row ( @{$table{$day}} ) {
             my $global = 0;
             my @row = ( $row->[0]->strftime('%H:%M') );
-            for( keys %room ) {
-                for( @{$row->[1]{$_}}) {
-                    $global++ if $_->room =~ $out;
-                }
-            }
+            $global++ if @{ $row->[2] };
             for( sort keys %room ) {
                 push @row, @{ $row->[1]{$_} };
-                push @row, ( $global ? () : ("[$_]") x ( $width{$_}{$day} - $room{$_}{$day}[$i] ) )
-                    unless m/$out/;
+                push @row, ( $global ? () : ("[$_]") x ( $width{$_}{$day} - $room{$_}{$day}[$i] ) );
             }
+            push @row, @{$row->[2]};
             # fill the blanks
             @$row = @row;
             $i++;
         }
     }
-    delete $room{$_} for qw( out venue );
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
