@@ -12,8 +12,8 @@ our $primary_key = 'user_id';
 our %sql_stub    = (
     select     => "u.*",
     select_opt => {
-        has_talk => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?) AS has_talk" ] : () },
-        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND t.accepted IS TRUE AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?) AS committed" ] : () },
+        has_talk  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=?) AS has_talk" ] : () },
+        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) AS committed" ] : () },
     },
     from       => "users u",
     from_opt   => [
