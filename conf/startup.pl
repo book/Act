@@ -26,11 +26,12 @@ use Act::Config;
 use Act::Dispatcher;
 use Act::Email;
 use Act::Form;
-use Act::Static;
 use Act::Talk;
 use Act::Template;
 use Act::User;
 use Act::Util;
+
+use Act::Handler::Static;
 
 # preload DBD drivers
 DBI->install_driver('Pg');

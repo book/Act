@@ -1,6 +1,6 @@
 #  display "Static" multilingual pages
 
-package Act::Static;
+package Act::Handler::Static;
 
 use strict;
 
@@ -17,7 +17,7 @@ __END__
 
 =head1 NAME
 
-Act::Static - serve multilingual "static" pages
+Act::Handler::Static - serve multilingual "static" pages
 
 =head1 DESCRIPTION
 

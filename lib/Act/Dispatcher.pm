@@ -62,7 +62,7 @@ sub trans_handler
     }
     # pseudo-static pages
     if ($r->uri =~ /\.html$/) {
-        return _dispatch($r, 'Act::Static');
+        return _dispatch($r, 'Act::Handler::Static');
     }
     # we're looking for /x/y where
     # x is a conference name, and
