@@ -170,7 +170,7 @@
    </tr>
 [% END %]
 
-[%- IF bio.keys %]
+[%- IF bio.keys.size %]
    <tr>
       <td align="right" valign="top">
          Bio
