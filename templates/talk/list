@@ -42,7 +42,7 @@
            [% IF global.request.user.is_orga
               || global.request.user.user_id == t.user_id %]
            (<a href="[% make_uri( 'edittalk', 'talk_id', t.talk_id ) %]"><t>
-           <en>Edit</en><fr>Éditer</fr></t></a>)
+           <en>edit</en><fr>modifier</fr></t></a>)
            [% END %]
     </a></td>
     <td>[% IF t.lightning %]

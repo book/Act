@@ -25,7 +25,8 @@
           <en>manage your photo</en></t></a><br />
     </li>
       [% IF talks.size %]
-        <li><t><en>your talks</en><fr>vos présentations&nbsp;</fr></t>:
+        <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
+        <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr></t>:
           <br />
           <ul>
            [% FOR t = talks %]
@@ -33,7 +34,9 @@
                  [%- "<b>"  IF t.accepted %]
                  [% t.title %]
                  [%- "</b>" IF t.accepted %]
-             </a></li>
+             </a>
+             (<a href="[% make_uri('edittalk', 'talk_id', t.talk_id) %]"><t>
+             <en>edit</en><fr>modifier</fr></t>)</a></li>
            [% END %]
           </ul>
         </li>
