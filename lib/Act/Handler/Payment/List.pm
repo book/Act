@@ -15,7 +15,7 @@ sub handler
         return;
     }
     # retrieve users and their payment info
-    my $users = Act::User->get_items();
+    my $users = Act::User->get_items( conf_id => $Request{conference} );
     my %orders;
     for my $u (@$users) {
         $orders{$u->user_id} = Act::Order->new(
