@@ -57,6 +57,15 @@ TODO
 - un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
   juste aux users
 
+MAIN
+====
+la page main d'un user contient:
+- les liens pour acheter le billet, s'inscrire, changer sa photo, ses infos
+- la liste des confs auxquelles il a participé, avec un lien vers
+  l'order correspondant (i.e. facture) s'il a payé
+- la liste des confs ouvertes (pour pouvoir visiter le site associé
+  et s'inscrire)
+
 
 WISHLIST
 ========
