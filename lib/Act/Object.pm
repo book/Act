@@ -1,5 +1,6 @@
 package Act::Object;
 use Act::Config;
+use Carp;
 
 =head1 NAME
 
@@ -33,8 +34,10 @@ sub new {
 
     return bless {}, $class unless %args;
 
-    # FIXME - check if the keys of %args are in fields
-    # croak if some aren't?
+    for( keys %args ) {
+        croak "$_ is not a valid column for $class"
+          unless exists ${"${class}::fields"}{$_};
+    }
 
     my $items = $class->get_items( %args );
     return undef if @$items != 1;

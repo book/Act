@@ -25,13 +25,9 @@ $talk1 = Act::Talk->new( talk_id => $hash->{talk_id} );
 isa_ok( $talk1, 'Act::Talk' );
 is_deeply( $talk1, $hash, "Can insert a talk" );
 
-TODO: {
-   local $TODO = "1 talk and Act::Talk->new( dummy => 'dummy' ) don't DWIM";
-   # when there's only one talk in the database,
-   # this kind of call returns it
-   $talk = Act::Talk->new( foo => 'bar' );
-   is_deeply( $talk, undef, "no talk with foo => 'bar'" );
-}
+eval { $talk = Act::Talk->new( foo => 'bar' ); };
+like( $@, qr/foo is not a valid column/, "Bad column name" );
+
 
 $talk = Act::Talk->new();
 isa_ok( $talk, 'Act::Talk' );
@@ -72,5 +68,5 @@ is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
 
 # this a Act::User method that encapsulate get_talks
 $talks = $user->talks;
-is_deeply( $talks, [ $talk1, $talk3 ], "Got the /'s talks" );
+is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
 
