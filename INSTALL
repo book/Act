@@ -69,7 +69,8 @@ or conf/local.ini file:
     passwd = <db password>
 
 To make sure that your system has all the requirements to run Act,
-and that Act works correctly on it, you can now run Act's test suite:
+and that Act works correctly on it, you can now run Act's test suite.
+This test suite requires Test::More.
 
     cd $ACTHOME
     make test
