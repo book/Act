@@ -183,7 +183,7 @@
     <t>
     <en>The comment field is used for communicating information about
     this talk to the organisers.</en>
-    <fr>Le champ commentaire permet de passer de l'inforamation au
+    <fr>Le champ commentaire permet de passer de l'information au
     sujet de cette présentation aux organisateurs.</fr>
     </t>
     <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
