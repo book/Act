@@ -47,6 +47,7 @@ sub create {
       $table = ${"${class}::table"};
       $pkey  = ${"${class}::primary_key"};
       $seq   = join '_', $table, $pkey, 'seq';
+      exists ${"${class}::fields"}{$_} or delete $args{$_} for keys %args;
       $data_type = \%{"${class}::data_type"};
     }
     # insert the new record
