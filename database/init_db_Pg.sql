@@ -163,6 +163,10 @@ CREATE TABLE invoices
     means      text,
     currency   text,
 
+    /* user info */
+    first_name   text,
+    last_name    text,
+
     /* billing info */
     company      text,
     company_url  text,

@@ -33,6 +33,10 @@ my %order_info = (
    currency  => 'EUR',
    means     => 'ONLINE',
 );
+my %user_info = (
+   first_name => 'John',
+   last_name  => 'Doe',
+);
 my %billing_info = (
    company     => 'Acme Inc',
    company_url => 'http://www.example.org',
@@ -50,6 +54,7 @@ my $now = DateTime->now();
 $invoice = Act::Invoice->create(
     order_id => $order->order_id,
     %order_info,
+    %user_info,
     %billing_info,
 );
 isa_ok( $invoice, 'Act::Invoice', 'create()' );
@@ -62,6 +67,7 @@ is_deeply( Act::Invoice->new( order_id => $order->order_id ),
    datetime     => $now,
    invoice_no   => 1,
    %order_info,
+   %user_info,
    %billing_info,
   },
   "fetch"
