@@ -1,0 +1,5 @@
+<body>
+<head>
+[% IF template.title %]<title>[% template.title  %]</title>
+</head>
+<body>
