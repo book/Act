@@ -20,7 +20,9 @@ sub handler
     # process the login form template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        destination => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
+        destination => $r->prev && $r->prev->uri
+                     ? $r->prev->uri
+                     : Act::Util::make_uri(''),
         action      => Act::Util::make_uri('LOGIN'),
         domain      => $domain,
     );
