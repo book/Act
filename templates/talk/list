@@ -31,6 +31,8 @@
  [% END %]
 </tr>
 [% FOREACH t = talks %]
+  [% IF t.accepted || global.request.user.is_orga
+                   || global.request.user.user_id == t.user_id %]
   <tr>
     <td><a href="[% make_uri_info('user', t.user.user_id) %]">
         [% PROCESS user/info u = t.user %]
@@ -60,6 +62,7 @@
     </td>
     [% END %]
   </tr>
+  [% END %]
 [% END %]
 </table>
 [% IF global.request.user.is_orga %]
