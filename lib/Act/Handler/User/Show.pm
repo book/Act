@@ -10,12 +10,15 @@ use Act::Util;
 sub handler
 {
     # retrieve user
-    my $user = Act::User->new(user_id => $Request{path_info})
-        or do {
-            $Request{status} = NOT_FOUND;
-            warn "unknown user: $Request{path_info}";
-            return;
-        };
+    my $user = Act::User->new(
+        user_id => $Request{path_info},
+        $Request{conference} ? ( conf_id => $Request{conference} ) : (),
+      )
+      or do {
+        $Request{status} = NOT_FOUND;
+        warn "unknown user: $Request{path_info}";
+        return;
+      };
 
     # process the template
     my $template = Act::Template::HTML->new();

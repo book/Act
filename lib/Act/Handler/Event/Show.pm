@@ -8,7 +8,10 @@ use Act::Event;
 sub handler
 {
     # retrieve event
-    my $event = Act::Event->new( event_id => $Request{path_info} );
+    my $event = Act::Event->new(
+        event_id => $Request{path_info},
+        $Request{conference} ? ( conf_id => $Request{conference} ) : (),
+    );
 
     # process the template
     my $template = Act::Template::HTML->new();
