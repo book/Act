@@ -5,7 +5,7 @@
    },
 %]
 <div align="center">
-[% IF user.is_orga %]
+[% IF global.request.user.is_orga %]
 <p>
  <t>
   <en>
@@ -21,10 +21,10 @@
 <tr>
  <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
  <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
- [% IF user.is_orga OR global.config.show_schedule %]
+ [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
  <th><t><en>Date</en><fr>Date</fr></t></th>
  [% END %]
- [% IF user.is_orga %]
+ [% IF global.request.user.is_orga %]
  <th><t><en>Accepted</en><fr>Accepté</fr></t></th>
  [% END %]
 </tr>
@@ -38,11 +38,11 @@
            [% t.title %]
            [%- "</b>" IF t.accepted %]
     </a></td>
-    [% IF user.is_orga OR global.config.show_schedule %]
-    <td>[% t.given || '&nbsp;' %]</td>
+    [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
+    <td align="center">[% t.given || '&nbsp;' %]</td>
     [% END %]
-    [% IF user.is_orga %]
-    <td>
+    [% IF global.request.user.is_orga %]
+    <td align="center">
     <input type="checkbox" name="[% t.talk_id %]" [% 'checked' IF t.accepted %] />
     </td>
     [% END %]

@@ -15,7 +15,6 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        user  => $Request{user},
         talks => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} } @$talks ],
     ); 
     $template->process('talk/list');
