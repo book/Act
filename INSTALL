@@ -78,4 +78,93 @@ This test suite requires Test::More.
     cd $ACTHOME
     make test
 
+Performance hints
+-----------------
 
+The following describes steps you can take to get the best performance
+out of your Act installation, in a production environment. Full
+explanations of the techniques used are outside of the scope of this
+document, so we only provide introductory comments.
+
+* preloading modules at Apache startup
+
+Insert the following configuration directive in httpd.conf:
+
+PerlModule $ACTHOME/conf/startup.pl
+
+This improves performance (modules are pre-loaded at server startup)
+and memory usage (modules are loaded in the parent server and thanks
+to copy-on-write their code is shared, at least for a while).
+
+* Dual Apache setup
+
+mod_perl-enabled servers tend to have a large memory footprint, so you don't
+want too many of them. Server instances tend to spend most of their time
+serving responses to slow clients ("spoonfeeding" clients). 
+
+This setup uses 2 instances of Apache: the frontend, or "light" server
+serves static content (images, CSS files), and reverse-proxies dynamic
+content to the backend, or "heavy" server.
+
+The light server uses mod_proxy but no mod_perl, therefore its memory
+footprint is much lower. The heavy server sends its output to the light
+server very fast, so it isn't tied up spoonfeeding the clients. With such
+a setup it is possible to serve a high request rate with relatively few
+backend processes.
+
+In the example below we choose to run both instances on the same machine.
+The heavy server runs on localhost on a high port, while the light server
+runs on our public IP on port 80. This also provides protection against
+direct access to the heavy server.
+
+Here's the relevant configuration snippet for the heavy server:
+
+  BindAddress     127.0.0.1
+  KeepAlive       Off
+
+You want to keep KeepAlive Off so as not to keep server processes tied
+up doing nothing.
+
+  MinSpareServers     5
+  MaxSpareServers     5
+  StartServers        10
+  MaxClients          20
+  MaxRequestsPerChild 500
+
+These numbers are only an indication, tailor them to your requirements
+and amount of available RAM. We keep MaxClients low because that's
+the whole point of this setup, and MaxRequestsPerChild low to improve
+sharing.
+
+  PerlRequire /home/apache/conf/startup.pl
+  Listen 9000
+  <VirtualHost 127.0.0.1:9000>
+    ServerName    www.example.com
+    DocumentRoot  /home/act/wwwdocs
+    Port          80
+    Include       /home/act/conf/httpd.conf
+  </VirtualHost>
+
+In this context, the Listen directive specifies which port this server
+listens to, and the Port directive specifies which port to use when issuing a
+redirect.
+
+In the light server, enable mod_proxy and mod_rewrite. We'll use them
+to reverse-proxy requests for dynamic content to the backend. Again,
+adjust the numbers to your requirements and hardware.
+
+  MinSpareServers 10
+  MaxSpareServers 15
+  StartServers    100
+  MaxClients      200
+
+  <VirtualHost *:80>
+    ServerName    www.example.com
+    DocumentRoot  /home/act/wwwdocs
+
+    RewriteEngine       on
+    RewriteOptions      'inherit'
+    RewriteRule         \.(css|gif|ico|jpg|pdf|png|txt)$    -                        [L]
+    RewriteRule         ^/(.*)$                             http://127.0.0.1:8000/$1 [P,L]
+    ProxyPassReverse    /  http://www.example.com/
+  </VirtualHost>
