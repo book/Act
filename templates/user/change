@@ -202,7 +202,7 @@
 <tr>
    <td align="right">
       [%- IF web_page %]
-         <a href="[% web_page %]" target="_blank">
+         <a href="[% web_page %]" >
       [% END %]
       <t><en>Web page</en><fr>Page web</fr></t>
       [%- IF web_page %]
@@ -217,7 +217,7 @@
 <tr>
    <td align="right">
       [%- IF pm_group_url %]
-         <a href="[% pm_group_url %]" target="_blank">
+         <a href="[% pm_group_url %]" >
       [% END %]
       <t><en>Monger group</en><fr>Groupe de Mongueurs</fr></t>
       [%- IF pm_group_url %]
@@ -234,7 +234,7 @@
 <tr>
    <td align="right">
       [%- IF pm_group_url %]
-         <a href="[% pm_group_url %]" target="_blank">
+         <a href="[% pm_group_url %]" >
       [% END %]
       <t><en>Monger group URL</en><fr>URL du groupe de mongueurs</fr></t>
       [%- IF pm_group_url %]
@@ -259,7 +259,7 @@
 <tr>
    <td align="right">
       [%- IF pause_id %]
-         <a href="http://search.cpan.org/author/[% pause_id %]/" target="_blank">
+         <a href="http://search.cpan.org/author/[% pause_id %]/" >
       [% END %]
       Pause id
       [%- IF pause_id %]
@@ -274,7 +274,7 @@
 <tr>
    <td align="right">
       [%- IF monk_id %]
-         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" target="_blank">
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" >
       [% END %]
       Perlmonks id
       [%- IF monk_id %]

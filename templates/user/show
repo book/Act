@@ -71,7 +71,7 @@
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <tt><a href="[% web_page %]" target="_blank">[% web_page %]</a></tt>
+         <tt><a href="[% web_page %]" >[% web_page %]</a></tt>
       </td>
 [% END %]
 [%- IF pause_id %]
@@ -81,7 +81,7 @@
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <a href="http://search.cpan.org/author/[% pause_id %]/" target="_blank">[% pause_id %]</a>
+         <a href="http://search.cpan.org/author/[% pause_id %]/" >[% pause_id %]</a>
       </td>
 [% END %]
 [%- IF monk_id %]
@@ -91,7 +91,7 @@
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" target="_blank">[% monk_id %]</a>
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" >[% monk_id %]</a>
       </td>
 [% END %]
 [%- IF im %]
