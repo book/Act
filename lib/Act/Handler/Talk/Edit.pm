@@ -57,7 +57,7 @@ sub handler {
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
-
+use Data::Dumper;print STDERR Dumper $fields;
         # organizer specifies user id
         my $user_id = $Request{user}->is_orga
                     ? $Request{args}{user_id}
@@ -91,7 +91,7 @@ sub handler {
             # limited duration choices for new talks
             else {
                 unless ( exists $Config->talks_durations->{$fields->{duration}}
-                         || $fields->{duration} eq 'lighting' ) {
+                         || $fields->{duration} eq 'lightning' ) {
                     $form->{invalid}{duration} = 'invalid';
                     $ok = 0;
                 }
