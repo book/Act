@@ -1,6 +1,10 @@
 #!/usr/bin/perl
 #
 # dbbackup: backup the act database
+#
+# to restore:
+#  % psql act < database/init_db_Pg.sql
+#  % pg_restore -a -d act actdb
 
 use strict;
 
@@ -22,8 +26,8 @@ $opts{v} = 1 if $opts{n};
 # build pg_dump command line
 my @cmd = (
             $Config->database_pg_dump,
-            '-cORx',
-            '-Fp',
+            '-x',
+            '-Fc',
             -U => $Config->database_user,
             -f => $Config->database_dump_file,
             $Config->database_name,
