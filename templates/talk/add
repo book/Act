@@ -130,17 +130,27 @@
     <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
   </td>
 </tr>
+[% END %]
 <tr>
   <td align="right" valign="top"><t><en>Status</en><fr>État</fr></t></td>
   <td>&nbsp;</td>
   <td>
+    [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
     <t><en>accepted</en><fr>accepté</fr></t><br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
     <t><en>confirmed</en><fr>confirmé</fr></t><br />
+    [% ELSE %]
+      [% IF accepted %]
+        <t><en>Accepted</en><fr>Accepté</fr></t><br />
+        <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+        <t><en>confirmed</en><fr>confirmé</fr></t><br />
+      [% ELSE %]
+        <t><en>Pending</en><fr>En attente</fr></t>
+      [% END %]
+    [% END %]
    </td>
 </tr>
-[% END %]
 <tr>
    <td colspan="3" align="right">
       <input type="submit" name="submit" value="<t><en>Submit this talk</en><fr>Soumettre</fr></t>" />

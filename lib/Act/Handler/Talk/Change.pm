@@ -78,8 +78,10 @@ sub handler
                 return;
             }
             # a normal user cannot comment a talk or edit the duration
-            delete @{$fields}{qw( comment is_lightning accepted )};
-            $fields->{duration} = $talk->lightning ? 'lightning' : $talk->duration;
+            delete @{$fields}{qw( comment is_lightning )};
+            $fields->{duration} = $talk->lightning
+                                ? 'lightning' : $talk->duration;
+            $fields->{accepted} = $talk->accepted;
         }
 
         if( not $fields->{duration} and not $fields->{is_lightning} ){
