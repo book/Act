@@ -37,7 +37,8 @@ sub handler {
             . ' ORDER BY u.pm_group';
     my $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
-    $pm_groups = [ map ucfirst($_->[0]), @{$sth->fetchall_arrayref()} ];
+    my %seen;
+    $pm_groups = [ grep !$seen{$_}++, map ucfirst($_->[0]), @{$sth->fetchall_arrayref()} ];
     $sth->finish;
 
     # process the search template
