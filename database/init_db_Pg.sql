@@ -44,6 +44,14 @@ CREATE TABLE users
 CREATE UNIQUE INDEX users_session_id ON users (session_id);
 CREATE UNIQUE INDEX users_login ON users (login);
 
+CREATE TABLE bios
+(
+    user_id   integer,
+    lang      text,
+    bio       text
+);
+CREATE INDEX bios_idx ON bios (user_id, lang);
+
 /* users' rights */
 DROP   TABLE rights;
 CREATE TABLE rights
