@@ -21,6 +21,7 @@
 <tr>
  <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
  <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr></t></th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
  <th><t><en>Date</en><fr>Date</fr></t></th>
  [% END %]
@@ -31,13 +32,14 @@
 [% FOREACH t = talks %]
   <tr>
     <td><a href="[% make_uri_info('user', t.user.user_id) %]">
-           [% t.user.first_name %] [% t.user.last_name %]
+        [% PROCESS user/info u = t.user %]
     </a></td>
     <td><a href="[% make_uri_info('talk', t.talk_id) %]">
            [%- "<b>"  IF t.accepted %]
            [% t.title %]
            [%- "</b>" IF t.accepted %]
     </a></td>
+    <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr></t></td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
     <td align="center">[% t.given || '&nbsp;' %]</td>
     [% END %]
