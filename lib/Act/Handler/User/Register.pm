@@ -33,6 +33,7 @@ sub handler
         $fields = $form->{fields};
 
         if ($ok) {
+            $fields->{login} = lc $fields->{login};
             # check for existing user
             if (Act::User->new(login => $fields->{login})) {
                 push @errors, 'ERR_IDENTIFIER_EXISTS';
