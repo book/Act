@@ -1,7 +1,7 @@
 [% WRAPPER ui
    title = {
-     en => "[% global.conference.name %] Statistics"
-     fr => "Statistiques pour [% global.conference.name %]"
+     en => "${global.conference.name} Statistics"
+     fr => "Statistiques pour ${global.conference.name}"
    }
 %]
 
