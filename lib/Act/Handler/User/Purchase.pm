@@ -17,14 +17,18 @@ sub handler
     $Request{r}->no_cache(1);
     my $template = Act::Template::HTML->new();
 
-    if ($Request{args}{purchase}) {
+    if (   $Request{args}{purchase}
+        && $Request{args}{price}
+        && (my $price = Act::Payment::get_price($Request{args}{price})))
+    {
         # first form has been submitted
         # fetch or create order
         my %f = (
             user_id  => $Request{user}{user_id},
             conf_id  => $Request{conference},
-            amount   => $Config->payment_amount,
-            paid     => 0,
+            amount   => $price->{amount},
+            currency => $price->{currency},
+            status   => 'init',
         );
         my $order = Act::Order->new(%f) || Act::Order->create(%f);
 
@@ -35,6 +39,7 @@ sub handler
     }
     else {
         # display the first form
+        $template->variables(prices => Act::Payment::get_prices);
         $template->process('user/purchase');
     }
 }

@@ -23,7 +23,9 @@ sub handler
     if ($order) {
 
         # update order
-        $order->update(paid => 1);
+        $order->update(status => 'paid',
+                       means  => 'ONLINE'
+                      );
     }
     # back to the user's main page
     Act::Util::redirect(make_uri('main'));

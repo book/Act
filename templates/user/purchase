@@ -21,11 +21,15 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Amount</en><fr>Montant </fr></t>:
+      <t><en>Price</en><fr>Tarif </fr></t>:
    </td>
    <td>&nbsp;</td>
    <td>
-      [% global.config.payment_amount %] EUR.
+      <select name="price">
+       [% FOREACH p=prices %]
+        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% p.currency %]</option>
+       [% END %]
+      </select>
    </td>
 </tr>
 <tr>

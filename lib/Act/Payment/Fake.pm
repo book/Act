@@ -20,7 +20,7 @@ sub verify
 
     if ($args->{order_id}) {
         my $order = Act::Order->new(order_id => $args->{order_id});
-        if ($order && !$order->paid) {
+        if ($order && $order->status eq 'init') {
             return $order;
         }
     }
