@@ -35,6 +35,7 @@
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
     [% ELSIF t.type == 'Act::Event' %]
 <a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
+([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
     [% ELSE ; t %]
 [% END;
    END;
