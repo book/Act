@@ -1,5 +1,6 @@
 package Act::Handler::User::Stats;
 use Act::Config;
+use Act::Template::HTML;
 use Act::User;
 use Act::Country;
 
