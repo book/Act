@@ -4,7 +4,7 @@ use /home/act, and refer to it as Act's home directory.
 First thing is to enable Perl (and mod_perl) to find the Act modules
 and to map Act::Foo to /home/act/lib/Foo.pm.
 
-mkdir ~/lib; ln -s .../conferences/lib Act; export PERL5LIB=~/lib
+mkdir ~/lib; ln -s /home/act/lib lib/Act; export PERL5LIB=~/lib
 
 Act needs to know its home directory so that it can find its
 config file. This is done by setting the ACTHOME environment variable:
