@@ -22,6 +22,18 @@
          en => "Please choose a duration",
          fr => "Vous devez choisir une durée"
      },
+     ERR_DATE => {
+         en => "The supplied date is invalid"
+         fr => "La date fournie est invalide"
+     },
+     ERR_TIME => {
+         en => "The supplied time is invalid"
+         fr => "L'heure fournie est invalide"
+     },
+     ERR_DATERANGE => {
+         en => "The date/time is out of range"
+         fr => "Date/heure hors limites"
+     },
      ERR_URL_ABSTRACT => {
          en => "Event URL is not a valid URL",
          fr => "L'URL de l'événement n'est pas une URL valide"
@@ -49,6 +61,26 @@
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Date</en><fr>Date</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+   <select name="date">
+     <option value=""[% ' selected="selected"' UNLESS datetime %] />
+   [% FOREACH d=dates %]
+     <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
+   [% END %]
+    </select>
+   <t><en>Time</en><fr>Heure</fr></t>
+    <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
+   <t><en>Room</en><fr>Salle</fr></t>
+    <select name="room">
+    [% FOREACH r=rooms %]
+     <option value="[% r %]"[% ' selected="selected"' IF room == r %] />
+    [% END %]
+    </select>
+   </td>
 </tr>
 <tr>
   <td align="right" valign="top">
