@@ -77,7 +77,8 @@ sub init {
 
     # create all the accessors at once
     for my $a (@$fields, keys %{ ${"${class}::sql_stub"}{select_opt} }) {
-        *{"${class}::$a"} = sub { $_[0]{$a} };
+        *{"${class}::$a"} = sub { $_[0]{$a} }
+          unless *{"${class}::$a"}{CODE};
     }
     *{"${class}::fields"} = { map { ($_=> 1) } @$fields };
 
