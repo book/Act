@@ -1,5 +1,8 @@
 [% WRAPPER ui
-   title = { en => 'Submit a talk', fr => 'Soumettre une présentation' },
+   title = {
+     en => 'Submit/Edit a talk'
+     fr => 'Soumettre/Modifier une présentation'
+   }
 %]
 
 <center>
@@ -37,6 +40,7 @@
 
 <form method="POST">
 
+<input type="hidden" name="talk_id" value="[% talk_id %]" />
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 [% IF global.request.user.is_orga %]
@@ -83,20 +87,50 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Duration</en><fr>Durée</fr></t></td>
+  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr></t></td>
   <td>&nbsp;</td>
   <td>
-    <select name="duration">
-     <option value=""[% ' selected="selected"' UNLESS duration %]></option>
-     <option value="lightning"[% ' selected="selected"' IF lightning %]>
-        <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
-     </option>
-     [% FOREACH d = global.config.talks_durations.keys.nsort %]
-     <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><fr>minutes</fr></t></option>
+  [% IF global.request.user.is_orga %]
+    <t>
+     <en>Standard durations for [% global.conference.name %] are:
+     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</en>
+     <fr>Les durées standards pour [% global.conference.name %] sont&nbsp;:
+     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</fr>
+    </t><br />
+    <input name="duration" value="[% duration %]" size="3" />
+    <input type="checkbox" name="lightning"[% ' checked' IF lightning %] />
+    <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
+  [% ELSE %]
+    [% IF talk_id %]
+      <input type="hidden" name="duration" value="[% duration %]" />
+      [% IF lightning %]
+        <t><en>Lightning talk</en><fr>Communication éclair</fr></t>
+      [% ELSE %]
+        [% duration %] <t><en>minutes</en><fr>minutes</fr></t>
+      [% END %]
+    [% ELSE %]
+      <select name="duration">
+       <option value=""[% ' selected="selected"' UNLESS duration %]></option>
+       <option value="lightning"[% ' selected="selected"' IF lightning %] />
+          <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
+       </option>
+       [% FOREACH d = global.config.talks_durations.keys.nsort %]
+       <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><fr>minutes</fr></t></option>
+       [% END %]
      [% END %]
+   [% END %]
     </select>
   </td>
 </tr>
+[% IF global.request.user.is_orga %]
+<tr>
+  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
+  </td>
+</tr>
+[% END %]
 <tr>
    <td colspan="3" align="right">
       <input type="submit" name="submit" value="<t><en>Submit this talk</en><fr>Soumettre</fr></t>" />
