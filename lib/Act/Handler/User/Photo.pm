@@ -4,6 +4,7 @@ use strict;
 use File::Spec::Functions qw(catfile);
 
 use Act::Config;
+use Act::Template::HTML;
 use Act::User;
 use Act::Util;
 
