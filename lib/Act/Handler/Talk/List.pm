@@ -9,10 +9,12 @@ sub handler
 {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks(conf_id => $Request{conference});
-    $_->{user} = Act::User->new(user_id => $_->user_id) for @$talks;
+    my $accepted = 0;
+    $_->{user} = Act::User->new(user_id => $_->user_id),
+      ($_->accepted && $accepted++ )
+      for @$talks;
 
     # accept / unaccept talks
-    my $accepted = 0;
     if ($Request{user} && $Request{user}->is_orga && $Request{args}{ok}) {
         for my $t (@$talks) {
             if ($t->accepted && !$Request{args}{$t->talk_id}) {
@@ -22,7 +24,6 @@ sub handler
             elsif (!$t->accepted && $Request{args}{$t->talk_id}) {
                 $t->update(accepted => 't');
             }
-            $accepted++ if $t->accepted;
         }
     }
     # process the template
