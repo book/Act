@@ -54,7 +54,7 @@ sub authen_cred ($$\@)
     my $user = Act::User->new( login => $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
     # compare passwords
-    crypt(lc($sent_pw), '/') eq $user->{passwd}
+    crypt(lc($sent_pw), $user->{passwd}) eq $user->{passwd}
         or do { $r->log_error("$prefix Bad password"); return undef; };
 
     # user is authenticated - create a session id
