@@ -39,10 +39,11 @@ sub handler {
     my $fields;
 
     # get the talk
-    my $talk = Act::Talk->new(
+    my $talk;
+    $talk = Act::Talk->new(
         talk_id   => $Request{args}{talk_id},
         conf_id   => $Request{conference},
-    );
+    ) if exists $Request{args}{talk_id};
 
     # cannot edit non-existent talks
     if( exists $Request{args}{talk_id} and not defined $talk ) {
