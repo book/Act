@@ -69,7 +69,8 @@ sub authen_cred ($$\@)
     $sid =~ s/\W/-/g;
 
     # save this user for the content handler
-    $Request{user} = $user;
+    $Request{webuser} = $user;
+    $Request{user} = Act::User->new( user_id => $user->user_id );
     _update_language();
     $user->update(session_id => $sid);
 
@@ -87,7 +88,8 @@ sub authen_ses_key ($$$)
     return () unless $user;
 
     # save this user for the content handler
-    $Request{user} = $user;
+    $Request{webuser} = $user;
+    $Request{user} = Act::User->new( user_id => $user->user_id );
     _update_language();
 
     return ($user->{login});
@@ -95,9 +97,9 @@ sub authen_ses_key ($$$)
 
 sub _update_language
 {
-    $Request{user}->update(language => $Request{language})
-        unless defined($Request{user}->{language})
-            && $Request{language} eq $Request{user}->{language};
+    $Request{webuser}->update(language => $Request{language})
+        unless defined($Request{webuser}->{language})
+            && $Request{language} eq $Request{webuser}->{language};
 }
 
 1;
