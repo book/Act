@@ -6,16 +6,16 @@
  <t>
   <en>
    There are [% stats.users %] registered people
-   coming from [% stats.countries.size %] countries,
-   and [% stats.pm.size %] monger groups.
+   coming from [% stats.countries.size %] countr[% stas.pm.size > 1 ? "ies" : "y" %]
+   and [% stats.pm.size %] monger group[% "s" IF stas.pm.size > 1 %].
 <!--   There are [% stats.committed %] committed users,
    that is to say, people that either paid their
    conference ticket or will give a talk. -->
   </en>
   <fr>
-   La conférence compte [% stats.users %] inscrits,
+   La conférence compte [% stats.users %] inscrit[% "s" IF stats.users.size > 1 %],
    venus de [% stats.countries.size %] pays
-   et de [% stats.pm.size %] groupes de mongueurs.
+   et de [% stats.pm.size %] groupe[% "s" IF stas.pm.size > 1 %] de mongueurs.
 <!--   Il y a [% stats.committed %] personnes qui se
    sont engagées, soit en payant leur place, soit
    parce qu'elles donneront une conférence. -->
