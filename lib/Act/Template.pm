@@ -28,11 +28,12 @@ sub _init
     # default options
     $self->{$_} = 1 for qw(POST_CHOMP);
     $options->{PARSER} ||= Act::Template::Parser->new($options);
-    $options->{INCLUDE_PATH} ||=
+    $options->{INCLUDE_PATH} ||= [ map {
        join '/', $Config->home,
-                 $Request{conference}
-               ? join('/', $Request{conference}, 'static')
-               : 'static';
+                 $Request{conference} 
+               ? join('/', $Request{conference}, $_)
+               : $_
+    } qw( static templates ) ];
 
     # supplied options
     $self->{$_} = $options->{$_} for keys %$options;
