@@ -214,7 +214,7 @@ sub get_users {
         pm_group   => "(u.pm_group~*?)",
         # standard stuff
         map( { ($_, "(u.$_=?)") }
-          qw( user_id conf_id session_id login country ) )
+          qw( user_id session_id login country ) )
     );
 
     # SQL options
@@ -239,7 +239,7 @@ sub get_users {
 
     # build the request string
     my $SQL = "SELECT DISTINCT u.* FROM users u"
-            . ($conf_id ? ", participation p" : "" )
+            . ($conf_id ? ", participations p" : "" )
             . " WHERE ";
     $SQL .= join " AND ", "TRUE", @req{keys %args};
     $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
