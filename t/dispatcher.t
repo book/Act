@@ -30,7 +30,7 @@ my %uris = (
 );
 my @tests = (
   # request_uri       status     path_info      conference  handler                action  private
-[ '/',                DECLINED,  'index.html' ],
+[ '/',                DECLINED,  ''           ],
 [ '/page',            DECLINED,  'page',      ],
 [ '/foo',             DECLINED,  '',           'foo' ],
 [ '/bar',             DECLINED,  '',           'bar' ],
@@ -66,6 +66,7 @@ use_ok('Act::Dispatcher');
     *Act::Dispatcher::_db_connect   = sub {};
     *Act::Dispatcher::_set_language = sub {};
 }
+$Config = $cfg;
 
 # trans handler tests
 for my $t (@tests) {
