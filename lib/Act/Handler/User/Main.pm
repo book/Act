@@ -19,7 +19,6 @@ sub handler {
     my %confs;
     for my $conf_id (keys %{ $Config->conferences }) {
         next if $conf_id eq $Request{conference};
-        warn "doing $conf_id";
         my $cfg = Act::Config::get_config($conf_id);
         $confs{$conf_id} = {
             conf_id => $conf_id,
