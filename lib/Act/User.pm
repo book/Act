@@ -15,6 +15,9 @@ our %sql_stub    = (
         committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = ?)) AS committed" ] : () },
     },
     from       => "users u",
+    from_opt   => [
+        sub { exists $_[0]{conf_id} ? "participations p" : () },
+    ],
 );
 
 our %sql_mapping = (
