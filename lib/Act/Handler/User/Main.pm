@@ -13,7 +13,21 @@ sub handler {
     $t{accepted} = 1 unless $Config->talks_submissions_open
                          or $Request{user}->is_orga;
     my $talks = $Request{user}->talks(%t);
-    $template->variables(talks => $talks);
+
+    # this guy's participations
+    my @parts;
+    for my $p (@{$Request{user}->participations}) {
+        next if $p->{conf_id} eq $Request{conference};
+        my $cfg = Act::Config::get_config($p->{conf_id});
+        push @parts, {
+            url  => join('/', '', $cfg->uri),
+            name => Act::Util::get_translation('conferences', 'name', $p->{conf_id}),
+        };
+    } 
+    $template->variables(
+        talks => $talks,
+        participations => \@parts,
+    );
     $template->process('user/main');
 }
 

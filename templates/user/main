@@ -91,7 +91,7 @@
  <en>Other Act conferences:</en>
 </t></b></p>
 <ul>
-[% FOREACH p = global.request.user.participations %]<li>[% p.conf_id %]</li>[% END %]
+[% FOREACH p = participations %]<li><a href="[% p.url %]">[% p.name %]</a></li>[% END %]
 </ul>
 
 [% END %]
