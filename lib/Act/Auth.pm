@@ -51,12 +51,9 @@ sub authen_cred ($$\@)
     $sent_pw or do { $r->log_error("$prefix No password");   return undef; };
 
     # search for this user in our database
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM users WHERE login=?');
-    $sth->execute($login);
-    my $user = $sth->fetchrow_hashref()
-        or do { $r->log_error("$prefix Unknown user"); return undef; };
-
-    # compare les mots de passe
+    my $user = Act::User->new( $login );
+    $user or do { $r->log_error("$prefix Unknown user"); return undef; };
+    # compare passwords
     $sent_pw eq $user->{passwd}
         or do { $r->log_error("$prefix Bad password"); return undef; };
 
@@ -66,14 +63,10 @@ sub authen_cred ($$\@)
     my $sid = $digest->b64digest();
     $sid =~ s/\W/-/g;
 
-    # store the session in the users table
-    $sth = $Request{dbh}->prepare_cached('UPDATE users SET session_id=? WHERE login=?');
-    $sth->execute($sid, $login);
-    $Request{dbh}->commit;
-
     # save this user for the content handler
     $Request{user} = $user;
-    _update_language();
+    $user->update_language();
+    $user->update_sid( $sid );
 
     return $sid;
 }
@@ -101,37 +94,16 @@ sub authen_ses_key ($$$)
     my ($self, $r, $sid) = @_;
 
     # search for this user in our database
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM users WHERE session_id=?');
-    $sth->execute($sid);
-    my $user = $sth->fetchrow_hashref;
-    $sth->finish;
+    my $user = Act::User->new_from_sid( $sid );
 
     # unknown session id
     return () unless $user;
 
-    # get the user's rights
-    $sth = $Request{dbh}->prepare_cached('SELECT right_id FROM rights WHERE conf_id=? AND user_id=?');
-    $sth->execute($Request{conference}, $user->{user_id});
-    $user->{rights}{$_->[0]}++ for @{ $sth->fetchall_arrayref };
-    $sth->finish;
-
     # save this user for the content handler
     $Request{user} = $user;
-    _update_language();
+    $user->update_language();
 
     return ($user->{login});
-}
-
-sub _update_language
-{
-    unless (defined $Request{user}{language}
-         && $Request{language} eq $Request{user}{language})
-    {
-        my $sth = $Request{dbh}->prepare_cached('UPDATE users SET language=? WHERE login=?');
-        $sth->execute($Request{language}, $Request{user}{login});
-        $Request{dbh}->commit;
-        $Request{user}{language} = $Request{language};
-    }
 }
 
 1;
