@@ -7,6 +7,7 @@ use base qw( Act::Object );
 
 # class data used by Act::Object
 our $table = 'users';
+our $primary_key = 'user_id';
 *get_items = \&get_users; # redefined here
 
 =head1 NAME
@@ -70,43 +71,6 @@ sub AUTOLOAD {
     
     # die on error
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
-}
-
-=item update_language
-
-Update the user's language preferences based on the information
-available in the current request.
-
-=cut
-
-sub update_language {
-    my $self = shift;
-
-    unless (defined $self->{language}
-         && $Request{language} eq $self->{language})
-    {   
-        my $sth = $Request{dbh}->prepare_cached('UPDATE users SET language=? WHERE login=?');
-        $sth->execute($Request{language}, $self->{login});
-        $Request{dbh}->commit;
-        $self->{language} = $Request{language};
-    }
-}
-
-=item update_sid( $sid )
-
-Update the user's session id. Used internally by Act::Auth.
-
-=cut
-
-sub update_sid {
-    my ( $self, $sid ) =@_;
-    
-    # store the session in the users table
-    $sth = $Request{dbh}->prepare_cached('UPDATE users SET session_id=? WHERE login=?');
-    $sth->execute($sid, $self->{login});
-    $Request{dbh}->commit;
-
-    $self->{session_id} = $sid;
 }
 
 =back

@@ -1,4 +1,4 @@
-use Test::More tests => 11;
+use Test::More tests => 14;
 use Act::User;
 use t::Util;   # load the test database
 
@@ -55,3 +55,10 @@ is_deeply( Act::User->get_users( name => 'last' ), [ $user ], "Found a user by n
 $user = Act::User->new( login => 'test2' );
 is_deeply( Act::User->get_users( name => 'baz' ), [ $user ], "Found a pseudonymous user" );
 
+# update a user
+$user = Act::User->new( login => 'test' );
+$user->update(email => 'bar@baz.com', login => 'frobb');
+$user = Act::User->new( login => 'frobb' );
+isa_ok( $user, 'Act::User' );
+is($user->login, 'frobb', 'Updated login');
+is($user->email, 'bar@baz.com', 'Updated email');

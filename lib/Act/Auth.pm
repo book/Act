@@ -65,8 +65,8 @@ sub authen_cred ($$\@)
 
     # save this user for the content handler
     $Request{user} = $user;
-    $user->update_language();
-    $user->update_sid( $sid );
+    _update_language();
+    $user->update(session_id => $sid);
 
     return $sid;
 }
@@ -99,9 +99,16 @@ sub authen_ses_key ($$$)
 
     # save this user for the content handler
     $Request{user} = $user;
-    $user->update_language();
+    _update_language();
 
     return ($user->{login});
+}
+
+sub _update_language
+{
+    $Request{user}->update(language => $Request{language})
+        unless defined($Request{user}->{language})
+            && $Request{language} eq $Request{user}->{language};
 }
 
 1;

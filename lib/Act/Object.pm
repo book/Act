@@ -75,6 +75,28 @@ sub create {
     return $class->new( %args );
 }
 
+=item update
+
+=cut
+
+sub update {
+    my ($self, %args) = @_;
+    my $class = ref $self;
+    my ($table, $pkey);
+    { no strict 'refs';
+      $table = ${"${class}::table"};
+      $pkey  = ${"${class}::primary_key"};
+    }
+    my $SQL = "UPDATE $table SET "
+            . join(',', map "$_=?", keys %args)
+            . " WHERE $pkey=?";
+
+    my $sth = $Request{dbh}->prepare_cached( $SQL );
+    $sth->execute(values %args, $self->{$pkey});
+    $Request{dbh}->commit;
+    @$self{keys %args} = values %args;
+}
+
 =item accessors
 
 All the accessors give read access to the data held in the entry.
