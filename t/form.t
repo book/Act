@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 109;
+use Test::More tests => 116;
 
 my @tests = (
 { profile => {
@@ -197,6 +197,22 @@ my @tests = (
       valid  => 1,
     },
   ],
+},
+{ profile => {
+      required    => [ 'r1', 'r2' ],
+      constraints => { r1 => 'date', r2 => 'time' },
+  },
+  inputs => [
+    { input  => { r1 => '2004-13-32', r2 => '88:88' },
+      fields => { r1 => '2004-13-32', r2 => '88:88' },
+      valid  => '',
+      invalid => { r1 => 'date', r2 => 'time' },
+    },
+    { input  => { r1 => '1975-03-07', r2 => '14:40' },
+      fields => { r1 => '1975-03-07', r2 => '14:40' },
+      valid  => 1,
+    },
+  ]
 },
 { profile => {
       required    => 'r1',
