@@ -57,7 +57,7 @@ sub handler {
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
-use Data::Dumper;print STDERR Dumper $fields;
+
         # organizer specifies user id
         my $user_id = $Request{user}->is_orga
                     ? $Request{args}{user_id}
