@@ -156,5 +156,22 @@ sub talks {
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
 
+=item participation
+
+Return a hash reference holding the user data related to the current
+conference.
+
+=cut
+
+sub participation {
+    my ( $self ) =@_;
+    my $sth = $Request{dbh}->prepare_cached( 
+        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?' );
+    $sth->execute( $self->user_id, $Request{conference} );
+    my $participation = $sth->fetchrow_hashref();
+    $sth->finish();
+    return $participation;
+}
+
 1;
 
