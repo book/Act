@@ -2,10 +2,10 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-[% IF template.title %]<title>[% template.title  %]</title>[% END %]
+[% IF title %]<title>[% title  %]</title>[% END %]
 </head>
 <body>
-[% IF template.title %]<h1>[% template.title  %]</h1>[% END %]
+[% IF title %]<h1>[% title  %]</h1>[% END %]
 [% content %]
 </body>
 </html>
