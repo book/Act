@@ -27,6 +27,12 @@
    <t><en>minutes</en><fr>minutes</fr></t><br />
 [% END %]
 
+[% IF global.request.user.is_orga AND comment %]
+<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr></t></b>
+[% comment %]
+[% END %]
+<br />
+
 [% IF url_abstract || url_talk %]
  <t>  <en>You can find more information on the speaker's site:</en>
       <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
