@@ -1,0 +1,71 @@
+=head1 NAME
+
+act.ini - The Act configuration file
+
+=head1 DESCRIPTION
+
+Most of the configuration items for your conference are stored in the
+file F<act.ini>. It is divided in several sections, some of which
+are related to the Act infrastructure itself, and others to your own
+conference.
+
+=head1 SECTIONS
+
+=head2 Conference configuration
+
+    [general]
+    uri         = 2004
+    base_url    = http://conferences.mongueurs.net
+    languages   = fr en                # languages supported
+    default_language = fr
+    searchlimit = 20                   # max number of users returned
+    timezone  = Europe/Paris
+
+    [email]
+    sender_address = your@address.com
+
+    [talks]
+    submissions_open = 0
+    submissions_notify_address = interventions@mongueurs.net
+    submissions_notify_language = fr
+    edition_open = 1
+    show_schedule = 1
+    durations = 20 40 120              # default talk durations
+    start_date = 2004-06-05 18:00:00
+    end_date   = 2004-06-07 18:00:00
+
+    [rooms]
+    rooms = r1 r2          # list of rooms (must match /r\d+/
+    r1 = LMET              # room names
+    r2 = O'Reilly
+
+    [payment]
+    open        = 0
+
+=head2 Infrastructure configuration
+
+Conference organisers can skip this section.
+
+    [database]
+    name        = act
+    dsn         = dbi:Pg:dbname=$(database_name)
+    user        = foo
+    passwd      = sekr3t
+    pg_dump     = /home/pgsql/bin/pg_dump     # dumping tool
+    dump_file   = /home/act/actdb             # where to dump the db
+    dump_needs_password = 1
+
+    [general]
+    conferences = fpw2004 fpw2005            # conferences handled by Act
+    cookie_name = act
+    dir_photos  = photos                     # where photos are stored
+
+    [email]
+    smtp_server = localhost
+    smtp_port   = 0
+    test        = 0
+
+    [payment]
+    type        = CyberMut
+
+
