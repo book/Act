@@ -104,11 +104,11 @@ CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 DROP   TABLE translations;
 CREATE TABLE translations
 (
-    tbl      text,
-    col      text,           
-    id       text,
-    lang     text,
-    text     text
+    tbl      text NOT NULL,
+    col      text NOT NULL,           
+    id       text NOT NULL,
+    lang     text NOT NULL,
+    text     text NOT NULL
 );
 CREATE UNIQUE INDEX translations_idx ON translations ( tbl, col, id, lang );
 
