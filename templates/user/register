@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Registration', fr => 'Inscription', pt => "Inscrição" },
+   title = { en => 'Registration', fr => 'Inscription', pt => "Inscrição", it => 'TRANSLATEME' },
 %]
 
 <p>
@@ -15,6 +15,7 @@
    Pour vous inscrire à la conférence [% global.conference.name %],
    poussez simplement sur le bouton ci-dessous.
   </fr>
+  <it>TRANSLATEME</it>
  </t>
 </p>
 
@@ -27,7 +28,7 @@
 
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Join</en><pt>Inscrever-me na</pt><fr>Inscription à</fr></t> [% global.conference.name %]" />
+      <input type="submit" name="join" value="<t><en>Join</en><pt>Inscrever-me na</pt><fr>Inscription à</fr><it>TRANSLATEME</it></t> [% global.conference.name %]" />
    </td>
 </tr>
 </table>
