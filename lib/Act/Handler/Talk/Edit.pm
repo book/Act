@@ -18,7 +18,7 @@ use Act::Template;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed)],
+                  accepted confirmed date time room )],
   filters  => {
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
@@ -37,6 +37,11 @@ sub handler {
     }
     my $template = Act::Template::HTML->new();
     my $fields;
+    my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
+    my $edate = DateTime::Format::Pg->parse_timestamp($Config->talks_end_date);
+    my @dates = ($sdate->clone->truncate(to => 'day' ));
+    push @dates, $_
+        while (($_ = $dates[-1]->clone->add( days => 1 ) ) < $edate );
 
     # get the talk
     my $talk;
@@ -66,10 +71,21 @@ sub handler {
 
         if ($Request{user}->is_orga) {
             $fields->{user_id} = $user_id;
+            # does the user participate?
             if ($user_id =~ /^\d+$/) {
                 my $u = Act::User->new(user_id => $user_id);
                 unless ($u && $u->participation) {
                     $form->{invalid}{user_id} = 'invalid';
+                    $ok = 0;
+                }
+            }
+            # is the date in range?
+            unless ( exists $form->{invalid}{date} or
+                     exists $form->{invalid}{time} ) {
+                $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+                if ( $fields->{datetime} > $edate or
+                     $fields->{datetime} < $sdate ) {
+                    $form->{invalid}{period} = 'invalid';
                     $ok = 0;
                 }
             }
@@ -81,8 +97,8 @@ sub handler {
                 $Request{status} = FORBIDDEN;
                 return;
             }
-            # cannot comment a talk
-            delete @{$fields}{qw( comment is_lightning )};
+            # cannot comment a talk or change the date/room
+            delete @{$fields}{qw( comment is_lightning date time room )};
             # cannot modify the duration
             if( defined $talk ) {
                 $fields->{duration} = $talk->lightning
@@ -147,6 +163,9 @@ sub handler {
             $form->{invalid}{duration}     && push @errors, 'ERR_DURATION';
             $form->{invalid}{url_abstract} && push @errors, 'ERR_URL_ABSTRACT';
             $form->{invalid}{url_talk}     && push @errors, 'ERR_URL_TALK';
+            $form->{invalid}{date}         && push @errors, 'ERR_DATE';
+            $form->{invalid}{time}         && push @errors, 'ERR_TIME';
+            $form->{invalid}{period}       && push @errors, 'ERR_DATERANGE';
         }
         $template->variables(errors => \@errors);
     }
@@ -159,6 +178,7 @@ sub handler {
         : ( %$fields )
     );
     $template->variables(
+        dates => \@dates,
         users => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
