@@ -50,6 +50,12 @@ sub handler {
         # update the table structure
         my $i = $index{$day};
         my $added = 0;
+        # insert the beginning if necessary (yuck, dups)
+        if( $row->[$i] and $row->[$i][0] != $dt ) {
+            splice( @$row, $index{$day}, 0, [ $dt->clone, { $_->room => [ $_ ] } ] );
+            $room{$_->room}{$day} = 1;
+            $added = 1;
+        }
         while( $row->[$i] and $row->[$i][0] < $end ) {
             # FIXME cut off by a global
             # push the item on the list of talks happening now
@@ -67,7 +73,6 @@ sub handler {
         # insert the ending moment
         push @$row, [ $end, { } ];
     }
-    #use Data::Dumper; print STDERR Dumper( \%table );
     # finish line
     my %seen;
     for my $day ( keys %table ) {
