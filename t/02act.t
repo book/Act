@@ -6,7 +6,7 @@ use File::Find;
 my @modules;
 
 find( sub {
-          return unless /\.pm/; local $_ = $File::Find::name;
+          return unless /\.pm$/; local $_ = $File::Find::name;
           s!/!::!g; s/^lib/Act/; s/\.pm$//;
           push @modules, $_;
       }, 'lib' );
