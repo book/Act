@@ -1,0 +1,148 @@
+[% WRAPPER ui
+   title = { en => 'YAPC::Europe Statistics', fr => "Statistiques pour YAPC::Europe" },
+%]
+
+<p>
+ <t>
+  <en>
+   There are [% stats.users %] registered people
+   coming from [% stats.countries.size %] countries,
+   and [% stats.pm.size %] monger groups.
+<!--   There are [% stats.committed %] committed users,
+   that is to say, people that either paid their
+   conference ticket or will give a talk. -->
+  </en>
+  <fr>
+   La conférence compte [% stats.users %] inscrits,
+   venus de [% stats.countries.size %] pays
+   et de [% stats.pm.size %] groupes de mongueurs.
+<!--   Il y a [% stats.committed %] personnes qui se
+   sont engagées, soit en payant leur place, soit
+   parce qu'elles donneront une conférence. -->
+  </fr>
+ </t>
+</p>
+
+<p>
+ <t>
+  <en>
+   You can have a look at <a href="/2004/stats/">country / mongers</a>
+   or <a href="/2004/stats/?show=cities">cities</a> statistics.
+  </en>
+  <fr>
+   Vous pouvez jeter un &oelig;il aux statistiques par 
+   <a href="/2004/stats/">pays / groupe de mongueurs</a> ou par
+   <a href="/2004/stats/?show=cities">villes</a>.
+  </fr>
+ </t>
+</p>
+
+<p>
+ <t>
+  <en>The number of committed users is listed between parentheses
+  in the following tables.</en>
+  <fr>Les nombres entre parenthèses dans les tableaux qui suivent
+  indiquent le nombre d'inscrits engagés.</fr>
+ </t>
+</p>
+
+<p>
+ <t>
+  <en>Click on the various links to find the corresponding users!</en>
+  <fr>Cliquez sur les liens pour obtenir la liste des utilisateurs
+      correspondants&nbsp;!</fr>
+ </t>
+</p>
+
+[% SWITCH show %]
+[% CASE [ 'cities', 'towns' ] %]
+<p>
+ <t>
+  <en>
+   Note: the country total is not always equal to the city total.
+   Or the cities are sometimes not in the relevant country.
+   Blame the users!
+  </en>
+  <fr>
+   Note&nbsp;: le total pour chaque pays est parfois différent du total
+   des villes associées. Ou même une ville ne correspond pas au pays
+   indiqué. C'est la faute des utilisateurs&nbsp;!
+  </fr>
+ </t>
+</p>
+<center>
+[% count = 0 %]
+[% cols = 3 %]
+<table border="1" cellspacing="0" cellpadding="4">
+ <tr>
+  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr></t></th>
+ </tr>
+  <!-- cities within countries -->
+  [% FOREACH c = stats.countries %]
+  [% UNLESS count %]<tr>[% END %]
+   [% UNLESS stats.towns.${c.iso} %][% NEXT %][% END %]
+   <td valign="top"><table width="100%">
+   [% FOREACH t = stats.towns.${c.iso} %]
+   [% IF loop.count == 1 %]
+    <tr><th colspan="2"><a href="/2004/search/?country=[% c.iso %]&name=">[% c.name %]</a> [% c.count %]&nbsp;([% c.committed %])</th></tr>
+   [% END %]
+    <tr><td><a href="/2004/search/?town=[% t.name %]&name=">[% t.name %]</a></td><td align="right">[% t.count %]&nbsp;([% t.committed %])</td></tr>
+   [% END %]
+   </td></tr></table></td>
+   [% IF count == cols - 1 %]</tr>[% END %]
+   [% count = ( count + 1) % cols %]
+  [% END %]
+  </tr>
+</table> 
+</center>
+[% CASE DEFAULT %]
+<center>
+<table border="1" cellspacing="0" cellpadding="4">
+ <tr>
+  <th><t><en>Countries</en><fr>Pays</fr></t></th>
+  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr></t></th>
+ </tr>
+ <tr>
+  <!-- Countries -->
+  <td valign="top">
+   <table cellpadding="4">
+    [% FOREACH c = stats.countries %]
+    <tr>
+     [% IF loop.count == 1 %]
+     <th valign="top" align="left">
+     <a href="/2004/search/?country=[% c.iso %]&name=">[% c.name %]</a>
+     </th><th valign="top" align="right">[% c.count %]&nbsp;([% c.committed %])</th>
+     [% ELSE %]
+     <td valign="top" align="left">
+     <a href="/2004/search/?country=[% c.iso %]&name=">[% c.name %]</a>
+     </td><td valign="top" align="right">[% c.count %]&nbsp;([% c.committed %])</td>
+     [% END %]
+    </tr>
+    [% END %]
+   </table> 
+  </td>
+  <!-- PM groups -->
+  <td valign="top">
+   <table cellpadding="4">
+    [% FOREACH pm = stats.pm %]
+    <tr>
+     [% IF loop.count == 1 %]
+      <th valign="top" align="left">
+      <a href="/2004/search/?pm_group=[% pm.name %]&name=">[% pm.name %]</th>
+      <th align="right">[% pm.count %]&nbsp;([% pm.committed %])</th>
+     [% ELSE %]
+      <td valign="top" align="left">
+      <a href="/2004/search/?pm_group=[% pm.name %]&name=">[% pm.name %]</td>
+      <td align="right">[% pm.count %]&nbsp;([% pm.committed %])</td>
+     [% END %]
+     </tr>
+    [% END %]
+   </table> 
+  </td>
+ </tr>
+</table>
+</center>
+[% END %]
+
+</form>
+[% END %]
