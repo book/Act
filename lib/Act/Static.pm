@@ -5,12 +5,12 @@ package Act::Static;
 use strict;
 
 use Act::Config;
-use Act::Template;
+use Act::Template::HTML;
 
 sub handler
 {
-    my $template = Act::Template->new();
+    my $template = Act::Template::HTML->new();
     $Request{r}->send_http_header('text/html');
-    $template->process($Request{path_info}, $Request{r});
+    $template->process($Request{path_info});
 }
 1;

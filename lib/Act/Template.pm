@@ -70,6 +70,7 @@ sub encode
 sub process
 {
     my ($self, $filename, $output) = @_;
+    $output ||= $Request{r};
 
     # language must be defined at this point
     #$self->{vars}{global}{language}
