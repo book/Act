@@ -101,11 +101,19 @@ my @html_templates = (
     },
 );
 use Test::More;
-plan tests => 3 * (@templates + @html_templates) + 10;
+plan tests => 3 * (@templates + @html_templates) + 13;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
 ok($template);
+
+# cached templates
+my $t2 = Act::Template->new;
+is($template, $t2, 'using cached template');
+my $t3 = Act::Template->new(AUTOCLEAR => 0);
+isnt($template, $t3, 'new options means new template');
+$t2 = Act::Template->new(AUTOCLEAR => 0);
+is($t2, $t3, 'using cached template');
 
 # variables
 my %h = (foo => 42, bar => 43);

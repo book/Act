@@ -15,14 +15,15 @@ my %templates;
 
 sub new
 {
-    my $class = shift;
+    my ($class, %opts) = @_;
 
     # return a cached template if we have one
     my $conf = $Request{conference} || '-global';
+    $conf .= join '', map "$_$opts{$_}", sort keys %opts;
     return $templates{$class}{$conf} if exists $templates{$class}{$conf};
 
     # otherwise create one
-    my $self = $class->SUPER::new(@_);
+    my $self = $class->SUPER::new(%opts);
     $templates{$class}{$conf} = $self;
     return $self;
 }
