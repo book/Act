@@ -7,6 +7,7 @@ use DBI;
 
 use Act::Config;
 use Act::Handler::User;
+use Act::Util;
 
 use constant DEFAULT_PAGE => 'index.html';
 
@@ -67,10 +68,7 @@ sub trans_handler
 
     # default pages à la mod_dir
     if (!@c && $r->uri =~ m!/$!) {
-        $r->uri(  $Request{conference}
-                ? join('/', undef, $Request{conference}, DEFAULT_PAGE)
-                : join('/', undef, DEFAULT_PAGE)
-        );
+        $r->uri(Act::Util::make_uri(DEFAULT_PAGE));
         $Request{path_info} = DEFAULT_PAGE;
     }
     # pseudo-static pages

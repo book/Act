@@ -8,6 +8,7 @@ use Digest::MD5 ();
 use Act::Config;
 use Act::User;
 use Act::Template::HTML;
+use Act::Util;
 
 use base qw(Apache::AuthCookie);
 
@@ -18,10 +19,7 @@ sub access_handler ($$)
     my ($self, $r) = @_;
 
     # set correct login script url
-    $r->dir_config(ActLoginScript => 
-              $Request{conference}
-            ? join('/', undef, $Request{conference}, LOGIN_PAGE)
-            : join('/', undef, LOGIN_PAGE));
+    $r->dir_config(ActLoginScript => Act::Util::make_uri(LOGIN_PAGE));
 
     # disable authentication unless required
     # (Apache doesn't let us do it the other way around)
@@ -84,9 +82,7 @@ sub login_form_handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         destination => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
-        action      =>  $Request{conference}
-            ? join('/', undef, $Request{conference}, 'LOGIN')
-            : join('/', undef, 'LOGIN'),
+        action      =>  Act::Util::make_uri('LOGIN'),
     );
     $template->process('login.html');
 }
