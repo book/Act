@@ -28,11 +28,14 @@ sub handler {
        $onext = $offset + $limit;
     }
 
+    my $countries = Act::Country::CountryNames();
+    my %by_iso = map { $_->{iso} => $_->{name} } @$countries;
+
     # process the search template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        countries_iso => \%Act::Country::CountryName,
-        countries     => Act::Country::CountryNames(),
+        countries_iso => \%by_iso,
+        countries     => $countries,
         users         => $users,
         oprev         => $oprev,
         prev          => defined($oprev),   # $oprev can be zero
