@@ -68,7 +68,7 @@ CREATE INDEX participations_idx ON rights (conf_id);
 DROP   TABLE talks;
 CREATE TABLE talks
 (
-    talk_id    integer,
+    talk_id    serial        PRIMARY KEY,
     conf_id    text,
     user_id    integer,
 
@@ -94,7 +94,7 @@ CREATE TABLE talks
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
     /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
 );
-CREATE INDEX talks_idx ON talks ( conf_id );
+CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 
 
 /* multilingual entries */
