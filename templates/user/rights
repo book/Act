@@ -12,7 +12,7 @@
 [% FOREACH r=rights %]
  <tr>
    <td align="center">[% r.right_id %]</td>
-   <td align="center">[% r.user.first_name %] [% r.user.last_name %]</td>
+   <td align="center">[% PROCESS user/info u=r.user %]</td>
    <td align="center"><input type="checkbox" name="[% r.user_id %]-[% r.right_id %]" /></td>
  </tr>
 [% END %]
