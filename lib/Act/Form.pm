@@ -125,7 +125,7 @@ Act::Form - Form object class
     required    => [ qw(name email) ],
     optional    => [ qw(timezone homepage zip) ],
     filters => {
-       email => \&lc,
+       email => sub { lc shift },
     }
     dependencies => {
        # If cc_no is entered, make cc_type and cc_exp required
@@ -166,8 +166,8 @@ takes one argument, the value to be filtered, and returns
 the filtered value.
 
     filters => {
-       email    => \&lc,
-       pm_group => \&ucfirst,
+       email    => sub { lc shift },
+       pm_group => sub { ucfirst lc shift },
     }
 
 The dependencies key lists fields required only if a specific

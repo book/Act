@@ -203,7 +203,7 @@ my @tests = (
       optional    => 'r2',
       filters     => {
          r1 => sub { lc shift },
-         r2 => sub { ucfirst shift },
+         r2 => sub { ucfirst lc shift },
       },
   },
   inputs => [
@@ -212,7 +212,7 @@ my @tests = (
       valid  => 1,
     },
     { input  => { r1 => 'FOO', r2 => 'bAr' },
-      fields => { r1 => 'foo', r2 => 'BAr' },
+      fields => { r1 => 'foo', r2 => 'Bar' },
       valid  => 1,
     },
   ],
