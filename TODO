@@ -4,19 +4,29 @@ TODO
   + la mise en place dans le bon répertoire sur le site web
     peut se faire autrement, non ?
 - sortir 2004/ de conferences/
+- faire fonctionner le site en multiconference
+
 - template générique pour les factures, modifiable localement par chaque
   conf
 - bio multilingue
+
 - possibilité pour l'utilisateur d'afficher autant de users qu'il veut
   sur la page de recherche (genre 50, all), etc.
   + tri par nom, pays, ville... multicritère ?
+  
 - possibilité pour les orga/admin de modifier le fait que l'utilisateur
   a participé ou non, pour avoir une liste correcte à la fin de la conf
+- test de la fermeture/ouverture des diverses options
+
 - le nom "orga" est-il bien choisi ?
 - creation de roles globaux ?
   + gestion des users (ajout, suppression, edition)
   + gestion des photos/videos (si on fait une gallerie)
-- faire fonctionner le site en multiconference
+
+- meilleure gestion des sessions de lightning talks :
+  + aujourd'hui, le problème a été réglé en créant un événement LT,
+    et en copiant la liste dedans
+  => est-ce la solution définitive ?
 
 
 WISHLIST
