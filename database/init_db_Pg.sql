@@ -43,6 +43,7 @@ CREATE TABLE users
 CREATE UNIQUE INDEX users_session_id ON users (session_id);
 CREATE UNIQUE INDEX users_login ON users (login);
 
+DROP   TABLE bios;
 CREATE TABLE bios
 (
     user_id   integer,
