@@ -1,4 +1,39 @@
+TODO
+====
+- sortir les données 2004/ de wwwdocs
+  + la mise en place dans le bon répertoire sur le site web
+    peut se faire autrement, non ?
+- sortir 2004/ de conferences/
+- template générique pour les factures, modifiable localement par chaque
+  conf
+- bio multilingue
+- possibilité pour l'utilisateur d'afficher autant de users qu'il veut
+  sur la page de recherche (genre 50, all), etc.
+  + tri par nom, pays, ville... multicritère ?
+- possibilité pour les orga/admin de modifier le fait que l'utilisateur
+  a participé ou non, pour avoir une liste correcte à la fin de la conf
+- le nom "orga" est-il bien choisi ?
+- creation de roles globaux ?
+  + gestion des users (ajout, suppression, edition)
+  + gestion des photos/videos (si on fait une gallerie)
+- faire fonctionner le site en multiconference
 
+
+WISHLIST
+========
+- gallerie de photos
+  + possibilité pour chaque participant d'ajouter des photos pour les
+    conférences auxquelles il a participé, avec commentaires
+  + redimensionnement et thumbnails automatiques
+  + si possible, intégrer des outils qui existent déjà pour la gallerie
+    (mais visu par auteur, conférence, recherche sur le titre, etc.)
+  + possibilité d'annoter les photos par exemple pour les lier à un talk,
+    une salle, un jour ?
+- statistiques pour les users, globales à toutes les conférences
+  (e.g. top participant, top speaker, etc)
+
+BUGS
+====
 [Sat Oct  2 01:02:00 2004] [error] DBD::Pg::st execute failed: ERROR:  pg_atoi: error in "28&prev=/search": can't parse "&prev=/search" at /home/apache/lib/Act/Object.pm line 202.
 
 conferences.mongueurs.net 213.185.106.3 - - [02/Oct/2004:01:02:00 +0200] "GET /2004/talk/28&prev=/search%3Fq%3Dbooter%2Bbooter%26num%3D100%26hl%3Den%26lr%3D%26ie%3DUTF-8 HTTP/1.1" 500 538 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
