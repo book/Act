@@ -1,0 +1,88 @@
+=head1 SETTING UP A NEW LANGUAGE IN ACT
+
+Act is meant to support multilingual conferences.
+When you start your conference, you just have to decide which
+languages will be supported. This usually includes at least
+English and your own language.
+
+If your language is not yet supported by Act, don't panic.
+That just means you'll have to help us translate all the templates,
+and translations.
+
+=head2 Translating templates
+
+Multilingual templates are set up directly in the HTML, with the help
+of the special tag C<< <t> ... </t> >>.
+
+    find templates -type f | xargs grep -c '<t>' |grep -v :0
+
+Will list the template files that contain the <t> tag.
+
+Here's a very simple example:
+
+    <t>
+     <en>Welcome on the YAPC::Europe web site!</en>
+     <pt>Boa vinda no web site de YAPC::Europe!</pt>
+     <fr>Bienvenue sur le site de YAPC::Europe&nbsp;!</fr>
+     <de>Willkommen auf der YAPC::Europe web site!</de>
+     <it>Benvenuto sul Web site di YAPC::Europe!</it>
+    </t>
+
+You'll also have to add the languages you need to all your specific
+static pages.
+
+=head2 The 'translations' table
+
+There is one database table that holds a number of hard-coded translations.
+These include:
+
+=over 4
+
+=item civility
+
+In English, these are:
+
+    1        Mr.
+    2        Mrs.
+    3        Ms.
+
+=item ISO-3166 country codes
+
+See L<http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt>
+
+You'll need to translate B<all> of them.
+
+=item A few hard-coded "room" names
+
+In English, these are:
+
+    out      Outside
+    venue    Venue
+
+=item The payment means
+
+    CHQ      Cheque
+    CASH     Cash
+    ONLINE   Online
+
+=back
+
+=head2 Act::Util
+
+The Act::Util module contains some information about how dates are
+handled in each supported language. The structure needs to be updated
+for any new language.
+
+Here's the structure for English:
+
+
+    en => { name               => 'English',
+            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
+            fmt_datetime_short => '%m/%d/%y %H:%M',
+            fmt_date_full      => '%A %B %e, %Y',
+            fmt_date_short     => '%m/%d/%y',
+            fmt_time           => '%H:%M',
+          },
+
+=cut
+
