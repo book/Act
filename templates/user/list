@@ -25,20 +25,9 @@
  [% END %]
 </tr>
 [% FOREACH u=users %]
-[%# committed = u.have_paid OR u.have_talk %]
  <tr>
    <td align="center">
-    <a href="[% make_uri_info('user', u.user_id) %]">
-    [% IF committed %]<b>[% END %]
-      [%- IF u.pseudonymous %]
-         [% u.nick_name %]
-      [%- ELSE %]
-         [% u.first_name %]
-         [% u.last_name %]
-         [% "(${u.nick_name})" IF u.nick_name %]
-      [% END %]
-    [% IF committed %]</b>[% END %]
-    </a>
+    [% PROCESS info u=u %]
    </td>
    <td align="center">
       [%- IF u.town %]

@@ -1,0 +1,12 @@
+[%# committed = u.have_paid OR u.have_talk %]
+<a href="[% make_uri_info('user', u.user_id) %]">
+[%- "<b>" IF committed %]
+[%- IF u.pseudonymous %]
+ [% u.nick_name %]
+[%- ELSE %]
+ [% u.first_name %]
+ [% u.last_name %]
+ [% "(${u.nick_name})" IF u.nick_name %]
+[%- END %]
+[%- "</b>" IF committed %]
+</a>
