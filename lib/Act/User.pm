@@ -115,7 +115,7 @@ sub AUTOLOAD {
         }
     }
     # get the user attributes
-    if( $AUTOLOAD =~  /::(\w+)$/ and exists $self->{$1} ) {
+    if( $AUTOLOAD =~  /::(\w+)$/ and exists $_[0]->{$1} ) {
         my $attr = $1;
         if ( $attr eq lc $attr ) {
             no strict 'refs';
@@ -168,7 +168,80 @@ sub update_sid {
 
 =back
 
+=head2 Class methods
+
+Act::User also defines the following class methods:
+
+=over 4
+
+=item get_users( %req )
+
+Return a reference to an array of Act::User objects matching the request
+parameters.
+
+    $users = Act::User->get_users( country => 'fr' );
+
+Acceptable parameter are: C<conf>, C<country>, C<town>, C<name> and
+C<pm_group>. The C<limit> and C<offset> options can be given to limit
+the number of results. All other parameters are ignored.
+
+C<name> does a combined search on the nickname and (if the user does
+not want to stay pseudonymous) first name and last name.
+
 =cut
+
+sub get_users {
+    my ( $class, %args ) = @_;
+    $class = ref $class  || $class;
+
+    # search field to SQL mapping
+    my %req = (
+        conf     => "(p.conf_id=? AND p.user_id=u.user_id)",
+        country  => "(u.country=?)",
+        town     => "(u.town~*?)",
+        name     => "(u.nick_name~*? OR (u.pseudonymous=FALSE AND (u.first_name~*? OR last_name~*?)))",
+        pm_group => "(u.pm_group~*?)",
+    );
+
+    # SQL options
+    my %opt = (
+        order_by => 'u.user_id',
+        offset   => '',
+        limit    => '',
+    );
+    
+    # clean up the arguments and options
+    exists $args{$_} and $opt{$_} = delete $args{$_} for keys %opt;
+    $opt{$_} =~ s/\D+//g for qw( offset limit );
+    for( keys %args ) {
+        # ignore search attributes we do not know
+        delete $args{$_} unless exists $req{$_};
+        # remove empty search attributes
+        delete $args{$_} unless $args{$_};
+    }
+
+    # special cases
+    $args{name} = [ ( $args{name} ) x 3 ] if exists $args{name};
+    $opt{order_by} = "$opt{order_by}"     if $opt{order_by};
+
+    # build the request string
+    my $SQL = "SELECT DISTINCT u.* FROM users u, participations p WHERE ";
+    $SQL .= join " AND ", "TRUE", @req{keys %args};
+    $SQL .= join " ", "", map { my $n = $_; $n =~ y/a-z_/A-Z /;
+                                $opt{$_} ne '' ? ( $n, $opt{$_} ) : () }
+                          keys %opt;
+
+    # run the request
+    my $sth = $Request{dbh}->prepare_cached( $SQL );
+    $sth->execute( map { (ref) ? @$_ : $_ } values %args );
+
+    my ($users, $user) = [ ];
+    push @$users, bless $user, $class while $user = $sth->fetchrow_hashref();
+
+    $sth->finish();
+
+    return $users;
+}
 
 1;
 
