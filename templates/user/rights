@@ -39,4 +39,28 @@
 
 </form>
 </div>
+
+<p>
+ <t>
+  <fr>Les droits existants sont&nbsp;:</fr>
+  <en>The recognised rights are:</en>
+ </t>
+</p>
+<ul>
+ <li><tt>orga</tt> -
+  <t><fr>Organisateur (gestion des présentations)</fr>
+     <en>Organiser (talks management)</en>
+  </t>
+ </li>
+ <li><tt>money</tt> -
+  <t><fr>Trésorier (gestion des paiements)</fr>
+     <en>Treasurer (payment management)</en>
+  </t>
+ </li>
+ <li><tt>admin</tt> -
+  <t><fr>Administrateur (gestion des droits)</fr>
+     <en>Administrator (rights management)</en>
+  </t>
+ </li>
+</ul>
 [% END %]
