@@ -44,7 +44,7 @@ sub handler
                         monk_id pm_group pm_group_url timezone town web_page
                         company company_url address ),
                         @partfields,
-                        map { "bio_$_" } keys %Act::Config::Languages ]
+                        map { "bio_$_" } keys %{ $Config->languages } ]
     );
 
     if ($Request{args}{join}) {
@@ -96,7 +96,7 @@ sub handler
         $fields = $Request{user};
         my $bio = $Request{user}->bio;
         $fields->{"bio_$_"} = $bio->{$_}
-          for keys %{ $Config->{languages} };
+          for keys %{ $Config->languages };
 
         # participation to this conference
         if (my $part = $Request{user}->participation) {
