@@ -36,7 +36,7 @@
   </fr>
  </t>
 </p>
-
+<!--
 <p>
  <t>
   <en>The number of committed users is listed between parentheses
@@ -45,7 +45,7 @@
   indiquent le nombre d'inscrits engagés.</fr>
  </t>
 </p>
-
+-->
 <p>
  <t>
   <en>Click on the various links to find the corresponding users!</en>
@@ -54,7 +54,7 @@
  </t>
 </p>
 
-[% SWITCH show %]
+[% SWITCH global.request.args.show %]
 [% CASE [ 'cities', 'towns' ] %]
 <p>
  <t>
@@ -84,9 +84,9 @@
    <td valign="top"><table width="100%">
    [% FOREACH t = stats.towns.${c.iso} %]
    [% IF loop.count == 1 %]
-    <tr><th colspan="2"><a href="[% make_uri('search', 'country', c.iso) %]">[% c.name %]</a> [% c.count %]&nbsp;([% c.committed %])</th></tr>
+    <tr><th colspan="2"><a href="[% make_uri('search', 'country', c.iso) %]">[% c.name %]</a> [% c.count %]<!--&nbsp;([% c.committed %])--></th></tr>
    [% END %]
-    <tr><td><a href="[% make_uri('search', 'town', t.name) %]">[% t.name %]</a></td><td align="right">[% t.count %]&nbsp;([% t.committed %])</td></tr>
+    <tr><td><a href="[% make_uri('search', 'town', t.name, 'country', c.iso) %]">[% t.name %]</a></td><td align="right">[% t.count %]<!--&nbsp;([% t.committed %])--></td></tr>
    [% END %]
    </td></tr></table></td>
    [% IF count == cols - 1 %]</tr>[% END %]
@@ -111,11 +111,11 @@
      [% IF loop.count == 1 %]
      <th valign="top" align="left">
      <a href="[% make_uri('search', 'country', c.iso) %]">[% c.name %]</a>
-     </th><th valign="top" align="right">[% c.count %]&nbsp;([% c.committed %])</th>
+     </th><th valign="top" align="right">[% c.count %]<!--&nbsp;([% c.committed %])--></th>
      [% ELSE %]
      <td valign="top" align="left">
      <a href="[% make_uri('search', 'country', c.iso) %]">[% c.name %]</a>
-     </td><td valign="top" align="right">[% c.count %]&nbsp;([% c.committed %])</td>
+     </td><td valign="top" align="right">[% c.count %]<!--&nbsp;([% c.committed %])--></td>
      [% END %]
     </tr>
     [% END %]
@@ -129,11 +129,11 @@
      [% IF loop.count == 1 %]
       <th valign="top" align="left">
       <a href="[% make_uri('search', 'pm_group', pm.name) %]">[% pm.name %]</th>
-      <th align="right">[% pm.count %]&nbsp;([% pm.committed %])</th>
+      <th align="right">[% pm.count %]<!--&nbsp;([% pm.committed %])--></th>
      [% ELSE %]
       <td valign="top" align="left">
       <a href="[% make_uri('search', 'pm_group', pm.name) %]=">[% pm.name %]</td>
-      <td align="right">[% pm.count %]&nbsp;([% pm.committed %])</td>
+      <td align="right">[% pm.count %]<!--&nbsp;([% pm.committed %])--></td>
      [% END %]
      </tr>
     [% END %]
