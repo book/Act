@@ -1,0 +1,46 @@
+Act's database
+-------------
+
+In order to use the database with Act, you need to follow the procedure
+explained below. Act's preferred database is PostgreSQL, so the examples
+use Pg's syntax. You should have no problem plugging Act to MySQL or
+any other database flavour.
+
+Create a system user named act (for example):
+
+    $ adduser act
+
+AS the postgres user, create a database user named act (for example):
+
+    $ createuser act
+    Shall the new user be allowed to create databases? (y/n)        y
+    Shall the new user be allowed to create more new users? (y/n)        n
+
+Still as the postgres user, create a database named act (for example)
+and install the plpgsql language for it
+
+    $ su - postgres
+    $ createdb act
+    $ createlang --dbname=act plpgsql
+
+(You might get the warning "createlang: language "plpgsql" is already
+installed in database act".)
+
+Run the init_db.pg.sql script in this directory. This will create
+the tables.
+
+    $ psql act < init_db.pg.sql
+
+Update $ACTHOME/conf/global.ini (or $ACTHOME/conf/local.ini) with the
+database name and credentials.
+
+    [database]
+    dsn    = dbi:Pg:dbname=act
+    user   = act
+    passwd = @cT
+
+From the package's top level directory, run the test suite to verify
+that the software is able to connect to the database.
+
+    $ make test
+
