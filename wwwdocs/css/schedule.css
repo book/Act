@@ -1,0 +1,35 @@
+/*~------------------------------------------------------------------*/
+/* Timetable colours                                                 */
+/*~------------------------------------------------------------------*/
+.header {
+color: inherit;
+background-color: Silver;
+vertical-align: top;
+}
+.venue {
+color: inherit;
+background-color: #FFCC00;
+vertical-align: top;
+}
+.out {
+color: inherit;
+background-color: #D3D3D3;
+vertical-align: top;
+}
+.r1 {
+color: inherit;
+background-color: #FFD3D3;
+vertical-align: top;
+}
+.r2 {
+color: inherit;
+background-color: #D3FFD3;
+vertical-align: top;
+}
+.r3 {
+color: inherit;
+background-color: #D3D3FF;
+vertical-align: top;
+}
+
+
