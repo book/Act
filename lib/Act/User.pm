@@ -69,7 +69,7 @@ sub AUTOLOAD {
     }
     
     # die on error
-    croak "Unknown method $AUTOLOAD";
+    croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
 
 =item update_language
@@ -127,6 +127,7 @@ on their participation to specific conferences.
 sub get_users {
     my ( $class, %args ) = @_;
     $class = ref $class  || $class;
+    $class->init();
 
     # search field to SQL mapping
     my %req = (
