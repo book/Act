@@ -148,7 +148,7 @@
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
           <ul>
            [% FOREACH t = talks %]
-	    <li><a href="/yapc/talk/?tid=[% t.talk_id %]">
+	    <li><a href="[% make_uri( 'talk', t.talk_id ) %]">
             [% "<b>" IF t.accepted %]
             [% t.title %][% "</b>" IF t.accepted %]</a>
             ([% IF t.duration ; t.duration %] minutes[% ELSE %]
