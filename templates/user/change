@@ -1,0 +1,276 @@
+[% WRAPPER ui
+   title = { en => 'Your information', fr => 'Vos informations' },
+%]
+<center>
+
+<span class="error">
+[% PROCESS error
+   msgs = {
+     ERR_FIRST_NAME => {
+       en => "You must enter your first name",
+       fr => "Le prénom est obligatoire",
+     },
+     ERR_LAST_NAME => {
+       en => "You must enter your last name",
+       fr => "Le nom est obligatoire",
+     },
+     ERR_EMAIL => {
+       en => "You must enter your email address",
+       fr => "L'adresse email est obligatoire",
+     },
+     ERR_EMAIL_SYNTAX => {
+       en => "Not a valid email address",
+       fr => "Adresse email : syntaxe incorrecte",
+     },
+     ERR_COUNTRY => {
+         en => "You must enter a country from the list"
+         fr => "Un pays est obligatoire"
+     },
+     ERR_NICK => {
+       en => "You cannot be pseudonymous with a blank nickname",
+       fr => "Vous ne pouvez pas être anonyme avec un pseudo vide",
+     },
+     ERR_PMGROUP => {
+       en => "The Perl monger group must end with <tt>.pm</tt>",
+       fr => "Le groupe de mongueurs doit se terminer par <tt>.pm</tt>",
+     },
+     ERR_PMURL => {
+       en => "The Perl monger group URL must start with http://",
+       fr => "URL du groupe de mongueurs&nbsp;: syntaxe incorrecte",
+     },
+     ERR_WEBPAGE => {
+       en => "Your web site URL must start with http://",
+       fr => "Page Web&nbsp;: syntaxe incorrecte",
+     },
+     ERR_MONKID => {
+       en => "Your perlmonks id must be a number",
+       fr => "Votre id perlmonks doit être un nombre",
+     },
+  }
+%]
+</span><br /><br />
+
+<form method="POST">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      <t><en>Civility</en><fr>Civilité</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% FOREACH c = civilities.keys.sort %]
+      <input type="radio" name="civility" value="[% c %]"[% " checked" IF civility==c %] /> [% civilities.$c %]
+      [% END %]
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>First Name</en><fr>Prénom</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="first_name"  value="[% first_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Last Name</en><fr>Nom</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="last_name"  value="[% last_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Nickname</en><fr>Pseudo</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="nick_name"  value="[% nick_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Stay pseudonymous</en><fr>Rester anonyme</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> <t><en>Yes</en><fr>Oui</fr></t>
+      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> <t><en>No</en><fr>Non</fr></t>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      Email
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="email"  value="[% email %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Hide email</en><fr>Email caché</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> <t><en>Yes</en><fr>Oui</fr></t>
+      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> <t><en>No</en><fr>Non</fr></t>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Town</en><fr>Ville</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="town"  value="[% town %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Country</en><fr>Pays</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="country">
+         <option value=""[% ' selected="selected"' UNLESS country %]></option>
+         [% FOREACH c = countries %]
+            <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Timezone</en><fr>Fuseau horaire</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="timezone">
+         [% FOREACH tz = timezones %]
+            <option value="[% tz %]"[% ' selected="selected"' IF timezone == tz %]>[% tz %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF web_page %]
+         <a href="[% web_page %]" target="_blank">
+      [% END %]
+      <t><en>Web page</en><fr>Page web</fr></t>
+      [%- IF web_page %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="web_page"  value="[% web_page %]" size="40" maxlength="120" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF pm_group_url %]
+         <a href="[% pm_group_url %]" target="_blank">
+      [% END %]
+      <t><en>Monger group</en><fr>Groupe de Mongueurs</fr></t>
+      [%- IF pm_group_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="pm_group"  value="[% pm_group %]" size="40" maxlength="120" /><br />
+      <t><en>(city.pm, city name in English, please)</en>
+         <fr>(ville.pm avec le nom de ville en anglais, merci)</fr></t>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF pm_group_url %]
+         <a href="[% pm_group_url %]" target="_blank">
+      [% END %]
+      <t><en>Monger group URL</en><fr>URL du groupe de mongueurs</fr></t>
+      [%- IF pm_group_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="pm_group_url"  value="[% pm_group_url %]" size="40" maxlength="120" />
+   </td>
+<tr>
+   <td align="right">
+<tr>
+   <td align="right">
+      <t><en>GPG public key</en><fr>Clé publique GPG</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <textarea name="gpg_pub_key" cols="25" rows="5">[% gpg_pub_key %]</textarea>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF pause_id %]
+         <a href="http://search.cpan.org/author/[% pause_id %]/" target="_blank">
+      [% END %]
+      Pause id
+      [%- IF pause_id %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="pause_id"  value="[% pause_id %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF monk_id %]
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" target="_blank">
+      [% END %]
+      Perlmonks id
+      [%- IF monk_id %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="monk_id"  value="[% monk_id %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      IM (AIM, ICQ, MSN, etc)
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="aim"  value="[% aim %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      Bio
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <textarea name="bio" cols="40" rows="5">[% bio %]</textarea>
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="Update info" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+[% END %]

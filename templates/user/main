@@ -1,0 +1,25 @@
+[% WRAPPER ui
+   title = { en => 'Main private page', fr => 'Page personnelle' },
+%]
+<p>
+ <t>
+  <en>
+   This is your personal page. From here you can manage everything
+   regarding your participation to [% global.request.conference %].
+  </en>
+  <fr>
+   Ceci est votre page personnelle. D'ici vous pouvez gérer tout ce
+   qui concerne votre participation à [% global.request.conference %].
+  </fr>
+ </t>
+</p>
+
+<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en></t></b></p>
+   <ul>
+    <li><a href="/2004/change"><t>
+          <fr>mettre à jour les informations vous concernant</fr>
+          <en>update your information</en></t></a><br />
+    </li>
+   </ul>
+
+[% END %]

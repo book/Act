@@ -18,28 +18,14 @@ my %dispatch = (
     register => { handler => 'Act::Handler::User::Register' },
     user     => { handler => 'Act::Handler::User::Show' },
     stats    => { handler => 'Act::Handler::User::Stats' },
-    newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
     
+    # protected handlers
+    main     => { handler => 'Act::Handler::User::Main',     private => 1 },
+    change   => { handler => 'Act::Handler::User::Change',   private => 1 },
+    newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
+
     # special stuff
     login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
-
-# for testing...
-    coucou => {
-      handler => sub {
-        my $sth = $Request{dbh}->prepare('SELECT NOW()');
-        $sth->execute();
-        my ($now) = $sth->fetchrow_array();
-        $Request{r}->send_http_header('text/plain');
-        $Request{r}->print("$now - conférence ", $Request{conference});
-      },
-    },
-    toto => {
-      private => 1,
-      handler => sub {
-        $Request{r}->send_http_header('text/plain');
-        $Request{r}->print("bonjour, ", $Request{user}{login});
-      },
-    },
 );
 
 # translation handler
