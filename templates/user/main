@@ -127,6 +127,7 @@
           <fr>modifier votre mot de passe</fr>
           <en>change your password</en>
 	  <de>Ihr Passwort ändern</de>
+      </t>
     </li>
     [% IF global.request.conference
        AND talks.size %]
