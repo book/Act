@@ -122,7 +122,7 @@
     [% ELSE %]
       <select name="duration">
        <option value=""[% ' selected="selected"' UNLESS duration %]></option>
-       <option value="lightning"[% ' selected="selected"' IF lightning %] />
+       <option value="lightning"[% ' selected="selected"' IF lightning == 't' %] />
           <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
        </option>
        [% FOREACH d = global.config.talks_durations.keys.nsort %]
@@ -147,14 +147,14 @@
   <td>&nbsp;</td>
   <td>
     [% IF global.request.user.is_orga %]
-    <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
+    <input type="checkbox" name="accepted"[% ' checked' IF accepted == 't' %] />
     <t><en>accepted</en><fr>accepté</fr></t><br />
-    <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+    <input type="checkbox" name="confirmed"[% ' checked' IF confirmed == 't' %] />
     <t><en>confirmed</en><fr>confirmé</fr></t><br />
     [% ELSE %]
-      [% IF accepted %]
+      [% IF accepted == 't'%]
         <t><en>Accepted</en><fr>Accepté</fr></t><br />
-        <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+        <input type="checkbox" name="confirmed"[% ' checked' IF confirmed == 't' %] />
         <t><en>confirmed</en><fr>confirmé</fr></t><br />
       [% ELSE %]
         <t><en>Pending</en><fr>En attente</fr></t>
