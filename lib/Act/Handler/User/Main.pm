@@ -20,7 +20,7 @@ sub handler {
         next if $p->{conf_id} eq $Request{conference};
         my $cfg = Act::Config::get_config($p->{conf_id});
         push @parts, {
-            url  => join('/', '', $cfg->uri),
+            url  => '/' . $cfg->uri . '/',
             name => Act::Util::get_translation('conferences', 'name', $p->{conf_id}),
         };
     } 
