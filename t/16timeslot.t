@@ -1,4 +1,4 @@
-use Test::More tests => 9;
+use Test::More tests => 8;
 use Act::Event;
 use Act::Talk;
 use Act::TimeSlot;
@@ -8,9 +8,9 @@ db_add_users;
 db_add_talks;
 db_add_events;
 
-# 2 talks accepted (out of 3), 1 event
+# 1 non-lightning talk accepted (out of 3), 1 event
 my $slots = Act::TimeSlot->get_items( conf_id => 'conf' );
-is( @$slots, 3, "Got all timeslots" );
+is( @$slots, 2, "Got all timeslots" );
 isa_ok( $_, 'Act::TimeSlot' ) for @$slots;
 
 my ($event) = grep { $_->{type} eq 'Act::Event' } @$slots;
