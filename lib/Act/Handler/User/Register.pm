@@ -24,9 +24,7 @@ sub handler
 {
     # this is not for logged in users!
     if( defined $Request{user} ) {
-        require Act::Handler::User::Main;
-        Act::Handler::User::Main->handler;
-        return;
+        return Act::Util::redirect(make_uri('main'));
     }
 
     my $template = Act::Template::HTML->new();

@@ -1,6 +1,7 @@
 use strict;
-use Digest::MD5 ();
 package Act::Util;
+use Apache::Constants qw(M_GET REDIRECT);
+use Digest::MD5 ();
 
 use vars qw(@ISA @EXPORT);
 @ISA    = qw(Exporter);
@@ -50,6 +51,20 @@ sub _build_uri
                sort keys %params;
     }
     return $uri;
+}
+
+sub redirect
+{
+    my $location = shift;
+    my $r = $Request{r} or return;
+    if ($r->method eq 'POST') {
+        $r->method("GET");
+        $r->method_number(M_GET);
+        $r->headers_in->unset("Content-length");
+    }
+    $r->headers_out->set(Location => $location);
+    $r->status(REDIRECT);
+    $r->send_http_header;
 }
 
 sub gen_password
