@@ -129,7 +129,7 @@
             <it>proporre un intervento</it></t></a><br />
       </li>
     [% END %]
-   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>Sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it></t></a></li>
+   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it></t></a></li>
    [% IF can_unregister %]
    <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>TRANSLATEME</it></t></a></li>
    [% END %]
