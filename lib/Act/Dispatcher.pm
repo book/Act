@@ -1,15 +1,12 @@
 use strict;
 package Act::Dispatcher;
 
-use vars qw(@ISA @EXPORT $Config %Request);
-@ISA    = qw(Exporter);
-@EXPORT = qw($Config %Request);
-
 use Apache::Constants qw(OK DECLINED);
-use AppConfig qw(:expand :argcount);
+
+use Act::Config;
 
 # load global configuration
-_load_global_config();
+Act::Config::load_global_config();
 
 # main dispatch table
 my %dispatch = (
@@ -22,8 +19,14 @@ my %dispatch = (
 # translation handler
 sub trans_handler
 {
-    my $r = shift;
+    # the Apache request object
+    my $r = $Request{r} = shift;
 
+    # pseudo-static pages
+    if ($r->uri =~ /\.html$/) {
+        $r->push_handlers(PerlHandler => 'Act::Static');
+        return OK;
+    }
     # we're looking for /x/y where
     # x is a conference name, and
     # y is an action key in %dispatch
@@ -38,7 +41,7 @@ sub trans_handler
             conference => $c[0],
             action     => $c[1],
         );
-        $r->push_handlers(PerlHandler => 'Act::Dispatcher::handler');
+        $r->push_handlers(PerlHandler => 'Act::Dispatcher');
         return OK;
     }
     return DECLINED;
@@ -54,24 +57,5 @@ sub handler
     $dispatch{$Request{action}}->();
 
     return OK;
-}
-
-# load global configuration
-sub _load_global_config
-{
-    my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
-    $Config = AppConfig->new(
-         {
-            CREATE => 1,
-            GLOBAL => {
-                   DEFAULT  => "<undef>",
-                   ARGCOUNT => ARGCOUNT_ONE,
-                   EXPAND   => EXPAND_VAR,
-               }
-         }
-    );
-    $Config->set(home => $home);
-    $Config->file(map "$home/conf/$_.ini", qw(act local));
-    $Config->set(conferences => { map { $_ => 1 } split /\s+/, $Config->general_conferences });
 }
 1;
