@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 60;
+use Test::More tests => 67;
 
 my @tests = (
 { profile => {
@@ -116,6 +116,22 @@ my @tests = (
       fields => { r1 => 'abc' },
       valid  => 0,
       invalid => { r1 => 'custom' },
+    },
+  ],
+},
+{ profile => {
+      required    => 'r1',
+      constraints => { r1 => 'url' },
+  },
+  inputs => [
+    { input  => { r1 => 42 },
+      fields => { r1 => 42 },
+      valid  => 0,
+      invalid => { r1 => 'url' },
+    },
+    { input  => { r1 => 'http://abc' },
+      fields => { r1 => 'http://abc' },
+      valid  => 1,
     },
   ],
 },
