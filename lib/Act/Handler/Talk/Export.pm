@@ -10,6 +10,7 @@ use Text::Iconv;
 use Act::Config;
 use Act::Talk;
 use Act::Template;
+use Act::Handler::Talk::Schedule;
 
 # latin1 to utf8 converter
 my $to_utf8 = Text::Iconv->new('ISO-8859-1', 'UTF-8');
@@ -25,35 +26,28 @@ sub handler
         return;
     }
 
-    # retrieve talks
-    my $talks = Act::Talk->get_talks(
-        conf_id  => $Request{conference},
-        accepted => 1,
-    );
+    # get the table information
+    my ($talks) = Act::Handler::Talk::Schedule::compute_schedule();
+    # keep only the Act::TimeSlot objects
+    $talks = [ map { grep { ref eq 'Act::TimeSlot' } @$_ }
+               map { @$_ } values %$talks ];
 
     # current timestamp
     my $now = DateTime->now;
     $now->set_time_zone($Config->general_timezone);
 
-    # default timestamp for talks
-    my $dstart = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
-
     # generate iCal events for each talk
     my @talks;
     for my $t (@$talks) {
-        unless ($t->lightning) {
-            my $dtstart = $t->datetime
-                        ? DateTime::Format::Pg->parse_timestamp($t->datetime)
-                        : $dstart;
-            my $dtend = $dtstart->clone;
-            $dtend->add(minutes => $t->duration);
-            push @talks, {
-                dtstart => DateTime::Format::ICal->format_datetime($dtstart),
-                dtend   => DateTime::Format::ICal->format_datetime($dtend),
-                title   => join('-', $t->talk_id, $to_utf8->convert($t->title)),
-                uid     => sprintf('%04x', $t->talk_id) . substr(UID,4),
-            };
-        }
+        my $dtstart = $t->datetime;
+        my $dtend = $dtstart->clone;
+        $dtend->add(minutes => $t->duration);
+        push @talks, {
+            dtstart => DateTime::Format::ICal->format_datetime($dtstart),
+            dtend   => DateTime::Format::ICal->format_datetime($dtend),
+            title   => join('-', $t->id, $to_utf8->convert($t->title)),
+            uid     => sprintf('%04x', $t->id) . substr(UID,4),
+        };
     }
 
     # process the template
