@@ -35,14 +35,18 @@ sub trans_handler
         args      => { $r->args },
         path_info => join('/', @c),
     );
-    _set_language();
-    _db_connect();
-
     # see if URI starts with a conf name
     if (@c && exists $Config->conferences->{$c[0]}) {
         $Request{conference} = shift @c;
         $Request{path_info}  = join '/', @c;
     }
+    # set the correct configuration
+    $Config = Act::Config::get_config($Request{conference});
+
+    # pre-request initialization now that we have $Config
+    _set_language();
+    _db_connect();
+
     # default pages à la mod_dir
     if (!@c && $r->uri =~ m!/$!) {
         $r->uri(  $Request{conference}

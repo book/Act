@@ -7,14 +7,45 @@ use vars qw(@ISA @EXPORT $Config %Request);
 
 use AppConfig qw(:expand :argcount);
 
-# load global configuration
-load_global_config();
+# our configs
+my ($GlobalConfig, %ConfConfigs);
 
-# load global configuration
-sub load_global_config
+# load configurations
+load_configs();
+
+sub load_configs
 {
     my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
-    $Config = AppConfig->new(
+    $GlobalConfig = _init_config($home);
+
+    # load global configuration
+    _load_config($GlobalConfig, $home);
+    _make_hash  ($GlobalConfig, conferences => $GlobalConfig->general_conferences);
+
+    # load conference-specific configuration files
+    # their content may override global config settings
+    for my $conf (keys %{$GlobalConfig->conferences}) {
+        $ConfConfigs{$conf} = _init_config($home);
+        _load_config($ConfConfigs{$conf}, $home);
+        _make_hash  ($ConfConfigs{$conf}, conferences => $GlobalConfig->general_conferences);
+        _load_config($ConfConfigs{$conf}, "$home/$conf");
+    }
+    # default current config (for non-web stuff that doesn't call get_config)
+    $Config = $GlobalConfig;
+}
+# get configuration for current request
+sub get_config
+{
+    my $conf = shift;
+    return $conf && $ConfConfigs{$conf}
+         ? $ConfConfigs{$conf}
+         : $GlobalConfig;
+}
+
+sub _init_config
+{
+    my $home = shift;
+    my $cfg = AppConfig->new(
          {
             CREATE => 1,
             GLOBAL => {
@@ -24,20 +55,26 @@ sub load_global_config
                }
          }
     );
-    $Config->set(home => $home);
-    $Config->file(map "$home/conf/$_.ini", qw(act local));
+    $cfg->set(home => $home);
+    return $cfg;
+}
 
+sub _load_config
+{
+    my ($cfg, $dir) = @_;
+    for my $file qw(act local) {
+        my $path = "$dir/conf/$file.ini";
+        $cfg->file($path) if -e $path;
+    }
     # some prefs are useful as hash keys
-    _make_hash(conferences => $Config->general_conferences,
-               languages   => $Config->general_languages,
-    );
+    _make_hash($cfg, languages => $cfg->general_languages);
 }
 
 sub _make_hash
 {
-    my %h = @_;
+    my ($cfg, %h) = @_;
     while (my ($key, $value) = each %h) {
-        $Config->set($key => { map { $_ => 1 } split /\s+/, $value });
+        $cfg->set($key => { map { $_ => 1 } split /\s+/, $value });
     }
 }
 1;
