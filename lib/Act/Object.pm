@@ -78,6 +78,14 @@ sub init {
     my $fields = ${"${class}::fields"} = $sth->{NAME};
     $sth->finish;
 
+    # get column info
+    for my $f (@$fields) {
+        my $sth = $Request{dbh}->column_info(undef, undef, $table, $f);
+        $sth->execute;
+        ${"${class}::column_info"}{$f} = $sth->fetchrow_hashref;
+        $sth->finish;
+    }
+    
     # fill possibly missing keys
     ${"${class}::sql_stub"}{select_opt} ||= {};
     ${"${class}::sql_stub"}{from_opt}   ||= [];
