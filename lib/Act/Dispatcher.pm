@@ -20,6 +20,7 @@ my %dispatch = (
     user     => { handler => 'Act::Handler::User::Show' },
     stats    => { handler => 'Act::Handler::User::Stats' },
     talk     => { handler => 'Act::Handler::Talk::Show' },
+    talks    => { handler => 'Act::Handler::Talk::List' },
 
     # protected handlers
     logout   => { handler => 'Act::Handler::Logout',         private => 1 },
@@ -27,7 +28,6 @@ my %dispatch = (
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
     photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
-    talks    => { handler => 'Act::Handler::Talk::List',     private => 1 },
 );
 
 # translation handler

@@ -1,7 +1,11 @@
 [% WRAPPER ui
-   title = { en => 'List of submitted talks', fr => 'Liste des présentations soumises' },
+   title = {
+     en => 'List of talks'
+     fr => 'Liste des présentations'
+   },
 %]
 <div align="center">
+[% IF user.is_orga %]
 <p>
  <t>
   <en>
@@ -12,10 +16,17 @@
   </fr>
  </t>
 </p>
+[% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
  <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
  <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
+ [% IF user.is_orga OR global.config.show_schedule %]
+ <th><t><en>Date</en><fr>Date</fr></t></th>
+ [% END %]
+ [% IF user.is_orga %]
+ <th><t><en>Accepted</en><fr>Accepté</fr></t></th>
+ [% END %]
 </tr>
 [% FOREACH t = talks %]
   <tr>
@@ -27,6 +38,14 @@
            [% t.title %]
            [%- "</b>" IF t.accepted %]
     </a></td>
+    [% IF user.is_orga OR global.config.show_schedule %]
+    <td>[% t.given || '&nbsp;' %]</td>
+    [% END %]
+    [% IF user.is_orga %]
+    <td>
+    <input type="checkbox" name="[% t.talk_id %]" [% 'checked' IF t.accepted %] />
+    </td>
+    [% END %]
   </tr>
 [% END %]
 </table>

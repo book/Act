@@ -7,11 +7,7 @@ use Act::Talk;
 
 sub handler
 {
-    # available only to organizers
-    unless ($Request{user}->is_orga) {
-        $Request{status} = NOT_FOUND;
-        return;
-    }
+
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks(conf_id => $Request{conference});
     $_->{user} = Act::User->new(user_id => $_->user_id) for @$talks;
@@ -19,6 +15,7 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
+        user  => $Request{user},
         talks => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} } @$talks ],
     ); 
     $template->process('talk/list');
