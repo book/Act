@@ -16,6 +16,7 @@
  <en>Talks in bold type have been confirmed by their respective speakers.</en>
 </t>
 [% FOREACH d IN table.keys.sort %]
+<a name="[% d %]"></a>
 <p>Date [% d %]</p>
 <table border="0">
  <tr class="header">
