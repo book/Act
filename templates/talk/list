@@ -39,7 +39,12 @@
            [% t.title %]
            [%- "</b>" IF t.accepted %]
     </a></td>
-    <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr></t></td>
+    <td>[% IF t.lightning %]
+          <t><en>lightning</en><fr>éclair</fr></t>
+        [% ELSE %]
+         [% t.duration %] <t><en>minutes</en><fr>minutes</fr></t>
+        [% END %]
+    </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
     <td align="center">[% t.given || '&nbsp;' %]</td>
     [% END %]
