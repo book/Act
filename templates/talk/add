@@ -173,6 +173,8 @@
      <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</fr>
      <it>Le durate previste per [% global.conference.name %] sono:
      <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minuti.</it>
+     <pt>As durações standard para a [% global.conference.name %] são:
+     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutos.</pt>
     </t><br />
     <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="3" />
     <input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] />
@@ -203,6 +205,8 @@
        <it>Se nessuna delle durate proposte si addice al vostro
        intervento, indicate la durata che vorreste nel campo dei
        commenti.</it>
+       <pt>Se as durações propostas não se adequam à sua apresentação,
+       use o campo de comentários para indicar a duração desejada.</pt>
        </t>
      [% END %]
    [% END %]
@@ -210,7 +214,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr><it>Commenti</it></t></td>
+  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr><it>Commenti</it><pt>Comentário</pt></t></td>
   <td>&nbsp;</td>
   <td>
     <t>
@@ -222,6 +226,8 @@
     sujet de cette présentation aux organisateurs.</fr>
     <it>Il campo dei commenti serve per fornire informazioni
     aggiuntive sull'intervento agli organizzatori.</it>
+    <pt>O campo de comentários é usado para comunicar informação extra
+    sobre esta apresentação aos organizadores.</pt>
     </t><br />
     <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
   </td>
@@ -232,7 +238,7 @@
   <td>
     [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
-    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></t><br />
+    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></t><br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
     <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it></t><br />
     [% ELSE %]
