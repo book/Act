@@ -40,7 +40,7 @@ CREATE INDEX users_session_id ON users (session_id);
 DROP   TABLE rights;
 CREATE TABLE rights
 (
-    name        text       NOT NULL,
+    right_id    text       NOT NULL,
     conf_id     text       NOT NULL,
     user_id     integer    NOT NULL,
 

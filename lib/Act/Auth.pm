@@ -109,6 +109,12 @@ sub authen_ses_key ($$$)
     # unknown session id
     return () unless $user;
 
+    # get the user's rights
+    $sth = $Request{dbh}->prepare_cached('SELECT right_id FROM rights WHERE conf_id=? AND user_id=?');
+    $sth->execute($Request{conference}, $user->{user_id});
+    $user->{rights}{$_->[0]}++ for @{ $sth->fetchall_arrayref };
+    $sth->finish;
+
     # save this user for the content handler
     $Request{user} = $user;
     _update_language();
