@@ -25,7 +25,7 @@
 <tr>
  <th><t><en>Name</en><fr>Nom</fr><pt>Nome</pt><it>Nome</it></t></th>
  <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt></t></th>
- <th><t><en>Country</en><fr>Pays</fr><t>Nazione</it><pt>País</pt></t></th>
+ <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt></t></th>
  <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it></t></th>
  [% IF global.user.is_admin %]
  <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it><pt>Zona de administração</pt></t></th>
