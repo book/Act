@@ -9,6 +9,13 @@ TODO
       (possibilité de désincription pour celle qui sont ouvertes
       et pour lesquelles il n'est pas committed)
     - les conférences Act ouvertes auxquelles il peut s'inscrire
+  + le handler Act::Handler::Register traite le cas du user loggé
+    en le redirigeant dans main. Il est possible de gérer l'inscription
+    automatiquement à ce moment-là
+  + un user sans talk et n'ayant pas payé devrait pouvoir se désincrire
+    depuis sa page main
+  + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
+    les participants qui ne sont pas venus
 
 - un user doit pouvoir accéder à une page perso HORS CONFERENCE,
   par exemple, pour éditer sa bio, changer sa photo, s'inscrire
