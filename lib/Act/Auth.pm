@@ -6,7 +6,7 @@ use Apache::Constants qw(OK);
 use Digest::MD5 ();
 
 use Act::Config;
-use Act::WebUser;
+use Act::User;
 use Act::Util;
 
 use base qw(Apache::AuthCookie);
@@ -54,7 +54,7 @@ sub authen_cred ($$\@)
     $sent_pw or do { $r->log_error("$prefix No password");   return undef; };
 
     # search for this user in our database
-    my $user = Act::WebUser->new( login => lc $login );
+    my $user = Act::User->new( login => lc $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
     # compare passwords
     my $digest = Digest::MD5->new;
@@ -69,8 +69,7 @@ sub authen_cred ($$\@)
     $sid =~ s/\W/-/g;
 
     # save this user for the content handler
-    $Request{webuser} = $user;
-    $Request{user} = Act::User->new( user_id => $user->user_id );
+    $Request{user} = $user;
     _update_language();
     $user->update(session_id => $sid);
 
@@ -82,14 +81,13 @@ sub authen_ses_key ($$$)
     my ($self, $r, $sid) = @_;
 
     # search for this user in our database
-    my $user = Act::WebUser->new( session_id => $sid );
+    my $user = Act::User->new( session_id => $sid );
 
     # unknown session id
     return () unless $user;
 
     # save this user for the content handler
-    $Request{webuser} = $user;
-    $Request{user} = Act::User->new( user_id => $user->user_id );
+    $Request{user} = $user;
     _update_language();
 
     return ($user->{login});
@@ -97,9 +95,9 @@ sub authen_ses_key ($$$)
 
 sub _update_language
 {
-    $Request{webuser}->update(language => $Request{language})
-        unless defined($Request{webuser}->{language})
-            && $Request{language} eq $Request{webuser}->{language};
+    $Request{user}->update(language => $Request{language})
+        unless defined($Request{user}->{language})
+            && $Request{language} eq $Request{user}->{language};
 }
 
 1;

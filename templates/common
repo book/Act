@@ -5,7 +5,7 @@
 [% END %]
 [% MACRO talk_modify_link(talk)
    BLOCK;
-     IF global.request.webuser.is_orga
+     IF global.request.user.is_orga
         || ( (global.config.talks_submissions_open OR global.config.talks_edition_open ) AND global.request.user.user_id == talk.user_id )
 %]
 (<a href="[% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]"><t>
@@ -33,14 +33,14 @@
 <a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
 [% '</b>' IF t.confirmed %]
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
-[% IF global.request.webuser.is_orga OR global.request.user.user_id == t.user_id %]
+[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', t.id ) %]"><t>
 <en>edit</en><fr>modifier</fr></t></a>)
 [% END %]
     [% ELSIF t.type == 'Act::Event' %]
 <a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
-[% IF global.request.webuser.is_orga OR global.request.user.user_id == t.user_id %]
+[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
 (<a href="[% make_uri('editevent', 'event_id', t.id ) %]"><t>
 <en>edit</en><fr>modifier</fr></t></a>)
 [% END %]

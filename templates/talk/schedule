@@ -3,7 +3,7 @@
    title = { en => 'Schedule', fr => 'Emploi du temps' }
 %]
 
-[% IF not ( global.request.webuser.is_orga or global.config.talks_show_schedule ) %]
+[% IF not ( global.request.user.is_orga or global.config.talks_show_schedule ) %]
 <t>
  <en>The schedule is not ready to be seen.
  </en>

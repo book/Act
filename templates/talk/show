@@ -10,7 +10,7 @@
 </t></b>
 [% user_info(user) %]
 </a>
-[% IF global.request.webuser.is_orga || global.request.user.user_id == user_id %]
+[% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
  <en>edit</en><fr>modifier</fr></t></a>)
 [% END %]
@@ -35,7 +35,7 @@
    <t><en>minutes</en><fr>minutes</fr></t><br />
 [% END %]
 
-[% IF ( global.request.webuser.is_orga || global.request.user.user_id == user_id)
+[% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
 <b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr></t></b>
 [% comment %]

@@ -13,13 +13,12 @@ sub handler
     $r->no_cache(1);
 
     # clear the session
-    $Request{webuser}->update(session_id => undef);
+    $Request{user}->update(session_id => undef);
 
     # remove the session cookie
     $r->auth_type->logout($r);
 
     # we're no longer authenticated
-    undef $Request{webuser};
     undef $Request{user};
 
     # display the logout page
