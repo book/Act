@@ -14,7 +14,7 @@ CREATE TABLE users
     first_name   text,
     last_name    text,
     nick_name    text,
-    pseudonymous text,
+    pseudonymous boolean,
     country      text       NOT NULL,
     town         text,
 
