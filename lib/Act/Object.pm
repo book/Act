@@ -85,12 +85,10 @@ sub get_items {
     $class = ref $class  || $class;
     $class->init;
 
+    no strict 'refs';
+
     # search field to SQL mapping
-    my %req;
-    {
-      no strict 'refs';
-      %req = %{"${class}::sql_mapping"};  # sql_search
-    }
+    my %req = %{"${class}::sql_mapping"};
 
     # SQL options
     my %opt = (
@@ -108,42 +106,34 @@ sub get_items {
         delete $args{$_} unless $args{$_};
     }
 
-    # build the request string
-    my $SQL;
-    { no strict 'refs';
+    # SQL options for the derived class
+    %opt = ( %opt, %{"{$class}::sql_opts"} );
 
-      # SQL options for the derived class
-      %opt = ( %opt, %{"{$class}::sql_opts"} );
-
-      # create the big hairy SQL statement
-      $SQL = join ' ',
-          # SELECT clause
-          'SELECT', join( ', ',
-              ${"${class}::sql_stub"}{select},
-              map ( { $_->(\%args) }
-                    values %{ ${"${class}::sql_stub"}{select_opt} } ),
-          ),
-          # FROM
-          'FROM', join( ', ',
-              ${"${class}::sql_stub"}{from},
-              map ( { $_->(\%args) }
-                    @{ ${"${class}::sql_stub"}{from_opt} } )
-          ),
-          # WHERE clause
-          'WHERE', join( ' AND ', 'TRUE', @req{keys %args} ),
-          # OPTIONS
-          map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () } keys %opt );
-    
-      # repeat some bind variables
-      for ( keys %args ) {
-          my $n = ${"${class}::sql_mapping"}{$_} =~ y/?//;
-          $args{$_} = [ ( $args{$_} ) x $n ] if $n > 1;
-      }
-    }
+    # create the big hairy SQL statement
+    my $SQL = join ' ',
+        # SELECT clause
+        'SELECT', join( ', ',
+            ${"${class}::sql_stub"}{select},
+            map ( { $_->(\%args) }
+                  values %{ ${"${class}::sql_stub"}{select_opt} } ),
+        ),
+        # FROM
+        'FROM', join( ', ',
+            ${"${class}::sql_stub"}{from},
+            map ( { $_->(\%args) }
+                  @{ ${"${class}::sql_stub"}{from_opt} } )
+        ),
+        # WHERE clause
+        'WHERE', join( ' AND ', 'TRUE', @req{keys %args} ),
+        # OPTIONS
+        map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () } keys %opt );
 
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute( map { (ref) ? @$_ : $_ } values %args );
+    $sth->execute(
+        map { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// }
+        keys %args
+    );
 
     my ($items, $item) = [ ];
     push @$items, bless $item, $class while $item = $sth->fetchrow_hashref();
@@ -255,7 +245,7 @@ Creating a subclass of Act::Object should be quite easy:
     );
 
     # Your class now inherits new(), create(), update(), get_items()
-    # and the AUTOLOADED accessors (for the column names)
+    # and the accessors (for the column names and optional fields)
 
     # Alias the search method
     *get_foos = \&Act::Object::get_items;
@@ -263,6 +253,7 @@ Creating a subclass of Act::Object should be quite easy:
     # Create the accessors and helper methods
     Act::Foo->init();
 
-See Act::User for a slightly more complicated setup.
+See Act::Talk for a simple setup and Act::User for a setup using all
+these features.
 
 =cut
