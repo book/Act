@@ -14,13 +14,8 @@ use Act::Util;
 my @partfields = qw(tshirt_size nb_family);
 
 # registration form
-my $form = Act::Form->new(
+my @form_params = (
   required => [qw(first_name last_name email country)],
-  optional => [qw(im bio civility email_hide gpg_pub_key im pause_id monk_id
-                  pm_group pm_group_url timezone town web_page
-                  company company_url address ),
-                  @partfields
-              ],
   filters => {
      email    => sub { lc shift },
      pm_group => sub { ucfirst lc shift },
@@ -44,6 +39,13 @@ sub handler
 {
     my $template = Act::Template::HTML->new();
     my $fields;
+    my $form = Act::Form->new( @form_params, 
+        optional => [qw(im civility email_hide gpg_pub_key im pause_id
+                        monk_id pm_group pm_group_url timezone town web_page
+                        company company_url address ),
+                        @partfields,
+                        map { "bio_$_" } keys %Act::Config::Languages ]
+    );
 
     if ($Request{args}{join}) {
         # form has been submitted
@@ -58,9 +60,18 @@ sub handler
             my %part;
             @part{@partfields} = delete @$fields{@partfields};
 
+            # extract bio data
+            my %bio;
+            for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
+            {
+                $bio{$lang} = delete $fields->{"bio_$lang"};
+            }
+
             # update user
-            $Request{user}->update(%$fields, participation => \%part);
+            $Request{user}->update(%$fields, participation => \%part,
+                                             bio => \%bio);
             @$fields{@partfields} = @part{@partfields};
+            $fields->{"bio_$_"} = $bio{$_} for keys %bio;
         }
         else {
             # map errors
@@ -83,6 +94,10 @@ sub handler
     }
     else {
         $fields = $Request{user};
+        my $bio = $Request{user}->bio;
+        $fields->{"bio_$_"} = $bio->{$_}
+          for keys %{ $Config->{languages} };
+
         # participation to this conference
         if (my $part = $Request{user}->participation) {
             @$fields{@partfields} = @$part{@partfields};
@@ -93,6 +108,7 @@ sub handler
         civilities => Act::Util::get_translations('users', 'civility'),
         countries  => Act::Country::CountryNames(),
         timezones  => [ DateTime::TimeZone::all_names() ],
+        bio        => $Request{user}->bio,
         %$fields
     );
     $template->process('user/change');

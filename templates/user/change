@@ -343,7 +343,15 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <textarea name="bio" cols="40" rows="5">[% bio %]</textarea>
+      [% FOREACH lang = global.config.languages.keys %]
+      [% global.config.languages.$lang.name|ucfirst %]
+      [% IF lang == 'en' %]
+      <t><en>(please fill at least this one)</en>
+         <fr>(merci de compléter au moins celle-ci)</fr></t>
+      [% END %]<br />
+      <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang %]</textarea>
+      <br />
+      [% END %]
    </td>
 </tr>
 <tr>
