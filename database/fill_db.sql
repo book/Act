@@ -6,6 +6,9 @@ INSERT INTO translations VALUES('users', 'civility', 2, 'en', 'Mrs.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'fr', 'Mlle.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'en', 'Ms.');
 
+INSERT INTO translations VALUES('conferences', 'name', '2004', 'fr', 'Les Journées Perl 2004');
+INSERT INTO translations VALUES('conferences', 'name', '2004', 'en', 'French Perl Workshop 2004');
+
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'fr', 'Andorre');
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'en', 'Andorra');

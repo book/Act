@@ -5,11 +5,11 @@
  <t>
   <en>
    This is your personal page. From here you can manage everything
-   regarding your participation to [% global.request.conference %].
+   regarding your participation to [% global.conference.name %].
   </en>
   <fr>
    Ceci est votre page personnelle. D'ici vous pouvez gérer tout ce
-   qui concerne votre participation à [% global.request.conference %].
+   qui concerne votre participation à [% global.conference.name %].
   </fr>
  </t>
 </p>

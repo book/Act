@@ -81,7 +81,6 @@ sub process
 {
     my ($self, $filename, $output) = @_;
     my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Apache');
-    $output ||= $Request{r} if $web;
 
     # set global variables
     my %global = (
@@ -97,12 +96,21 @@ sub process
            grep { $_ ne $Request{language} }
            sort keys %{$Config->languages}
          ];
+        $self->variables(
+          make_uri      => \&Act::Util::make_uri,
+          make_uri_info => \&Act::Util::make_uri_info,
+        );
+        if ($Request{conference} && $Request{dbh}) {
+            $global{conference} = {
+              map { $_ => Act::Util::get_translation('conferences', $_, $Request{conference}) }
+              qw(name)
+            };
+        }
+        $output ||= $Request{r};
     }
 
     $self->variables(
       global        => \%global,
-      make_uri      => \&Act::Util::make_uri,
-      make_uri_info => \&Act::Util::make_uri_info,
     );
 
     # process and output
