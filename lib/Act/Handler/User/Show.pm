@@ -5,6 +5,7 @@ use Act::Config;
 use Act::Country;
 use Act::Template::HTML;
 use Act::User;
+use Act::Util;
 
 sub handler
 {
@@ -20,7 +21,8 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         %$user,
-        country => Act::Country::CountryName($user->{country}),
+        country => Act::Country::CountryName($user->country),
+        civility => Act::Util::get_translation( users => civility => $user->civility ),
     );
     $template->process('user/show');
 }
