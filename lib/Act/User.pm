@@ -78,6 +78,7 @@ sub bio {
         "SELECT lang, bio FROM bios WHERE user_id=?"
     );
     $sth->execute( $self->user_id );
+    $self->{bio} = {};
     while( my $bio = $sth->fetchrow_arrayref() ) {
         $self->{bio}{$bio->[0]} = $bio->[1];
     }
