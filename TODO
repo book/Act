@@ -1,20 +1,12 @@
 TODO
 ====
-- sortir les données 2004/ de wwwdocs
-  + la mise en place dans le bon répertoire sur le site web
-    peut se faire autrement, non ?
-- sortir 2004/ de conferences/
-  + repository act/ pour le code de la conf,
-  + conferences/ pour les conférences mongueurs (2004/, 2005, etc.)
-  + un repository par conférence/année gérée par YEF: YE 2005, les divers
-    workshops, etc.
-
 - faire fonctionner le site en multiconference
 
 - un user doit pouvoir accéder à une page perso HORS CONFERENCE,
   par exemple, pour éditer sa bio, changer sa photo, s'inscrire
   à une ou plusieurs conférences, voir toutes ses factures, etc.
   + aujourd'hui, le site suppose toujours que conf_id est défini...
+    et que $Request{user} est inscrit à cette conférence
 
 - il y a un module Act::Invoice (pour les factures), mais je ne vois
   pas de Act::Handler::User::Invoice pour les afficher.
