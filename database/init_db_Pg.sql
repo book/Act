@@ -2,6 +2,7 @@
 
 /* users */
 DROP   TABLE users CASCADE;
+DROP   TABLE users_user_id_seq;
 CREATE TABLE users
 (
     user_id     serial     NOT NULL  PRIMARY KEY,
@@ -14,7 +15,7 @@ CREATE TABLE users
     first_name   text,
     last_name    text,
     nick_name    text,
-    pseudonymous boolean,
+    pseudonymous boolean    DEFAULT FALSE,
     country      text       NOT NULL,
     town         text,
 
@@ -65,12 +66,13 @@ CREATE INDEX participations_idx ON rights (conf_id);
 
 /*** Talks related tables ***/
 /* talks */
-DROP   TABLE talks;
+DROP   TABLE talks CASCADE;
+DROP   TABLE talks_talk_id_seq;
 CREATE TABLE talks
 (
-    talk_id    serial        PRIMARY KEY,
-    conf_id    text,
-    user_id    integer,
+    talk_id    serial    NOT NULL    PRIMARY KEY,
+    conf_id    text      NOT NULL,
+    user_id    integer   NOT NULL,
 
     /* talk info */
     title        text,
