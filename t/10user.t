@@ -1,4 +1,4 @@
-use Test::More tests => 39;
+use Test::More tests => 38;
 use strict;
 use Act::User;
 use t::Util;   # load the test database
@@ -32,7 +32,6 @@ $user = Act::User->create(
 );
 isa_ok( $user, 'Act::User' );
 is( $user->login, 'test2', "check accessor" );
-is( $user->pm_group, 'Paris.pm', "check overriden accessor" );
 
 # ENOSUCHUSER
 $user = Act::User->new( login => 'foo' );

@@ -20,6 +20,10 @@ my $form = Act::Form->new(
                   pm_group pm_group_url timezone town web_page),
                   @partfields
               ],
+  filters => {
+     email    => sub { lc shift },
+     pm_group => sub { ucfirst lc shift },
+  },
   dependencies => {
     pseudonymous => [qw(nick_name)],
   },

@@ -33,8 +33,6 @@ our %sql_opts = ( 'order by' => 'user_id' );
 
 *get_users = \&Act::Object::get_items;
 
-sub pm_group  { ucfirst $_[0]{pm_group} }
-
 sub rights {
     my $self = shift;
     return $self->{rights} if exists $self->{rights};

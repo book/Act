@@ -10,6 +10,10 @@ use Act::Util;
 # registration form
 my $form = Act::Form->new(
   required => [qw(login first_name last_name email country)],
+  filters => {
+     login    => sub { lc shift },
+     email    => sub { lc shift },
+  },
   constraints => {
      login => sub { $_[0] =~ /^[A-Za-z0-9_]{3,}$/ },
      email => 'email',
@@ -31,12 +35,6 @@ sub handler
     if ($Request{args}{join}) {
         # form has been submitted
         my @errors;
-
-        # lower case some fields
-        for my $f (qw(login email)) {
-            $Request{args}{$f} = lc $Request{args}{$f}
-                if defined $Request{args}{$f};
-        }
 
         # validate form fields
         my $ok = $form->validate($Request{args});
