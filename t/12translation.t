@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 5;
+use Test::More tests => 6; # increment for each new supported language
 use t::Util;
 use Act::Util;
 
@@ -21,3 +21,16 @@ $Request{language} = 'fr';
 is_deeply(Act::Util::get_translations('ta', 'co'), { 1 => 'bar', 2 => 'baz' }, 'get_translations fr');
 $Request{language} = 'en';
 is_deeply(Act::Util::get_translations('ta', 'co'), { 1 => 'foo', 2 => 'baz' }, 'get_translations en');
+
+# check the init_db_Pg.sql file
+@ARGV = ( 'database/fill_db.sql' );
+my %trans;
+while(<>) {
+   next unless /INSERT/;
+   #INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'en', 'Anguilla');
+   my @data = map { y/'//d;$_ } /('\w+'|\d+)/g;
+   $trans{$data[3]}{$data[0]}{$data[1]}{$data[2]} = 1;
+}
+is_deeply( $trans{$_}, $trans{en}, "Checking $_" )
+  for grep { !/en/ } keys %trans;
+
