@@ -24,15 +24,15 @@ sub validate
     # check required fields
     if (my $required = $self->_profile_fields('required')) {
         for my $field (@$required) {
-            $self->{fields}{$field} = $input->{$field};
+            $self->_set_field($field, $input->{$field});
             $self->{invalid}{$field} = 'required'
-                unless $input->{$field};
+                unless $self->{fields}{$field};
         }
     }
     # optional fields
     if (my $optional = $self->_profile_fields('optional')) {
         for my $field (@$optional) {
-            $self->{fields}{$field} = $input->{$field};
+            $self->_set_field($field, $input->{$field});
         }
     }
     # check constraints
@@ -43,7 +43,7 @@ sub validate
             next if $self->{invalid}{$field}; # missing required field
             my $c = $constraints{$type}
                 or die "unknown constraint type: $type\n";
-            $c->($input->{$field})
+            $c->($self->{fields}{$field})
                 or $self->{invalid}{$field} = $type;
         }
     }
@@ -60,6 +60,18 @@ sub _profile_fields
     $fields = [ $fields ] if $fields && !ref($fields);
     return $fields;
 }    
+sub _set_field
+{
+    my ($self, $field, $value) = @_;
+    if (defined $value) {
+        for ($value) {
+            s/^\s+//;
+            s/\s+$//;
+        }
+    }
+    $self->{fields}{$field} = $value;
+}
+
 1;
 
 __END__

@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 32;
+use Test::More tests => 34;
 
 my @tests = (
 { profile => {
@@ -19,6 +19,10 @@ my @tests = (
     },
     { input  => { r1 => 1, r2 => 2, r3 => 3, r4 => 4 },
       fields => { r1 => 1, r2 => 2, r3 => 3 },
+      valid  => 1,
+    },
+    { input  => { r1 => 'foo  ', r2 => '  bar', r3 => ' baz '},
+      fields => { r1 => 'foo',   r2 => 'bar',   r3 => 'baz' },
       valid  => 1,
     },
     { input  => { r1 => 1, r3 => 3 },
