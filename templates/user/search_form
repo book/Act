@@ -3,7 +3,6 @@
 %]
 
 <center>
-[% FOREACH k=global.request.args.keys %][% k %] => [% global.request.args.$k %]<br />[% END %]
 <form method="post" action="/[% global.request.conference %]/search/" enctype="application/x-www-form-urlencoded">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
