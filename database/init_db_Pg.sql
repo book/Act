@@ -80,7 +80,7 @@ CREATE TABLE talks
     abstract     text,
     url_abstract text,
     url_talk     text,
-    duration     integer NOT NULL,
+    duration     integer,
     lightning    boolean DEFAULT false NOT NULL,
 
     /* for the organisers */
