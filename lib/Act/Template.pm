@@ -115,3 +115,60 @@ sub process
 1;
 
 __END__
+
+=head1 NAME
+
+Act::Template - template object base class
+
+=head1 SYNOPSIS
+
+    use Act::Template;
+    my $template = Act::Template->new();
+    $template->variables(foo => 42);
+    $template->process('talkview');
+
+=head1 DESCRIPTION
+
+The Act::Template class is used to process Act templates.
+
+=head2 Methods
+
+Act::Template defines the following methods:
+
+=over 4
+
+=item new()
+
+Creates a new template object, or fetch an existing one.
+The template's INCLUDE_PATH is suitable for the current request:
+conference-specific template directories followed by global
+template directories.
+This template object can then be used to process one or more
+template files.
+When used in a web (mod_perl) context, it is recommended that
+template objects be held in lexical variables of limited scope,
+so that they don't persist across requests. The object's configuration
+is request-dependent, and new() already maintains a cache of persistent
+template objects.
+
+=item variables(I<%variables>)
+
+Set template variables.
+
+=item process(I<$template_name>, I<$output>)
+
+Merges a template with the current variables.
+I<$template_name> is the name of a template file,
+or a reference to a string containing the template text.
+
+The default output is the current request object (output is
+sent to the client), or STDOUT if not in a web context.
+If <$output> is provided, it can be anything that Template-E<gt>process()
+accepts as its third argument, the most common being
+a reference to a scalar (e.g. a text string) to which output is appended.
+
+All variables are cleared after calling process().
+
+=back
+
+=cut
