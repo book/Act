@@ -185,7 +185,7 @@
     this talk to the organisers.</en>
     <fr>Le champ commentaire permet de passer de l'information au
     sujet de cette présentation aux organisateurs.</fr>
-    </t>
+    </t><br />
     <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
   </td>
 </tr>
