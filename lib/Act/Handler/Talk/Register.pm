@@ -38,11 +38,26 @@ sub handler
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
+        # organize specifies user id
+        my $user_id = $Request{user}->is_orga
+                    ? $Request{args}{user_id}
+                    : $Request{user}->user_id;
+
+        if ($Request{user}->is_orga) {
+            $fields->{user_id} = $user_id;
+            if ($user_id =~ /^\d+$/) {
+                my $u = Act::User->new(user_id => $user_id);
+                unless ($u && $u->participation) {
+                    $form->{invalid}{user_id} = 'invalid';
+                    $ok = 0;
+                }
+            }
+        }
         if ($ok) {
             # add this talk
             Act::Talk->create(
               %$fields,
-              user_id   => $Request{user}->user_id,
+              user_id   => $user_id,
               conf_id   => $Request{conference},
             );
             # thanks, come again
@@ -51,6 +66,7 @@ sub handler
         }
         else {
             # map errors
+            $form->{invalid}{user_id}      && push @errors, 'ERR_USER';
             $form->{invalid}{title}        && push @errors, 'ERR_TITLE';
             $form->{invalid}{abstract}     && push @errors, 'ERR_ABSTRACT';
             $form->{invalid}{duration}     && push @errors, 'ERR_DURATION';
@@ -63,6 +79,11 @@ sub handler
     $template->variables(
         %$fields
     );
+    $template->variables(
+        users => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
+                   @{Act::User->get_users(conf_id => $Request{conference})}
+                 ],
+    ) if $Request{user}->is_orga;
     $template->process('talk/add');
 }
 

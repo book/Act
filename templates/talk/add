@@ -7,6 +7,10 @@
 <span class="error">
 [% PROCESS error
    msgs = {
+     ERR_USER => {
+         en => "You must specify a user"
+         fr => "L'utilisateur est obligatoire"
+     },
      ERR_TITLE => {
          en => "You must enter a title for the talk"
          fr => "Le titre est obligatoire"
@@ -35,7 +39,21 @@
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
-
+[% IF global.request.user.is_orga %]
+<tr>
+  <td align="right"><t><en>User</en><fr>Utilisateur</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <select name="user_id">
+    [% FOREACH u=users %]
+      <option value="[% u.user_id %]"[% ' select="selected"' IF u.user_id == global.request.user.user_id %]>
+        [% u.first_name %] [% u.last_name %]
+      </option>
+    [% END %]
+    </select>
+  </td>
+</tr>
+[% END %]  
 <tr>
   <td align="right"><t><en>Title</en><fr>Titre</fr></t></td>
   <td>&nbsp;</td>
