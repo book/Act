@@ -2,7 +2,8 @@
    title = {
        en => 'Logout',
        fr => 'Déconnexion',
-       it => 'Uscita dal sistema'
+       it => 'Uscita dal sistema',
+       pt => 'Sair'
    }
 %]
 <center>
@@ -18,6 +19,9 @@
  <it>
   Siete usciti dal sistema, e il <em>cookie</em> è stato eliminato.
  </it>
+ <pt>
+   Acabou de sair do sistema, e a sua informação foi apagada do browser.
+ </pt>
 </t>
 </font>
 

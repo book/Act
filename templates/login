@@ -2,7 +2,8 @@
    title = {
        en => 'Login',
        fr => 'Connexion',
-       it => 'Login'
+       it => 'Login',
+       pt => 'Entrar'
    }
 %]
 <center>
@@ -15,7 +16,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it></t>
+      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -24,7 +25,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it></t>
+      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -33,7 +34,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it></t>" />
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt></t>" />
    </td>
 </tr>
 </table>
@@ -52,6 +53,9 @@
   <it>
     Password dimenticata? Segui <a href="[% make_uri('resetpw') %]">questo link</a>.
   </it>
+  <pt>
+    Esqueceu-se do seu código secreto? Sigua <a href="[% make_uri('resetpw') %]">esta ligação</a>.
+  </pt>
  </t>
 </p>
 
@@ -72,6 +76,11 @@
    degli utenti. Potreste aver bisogno di configurare il vostro browser
    per accettare <m>cookie</em> dal dominio <b>[% domain %]</b>.
  </it>
+ <pt>
+   Este site usa <em>cookies</em> para a autenticação dos utilizadores. É provável
+   que tenha de indicar ao seu browser para aceitar <em>cookies</em> do 
+   domínio <b>[% domain %]</b>.
+ </pt>
 </t>
 </font>
 </p>
