@@ -42,7 +42,6 @@ sub trans_handler
     # initialize our per-request variables
     %Request = (
         r         => $r,
-        args      => { map { $_ => $r->param($_) } $r->param },
         path_info => join('/', @c),
     );
     # see if URI starts with a conf name
@@ -52,9 +51,6 @@ sub trans_handler
     }
     # set the correct configuration
     $Config = Act::Config::get_config($Request{conference});
-
-    # per-request initialization now that we have $Config
-    _set_language();
     _db_connect();
 
     # default pages à la mod_dir
@@ -82,6 +78,11 @@ sub _dispatch
 {
     my ($r, $handler) = @_;
 
+    # per-request initialization
+    $Request{args} = { map { $_ => $r->param($_) } $r->param };
+    _set_language();
+
+    # set up content handler
     $r->handler("perl-script");
     $r->push_handlers(PerlHandler => $handler);
     return OK;
