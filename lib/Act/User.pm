@@ -205,7 +205,6 @@ sub get_users {
 
     # SQL options
     my %opt = (
-        order_by => 'u.user_id',
         offset   => '',
         limit    => '',
     );
@@ -222,13 +221,11 @@ sub get_users {
 
     # special cases
     $args{name} = [ ( $args{name} ) x 3 ] if exists $args{name};
-    $opt{order_by} = "$opt{order_by}"     if $opt{order_by};
 
     # build the request string
     my $SQL = "SELECT DISTINCT u.* FROM users u, participations p WHERE ";
     $SQL .= join " AND ", "TRUE", @req{keys %args};
-    $SQL .= join " ", "", map { my $n = $_; $n =~ y/a-z_/A-Z /;
-                                $opt{$_} ne '' ? ( $n, $opt{$_} ) : () }
+    $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
                           keys %opt;
 
     # run the request
