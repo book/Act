@@ -1,0 +1,46 @@
+[% WRAPPER ui
+   title = { en => 'Online Payment', fr => 'Paiement en ligne' },
+%]
+<center>
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      <t><en>Your name</en><fr>Votre nom</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% global.request.user.first_name %] [% global.request.user.last_name %]
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Order #</en><fr>Commande n°</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% order.order_id %]
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Amount</en><fr>Montant</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% order.amount %] EUR.
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="center">
+     [% form %]
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+
+</center>
+[% END %]

@@ -21,6 +21,9 @@ my @conf_simple = qw(
     talks_submissions_notify_address
     talks_submissions_notify_language
     talks_show_schedule
+    payment_open
+    payment_amount
+    payment_type
 );
 
 BEGIN { use_ok('Act::Config') }

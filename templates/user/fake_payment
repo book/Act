@@ -1,0 +1,25 @@
+<center>
+<p>
+ <t>
+  <en>This is a simulation. Under real circumstances, submitting
+      this form would take you to the bank's web site where you
+      would enter you credit card information.<br /><br />
+      Click submit to simulate payment.
+  </en>
+  <fr>Ceci est une simulation. En utilisation réelle, la
+      soumission de ce formulaire vous conduirait au site web
+      de la banque où vous seriez invités à saisir votre
+      numéro de carte bancaire.<br /><br />
+      Cliquez sur le bouton pour simuler un paiement.
+  </fr>
+ </t>
+</p>
+
+<form method="POST" action="[% make_uri('fakepay') %]">
+
+<input type="hidden" name="order_id" value="[% order.order_id %]" />
+<input type="hidden" name="amount"   value="[% order.amount %]" />
+<input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr></t>" />
+
+</form>
+</center>

@@ -14,8 +14,38 @@
  </t>
 </p>
 
+[% UNLESS global.request.user.has_paid %]
+<p>
+ <t>
+  <en>
+   You have not bought your conference ticket yet.
+   [% IF global.config.payment_open %]
+   Please consider doing so using our online payment system.
+   [% ELSE %]
+   Please consider doing so once our online payment system is ready.
+   [% END %]
+  </en>
+  <fr>
+   Vous n'avez pas encore acheté votre billet pour la conférence.
+   [% IF global.config.payment_open %]
+   Merci de penser à le faire en utilisant notre système de vente en ligne.
+   [% ELSE %]
+   Merci de penser à le faire dès que le système de vente en ligne
+   sera opérationnel.
+   [% END %]
+  </fr>
+ </t>
+</p>
+[% END %]
+
 <p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en></t></b></p>
    <ul>
+    [% IF global.config.payment_open AND NOT global.request.user.has_paid %]
+    <li><a href="[% make_uri('purchase') %]"><t>
+          <fr>acheter votre billet pour la conférence</fr>
+          <en>purchase your conference ticket</en></t></a><br />
+    </li>
+    [% END %]
     <li><a href="[% make_uri('change') %]"><t>
           <fr>mettre à jour les informations vous concernant</fr>
           <en>update your information</en></t></a><br />

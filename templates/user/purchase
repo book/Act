@@ -1,0 +1,100 @@
+[% WRAPPER ui
+   title = { en => 'Online payment', fr => 'Paiement en ligne' },
+%]
+<center>
+<form method="POST">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+ <td colspan="3">
+  <t>
+   <en>
+    Ticket for [% global.conference.name %].
+   </en>
+   <fr>
+    Ticket d'entrée à la conférence [% global.conference.name %].
+   </fr>
+  </t>
+ </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Amount</en><fr>Montant </fr></t>:
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% global.config.payment_amount %] EUR.
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="purchase" value="<t><fr>J'achète</fr><en>Buy now!</en></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+
+<p>
+ <t>
+  <en>
+   Please note that
+   everything regarding your bank account and credit card number
+   is handled by the bank. <b>We do not have access to your credit
+   information at any time during the payment process.</b> We just
+   get the money in the end. <tt>;-)</tt>
+  </en>
+  <fr>
+   Veuillez noter que tout ce qui concerne
+   votre compte en banque et votre numéro de carte bleue est géré
+   par la banque. <b>Nous n'avons à aucun moment accès aux informations
+   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
+   à la fin. <tt>;-)</tt>
+  </fr>
+ </t>
+</p>
+<hr size="1" />
+<p>
+ <t>
+  <en>If you cannot use a credit card, or prefer to pay
+      via a money transfer to our bank, you can use the following
+      information:
+  </en>
+  <fr>Si vous ne possédez pas de carte bleue, ou que vous préférez
+      payer par virement bancaire, vous pouvez toujours utiliser
+      les informations suivantes&nbsp;:
+  </fr>
+ </t>
+</p>
+
+<center>
+ <table border="1" cellpadding="2" cellspacing="0">
+  <tr>
+   <th align="left" valign="top"><t><en>Account owner</en><fr>Propriétaire du compte</fr></t></th>
+   <td>10641 00010433201 0432711 GUO<br /> 
+       Les Mongueurs de Perl</td>
+  </tr><tr>
+   <th align="left" valign="top">IBAN</th>
+   <td>FR76 3006 6106 4100 0104 3320 181</td>
+  </tr><tr>
+   <th align="left" valign="top"><t><en>Bank identification code</en><fr>Code d'indentification bancaire</fr></t></th>
+   <td>CMCIFRPP</td>
+  </tr>
+ </table>
+</center>
+
+<p>
+ <t>
+  <en>Please notify us if you decide to perform a bank transfer, so that we can
+      match you with the payment.</en>
+  <fr>Merci de nous informer si vous faites un virement, afin que nous fassions
+      la liaison entre le virement et vous.
+  </fr>
+ </t>
+</p>
+
+[% END %]

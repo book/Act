@@ -7,6 +7,7 @@ use Apache::Request;
 use DBI;
 
 use Act::Config;
+use Act::User;
 use Act::Util;
 
 use constant DEFAULT_PAGE => 'index.html';
@@ -28,6 +29,8 @@ my %dispatch = (
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
     photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
+    purchase => { handler => 'Act::Handler::User::Purchase', private => 1 },
+    fakepay  => { handler => 'Act::Handler::User::FakePayment',  private => 1 },
     rights   => { handler => 'Act::Handler::User::Rights',   private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
     edittalk => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
@@ -96,6 +99,11 @@ sub handler
 {
     # the Apache request object
     $Request{r} = Apache::Request->instance(shift);
+
+    # if we're in a conference we can know more about the current user
+    $Request{user} = Act::User->new(user_id => $Request{user}->user_id,
+                                    conf_id => $Request{conference})
+        if $Request{user} && $Request{conference};
 
     # dispatch
     if( ref $dispatch{$Request{action}}{handler} eq 'CODE' ) {
