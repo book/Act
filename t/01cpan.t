@@ -6,6 +6,8 @@ my @modules = (
                  'AppConfig',
                  'DBD::Pg',
                  'DBI',
+                 'HTML::Entities',
+                 'Template',
               );
 use Test::More;
 plan tests => 1 + scalar(@modules);
