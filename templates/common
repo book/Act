@@ -10,7 +10,6 @@
 %]
 [% MACRO user_info(user)
    BLOCK;
-     # committed = user.have_paid OR user.have_talk
 %]<a href="[% make_uri_info('user', user.user_id) %]">[%
     IF user.pseudonymous;
       user.nick_name;

@@ -28,7 +28,7 @@
 [% FOREACH u=users %]
  <tr>
    <td align="center">
-    [% user_info(u) %]
+    [% "<b>" IF u.committed %][% user_info(u) %][% "</b>" IF u.committed %]
     [% IF u.photo_name %]
     <img src="/images/photo.png" alt="photo" title="photo" width="12" height="12" />
     [% END %]
