@@ -11,20 +11,12 @@ my $dbh = DBI->connect(
 ok($dbh);
 ok($dbh->disconnect);
 
-SKIP: {
-    my $test_dsn;
-    {
-        local $SIG{__WARN__} = sub {};
-        $test_dsn = $Config->database_test_dsn;
-    }
-    skip "No test database defined", 2 unless $test_dsn;
- 
-    my $dbh = DBI->connect(
-            $Config->database_test_dsn,
-            $Config->database_test_user,
-            $Config->database_test_passwd,
-    );
-    ok($dbh);
-    ok($dbh->disconnect);
-}
+$dbh = DBI->connect(
+    $Config->database_test_dsn,
+    $Config->database_test_user,
+    $Config->database_test_passwd,
+);
+ok($dbh);
+ok($dbh->disconnect);
+
 __END__
