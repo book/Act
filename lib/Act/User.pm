@@ -208,13 +208,13 @@ sub get_users {
 
     # search field to SQL mapping
     my %req = (
-        # standard stuff
-        map { ($_, "(u.$_=?)") }
-          qw( user_id conf_id session_id login country ),
         conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
         town       => "(u.town~*?)",
         name       => "(u.nick_name~*? OR (u.pseudonymous=FALSE AND (u.first_name~*? OR last_name~*?)))",
         pm_group   => "(u.pm_group~*?)",
+        # standard stuff
+        map( { ($_, "(u.$_=?)") }
+          qw( user_id conf_id session_id login country ) )
     );
 
     # SQL options
