@@ -59,8 +59,8 @@ sub trans_handler
         path_info => join('/', @c),
     );
     # see if URI starts with a conf name
-    if (@c && exists $Config->conferences->{$c[0]}) {
-        $Request{conference} = $Config->conferences->{shift @c};
+    if (@c && exists $Config->uris->{$c[0]}) {
+        $Request{conference} = $Config->uris->{shift @c};
         $Request{path_info}  = join '/', @c;
     }
     # set the correct configuration

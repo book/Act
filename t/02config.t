@@ -38,16 +38,21 @@ _global_config($Config, 'global');
 
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");
-my %seen;
-for my $conf (values %{$Config->conferences}) {
-    next if $seen{$conf}++;
+isa_ok($Config->uris, 'HASH', "uris");
+for my $conf (keys %{$Config->conferences}) {
     my $cfg = Act::Config::get_config($conf);
     # global config may be overridden
     _global_config($cfg, $conf);
     # conference-specific
     ok(defined $cfg->$_, "$conf $_") for @conf_simple;
     isa_ok($cfg->talks_durations, 'HASH', "talks_durations");
+    isa_ok($cfg->uris, 'HASH', "uris");
     like($_, qr/^\d+$/, "$conf talks_durations $_") for keys %{$cfg->talks_durations};
+}
+# uri <=> conf mapping
+while (my ($uri, $conf) = each %{$Config->uris}) {
+    like($uri, qr(^[^/]+$), "uri $uri");
+    ok(exists $Config->conferences->{$conf}, "$uri points to existing conf $conf");
 }
 
 sub _global_config
