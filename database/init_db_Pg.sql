@@ -119,6 +119,16 @@ CREATE TABLE events
 );
 CREATE INDEX events_idx ON events ( event_id, conf_id );
 
+/* prices */
+DROP   TABLE prices CASCADE;
+CREATE TABLE prices
+(
+    price_id   serial    NOT NULL    PRIMARY KEY,
+    conf_id    text      NOT NULL,
+    amount     integer   NOT NULL,
+    currency   text      NOT NULL
+);
+
 /* orders */
 DROP   TABLE orders CASCADE;
 CREATE TABLE orders

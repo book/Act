@@ -424,3 +424,20 @@ INSERT INTO translations VALUES ('rooms', 'name', 'out', 'fr', 'Extérieur' );
 INSERT INTO translations VALUES ('rooms', 'name', 'out', 'en', 'Outside' );
 INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
 INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
+
+/* prices */
+INSERT INTO prices (conf_id, amount, currency) VALUES ('2004', 25, 'EUR');
+INSERT INTO translations VALUES ('prices', 'name', 1, 'fr', 'Tarif normal' );
+INSERT INTO translations VALUES ('prices', 'name', 1, 'en', 'Regular price' );
+INSERT INTO prices (conf_id, amount, currency) VALUES ('2004', 15, 'EUR');
+INSERT INTO translations VALUES ('prices', 'name', 2, 'fr', 'Tarif réduit' );
+INSERT INTO translations VALUES ('prices', 'name', 2, 'en', 'Reduced price' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'en', 'Cheque' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Liquide' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'en', 'Cash' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'fr', 'En ligne' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
+
