@@ -25,15 +25,23 @@ sub handler {
             conf_id => $conf_id,
             url     => '/' . $cfg->uri . '/',
             name    => $cfg->name->{$Request{language}},
-            start   => $cfg->talks_start_date,
+            begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
+            end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
             participation => 0,
             # opened => ?
         };
     }
     # add this guy's participations
-    $confs{$_->{conf_id}}{participation} = 1
-      for grep { $_->{conf_id} ne $Request{conference} }
-               @{$Request{user}->participations};
+    my $now = DateTime->now;
+    for my $conf (grep { $_->{conf_id} ne $Request{conference} }
+               @{$Request{user}->participations} )
+    {
+        my $c = $confs{$conf->{conf_id}};
+        my $p = \$c->{participation};
+        if( $c->{end} < $now )       { $$p = 'past'; }
+        elsif ( $c->{begin} > $now ) { $$p = 'future'; }
+        else                         { $$p = 'now'; }
+    }
 
     $template->variables(
         talks => $talks,

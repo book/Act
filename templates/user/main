@@ -92,7 +92,25 @@
  <en>Other Act conferences:</en>
 </t></b></p>
 <ul>
-[% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a></li>[% END %]
+[% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
+[% SWITCH c.participation %]
+ [% CASE 'past' %]
+ <t>
+   <en>(You were there)</en>
+   <fr>(Vous y étiez)</fr>
+ </t>
+ [% CASE 'now' %]
+ <t>
+   <en>(You are there)</en>
+   <fr>(Vous y êtes)</fr>
+ </t>
+ [% CASE 'future' %]
+ <t>
+   <en>(You will be there)</en>
+   <fr>(Vous y serez)</fr>
+ </t>
+[% END %]
+</li>[% END %]
 </ul>
 [% END %]
 
