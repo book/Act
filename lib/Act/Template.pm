@@ -2,6 +2,7 @@ package Act::Template;
 
 use strict;
 use Carp;
+use Apache::Util ();
 use Act::Config;
 use Act::Template::Parser ();
 use base qw(Template);
@@ -76,15 +77,26 @@ sub encode
 sub process
 {
     my ($self, $filename, $output) = @_;
-    $output ||= $Request{r};
+    my $web = $Request{r} && ref($Request{r}) eq 'Apache';
+    $output ||= $Request{r} if $web;
 
     # set global variables
-    $self->variables(
-      global => {
+    my %global = (
          config  => $Config,
          request => \%Request,
-      }
     );
+    if ($web) {
+         $global{languages} = [
+           map {{
+                 %{$Config->languages->{$_}},
+                 uri => _self_uri($_),
+               }}
+           grep { $_ ne $Request{language} }
+           sort keys %{$Config->languages}
+         ];
+    }
+
+    $self->variables(global => \%global);
 
     # process and output
     my $ok;
@@ -96,6 +108,23 @@ sub process
     $self->clear;
 
     return $ok;
+}
+
+sub _self_uri
+{
+   my $language = shift;
+
+   # build a self-referential uri, adding
+   # the language parameter to its query string
+   return
+     $Request{r}->uri
+   . '?'
+   . join '&',
+      map( "$_=" . Apache::Util::escape_uri( $Request{args}{$_} ),
+           grep { $_ ne 'language' }
+           keys %{ $Request{args} }
+         ),
+      "language=$language";
 }
 
 1;
