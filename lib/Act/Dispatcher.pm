@@ -6,6 +6,8 @@ use Apache::Cookie ();
 
 use Act::Config;
 
+use constant DEFAULT_PAGE => 'index.html';
+
 # load global configuration
 Act::Config::load_global_config();
 
@@ -37,6 +39,14 @@ sub trans_handler
     if (@c && exists $Config->conferences->{$c[0]}) {
         $Request{conference} = shift @c;
         $Request{path_info}  = join '/', @c;
+    }
+    # default pages à la mod_dir
+    if (!@c ) {
+        $r->uri(  $Request{conference}
+                ? join('/', undef, $Request{conference}, DEFAULT_PAGE)
+                : join('/', undef, DEFAULT_PAGE)
+        );
+        $Request{path_info} = DEFAULT_PAGE;
     }
     # pseudo-static pages
     if ($r->uri =~ /\.html$/) {
