@@ -10,26 +10,42 @@ use Act::Util;
 sub handler
 {
     # retrieve user
-    my $user = Act::User->new(
-        user_id => $Request{path_info},
-        $Request{conference} ? ( conf_id => $Request{conference} ) : (),
-      )
-      or do {
-        $Request{status} = NOT_FOUND;
-        warn "unknown user: $Request{path_info}";
-        return;
-      };
+    my $user;
+    # the logged in user is narcissistic
+    if ( $Request{user} && $Request{user}->user_id == $Request{path_info} ) {
+        # because of the cached $Request{user}, we must load a new user
+        $user = Act::User->new( user_id => $Request{path_info} );
+    }
+    else {
+        # "other" user
+        $user = Act::User->new(
+            user_id => $Request{path_info},
+            $Request{conference} ? ( conf_id => $Request{conference} ) : (),
+          )
+          or do {
+            $Request{status} = NOT_FOUND;
+            warn "unknown user: $Request{path_info}";
+            return;
+          };
+    }
 
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
         %$user,
-        country => Act::Country::CountryName($user->country),
-        civility => Act::Util::get_translation( users => civility => $user->civility ),
-        talks    => [
-          grep { $_->accepted || $Request{user} &&
-                 ($Request{user}->is_orga || $Request{user}->user_id == $_->user_id) }
-          @{$user->talks},
+        country  => Act::Country::CountryName( $user->country ),
+        civility =>
+          Act::Util::get_translation( users => civility => $user->civility ),
+        talks => [
+            grep { $_->accepted
+                  || $Request{user}
+                  && ( $Request{user}->is_orga
+                    || $Request{user}->user_id == $_->user_id )
+              } @{ $user->talks(
+                      $Request{conference}
+                      ? ( conf_id => $Request{conference} ) : ()
+                   )
+                 },
         ],
     );
     $template->process('user/show');
