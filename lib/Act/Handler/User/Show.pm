@@ -31,6 +31,9 @@ sub handler
 
     # process the template
     my $template = Act::Template::HTML->new();
+    my $bio = $user->bio;
+    $bio->{$_} =~ /^\s*$/ && delete $bio->{$_} for keys %$bio;
+
     $template->variables(
         %$user,
         country  => Act::Country::CountryName( $user->country ),
@@ -47,7 +50,7 @@ sub handler
                    )
                  },
         ],
-        bio => ( $user->bio->{$Request{language}} || $user->bio->{en} )
+        bio => $bio,
     );
     $template->process('user/show');
 }

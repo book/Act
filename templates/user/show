@@ -170,16 +170,19 @@
    </tr>
 [% END %]
 
-[%- IF bio %]
+[%- IF bio.keys %]
    <tr>
       <td align="right" valign="top">
          Bio
       </td>
       <td>&nbsp;</td>
       <td align="left">
+       [% FOREACH lang = bio.keys %]
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
-            [% bio | replace('\n', '<br />') %]
+            <b>[% global.config.languages.$lang.name | ucfirst %]</b><br />
+            [% bio.$lang | replace('\n', '<br />') %]
          </td></tr></table>
+       [% END %]
       </td>
    </tr>
 [% END %]
