@@ -1,0 +1,34 @@
+[% WRAPPER ui
+   title = { en => 'List of submitted talks', fr => 'Liste des présentations soumises' },
+%]
+<div align="center">
+<p>
+ <t>
+  <en>
+   Accepted talks are shown in <b>bold</b> type.
+  </en>
+  <fr>
+   Les présentations acceptées sont affichées en caractères <b>gras</b>.
+  </fr>
+ </t>
+</p>
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+ <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
+ <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
+</tr>
+[% FOREACH t = talks %]
+  <tr>
+    <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+           [% t.user.first_name %] [% t.user.last_name %]
+    </a></td>
+    <td><a href="[% make_uri_info('talk', t.talk_id) %]">
+           [%- "<b>"  IF t.accepted %]
+           [% t.title %]
+           [%- "</b>" IF t.accepted %]
+    </a></td>
+  </tr>
+[% END %]
+</table>
+</div>
+[% END %]
