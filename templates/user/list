@@ -48,7 +48,7 @@
       [% END %]
    </td>
    <td align="center">
-      [% countries_iso.${u.country}.${global.request.language} %]
+      [% countries_iso.${u.country} %]
    </td>
    <td align="center">
       [%- IF u.pm_group %]

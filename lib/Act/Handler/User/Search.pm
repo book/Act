@@ -30,8 +30,8 @@ sub handler {
     # process the search template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        countries_iso => \%Act::Country::Countries_by_iso,
-        countries     => Act::Country::CountryNames($Request{language}),
+        countries_iso => \%Act::Country::CountryName,
+        countries     => Act::Country::CountryNames(),
         users         => $users,
         oprev         => $oprev,
         prev          => defined($oprev),   # $oprev can be zero

@@ -67,7 +67,7 @@ sub handler
     }
     # display the registration form
     $template->variables(
-        countries => Act::Country::CountryNames($Request{language}),
+        countries => Act::Country::CountryNames(),
         %$fields
     );
     $template->process('user/add');
