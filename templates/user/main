@@ -56,6 +56,7 @@
   <t>
    <en>You did not <a href="[% make_uri('register') %]">register for this conference</a>. Please do so if you plan to attend or give a presentation there.</en>
    <fr>Vous n'êtes pas <a href="[% make_uri('register') %]">inscrit à cette conférence</a>. Merci de le faire si vous comptez y assister ou y faire une présentation.</fr>
+   <it>TRANSLATEME</it>
   </t>
  [% END %]
 [% ELSE %]
@@ -119,19 +120,19 @@
  <t>
    <en>(You were there)</en>
    <fr>(Vous y étiez)</fr>
-   <it>XXX</it>
+   <it>TRANSLATEME</it>
  </t>
  [% CASE 'now' %]
  <t>
    <en>(You are there)</en>
    <fr>(Vous y êtes)</fr>
-   <it>XXX</it>
+   <it>TRANSLATEME</it>
  </t>
  [% CASE 'future' %]
  <t>
    <en>(You will be there)</en>
    <fr>(Vous y serez)</fr>
-   <it>XXX</it>
+   <it>TRANSLATEME</it>
  </t>
 [% END %]
 </li>[% END %]
