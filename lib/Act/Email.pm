@@ -13,12 +13,12 @@ use Act::Config;
 # or  from    => { name => 'Foo Bar', email => 'foo@example.com' },
 #     to      => 'foo@example.com',
 # or  to      => { name => 'Foo Bar', email => 'foo@example.com' },
-# or  to      => [ \&address1, \&address2 ],
+# or  to      => [ \$address1, \%address2 ],
 #     subject => 'blah',
 #     body    => 'more blah',
-# optional args showing default values:
+# optional args (default values are shown):
 #     encoding     => 'ISO-8859-1',
-#     content_type => 'tesxt/plain',
+#     content_type => 'text/plain',
 #     precedence   => 'bulk',
 # );
 
