@@ -6,9 +6,6 @@ INSERT INTO translations VALUES('users', 'civility', 2, 'en', 'Mrs.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'fr', 'Mlle.');
 INSERT INTO translations VALUES('users', 'civility', 3, 'en', 'Ms.');
 
-INSERT INTO translations VALUES('conferences', 'name', '2004', 'fr', 'Les Journées Perl 2004');
-INSERT INTO translations VALUES('conferences', 'name', '2004', 'en', 'French Perl Workshop 2004');
-
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'fr', 'Andorre');
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'en', 'Andorra');
@@ -424,14 +421,6 @@ INSERT INTO translations VALUES ('rooms', 'name', 'out', 'fr', 'Extérieur' );
 INSERT INTO translations VALUES ('rooms', 'name', 'out', 'en', 'Outside' );
 INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
 INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
-
-/* prices */
-INSERT INTO prices (conf_id, amount, currency) VALUES ('2004', 25, 'EUR');
-INSERT INTO translations VALUES ('prices', 'name', 1, 'fr', 'Tarif normal' );
-INSERT INTO translations VALUES ('prices', 'name', 1, 'en', 'Regular price' );
-INSERT INTO prices (conf_id, amount, currency) VALUES ('2004', 15, 'EUR');
-INSERT INTO translations VALUES ('prices', 'name', 2, 'fr', 'Tarif réduit' );
-INSERT INTO translations VALUES ('prices', 'name', 2, 'en', 'Reduced price' );
 
 /* payment means */
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );

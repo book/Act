@@ -4,7 +4,7 @@ use Test::More tests => 10;
 use WWW::Mechanize;
 
 # local config
-my $base = "http://127.0.0.1:2004/2004/";
+my $base = "http://127.0.0.1:2004/fpw2004/";
 
 # restaure une base clean chez book
 if( @ARGV ) {
