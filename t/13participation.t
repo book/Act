@@ -1,4 +1,4 @@
-use Test::More tests => 2;
+use Test::More tests => 5;
 use strict;
 use t::Util;
 use Act::Talk;
