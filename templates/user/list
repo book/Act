@@ -1,3 +1,4 @@
+[% PROCESS common %]
 <center>
 <p>
  <t>
@@ -27,7 +28,7 @@
 [% FOREACH u=users %]
  <tr>
    <td align="center">
-    [% PROCESS user/info u=u %]
+    [% user_info(u) %]
     [% IF u.photo_name %]
     <img src="/images/photo.png" alt="photo" title="photo" width="12" height="12" />
     [% END %]
