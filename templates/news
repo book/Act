@@ -1,4 +1,0 @@
-[% USE News %]
-[% FOREACH item = News.items(count) %]
-<p><b>[% item.date %]</b> - [% item.text %]</p>
-[% END %]
