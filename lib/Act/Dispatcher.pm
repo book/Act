@@ -44,7 +44,7 @@ sub trans_handler
         $Request{path_info}  = join '/', @c;
     }
     # default pages à la mod_dir
-    if (!@c ) {
+    if (!@c && $r->uri =~ m!/$!) {
         $r->uri(  $Request{conference}
                 ? join('/', undef, $Request{conference}, DEFAULT_PAGE)
                 : join('/', undef, DEFAULT_PAGE)
