@@ -1,14 +1,32 @@
 use strict;
 package Act::Config;
 
-use vars qw(@ISA @EXPORT $Config %Request);
+use vars qw(@ISA @EXPORT $Config %Request %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw($Config %Request);
+@EXPORT = qw($Config %Request %Languages );
 
 use AppConfig qw(:expand :argcount);
 
 # our configs
 my ($GlobalConfig, %ConfConfigs);
+
+# language-specific constants
+%Languages = (
+    fr => { name               => 'français',
+            fmt_datetime_full  => '%A %e %B %Y %Hh%M',
+            fmt_datetime_short => '%d/%m/%y %Hh%M',
+            fmt_date_full      => '%A %e %B %Y',
+            fmt_date_short     => '%d/%m/%y',
+            fmt_time           => '%Hh%M',
+          },
+    en => { name               => 'English',
+            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
+            fmt_datetime_short => '%m/%d/%y %H:%M',
+            fmt_date_full      => '%A %B %e, %Y',
+            fmt_date_short     => '%m/%d/%y',
+            fmt_time           => '%H:%M',
+          },
+);
 
 # load configurations
 load_configs();
@@ -35,6 +53,8 @@ sub load_configs
             for keys %{$ConfConfigs{$conf}->rooms};
         $ConfConfigs{$conf}->set(name => { });
         $ConfConfigs{$conf}->name->{$_} = $ConfConfigs{$conf}->get("general_name_$_")
+            for keys %{$ConfConfigs{$conf}->languages};
+        $ConfConfigs{$conf}->languages->{$_} = $Languages{$_}
             for keys %{$ConfConfigs{$conf}->languages};
         # conf <=> uri mapping
         my $uri = $ConfConfigs{$conf}->general_uri || $conf;

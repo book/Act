@@ -11,25 +11,7 @@ use Act::Config;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_uri_info self_uri %Languages);
-
-# language-specific constants
-%Languages = (
-    fr => { name               => 'français',
-            fmt_datetime_full  => '%A %e %B %Y %Hh%M',
-            fmt_datetime_short => '%d/%m/%y %Hh%M',
-            fmt_date_full      => '%A %e %B %Y',
-            fmt_date_short     => '%d/%m/%y',
-            fmt_time           => '%Hh%M',
-          },
-    en => { name               => 'English',
-            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
-            fmt_datetime_short => '%m/%d/%y %H:%M',
-            fmt_date_full      => '%A %B %e, %Y',
-            fmt_date_short     => '%m/%d/%y',
-            fmt_time           => '%H:%M',
-          },
-);
+@EXPORT = qw(make_uri make_uri_info self_uri );
 
 # create a uri for an action with args
 sub make_uri
@@ -148,7 +130,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return $dt->strftime($Languages{$lang}{"fmt_$fmt"});
+    return $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"});
 }
 
 1;
