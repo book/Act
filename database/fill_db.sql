@@ -418,3 +418,9 @@ INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'fr', 'Zaïre');
 INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'en', 'Zaire');
 INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'fr', 'Zimbabwe');
 INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'en', 'Zimbabue');
+
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'fr', 'Extérieur' );
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'en', 'Outside' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );

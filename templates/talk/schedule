@@ -20,7 +20,8 @@
   </th>
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
-    <t><fr>Salle [% r %]</fr><en>[% r %] Room</en></t></th>
+    <t><fr>Salle [% global.config.rooms.$r %]</fr>
+       <en>[% global.config.rooms.$r %] Room</en></t></th>
   [% END %]
  </tr>
  [% FOREACH row IN table.$d %]

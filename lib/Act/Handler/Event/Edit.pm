@@ -20,7 +20,7 @@ my $form = Act::Form->new(
      url_abstract => 'url',
      date         => 'date',
      time         => 'time',
-     room         => sub { exists $Config->{rooms}{$_[0]} or $_[0] =~ /^(?:out|venue)$/},
+     room         => sub { exists $Config->rooms->{$_[0]} or $_[0] =~ /^(?:out|venue)$/},
   }
 );
 
@@ -109,9 +109,10 @@ sub handler {
     # display the event submission form
     $template->variables(
         dates => \@dates, defined $event ? ( %$event ) : ( %$fields ),
-        room  => { %{ $Config->{rooms} },
-                   venue => get_translation( 'room', 'venue' ),
-                   out   => get_translation( 'room', 'out' ),
+        rooms => { %{ $Config->rooms },
+                   venue => Act::Util::get_translation( 'rooms', 'name', 'venue' ),
+                   out   => Act::Util::get_translation( 'rooms', 'name', 'out' ),
+                 },
     );
     $template->process('event/add');
 }
