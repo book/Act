@@ -12,8 +12,8 @@ my $user2 = Act::User->new( login => 'echo' );
 my ( $talks, $talk, $talk1, $talk2, $talk3 );
 
 # manually insert a talk
-my $sth = $Request{dbh}->prepare_cached("INSERT INTO talks (user_id,duration,lightning,accepted,confirmed) VALUES(?,?,?,?,?);");
-$sth->execute( $user->user_id, 12, 'f', 'f', 'f' );
+my $sth = $Request{dbh}->prepare_cached("INSERT INTO talks (user_id,conf_id,duration,lightning,accepted,confirmed) VALUES(?,?,?,?,?,?);");
+$sth->execute( $user->user_id, 'conf', 12, 'f', 'f', 'f' );
 $sth->finish();
 
 $sth = $Request{dbh}->prepare_cached("SELECT * from talks WHERE user_id=?");
@@ -37,6 +37,7 @@ is_deeply( $talk, {}, "create empty talk with new()" );
 $talk2 = Act::Talk->create(
    title     => 'test',
    user_id   => $user2->user_id,
+   conf_id   => 'conf',
    duration  => 5,
    lightning => 'true',
    accepted  => '0',
@@ -52,6 +53,7 @@ is_deeply( $talks, [ $talk1 ], "Got the user's talk" );
 $talk3 = Act::Talk->create(
    title     => 'test 2',
    user_id   => $user->user_id,
+   conf_id   => 'conf',
    duration  => 40,
    lightning => 'FALSE',
    accepted  => 'F',

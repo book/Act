@@ -12,6 +12,8 @@ $Request{dbh} = DBI->connect(
 ) or die "can't connect to database: " . $DBI::errstr;
 
 # clean up before
+$Request{dbh}->do("DELETE FROM rights");
+$Request{dbh}->do("DELETE FROM participations");
 $Request{dbh}->do("DELETE FROM talks");
 $Request{dbh}->do("DELETE FROM users");
 $Request{dbh}->do("DELETE FROM news");
@@ -24,6 +26,9 @@ sub db_add_users {
         passwd  => 'BOOK',
         email   => 'book@yyy.zzz',
         country => 'fr',
+        first_name => 'Philippe',
+        last_name  => 'Bruhat',
+        pseudonymous => 'f',
     );
     Act::User->create(
         login   => 'echo',
@@ -45,6 +50,7 @@ sub db_add_talks {
         title     => 'First talk',
         talk_id   => 1,
         user_id   => Act::User->new( login => 'book' )->user_id,
+        conf_id   => 'conf',
         lightning => 'false',
         accepted  => 'false',
         confirmed => 'false',
@@ -53,6 +59,7 @@ sub db_add_talks {
         title     => 'Second talk',
         talk_id   => 2,
         user_id   => Act::User->new( login => 'book' )->user_id,
+        conf_id   => 'conf',
         lightning => 'true',
         accepted  => 'true',
         confirmed => 'false',
@@ -61,6 +68,7 @@ sub db_add_talks {
         title     => 'My talk',
         talk_id   => 3,
         user_id   => Act::User->new( login => 'echo' )->user_id,
+        conf_id   => 'conf',
         lightning => 'false',
         accepted  => 'true',
         confirmed => 'false',
