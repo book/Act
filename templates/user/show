@@ -54,7 +54,7 @@
       [% ELSE %][% pm_group %][% END %]
    </td>
 [% END %]
-[%- UNLESS email_hide %]
+[%- UNLESS email_hide and not global.request.user.is_orga %]
    </tr><tr>
       <td align="right">
          Email
