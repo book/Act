@@ -41,3 +41,34 @@ sub _build_uri
 1;
 
 __END__
+
+=head1 NAME
+
+Act::Util - Utility routines
+
+=head1 SYNOPSIS
+
+    make_uri("talkview", id => 234, name => 'foo');
+    self_uri(language => 'en');
+
+=head1 DESCRIPTION
+
+Act::Util contains a collection of utility routines that didn't fit anywhere
+else.
+
+=over 4
+
+=item make_uri(I<$action>, I<%params>)
+
+Returns an URI that points to I<action>, with an optional query string
+built from I<%params>. For more details on actions, refer to the
+Act::Dispatcher documentation.
+
+=item self_uri(I<%params>)
+
+Returns a self-referential URI (a URI that points to the current location)
+with an optional query string built from I<%params>. 
+
+=back
+
+=cut
