@@ -1,4 +1,4 @@
-use Test::More tests => 7;
+use Test::More tests => 8;
 use Act::User;
 use t::Util;   # load the test database
 
@@ -25,6 +25,7 @@ $user = Act::User->create(
     country => 'en',
 );
 isa_ok( $user, 'Act::User' );
+is( $user->login, 'test2', "check accessor" );
 
 # ENOSUCHUSER
 $user = Act::User->new( login => 'foo' );
