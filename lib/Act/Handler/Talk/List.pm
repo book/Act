@@ -9,10 +9,7 @@ sub handler
 {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks(conf_id => $Request{conference});
-    my $accepted = 0;
-    $_->{user} = Act::User->new(user_id => $_->user_id),
-      ($_->accepted && $accepted++ )
-      for @$talks;
+    $_->{user} = Act::User->new(user_id => $_->user_id) for @$talks;
 
     # accept / unaccept talks
     if ($Request{user} && $Request{user}->is_orga && $Request{args}{ok}) {
@@ -26,6 +23,11 @@ sub handler
             }
         }
     }
+
+    # compute some global information
+    my ($accepted, $lightnings, $duration ) = ( 0, 0, 0 );
+    $_->accepted && do { $accepted++; $_->lightning ? $lightnings++ : ( $duration += $_->duration) } for @$talks;
+
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
@@ -35,7 +37,9 @@ sub handler
             || $a->talk_id <=> $b->talk_id
         } @$talks ],
         talks_total    => scalar @$talks,
-        talks_accepted => $accepted
+        talks_accepted => $accepted,
+        talks_duration => $duration,
+        talks_lightning => $lightnings,
     ); 
     $template->process('talk/list');
 }

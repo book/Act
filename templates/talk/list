@@ -32,6 +32,22 @@
 </p>
 [% END %]
 [% IF global.request.user.is_orga %]
+<p>
+ <t>
+  <fr>Durée totale des présentations acceptées&nbsp;:</fr>
+  <en>Total duration of accepted talks:</en>
+ </t>
+ [% talks_duration div 60 %] <t><fr>heures</fr><en>hours</en></t>
+ [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en></t>
+ <br />
+ <t>
+  <fr>Communications éclair acceptées&nbsp;:</fr>
+  <en>Accepted lightning talks:</en>
+ </t>
+ [% talks_lightning %]
+</p> 
+[% END %]
+[% IF global.request.user.is_orga %]
 <form method="POST" >
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
