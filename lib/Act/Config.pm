@@ -80,9 +80,13 @@ sub load_configs
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
             for keys %{$ConfConfigs{$conf}->rooms};
+        # name of the conference in various languages
         $ConfConfigs{$conf}->set(name => { });
-        $ConfConfigs{$conf}->name->{$_} = $ConfConfigs{$conf}->get("general_name_$_")
-            for keys %{$ConfConfigs{$conf}->languages};
+        for( keys %Languages ) {
+            $ConfConfigs{$conf}->name->{$_} =
+              $ConfConfigs{$conf}->get("general_name_$_")
+              || $ConfConfigs{$conf}->get("general_name_en");
+        }
         $ConfConfigs{$conf}->languages->{$_} = $Languages{$_}
             for keys %{$ConfConfigs{$conf}->languages};
         # conf <=> uri mapping
