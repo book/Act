@@ -10,7 +10,7 @@
   <th>
    <t><en>Time</en><fr>Heure</fr></t>
   </th>
-  [% FOREACH r IN room.keys %]
+  [% FOREACH r IN room.keys.sort %]
   <th colspan="[% room.$r.$d %]">[% r %]</th>
   [% END %]
  </tr>

@@ -5,99 +5,93 @@ use Act::Template::HTML;
 use strict;
 
 sub handler {
-    my (%table, %index, %room);  # helpful structures
-    my ($todo, $globals);        # events lists
+    my (%table, %index, %room, %time); # helpful structures
+    my ($todo, $globals);              # events lists
 
     # sort and separate global and normal items
-    $table{$_->datetime->ymd}++, # create table structure
-    $room{$_->room}++,           # compute the room list
-    push @{ $_->room =~ /^(?:out|venue)$/ ? $globals : $todo }, $_
-        for sort {
-            DateTime->compare( $a->datetime, $b->datetime )
-            || $a->duration <=> $b->duration 
-        } @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) };
-
-    # create a table/index per day
-    $table{$_} = [], $index{$_} = 0 for keys %table;
-    # create the room structures
-    for ( keys %room ) {
-        $room{$_} = {};
-        delete $room{$_} if /^(?:out|venue)$/;
+    # compute the times to show in the chart
+    for ( sort {
+        DateTime->compare( $a->datetime, $b->datetime )
+        || $a->duration <=> $b->duration 
+    } @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
+        my $day = $_->datetime->ymd; # current day
+        $table{$day} ||= [];         # create table structure
+        $room{$_->room}++;           # compute the room list
+        $_->{height} = 1;            # minimum height
+        # fill the rows
+        $_->{end} = $_->datetime->clone;
+        $_->{end}->add( minutes => $_->duration );
+        $time{$day}{$_->datetime->strftime('%H:%M')} = $_->datetime->clone;
+        $time{$day}{$_->{end}->strftime('%H:%M')}    = $_->{end};
+        # separate global and local items
+        push @{ $_->room =~ /^(?:out|venue)$/ ? $globals : $todo }, $_;
     }
+
+    # create the room structures
+    for my $r ( keys %room ) {
+        delete $room{$r}, next if $r =~ /^(?:out|venue)$/;
+        $room{$r} = {};
+        $room{$r}{$_} = [] for keys %table;
+    }
+    # create the empty table
+    for my $day (keys %table) {
+        $table{$day} = [
+            map { [ $time{$day}{$_}, { map { $_ => [] } keys %room } ] }
+                sort keys %{$time{$day}}
+        ];
+        $index{$day} = 0;
+    }
+    
     # insert all globals
     # FIXME we suppose no conflict between globals...
     for( @$globals ) {
         my $day = $_->datetime->ymd;
         # add the start time of the global
-        #push @{ $table{$day} }, [ $_->datetime->clone, { $_->room => [ $_ ] } ];
     }
 
     # the %table structure is made of rows like the following
     # [ $dt, { r1 => [], r2 => [] } ]
 
     # insert the rest of the talks
-    my @started; # started talks but not finished
     for( @$todo ) {
         my $dt  = $_->datetime;
         my $day = $dt->ymd;
+        my $r   = $_->room;
         my $row = $table{$day};
-        $_->{end} = $_->datetime->clone;
-        $_->{end}->add( minutes => $_->duration );
 
         # skip to find our place
-        $index{$day}++
-            while( $row->[ $index{$day} ] and
-                   $row->[ $index{$day} ][0] < $dt );
+        $index{$day}++ while $row->[ $index{$day} ][0] < $dt;
         # update the table structure
         my $i = $index{$day};
-        @started = grep { $_->{end} > $dt } @started;
-        my $added = 0;
-        # insert the beginning if necessary (yuck, dups)
-        if( $row->[$i] and $row->[$i][0] != $dt ) {
-            splice( @$row, $i, 0, [ $dt->clone, { $_->room => [ $_ ] } ] );
-            $room{$_->room}{$day} = 1;
-            $added = 1;
-            $i++;
-        }
+        push @{ $row->[$i][1]{$r} }, $_;
+        $room{$r}{$day}[$i++]++;
         # insert the event several times if it spans several blocks
-        while( $row->[$i] and $row->[$i][0] < $_->{end} ) {
-            for($_, @started){
-                # FIXME cut off by a global
-                # push the item on the list of talks happening now
-                # the talk is "extended" on all the corresponding slots
-                my $count = push @{ $row->[$i][1]{$_->room} ||= [] }, $_;
-                # compute each columns total width on the fly
-                $room{$_->room}{$day} = $count if $room{$_->room}{$day} < $count;
-                $added = 1;
-            }
-            $i++;
-        }
-        # insert a new row structure if necessary
-        splice( @$row, $index{$day}, 0, [ $dt->clone, { $_->room => [ $_ ] } ] ),
-        $room{$_->room}{$day} ||= 1
-          unless $added;
-        # insert the ending moment
-        push @$row, [ $_->{end}, { } ];
-        push @started, $_;
+        $room{$r}{$day}[$i]++, $_->{height}++, $i++
+          while $row->[$i][0] < $_->{end};
+        # FIXME check conflicts with globals
     }
+    # compute the max
+    for my $day (keys %table) {
+        for my $r (keys %room) {
+            my $max;
+            $max = $max < $room{$r}{$day}[$_] ? $room{$r}{$day}[$_] : $max
+                for 0 .. @{ $room{$r}{$day} } - 1;
+            $room{$r}{$day} = $max;
+        }
+    }
+
     # finish line
-    my %seen;
     my $def = '-';
     for my $day ( keys %table ) {
         for my $row ( @{$table{$day}} ) {
-            for my $room ( keys %room ) {
-                # fill with blanks
-                $row->[1]{$room} ||= [];
-                push @{ $row->[1]{$room} },
-                     ($def) x ( $room{$room}{$day} - @{ $row->[1]{$room} } );
-            }
-            # remove duplicate talks
+            # fill the blanks
             @$row = (
                 $row->[0]->strftime('%H:%M'),
-                grep { $seen{$_}++ ? ( $_ eq $def ? $_ : () ) : $_ }
-                map { ref and $_->{height}++; $_ }
                 # from the list of items
-                map { @{ $row->[1]{$_} } } keys %room
+                map { (
+                    @{ $row->[1]{$_} },
+                    ("[$_]") x ( $room{$_}{$day} - @{ $row->[1]{$_} } )
+                ) } sort keys %room
             );
         }
     }
