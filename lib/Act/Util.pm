@@ -41,7 +41,7 @@ sub _build_uri
 
 sub gen_password
 {
-   my $clear_passwd = Crypt::RandPasswd->letters( 7, 7 );
+   my $clear_passwd = Crypt::RandPasswd->word(7, 7);
    my $crypt_passwd = crypt( $clear_passwd, '/' );
    return ($clear_passwd, $crypt_passwd);
 }
@@ -56,8 +56,9 @@ Act::Util - Utility routines
 
 =head1 SYNOPSIS
 
-    make_uri("talkview", id => 234, name => 'foo');
-    self_uri(language => 'en');
+    $uri = make_uri("talkview", id => 234, name => 'foo');
+    $uri = self_uri(language => 'en');
+    ($clear, $crypted) = Act::Util::gen_passwd();
 
 =head1 DESCRIPTION
 
@@ -76,6 +77,11 @@ Act::Dispatcher documentation.
 
 Returns a self-referential URI (a URI that points to the current location)
 with an optional query string built from I<%params>. 
+
+=item gen_passwd
+
+Generates a password. Returns a two-element list with the password in
+clear-text and encrypted forms.
 
 =back
 
