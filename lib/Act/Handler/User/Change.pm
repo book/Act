@@ -71,7 +71,7 @@ sub handler
             $Request{user}->update(%$fields, participation => \%part,
                                              bio => \%bio);
             @$fields{@partfields} = @part{@partfields};
-            $fields->{"bio_$_"} = $bio{$_} for keys %bio;
+            $fields->{bio} = \%bio;
         }
         else {
             # map errors
@@ -95,8 +95,6 @@ sub handler
     else {
         $fields = $Request{user};
         my $bio = $Request{user}->bio;
-        $fields->{"bio_$_"} = $bio->{$_}
-          for keys %{ $Config->languages };
 
         # participation to this conference
         if (my $part = $Request{user}->participation) {
@@ -108,7 +106,6 @@ sub handler
         civilities => Act::Util::get_translations('users', 'civility'),
         countries  => Act::Country::CountryNames(),
         timezones  => [ DateTime::TimeZone::all_names() ],
-        bio        => $Request{user}->bio,
         %$fields
     );
     $template->process('user/change');
