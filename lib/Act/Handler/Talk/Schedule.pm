@@ -91,7 +91,7 @@ sub handler {
                 $new->{duration} = ($_->{end} - $globals[-1]->datetime)->delta_minutes;
                 $_->{duration} -= $new->{duration};
                 $new->{end} = $new->{datetime}->clone->add( minutes => $new->duration );
-                ( $new->{title} = $_->title ) =~ s/(?:\((\d+)\))?$/(@{[($1||1)+1]})/;
+                ( $new->{title} = $_->title ) =~ s/(?: \((\d+)\))?$/ (@{[($1||1)+1]})/;
                 my $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{datetime};
                 unless( $row->[$j][0] == $new->datetime ) {
