@@ -3,6 +3,7 @@ package Act::Handler::User::ResetPassword;
 use strict;
  
 use Act::Config;
+use Act::Email;
 use Act::Form;
 use Act::Template::HTML;
 use Act::User;
