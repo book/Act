@@ -2,6 +2,28 @@ package Act::Object;
 use strict;
 use Act::Config;
 use Carp;
+use DateTime::Format::Pg;
+
+my %normalize = (
+    pg => {
+        #  4 => integer
+        # 12 => text
+        93 => sub { # timestamp without time zone
+            my $dt = shift;
+            ref $dt eq 'DateTime'
+            ? DateTime::Format::Pg->format_timestamp_without_time_zone($dt)
+            : $dt;
+        },
+    },
+    perl => {
+        93 => sub { # timestamp without time zone
+            my $dt = shift;
+            ref $dt eq 'DateTime'
+            ? $dt
+            : DateTime::Format::Pg->parse_timestamp_without_time_zone($dt);
+        }
+    },
+);
 
 sub new {
     my ( $class, %args ) = @_;
@@ -20,16 +42,18 @@ sub create {
     $class = ref $class  || $class;
     $class->init();
 
-    my ($table, $pkey, $seq);
+    my ($table, $pkey, $seq, $data_type);
     { no strict 'refs';
       $table = ${"${class}::table"};
       $pkey  = ${"${class}::primary_key"};
       $seq   = join '_', $table, $pkey, 'seq';
+      $data_type = \%{"${class}::data_type"};
     }
     # insert the new record
     my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
                       join(",", keys %args), join(",", ( "?" ) x keys %args);
     my $sth = $Request{dbh}->prepare_cached( $SQL );
+    normalize( \%args, 'pg', $data_type );
     $sth->execute( values %args );
 
     # retrieve inserted row's id
@@ -45,24 +69,42 @@ sub create {
 sub update {
     my ($self, %args) = @_;
     my $class = ref $self;
-    my ($table, $pkey);
+    my ($table, $pkey, $data_type);
     { no strict 'refs';
       $table = ${"${class}::table"};
       $pkey  = ${"${class}::primary_key"};
       exists ${"${class}::fields"}{$_} or delete $args{$_} for keys %args;
+      $data_type = \%{"${class}::data_type"};
     }
     my $SQL = "UPDATE $table SET "
             . join(',', map "$_=?", keys %args)
             . " WHERE $pkey=?";
     my $sth = $Request{dbh}->prepare_cached( $SQL );
+    normalize( \%args, 'pg', $data_type );
     $sth->execute(values %args, $self->{$pkey});
     $Request{dbh}->commit;
     @$self{keys %args} = values %args;
+    $self->normalize( 'perl' );
 }
 
 sub clone {
     my $self = shift;
     return bless { %$self }, ref $self;
+}
+
+# type: pg | perl
+sub normalize {
+    my ( $self, $type, $data_type ) = @_;
+    my $class = ref $self;
+    $data_type ||= do { no strict 'refs'; \%{"${class}::data_type"} };
+    no strict 'refs';
+    no warnings;
+
+    my $normalize = $normalize{$type};
+    exists $normalize->{ $data_type->{$_} }
+      and defined $self->{$_}
+      and $self->{$_} = $normalize->{ $data_type->{$_} }->( $self->{$_} )
+      for keys %$self;
 }
 
 sub init {
@@ -82,7 +124,7 @@ sub init {
     for my $f (@$fields) {
         my $sth = $Request{dbh}->column_info(undef, undef, $table, $f);
         $sth->execute;
-        ${"${class}::column_info"}{$f} = $sth->fetchrow_hashref;
+        ${"${class}::data_type"}{$f} = ${$sth->fetchrow_hashref}{DATA_TYPE};
         $sth->finish;
     }
     
@@ -96,7 +138,6 @@ sub init {
           unless *{"${class}::$a"}{CODE};
     }
     *{"${class}::fields"} = { map { ($_=> 1) } @$fields };
-    #*{"${class}::types"} = 
 
     # let's disappear ;-)
     *{"${class}::init"} = sub {};
@@ -161,7 +202,9 @@ sub get_items {
     );
 
     my ($items, $item) = [ ];
-    push @$items, bless $item, $class while $item = $sth->fetchrow_hashref();
+    push @$items, bless $item, $class
+      and $item->normalize( 'perl' )
+      while $item = $sth->fetchrow_hashref();
 
     $sth->finish();
 

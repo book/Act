@@ -1,8 +1,9 @@
-use Test::More tests => 13;
+use Test::More tests => 14;
 use strict;
 use t::Util;
 use Act::Talk;
 use Act::User;
+use DateTime;
 
 # load some users
 db_add_users();
@@ -38,8 +39,13 @@ $talk2 = Act::Talk->create(
    lightning => 'true',
    accepted  => '0',
    confirmed => 'false',
+   datetime  => DateTime->new(
+       year  => 2004, month  => 10, day   => 16,
+       hour  => 16,   minute => 0,
+   )
 );
 isa_ok( $talk2, 'Act::Talk' );
+isa_ok( $talk2->datetime, 'DateTime' );
 
 # check the talk value (it works because $user2 has only one talk)
 is_deeply( Act::Talk->new( user_id => $user2->user_id ),
