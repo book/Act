@@ -22,7 +22,7 @@
   <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
   <it>Potete trovare ulteriori informazioni sul sito:</it>
   <pt>Pode encontrar mais informação no seguinte endereço:</pt>
-</t></p>
+ </t></p>
  <ul>
    <li>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
