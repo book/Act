@@ -1,209 +1,209 @@
 /** GERMAN */
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
-INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'de', 'Andorra')
-INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'de', 'Vereinigte Arabische Emirate')
-INSERT INTO translations VALUES ('countries', 'iso', 'af', 'de', 'Afghanistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'de', 'Antigua, Barbuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'de', 'Anguilla')
-INSERT INTO translations VALUES ('countries', 'iso', 'al', 'de', 'Albanien')
-INSERT INTO translations VALUES ('countries', 'iso', 'am', 'de', 'Armenien')
-INSERT INTO translations VALUES ('countries', 'iso', 'an', 'de', 'Niederlande')
-INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'de', 'Angola')
-INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'de', 'Argentinien')
-INSERT INTO translations VALUES ('countries', 'iso', 'at', 'de', 'Österreich')
-INSERT INTO translations VALUES ('countries', 'iso', 'au', 'de', 'Australien')
-INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'de', 'Aruba')
-INSERT INTO translations VALUES ('countries', 'iso', 'az', 'de', 'Aserbaidschan')
-INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'de', 'Bosnien-Herzegowina')
-INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'de', 'Barbados')
-INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'de', 'Bangladesh')
-INSERT INTO translations VALUES ('countries', 'iso', 'be', 'de', 'Belgien')
-INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'de', 'Burkina Faso')
-INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'de', 'Bulgarien')
-INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'de', 'Bahrain')
-INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'de', 'Burundi')
-INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'de', 'Benin')
-INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'de', 'Bermuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'de', 'Brunei Darussalam')
-INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'de', 'Bolivien')
-INSERT INTO translations VALUES ('countries', 'iso', 'br', 'de', 'Brasilien')
-INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'de', 'Bahamas')
-INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'de', 'Bhutan')
-INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'de', 'Botswana')
-INSERT INTO translations VALUES ('countries', 'iso', 'by', 'de', 'Weißrußland')
-INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'de', 'Belize')
-INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'de', 'Kanada')
-INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'de', 'Zentralafrikanische Republik')
-INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'de', 'Kongo')
-INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'de', 'Schweiz')
-INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'de', 'Elfenbeinküste')
-INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'de', 'Chile')
-INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'de', 'Kamerun')
-INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'de', 'China')
-INSERT INTO translations VALUES ('countries', 'iso', 'co', 'de', 'Kolumbien')
-INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'de', 'Costa Rica')
-INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'de', 'Kuba')
-INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'de', 'Kapverdische Inseln')
-INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'de', 'Weihnachtsinsel')
-INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'de', 'Zypern')
-INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'de', 'Tschechische Republik')
-INSERT INTO translations VALUES ('countries', 'iso', 'de', 'de', 'Deutschland')
-INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'de', 'Djibouti')
-INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'de', 'Dänemark')
-INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'de', 'Dominica')
-INSERT INTO translations VALUES ('countries', 'iso', 'do', 'de', 'Dominikanische Republik')
-INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'de', 'Algerien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'de', 'Ekuador')
-INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'de', 'Estland')
-INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'de', 'Ägypten')
-INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'de', 'Westsahara')
-INSERT INTO translations VALUES ('countries', 'iso', 'er', 'de', 'Eritrea')
-INSERT INTO translations VALUES ('countries', 'iso', 'es', 'de', 'Spanien')
-INSERT INTO translations VALUES ('countries', 'iso', 'et', 'de', 'Äthiopien')
-INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'de', 'Finnland')
-INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'de', 'Fidschi-Inseln')
-INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'de', 'Frankreich')
-INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'de', 'Gabun')
-INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'de', 'Grenada')
-INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'de', 'Georgien')
-INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'de', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'de', 'Andorra');
+INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'de', 'Vereinigte Arabische Emirate');
+INSERT INTO translations VALUES ('countries', 'iso', 'af', 'de', 'Afghanistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'de', 'Antigua, Barbuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'de', 'Anguilla');
+INSERT INTO translations VALUES ('countries', 'iso', 'al', 'de', 'Albanien');
+INSERT INTO translations VALUES ('countries', 'iso', 'am', 'de', 'Armenien');
+INSERT INTO translations VALUES ('countries', 'iso', 'an', 'de', 'Niederlande');
+INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'de', 'Angola');
+INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'de', 'Argentinien');
+INSERT INTO translations VALUES ('countries', 'iso', 'at', 'de', 'Österreich');
+INSERT INTO translations VALUES ('countries', 'iso', 'au', 'de', 'Australien');
+INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'de', 'Aruba');
+INSERT INTO translations VALUES ('countries', 'iso', 'az', 'de', 'Aserbaidschan');
+INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'de', 'Bosnien-Herzegowina');
+INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'de', 'Barbados');
+INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'de', 'Bangladesh');
+INSERT INTO translations VALUES ('countries', 'iso', 'be', 'de', 'Belgien');
+INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'de', 'Burkina Faso');
+INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'de', 'Bulgarien');
+INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'de', 'Bahrain');
+INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'de', 'Burundi');
+INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'de', 'Benin');
+INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'de', 'Bermuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'de', 'Brunei Darussalam');
+INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'de', 'Bolivien');
+INSERT INTO translations VALUES ('countries', 'iso', 'br', 'de', 'Brasilien');
+INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'de', 'Bahamas');
+INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'de', 'Bhutan');
+INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'de', 'Botswana');
+INSERT INTO translations VALUES ('countries', 'iso', 'by', 'de', 'Weißrußland');
+INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'de', 'Belize');
+INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'de', 'Kanada');
+INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'de', 'Zentralafrikanische Republik');
+INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'de', 'Kongo');
+INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'de', 'Schweiz');
+INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'de', 'Elfenbeinküste');
+INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'de', 'Chile');
+INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'de', 'Kamerun');
+INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'de', 'China');
+INSERT INTO translations VALUES ('countries', 'iso', 'co', 'de', 'Kolumbien');
+INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'de', 'Costa Rica');
+INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'de', 'Kuba');
+INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'de', 'Kapverdische Inseln');
+INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'de', 'Weihnachtsinsel');
+INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'de', 'Zypern');
+INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'de', 'Tschechische Republik');
+INSERT INTO translations VALUES ('countries', 'iso', 'de', 'de', 'Deutschland');
+INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'de', 'Djibouti');
+INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'de', 'Dänemark');
+INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'de', 'Dominica');
+INSERT INTO translations VALUES ('countries', 'iso', 'do', 'de', 'Dominikanische Republik');
+INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'de', 'Algerien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'de', 'Ekuador');
+INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'de', 'Estland');
+INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'de', 'Ägypten');
+INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'de', 'Westsahara');
+INSERT INTO translations VALUES ('countries', 'iso', 'er', 'de', 'Eritrea');
+INSERT INTO translations VALUES ('countries', 'iso', 'es', 'de', 'Spanien');
+INSERT INTO translations VALUES ('countries', 'iso', 'et', 'de', 'Äthiopien');
+INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'de', 'Finnland');
+INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'de', 'Fidschi-Inseln');
+INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'de', 'Frankreich');
+INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'de', 'Gabun');
+INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'de', 'Grenada');
+INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'de', 'Georgien');
+INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'de', 'Ghana');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'de', 'Gibraltar');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'de', 'Gambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'de', 'Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'de', 'Äquatorial-Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'de', 'Griechenland')
-INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'de', 'Guatemala')
-INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'de', 'Guinea-Bissau')
-INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'de', 'Guyana')
-INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'de', 'Hongkong')
-INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'de', 'Honduras')
-INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'de', 'Kroatien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'de', 'Haiti')
-INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'de', 'Ungarn')
-INSERT INTO translations VALUES ('countries', 'iso', 'id', 'de', 'Indonesien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'de', 'Irland')
-INSERT INTO translations VALUES ('countries', 'iso', 'il', 'de', 'Israel')
-INSERT INTO translations VALUES ('countries', 'iso', 'in', 'de', 'Indien')
-INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'de', 'Irak')
-INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'de', 'Iran')
-INSERT INTO translations VALUES ('countries', 'iso', 'is', 'de', 'Island')
-INSERT INTO translations VALUES ('countries', 'iso', 'it', 'de', 'Italien')
-INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'de', 'Jamaika')
-INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'de', 'Jordanien')
-INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'de', 'Japan')
-INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'de', 'Kenya')
-INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'de', 'Kirgisien')
-INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'de', 'Kamdodscha')
-INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'de', 'Kiribati')
-INSERT INTO translations VALUES ('countries', 'iso', 'km', 'de', 'Komoren')
-INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'de', 'Saint Christopher und Nevis')
-INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'de', 'Nordkorea')
-INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'de', 'Südkorea')
-INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'de', 'Kuwait')
-INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'de', 'Cayman-Inseln')
-INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'de', 'Kasachstan')
-INSERT INTO translations VALUES ('countries', 'iso', 'la', 'de', 'Laos')
-INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'de', 'Libanon')
-INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'de', 'St. Lucia')
-INSERT INTO translations VALUES ('countries', 'iso', 'li', 'de', 'Liechtenstein')
-INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'de', 'Sri Lanka')
-INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'de', 'Liberia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'de', 'Lesotho')
-INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'de', 'Litauen')
-INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'de', 'Luxenbourg')
-INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'de', 'Lettland')
-INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'de', 'Libyen')
-INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'de', 'Marokko')
-INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'de', 'Monaco')
-INSERT INTO translations VALUES ('countries', 'iso', 'md', 'de', 'Moldawien')
-INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'de', 'Madagaskar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'de', 'Marshall-Inselm')
-INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'de', 'Mazedonien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'de', 'Mali')
-INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'de', 'Myanmar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'de', 'Mongolei')
-INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'de', 'Macao')
-INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'de', 'Mauretanien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'de', 'Montserrat')
-INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'de', 'Malta')
-INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'de', 'Mauritius')
-INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'de', 'Malediven')
-INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'de', 'Malawi')
-INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'de', 'Mexiko')
-INSERT INTO translations VALUES ('countries', 'iso', 'my', 'de', 'Malaya')
-INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'de', 'Moçambique')
-INSERT INTO translations VALUES ('countries', 'iso', 'na', 'de', 'Namibia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'de', 'Niger')
-INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'de', 'Nigeria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'de', 'Nikaragua')
-INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'de', 'Niederlande')
-INSERT INTO translations VALUES ('countries', 'iso', 'no', 'de', 'Norwegen')
-INSERT INTO translations VALUES ('countries', 'iso', 'np', 'de', 'Nepal')
-INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'de', 'Nauru')
-INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'de', 'Neuseeland')
-INSERT INTO translations VALUES ('countries', 'iso', 'om', 'de', 'Oman')
-INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'de', 'Panama')
-INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'de', 'Peru')
-INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'de', 'Papua-Neuguinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'de', 'Philippinen')
-INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'de', 'Pakistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'de', 'Polen')
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'de', 'Gambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'de', 'Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'de', 'Äquatorial-Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'de', 'Griechenland');
+INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'de', 'Guatemala');
+INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'de', 'Guinea-Bissau');
+INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'de', 'Guyana');
+INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'de', 'Hongkong');
+INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'de', 'Honduras');
+INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'de', 'Kroatien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'de', 'Haiti');
+INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'de', 'Ungarn');
+INSERT INTO translations VALUES ('countries', 'iso', 'id', 'de', 'Indonesien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'de', 'Irland');
+INSERT INTO translations VALUES ('countries', 'iso', 'il', 'de', 'Israel');
+INSERT INTO translations VALUES ('countries', 'iso', 'in', 'de', 'Indien');
+INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'de', 'Irak');
+INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'de', 'Iran');
+INSERT INTO translations VALUES ('countries', 'iso', 'is', 'de', 'Island');
+INSERT INTO translations VALUES ('countries', 'iso', 'it', 'de', 'Italien');
+INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'de', 'Jamaika');
+INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'de', 'Jordanien');
+INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'de', 'Japan');
+INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'de', 'Kenya');
+INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'de', 'Kirgisien');
+INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'de', 'Kamdodscha');
+INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'de', 'Kiribati');
+INSERT INTO translations VALUES ('countries', 'iso', 'km', 'de', 'Komoren');
+INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'de', 'Saint Christopher und Nevis');
+INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'de', 'Nordkorea');
+INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'de', 'Südkorea');
+INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'de', 'Kuwait');
+INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'de', 'Cayman-Inseln');
+INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'de', 'Kasachstan');
+INSERT INTO translations VALUES ('countries', 'iso', 'la', 'de', 'Laos');
+INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'de', 'Libanon');
+INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'de', 'St. Lucia');
+INSERT INTO translations VALUES ('countries', 'iso', 'li', 'de', 'Liechtenstein');
+INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'de', 'Sri Lanka');
+INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'de', 'Liberia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'de', 'Lesotho');
+INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'de', 'Litauen');
+INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'de', 'Luxenbourg');
+INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'de', 'Lettland');
+INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'de', 'Libyen');
+INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'de', 'Marokko');
+INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'de', 'Monaco');
+INSERT INTO translations VALUES ('countries', 'iso', 'md', 'de', 'Moldawien');
+INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'de', 'Madagaskar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'de', 'Marshall-Inselm');
+INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'de', 'Mazedonien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'de', 'Mali');
+INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'de', 'Myanmar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'de', 'Mongolei');
+INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'de', 'Macao');
+INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'de', 'Mauretanien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'de', 'Montserrat');
+INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'de', 'Malta');
+INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'de', 'Mauritius');
+INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'de', 'Malediven');
+INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'de', 'Malawi');
+INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'de', 'Mexiko');
+INSERT INTO translations VALUES ('countries', 'iso', 'my', 'de', 'Malaya');
+INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'de', 'Moçambique');
+INSERT INTO translations VALUES ('countries', 'iso', 'na', 'de', 'Namibia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'de', 'Niger');
+INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'de', 'Nigeria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'de', 'Nikaragua');
+INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'de', 'Niederlande');
+INSERT INTO translations VALUES ('countries', 'iso', 'no', 'de', 'Norwegen');
+INSERT INTO translations VALUES ('countries', 'iso', 'np', 'de', 'Nepal');
+INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'de', 'Nauru');
+INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'de', 'Neuseeland');
+INSERT INTO translations VALUES ('countries', 'iso', 'om', 'de', 'Oman');
+INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'de', 'Panama');
+INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'de', 'Peru');
+INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'de', 'Papua-Neuguinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'de', 'Philippinen');
+INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'de', 'Pakistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'de', 'Polen');
 INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'de', 'Puerto Rico');
-INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'de', 'Portugal')
-INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'de', 'Palau')
-INSERT INTO translations VALUES ('countries', 'iso', 'py', 'de', 'Paraguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'de', 'Qatar')
-INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'de', 'Rumänien')
-INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'de', 'Rußland')
-INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'de', 'Ruanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'de', 'Saudi-Arabien')
-INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'de', 'Solomonen')
-INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'de', 'Seychellen')
-INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'de', 'Sudan')
-INSERT INTO translations VALUES ('countries', 'iso', 'se', 'de', 'Schweden')
-INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'de', 'Singapur')
-INSERT INTO translations VALUES ('countries', 'iso', 'si', 'de', 'Slovenien')
-INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'de', 'Slowakei')
-INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'de', 'Sierra Leone')
-INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'de', 'San Marino')
-INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'de', 'Senegal')
-INSERT INTO translations VALUES ('countries', 'iso', 'so', 'de', 'Somalia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'de', 'Surinam')
-INSERT INTO translations VALUES ('countries', 'iso', 'st', 'de', 'Sao Tome und Principe')
-INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'de', 'El Salvador')
-INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'de', 'Syrien')
-INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'de', 'Swasiland')
-INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'de', 'Turks und Caicos Inseln')
-INSERT INTO translations VALUES ('countries', 'iso', 'td', 'de', 'Tschad')
-INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'de', 'Togo')
-INSERT INTO translations VALUES ('countries', 'iso', 'th', 'de', 'Thailand')
-INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'de', 'Tadschikistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'de', 'Turkmenistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'de', 'Tunesien')
-INSERT INTO translations VALUES ('countries', 'iso', 'to', 'de', 'Tonga')
-INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'de', 'Türkei')
-INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'de', 'Trinidad und Tobago')
-INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'de', 'Tuvalu')
-INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'de', 'Taiwan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'de', 'Tansania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'de', 'Ukraine')
-INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'de', 'Uganda')
-INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'de', 'Vereinigtes Königreich')
-INSERT INTO translations VALUES ('countries', 'iso', 'us', 'de', 'Vereinigte Staaten von Amerika')
-INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'de', 'Uruguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'de', 'Usbekistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'va', 'de', 'Vatikan')
-INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'de', 'Saint Vincent und die Grenadinen')
-INSERT INTO translations VALUES ('countries', 'iso', 've', 'de', 'Venezuela')
-INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'de', 'Vietnam')
-INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'de', 'Vanatu')
-INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'de', 'Samoa')
-INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'de', 'Jemen')
-INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'de', 'Serbien und Montenegro')
-INSERT INTO translations VALUES ('countries', 'iso', 'za', 'de', 'Republik Südarfika')
-INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'de', 'Sambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'de', 'Demokratische Republik Kongo')
-INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'de', 'Simbabwe')
+INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'de', 'Portugal');
+INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'de', 'Palau');
+INSERT INTO translations VALUES ('countries', 'iso', 'py', 'de', 'Paraguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'de', 'Qatar');
+INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'de', 'Rumänien');
+INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'de', 'Rußland');
+INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'de', 'Ruanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'de', 'Saudi-Arabien');
+INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'de', 'Solomonen');
+INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'de', 'Seychellen');
+INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'de', 'Sudan');
+INSERT INTO translations VALUES ('countries', 'iso', 'se', 'de', 'Schweden');
+INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'de', 'Singapur');
+INSERT INTO translations VALUES ('countries', 'iso', 'si', 'de', 'Slovenien');
+INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'de', 'Slowakei');
+INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'de', 'Sierra Leone');
+INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'de', 'San Marino');
+INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'de', 'Senegal');
+INSERT INTO translations VALUES ('countries', 'iso', 'so', 'de', 'Somalia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'de', 'Surinam');
+INSERT INTO translations VALUES ('countries', 'iso', 'st', 'de', 'Sao Tome und Principe');
+INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'de', 'El Salvador');
+INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'de', 'Syrien');
+INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'de', 'Swasiland');
+INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'de', 'Turks und Caicos Inseln');
+INSERT INTO translations VALUES ('countries', 'iso', 'td', 'de', 'Tschad');
+INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'de', 'Togo');
+INSERT INTO translations VALUES ('countries', 'iso', 'th', 'de', 'Thailand');
+INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'de', 'Tadschikistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'de', 'Turkmenistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'de', 'Tunesien');
+INSERT INTO translations VALUES ('countries', 'iso', 'to', 'de', 'Tonga');
+INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'de', 'Türkei');
+INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'de', 'Trinidad und Tobago');
+INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'de', 'Tuvalu');
+INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'de', 'Taiwan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'de', 'Tansania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'de', 'Ukraine');
+INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'de', 'Uganda');
+INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'de', 'Vereinigtes Königreich');
+INSERT INTO translations VALUES ('countries', 'iso', 'us', 'de', 'Vereinigte Staaten von Amerika');
+INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'de', 'Uruguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'de', 'Usbekistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'va', 'de', 'Vatikan');
+INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'de', 'Saint Vincent und die Grenadinen');
+INSERT INTO translations VALUES ('countries', 'iso', 've', 'de', 'Venezuela');
+INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'de', 'Vietnam');
+INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'de', 'Vanatu');
+INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'de', 'Samoa');
+INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'de', 'Jemen');
+INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'de', 'Serbien und Montenegro');
+INSERT INTO translations VALUES ('countries', 'iso', 'za', 'de', 'Republik Südarfika');
+INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'de', 'Sambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'de', 'Demokratische Republik Kongo');
+INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'de', 'Simbabwe');
 
 /** ENGLISH */
 /* civility */
@@ -428,210 +428,210 @@ INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'en', 'Zimbabue');
 
 /** SPANISH */
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
-INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'es', 'Andorra')
-INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'es', 'Emiratos Árabes Unidos')
-INSERT INTO translations VALUES ('countries', 'iso', 'af', 'es', 'Afganistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'es', 'Antigua y Barbuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'es', 'Anguila')
-INSERT INTO translations VALUES ('countries', 'iso', 'al', 'es', 'Albania')
-INSERT INTO translations VALUES ('countries', 'iso', 'am', 'es', 'Armenia')
-INSERT INTO translations VALUES ('countries', 'iso', 'an', 'es', 'Países Bajos')
-INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'es', 'Angola')
-INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'es', 'Argentina')
-INSERT INTO translations VALUES ('countries', 'iso', 'at', 'es', 'Austria')
-INSERT INTO translations VALUES ('countries', 'iso', 'au', 'es', 'Australia')
-INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'es', 'Aruba')
-INSERT INTO translations VALUES ('countries', 'iso', 'az', 'es', 'Azerbaiyán')
-INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'es', 'Bosnia y Hercegovina')
-INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'es', 'Barbados')
-INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'es', 'Bangladesh')
-INSERT INTO translations VALUES ('countries', 'iso', 'be', 'es', 'Bélgica')
-INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'es', 'Burkina Faso')
-INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'es', 'Bulgaria')
-INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'es', 'Bahráin')
-INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'es', 'Burundi')
-INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'es', 'Benín')
-INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'es', 'Bermudas')
-INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'es', 'Brunéi Darussalam')
-INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'es', 'Bolivia')
-INSERT INTO translations VALUES ('countries', 'iso', 'br', 'es', 'Brasil')
-INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'es', 'Bahamas')
-INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'es', 'Bután')
-INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'es', 'Botsuana')
-INSERT INTO translations VALUES ('countries', 'iso', 'by', 'es', 'Bielorrusia')
-INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'es', 'Belice')
-INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'es', 'Canadá')
-INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'es', 'República Centroafricana')
-INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'es', 'Congo')
-INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'es', 'Suiza')
-INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'es', 'Costa de Marfil')
-INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'es', 'Chile')
-INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'es', 'Camerún')
-INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'es', 'China')
-INSERT INTO translations VALUES ('countries', 'iso', 'co', 'es', 'Colombia')
-INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'es', 'Costa Rica')
-INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'es', 'Cuba')
-INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'es', 'Cabo Verde')
-INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'es', 'Isla Christmas')
-INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'es', 'Chipre')
-INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'es', 'República Checa')
-INSERT INTO translations VALUES ('countries', 'iso', 'de', 'es', 'Alemania')
-INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'es', 'Yibuti')
-INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'es', 'Dinamarca')
-INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'es', 'Domínica')
-INSERT INTO translations VALUES ('countries', 'iso', 'do', 'es', 'República Dominicana')
-INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'es', 'Argelia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'es', 'Ecuador')
-INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'es', 'Estonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'es', 'Egipto')
-INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'es', 'Sáhara Occidental')
-INSERT INTO translations VALUES ('countries', 'iso', 'er', 'es', 'Eritrea')
-INSERT INTO translations VALUES ('countries', 'iso', 'es', 'es', 'España')
-INSERT INTO translations VALUES ('countries', 'iso', 'et', 'es', 'Etiopía')
-INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'es', 'Finlandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'es', 'Fiyi')
-INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'es', 'Francia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'es', 'Gabón')
-INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'es', 'Granada')
-INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'es', 'Georgia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'es', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'es', 'Andorra');
+INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'es', 'Emiratos Árabes Unidos');
+INSERT INTO translations VALUES ('countries', 'iso', 'af', 'es', 'Afganistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'es', 'Antigua y Barbuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'es', 'Anguila');
+INSERT INTO translations VALUES ('countries', 'iso', 'al', 'es', 'Albania');
+INSERT INTO translations VALUES ('countries', 'iso', 'am', 'es', 'Armenia');
+INSERT INTO translations VALUES ('countries', 'iso', 'an', 'es', 'Países Bajos');
+INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'es', 'Angola');
+INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'es', 'Argentina');
+INSERT INTO translations VALUES ('countries', 'iso', 'at', 'es', 'Austria');
+INSERT INTO translations VALUES ('countries', 'iso', 'au', 'es', 'Australia');
+INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'es', 'Aruba');
+INSERT INTO translations VALUES ('countries', 'iso', 'az', 'es', 'Azerbaiyán');
+INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'es', 'Bosnia y Hercegovina');
+INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'es', 'Barbados');
+INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'es', 'Bangladesh');
+INSERT INTO translations VALUES ('countries', 'iso', 'be', 'es', 'Bélgica');
+INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'es', 'Burkina Faso');
+INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'es', 'Bulgaria');
+INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'es', 'Bahráin');
+INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'es', 'Burundi');
+INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'es', 'Benín');
+INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'es', 'Bermudas');
+INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'es', 'Brunéi Darussalam');
+INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'es', 'Bolivia');
+INSERT INTO translations VALUES ('countries', 'iso', 'br', 'es', 'Brasil');
+INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'es', 'Bahamas');
+INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'es', 'Bután');
+INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'es', 'Botsuana');
+INSERT INTO translations VALUES ('countries', 'iso', 'by', 'es', 'Bielorrusia');
+INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'es', 'Belice');
+INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'es', 'Canadá');
+INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'es', 'República Centroafricana');
+INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'es', 'Congo');
+INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'es', 'Suiza');
+INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'es', 'Costa de Marfil');
+INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'es', 'Chile');
+INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'es', 'Camerún');
+INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'es', 'China');
+INSERT INTO translations VALUES ('countries', 'iso', 'co', 'es', 'Colombia');
+INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'es', 'Costa Rica');
+INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'es', 'Cuba');
+INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'es', 'Cabo Verde');
+INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'es', 'Isla Christmas');
+INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'es', 'Chipre');
+INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'es', 'República Checa');
+INSERT INTO translations VALUES ('countries', 'iso', 'de', 'es', 'Alemania');
+INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'es', 'Yibuti');
+INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'es', 'Dinamarca');
+INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'es', 'Domínica');
+INSERT INTO translations VALUES ('countries', 'iso', 'do', 'es', 'República Dominicana');
+INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'es', 'Argelia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'es', 'Ecuador');
+INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'es', 'Estonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'es', 'Egipto');
+INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'es', 'Sáhara Occidental');
+INSERT INTO translations VALUES ('countries', 'iso', 'er', 'es', 'Eritrea');
+INSERT INTO translations VALUES ('countries', 'iso', 'es', 'es', 'España');
+INSERT INTO translations VALUES ('countries', 'iso', 'et', 'es', 'Etiopía');
+INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'es', 'Finlandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'es', 'Fiyi');
+INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'es', 'Francia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'es', 'Gabón');
+INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'es', 'Granada');
+INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'es', 'Georgia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'es', 'Ghana');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'es', 'Gibraltar');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'es', 'Gambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'es', 'Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'es', 'Guinea Ecuatorial')
-INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'es', 'Grecia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'es', 'Guatemala')
-INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'es', 'Guinea-Bissau')
-INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'es', 'Guayana')
-INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'es', 'Hong Kong')
-INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'es', 'Honduras')
-INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'es', 'Croacia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'es', 'Haití')
-INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'es', 'Hungría')
-INSERT INTO translations VALUES ('countries', 'iso', 'id', 'es', 'Indonesia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'es', 'Irlanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'il', 'es', 'Israel')
-INSERT INTO translations VALUES ('countries', 'iso', 'in', 'es', 'India')
-INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'es', 'Iraq')
-INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'es', 'Irán')
-INSERT INTO translations VALUES ('countries', 'iso', 'is', 'es', 'Islandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'it', 'es', 'Italia')
-INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'es', 'Jamaica')
-INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'es', 'Jordania')
-INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'es', 'Japón')
-INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'es', 'Kenia')
-INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'es', 'Kirguizistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'es', 'Camboya')
-INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'es', 'Kiribati')
-INSERT INTO translations VALUES ('countries', 'iso', 'km', 'es', 'Comoras')
-INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'es', 'San Cristóbal y Nieves')
-INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'es', 'Corea del Norte')
-INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'es', 'Corea del Sur')
-INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'es', 'Kuwait')
-INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'es', 'Islas Caimán')
-INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'es', 'Kazajistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'la', 'es', 'Laos')
-INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'es', 'Libano')
-INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'es', 'Santa Lucía')
-INSERT INTO translations VALUES ('countries', 'iso', 'li', 'es', 'Liechtenstein')
-INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'es', 'Sri Lanka')
-INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'es', 'Liberia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'es', 'Lesoto')
-INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'es', 'Lituania')
-INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'es', 'Luxembourgo')
-INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'es', 'Letonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'es', 'Libia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'es', 'Marueccos')
-INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'es', 'Mónaco')
-INSERT INTO translations VALUES ('countries', 'iso', 'md', 'es', 'Moldavia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'es', 'Madagascar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'es', 'Islas Marshall')
-INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'es', 'Macedonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'es', 'Malí')
-INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'es', 'Myanmar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'es', 'Mongolia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'es', 'Macao')
-INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'es', 'Mauritania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'es', 'Montserrat')
-INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'es', 'Malta')
-INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'es', 'Mauricio')
-INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'es', 'Maldivas')
-INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'es', 'Malaui')
-INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'es', 'México')
-INSERT INTO translations VALUES ('countries', 'iso', 'my', 'es', 'Malasia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'es', 'Mozambique')
-INSERT INTO translations VALUES ('countries', 'iso', 'na', 'es', 'Namibia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'es', 'Níger')
-INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'es', 'Nigeria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'es', 'Nicaragua')
-INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'es', 'Países Bajos')
-INSERT INTO translations VALUES ('countries', 'iso', 'no', 'es', 'Noruega')
-INSERT INTO translations VALUES ('countries', 'iso', 'np', 'es', 'Nepal')
-INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'es', 'Nauru')
-INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'es', 'Nueva Zelanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'om', 'es', 'Omán')
-INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'es', 'Panamá')
-INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'es', 'Perú')
-INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'es', 'Papúa-Nueva Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'es', 'Filipinas')
-INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'es', 'Pakistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'es', 'Polonia')
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'es', 'Gambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'es', 'Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'es', 'Guinea Ecuatorial');
+INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'es', 'Grecia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'es', 'Guatemala');
+INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'es', 'Guinea-Bissau');
+INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'es', 'Guayana');
+INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'es', 'Hong Kong');
+INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'es', 'Honduras');
+INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'es', 'Croacia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'es', 'Haití');
+INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'es', 'Hungría');
+INSERT INTO translations VALUES ('countries', 'iso', 'id', 'es', 'Indonesia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'es', 'Irlanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'il', 'es', 'Israel');
+INSERT INTO translations VALUES ('countries', 'iso', 'in', 'es', 'India');
+INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'es', 'Iraq');
+INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'es', 'Irán');
+INSERT INTO translations VALUES ('countries', 'iso', 'is', 'es', 'Islandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'it', 'es', 'Italia');
+INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'es', 'Jamaica');
+INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'es', 'Jordania');
+INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'es', 'Japón');
+INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'es', 'Kenia');
+INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'es', 'Kirguizistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'es', 'Camboya');
+INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'es', 'Kiribati');
+INSERT INTO translations VALUES ('countries', 'iso', 'km', 'es', 'Comoras');
+INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'es', 'San Cristóbal y Nieves');
+INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'es', 'Corea del Norte');
+INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'es', 'Corea del Sur');
+INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'es', 'Kuwait');
+INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'es', 'Islas Caimán');
+INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'es', 'Kazajistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'la', 'es', 'Laos');
+INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'es', 'Libano');
+INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'es', 'Santa Lucía');
+INSERT INTO translations VALUES ('countries', 'iso', 'li', 'es', 'Liechtenstein');
+INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'es', 'Sri Lanka');
+INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'es', 'Liberia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'es', 'Lesoto');
+INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'es', 'Lituania');
+INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'es', 'Luxembourgo');
+INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'es', 'Letonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'es', 'Libia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'es', 'Marueccos');
+INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'es', 'Mónaco');
+INSERT INTO translations VALUES ('countries', 'iso', 'md', 'es', 'Moldavia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'es', 'Madagascar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'es', 'Islas Marshall');
+INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'es', 'Macedonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'es', 'Malí');
+INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'es', 'Myanmar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'es', 'Mongolia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'es', 'Macao');
+INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'es', 'Mauritania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'es', 'Montserrat');
+INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'es', 'Malta');
+INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'es', 'Mauricio');
+INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'es', 'Maldivas');
+INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'es', 'Malaui');
+INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'es', 'México');
+INSERT INTO translations VALUES ('countries', 'iso', 'my', 'es', 'Malasia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'es', 'Mozambique');
+INSERT INTO translations VALUES ('countries', 'iso', 'na', 'es', 'Namibia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'es', 'Níger');
+INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'es', 'Nigeria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'es', 'Nicaragua');
+INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'es', 'Países Bajos');
+INSERT INTO translations VALUES ('countries', 'iso', 'no', 'es', 'Noruega');
+INSERT INTO translations VALUES ('countries', 'iso', 'np', 'es', 'Nepal');
+INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'es', 'Nauru');
+INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'es', 'Nueva Zelanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'om', 'es', 'Omán');
+INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'es', 'Panamá');
+INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'es', 'Perú');
+INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'es', 'Papúa-Nueva Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'es', 'Filipinas');
+INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'es', 'Pakistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'es', 'Polonia');
 INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'es', 'Puerto Rico');
-INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'es', 'Portugal')
-INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'es', 'Palaos')
-INSERT INTO translations VALUES ('countries', 'iso', 'py', 'es', 'Paraguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'es', 'Qatar')
-INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'es', 'Rumania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'es', 'Rusia')
-INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'es', 'Ruanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'es', 'Arabia Saudí')
-INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'es', 'Islas Salomón')
-INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'es', 'Seychelles')
-INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'es', 'Sudán')
-INSERT INTO translations VALUES ('countries', 'iso', 'se', 'es', 'Suecia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'es', 'Singapur')
-INSERT INTO translations VALUES ('countries', 'iso', 'si', 'es', 'Eslovenia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'es', 'Eslovaquia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'es', 'Sierra Leona')
-INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'es', 'San Marino')
-INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'es', 'Senegal')
-INSERT INTO translations VALUES ('countries', 'iso', 'so', 'es', 'Somalia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'es', 'Surinam')
-INSERT INTO translations VALUES ('countries', 'iso', 'st', 'es', 'Santo Tomé y Príncipe')
-INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'es', 'El Salvador')
-INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'es', 'Siria')
-INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'es', 'Suazilandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'es', 'Islas Turcas y Caicos')
-INSERT INTO translations VALUES ('countries', 'iso', 'td', 'es', 'Chad')
-INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'es', 'Togo')
-INSERT INTO translations VALUES ('countries', 'iso', 'th', 'es', 'Tailandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'es', 'Tayikistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'es', 'Turkmenistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'es', 'Túnez')
-INSERT INTO translations VALUES ('countries', 'iso', 'to', 'es', 'Tonga')
-INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'es', 'Turquía')
-INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'es', 'Trinidad y Tobago')
-INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'es', 'Tuvalu')
-INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'es', 'Taiwán')
-INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'es', 'Tanzania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'es', 'Ucrania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'es', 'Uganda')
-INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'es', 'Reino Unido')
-INSERT INTO translations VALUES ('countries', 'iso', 'us', 'es', 'Estados Unidos')
-INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'es', 'Uruguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'es', 'Uzbekistán')
-INSERT INTO translations VALUES ('countries', 'iso', 'va', 'es', 'El Vaticano')
-INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'es', 'San Vicente y las Granadinas')
-INSERT INTO translations VALUES ('countries', 'iso', 've', 'es', 'Venezuela')
-INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'es', 'Vietnam')
-INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'es', 'Vanuatu')
-INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'es', 'Samoa')
-INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'es', 'Yemen')
-INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'es', 'Serbia y Montenegro')
-INSERT INTO translations VALUES ('countries', 'iso', 'za', 'es', 'Sudáfrica')
-INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'es', 'Zambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'es', 'República Democrática del Congo')
-INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'es', 'Zimbabwe')
+INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'es', 'Portugal');
+INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'es', 'Palaos');
+INSERT INTO translations VALUES ('countries', 'iso', 'py', 'es', 'Paraguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'es', 'Qatar');
+INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'es', 'Rumania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'es', 'Rusia');
+INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'es', 'Ruanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'es', 'Arabia Saudí');
+INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'es', 'Islas Salomón');
+INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'es', 'Seychelles');
+INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'es', 'Sudán');
+INSERT INTO translations VALUES ('countries', 'iso', 'se', 'es', 'Suecia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'es', 'Singapur');
+INSERT INTO translations VALUES ('countries', 'iso', 'si', 'es', 'Eslovenia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'es', 'Eslovaquia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'es', 'Sierra Leona');
+INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'es', 'San Marino');
+INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'es', 'Senegal');
+INSERT INTO translations VALUES ('countries', 'iso', 'so', 'es', 'Somalia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'es', 'Surinam');
+INSERT INTO translations VALUES ('countries', 'iso', 'st', 'es', 'Santo Tomé y Príncipe');
+INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'es', 'El Salvador');
+INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'es', 'Siria');
+INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'es', 'Suazilandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'es', 'Islas Turcas y Caicos');
+INSERT INTO translations VALUES ('countries', 'iso', 'td', 'es', 'Chad');
+INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'es', 'Togo');
+INSERT INTO translations VALUES ('countries', 'iso', 'th', 'es', 'Tailandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'es', 'Tayikistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'es', 'Turkmenistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'es', 'Túnez');
+INSERT INTO translations VALUES ('countries', 'iso', 'to', 'es', 'Tonga');
+INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'es', 'Turquía');
+INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'es', 'Trinidad y Tobago');
+INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'es', 'Tuvalu');
+INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'es', 'Taiwán');
+INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'es', 'Tanzania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'es', 'Ucrania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'es', 'Uganda');
+INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'es', 'Reino Unido');
+INSERT INTO translations VALUES ('countries', 'iso', 'us', 'es', 'Estados Unidos');
+INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'es', 'Uruguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'es', 'Uzbekistán');
+INSERT INTO translations VALUES ('countries', 'iso', 'va', 'es', 'El Vaticano');
+INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'es', 'San Vicente y las Granadinas');
+INSERT INTO translations VALUES ('countries', 'iso', 've', 'es', 'Venezuela');
+INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'es', 'Vietnam');
+INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'es', 'Vanuatu');
+INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'es', 'Samoa');
+INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'es', 'Yemen');
+INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'es', 'Serbia y Montenegro');
+INSERT INTO translations VALUES ('countries', 'iso', 'za', 'es', 'Sudáfrica');
+INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'es', 'Zambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'es', 'República Democrática del Congo');
+INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'es', 'Zimbabwe');
 
 
 /** FRENCH */
@@ -872,210 +872,210 @@ INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' )
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
-INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'pt', 'Andorra')
-INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'pt', 'Emiratos Árabes Unidos')
-INSERT INTO translations VALUES ('countries', 'iso', 'af', 'pt', 'Afeganistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'pt', 'Antígua e Barbuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'pt', 'Anguila')
-INSERT INTO translations VALUES ('countries', 'iso', 'al', 'pt', 'Albânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'am', 'pt', 'Armênia')
-INSERT INTO translations VALUES ('countries', 'iso', 'an', 'pt', 'Países Baixos')
-INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'pt', 'Angola')
-INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'pt', 'Argentina')
-INSERT INTO translations VALUES ('countries', 'iso', 'at', 'pt', 'Áustria')
-INSERT INTO translations VALUES ('countries', 'iso', 'au', 'pt', 'Austrália')
-INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'pt', 'Aruba')
-INSERT INTO translations VALUES ('countries', 'iso', 'az', 'pt', 'Azerbaijão')
-INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'pt', 'Bósnia e Herzegovina')
-INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'pt', 'Barbados')
-INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'pt', 'Bangladeche')
-INSERT INTO translations VALUES ('countries', 'iso', 'be', 'pt', 'Bélgica')
-INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'pt', 'Burquina Faso')
-INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'pt', 'Bulgária')
-INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'pt', 'Barém')
-INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'pt', 'Burúndi')
-INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'pt', 'Benin')
-INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'pt', 'Bermuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'pt', 'Brunei Darussalam')
-INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'pt', 'Bolívia')
-INSERT INTO translations VALUES ('countries', 'iso', 'br', 'pt', 'Brasil')
-INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'pt', 'Baamas')
-INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'pt', 'Butão')
-INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'pt', 'Botsuana')
-INSERT INTO translations VALUES ('countries', 'iso', 'by', 'pt', 'Bielorrússia')
-INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'pt', 'Belize')
-INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'pt', 'Canadá')
-INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'pt', 'República Centro-Africana')
-INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'pt', 'Congo-Brazzaville')
-INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'pt', 'Suíça')
-INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'pt', 'Costa do Marfim')
-INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'pt', 'Chile')
-INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'pt', 'Camarões')
-INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'pt', 'China')
-INSERT INTO translations VALUES ('countries', 'iso', 'co', 'pt', 'Colômbia')
-INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'pt', 'Costa Rica')
-INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'pt', 'Cuba')
-INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'pt', 'Cabo Verde')
-INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'pt', 'Ilha do Natal')
-INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'pt', 'Chipre')
-INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'pt', 'República Checa')
-INSERT INTO translations VALUES ('countries', 'iso', 'de', 'pt', 'Alemanha')
-INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'pt', 'Jibuti')
-INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'pt', 'Dinamarca')
-INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'pt', 'Domínica')
-INSERT INTO translations VALUES ('countries', 'iso', 'do', 'pt', 'República Dominicana')
-INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'pt', 'Argélia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'pt', 'Equador')
-INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'pt', 'Estônia')
-INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'pt', 'Egito')
-INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'pt', 'Sara Ocidental')
-INSERT INTO translations VALUES ('countries', 'iso', 'er', 'pt', 'Eritréia')
-INSERT INTO translations VALUES ('countries', 'iso', 'es', 'pt', 'Espanha')
-INSERT INTO translations VALUES ('countries', 'iso', 'et', 'pt', 'Etiópia')
-INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'pt', 'Finlândia')
-INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'pt', 'Fiji')
-INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'pt', 'França')
-INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'pt', 'Gabão')
-INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'pt', 'Granada')
-INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'pt', 'Geórgia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'pt', 'Gana')
+INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'pt', 'Andorra');
+INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'pt', 'Emiratos Árabes Unidos');
+INSERT INTO translations VALUES ('countries', 'iso', 'af', 'pt', 'Afeganistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'pt', 'Antígua e Barbuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'pt', 'Anguila');
+INSERT INTO translations VALUES ('countries', 'iso', 'al', 'pt', 'Albânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'am', 'pt', 'Armênia');
+INSERT INTO translations VALUES ('countries', 'iso', 'an', 'pt', 'Países Baixos');
+INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'pt', 'Angola');
+INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'pt', 'Argentina');
+INSERT INTO translations VALUES ('countries', 'iso', 'at', 'pt', 'Áustria');
+INSERT INTO translations VALUES ('countries', 'iso', 'au', 'pt', 'Austrália');
+INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'pt', 'Aruba');
+INSERT INTO translations VALUES ('countries', 'iso', 'az', 'pt', 'Azerbaijão');
+INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'pt', 'Bósnia e Herzegovina');
+INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'pt', 'Barbados');
+INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'pt', 'Bangladeche');
+INSERT INTO translations VALUES ('countries', 'iso', 'be', 'pt', 'Bélgica');
+INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'pt', 'Burquina Faso');
+INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'pt', 'Bulgária');
+INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'pt', 'Barém');
+INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'pt', 'Burúndi');
+INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'pt', 'Benin');
+INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'pt', 'Bermuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'pt', 'Brunei Darussalam');
+INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'pt', 'Bolívia');
+INSERT INTO translations VALUES ('countries', 'iso', 'br', 'pt', 'Brasil');
+INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'pt', 'Baamas');
+INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'pt', 'Butão');
+INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'pt', 'Botsuana');
+INSERT INTO translations VALUES ('countries', 'iso', 'by', 'pt', 'Bielorrússia');
+INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'pt', 'Belize');
+INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'pt', 'Canadá');
+INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'pt', 'República Centro-Africana');
+INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'pt', 'Congo-Brazzaville');
+INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'pt', 'Suíça');
+INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'pt', 'Costa do Marfim');
+INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'pt', 'Chile');
+INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'pt', 'Camarões');
+INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'pt', 'China');
+INSERT INTO translations VALUES ('countries', 'iso', 'co', 'pt', 'Colômbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'pt', 'Costa Rica');
+INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'pt', 'Cuba');
+INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'pt', 'Cabo Verde');
+INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'pt', 'Ilha do Natal');
+INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'pt', 'Chipre');
+INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'pt', 'República Checa');
+INSERT INTO translations VALUES ('countries', 'iso', 'de', 'pt', 'Alemanha');
+INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'pt', 'Jibuti');
+INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'pt', 'Dinamarca');
+INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'pt', 'Domínica');
+INSERT INTO translations VALUES ('countries', 'iso', 'do', 'pt', 'República Dominicana');
+INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'pt', 'Argélia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'pt', 'Equador');
+INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'pt', 'Estônia');
+INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'pt', 'Egito');
+INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'pt', 'Sara Ocidental');
+INSERT INTO translations VALUES ('countries', 'iso', 'er', 'pt', 'Eritréia');
+INSERT INTO translations VALUES ('countries', 'iso', 'es', 'pt', 'Espanha');
+INSERT INTO translations VALUES ('countries', 'iso', 'et', 'pt', 'Etiópia');
+INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'pt', 'Finlândia');
+INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'pt', 'Fiji');
+INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'pt', 'França');
+INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'pt', 'Gabão');
+INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'pt', 'Granada');
+INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'pt', 'Geórgia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'pt', 'Gana');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'pt', 'Gibraltar');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'pt', 'Gâmbia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'pt', 'Guiné')
-INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'pt', 'Guiné Equatorial')
-INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'pt', 'Grécia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'pt', 'Guatemala')
-INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'pt', 'Guiné-Bissau')
-INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'pt', 'Guiana')
-INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'pt', 'Hong Kong')
-INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'pt', 'Honduras')
-INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'pt', 'Croácia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'pt', 'Haiti')
-INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'pt', 'Hungria')
-INSERT INTO translations VALUES ('countries', 'iso', 'id', 'pt', 'Indonésia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'pt', 'Irlanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'il', 'pt', 'Israel')
-INSERT INTO translations VALUES ('countries', 'iso', 'in', 'pt', 'Índia')
-INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'pt', 'Iraque')
-INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'pt', 'Irã')
-INSERT INTO translations VALUES ('countries', 'iso', 'is', 'pt', 'Islândia')
-INSERT INTO translations VALUES ('countries', 'iso', 'it', 'pt', 'Itália')
-INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'pt', 'Jamaica')
-INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'pt', 'Jordânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'pt', 'Japão')
-INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'pt', 'Quénia')
-INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'pt', 'Quirguizistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'pt', 'Camboja')
-INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'pt', 'Quiribáti')
-INSERT INTO translations VALUES ('countries', 'iso', 'km', 'pt', 'Ilhas Comores')
-INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'pt', 'São Cristóvão e Neves')
-INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'pt', 'Coréia do Norte')
-INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'pt', 'Coréia do Sul')
-INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'pt', 'Kuwait')
-INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'pt', 'Ilhas Caimão')
-INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'pt', 'Cazaquistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'la', 'pt', 'Laos')
-INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'pt', 'Líbano')
-INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'pt', 'Santa Lúcia')
-INSERT INTO translations VALUES ('countries', 'iso', 'li', 'pt', 'Listenstaine')
-INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'pt', 'Sri Lanca')
-INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'pt', 'Libéria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'pt', 'Lesoto')
-INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'pt', 'Lituânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'pt', 'Luxemburgo')
-INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'pt', 'Letónia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'pt', 'Líbia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'pt', 'Marrocos')
-INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'pt', 'Mônaco')
-INSERT INTO translations VALUES ('countries', 'iso', 'md', 'pt', 'Moldávia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'pt', 'Madagáscar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'pt', 'Ilhas Marshall')
-INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'pt', 'Macedónia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'pt', 'Mali')
-INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'pt', 'Birmânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'pt', 'Mongólia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'pt', 'Macau')
-INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'pt', 'Mauritânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'pt', 'Monserrate')
-INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'pt', 'Malta')
-INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'pt', 'Maurícia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'pt', 'Maldivas')
-INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'pt', 'Malávi')
-INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'pt', 'México')
-INSERT INTO translations VALUES ('countries', 'iso', 'my', 'pt', 'Malásia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'pt', 'Moçambique')
-INSERT INTO translations VALUES ('countries', 'iso', 'na', 'pt', 'Namíbia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'pt', 'Níger')
-INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'pt', 'Nigéria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'pt', 'Nicarágua')
-INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'pt', 'Países Baixos')
-INSERT INTO translations VALUES ('countries', 'iso', 'no', 'pt', 'Noruega')
-INSERT INTO translations VALUES ('countries', 'iso', 'np', 'pt', 'Nepal')
-INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'pt', 'Nauru')
-INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'pt', 'Nova Zelândia')
-INSERT INTO translations VALUES ('countries', 'iso', 'om', 'pt', 'Omã')
-INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'pt', 'Panamá')
-INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'pt', 'Peru')
-INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'pt', 'Papua-Nova Guiné')
-INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'pt', 'Filipinas')
-INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'pt', 'Paquistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'pt', 'Polónia')
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'pt', 'Gâmbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'pt', 'Guiné');
+INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'pt', 'Guiné Equatorial');
+INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'pt', 'Grécia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'pt', 'Guatemala');
+INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'pt', 'Guiné-Bissau');
+INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'pt', 'Guiana');
+INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'pt', 'Hong Kong');
+INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'pt', 'Honduras');
+INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'pt', 'Croácia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'pt', 'Haiti');
+INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'pt', 'Hungria');
+INSERT INTO translations VALUES ('countries', 'iso', 'id', 'pt', 'Indonésia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'pt', 'Irlanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'il', 'pt', 'Israel');
+INSERT INTO translations VALUES ('countries', 'iso', 'in', 'pt', 'Índia');
+INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'pt', 'Iraque');
+INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'pt', 'Irã');
+INSERT INTO translations VALUES ('countries', 'iso', 'is', 'pt', 'Islândia');
+INSERT INTO translations VALUES ('countries', 'iso', 'it', 'pt', 'Itália');
+INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'pt', 'Jamaica');
+INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'pt', 'Jordânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'pt', 'Japão');
+INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'pt', 'Quénia');
+INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'pt', 'Quirguizistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'pt', 'Camboja');
+INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'pt', 'Quiribáti');
+INSERT INTO translations VALUES ('countries', 'iso', 'km', 'pt', 'Ilhas Comores');
+INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'pt', 'São Cristóvão e Neves');
+INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'pt', 'Coréia do Norte');
+INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'pt', 'Coréia do Sul');
+INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'pt', 'Kuwait');
+INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'pt', 'Ilhas Caimão');
+INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'pt', 'Cazaquistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'la', 'pt', 'Laos');
+INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'pt', 'Líbano');
+INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'pt', 'Santa Lúcia');
+INSERT INTO translations VALUES ('countries', 'iso', 'li', 'pt', 'Listenstaine');
+INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'pt', 'Sri Lanca');
+INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'pt', 'Libéria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'pt', 'Lesoto');
+INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'pt', 'Lituânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'pt', 'Luxemburgo');
+INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'pt', 'Letónia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'pt', 'Líbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'pt', 'Marrocos');
+INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'pt', 'Mônaco');
+INSERT INTO translations VALUES ('countries', 'iso', 'md', 'pt', 'Moldávia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'pt', 'Madagáscar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'pt', 'Ilhas Marshall');
+INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'pt', 'Macedónia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'pt', 'Mali');
+INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'pt', 'Birmânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'pt', 'Mongólia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'pt', 'Macau');
+INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'pt', 'Mauritânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'pt', 'Monserrate');
+INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'pt', 'Malta');
+INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'pt', 'Maurícia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'pt', 'Maldivas');
+INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'pt', 'Malávi');
+INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'pt', 'México');
+INSERT INTO translations VALUES ('countries', 'iso', 'my', 'pt', 'Malásia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'pt', 'Moçambique');
+INSERT INTO translations VALUES ('countries', 'iso', 'na', 'pt', 'Namíbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'pt', 'Níger');
+INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'pt', 'Nigéria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'pt', 'Nicarágua');
+INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'pt', 'Países Baixos');
+INSERT INTO translations VALUES ('countries', 'iso', 'no', 'pt', 'Noruega');
+INSERT INTO translations VALUES ('countries', 'iso', 'np', 'pt', 'Nepal');
+INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'pt', 'Nauru');
+INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'pt', 'Nova Zelândia');
+INSERT INTO translations VALUES ('countries', 'iso', 'om', 'pt', 'Omã');
+INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'pt', 'Panamá');
+INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'pt', 'Peru');
+INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'pt', 'Papua-Nova Guiné');
+INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'pt', 'Filipinas');
+INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'pt', 'Paquistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'pt', 'Polónia');
 INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'pt', 'Puerto Rico');
-INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'pt', 'Portugal')
-INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'pt', 'Palau')
-INSERT INTO translations VALUES ('countries', 'iso', 'py', 'pt', 'Paraguai')
-INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'pt', 'Catar')
-INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'pt', 'Roménia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'pt', 'Rússia')
-INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'pt', 'Ruanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'pt', 'Arábia Saudita')
-INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'pt', 'Ilhas Salomão')
-INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'pt', 'Seicheles')
-INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'pt', 'Sudão')
-INSERT INTO translations VALUES ('countries', 'iso', 'se', 'pt', 'Suécia ')
-INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'pt', 'Singapura')
-INSERT INTO translations VALUES ('countries', 'iso', 'si', 'pt', 'Eslovénia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'pt', 'Eslováquia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'pt', 'Serra Leoa')
-INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'pt', 'São Marinho')
-INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'pt', 'Senegal ')
-INSERT INTO translations VALUES ('countries', 'iso', 'so', 'pt', 'Somália')
-INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'pt', 'Suriname')
-INSERT INTO translations VALUES ('countries', 'iso', 'st', 'pt', 'São Tomé e Príncipe')
-INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'pt', 'El Salvador')
-INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'pt', 'Síria')
-INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'pt', 'Suazilândia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'pt', 'Ilhas Turcas e Caicos')
-INSERT INTO translations VALUES ('countries', 'iso', 'td', 'pt', 'Chade')
-INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'pt', 'Togo')
-INSERT INTO translations VALUES ('countries', 'iso', 'th', 'pt', 'Tailândia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'pt', 'Tajiquistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'pt', 'Turquemenistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'pt', 'Tunísia')
-INSERT INTO translations VALUES ('countries', 'iso', 'to', 'pt', 'Tonga')
-INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'pt', 'Turquia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'pt', 'Trindade e Tobago')
-INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'pt', 'Tuvalu')
-INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'pt', 'Taiwan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'pt', 'Tanzânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'pt', 'Ucrânia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'pt', 'Uganda')
-INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'pt', 'Reino Unido')
-INSERT INTO translations VALUES ('countries', 'iso', 'us', 'pt', 'Estados Unidos')
-INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'pt', 'Uruguai')
-INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'pt', 'Usbequistão')
-INSERT INTO translations VALUES ('countries', 'iso', 'va', 'pt', 'Vaticano')
-INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'pt', 'São Vicente e Granadinas')
-INSERT INTO translations VALUES ('countries', 'iso', 've', 'pt', 'Venezuela')
-INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'pt', 'Vietname')
-INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'pt', 'Vanuatu')
-INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'pt', 'Samoa')
-INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'pt', 'Iémen')
-INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'pt', 'Sérvia e Montenegro')
-INSERT INTO translations VALUES ('countries', 'iso', 'za', 'pt', 'África do Sul')
-INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'pt', 'Zâmbia')
-INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'pt', 'Congo-Kinshasa')
-INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'pt', 'Zimbabué')
+INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'pt', 'Portugal');
+INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'pt', 'Palau');
+INSERT INTO translations VALUES ('countries', 'iso', 'py', 'pt', 'Paraguai');
+INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'pt', 'Catar');
+INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'pt', 'Roménia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'pt', 'Rússia');
+INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'pt', 'Ruanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'pt', 'Arábia Saudita');
+INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'pt', 'Ilhas Salomão');
+INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'pt', 'Seicheles');
+INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'pt', 'Sudão');
+INSERT INTO translations VALUES ('countries', 'iso', 'se', 'pt', 'Suécia ');
+INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'pt', 'Singapura');
+INSERT INTO translations VALUES ('countries', 'iso', 'si', 'pt', 'Eslovénia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'pt', 'Eslováquia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'pt', 'Serra Leoa');
+INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'pt', 'São Marinho');
+INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'pt', 'Senegal ');
+INSERT INTO translations VALUES ('countries', 'iso', 'so', 'pt', 'Somália');
+INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'pt', 'Suriname');
+INSERT INTO translations VALUES ('countries', 'iso', 'st', 'pt', 'São Tomé e Príncipe');
+INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'pt', 'El Salvador');
+INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'pt', 'Síria');
+INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'pt', 'Suazilândia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'pt', 'Ilhas Turcas e Caicos');
+INSERT INTO translations VALUES ('countries', 'iso', 'td', 'pt', 'Chade');
+INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'pt', 'Togo');
+INSERT INTO translations VALUES ('countries', 'iso', 'th', 'pt', 'Tailândia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'pt', 'Tajiquistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'pt', 'Turquemenistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'pt', 'Tunísia');
+INSERT INTO translations VALUES ('countries', 'iso', 'to', 'pt', 'Tonga');
+INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'pt', 'Turquia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'pt', 'Trindade e Tobago');
+INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'pt', 'Tuvalu');
+INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'pt', 'Taiwan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'pt', 'Tanzânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'pt', 'Ucrânia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'pt', 'Uganda');
+INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'pt', 'Reino Unido');
+INSERT INTO translations VALUES ('countries', 'iso', 'us', 'pt', 'Estados Unidos');
+INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'pt', 'Uruguai');
+INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'pt', 'Usbequistão');
+INSERT INTO translations VALUES ('countries', 'iso', 'va', 'pt', 'Vaticano');
+INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'pt', 'São Vicente e Granadinas');
+INSERT INTO translations VALUES ('countries', 'iso', 've', 'pt', 'Venezuela');
+INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'pt', 'Vietname');
+INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'pt', 'Vanuatu');
+INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'pt', 'Samoa');
+INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'pt', 'Iémen');
+INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'pt', 'Sérvia e Montenegro');
+INSERT INTO translations VALUES ('countries', 'iso', 'za', 'pt', 'África do Sul');
+INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'pt', 'Zâmbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'pt', 'Congo-Kinshasa');
+INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'pt', 'Zimbabué');
 
 /** ITALIANO ** /
 /* civility */
@@ -1093,207 +1093,207 @@ INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'it', 'Contanti' )
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'it', 'On-line' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
-INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'it', 'Andorra')
-INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'it', 'Emirati arabi uniti')
-INSERT INTO translations VALUES ('countries', 'iso', 'af', 'it', 'Afghanistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'it', 'Antigua e Barbuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'it', 'Anguilla')
-INSERT INTO translations VALUES ('countries', 'iso', 'al', 'it', 'Albania')
-INSERT INTO translations VALUES ('countries', 'iso', 'am', 'it', 'Armenia')
-INSERT INTO translations VALUES ('countries', 'iso', 'an', 'it', 'Paesi Bassi')
-INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'it', 'Angola')
-INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'it', 'Argentina')
-INSERT INTO translations VALUES ('countries', 'iso', 'at', 'it', 'Austria')
-INSERT INTO translations VALUES ('countries', 'iso', 'au', 'it', 'Australia')
-INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'it', 'Aruba')
-INSERT INTO translations VALUES ('countries', 'iso', 'az', 'it', 'Azerbaigian')
-INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'it', 'Bosnia-Erzegovina')
-INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'it', 'Barbados')
-INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'it', 'Bangladesh')
-INSERT INTO translations VALUES ('countries', 'iso', 'be', 'it', 'Belgio')
-INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'it', 'Burkina Faso')
-INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'it', 'Bulgaria')
-INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'it', 'Bahrein')
-INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'it', 'Burúndi')
-INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'it', 'Benin')
-INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'it', 'Bermuda')
-INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'it', 'Brunei Darussalam')
-INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'it', 'Bolivia')
-INSERT INTO translations VALUES ('countries', 'iso', 'br', 'it', 'Brasile')
-INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'it', 'Bahamas')
-INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'it', 'Bhutan')
-INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'it', 'Botswana')
-INSERT INTO translations VALUES ('countries', 'iso', 'by', 'it', 'Bielorussia')
-INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'it', 'Belize')
-INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'it', 'Canada')
-INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'it', 'Repubblica Centrafricana')
-INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'it', 'Congo')
-INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'it', 'Svizzera')
-INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'it', 'Costa d'Avorio')
-INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'it', 'Cile')
-INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'it', 'Camerun')
-INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'it', 'Cina')
-INSERT INTO translations VALUES ('countries', 'iso', 'co', 'it', 'Colombia')
-INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'it', 'Costa Rica')
-INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'it', 'Cuba')
-INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'it', 'Capo Verde')
-INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'it', 'Isola Christmas')
-INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'it', 'Cipro')
-INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'it', 'Repubblica ceca')
-INSERT INTO translations VALUES ('countries', 'iso', 'de', 'it', 'Germania')
-INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'it', 'Gibuti')
-INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'it', 'Danimarca')
-INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'it', 'Dominica')
-INSERT INTO translations VALUES ('countries', 'iso', 'do', 'it', 'Repubblica dominicana')
-INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'it', 'Algeria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'it', 'Ecuador')
-INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'it', 'Estonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'it', 'Egitto')
-INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'it', 'Sahara occidentale')
-INSERT INTO translations VALUES ('countries', 'iso', 'er', 'it', 'Eritrea')
-INSERT INTO translations VALUES ('countries', 'iso', 'es', 'it', 'Spagna')
-INSERT INTO translations VALUES ('countries', 'iso', 'et', 'it', 'Etiopia')
-INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'it', 'Finlandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'it', 'Figi')
-INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'it', 'Francia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'it', 'Gabon')
-INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'it', 'Grenada')
-INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'it', 'Georgia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'it', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'it', 'Andorra');
+INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'it', 'Emirati arabi uniti');
+INSERT INTO translations VALUES ('countries', 'iso', 'af', 'it', 'Afghanistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'ag', 'it', 'Antigua e Barbuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'ai', 'it', 'Anguilla');
+INSERT INTO translations VALUES ('countries', 'iso', 'al', 'it', 'Albania');
+INSERT INTO translations VALUES ('countries', 'iso', 'am', 'it', 'Armenia');
+INSERT INTO translations VALUES ('countries', 'iso', 'an', 'it', 'Paesi Bassi');
+INSERT INTO translations VALUES ('countries', 'iso', 'ao', 'it', 'Angola');
+INSERT INTO translations VALUES ('countries', 'iso', 'ar', 'it', 'Argentina');
+INSERT INTO translations VALUES ('countries', 'iso', 'at', 'it', 'Austria');
+INSERT INTO translations VALUES ('countries', 'iso', 'au', 'it', 'Australia');
+INSERT INTO translations VALUES ('countries', 'iso', 'aw', 'it', 'Aruba');
+INSERT INTO translations VALUES ('countries', 'iso', 'az', 'it', 'Azerbaigian');
+INSERT INTO translations VALUES ('countries', 'iso', 'ba', 'it', 'Bosnia-Erzegovina');
+INSERT INTO translations VALUES ('countries', 'iso', 'bb', 'it', 'Barbados');
+INSERT INTO translations VALUES ('countries', 'iso', 'bd', 'it', 'Bangladesh');
+INSERT INTO translations VALUES ('countries', 'iso', 'be', 'it', 'Belgio');
+INSERT INTO translations VALUES ('countries', 'iso', 'bf', 'it', 'Burkina Faso');
+INSERT INTO translations VALUES ('countries', 'iso', 'bg', 'it', 'Bulgaria');
+INSERT INTO translations VALUES ('countries', 'iso', 'bh', 'it', 'Bahrein');
+INSERT INTO translations VALUES ('countries', 'iso', 'bi', 'it', 'Burúndi');
+INSERT INTO translations VALUES ('countries', 'iso', 'bj', 'it', 'Benin');
+INSERT INTO translations VALUES ('countries', 'iso', 'bm', 'it', 'Bermuda');
+INSERT INTO translations VALUES ('countries', 'iso', 'bn', 'it', 'Brunei Darussalam');
+INSERT INTO translations VALUES ('countries', 'iso', 'bo', 'it', 'Bolivia');
+INSERT INTO translations VALUES ('countries', 'iso', 'br', 'it', 'Brasile');
+INSERT INTO translations VALUES ('countries', 'iso', 'bs', 'it', 'Bahamas');
+INSERT INTO translations VALUES ('countries', 'iso', 'bt', 'it', 'Bhutan');
+INSERT INTO translations VALUES ('countries', 'iso', 'bw', 'it', 'Botswana');
+INSERT INTO translations VALUES ('countries', 'iso', 'by', 'it', 'Bielorussia');
+INSERT INTO translations VALUES ('countries', 'iso', 'bz', 'it', 'Belize');
+INSERT INTO translations VALUES ('countries', 'iso', 'ca', 'it', 'Canada');
+INSERT INTO translations VALUES ('countries', 'iso', 'cf', 'it', 'Repubblica Centrafricana');
+INSERT INTO translations VALUES ('countries', 'iso', 'cg', 'it', 'Congo');
+INSERT INTO translations VALUES ('countries', 'iso', 'ch', 'it', 'Svizzera');
+INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'it', 'Costa d'Avorio');
+INSERT INTO translations VALUES ('countries', 'iso', 'cl', 'it', 'Cile');
+INSERT INTO translations VALUES ('countries', 'iso', 'cm', 'it', 'Camerun');
+INSERT INTO translations VALUES ('countries', 'iso', 'cn', 'it', 'Cina');
+INSERT INTO translations VALUES ('countries', 'iso', 'co', 'it', 'Colombia');
+INSERT INTO translations VALUES ('countries', 'iso', 'cr', 'it', 'Costa Rica');
+INSERT INTO translations VALUES ('countries', 'iso', 'cu', 'it', 'Cuba');
+INSERT INTO translations VALUES ('countries', 'iso', 'cv', 'it', 'Capo Verde');
+INSERT INTO translations VALUES ('countries', 'iso', 'cx', 'it', 'Isola Christmas');
+INSERT INTO translations VALUES ('countries', 'iso', 'cy', 'it', 'Cipro');
+INSERT INTO translations VALUES ('countries', 'iso', 'cz', 'it', 'Repubblica ceca');
+INSERT INTO translations VALUES ('countries', 'iso', 'de', 'it', 'Germania');
+INSERT INTO translations VALUES ('countries', 'iso', 'dj', 'it', 'Gibuti');
+INSERT INTO translations VALUES ('countries', 'iso', 'dk', 'it', 'Danimarca');
+INSERT INTO translations VALUES ('countries', 'iso', 'dm', 'it', 'Dominica');
+INSERT INTO translations VALUES ('countries', 'iso', 'do', 'it', 'Repubblica dominicana');
+INSERT INTO translations VALUES ('countries', 'iso', 'dz', 'it', 'Algeria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ec', 'it', 'Ecuador');
+INSERT INTO translations VALUES ('countries', 'iso', 'ee', 'it', 'Estonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'eg', 'it', 'Egitto');
+INSERT INTO translations VALUES ('countries', 'iso', 'eh', 'it', 'Sahara occidentale');
+INSERT INTO translations VALUES ('countries', 'iso', 'er', 'it', 'Eritrea');
+INSERT INTO translations VALUES ('countries', 'iso', 'es', 'it', 'Spagna');
+INSERT INTO translations VALUES ('countries', 'iso', 'et', 'it', 'Etiopia');
+INSERT INTO translations VALUES ('countries', 'iso', 'fi', 'it', 'Finlandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'fj', 'it', 'Figi');
+INSERT INTO translations VALUES ('countries', 'iso', 'fr', 'it', 'Francia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'it', 'Gabon');
+INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'it', 'Grenada');
+INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'it', 'Georgia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'it', 'Ghana');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'it', 'Gibraltar');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'it', 'Gambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'it', 'Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'it', 'Guinea Equatoriale')
-INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'it', 'Grecia')
-INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'it', 'Guatemala')
-INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'it', 'Guinea Bissau')
-INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'it', 'Guyana')
-INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'it', 'Hong Kong')
-INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'it', 'Honduras')
-INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'it', 'Croazia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'it', 'Haiti')
-INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'it', 'Ungheria')
-INSERT INTO translations VALUES ('countries', 'iso', 'id', 'it', 'Indonesia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'it', 'Irlanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'il', 'it', 'Israele')
-INSERT INTO translations VALUES ('countries', 'iso', 'in', 'it', 'India')
-INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'it', 'Iraq')
-INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'it', 'Iran')
-INSERT INTO translations VALUES ('countries', 'iso', 'is', 'it', 'Islanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'it', 'it', 'Italia')
-INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'it', 'Giamaica')
-INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'it', 'Giordania')
-INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'it', 'Giappone')
-INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'it', 'Kenya')
-INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'it', 'Kirghizistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'it', 'Cambogia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'it', 'Kiribati')
-INSERT INTO translations VALUES ('countries', 'iso', 'km', 'it', 'Comore')
-INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'it', 'Saint Christopher e Nevis')
-INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'it', 'Corea del Nord')
-INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'it', 'Corea del Sud')
-INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'it', 'Kuwait')
-INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'it', 'Isole Cayman')
-INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'it', 'Kazakistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'la', 'it', 'Laos')
-INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'it', 'Libano')
-INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'it', 'Saint Lucia')
-INSERT INTO translations VALUES ('countries', 'iso', 'li', 'it', 'Liechtenstein')
-INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'it', 'Sri Lanka')
-INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'it', 'Liberia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'it', 'Lesotho')
-INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'it', 'Lituania')
-INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'it', 'Lussemburgo')
-INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'it', 'Lettonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'it', 'Libia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'it', 'Marocco')
-INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'it', 'Monaco')
-INSERT INTO translations VALUES ('countries', 'iso', 'md', 'it', 'Moldavia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'it', 'Madagascar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'it', 'Isole Marshall')
-INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'it', 'Macedonia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'it', 'Mali')
-INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'it', 'Myanmar')
-INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'it', 'Mongolia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'it', 'Macao')
-INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'it', 'Mauritania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'it', 'Monserrat')
-INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'it', 'Malta')
-INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'it', 'Maurizio')
-INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'it', 'Maldive')
-INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'it', 'Malawi')
-INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'it', 'Messico')
-INSERT INTO translations VALUES ('countries', 'iso', 'my', 'it', 'Malesia')
-INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'it', 'Mozambico')
-INSERT INTO translations VALUES ('countries', 'iso', 'na', 'it', 'Namibia')
-INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'it', 'Niger')
-INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'it', 'Nigeria')
-INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'it', 'Nicaragua')
-INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'it', 'Paesi Bassi')
-INSERT INTO translations VALUES ('countries', 'iso', 'no', 'it', 'Norvegia')
-INSERT INTO translations VALUES ('countries', 'iso', 'np', 'it', 'Nepal')
-INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'it', 'Nauru')
-INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'it', 'Nuova Zelanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'om', 'it', 'Oman')
-INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'it', 'Panama')
-INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'it', 'Perù')
-INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'it', 'Papua Nuova Guinea')
-INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'it', 'Filippine')
-INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'it', 'Pakistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'it', 'Polonia')
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'it', 'Gambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'it', 'Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'it', 'Guinea Equatoriale');
+INSERT INTO translations VALUES ('countries', 'iso', 'gr', 'it', 'Grecia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gt', 'it', 'Guatemala');
+INSERT INTO translations VALUES ('countries', 'iso', 'gw', 'it', 'Guinea Bissau');
+INSERT INTO translations VALUES ('countries', 'iso', 'gy', 'it', 'Guyana');
+INSERT INTO translations VALUES ('countries', 'iso', 'hk', 'it', 'Hong Kong');
+INSERT INTO translations VALUES ('countries', 'iso', 'hn', 'it', 'Honduras');
+INSERT INTO translations VALUES ('countries', 'iso', 'hr', 'it', 'Croazia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ht', 'it', 'Haiti');
+INSERT INTO translations VALUES ('countries', 'iso', 'hu', 'it', 'Ungheria');
+INSERT INTO translations VALUES ('countries', 'iso', 'id', 'it', 'Indonesia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ie', 'it', 'Irlanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'il', 'it', 'Israele');
+INSERT INTO translations VALUES ('countries', 'iso', 'in', 'it', 'India');
+INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'it', 'Iraq');
+INSERT INTO translations VALUES ('countries', 'iso', 'ir', 'it', 'Iran');
+INSERT INTO translations VALUES ('countries', 'iso', 'is', 'it', 'Islanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'it', 'it', 'Italia');
+INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'it', 'Giamaica');
+INSERT INTO translations VALUES ('countries', 'iso', 'jo', 'it', 'Giordania');
+INSERT INTO translations VALUES ('countries', 'iso', 'jp', 'it', 'Giappone');
+INSERT INTO translations VALUES ('countries', 'iso', 'ke', 'it', 'Kenya');
+INSERT INTO translations VALUES ('countries', 'iso', 'kg', 'it', 'Kirghizistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'kh', 'it', 'Cambogia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ki', 'it', 'Kiribati');
+INSERT INTO translations VALUES ('countries', 'iso', 'km', 'it', 'Comore');
+INSERT INTO translations VALUES ('countries', 'iso', 'kn', 'it', 'Saint Christopher e Nevis');
+INSERT INTO translations VALUES ('countries', 'iso', 'kp', 'it', 'Corea del Nord');
+INSERT INTO translations VALUES ('countries', 'iso', 'kr', 'it', 'Corea del Sud');
+INSERT INTO translations VALUES ('countries', 'iso', 'kw', 'it', 'Kuwait');
+INSERT INTO translations VALUES ('countries', 'iso', 'ky', 'it', 'Isole Cayman');
+INSERT INTO translations VALUES ('countries', 'iso', 'kz', 'it', 'Kazakistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'la', 'it', 'Laos');
+INSERT INTO translations VALUES ('countries', 'iso', 'lb', 'it', 'Libano');
+INSERT INTO translations VALUES ('countries', 'iso', 'lc', 'it', 'Saint Lucia');
+INSERT INTO translations VALUES ('countries', 'iso', 'li', 'it', 'Liechtenstein');
+INSERT INTO translations VALUES ('countries', 'iso', 'lk', 'it', 'Sri Lanka');
+INSERT INTO translations VALUES ('countries', 'iso', 'lr', 'it', 'Liberia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ls', 'it', 'Lesotho');
+INSERT INTO translations VALUES ('countries', 'iso', 'lt', 'it', 'Lituania');
+INSERT INTO translations VALUES ('countries', 'iso', 'lu', 'it', 'Lussemburgo');
+INSERT INTO translations VALUES ('countries', 'iso', 'lv', 'it', 'Lettonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ly', 'it', 'Libia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ma', 'it', 'Marocco');
+INSERT INTO translations VALUES ('countries', 'iso', 'mc', 'it', 'Monaco');
+INSERT INTO translations VALUES ('countries', 'iso', 'md', 'it', 'Moldavia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mg', 'it', 'Madagascar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mh', 'it', 'Isole Marshall');
+INSERT INTO translations VALUES ('countries', 'iso', 'mk', 'it', 'Macedonia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ml', 'it', 'Mali');
+INSERT INTO translations VALUES ('countries', 'iso', 'mm', 'it', 'Myanmar');
+INSERT INTO translations VALUES ('countries', 'iso', 'mn', 'it', 'Mongolia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mo', 'it', 'Macao');
+INSERT INTO translations VALUES ('countries', 'iso', 'mr', 'it', 'Mauritania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ms', 'it', 'Monserrat');
+INSERT INTO translations VALUES ('countries', 'iso', 'mt', 'it', 'Malta');
+INSERT INTO translations VALUES ('countries', 'iso', 'mu', 'it', 'Maurizio');
+INSERT INTO translations VALUES ('countries', 'iso', 'mv', 'it', 'Maldive');
+INSERT INTO translations VALUES ('countries', 'iso', 'mw', 'it', 'Malawi');
+INSERT INTO translations VALUES ('countries', 'iso', 'mx', 'it', 'Messico');
+INSERT INTO translations VALUES ('countries', 'iso', 'my', 'it', 'Malesia');
+INSERT INTO translations VALUES ('countries', 'iso', 'mz', 'it', 'Mozambico');
+INSERT INTO translations VALUES ('countries', 'iso', 'na', 'it', 'Namibia');
+INSERT INTO translations VALUES ('countries', 'iso', 'ne', 'it', 'Niger');
+INSERT INTO translations VALUES ('countries', 'iso', 'ng', 'it', 'Nigeria');
+INSERT INTO translations VALUES ('countries', 'iso', 'ni', 'it', 'Nicaragua');
+INSERT INTO translations VALUES ('countries', 'iso', 'nl', 'it', 'Paesi Bassi');
+INSERT INTO translations VALUES ('countries', 'iso', 'no', 'it', 'Norvegia');
+INSERT INTO translations VALUES ('countries', 'iso', 'np', 'it', 'Nepal');
+INSERT INTO translations VALUES ('countries', 'iso', 'nr', 'it', 'Nauru');
+INSERT INTO translations VALUES ('countries', 'iso', 'nz', 'it', 'Nuova Zelanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'om', 'it', 'Oman');
+INSERT INTO translations VALUES ('countries', 'iso', 'pa', 'it', 'Panama');
+INSERT INTO translations VALUES ('countries', 'iso', 'pe', 'it', 'Perù');
+INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'it', 'Papua Nuova Guinea');
+INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'it', 'Filippine');
+INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'it', 'Pakistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'it', 'Polonia');
 INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'it', 'Puerto Rico');
-INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'it', 'Portogallo')
-INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'it', 'Palau')
-INSERT INTO translations VALUES ('countries', 'iso', 'py', 'it', 'Paraguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'it', 'Qatar')
-INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'it', 'Romania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'it', 'Russia')
-INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'it', 'Ruanda')
-INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'it', 'Arabia Saudita')
-INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'it', 'Isole Salomone')
-INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'it', 'Seicelle')
-INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'it', 'Sudan')
-INSERT INTO translations VALUES ('countries', 'iso', 'se', 'it', 'Svezia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'it', 'Singapore')
-INSERT INTO translations VALUES ('countries', 'iso', 'si', 'it', 'Slovenia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'it', 'Slovacchia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'it', 'Sierra Leone')
-INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'it', 'San Marino')
-INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'it', 'Senegal')
-INSERT INTO translations VALUES ('countries', 'iso', 'so', 'it', 'Somalia')
-INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'it', 'Suriname')
-INSERT INTO translations VALUES ('countries', 'iso', 'st', 'it', 'São Tomé e Príncipe')
-INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'it', 'El Salvador')
-INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'it', 'Siria')
-INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'it', 'Swaziland')
-INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'it', 'Isole Turks e Caicos')
-INSERT INTO translations VALUES ('countries', 'iso', 'td', 'it', 'Ciad')
-INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'it', 'Togo')
-INSERT INTO translations VALUES ('countries', 'iso', 'th', 'it', 'Thailandia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'it', 'Tagikistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'it', 'Turkmenistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'it', 'Tunisia')
-INSERT INTO translations VALUES ('countries', 'iso', 'to', 'it', 'Tonga')
-INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'it', 'Turchia')
-INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'it', 'Trinidad e Tobago')
-INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'it', 'Tuvalu')
-INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'it', 'Taiwan')
-INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'it', 'Tanzania')
-INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'it', 'Ucraina')
-INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'it', 'Uganda')
-INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'it', 'Regno Unito')
-INSERT INTO translations VALUES ('countries', 'iso', 'us', 'it', 'Stati Uniti')
-INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'it', 'Uruguay')
-INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'it', 'Uzbekistan')
-INSERT INTO translations VALUES ('countries', 'iso', 'va', 'it', 'Vaticano')
-INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'it', 'Saint Vincent e Grenadine')
-INSERT INTO translations VALUES ('countries', 'iso', 've', 'it', 'Venezuela')
-INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'it', 'Vietnam')
-INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'it', 'Vanuatu')
-INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'it', 'Samoa')
-INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'it', 'Yemen')
-INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'it', 'Serbia e Montenegro')
-INSERT INTO translations VALUES ('countries', 'iso', 'za', 'it', 'Sudafrica')
-INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'it', 'Zambia')
-INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'it', 'Congo (ex Zaire)')
-INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'it', 'Zimbabwe')
+INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'it', 'Portogallo');
+INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'it', 'Palau');
+INSERT INTO translations VALUES ('countries', 'iso', 'py', 'it', 'Paraguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'qa', 'it', 'Qatar');
+INSERT INTO translations VALUES ('countries', 'iso', 'ro', 'it', 'Romania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ru', 'it', 'Russia');
+INSERT INTO translations VALUES ('countries', 'iso', 'rw', 'it', 'Ruanda');
+INSERT INTO translations VALUES ('countries', 'iso', 'sa', 'it', 'Arabia Saudita');
+INSERT INTO translations VALUES ('countries', 'iso', 'sb', 'it', 'Isole Salomone');
+INSERT INTO translations VALUES ('countries', 'iso', 'sc', 'it', 'Seicelle');
+INSERT INTO translations VALUES ('countries', 'iso', 'sd', 'it', 'Sudan');
+INSERT INTO translations VALUES ('countries', 'iso', 'se', 'it', 'Svezia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sg', 'it', 'Singapore');
+INSERT INTO translations VALUES ('countries', 'iso', 'si', 'it', 'Slovenia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sk', 'it', 'Slovacchia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sl', 'it', 'Sierra Leone');
+INSERT INTO translations VALUES ('countries', 'iso', 'sm', 'it', 'San Marino');
+INSERT INTO translations VALUES ('countries', 'iso', 'sn', 'it', 'Senegal');
+INSERT INTO translations VALUES ('countries', 'iso', 'so', 'it', 'Somalia');
+INSERT INTO translations VALUES ('countries', 'iso', 'sr', 'it', 'Suriname');
+INSERT INTO translations VALUES ('countries', 'iso', 'st', 'it', 'São Tomé e Príncipe');
+INSERT INTO translations VALUES ('countries', 'iso', 'sv', 'it', 'El Salvador');
+INSERT INTO translations VALUES ('countries', 'iso', 'sy', 'it', 'Siria');
+INSERT INTO translations VALUES ('countries', 'iso', 'sz', 'it', 'Swaziland');
+INSERT INTO translations VALUES ('countries', 'iso', 'tc', 'it', 'Isole Turks e Caicos');
+INSERT INTO translations VALUES ('countries', 'iso', 'td', 'it', 'Ciad');
+INSERT INTO translations VALUES ('countries', 'iso', 'tg', 'it', 'Togo');
+INSERT INTO translations VALUES ('countries', 'iso', 'th', 'it', 'Thailandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tj', 'it', 'Tagikistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tm', 'it', 'Turkmenistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tn', 'it', 'Tunisia');
+INSERT INTO translations VALUES ('countries', 'iso', 'to', 'it', 'Tonga');
+INSERT INTO translations VALUES ('countries', 'iso', 'tr', 'it', 'Turchia');
+INSERT INTO translations VALUES ('countries', 'iso', 'tt', 'it', 'Trinidad e Tobago');
+INSERT INTO translations VALUES ('countries', 'iso', 'tv', 'it', 'Tuvalu');
+INSERT INTO translations VALUES ('countries', 'iso', 'tw', 'it', 'Taiwan');
+INSERT INTO translations VALUES ('countries', 'iso', 'tz', 'it', 'Tanzania');
+INSERT INTO translations VALUES ('countries', 'iso', 'ua', 'it', 'Ucraina');
+INSERT INTO translations VALUES ('countries', 'iso', 'ug', 'it', 'Uganda');
+INSERT INTO translations VALUES ('countries', 'iso', 'uk', 'it', 'Regno Unito');
+INSERT INTO translations VALUES ('countries', 'iso', 'us', 'it', 'Stati Uniti');
+INSERT INTO translations VALUES ('countries', 'iso', 'uy', 'it', 'Uruguay');
+INSERT INTO translations VALUES ('countries', 'iso', 'uz', 'it', 'Uzbekistan');
+INSERT INTO translations VALUES ('countries', 'iso', 'va', 'it', 'Vaticano');
+INSERT INTO translations VALUES ('countries', 'iso', 'vc', 'it', 'Saint Vincent e Grenadine');
+INSERT INTO translations VALUES ('countries', 'iso', 've', 'it', 'Venezuela');
+INSERT INTO translations VALUES ('countries', 'iso', 'vn', 'it', 'Vietnam');
+INSERT INTO translations VALUES ('countries', 'iso', 'vu', 'it', 'Vanuatu');
+INSERT INTO translations VALUES ('countries', 'iso', 'ws', 'it', 'Samoa');
+INSERT INTO translations VALUES ('countries', 'iso', 'ye', 'it', 'Yemen');
+INSERT INTO translations VALUES ('countries', 'iso', 'yu', 'it', 'Serbia e Montenegro');
+INSERT INTO translations VALUES ('countries', 'iso', 'za', 'it', 'Sudafrica');
+INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'it', 'Zambia');
+INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'it', 'Congo (ex Zaire)');
+INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'it', 'Zimbabwe');
