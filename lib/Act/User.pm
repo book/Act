@@ -184,6 +184,7 @@ sub update {
             else {
                 $sth[2]->execute( $bio->{$lang}, $self->user_id, $lang );
             }
+            $sth[0]->finish;
             $Request{dbh}->commit;
         }
     }
