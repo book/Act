@@ -11,7 +11,7 @@
 <table border="0" cellspacing="0" cellpadding="4">
 <tr>
  <td><t><en>User</en><fr>Utilisateur</fr></t></td>
- <td><strong>[% user.last_name %] [% user.first_name %]</strong></td>
+ <td><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
 </tr>
 <tr>
  <td><t><en>Payment means</en><fr>Moyen de paiement</fr></t></td>
