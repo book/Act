@@ -42,6 +42,12 @@ sub db_add_users {
         email   => 'foo@bar.com',
         country => 'en',
     );
+
+    # add participations as well
+    my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id) VALUES(?,?);");
+    $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf' );
+    $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf' );
+    $sth->finish();
 }
 
 # must be called after db_add_users
@@ -77,11 +83,6 @@ sub db_add_talks {
         duration  => 20,
     );
     
-    # add participations as well
-    my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id) VALUES(?,?);");
-    $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf' );
-    $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf' );
-    $sth->finish();
 }
 
 # export the subs
