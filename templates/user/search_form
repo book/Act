@@ -1,0 +1,81 @@
+[% WRAPPER ui
+   title = { en => 'Search for users', fr => "Recherche d'utilisateurs" },
+%]
+
+<center>
+<form method="post" action="/[% global.request.conference %]/search/" enctype="application/x-www-form-urlencoded">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      <t><en>Name</en><fr>Nom</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="name"  value="[% name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Town</en><fr>Ville</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="town"  value="[% town %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Country</en><fr>Pays</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="country">
+         <option value=""[% ' selected="selected"' UNLESS country %]><t><en>Any</en><fr>Tous</fr></t></option>
+         [% FOREACH c = countries %]
+            <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Monger group</en><fr>Groupe de mongueurs</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="pm_group">
+         <option value=""[% ' selected="selected"' UNLESS pm_group %]><t><en>Any</en><fr>Tous</fr></t></option>
+         [% FOREACH g = pm_groups %]
+            <option value="[% g %]"[% ' selected="selected"' IF pm_group == g %]>[% g %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="search" value="<t><en>Search</en><fr>Chercher</fr></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+[% PROCESS user/list IF users %]
+
+<br />
+
+[% IF prev %]
+  <input type="hidden" name="oprev" value="[% oprev %]" />
+  <input type="submit" name="prev"  value="&lt;&lt;" />
+[% END %]
+[% IF next %]
+  [% "&nbsp;&nbsp;&nbsp;" IF oprev %]
+  <input type="hidden" name="onext" value="[% onext %]" />
+  <input type="submit" name="next"  value="&gt;&gt;" />
+[% END %]
+
+</form>
+</center>
+[% END %]

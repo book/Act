@@ -1,0 +1,72 @@
+<center>
+<p>
+ <t>
+  <en>
+   Committed users are listed in bold font (they have bought their
+   ticket, or will give a talk).
+  </en>
+  <fr>
+   Les utilisateurs dont l'inscription est confirmée sont affichés
+   en gras (ils ont payé leur billet ou feront une présentation à
+   la conférence).
+  </fr>
+ </t>
+</p>
+
+[% IF users.keys %]
+<table border="1" cellspacing="0" cellpadding="4">
+<tr bgcolor="#FFFFFF">
+ <th><t><en>Name</en><fr>Nom</fr></t></th>
+ <th><t><en>City</en><fr>Ville</fr></t></th>
+ <th><t><en>Country</en><fr>Pays</fr></t></th>
+ <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr></t></th>
+ [% IF global.user.is_admin %]
+ <th><t><en>Admin links</en><fr>Liens d'admin</fr></t></th>
+ [% END %]
+</tr>
+[% FOREACH u=users %]
+[%# committed = u.have_paid OR u.have_talk %]
+ <tr>
+   <td align="center">
+    <a href="/2004/user/[% u.user_id %]">
+    [% IF committed %]<b>[% END %]
+      [%- IF u.pseudonymous %]
+         [% u.nick_name %]
+      [%- ELSE %]
+         [% u.first_name %]
+         [% u.last_name %]
+         [% "(${u.nick_name})" IF u.nick_name %]
+      [% END %]
+    [% IF committed %]</b>[% END %]
+    </a>
+   </td>
+   <td align="center">
+      [%- IF u.town %]
+         [% u.town %]
+      [%- ELSE %]
+         &nbsp;
+      [% END %]
+   </td>
+   <td align="center">
+      [% u.country %]
+   </td>
+   <td align="center">
+      [%- IF u.pm_group %]
+         [% IF u.pm_group_url %]<a href="[% u.pm_group_url %]">[% END %]
+         [%- u.pm_group -%]
+         [%- IF u.pm_group_url %]</a>[% END %]
+      [% ELSE %]
+         &nbsp;
+      [% END %]
+   </td>
+   [% IF global.user.is_admin %]
+   <td>
+    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr></t></a>[% END %]
+  </td>
+  [% END %]
+</tr>
+[% END %]
+
+</table>
+[% END %]
+</center>
