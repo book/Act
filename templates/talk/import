@@ -1,0 +1,55 @@
+[% WRAPPER ui
+   title = { en => 'iCal Import', fr => 'Import iCal' },
+%]
+<center>
+[% IF talks %]
+  <p>
+   <t><fr>Les présentations suivantes ont été modifiées :</fr>
+      <en>The following talks have been updated:</en>
+   </t>
+  </p>
+  <table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th>talk_id</th>
+    <th><t><en>Old time</en><fr>Ancien horaire</fr></t></th>
+    <th><t><en>New time</en><fr>Nouvel horaire</fr></t></th>
+    <th><t><en>title</en><fr>titre</fr></t></th>
+  </tr>
+  [% FOREACH t=talks %]
+    <tr>
+    <td>[% t.talk_id %]</td>
+    <td>[% IF t.dt1; date_format(t.dt1,'datetime_short'); ELSE; '&nbsp;'; END %]</td>
+    <td>[% date_format(t.dt2,'datetime_short') %]</td>
+    <td>[% t.title %]</td>
+  </tr>
+  [% END %]
+  </table><br />
+[% END %]
+
+<form method="POST" enctype="multipart/form-data">
+<table border="1" cellpadding="10" cellspacing="0">
+<tr><td>
+<table border="0" cellpadding="0" cellspacing="10" width="100%">
+<tr>
+   <td>
+     <t><fr>Envoyer un fichier iCal</fr>
+        <en>Upload an iCal file</en>
+     </t>
+  </td>
+</tr>
+<tr>
+   <td>
+      <input type="file" name="ics" size="40" /><br />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <input type="submit" name="update" value="<t><fr>Importer</fr><en>Import</en></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+[% END %]
