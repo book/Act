@@ -91,4 +91,6 @@ value holds an already properly formatted HTML or XML snippet.
 This will set the response's Content-Type and send the HTTP headers
 if necessary when used in a mod_perl context.
 
+=back
+
 =cut

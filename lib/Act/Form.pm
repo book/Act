@@ -115,7 +115,7 @@ Act::Form - Form object class
 =head1 SYNOPSIS
 
   use Act::Form;
-  
+
   my $form = Act::Form->new(
     required    => [ qw(name email) ],
     optional    => [ qw(timezone homepage zip) ],
@@ -128,7 +128,7 @@ Act::Form - Form object class
        zip   => 'numeric',
     }
   );
-  
+
   sub handler
   {
       my $fields;
@@ -194,8 +194,9 @@ For each entry, the key is the name of the field the constraint
 is to be applied to, and the value is the type of the constraint;
 The following constraint types are currently available:
 
-email       field value must be a syntaxically valid email address
-numeric     field value must be a number
+    email       field value must be a syntaxically valid email address
+    numeric     field value must be a number
+    url         field value must look like a URL
 
 =item validate($input)
 

@@ -8,7 +8,6 @@ Act::Object - A base object for Act objects
 
 =head1 SYNOPSIS
 
-
 =head1 DESCRIPTION
 
 =head2 Methods
