@@ -16,7 +16,7 @@
  <t>
   <en>
    The personal data that will be gathered here will be used to create
-   an <a href="/[% global.request.conference %]/search/">online
+   an <a href="[% make_uri('search') %]">online
    <i>who's who</i></a> of all the attendees. This will be very useful after
    the conference, when you'll want to get in touch with someone you
    met during the conference. Or even before, if you want to know
@@ -24,7 +24,7 @@
   </en>
   <fr>
    Les données personnelles qui sont récupérées ici seront utilisées
-   pour créer un <a href="/[% global.request.conference %]/search/">trombinoscope en ligne</a>
+   pour créer un <a href="[% make_uri('search') %]">trombinoscope en ligne</a>
    des participants. Ceci sera bien utile après
    la conférence, si vous cherchez à contacter quelqu'un que vous avez
    rencontré pendant celle-ci. Ou même avant, pour savoir quels
