@@ -12,14 +12,9 @@ our $primary_key = 'user_id';
 our %sql_stub    = (
     select     => "u.*",
     select_opt => {
-        has_talk  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=?) AS has_talk" ] : () },
-        has_paid  => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = 'paid') AS has_paid" ] : () },
         committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = ?)) AS committed" ] : () },
     },
     from       => "users u",
-    from_opt   => [
-        sub { exists $_[0]{conf_id} ? "participations p" : () },
-    ],
 );
 
 our %sql_mapping = (
@@ -76,14 +71,42 @@ sub talks {
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
 
-sub participation {
-    my ( $self ) = @_;
-    my $sth = $Request{dbh}->prepare_cached( 
-        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?' );
-    $sth->execute( $self->user_id, $Request{conference} );
-    my $participation = $sth->fetchrow_hashref();
-    $sth->finish();
-    return $participation;
+# some date related to the visited conference
+# the information must always be expected as user_id, conf_id
+my %methods = (
+    has_talk =>
+        "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=?",
+    has_paid  => 
+        "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
+    participation => 
+        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?',
+);
+
+for my $meth (keys %methods) {
+    *{$meth} = sub {
+        # no conference, no data
+        return 0 unless $Request{conference};
+        # cached data
+        return $_[0]{cache}{$Request{conference}}{$meth}
+          if exists $_[0]{cache}{$Request{conference}}
+          && exists $_[0]{cache}{$Request{conference}}{$meth};
+        # compute and cache the data
+        my $sth = $Request{dbh}->prepare_cached( $methods{$meth} );
+        $sth->execute( $_[0]->user_id, $Request{conference} );
+        $_[0]{cache}{$meth} = $sth->fetchrow_arrayref()->[0];
+    };
+}
+
+sub participations {
+     my $sth = $Request{dbh}->prepare_cached(
+        "SELECT * FROM participations p WHERE p.user_id=?"
+     );
+     $sth->execute( $_[0]->user_id );
+     my $participations = [];
+     while( my $p = $sth->fetchrow_hashref() ) {
+         push @$participations, $p;
+     }
+     return $participations;
 }
 
 sub create {
