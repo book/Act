@@ -1,0 +1,72 @@
+Act - documentation for developers
+
+* Global variables available at runtime
+
+  use Act::Config;
+
+which exports two globals: $Config and %Request
+
+$Config  current configuration.
+$Config->foo_bar  retrieves value of configuration parameter foo in section bar
+
+Configuration parameters coming from .ini files are currently all string values.
+These additionnal parameters are also available
+
+  $Config->conferences   a reference to a hash whose keys are the conference names
+  $Config->languages     a reference to a hash whose keys are the language codes
+
+%Request  current request object
+
+A hash which holds information about the current request.
+
+r            the Apache request object.
+args         a hashref to the query's parameters
+language     client language code
+conference   name of the current conference if applicable
+path_info    what's left of the URI that hasn't been parsed,
+             in other words "conference/", if any, has been stripped
+dbh          handle to the database. connect/disconnect is automatic.
+
+
+* How to write a handler
+
+Choose a suitable name space for your handler, we'll use Act::Foo.
+Create your handler in lib/Foo.pm. We'll use "sub handler", but you
+can use any sub name.
+In that sub:
+- Figure out what to do, based on the query's arguments $Request{args}
+  or maybe using $Request{path_info}
+- Do it. You might need to query the database with $Request{dbh}
+- In most cases you'll want to send an HTML page using a template
+  Retrieve a template object:
+    my $template = Act::Template::HTML->new;
+  Create some template variables:
+    $template->variables(
+      name  => $user->{name},
+    );
+
+- Whether you're doing HTML or not, always send a correct HTTP header
+  with the right Content-type. This is done in one step:
+        $Request{r}->send_http_header('text/html');
+- Finally process the template. Its output will be sent to the client's
+  browser
+    $template->process('foo.html');
+  Just provide the template's base name, don't use pathnames-- the template
+  object knows about the current request and will know where to look.
+  Template files in conference subdirectories override global templates.
+
+Now choose an "action" word that best describes your handler. We'll use
+the string "foo". We now associate that action word with our sub by
+adding the mapping to the %dispatch hash in Act::Dispatcher.
+
+  use Act::Foo;
+  ...
+  my %dispatch = (
+    "foo" => \&Act::Foo::handler,
+  );
+
+This will enable this handler for all URLs that start with /conference/foo
+where conference is a conference name, e.g.
+  /2004/foo
+  /2004/foo?q=1
+  /2004/foo/bar
