@@ -54,6 +54,7 @@ sub db_add_talks {
         lightning => 'false',
         accepted  => 'false',
         confirmed => 'false',
+        duration  => 10,
     );
     Act::Talk->create(
         title     => 'Second talk',
@@ -63,6 +64,7 @@ sub db_add_talks {
         lightning => 'true',
         accepted  => 'true',
         confirmed => 'false',
+        duration  => 5,
     );
     Act::Talk->create(
         title     => 'My talk',
@@ -72,7 +74,14 @@ sub db_add_talks {
         lightning => 'false',
         accepted  => 'true',
         confirmed => 'false',
+        duration  => 20,
     );
+    
+    # add participations as well
+    my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id) VALUES(?,?);");
+    $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf' );
+    $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf' );
+    $sth->finish();
 }
 
 # export the subs

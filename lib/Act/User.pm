@@ -8,7 +8,33 @@ use base qw( Act::Object );
 # class data used by Act::Object
 our $table = 'users';
 our $primary_key = 'user_id';
-*get_items = \&get_users; # redefined here
+
+our %sql_stub    = (
+    select     => "u.*",
+    select_opt => {
+        have_talk => sub { exists $_[0]{conf_id} ? 'EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=p.conf_id) AS have_talk' : () },
+        # have_paid => sub { $_[0]{conf_id} ? '' : '' },
+    },
+    from       => "users u",
+    from_opt   => [
+        sub { exists $_[0]{conf_id} ? "participations p" : () },
+    ],
+);
+
+our %sql_mapping = (
+    conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
+    town       => "(u.town~*?)",
+    name       => "(u.nick_name~*? OR (u.pseudonymous IS FALSE AND (u.first_name~*? OR last_name~*?)))",
+    pm_group   => "(u.pm_group~*?)",
+    # standard stuff
+    map( { ($_, "(u.$_=?)") }
+      qw( user_id session_id login country have_paid ) )
+);
+our %sql_opts = ( 'order by' => 'user_id' );
+
+our %sql_repeat_bind = ( name => 3 );
+
+*get_users = \&Act::Object::get_items;
 
 sub rights {
     my $self = shift;
@@ -45,69 +71,13 @@ sub AUTOLOAD {
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
 
-sub get_users {
-    my ( $class, %args ) = @_;
-    $class = ref $class  || $class;
-    $class->init();
-
-    # search field to SQL mapping
-    my %req = (
-        conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
-        town       => "(u.town~*?)",
-        name       => "(u.nick_name~*? OR (u.pseudonymous IS FALSE AND (u.first_name~*? OR last_name~*?)))",
-        pm_group   => "(u.pm_group~*?)",
-        # standard stuff
-        map( { ($_, "(u.$_=?)") }
-          qw( user_id session_id login country ) )
-    );
-
-    # SQL options
-    my %opt = (
-        offset   => '',
-        limit    => '',
-    );
-    
-    # clean up the arguments and options
-    exists $args{$_} and $opt{$_} = delete $args{$_} for keys %opt;
-    $opt{$_} =~ s/\D+//g for qw( offset limit );
-    for( keys %args ) {
-        # ignore search attributes we do not know
-        delete $args{$_} unless exists $req{$_};
-        # remove empty search attributes
-        delete $args{$_} unless $args{$_};
-    }
-
-    # special cases
-    $args{name} = [ ( $args{name} ) x 3 ] if exists $args{name};
-    my $conf_id = $args{conf_id};
-
-    # build the request string
-    my $SQL = "SELECT DISTINCT u.* FROM users u"
-            . ($conf_id ? ", participations p" : "" )
-            . " WHERE ";
-    $SQL .= join " AND ", "TRUE", @req{keys %args};
-    $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
-                          keys %opt;
-
-    # run the request
-    my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute( map { (ref) ? @$_ : $_ } values %args );
-
-    my ($users, $user) = [ ];
-    push @$users, bless $user, $class while $user = $sth->fetchrow_hashref();
-
-    $sth->finish();
-
-    return $users;
-}
-
 sub talks {
     my ($self, %args) = @_;
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
 
 sub participation {
-    my ( $self ) =@_;
+    my ( $self ) = @_;
     my $sth = $Request{dbh}->prepare_cached( 
         'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?' );
     $sth->execute( $self->user_id, $Request{conference} );

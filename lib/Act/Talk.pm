@@ -4,7 +4,10 @@ use base qw( Act::Object );
 
 # class data used by Act::Object
 our $table       = 'talks';
-our $sql_stub    = "SELECT DISTINCT t.* FROM talks t WHERE ";
+our %sql_stub    = (
+    select => "t.*",
+    from   => "talks t",
+);
 our %sql_mapping = (
     title     => "(t.title~*?)",
     abstract  => "(t.abstract~*?)",

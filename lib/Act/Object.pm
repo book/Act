@@ -1,4 +1,5 @@
 package Act::Object;
+use strict;
 use Act::Config;
 use Carp;
 
@@ -7,11 +8,6 @@ sub new {
     $class->init();
 
     return bless {}, $class unless %args;
-
-    for( keys %args ) {
-        croak "$_ is not a valid column for $class"
-          unless exists ${"${class}::fields"}{$_};
-    }
 
     my $items = $class->get_items( %args );
     return undef if @$items != 1;
@@ -46,11 +42,11 @@ sub update {
     { no strict 'refs';
       $table = ${"${class}::table"};
       $pkey  = ${"${class}::primary_key"};
+      exists ${"${class}::fields"}{$_} or delete $args{$_} for keys %args;
     }
     my $SQL = "UPDATE $table SET "
             . join(',', map "$_=?", keys %args)
             . " WHERE $pkey=?";
-
     my $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute(values %args, $self->{$pkey});
     $Request{dbh}->commit;
@@ -62,14 +58,22 @@ sub init {
     $class = (ref $class) || $class;
 
     no strict 'refs';
+
+    # get the standard fields (from the table)
     my $table = ${"${class}::table"};
     my $sth   = $Request{dbh}->prepare("SELECT * from $table limit 0;");
     $sth->execute;
     my $fields = ${"${class}::fields"} = $sth->{NAME};
     $sth->finish;
 
+    # fill possibly missing keys
+    ${"${class}::sql_stub"}{select_opt} ||= {};
+    ${"${class}::sql_stub"}{from_opt}   ||= [];
+
     # create all the accessors at once
-    for my $a (@$fields) { *{"${class}::$a"} = sub { $_[0]{$a} } }
+    for my $a (@$fields, keys %{ ${"${class}::sql_stub"}{select_opt} }) {
+        *{"${class}::$a"} = sub { $_[0]{$a} };
+    }
     *{"${class}::fields"} = { map { ($_=> 1) } @$fields };
 
     # let's disappear ;-)
@@ -83,7 +87,10 @@ sub get_items {
 
     # search field to SQL mapping
     my %req;
-    { no strict 'refs'; %req = %{"${class}::sql_mapping"}; }
+    {
+      no strict 'refs';
+      %req = %{"${class}::sql_mapping"};  # sql_search
+    }
 
     # SQL options
     my %opt = (
@@ -101,19 +108,41 @@ sub get_items {
         delete $args{$_} unless $args{$_};
     }
 
-    # SQL options for the derived class
-    { no strict 'refs'; %opt = ( %opt, %{"{$class}::sql_opts"} ); }
-
     # build the request string
     my $SQL;
-    { no strict 'refs'; $SQL = ${"${class}::sql_stub"}; }
-    $SQL .= join " AND ", "TRUE", @req{keys %args};
-    $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
-                          keys %opt;
+    { no strict 'refs';
+
+      # SQL options for the derived class
+      %opt = ( %opt, %{"{$class}::sql_opts"} );
+
+      # create the big hairy SQL statement
+      $SQL = join ' ',
+          # SELECT clause
+          'SELECT', join( ', ',
+              ${"${class}::sql_stub"}{select},
+              map ( { $_->(\%args) }
+                    values %{ ${"${class}::sql_stub"}{select_opt} } ),
+          ),
+          # FROM
+          'FROM', join( ', ',
+              ${"${class}::sql_stub"}{from},
+              map ( { $_->(\%args) }
+                    @{ ${"${class}::sql_stub"}{from_opt} } )
+          ),
+          # WHERE clause
+          'WHERE', join( ' AND ', 'TRUE', @req{keys %args} ),
+          # OPTIONS
+          map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () } keys %opt );
+    
+      # repeat some bind variables
+      exists $args{$_}
+        and $args{$_} = [ ( $args{$_} ) x ${"${class}::sql_repeat_bind"}{$_} ]
+        for keys %{"${class}::sql_repeat_bind"};
+    }
 
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute( values %args );
+    $sth->execute( map { (ref) ? @$_ : $_ } values %args );
 
     my ($items, $item) = [ ];
     push @$items, bless $item, $class while $item = $sth->fetchrow_hashref();
@@ -207,12 +236,26 @@ Creating a subclass of Act::Object should be quite easy:
     out $primary_key = 'foo_id';  # used by update()
 
     # information used by get_items()
-    our $sql_stub = "SELECT f.* FROM foos f WHERE ";
+    our %sql_stub = (
+        select => "f.*",
+        select_opt => {
+            max => sub { exists $_[0]{bar} ? 'max( f.number )' : () }
+        },
+        from       => "foos f",
+        from_opt   => [
+            # a list of subroutines that return table names given $args
+        ],
+    };
     our %sql_opts = ();      # SQL options for get_items()
-    out %sql_mapping = (
-          bar => "(
-          map { ( $_, "(f.$_=?)" ) } qw( foo_id conf_id ),
+    our %sql_mapping = (
+          bar => "(f.bar1=? OR f.bar=?)",
+          # simple stuff
+          map ( { ( $_, "(f.$_=?)" ) } qw( foo_id conf_id ) ),
     );
+
+    # this hash lets you bind several times the same value when it is
+    # part of a search
+    our %sql_repeat_bind = ( bar => 2 };
 
     # Your class now inherits new(), create(), update(), get_items()
     # and the AUTOLOADED accessors (for the column names)

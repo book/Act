@@ -1,4 +1,4 @@
-use Test::More tests => 11;
+use Test::More tests => 10;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -24,10 +24,6 @@ $sth->finish;
 $talk1 = Act::Talk->new( talk_id => $hash->{talk_id} );
 isa_ok( $talk1, 'Act::Talk' );
 is_deeply( $talk1, $hash, "Can insert a talk" );
-
-eval { $talk = Act::Talk->new( foo => 'bar' ); };
-like( $@, qr/foo is not a valid column/, "Bad column name" );
-
 
 $talk = Act::Talk->new();
 isa_ok( $talk, 'Act::Talk' );
