@@ -3,5 +3,5 @@ Act - A Conference Toolkit
 This is a set of modules to handle several conferences with the
 help of Apache, mod_perl and Template-Toolkit.
 
-More documentation is available in pod, under pod/
+More documentation is available in pod, under doc/
 
