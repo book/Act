@@ -27,8 +27,9 @@ sub load_configs
     for my $conf (keys %{$GlobalConfig->conferences}) {
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
-        _make_hash  ($ConfConfigs{$conf}, conferences => $GlobalConfig->general_conferences);
         _load_config($ConfConfigs{$conf}, "$home/$conf");
+        # general_conferences isn't overridable
+        $ConfConfigs{$conf}->set(conferences => $GlobalConfig->conferences);
     }
     # default current config (for non-web stuff that doesn't call get_config)
     $Config = $GlobalConfig;
