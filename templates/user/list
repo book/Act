@@ -27,7 +27,7 @@
 [% FOREACH u=users %]
  <tr>
    <td align="center">
-    [% PROCESS info u=u %]
+    [% PROCESS user/info u=u %]
    </td>
    <td align="center">
       [%- IF u.town %]
