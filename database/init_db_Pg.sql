@@ -108,7 +108,7 @@ CREATE TABLE events
     title      text      NOT NULL,
     room       text, 
     datetime   timestamp without time zone
-)
+);
 CREATE INDEX events_idx ON events ( event_id, conf_id );
 
 /* orders */
