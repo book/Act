@@ -69,36 +69,56 @@ sub AUTOLOAD {
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
 
+sub bio {
+    my $self = shift;
+    return $self->{bio} if exists $self->{bio};
+
+    # fill the cache if necessary
+    my $sth = $Request{dbh}->prepare_cached(
+        "SELECT lang, bio FROM bios WHERE user_id=?"
+    );
+    $sth->execute( $self->user_id );
+    while( my $bio = $sth->fetchrow_arrayref() ) {
+        $self->{bio}{$bio->[0]} = $bio->[1];
+    }
+    $sth->finish();
+    return $self->{bio};
+}
+
 sub talks {
     my ($self, %args) = @_;
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
 
-# some date related to the visited conference
+sub participation {
+    my ( $self ) = @_;
+    my $sth = $Request{dbh}->prepare_cached(
+        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?' );
+    $sth->execute( $self->user_id, $Request{conference} );
+    my $participation = $sth->fetchrow_hashref();
+    $sth->finish();
+    return $participation;
+}
+
+# some data related to the visited conference (if any)
 # the information must always be expected as user_id, conf_id
 my %methods = (
     has_talk =>
         "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=?",
     has_paid  => 
         "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
-    participation => 
+    has_registered => 
         'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=?',
 );
 
 for my $meth (keys %methods) {
     *{$meth} = sub {
-        # no conference, no data
-        return 0 unless $Request{conference};
-        # cached data
-        return $_[0]{cache}{$Request{conference}}{$meth}
-          if exists $_[0]{cache}{$Request{conference}}
-          && exists $_[0]{cache}{$Request{conference}}{$meth};
-        # compute and cache the data
+        # compute the data
         my $sth = $Request{dbh}->prepare_cached( $methods{$meth} );
         $sth->execute( $_[0]->user_id, $Request{conference} );
-        $_[0]{cache}{$meth} = $sth->fetchrow_arrayref()->[0]; 
+        my $result = $sth->fetchrow_arrayref()->[0];
         $sth->finish();
-        return $_[0]{cache}{$meth};
+        return $result;
     };
 }
 
@@ -138,6 +158,7 @@ sub update {
     my $class = ref $self;
 
     my $part = delete $args{participation};
+    my $bio  = delete $args{bio};
     $self->SUPER::update(%args);
     if ($part && $Request{conference}) {
         delete $part->{$_} for qw(conf_id user_id);
@@ -146,6 +167,24 @@ sub update {
         my $sth = $Request{dbh}->prepare_cached($SQL);
         $sth->execute(values %$part, $Request{conference}, $self->{user_id});
         $Request{dbh}->commit;
+    }
+    if( $bio ) {
+        my @sth = map { $Request{dbh}->prepare_cached( $_ ) }
+        (
+            "SELECT 1 FROM bios WHERE user_id=? AND lang=?",
+            "UPDATE bios SET bio=? WHERE user_id=? AND lang=?",
+            "INSERT INTO bios ( bio, user_id, lang) VALUES (?, ?, ?)",
+        );
+        for my $lang ( keys %$bio ) {
+            $sth[0]->execute( $self->user_id, $lang );
+            if( $sth[0]->fetchrow_arrayref ) {
+                $sth[1]->execute( $bio->{$lang}, $self->user_id, $lang );
+            }
+            else {
+                $sth[2]->execute( $bio->{$lang}, $self->user_id, $lang );
+            }
+            $Request{dbh}->commit;
+        }
     }
 }
 1;
