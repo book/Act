@@ -1,5 +1,6 @@
 package Act::User;
 use Act::Config;
+use Act::Talk;
 
 =head1 NAME
 
@@ -238,6 +239,18 @@ sub get_users {
     $sth->finish();
 
     return $users;
+}
+
+=item talks( %req )
+
+Return a reference to an array holding the user's talks that match
+the request criterion.
+
+=cut
+
+sub talks {
+    my ($self, %args) = @_;
+    return Act::Talk->get_talks( %args, user => $self->user_id );
 }
 
 1;
