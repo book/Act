@@ -1,5 +1,10 @@
 [% WRAPPER ui
-   title = { en => 'Event submitted', fr => 'Événement ajouté', it => 'Evento inviato' },
+   title = {
+       en => 'Event submitted', 
+       fr => 'Événement ajouté',
+       it => 'Evento inviato',
+       pt => 'Evento submetido'
+   }
 %]
 
 <p>
@@ -16,6 +21,10 @@
    Grazie, l'evento è stato registrato come
    <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
   </it>
+  <pt>
+   Obrigado, o evento foi gravado como
+   <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
+  </pt>
  </t>
 </p>
 

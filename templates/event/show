@@ -1,26 +1,28 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => title, fr => title, it => title }
+   title = { en => title, fr => title, it => title, pt => title }
 %]
 
 <p>
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it><pt>Data:</pt></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it><pt>Ainda não marcada.</pt></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr><it>minuti</it></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it><pt>Duração:</pt></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr><it>minuti</it><pt>minutos</pt></t><br />
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
- <en>edit</en><fr>modifier</fr><it>modifica</it></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
 [% END %]
 </p>
 
 [% IF url_abstract %]
-<p> <t>  <en>You can find more information on the following site:</en>
-      <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
+<p><t>
+  <en>You can find more information on the following site:</en>
+  <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
   <it>Potete trovare ulteriori informazioni sul sito:</it>
- </t></p>
+  <pt>Pode encontrar mais informação no seguinte endereço:</pt>
+</t></p>
  <ul>
    <li>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
