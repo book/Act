@@ -27,6 +27,7 @@ The tests are prefixed with a number, which indicates several categories:
 
 1x - Core Act classes
      t/10user.t      - Act::User
+     t/11talk.t      - Act::Talk
 
 Some test are not numbered, because the order of tests is unimportant,
 once the numbered tests pass.
