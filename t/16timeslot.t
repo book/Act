@@ -1,4 +1,4 @@
-use Test::More tests => 8;
+use Test::More tests => 9;
 use Act::Event;
 use Act::Talk;
 use Act::TimeSlot;
@@ -29,6 +29,7 @@ is_deeply( $event, {
 # check the accessors
 is( $event->title, 'Lunch', "title accessor ok" );
 is( $event->type,  'Act::Event', "type accessor ok" );
+ok( $event->is_global, "event is global" );
 
 my ($event_orig) = Act::Event->new( event_id => $event->{id} );
 

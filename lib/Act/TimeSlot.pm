@@ -34,6 +34,8 @@ for my $attr ( qw( id datetime room conf_id type title abstract duration ) ) {
     *$attr = sub { $_[0]{$attr} };
 }
 
+sub is_global { $_[0]{room} =~ /^(?:out|venue)$/; }
+
 1;
 
 __END__
