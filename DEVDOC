@@ -128,3 +128,8 @@ Act::Template::HTML is a subclass of Act::Template which adds the following feat
 
 - automatic HTML escaping of template variables: &, <, > are converted to HTML entities
   &amp; &lt; and &gt;. This works on nested data structures as well.
+
+
+Several forms used by Act used the WRAPPER "ui" for adding the local
+look&feel. The name "ui" is therefore the standard template for redefining
+the user interface.
