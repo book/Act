@@ -16,6 +16,7 @@
   </fr>
  </t>
 </p>
+<form method="POST">
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
@@ -50,11 +51,16 @@
     [% END %]
     [% IF global.request.user.is_orga %]
     <td align="center">
-    <input type="checkbox" name="[% t.talk_id %]" [% 'checked' IF t.accepted %] />
+    <input type="checkbox" name="[% t.talk_id %]"[% ' checked' IF t.accepted %] />
     </td>
     [% END %]
   </tr>
 [% END %]
 </table>
+[% IF global.request.user.is_orga %]
+<br />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr></t>" />
+</form>
+[% END %]
 </div>
 [% END %]

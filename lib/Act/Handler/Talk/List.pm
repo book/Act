@@ -7,11 +7,23 @@ use Act::Talk;
 
 sub handler
 {
-
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks(conf_id => $Request{conference});
     $_->{user} = Act::User->new(user_id => $_->user_id) for @$talks;
 
+    # accept / unaccept talks
+    if ($Request{user} && $Request{user}->is_orga && $Request{args}{ok}) {
+        use Data::Dumper; warn Dumper $Request{args};
+        for my $t (@$talks) {
+            if ($t->accepted && !$Request{args}{$t->talk_id}) {
+                $t->update(accepted => 'f');
+                $t->{accepted} = undef;
+            }
+            elsif (!$t->accepted && $Request{args}{$t->talk_id}) {
+                $t->update(accepted => 't');
+            }
+        }
+    }
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
