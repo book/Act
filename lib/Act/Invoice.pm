@@ -26,12 +26,19 @@ sub create {
     $args{datetime} = DateTime->now();
     
     # get next invoice number for this conference
-    my $seq = join '_', 'invoice', $Request{conference}, 'seq';
-    my $sth = $Request{dbh}->prepare_cached("select nextval(?)");
-    $sth->execute($seq);
+    my $sth = $Request{dbh}->prepare_cached("SELECT next_num FROM invoice_num WHERE conf_id=?");
+    $sth->execute($Request{conference});
     ($args{invoice_no}) = $sth->fetchrow_array;
     $sth->finish;
-    
+    if ($args{invoice_no}) {
+        $sth = $Request{dbh}->prepare_cached("UPDATE invoice_num SET next_num=next_num+1 WHERE conf_id=?");
+        $sth->execute($Request{conference});
+    }
+    else {
+        $sth = $Request{dbh}->prepare_cached("INSERT INTO invoice_num (conf_id, next_num) VALUES (?,?)");
+        $sth->execute($Request{conference}, 2);
+        $args{invoice_no} = 1;
+    }
     return $class->SUPER::create(%args);
 }
 sub update {

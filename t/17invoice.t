@@ -8,16 +8,6 @@ use Act::User;
 
 $Request{conference} = 'conf';
 
-# create the invoice number sequence
-{
-    my $seq = join '_', 'invoice', $Request{conference}, 'seq';
-    local $Request{dbh}{PrintError} = 0;
-    $Request{dbh}->do("DROP SEQUENCE $seq")
-        or $Request{dbh}->rollback;
-    $Request{dbh}->do("CREATE SEQUENCE $seq");
-    $Request{dbh}->commit;
-}
-
 # empty invoice
 my $invoice = Act::Invoice->new();
 isa_ok( $invoice, 'Act::Invoice' );

@@ -148,6 +148,14 @@ CREATE TABLE orders
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 
+/* invoice numer */
+DROP   TABLE invoice_num CASCADE;
+CREATE TABLE invoice_num
+(
+    conf_id     text       NOT NULL PRIMARY KEY,
+    next_num    integer    NOT NULL
+);
+
 /* invoices */
 DROP   TABLE invoices CASCADE;
 CREATE TABLE invoices
