@@ -33,9 +33,17 @@
 <a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
 [% '</b>' IF t.confirmed %]
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
+[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
+(<a href="[% make_uri('edittalk', 'talk_id', t.id ) %]"><t>
+<en>edit</en><fr>modifier</fr></t></a>)
+[% END %]
     [% ELSIF t.type == 'Act::Event' %]
 <a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
+[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
+(<a href="[% make_uri('editevent', 'event_id', t.id ) %]"><t>
+<en>edit</en><fr>modifier</fr></t></a>)
+[% END %]
     [% ELSE ; t %]
 [% END;
    END;
