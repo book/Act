@@ -34,6 +34,7 @@ my %dispatch = (
     rights   => { handler => 'Act::Handler::User::Rights',   private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
     edittalk => { handler => 'Act::Handler::Talk::Edit',   private => 1 },
+    export   => { handler => 'Act::Handler::Talk::Export',   private => 1 },
 );
 
 # translation handler

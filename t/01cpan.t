@@ -8,6 +8,8 @@ my @modules = (
                  'Apache::Request',
                  'AppConfig',
                  'Crypt::RandPasswd',
+                 'DateTime',
+                 'DateTime::Format::ICal',
                  'DateTime::Format::Pg',
                  'DateTime::TimeZone',
                  'DBD::Pg',
@@ -19,6 +21,7 @@ my @modules = (
                  'Net::SMTP',
                  'Template',
                  'Test::MockObject',
+                 'Text::Iconv',
                  'URI::Escape',
               );
 use Test::More;

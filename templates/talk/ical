@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Paris.pm//Act//EN
+X-WR-RELCALID:[% cid %]
+X-WR-CALNAME:[% calname %]
+X-WR-TIMEZONE:[% timezone %]
+CALSCALE:GREGORIAN
+[% FOREACH t = talks %]
+BEGIN:VEVENT
+SEQUENCE:2
+DTSTAMP:[% now %]
+DTSTART;TZID=[% timezone %]:[% t.dtstart %]
+DTEND;TZID=[% timezone %]:[% t.dtend %]
+SUMMARY:[% t.title %]
+UID:[% t.uid %]
+END:VEVENT
+[% END %]
+END:VCALENDAR
