@@ -1,6 +1,8 @@
 # this is a helper test module
 use Act::Config;
 use DBI;
+use Act::Talk;
+use Act::User;
 
 $Request{dbh} = DBI->connect(
     $Config->database_test_dsn,
@@ -13,11 +15,6 @@ $Request{dbh} = DBI->connect(
 $Request{dbh}->do("DELETE FROM talks;");
 $Request{dbh}->do("DELETE FROM users;");
 $Request{dbh}->do("DELETE FROM news;");
-
-# require those modules now, because they need a $Request{dbh} for
-# correct initialisation
-require Act::User;
-require Act::Talk;
 
 # fill the database with simple default data
 sub db_add_users {
