@@ -89,7 +89,7 @@ CREATE TABLE talks
 
     /* for the schedule */
     room         text,
-    given        timestamp without time zone,
+    datetime     timestamp without time zone,
     /* category_id  integer, */
   
 
@@ -97,6 +97,19 @@ CREATE TABLE talks
     /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
 );
 CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
+
+/* events */
+DROP   TABLE events CASCADE;
+CREATE TABLE events
+(
+    event_id   serial    NOT NULL    PRIMARY KEY,
+    conf_id    text      NOT NULL,
+    user_id    integer   NOT NULL,
+    title      text      NOT NULL,
+    room       text, 
+    datetime   timestamp without time zone
+)
+CREATE INDEX events_idx ON events ( event_id, conf_id );
 
 /* orders */
 DROP   TABLE orders CASCADE;
