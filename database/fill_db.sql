@@ -67,6 +67,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'de', 'Gabun')
 INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'de', 'Grenada')
 INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'de', 'Georgien')
 INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'de', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'de', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'de', 'Gambia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'de', 'Guinea')
 INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'de', 'Äquatorial-Guinea')
@@ -147,6 +148,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'de', 'Papua-Neuguine
 INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'de', 'Philippinen')
 INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'de', 'Pakistan')
 INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'de', 'Polen')
+INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'de', 'Puerto Rico');
 INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'de', 'Portugal')
 INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'de', 'Palau')
 INSERT INTO translations VALUES ('countries', 'iso', 'py', 'de', 'Paraguay')
@@ -493,6 +495,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'es', 'Gabón')
 INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'es', 'Granada')
 INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'es', 'Georgia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'es', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'es', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'es', 'Gambia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'es', 'Guinea')
 INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'es', 'Guinea Ecuatorial')
@@ -573,6 +576,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'es', 'Papúa-Nueva Gu
 INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'es', 'Filipinas')
 INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'es', 'Pakistán')
 INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'es', 'Polonia')
+INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'es', 'Puerto Rico');
 INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'es', 'Portugal')
 INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'es', 'Palaos')
 INSERT INTO translations VALUES ('countries', 'iso', 'py', 'es', 'Paraguay')
@@ -935,6 +939,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'pt', 'Gabão')
 INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'pt', 'Granada')
 INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'pt', 'Geórgia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'pt', 'Gana')
+INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'pt', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'pt', 'Gâmbia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'pt', 'Guiné')
 INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'pt', 'Guiné Equatorial')
@@ -1015,6 +1020,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'pt', 'Papua-Nova Gui
 INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'pt', 'Filipinas')
 INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'pt', 'Paquistão')
 INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'pt', 'Polónia')
+INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'pt', 'Puerto Rico');
 INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'pt', 'Portugal')
 INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'pt', 'Palau')
 INSERT INTO translations VALUES ('countries', 'iso', 'py', 'pt', 'Paraguai')
@@ -1154,6 +1160,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'ga', 'it', 'Gabon')
 INSERT INTO translations VALUES ('countries', 'iso', 'gd', 'it', 'Grenada')
 INSERT INTO translations VALUES ('countries', 'iso', 'ge', 'it', 'Georgia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gh', 'it', 'Ghana')
+INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'it', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'it', 'Gambia')
 INSERT INTO translations VALUES ('countries', 'iso', 'gn', 'it', 'Guinea')
 INSERT INTO translations VALUES ('countries', 'iso', 'gq', 'it', 'Guinea Equatoriale')
@@ -1234,6 +1241,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'pg', 'it', 'Papua Nuova Gu
 INSERT INTO translations VALUES ('countries', 'iso', 'ph', 'it', 'Filippine')
 INSERT INTO translations VALUES ('countries', 'iso', 'pk', 'it', 'Pakistan')
 INSERT INTO translations VALUES ('countries', 'iso', 'pl', 'it', 'Polonia')
+INSERT INTO translations VALUES ('countries', 'iso', 'pr', 'it', 'Puerto Rico');
 INSERT INTO translations VALUES ('countries', 'iso', 'pt', 'it', 'Portogallo')
 INSERT INTO translations VALUES ('countries', 'iso', 'pw', 'it', 'Palau')
 INSERT INTO translations VALUES ('countries', 'iso', 'py', 'it', 'Paraguay')
