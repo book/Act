@@ -7,7 +7,6 @@ use Digest::MD5 ();
 
 use Act::Config;
 use Act::User;
-use Act::Template::HTML;
 use Act::Util;
 
 use base qw(Apache::AuthCookie);
@@ -69,22 +68,6 @@ sub authen_cred ($$\@)
     $user->update(session_id => $sid);
 
     return $sid;
-}
-
-sub login_form_handler
-{
-    my $r = $Request{r};
-
-    # disable client-side caching
-    $r->no_cache(1);
-
-    # process the login form template
-    my $template = Act::Template::HTML->new();
-    $template->variables(
-        destination => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
-        action      =>  Act::Util::make_uri('LOGIN'),
-    );
-    $template->process('login.html');
 }
 
 sub authen_ses_key ($$$)

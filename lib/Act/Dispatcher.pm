@@ -7,7 +7,6 @@ use DBI;
 
 use Act::Config;
 use Act::Util;
-use Act::Auth;
 
 use constant DEFAULT_PAGE => 'index.html';
 
@@ -25,7 +24,7 @@ my %dispatch = (
     newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
 
     # special stuff
-    login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
+    login    => { handler => 'Act::Handler::Login', status => DONE },
 );
 
 # translation handler
