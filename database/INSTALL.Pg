@@ -31,7 +31,7 @@ the tables.
 
     $ psql act < database/init_db.pg.sql
 
-Update $ACTHOME/conf/global.ini (or $ACTHOME/conf/local.ini) with the
+Update $ACTHOME/conf/act.ini (or $ACTHOME/conf/local.ini) with the
 database name and credentials.
 
     [database]
