@@ -6,6 +6,8 @@ use Act::Config;
 use Act::Template::Parser ();
 use base qw(Template);
 
+use constant TEMPLATE_DIRS => qw(static templates);
+
 my %templates;
 
 sub new
@@ -28,12 +30,15 @@ sub _init
     # default options
     $self->{$_} = 1 for qw(POST_CHOMP);
     $options->{PARSER} ||= Act::Template::Parser->new($options);
-    $options->{INCLUDE_PATH} ||= [ map {
-       join '/', $Config->home,
-                 $Request{conference} 
-               ? join('/', $Request{conference}, $_)
-               : $_
-    } qw( static templates ) ];
+    unless ($options->{INCLUDE_PATH}) {
+        my @path;
+        # conference-specific template dirs
+        push @path, map join('/', $Config->home, $Request{conference}, $_), TEMPLATE_DIRS
+            if $Request{conference};
+        # global template dirs
+        push @path, map join('/', $Config->home, $_), TEMPLATE_DIRS;
+        $options->{INCLUDE_PATH} = \@path;
+    }
 
     # supplied options
     $self->{$_} = $options->{$_} for keys %$options;
