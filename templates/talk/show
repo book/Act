@@ -1,3 +1,4 @@
+[% PROCESS common %]
 [% WRAPPER ui
    title = { en => title, fr => title }
 %]
@@ -6,7 +7,7 @@
   <en>By</en>
   <fr>Par</fr>
 </t></b>
-[% PROCESS user/info u=user %]
+[% user_info(user) %]
 </a>
 [% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>

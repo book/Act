@@ -1,3 +1,4 @@
+[% PROCESS common %]
 [% WRAPPER ui
    title = { en => 'User rights', fr => 'Droits des utilisateurs' },
 %]
@@ -12,7 +13,7 @@
 [% FOREACH r=rights %]
  <tr>
    <td align="center">[% r.right_id %]</td>
-   <td align="center">[% PROCESS user/info u=r.user %]</td>
+   <td align="center">[% user_info(r.user) %]</td>
    <td align="center"><input type="checkbox" name="[% r.user_id %]-[% r.right_id %]" /></td>
  </tr>
 [% END %]
@@ -26,7 +27,7 @@
    <td colspan="2"><select name="newuser">
        <option value="" selected="selected" />
        [% FOREACH u=users %]
-         <option value="[% u.user_id %]">[[% u.login %]] [% PROCESS user/info u=u %]</option>
+         <option value="[% u.user_id %]">[[% u.login %]] [% user_info(u) %]</option>
        [% END %]
        </select>
    </td>
