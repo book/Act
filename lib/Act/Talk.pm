@@ -18,8 +18,6 @@ our %sql_opts    = ( 'order by' => 'talk_id' );
 
 *get_talks = \&Act::Object::get_items;
 
-Act::Talk->init();
-
 =head1 NAME
 
 Act::Talk - An Act object representing a talk.

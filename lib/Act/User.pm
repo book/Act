@@ -9,8 +9,6 @@ use base qw( Act::Object );
 our $table = 'users';
 *get_items = \&get_users; # redefined here
 
-Act::User->init();
-
 =head1 NAME
 
 Act::User - A user object for the Act framework
