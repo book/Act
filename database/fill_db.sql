@@ -457,3 +457,22 @@ INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' )
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
+
+/* FIXME - MISSING COUNTRY CODES FOR PT */
+
+/** ITALIANO ** /
+/* civility */
+INSERT INTO translations VALUES('users', 'civility', 1, 'it', 'Sig.');
+INSERT INTO translations VALUES('users', 'civility', 2, 'it', 'Sig.na');
+INSERT INTO translations VALUES('users', 'civility', 3, 'it', 'Sig.ra');
+
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'it', 'Fuori' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'it', 'Aree comuni' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'it', 'Assegno' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'it', 'Contanti' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'it', 'On-line' );
+
+/* FIXME - MISSING COUNTRY CODES FOR IT */
