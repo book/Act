@@ -76,10 +76,14 @@ sub redirect
 sub gen_password
 {
     my $clear_passwd = Crypt::RandPasswd->word(7, 7);
+    return ($clear_passwd, crypt_password( $clear_passwd ));
+}
+
+sub crypt_password
+{
     my $digest = Digest::MD5->new;
-    $digest->add(lc $clear_passwd);
-    my $crypt_passwd = $digest->b64digest();
-    return ($clear_passwd, $crypt_passwd);
+    $digest->add(shift);
+    return $digest->b64digest();
 }
 
 # get all texts for a specific table/column/language
