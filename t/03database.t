@@ -12,7 +12,12 @@ ok($dbh);
 ok($dbh->disconnect);
 
 SKIP: {
-    skip "No test database defined", 2 unless $Config->database_test_dsn;
+    my $test_dsn;
+    {
+        local $SIG{__WARN__} = sub {};
+        $test_dsn = $Config->database_test_dsn;
+    }
+    skip "No test database defined", 2 unless $test_dsn;
  
     my $dbh = DBI->connect(
             $Config->database_test_dsn,
