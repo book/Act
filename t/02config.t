@@ -48,10 +48,9 @@ for my $conf (keys %{$Config->conferences}) {
     isa_ok($cfg->talks_durations, 'HASH', "talks_durations");
     isa_ok($cfg->uris, 'HASH', "uris");
     like($_, qr/^\d+$/, "$conf talks_durations $_") for keys %{$cfg->talks_durations};
-    for my $lang (keys %{$cfg->languages}) {
-       local $Request{language} = $lang; 
-       ok(defined $cfg->name, "name $lang");
-    }
+    isa_ok($cfg->name, 'HASH', 'name');
+    ok($cfg->name->{$_}, "name $_")
+        for keys %{$cfg->languages};
 }
 # uri <=> conf mapping
 while (my ($uri, $conf) = each %{$Config->uris}) {

@@ -21,7 +21,7 @@ sub handler {
         my $cfg = Act::Config::get_config($p->{conf_id});
         push @parts, {
             url  => '/' . $cfg->uri . '/',
-            name => Act::Util::get_translation('conferences', 'name', $p->{conf_id}),
+            name => $cfg->name->{$Request{language}},
         };
     } 
     $template->variables(
