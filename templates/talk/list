@@ -38,15 +38,13 @@
         [% PROCESS user/info u = t.user %]
     </a></td>
     <td><a href="[% make_uri_info('talk', t.talk_id) %]">
-           [%- "<b>"  IF t.accepted %]
-           [% t.title %]
-           [%- "</b>" IF t.accepted %]
+           [% "<b>"  IF t.accepted %][% t.title %][% "</b>" IF t.accepted %]</a>
            [% IF global.request.user.is_orga
               || global.request.user.user_id == t.user_id %]
            (<a href="[% make_uri( 'edittalk', 'talk_id', t.talk_id ) %]"><t>
            <en>edit</en><fr>modifier</fr></t></a>)
            [% END %]
-    </a></td>
+    </td>
     <td>[% IF t.lightning %]
           <t><en>lightning</en><fr>éclair</fr></t>
         [% ELSE %]
