@@ -9,7 +9,7 @@
  <t>
   <en>
    There are [% stats.users %] registered people
-   coming from [% stats.countries.size %] countr[% stats.pm.size > 1 ? "ies" : "y" %]
+   coming from [% stats.countries.size %] countr[% stats.countries.size > 1 ? "ies" : "y" %]
    and [% stats.pm.size %] monger group[% "s" IF stats.pm.size > 1 %].
 <!--   There are [% stats.committed %] committed users,
    that is to say, people that either paid their
