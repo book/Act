@@ -27,6 +27,7 @@ my %dispatch = (
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
 
     # protected handlers
+    unregister => { handler => 'Act::Handler::User::Unregister', private => 1 },
     logout   => { handler => 'Act::Handler::Logout',         private => 1 },
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },

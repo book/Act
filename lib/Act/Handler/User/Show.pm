@@ -35,7 +35,6 @@ sub handler
     ( exists $Config->languages->{$_} && $bio->{$_} !~ /^\s*$/ )
     || delete $bio->{$_} for keys %$bio;
     
-
     $template->variables(
         %$user,
         country  => Act::Country::CountryName( $user->country ),

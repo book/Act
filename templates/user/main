@@ -31,7 +31,7 @@
 </p>
 
 [% IF global.request.conference %]
- [% IF global.request.user.participation %]
+ [% IF global.request.user.has_registered %]
   [% UNLESS global.request.user.has_paid %]
  <p>
   <t>
@@ -74,6 +74,7 @@
 
 <p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt></t></b></p>
    <ul>
+   [% IF global.request.user.has_registered %]
     [% IF global.request.conference
        AND global.config.payment_open
        AND NOT global.request.user.has_paid %]
@@ -84,6 +85,15 @@
           <it>acquistare il bigletto</it></t></a><br />
     </li>
     [% END %]
+   [% ELSE %]
+    <li><t>
+       <pt><a href="[% make_uri('register') %]">registou para esta conferência</a></pt>
+       <en><a href="[% make_uri('register') %]">register for this conference</a></en>
+       <fr>Vous <a href="[% make_uri('register') %]">inscrire à cette conférence</a></fr>
+       <it>TRANSLATEME</it>
+        </t><br />
+    </li>
+   [% END %]
     <li><a href="[% make_uri('change') %]"><t>
           <fr>mettre à jour les informations vous concernant</fr>
           <en>update your information</en>
@@ -110,7 +120,8 @@
           </ul>
         </li>
       [% END %]
-    [% IF global.config.talks_submissions_open %]
+    [% IF global.config.talks_submissions_open
+       AND global.request.user.has_registered %]
       <li><a href="[% make_uri('newtalk') %]"><t>
             <fr>soumettre une présentation</fr>
             <pt>submeter uma apresentação</pt>
@@ -119,6 +130,9 @@
       </li>
     [% END %]
    <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>Sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it></t></a></li>
+   [% IF can_unregister %]
+   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>TRANSLATEME</it></t></a></li>
+   [% END %]
    </ul>
 
 [% IF conferences.size %]
