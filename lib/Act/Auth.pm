@@ -64,6 +64,7 @@ sub authen_cred ($$\@)
 
     # save this user for the content handler
     $Request{user} = $user;
+    _update_language();
 
     return $sid;
 }
@@ -101,8 +102,22 @@ sub authen_ses_key ($$$)
 
     # save this user for the content handler
     $Request{user} = $user;
+    _update_language();
 
     return ($user->{login});
 }
+
+sub _update_language
+{
+    unless (defined $Request{user}{language}
+         && $Request{language} eq $Request{user}{language})
+    {
+        my $sth = $Request{dbh}->prepare_cached('UPDATE users SET language=? WHERE login=?');
+        $sth->execute($Request{language}, $Request{user}{login});
+        $Request{dbh}->commit;
+        $Request{user}{language} = $Request{language};
+    }
+}
+
 1;
 __END__

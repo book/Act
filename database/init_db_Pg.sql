@@ -31,8 +31,8 @@ CREATE TABLE users
     bio          integer,    /* handled in translations? */
 
     /* website preferences */
-    lang         text         DEFAULT 'Browser select' NOT NULL,
-    timezone     text         DEFAULT 'Europe/Paris'   NOT NULL,
+    language     text,
+    timezone     text         DEFAULT 'Europe/Paris'   NOT NULL
 );
 CREATE INDEX users_session_id ON users (session_id);
 
@@ -57,7 +57,7 @@ CREATE TABLE participations
     registered  boolean,
     payment     integer, /* notyet, cash, online, cheque, waived */
     tshirt_size integer,
-    nb_family   integer
+    nb_family   integer,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
