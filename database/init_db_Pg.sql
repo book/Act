@@ -7,5 +7,17 @@ CREATE TABLE rights
     user_id     integer    NOT NULL
 
 );
-CREATE INDEX rights_conf_id ON rights (conf_id);
+CREATE INDEX rights_idx ON rights (conf_id);
+
+/* multilingual entries */
+DROP   TABLE translations;
+CREATE TABLE translations
+(
+    table    text,
+    col      text,           
+    id       integer,
+    lang     text,
+    text     text,
+);
+CREATE INDEX translations_idx ON translations ( table col id );
 
