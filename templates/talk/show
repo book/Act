@@ -8,6 +8,10 @@
 </t></b>
 [% PROCESS user/info u=user %]
 </a>
+[% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
+(<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
+ <en>edit</en><fr>modifier</fr></t></a>)
+[% END %]
 [% IF user.pm_group %]
   <t> <en> from </en> <fr> de </fr> </t>
   [% IF user.pm_group_url %]
