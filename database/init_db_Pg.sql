@@ -29,7 +29,6 @@ CREATE TABLE users
     monk_id      text,
     im           text,
     photo_name   text,
-    bio          text,
 
     /* website preferences */
     language     text,
@@ -44,6 +43,14 @@ CREATE TABLE users
 CREATE UNIQUE INDEX users_session_id ON users (session_id);
 CREATE UNIQUE INDEX users_login ON users (login);
 
+CREATE TABLE bios
+(
+    user_id   integer,
+    lang      text,
+    bio       text
+);
+CREATE UNIQUE INDEX bios_idx ON bios (user_id, lang);
+
 /* users' rights */
 DROP   TABLE rights;
 CREATE TABLE rights
@@ -55,6 +62,14 @@ CREATE TABLE rights
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 CREATE INDEX rights_idx ON rights (conf_id);
+
+/* invoice numer */
+DROP   TABLE invoice_num CASCADE;
+CREATE TABLE invoice_num
+(
+    conf_id     text       NOT NULL PRIMARY KEY,
+    next_num    integer    NOT NULL
+);
 
 /* user's participations to conferences */
 DROP   TABLE participations;
