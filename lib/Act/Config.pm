@@ -33,6 +33,9 @@ sub load_configs
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
             for keys %{$ConfConfigs{$conf}->rooms};
+        $ConfConfigs{$conf}->set(name => { });
+        $ConfConfigs{$conf}->name->{$_} = $ConfConfigs{$conf}->get("general_name_$_")
+            for keys %{$ConfConfigs{$conf}->languages};
         # conf <=> uri mapping
         my $uri = $ConfConfigs{$conf}->general_uri || $conf;
         $uris{$uri} = $conf;

@@ -103,8 +103,7 @@ sub process
         );
         if ($Request{conference} && $Request{dbh}) {
             $global{conference} = {
-              map { $_ => Act::Util::get_translation('conferences', $_, $Request{conference}) }
-              qw(name)
+                name => $Config->name->{$Request{language}},
             };
         }
         $output ||= $Request{r};
