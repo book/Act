@@ -31,21 +31,25 @@ sub send
 {
     my %args = @_;
 
-    my %opts;
-    $opts{Port} = $Config->email_smtp_port
-        if $Config->email_smtp_port;
-    my $smtp = Net::SMTP->new($Config->email_smtp_server, %opts)
-      or die "can't create new Net::SMTP object";
-
     # apply defaults
     for my $key (keys %defaults) {
         $args{$key} = $defaults{$key}
             unless $args{$key};
     }
+    $args{to} = [ $args{to} ] if ref($args{to}) ne 'ARRAY';
 
     # sender
     my $from = ref($args{from}) ? $args{from} : { email => $args{from} };
 
+    # if testing, send it to the tester's email address
+    # with the original recipients prepended to the message body
+    if ($Config->email_test) {
+        $args{subject} = "[TEST] $args{subject}";
+        $args{body}    = 'To: '
+                       . join(',', map { ref $_ ? $_->{email} : $_ } @{$args{to}})
+                       . "\n\n$args{body}";
+        $args{to}      = [ $Config->email_test ];
+    }
     # create message
     my $msg = MIME::Lite->new (
         From            => $from->{name}
@@ -57,12 +61,16 @@ sub send
         Datestamp       => 0,
         Data            => $args{body},
     );
+    my %opts;
+    $opts{Port} = $Config->email_smtp_port
+        if $Config->email_smtp_port;
+    my $smtp = Net::SMTP->new($Config->email_smtp_server, %opts)
+      or die "can't create new Net::SMTP object";
 
     # envelope sender
     $smtp->mail($from->{email});
 
     # recipients
-    $args{to} = [ $args{to} ] if ref($args{to}) ne 'ARRAY';
     for my $to (@{$args{to}}) {
         $to = { email => $to } unless ref($to);
         $msg->add(To => $to->{name} ? "$to->{name} <$to->{email}>"
