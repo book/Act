@@ -69,6 +69,10 @@ sub init {
     # fill possibly missing keys
     ${"${class}::sql_stub"}{select_opt} ||= {};
     ${"${class}::sql_stub"}{from_opt}   ||= [];
+    ${"${class}::sql_repeat_bind"} = map {
+        my $n = ${"${class}::sql_mapping"}{$_} =~ y/?//;
+        $n > 1 ? ( $_ => $n ) : ()
+    } keys %{ ${"${class}::sql_mapping"} };
 
     # create all the accessors at once
     for my $a (@$fields, keys %{ ${"${class}::sql_stub"}{select_opt} }) {
@@ -252,10 +256,6 @@ Creating a subclass of Act::Object should be quite easy:
           # simple stuff
           map ( { ( $_, "(f.$_=?)" ) } qw( foo_id conf_id ) ),
     );
-
-    # this hash lets you bind several times the same value when it is
-    # part of a search
-    our %sql_repeat_bind = ( bar => 2 };
 
     # Your class now inherits new(), create(), update(), get_items()
     # and the AUTOLOADED accessors (for the column names)

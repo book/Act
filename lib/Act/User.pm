@@ -32,8 +32,6 @@ our %sql_mapping = (
 );
 our %sql_opts = ( 'order by' => 'user_id' );
 
-our %sql_repeat_bind = ( name => 3 );
-
 *get_users = \&Act::Object::get_items;
 
 sub rights {
