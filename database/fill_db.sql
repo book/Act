@@ -1077,7 +1077,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'zm', 'pt', 'Zâmbia');
 INSERT INTO translations VALUES ('countries', 'iso', 'zr', 'pt', 'Congo-Kinshasa');
 INSERT INTO translations VALUES ('countries', 'iso', 'zw', 'pt', 'Zimbabué');
 
-/** ITALIANO ** /
+/** ITALIANO **/
 /* civility */
 INSERT INTO translations VALUES('users', 'civility', 1, 'it', 'Sig.');
 INSERT INTO translations VALUES('users', 'civility', 2, 'it', 'Sig.na');
