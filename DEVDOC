@@ -10,7 +10,7 @@ $Config  current configuration.
 $Config->foo_bar  retrieves value of configuration parameter foo in section bar
 
 Configuration parameters coming from .ini files are currently all string values.
-These additionnal parameters are also available
+These additional parameters are also available
 
   $Config->conferences   a reference to a hash whose keys are the conference names
   $Config->languages     a reference to a hash whose keys are the language codes
@@ -31,9 +31,8 @@ user         a hashref to the current registered user, if applicable
 
 * How to write a handler
 
-Choose a suitable name space for your handler, we'll use Act::Foo.
-Create your handler in lib/Foo.pm. We'll use "sub handler", but you
-can use any sub name.
+Choose a suitable name space for your handler, we'll use Act::Handler::Foo.
+Create your handler in lib/Foo.pm, naming your sub "handler".
 In that sub:
 - Figure out what to do, based on the query's arguments $Request{args}
   or maybe using $Request{path_info}
@@ -45,10 +44,6 @@ In that sub:
     $template->variables(
       name  => $user->{name},
     );
-- If you're not doing HTML, set the response's Content-Type header:
-        $Request{r}->content_type('text/plain; charset=ISO-8859-1');
-  Always include a charset when sending text--it mitigates certain types of
-  cross-site-scripting attacks.
 - Finally process the template. Its output will be sent to the client's
   browser
     $template->process('foo.html');
@@ -60,15 +55,13 @@ Now choose an "action" word that best describes your handler. We'll use
 the string "foo". We now associate that action word with our sub by
 adding the mapping to the %dispatch hash in Act::Dispatcher.
 
-  use Act::Foo;
-  ...
   my %dispatch = (
-    foo => { handler => \&Act::Foo::handler },
+    foo => { handler => 'Act::Handler::Foo' },
     ...
   );
 
 This will enable this handler for all URLs that start with /conference/foo
-where conference is a conference name, e.g.
+where conference is a conference name, e.g.:
   /2004/foo
   /2004/foo?q=1
   /2004/foo/bar
@@ -77,8 +70,7 @@ If this action requires the user to be registered, add the key "private"
 to the dispatch value:
 
   my %dispatch = (
-    foo => { private => 1,
-             handler => \&Act::Foo::handler },
+    foo => { handler => 'Act::Handler::Foo', private => 1 },
     ...
   );
 
@@ -88,7 +80,7 @@ a protected page is requested in a given session.
 
 * Templates
 
-Act provides a set of classes that encapsulate Template Toolkit's functionnality.
+Act provides a set of classes that encapsulate Template Toolkit's functionality.
 The base class is Act::Template, a subclass of Template to which it adds:
 - automatic INCLUDE_PATH configuration
    A template's INCLUDE_PATH is the list of directories where TT searches

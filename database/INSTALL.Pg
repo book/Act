@@ -29,7 +29,7 @@ installed in database act".)
 Run the init_db.pg.sql script in this directory. This will create
 the tables.
 
-    $ psql act < init_db.pg.sql
+    $ psql act < database/init_db.pg.sql
 
 Update $ACTHOME/conf/global.ini (or $ACTHOME/conf/local.ini) with the
 database name and credentials.
@@ -38,6 +38,10 @@ database name and credentials.
     dsn    = dbi:Pg:dbname=act
     user   = act
     passwd = @cT
+
+Populate some tables with data required for Act's operation.
+
+    $ psql act < database/fill_db.sql
 
 From the package's top level directory, run the test suite to verify
 that the software is able to connect to the database.

@@ -13,7 +13,7 @@ and to map Act::Foo to /home/act/lib/Foo.pm.
     mkdir ~/lib; ln -s /home/act/lib lib/Act; export PERL5LIB=~/lib
 
 Act needs to know its home directory so that it can find its
-config file. This is done by setting the ACTHOME environment variable:
+configuration file. This is done by setting the ACTHOME environment variable:
 
     export ACTHOME=/home/act
 
@@ -54,6 +54,10 @@ an easy setup is to use a port-based virtual host:
       Include      /home/act/conf/httpd.conf
     </VirtualHost>
 
+Create the directory where photos will be uploaded, by default
+$ACTHOME/wwwdocs/photos. Make sure it is readable by all, and
+writable by the user running Apache.
+
 Next, create a local configuration file in $ACTHOME/conf/local.ini.
 This file is not part of the distribution: its contents override
 the global settings in $ACTHOME/conf/act.ini. If you have no need
@@ -86,7 +90,7 @@ out of your Act installation, in a production environment. Full
 explanations of the techniques used are outside of the scope of this
 document, so we only provide introductory comments.
 
-* preloading modules at Apache startup
+* pre-loading modules at Apache startup
 
 Insert the following configuration directive in httpd.conf:
 
@@ -100,17 +104,17 @@ to copy-on-write their code is shared, at least for a while).
 
 mod_perl-enabled servers tend to have a large memory footprint, so you don't
 want too many of them. Server instances tend to spend most of their time
-serving responses to slow clients ("spoonfeeding" clients). 
+serving responses to slow clients ("spoon-feeding" clients). 
 
-This setup uses 2 instances of Apache: the frontend, or "light" server
+This setup uses 2 instances of Apache: the front-end, or "light" server
 serves static content (images, CSS files), and reverse-proxies dynamic
-content to the backend, or "heavy" server.
+content to the back-end, or "heavy" server.
 
 The light server uses mod_proxy but no mod_perl, therefore its memory
 footprint is much lower. The heavy server sends its output to the light
-server very fast, so it isn't tied up spoonfeeding the clients. With such
+server very fast, so it isn't tied up spoon-feeding the clients. With such
 a setup it is possible to serve a high request rate with relatively few
-backend processes.
+back-end processes.
 
 In the example below we choose to run both instances on the same machine.
 The heavy server runs on localhost on a high port, while the light server
@@ -150,7 +154,7 @@ listens to, and the Port directive specifies which port to use when issuing a
 redirect.
 
 In the light server, enable mod_proxy and mod_rewrite. We'll use them
-to reverse-proxy requests for dynamic content to the backend. Again,
+to reverse-proxy requests for dynamic content to the back-end. Again,
 adjust the numbers to your requirements and hardware.
 
   MinSpareServers 10
