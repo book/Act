@@ -9,12 +9,12 @@ use File::Find     qw(find);
 use Getopt::Std    qw(getopts);
 
 use Act::Config;
-use Act::Template::Parser;
+use Act::Template;
 
 use constant TEMPLATE_DIRS => qw(static templates);
 
-# global template parser object
-my $parser = Act::Template::Parser->new;
+# global template object
+my $template = Act::Template->new;
 
 # parse command line options
 my %opts;
@@ -40,30 +40,34 @@ sub _extract
 {
     my $dir = shift;
 
-    # read directory
     my @files;
-    find(sub {
-              local $_ = $File::Find::name;
-              -f && !/CVS/ && push @files, $_;
-             },
-         $dir
-    );
-
+    # read directory
+    if (-d $dir) {
+        find(sub {
+                  local $_ = $File::Find::name;
+                  -f && !/CVS/ && push @files, $_;
+                 },
+             $dir
+        );
+    }
+    else {
+        @files = ($dir);
+    }
     # process each file
     for my $file (sort @files) {
         (my $fname = $file) =~ s!^$dir/!!;
-        my $input;
+        my ($input, $output);
         {
             local $/ = undef;
             open my $fh, $file or die "can't open $file: $!\n";
             $input = <$fh>;
             close $fh;
         }
-        $parser->parse($input);
+        $template->process(\$input, \$output);
 
         # loop on multilingual text sections
         my $num = 0;
-        for my $section (grep $_->{lang}, @{$parser->{sections}}) {
+        for my $section (grep $_->{lang}, @{$template->{PARSER}->get_sections()}) {
             my $text = $section->{text};
             ++$num;
             print "$fname-$num\t$text\n" if $opts{v};

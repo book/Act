@@ -112,6 +112,9 @@ sub process
       global        => \%global,
     );
 
+    # parser sections are used by ttextract
+    $self->{PARSER}->reset_sections();
+
     # process and output
     my $ok;
     unless ($ok = $self->SUPER::process($filename, $self->{vars}, $output)) {

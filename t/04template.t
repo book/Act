@@ -6,77 +6,102 @@ use Act::Config;
 my @templates = (
     { in  => 'foo',
       out => 'foo',
+      sections => [ { text => 'foo' } ],
     },
     {
       var => { v => '<>&' },
       in  => '[% v %]',
       out => '<>&',
+      sections => [ { text => '[% v %]' } ],
     },
     {
       in  => '<t><fr>foo</fr></t>',
       out => 'foo',
+      sections => [ { text => '<fr>foo</fr>', lang => 1 } ],
     },
     {
       in  => '<t><en>foo</en></t>',
       out => '',
+      sections => [ { text => '<en>foo</en>', lang => 1 } ],
     },
     {
       in  => "<t><fr>foo</fr>\n<en>bar</en></t>",
       out => "foo\n",
+      sections => [ { text => "<fr>foo</fr>\n<en>bar</en>", lang => 1 } ],
     },
     {
       lang =>'en',
       in  => '<t><fr>foo</fr></t>',
       out => '',
+      sections => [ { text => '<fr>foo</fr>', lang => 1 } ],
     },
     {
       lang => 'en',
       in  => '<t><en>foo</en></t>',
       out => 'foo',
+      sections => [ { text => '<en>foo</en>', lang => 1 } ],
     },
     {
       lang => 'en',
       in  => "<t><fr>foo</fr>\n<en>bar</en></t>",
       out => 'bar',
+      sections => [ { text => "<fr>foo</fr>\n<en>bar</en>", lang => 1 } ],
     },
     {
       var => { v => 'foo' },
       in  => "bar\n  [% v %]  \nbaz",
       out => "bar\n  foo  \nbaz",
+      sections => [ { text => "bar\n  [% v %]  \nbaz" } ],
+   },
+    { # sections
+      in  => "A<t><fr>foo</fr></t>B<t><en>bar</en></t>C",
+      out => 'AfooBC',
+      sections => [ { text => 'A' },
+                    { text => '<fr>foo</fr>', lang => 1 },
+                    { text => 'B' },
+                   { text => '<en>bar</en>', lang => 1 },
+                    { text => 'C' },
+                  ],
     },
 );
 my @html_templates = (
     { in  => 'foo',
       out => 'foo',
+      sections => [ { text => 'foo' } ],
     },
     {
       in  => '<t><fr>foo</fr></t>',
       out => 'foo',
+      sections => [ { text => '<fr>foo</fr>', lang => 1 } ],
     },
     {
       var => { v => '<>&' },
       in  => '[% v %]',
       out => '&lt;&gt;&amp;',
+      sections => [ { text => '[% v %]' } ],
     },
     {
       var => { v =>  { w => '<>&' }},
       in  => '[% v.w %]',
       out => '&lt;&gt;&amp;',
+      sections => [ { text => '[% v.w %]' } ],
     },
     {
       var => { v => '<>&' },
       raw => 1,
       in  => '[% v %]',
       out => '<>&',
+      sections => [ { text => '[% v %]' } ],
     },
     {
       var => { v => 'foo' },
       in  => "bar\n  [% v %]  \nbaz",
       out => "bar foo baz",
+      sections => [ { text => "bar\n  [% v %]  \nbaz" } ],
     },
 );
 use Test::More;
-plan tests => 2 * (@templates + @html_templates) + 10;
+plan tests => 3 * (@templates + @html_templates) + 10;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
@@ -116,6 +141,7 @@ sub _ttest
     my $output;
     ok($template->process(\$t->{in}, \$output));
     is($output, $t->{out});
+    is_deeply($template->{PARSER}->get_sections, $t->{sections});
 }
 
 __END__

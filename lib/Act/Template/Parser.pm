@@ -4,6 +4,14 @@ use strict;
 use base qw(Template::Parser);
 use constant LANG_RE => qr{<([a-z]{2})>(.*?)</\1>}s;
 
+sub new
+{
+    my ($class, $options) = @_;
+    my $self = $class->SUPER::new($options);
+    $self->{gsections} = [];
+    return $self;
+}
+
 sub parse
 {
     my ($self, $text) = @_;
@@ -48,7 +56,12 @@ sub _tokenize
             if defined $2;
     }
     push @{$self->{sections}}, { text => $text } if $text;
+
+    $self->{gsections} = [ @{$self->{sections}} ]
+        unless @{$self->{gsections}};
 }
+sub get_sections   { shift->{gsections} }
+sub reset_sections { shift->{gsections} = [] }
 
 1;
 
