@@ -12,6 +12,10 @@ my $uri;
 $Request{r} = Test::MockObject->new;
 $Request{r}->mock( uri => sub { return $uri } );
 
+# create a fake config object
+$Config = Test::MockObject->new;
+$Config->mock( uri => sub { return $Request{conference} } );
+
 # make_uri
 my @t = (
   undef,  '',     {},           '/',

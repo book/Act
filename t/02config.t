@@ -18,6 +18,7 @@ my @simple = qw(
     email_sender_address
 );
 my @conf_simple = qw(
+    uri
     general_timezone
     talks_submissions_open
     talks_submissions_notify_address
@@ -37,7 +38,9 @@ _global_config($Config, 'global');
 
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");
-for my $conf (keys %{$Config->conferences}) {
+my %seen;
+for my $conf (values %{$Config->conferences}) {
+    next if $seen{$conf}++;
     my $cfg = Act::Config::get_config($conf);
     # global config may be overridden
     _global_config($cfg, $conf);

@@ -37,7 +37,7 @@ sub make_uri
     my ($action, %params) = @_;
 
     my $uri = $Request{conference}
-            ? "/$Request{conference}/$action"
+            ? join('/', '', $Config->uri, $action)
             : "/$action";
     return _build_uri($uri, %params);
 }
@@ -48,7 +48,7 @@ sub make_uri_info
     my ($action, $pathinfo) = @_;
 
     my $uri = $Request{conference}
-            ? "/$Request{conference}/$action"
+            ? join('/', '', $Config->uri, $action)
             : "/$action";
     $uri .= "/$pathinfo" if $pathinfo;
     return $uri;

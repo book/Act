@@ -24,7 +24,9 @@ sub load_configs
 
     # load conference-specific configuration files
     # their content may override global config settings
+    my %aliases;
     for my $conf (keys %{$GlobalConfig->conferences}) {
+        $GlobalConfig->conferences->{$conf} = $conf;
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, "$home/actdocs/$conf");
@@ -32,9 +34,20 @@ sub load_configs
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
             for keys %{$ConfConfigs{$conf}->rooms};
+        # alias on uri
+        if (my $uri = $ConfConfigs{$conf}->general_uri) {
+            $aliases{$uri} = $conf;
+            $ConfConfigs{$conf}->set(uri => $uri);
+        }
+        else {
+            $ConfConfigs{$conf}->set(uri => $conf);
+        }
         # general_conferences isn't overridable
         $ConfConfigs{$conf}->set(conferences => $GlobalConfig->conferences);
     }
+    # install aliases
+    @{$GlobalConfig->conferences}{keys %aliases} = values %aliases;
+
     # default current config (for non-web stuff that doesn't call get_config)
     $Config = $GlobalConfig;
 }
