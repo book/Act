@@ -16,8 +16,9 @@ my %dispatch = (
     # regular handlers
     search   => { handler => 'Act::Handler::User::Search' },
     register => { handler => 'Act::Handler::User::Register' },
-    newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
     user     => { handler => 'Act::Handler::User::Show' },
+    stats    => { handler => 'Act::Handler::User::Stats' },
+    newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
     
     # special stuff
     login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
