@@ -73,7 +73,7 @@ sub _load_config
     for my $lang (split /\s+/, $cfg->general_languages) {
         my $section = join '_', 'language', $lang;
         my (%language, $err);
-        for my $key (qw(name date_format)) {
+        for my $key (qw(name date_format date_locale)) {
             my $s = join '_', $section, $key;
             my $value = $cfg->$s;
             if ($value) {
