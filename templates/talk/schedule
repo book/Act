@@ -3,6 +3,14 @@
    title = { en => 'Schedule', fr => 'Emploi du temps' }
 %]
 
+[% IF not ( global.request.user.is_orga or global.config.talks_show_schedule ) %]
+<t>
+ <en>The schedule is not ready to be seen.
+ </en>
+ <fr>Les horaires ne sont pas encore finalisés.
+ </fr>
+</t>
+[% ELSE %]
 [% FOREACH d IN table.keys %]
 <p>Date [% d %]</p>
 <table border=1>
@@ -29,5 +37,6 @@
  [% END %]
 </table>
 
+[% END %]
 [% END %]
 [% END %]
