@@ -1,3 +1,4 @@
+[% PROCESS common %]
 [% WRAPPER ui
    title = { en => 'Main private page', fr => 'Page personnelle' },
 %]
@@ -60,10 +61,7 @@
           <br />
           <ul>
            [% FOR t = talks %]
-             <li><a href="[% make_uri_info('talk', t.talk_id) %]">
-                 [% "<b>"  IF t.accepted %][% t.title %][% "</b>" IF t.accepted %]</a>
-             (<a href="[% make_uri('edittalk', 'talk_id', t.talk_id) %]"><t>
-             <en>edit</en><fr>modifier</fr></t></a>)</li>
+             <li>[% talk_link(t) %] [% talk_modify_link(t) %]</li>
            [% END %]
           </ul>
         </li>

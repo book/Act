@@ -6,7 +6,7 @@
 [% MACRO talk_modify_link(talk)
    BLOCK;
      IF global.request.user.is_orga
-        || ( global.config.talks_submissions_open AND global.request.user.user_id == talk.user_id )
+        || ( (global.config.talks_submissions_open OR global.config.talks_edition_open ) AND global.request.user.user_id == talk.user_id )
 %]
 (<a href="[% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]"><t>
 <en>edit</en><fr>modifier</fr></t></a>)

@@ -34,10 +34,6 @@ my $form = Act::Form->new(
 
 sub handler {
 
-    unless ($Config->talks_submissions_open or $Request{user}->is_orga) {
-        $Request{status} = NOT_FOUND;
-        return;
-    }
     my $template = Act::Template::HTML->new();
     my $fields;
     my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
@@ -53,6 +49,13 @@ sub handler {
         conf_id   => $Request{conference},
     ) if exists $Request{args}{talk_id};
 
+    # can this user edit/create this talk?
+    unless ($Config->talks_submissions_open or $Config->talks_edition_open
+        or $Request{user}->is_orga )
+    {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     # cannot edit non-existent talks
     if( exists $Request{args}{talk_id} and not defined $talk ) {
         $Request{status} = NOT_FOUND;
