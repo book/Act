@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 67;
+use Test::More tests => 96;
 
 my @tests = (
 { profile => {
@@ -34,6 +34,61 @@ my @tests = (
       fields => { r1 => 1, r3 => 3, r2 => '' },
       valid  => 0,
       invalid => { r2 => 'required' },
+    },
+  ],
+},
+{ profile => {
+      dependencies => { r1 => [ qw(r2 r3) ] },
+  },
+  inputs => [
+    { input  => {  },
+      fields => { r1 => undef, r2 => undef, r3 => undef },
+      valid  => 1,
+    },
+    { input  => { r1 => 1, r2 => 2, r3 => 3 },
+      fields => { r1 => 1, r2 => 2, r3 => 3 },
+      valid  => 1,
+    },
+    { input  => { r1 => 1 },
+      fields => { r1 => 1, r2 => undef, r3 => undef },
+      valid  => 0,
+      invalid => { r2 => 'required', r3 => 'required' },
+    },
+    { input  => { r1 => 1, r2 => 2 },
+      fields => { r1 => 1, r2 => 2, r3 => undef },
+      invalid => { r3 => 'required' },
+      valid  => 0,
+    },
+  ],
+},
+{ profile => {
+      dependencies => { r1 => [ qw(r2) ],
+                        r3 => [ qw(r4) ],
+                      },
+  },
+  inputs => [
+    { input  => { r1 => 1 },
+      fields => { r1 => 1, r2 => undef, r3 => undef, r4 => undef },
+      valid  => 0,
+      invalid => { r2 => 'required' },
+    },
+    { input  => { r1 => 1, r2 => 2 },
+      fields => { r1 => 1, r2 => 2, r3 => undef, r4 => undef },
+      valid  => 1,
+    },
+    { input  => { r1 => 1, r2 => 2, r3 => 3 },
+      fields => { r1 => 1, r2 => 2, r3 => 3, r4 => undef },
+      valid  => 0,
+      invalid => { r4 => 'required' },
+    },
+    { input  => { r1 => 1, r3 => 3 },
+      fields => { r1 => 1, r2 => undef, r3 => 3, r4 => undef },
+      valid  => 0,
+      invalid => { r2 => 'required', r4 => 'required' },
+    },
+    { input  => { r1 => 1, r2 => 2, r3 => 3, r4 => 4 },
+      fields => { r1 => 1, r2 => 2, r3 => 3, r4 => 4 },
+      valid  => 1,
     },
   ],
 },

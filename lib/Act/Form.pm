@@ -24,16 +24,22 @@ sub validate
 
     # check required fields
     if (my $required = $self->_profile_fields('required')) {
-        for my $field (@$required) {
-            $self->_set_field($field, $input->{$field});
-            $self->{invalid}{$field} = 'required'
-                unless $self->{fields}{$field};
-        }
+        $self->_required_fields($required, $input);
     }
     # optional fields
     if (my $optional = $self->_profile_fields('optional')) {
-        for my $field (@$optional) {
+        $self->_optional_fields($optional, $input);
+    }
+    # check dependencies
+    if ($self->{profile}{dependencies}) {
+        while (my ($field, $deps) = each %{$self->{profile}{dependencies}}) {
             $self->_set_field($field, $input->{$field});
+            if ($self->{fields}{$field}) {
+                $self->_required_fields($deps, $input);
+            }
+            else {
+                $self->_optional_fields($deps, $input);
+            }
         }
     }
     # check constraints
@@ -68,6 +74,24 @@ sub _profile_fields
     $fields = [ $fields ] if $fields && !ref($fields);
     return $fields;
 }    
+sub _required_fields
+{
+    my ($self, $fields, $input) = @_;
+
+    for my $field (@$fields) {
+        $self->_set_field($field, $input->{$field});
+        $self->{invalid}{$field} = 'required'
+            unless $self->{fields}{$field};
+    }
+}
+sub _optional_fields
+{
+    my ($self, $fields, $input) = @_;
+
+    for my $field (@$fields) {
+        $self->_set_field($field, $input->{$field});
+    }
+}
 sub _set_field
 {
     my ($self, $field, $value) = @_;
@@ -95,6 +119,10 @@ Act::Form - Form object class
   my $form = Act::Form->new(
     required    => [ qw(name email) ],
     optional    => [ qw(timezone homepage zip) ],
+    dependencies => {
+       # If cc_no is entered, make cc_type and cc_exp required
+       cc_no => [ qw( cc_type cc_exp ) ],
+    },
     constraints => {
        email => 'email',
        zip   => 'numeric',
@@ -144,6 +172,16 @@ A simple scalar can be used instead of an array reference when
 only one field needs to be specified:
 
    required => 'field'
+
+The dependencies key lists fields required only if a specific
+field value isn't empty.
+
+    dependencies => {
+      field2   => [ 'field5', 'field6' ]
+    }
+
+Field names used in dependencies do not need to be added
+to the profile's optional fields array.
 
 The constraints key introduces specific validation schemes.
 
