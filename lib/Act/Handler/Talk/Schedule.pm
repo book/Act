@@ -13,7 +13,10 @@ sub handler {
     for ( sort {
         DateTime->compare( $a->datetime, $b->datetime )
         || $a->duration <=> $b->duration 
-    } @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
+    }
+    # default date
+    map { $_->{datetime} ||= DateTime::Format::Pg->parse_timestamp($Config->talks_start_date); $_ }
+    @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
         my $day = $_->datetime->ymd; # current day
         $table{$day} ||= [];         # create table structure
         $room{$_->room}++;           # compute the room list
