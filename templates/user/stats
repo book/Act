@@ -4,7 +4,7 @@
      fr => "Statistiques pour ${global.conference.name}"
      it => "Statistiche per ${global.conference.name}"
      pt => "Estatísticas da ${global.conference.name}"
-     de => 'Statistiken für ${global.conference.name'
+     de => "Statistiken für ${global.conference.name}"
    }
 %]
 
