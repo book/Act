@@ -80,7 +80,7 @@ sub _dispatch
     my ($r, $handler) = @_;
 
     # per-request initialization
-    $Request{args} = { map { $_ => $r->param($_) } $r->param };
+    $Request{args} = { map { $_ => $r->param($_) || '' } $r->param };
     _set_language();
 
     # set up content handler
