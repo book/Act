@@ -29,6 +29,7 @@ If no entry is found, return C<undef>.
 
 sub new {
     my ( $class, %args ) = @_;
+    $class->init();
 
     return bless {}, $class unless %args;
 
@@ -54,6 +55,7 @@ create() will return undef.
 sub create {
     my ($class, %args ) = @_;
     $class = ref $class  || $class;
+    $class->init();
 
     my $item = $class->new( %args );
     return undef if $item;
@@ -92,7 +94,10 @@ sub init {
     $sth->finish;
 
     # create all the accessors at once
-    for my $a (@$fields) { print $a,$/;*{"${class}::$a"} = sub { $_[0]{$a} } }
+    for my $a (@$fields) { *{"${class}::$a"} = sub { $_[0]{$a} } }
+
+    # let's disappear ;-)
+    *{"${class}::init"} = sub {};
 }
 
 =back
