@@ -3,6 +3,7 @@
 %]
 
 <center>
+[% FOREACH k=global.request.args.keys %][% k %] => [% global.request.args.$k %]<br />[% END %]
 <form method="post" action="/[% global.request.conference %]/search/" enctype="application/x-www-form-urlencoded">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
@@ -14,7 +15,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="name"  value="[% name %]" size="25" maxlength="60" />
+      <input type="text" name="name"  value="[% global.request.args.name %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
@@ -23,7 +24,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="town"  value="[% town %]" size="25" maxlength="60" />
+      <input type="text" name="town"  value="[% global.request.args.town %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
@@ -33,9 +34,9 @@
    <td>&nbsp;</td>
    <td>
       <select name="country">
-         <option value=""[% ' selected="selected"' UNLESS country %]><t><en>Any</en><fr>Tous</fr></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.country %]><t><en>Any</en><fr>Tous</fr></t></option>
          [% FOREACH c = countries %]
-            <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+            <option value="[% c.iso %]"[% ' selected="selected"' IF global.request.args.country == c.iso %]>[% c.name %]</option>
          [% END %]
       </select>
    </td>
@@ -47,9 +48,9 @@
    <td>&nbsp;</td>
    <td>
       <select name="pm_group">
-         <option value=""[% ' selected="selected"' UNLESS pm_group %]><t><en>Any</en><fr>Tous</fr></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.pm_group %]><t><en>Any</en><fr>Tous</fr></t></option>
          [% FOREACH g = pm_groups %]
-            <option value="[% g %]"[% ' selected="selected"' IF pm_group == g %]>[% g %]</option>
+            <option value="[% g %]"[% ' selected="selected"' IF global.request.args.pm_group == g %]>[% g %]</option>
          [% END %]
       </select>
    </td>

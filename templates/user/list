@@ -13,7 +13,7 @@
  </t>
 </p>
 
-[% IF users.keys %]
+[% IF users.size %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
  <th><t><en>Name</en><fr>Nom</fr></t></th>
@@ -48,7 +48,7 @@
       [% END %]
    </td>
    <td align="center">
-      [% u.country %]
+      [% u.country %]  [% countries_iso.${u.country}.${global.request.language} %]
    </td>
    <td align="center">
       [%- IF u.pm_group %]
