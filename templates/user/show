@@ -138,9 +138,9 @@
 	  [% END %]
     [% ELSE %]
 	  [% IF talks.size == 1 %]
-	     <t><en>Accepted Talk</en> <fr>Présentation Acceptée</fr></t>
+	     <t><en>Accepted Talk</en> <fr>Présentation acceptée</fr></t>
 	  [% ELSE %]
-	     <t><en>Accepted Talks</en> <fr>Présentations Acceptées</fr></t>
+	     <t><en>Accepted Talks</en> <fr>Présentations acceptées</fr></t>
       [% END %]
       </td>
     [% END %]
