@@ -1,0 +1,18 @@
+[% WRAPPER ui
+   title = { en => 'Registered!', fr => 'Inscrit !' },
+%]
+
+<p>
+ <t>
+  <en>
+   Congratulations, <b>[% login %]</b>, you are now registered.
+   Your password is <b>[% clear_passwd %]</b>.
+  </en>
+  <fr>
+   Bravo, <b>[% login %]</b>, vous êtes maintenant inscrit. Votre
+   mot de passe est <b>[% clear_passwd %]</b>.
+  </fr>
+ </t>
+</p>
+
+[% END %]

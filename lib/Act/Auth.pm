@@ -17,14 +17,15 @@ sub access_handler ($$)
 {
     my ($self, $r) = @_;
 
+    # set correct login script url
+    $r->dir_config(ActLoginScript => 
+              $Request{conference}
+            ? join('/', undef, $Request{conference}, LOGIN_PAGE)
+            : join('/', undef, LOGIN_PAGE));
+
     # disable authentication unless required
     # (Apache doesn't let us do it the other way around)
     if ($Request{private}) {
-        # set correct login script url
-        $r->dir_config(ActLoginScript => 
-                  $Request{conference}
-                ? join('/', undef, $Request{conference}, LOGIN_PAGE)
-                : join('/', undef, LOGIN_PAGE));
 
         # don't recognize_user
         $r->set_handlers(PerlFixupHandler  => [\&OK]);
@@ -55,7 +56,7 @@ sub authen_cred ($$\@)
     my $user = Act::User->new( login => $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
     # compare passwords
-    $sent_pw eq $user->{passwd}
+    crypt(lc($sent_pw), '/') eq $user->{passwd}
         or do { $r->log_error("$prefix Bad password"); return undef; };
 
     # user is authenticated - create a session id
@@ -82,7 +83,10 @@ sub login_form_handler
     # process the login form template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        url => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
+        destination => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
+        action      =>  $Request{conference}
+            ? join('/', undef, $Request{conference}, 'LOGIN')
+            : join('/', undef, 'LOGIN'),
     );
     $template->process('login.html');
 }

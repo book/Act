@@ -1,1 +1,2 @@
 <span class="error">[% err_id %]: [% content %]</span>
+<br />

@@ -12,8 +12,12 @@ use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
+    # regular handlers
+    search   => { handler => \&Act::Handler::User::search },
+    register => { handler => \&Act::Handler::User::register },
+
+    # special stuff
     login  => { handler => \&Act::Auth::login_form_handler, status => DONE },
-    search => { handler => \&Act::Handler::User::search },
 
 # for testing...
     coucou => {
@@ -71,9 +75,7 @@ sub trans_handler
     }
     # pseudo-static pages
     if ($r->uri =~ /\.html$/) {
-        $r->handler("perl-script");
-        $r->push_handlers(PerlHandler => 'Act::Static');
-        return OK;
+        return _dispatch($r, 'Act::Static');
     }
     # we're looking for /x/y where
     # x is a conference name, and
@@ -82,12 +84,20 @@ sub trans_handler
         $Request{action}     = shift @c;
         $Request{path_info}  = join '/', @c;
         $Request{private} = $dispatch{$Request{action}}{private};
-        $r->handler("perl-script");
-        $r->push_handlers(PerlHandler => 'Act::Dispatcher');
-        return OK;
+        return _dispatch($r, 'Act::Dispatcher');
     }
     return DECLINED;
 }
+
+sub _dispatch
+{
+    my ($r, $handler) = @_;
+
+    $Request{args} = $r->method eq 'POST' ? $r->content : $r->args;
+    $r->handler("perl-script");
+    $r->push_handlers(PerlHandler => $handler);
+    return OK;
+}    
 
 # response handler - it all starts here.
 sub handler

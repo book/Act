@@ -16,8 +16,8 @@
 [% "($username)" IF username %]
 <!-- logout form -->
 [% ELSE %]
-<form method="post" action="/LOGIN">
-<input type="hidden" name="destination" value="[% url %]">
+<form method="POST" action="[% action %]">
+<input type="hidden" name="destination" value="[% destination %]">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">

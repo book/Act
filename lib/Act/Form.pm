@@ -111,6 +111,7 @@ Act::Form - Form object class
           }
           else {
               $template->variables(errors => $form->{invalid});
+              $fields = $form->{fields};
           }
       }
       else {                      # display initial form

@@ -5,6 +5,7 @@ use vars qw(@ISA @EXPORT);
 @ISA    = qw(Exporter);
 @EXPORT = qw(make_uri self_uri);
 
+use Crypt::RandPasswd ();
 use URI::Escape ();
 use Act::Config;
 
@@ -36,6 +37,13 @@ sub _build_uri
                sort keys %params;
     }
     return $uri;
+}
+
+sub gen_password
+{
+   my $clear_passwd = Crypt::RandPasswd->letters( 7, 7 );
+   my $crypt_passwd = crypt( $clear_passwd, '/' );
+   return ($clear_passwd, $crypt_passwd);
 }
 
 1;

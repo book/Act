@@ -1,4 +1,4 @@
-[% FOREACH err_id = global.errors %]
+[% FOREACH err_id = errors %]
   [% WRAPPER error_ui %]
   [% msgs.$err_id.${global.request.language} %]
   [% END %]
