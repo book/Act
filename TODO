@@ -1,21 +1,19 @@
 TODO
 ====
 
-- faire fonctionner le site en multiconference
-
 - gestion de l'inscription :
-  + sur sa page main, le WebUser doit voir :
-    - les conférences Act auquelles il a participé/est inscrit
-      (possibilité de désincription pour celle qui sont ouvertes
-      et pour lesquelles il n'est pas committed)
-    - les conférences Act ouvertes auxquelles il peut s'inscrire
-  + le handler Act::Handler::Register traite le cas du user loggé
-    en le redirigeant dans main. Il est possible de gérer l'inscription
-    automatiquement à ce moment-là
-  + un user sans talk et n'ayant pas payé devrait pouvoir se désincrire
-    depuis sa page main
   + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
     les participants qui ne sont pas venus
+
+- page de modification du mot de passe
+
+- possibilite (dans act.ini) de rendre visible les talks non acceptés
+  (demandé par ambs sur irc)
+
+- galerie de photos
+  + upload par les photographes, annotation
+  + redimensionnement des photos trop grosses ?
+  + outil de recherche (par conf, par auteur, par mots-clé ?)
 
 - un user doit pouvoir accéder à une page perso HORS CONFERENCE,
   par exemple, pour éditer sa bio, changer sa photo, s'inscrire
@@ -30,6 +28,9 @@ TODO
 
 - template générique pour les factures, modifiable localement par chaque
   conf
+  + le template de base est "blanc", avec un autre template pour
+    contenir les informations à afficher (les mêmes pour toutes les
+    conferences)
 
 - les photos doivent être stockées dans endroit commun ?
   ou est-ce qu'on permet à un user d'avoir une photo différente par
