@@ -197,10 +197,23 @@ sub get_items {
 
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute(
-        map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
-        map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
-    );
+    my @SQLPARAMS = (
+         map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
+         map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~
+y/?// } keys %args ),
+     );
+    if (0) {  # DEBUG
+        my $s = $SQL;
+        my $i = 0;
+        while ((my $pos = index($s, '?')) > 0) {
+            substr($s, $pos, 1) = "'" . $SQLPARAMS[$i++] . "'";
+        }
+        $s =~ s/,/,\n/g;
+        warn("$s\n");
+    }
+    $sth->execute(@SQLPARAMS);
+
+
 
     my ($items, $item) = [ ];
     push @$items, bless $item, $class

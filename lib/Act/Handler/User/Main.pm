@@ -1,5 +1,6 @@
 package Act::Handler::User::Main;
 
+use strict;
 use Act::Config;
 use Act::Template::HTML;
 
@@ -14,19 +15,26 @@ sub handler {
                          or $Request{user}->is_orga;
     my $talks = $Request{user}->talks(%t);
 
-    # this guy's participations
-    my @parts;
-    for my $p (@{$Request{user}->participations}) {
-        next if $p->{conf_id} eq $Request{conference};
-        my $cfg = Act::Config::get_config($p->{conf_id});
-        push @parts, {
-            url  => '/' . $cfg->uri . '/',
-            name => $cfg->name->{$Request{language}},
+    # all the Act conferences
+    my %confs;
+    for my $conf_id (keys %{ $Config->conferences }) {
+        next if $conf_id eq $Request{conference};
+        warn "doing $conf_id";
+        my $cfg = Act::Config::get_config($conf_id);
+        $confs{$conf_id} = {
+            conf_id => $conf_id,
+            url     => '/' . $cfg->uri . '/',
+            name    => $cfg->name->{$Request{language}},
+            participation => 0,
         };
-    } 
+    }
+    # add this guy's participations
+    $confs{$_->{conf_id}}{participation} = 1
+      for @{$Request{user}->participations};
+
     $template->variables(
         talks => $talks,
-        participations => \@parts,
+        conferences => [ values %confs ],
     );
     $template->process('user/main');
 }

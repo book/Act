@@ -86,13 +86,13 @@
    <li><a href="[% make_uri('logout') %]"><t><en>log out</en><fr>vous déconnecter</fr></t></a></li>
    </ul>
 
-[% IF participations.size %]
+[% IF conferences.size %]
 <p><b><t>
  <fr>Autres conférences Act&nbsp;:</fr>
  <en>Other Act conferences:</en>
 </t></b></p>
 <ul>
-[% FOREACH p = participations %]<li><a href="[% p.url %]">[% p.name %]</a></li>[% END %]
+[% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a></li>[% END %]
 </ul>
 [% END %]
 
