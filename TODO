@@ -23,6 +23,12 @@ TODO
 - template générique pour les factures, modifiable localement par chaque
   conf
 - bio multilingue
+- les photos doivent être stockées dans endroit commun ?
+  ou est-ce qu'on permet à un user d'avoir une photo différente par
+  conférence ? dans ce cas, doit-il l'uploader chaque année ?
+
+- dans conf/act.ini, rajouter un [general] finished = 1 quand la conf
+  est terminée. Ca devrait simplifier les affichages de payments.
 
 - possibilité pour l'utilisateur d'afficher autant de users qu'il veut
   sur la page de recherche (genre 50, all), etc.
