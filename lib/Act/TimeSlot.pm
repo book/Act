@@ -21,6 +21,7 @@ sub get_items {
         }
         @{ Act::Event->get_events( %args_event ) },
         map { $_->{user} = Act::User->new( user_id => $_->user_id ); $_ }
+        grep !$_->{lightning},  # FIXME
         @{ Act::Talk->get_talks( %args_talk ) }
     ];
 }
