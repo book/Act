@@ -38,7 +38,7 @@
       </li>
   [% END %]
   [% IF url_talk %]
-      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en></t>
+      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en></t>
          <a href="[% url_talk %]">[% url_talk %]</a>
       </li>
   [% END %]
