@@ -90,7 +90,7 @@
         [% talk_modify_link(t) %]
     </td>
     <td nowrap="nowrap">[% IF t.lightning %]
-          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</itP</t>
+          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</it></t>
         [% ELSE %]
          [% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t>
         [% END %]
