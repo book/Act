@@ -11,9 +11,10 @@ sub handler
     my $talk = Act::Talk->new(talk_id => $Request{path_info});
 
     # available only if submissions open or organizer
-    unless ($talk && $talk->accepted
-            || ($Request{user} && $Request{user}->is_orga)
-            || ($Request{user}->user_id == $talk->user_id) )
+    unless ($talk
+            && ( $talk->accepted
+                 || ($Request{user} && $Request{user}->is_orga)
+                 || ($Request{user} && $Request{user}->user_id == $talk->user_id) ) )
     {
         $Request{status} = NOT_FOUND;
         return;
