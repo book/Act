@@ -96,7 +96,7 @@ sub load_configs
                  . ( $ConfConfigs{$conf}->get("general_languages"))[0] );
         }
         $ConfConfigs{$conf}->languages->{$_} = $Languages{$_}
-            for keys %{$ConfConfigs{$conf}->languages};
+            for keys %Languages;
         # conf <=> uri mapping
         my $uri = $ConfConfigs{$conf}->general_uri || $conf;
         $uris{$uri} = $conf;
