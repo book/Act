@@ -16,6 +16,7 @@ sub handler {
     my $limit = $Config->general_searchlimit;
     my $users = %{$Request{args}}
               ? Act::User->get_users( %{$Request{args}},
+                  $Request{conference} ? ( conf_id => $Request{conference} ) : (),
                   limit => $limit + 1, offset => $offset  )
               : [];
 
