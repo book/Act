@@ -3,6 +3,7 @@
    title = { en => title, fr => title }
 %]
 
+<p>
 <b><t>
   <en>By</en>
   <fr>Par</fr>
@@ -34,16 +35,16 @@
    <t><en>minutes</en><fr>minutes</fr></t><br />
 [% END %]
 
-[% IF global.request.user.is_orga AND comment %]
+[% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
+      AND comment %]
 <b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr></t></b>
 [% comment %]
 [% END %]
-<br />
-
+</p>
 [% IF url_abstract || url_talk %]
- <t>  <en>You can find more information on the speaker's site:</en>
+<p> <t>  <en>You can find more information on the speaker's site:</en>
       <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
- </t>
+ </t></p>
  <ul>
   [% IF url_abstract %]
       <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en></t>
@@ -58,8 +59,8 @@
  </ul>
 [% END %]
 
-<br />
+<p>
 [% abstract | html_line_break %]
-
+</p>
 [%END %]
 
