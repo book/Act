@@ -44,7 +44,13 @@ sub handler
                 $fields->{passwd} = $crypt_passwd;
 
                 # insert user in database
-                my $user = Act::User->create(%$fields);
+                # and participation to this conference
+                my $user = Act::User->create(
+                    %$fields,
+                    participation => { },
+                );
+
+                # display "added page"
                 $template->variables(
                     clear_passwd => $clear_passwd,
                     %$fields

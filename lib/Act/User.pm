@@ -116,6 +116,25 @@ sub participation {
     return $participation;
 }
 
+sub create {
+    my ($class, %args)  = @_;
+    $class = ref $class || $class;
+    $class->init();
+
+    my $part = delete $args{participation};
+    my $user = $class->SUPER::create(%args);
+    if ($user && $part && $Request{conference}) {
+        @$part{qw(conf_id user_id)} = ($Request{conference}, $user->{user_id});
+        my $SQL = sprintf "INSERT INTO participations (%s) VALUES (%s);",
+                          join(",", keys %$part), join(",", ( "?" ) x keys %$part);
+        my $sth = $Request{dbh}->prepare_cached($SQL);
+        $sth->execute(values %$part);
+        $sth->finish();
+        $Request{dbh}->commit;
+    }
+    return $user;
+}
+
 1;
 
 __END__
