@@ -1,5 +1,30 @@
+Install (or cvs checkout) Act in a directory. In this document we'll
+use /home/act, and refer to it as Act's home directory.
 
-There is no Act/ directory in lib/, how will Apache find the modules?
+First thing is to enable Perl (and mod_perl) to find the Act modules
+and to map Act::Foo to /home/act/lib/Foo.pm.
 
 mkdir ~/lib; ln -s .../conferences/lib Act; export PERL5LIB=~/lib
 
+Act needs to know its home directory so that it can find its
+config file. This is done by setting the ACTHOME environment variable:
+
+export ACTHOME=/home/act
+
+Make sure both ACTHOME and PERL5LIB are set and exported when
+running httpd.
+
+Next, define a virtual host in your Apache configuration file
+(httpd.conf) for Act. Here's an example:
+
+<VirtualHost *>
+  ServerName   localhost
+  ServerAdmin  webmaster@example.com
+  DocumentRoot /home/act/wwwdocs
+  Include      /home/act/conf/httpd.conf
+</VirtualHost>
+
+For code development it is useful to install the Apache::Reload
+modules, and add this to the above VirtualHost directives:
+
+  PerlSetVar ReloadModules "Act::*"
