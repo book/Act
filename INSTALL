@@ -25,6 +25,31 @@ Next, define a virtual host in your Apache configuration file
 </VirtualHost>
 
 For code development it is useful to install the Apache::Reload
-modules, and add this to the above VirtualHost directives:
+module. Enable it in httpd.conf (outside of any VirtualHost
+containers):
+
+PerlModule Apache::Reload
+PerlInitHandler Apache::Reload
+PerlSetVar ReloadAll Off
+
+Then and add this inside Act's VirtualHost container:
 
   PerlSetVar ReloadModules "Act::*"
+
+If you don't want to mess with name-based virtual hosts and DNS,
+an easy setup is to use a port-based virtual host:
+
+Listen 9000
+<VirtualHost *:9000>
+  Port 9000
+  ServerName   localhost
+  ServerAdmin  webmaster@example.com
+  DocumentRoot /home/act/wwwdocs
+  Include      /home/act/conf/httpd.conf
+</VirtualHost>
+
+
+Next, create a local configuration file in /home/act/conf/local.ini.
+This file is not part of the distribution: its contents override
+the global settings in /home/act/conf/act.ini. If you have no need
+to override these standard settings, just create an empty file.
