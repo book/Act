@@ -4,7 +4,8 @@
        fr => 'Déconnexion',
        it => 'Uscita dal sistema',
        pt => 'Sair'
-   }
+       de => 'Logout',
+}
 %]
 <center>
 
@@ -22,6 +23,9 @@
  <pt>
    Acabou de sair do sistema, e a sua informação foi apagada do browser.
  </pt>
+ <de>
+   Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht.
+ </de>
 </t>
 </font>
 

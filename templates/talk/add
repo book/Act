@@ -4,6 +4,7 @@
      fr => 'Soumettre/Modifier une présentation',
      it => 'Inviare/Modificare un intervento',
      pt => 'Submeter/Editar uma apresentação'
+     de => 'Vortrag eingeben/bearbeiten', 
    }
 %]
 
@@ -17,42 +18,49 @@
          fr => "L'utilisateur est obligatoire"
          it => "Dovete indicare un utente"
          pt => "Deve especificar um utilizador"
+	 de => "Es muss eine UserIn angegeben werden"
      },
      ERR_TITLE => {
          en => "You must enter a title for the talk"
          fr => "Le titre est obligatoire"
          it => "Il titolo è obbligatorio"
          pt => "O título da apresentação é obrigatório"
+	 de => "Titel des Vortrages fehlt"
      },
      ERR_ABSTRACT => {
          en => "You must provide an abstract"
          fr => "Le résumé est obligatoire"
          it => "L'abstract è obbligatorio"
          pt => "Deve introduzir um resumo da apresentação"
+	 de => "Kurzbeschreibung fehlt"
      },
      ERR_DATE => {
          en => "The supplied date is invalid"
          fr => "La date fournie est invalide"
          it => "La data indicata non è valida"
          pt => "A data indicada não é válida"
+	 de => "Das Datum ist ungültig"
      },
      ERR_TIME => {
          en => "The supplied time is invalid"
          fr => "L'heure fournie est invalide"
          it => "L'ora indicata non è valida"
          pt => "A hora indicada não é válida"
+	 de => "Die Uhrzeit ist ungültig"
      },
      ERR_DATERANGE => {
          en => "The date/time is out of range"
          fr => "Date/heure hors limites"
          it => "La data o l'ora sono fuori dai limiti"
          pt => "A data ou hora indicadas estão fora dos limites"
+	 de => "Das Datum bzw die Uhrzeit ist ausserhalb des gültigen Bereichs"
      },
      ERR_DURATION => {
          en => "Please choose a duration",
          fr => "Vous devez choisir une durée"
          it => "Dovete indicare una durata"
          pt => "Deve escolher uma duração"
+	 de => "Bitte eine Dauer angeben"
      },
      ERR_URL_ABSTRACT => {
          en => "Abstract URL is not a valid URL",
@@ -65,12 +73,14 @@
          fr => "L'URL de la présentation n'est pas une URL valide"
          it => "La URL indicata per l'intervento non è valida"
          pt => "O URL indicado para a apresentação não é válida"
+	 de => "Die URL ist nicht gültig"
      },
      ERR_ROOM => {
          en => "Incorrect room submitted",
          fr => "Salle incorrecte",
          it => "La stanza indicata non è valida"
          pt => "A sala indicada não é válida"
+	 de => "Falsche Raumnummer"
      },
   }
 %]
@@ -83,7 +93,7 @@
 [% END %]
 [% IF talk_id %]
 <p>
- <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt></t>
+ <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><de>Anzeigen</de></t>
  <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
 </p>
 [% END %]
@@ -91,7 +101,7 @@
 <table border="0" cellpadding="0" cellspacing="10">
 [% IF global.request.user.is_orga %]
 <tr>
-  <td align="right"><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt></t></td>
+  <td align="right"><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de></t></td>
   <td>&nbsp;</td>
   <td>
     <select name="user_id">
@@ -105,7 +115,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Date</en><fr>Date</fr><pt>Data</pt><it>Data</it></t></td>
+  <td align="right"><t><en>Date</en><fr>Date</fr><pt>Data</pt><it>Data</it><de>Datum</de></t></td>
   <td>&nbsp;</td>
   <td>
    <select name="date">
@@ -114,9 +124,9 @@
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
     </select>
-   <t><en>Time</en><fr>Heure</fr><pt>Hora</pt><it>Ora</it></t>
+   <t><en>Time</en><fr>Heure</fr><pt>Hora</pt><it>Ora</it><de>Uhrzeit</de></t>
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   <t><en>Room</en><fr>Salle</fr><pt>Sala</pt><it>Stanza</it></t>
+   <t><en>Room</en><fr>Salle</fr><pt>Sala</pt><it>Stanza</it><de>Raum</de></t>
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
@@ -127,7 +137,7 @@
 </tr>
 [% END %]  
 <tr>
-  <td align="right"><t><en>Title</en><fr>Titre</fr><pt>Título</pt><it>Titolo</it></t></td>
+  <td align="right"><t><en>Title</en><fr>Titre</fr><pt>Título</pt><it>Titolo</it><de>Titel</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
@@ -139,6 +149,7 @@
      <fr>Résumé<br />(texte brut)</fr>
      <pt>Resumo<br />(texto puro)</pt>
      <it>Abstract<br />(testo semplice)</it>
+     <de>Kurzbeschreibung<br />(nur Text)</de>
   </t></td>
   <td>&nbsp;</td>
   <td>
@@ -146,21 +157,21 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr><pt>URL do resumo</pt><it>URL dell'abstract</it></t></td>
+  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr><pt>URL do resumo</pt><it>URL dell'abstract</it><de>URL Kurzbeschreibung</t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Talk URL</en><pt>URL da apresentação</pt><fr>URL présentation</fr><it>URL dell'intervento</it></t></td>
+  <td align="right"><t><en>Talk URL</en><pt>URL da apresentação</pt><fr>URL présentation</fr><it>URL dell'intervento</it><de>URL Vortrag</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><pt>Duração</pt><it>Durata</it></t></td>
+  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><pt>Duração</pt><it>Durata</it><de>Dauer</de></t></td>
   <td>&nbsp;</td>
   <td>
   [% IF global.request.user.is_orga %]
@@ -175,25 +186,27 @@
      <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minuti.</it>
      <pt>As durações standard para a [% global.conference.name %] são:
      <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutos.</pt>
+     <de>Standardlängen sind: <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> Minuten.
+     </de>
     </t><br />
     <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="3" />
     <input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] />
-    <t><fr>Communication éclair</fr><en>Lightning talk</en><it>Intervento lampo</it><pt>Apresentação relâmpago</pt></t>
+    <t><fr>Communication éclair</fr><en>Lightning talk</en><it>Intervento lampo</it><pt>Apresentação relâmpago</pt><de>Lightning talk</de></t>
   [% ELSE %]
     [% IF talk_id %]
       [% IF duration == 'lightning' %]
-        <t><en>Lightning talk</en><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><it>Intervento lampo</it></t>
+        <t><en>Lightning talk</en><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><it>Intervento lampo</it><de>Lightning talk</de></t>
       [% ELSE %]
-        [% duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t>
+        [% duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
       [% END %]
     [% ELSE %]
       <select name="duration">
        <option value=""[% ' selected="selected"' UNLESS duration %]></option>
        <option value="lightning"[% ' selected="selected"' IF lightning %] />
-          <t><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><en>Lightning talk</en><it>Intervento lampo</it></t>
+          <t><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><en>Lightning talk</en><it>Intervento lampo</it><de>Lightning talk</de></t>
        </option>
        [% FOREACH d = global.config.talks_durations.keys.nsort %]
-       <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it></t></option>
+       <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it><de>Minuten</de></t></option>
        [% END %]
        <t>
        <fr>Si les durées proposées ne conviennent pas, utiliser le champ
@@ -207,6 +220,8 @@
        commenti.</it>
        <pt>Se as durações propostas não se adequam à sua apresentação,
        use o campo de comentários para indicar a duração desejada.</pt>
+       <de>Wenn die vorgeschlagenen Zeiten nicht passen, bitte im
+       Kommentarfeld die gewünschte Dauer eingeben.</de>
        </t>
      [% END %]
    [% END %]
@@ -214,7 +229,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr><it>Commenti</it><pt>Comentário</pt></t></td>
+  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr><it>Commenti</it><pt>Comentário</pt><de>Kommentare</de></t></td>
   <td>&nbsp;</td>
   <td>
     <t>
@@ -228,33 +243,35 @@
     aggiuntive sull'intervento agli organizzatori.</it>
     <pt>O campo de comentários é usado para comunicar informação extra
     sobre esta apresentação aos organizadores.</pt>
+    <de>Das Kommentarfeld kann verwendet werden, um weitere Informationen
+    o.ä. an die Organisatoren weiterzuleiten.</de>
     </t><br />
     <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Status</en><fr>État</fr><pt>Estado</pt><it>Stato</it></t></td>
+  <td align="right" valign="top"><t><en>Status</en><fr>État</fr><pt>Estado</pt><it>Stato</it><de>Status</de></t></td>
   <td>&nbsp;</td>
   <td>
     [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
-    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></t><br />
+    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></de>angenommen</de></t><br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-    <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it></t><br />
+    <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de></t><br />
     [% ELSE %]
       [% IF accepted %]
-        <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it></t><br />
+        <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>Angenommen</de></t><br />
         <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it></t><br />
+        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>besteätigt</de></t><br />
       [% ELSE %]
-        <t><en>Pending</en><fr>En attente</fr><it>In attesa</it><pt>Pendente</pt></t>
+        <t><en>Pending</en><fr>En attente</fr><it>In attesa</it><pt>Pendente</pt><de>in Bearbeitung</de></t>
       [% END %]
     [% END %]
    </td>
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="<t><en>Submit this talk</en><pt>Submeter</pt><fr>Soumettre</fr><it>Invia</it></t>" />
+      <input type="submit" name="submit" value="<t><en>Submit this talk</en><pt>Submeter</pt><fr>Soumettre</fr><it>Invia</it><de>Vortrag einreichen</de></t>" />
    </td>
 </tr>
 </table>

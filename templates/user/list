@@ -17,18 +17,22 @@
    Gli utenti che hanno confermato la partecipazione (ovvero, che
    hanno pagato il biglietto o terranno un intervento) sono mostrati in
    <strong>grassetto</strong>
+   <de>
+    Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder
+    einen Vortrag halten werden), sind in <b>fett</b> aufgelistet.
+   </de>
   </it>
 </t></p>
 
 [% IF users.size %]
 <table id="user-list">
 <tr>
- <th><t><en>Name</en><fr>Nom</fr><pt>Nome</pt><it>Nome</it></t></th>
- <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt></t></th>
- <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt></t></th>
- <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it></t></th>
+ <th><t><en>Name</en><fr>Nom</fr><pt>Nome</pt><it>Nome</it><de>Name</de></t></th>
+ <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt><de>Stadt</de></t></th>
+ <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt><de>Land</de></t></th>
+ <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it><de>Monger Gruppe</de></t></th>
  [% IF global.user.is_admin %]
- <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it><pt>Zona de administração</pt></t></th>
+ <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it><pt>Zona de administração</pt><de>Admin links</de></t></th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
@@ -60,7 +64,7 @@
    </td>
    [% IF global.user.is_admin %]
    <td>
-    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><pt>Modificar</pt><it>Modifica</it></t></a>[% END %]
+    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><pt>Modificar</pt><it>Modifica</it><de>bearbeiten</de></t></a>[% END %]
   </td>
   [% END %]
 </tr>

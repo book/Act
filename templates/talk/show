@@ -1,6 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => title, fr => title, pt => title }
+   title = { en => title, fr => title, pt => title, de => title }
 %]
 
 <p>
@@ -9,15 +9,16 @@
   <fr>Par</fr>
   <it>Oratore</it>
   <pt>Por</pt>
+  <de>Von</de>
 </t></b>
 [% user_info(user) %]
 </a>
 [% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
- <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de></t></a>)
 [% END %]
 [% IF user.pm_group %]
-  <t> <en> from </en> <fr> de </fr> <it>da</it> <pt> de </pt></t>
+  <t> <en> from </en> <fr> de </fr> <it>da</it> <pt> de </pt><de> aus </de></t>
   [% IF user.pm_group_url %]
     <a href="[% user.pm_group_url %]">[% user.pm_group %]</a>
   [% ELSE %]
@@ -27,19 +28,19 @@
 <br />
 
 [% IF lightning %]
-  <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it> <pt>Apresentação Relâmpago</t> <br />
+  <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it> <pt>Apresentação Relâmpago</pt><de>Lightning talk</de></t> <br />
 [% ELSE %]
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt><de>Datum</de></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><pt>Ainda não marcado.</pt><it>Non ancora pianificato</it></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><pt>Ainda não marcado.</pt><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it><de>Dauer</de></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t><br />
 [% END %]
 
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
-<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it></t></b>
+<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it><de>Kommentar</de></t></b>
 [% comment %]
 [% END %]
 </p>
@@ -48,15 +49,16 @@
        <pt>Pode encontrar mais informação no site do palestrante:</pt>
       <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
   <it>Potete trovare ulteriori informazioni su questo intervento sul sito:</it>
- </t></p>
+  <de>Mehr Informationen gibts auf der Seite des/der Vortragenden:</de>
+</t></p>
  <ul>
   [% IF url_abstract %]
-      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt></t>
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt><de>Kurzbeschreibung</de></t>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
       </li>
   [% END %]
   [% IF url_talk %]
-      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt></t>
+      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt><de>Vortrag</de></t>
          <a href="[% url_talk %]">[% url_talk %]</a>
       </li>
   [% END %]

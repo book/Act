@@ -4,7 +4,8 @@
     fr => 'Présentation soumise'
     it => 'Intervento inviato'
     pt => 'Apresentação inserida'
-   },
+    de => 'Vortrag eingereicht'
+},
 %]
 
 <p>
@@ -25,6 +26,10 @@
    Obrigado, a sua proposta foi registada como
    <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
   </pt>
+  <de>
+  Danke, Ihr Vortrag wurde gespeichert als
+  <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
+  </de>
  </t>
 </p>
 

@@ -1,5 +1,5 @@
 [%- SWITCH op %]
-[%- CASE 'insert' %]<t><pt>Apresentação inserida</pt><en>Talk inserted</en><fr>Présentation ajoutée </fr><it>Intervento aggiunto</it></t>
-[%- CASE 'update' %]<t><pt>Apresentação actualizada</pt><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it></t>
+[%- CASE 'insert' %]<t><pt>Apresentação inserida</pt><en>Talk inserted</en><fr>Présentation ajoutée </fr><it>Intervento aggiunto</it><de>Vortrag eingegeben</de></t>
+[%- CASE 'update' %]<t><pt>Apresentação actualizada</pt><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it><de>Vortrag geändert</de></t>
 [%- END -%]
 : [% talk.title %]

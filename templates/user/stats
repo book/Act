@@ -4,6 +4,7 @@
      fr => "Statistiques pour ${global.conference.name}"
      it => "Statistiche per ${global.conference.name}"
      pt => "Estatísticas da ${global.conference.name}"
+     de => 'Statistiken für ${global.conference.name'
    }
 %]
 
@@ -39,6 +40,13 @@
    Ci sono [% stats.committed %] utenti confermati, ovvero che hanno pagato
    il biglietto o che terranno un intervento.
   </it>
+  <de>
+  Es gibt [% stats.users %] Anmeldungen aus [% stats.countries.size %]
+  [% stats.countries.size > 1 ? "Ländern" : "Land" %] und
+  [% stats.pm.size %] Monger Gruppe[% "n" IF stats.pm.size > 1 %]. Es gibt
+  [% stats.committed %] fixe Anmeldungen, also Leute, die entweder vortragen
+  oder ihren Beitrag bezahlt haben.
+  </de>
  </t>
 </p>
 
@@ -61,6 +69,10 @@
    Potete vedere le statistiche per <a href="[% make_uri('stats') %]">nazione / gruppo</a>
    o per <a href="[% make_uri('stats', 'show', 'cities') %]">città</a>.
   </it>
+  <de>
+	Hier gibt es <a href="[% make_uri('stats') %]">Land / Monger-</a> und
+	<a href="[% make_uri('stats', 'show', 'cities') %]">Stadt-Statistiken</a>.
+  </de>
  </t>
 </p>
 <p>
@@ -73,6 +85,9 @@
   indiquent le nombre d'inscrits engagés.</fr>
   <it>Il numero degli utenti confermati è mostrato tra parentesi nelle
   tabelle che seguono.</it>
+  <de>
+  Die Nummer der fixangemeldeten TeilnehmerInnen steht in Klammern.
+  </de>
  </t>
 </p>
 <p>
@@ -82,6 +97,7 @@
       correspondants&nbsp;!</fr> 
   <pt>Clique nas ligações seguintes para saber mais sobre os utilizadores respectivos.</pt>
   <it>Seguite i vari link per trovare gli utenti corrispondenti.</it>
+  <de>Klicken Sie auf die jeweiligen Links, um die entsprechenden UserInnen zu finden!</de>
  </t>
 </p>
 
@@ -115,7 +131,7 @@
 [% cols = 3 %]
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><pt>Cidades</pt><it>Città</it></t></th>
+  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><pt>Cidades</pt><it>Città</it><de>Stadt</de></t></th>
  </tr>
   <!-- cities within countries -->
   [% IF stats.towns.size == 0 %]
@@ -124,6 +140,7 @@
     <pt>Nenhuma cidade encontrada</pt>
     <fr>Aucune ville n'a été renseignée</fr>
     <it>Nessuna informazione sulle città</it>
+    <de>Keine Stadtinformation eingegeben</de>
   </t></td>
   [% END %]
   [% FOREACH c = stats.countries %]
@@ -147,8 +164,8 @@
 <center>
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt></t></th>
-  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it>
+  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt><de>Land</de></t></th>
+  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it><de>Monger Gruppe</de>
 	<pt>Grupos de monges</pt></t></th>
  </tr>
  <tr>

@@ -4,6 +4,7 @@
        fr => 'Événement ajouté',
        it => 'Evento inviato',
        pt => 'Evento submetido'
+       de => 'Event angemeldet'
    }
 %]
 
@@ -25,6 +26,10 @@
    Obrigado, o evento foi gravado como
    <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
   </pt>
+  <de>
+  Danke, der Event wurde gespeichert als
+  <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
+  </de>
  </t>
 </p>
 

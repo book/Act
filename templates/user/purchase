@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Online payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt => 'Pagamento on-line' },
+   title = { en => 'Online payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt => 'Pagamento on-line',de=>'Online bezahlen' },
 %]
 <center>
 <form method="POST" action="[% global.request.r.uri %]">
@@ -22,12 +22,15 @@
    <pt>
     Bilhete para [% global.conference.name %].
    </pt>
+   <de>
+   Teilnahme an [% global.conference.name %].
+   </de>
   </t>
  </td>
 </tr>
 <tr>
    <td align="right">
-      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt></t>:
+      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t>:
    </td>
    <td>&nbsp;</td>
    <td>
@@ -40,7 +43,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="purchase" value="<t><pt>Comprar!</pt><fr>J'achète</fr><en>Buy now!</en><it>Compra</it></t>" />
+      <input type="submit" name="purchase" value="<t><pt>Comprar!</pt><fr>J'achète</fr><en>Buy now!</en><it>Compra</it><de>Kaufen!</de></t>" />
    </td>
 </tr>
 </table>
@@ -79,6 +82,12 @@
    accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
    volta terminata la transazione <tt>;-)</tt>.
   </it>
+  <de>
+   Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,
+   direkt von unserer Bank betreut wird. <b>Wir haben keinen Zugriff auf Ihre
+   Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen
+   lediglich das Geld...
+  </de>
  </t>
 </p>
 <hr size="1" />
@@ -97,6 +106,9 @@
   </fr>
   <it>Se non potete usare una carta di credito, o preferite pagare con
       bonifico bancario, potete usare questi dati:</it>
+  <de>
+  Wenn Sie nicht mit Kreditkarte bezahlen können/wollen, könnten folgende Informationen nützlich sein (sobald sie vorhanden sind...)
+  </de>
  </t>
 </p>
 

@@ -6,6 +6,7 @@
      <en>Events</en>
      <it>Eventi</it>
      <pt>Eventos</pt>
+     <de>Events</de>
     </t>
    </a>
    [% END %]
@@ -16,6 +17,7 @@
      <en>Submit a new event</en>
      <it>Aggiungi un evento</it>
      <pt>Submeter um novo evento</pt>
+     <de>Event anmelden</de>
     </t>
    </a>
    [% END %]

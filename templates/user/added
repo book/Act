@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Registered!', fr => 'Inscrit !', it => "Iscritto!", pt => 'Inscrito!' },
+   title = { en => 'Registered!', fr => 'Inscrit !', it => "Iscritto!", pt => 'Inscrito!', de => 'Angemeldet!' },
 %]
 
 <p>
@@ -20,6 +20,10 @@
    Bene, <b>[% login %]</b>, avete creato il vostro account. La vostra
    password è <b>[% clear_passwd %]</b>.
   </it>
+  <de>
+   Herzlich Wilkommen, <b>[% login %]</b>, Sie sind hiermit angemeldet.
+   Ihr Passwort ist: <b>[% clear_passwd %]</b>.
+  </de>
  </t>
 </p>
 

@@ -5,6 +5,7 @@
  <en>Users</en>
  <it>Utenti</it>
  <pt>Utilizadores</pt>
+ <de>UserInnen</de>
 </t>
 [% END %]
 [% WRAPPER menus/item %]
@@ -14,6 +15,7 @@
   <en>Search</en>
   <it>Cerca</it>
   <pt>Procurar</pt>
+  <de>Suchen</de>
  </t>
 </a>
 [% END %]
@@ -24,6 +26,7 @@
   <en>Statistics</en>
   <it>Statistiche</it>
   <pt>Estatísticas</pt>
+  <de>Statistik</de>
  </t>
 </a>
 [% END %]

@@ -4,7 +4,8 @@
        fr => 'Connexion',
        it => 'Login',
        pt => 'Entrar'
-   }
+       de => 'Login',
+}
 %]
 <center>
 
@@ -16,7 +17,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt></t>
+      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -25,7 +26,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt></t>
+      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -34,7 +35,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt></t>" />
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de></t>" />
    </td>
 </tr>
 </table>
@@ -56,6 +57,9 @@
   <pt>
     Esqueceu-se do seu código secreto? Sigua <a href="[% make_uri('resetpw') %]">esta ligação</a>.
   </pt>
+  <de>
+  Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
+  </de>
  </t>
 </p>
 
@@ -81,6 +85,9 @@
    que tenha de indicar ao seu browser para aceitar <em>cookies</em> do 
    domínio <b>[% domain %]</b>.
  </pt>
+ <de>
+ Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen Sie Ihren Browser so ein, dass er Cookies von der Domain <b>[% domain %]</b> akzeptiert.
+ </de>
 </t>
 </font>
 </p>

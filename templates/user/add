@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Registration', fr => 'Inscription', it => 'Iscrizione', pt => "Inscrição" },
+   title = { en => 'Registration', fr => 'Inscription', it => 'Iscrizione', pt => "Inscrição", de => 'Anmeldung' },
 %]
 
 <p>
@@ -8,6 +8,7 @@
   <pt>Por favor, crie o seu utilizador.</pt>
   <fr>Vous pouvez créer votre utilisateur ci-dessous.</fr>
   <it>Create il vostro account.</it>
+  <de>Bitte füllen Sie das Formular aus, um einen User anzulegen.</de>
  </t>
 </p>
 
@@ -21,48 +22,56 @@
          fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
          it => "L'identificativo ${login} è già usato. Vi preghiamo di sceglierne un altro."
          pt => "O identificador ${login} já está a ser usado. Por favor, escolha outro."
+	 de => "User-ID ${login} existiert bereits. Wählen Sie bitte einen anderen."
      },
      ERR_EMAIL_EXISTS => {
          en => "The address ${email} is already registered."
          fr => "L'adresse ${email} est déjà enregistrée."
          it => "L'indirizzo ${email} è già iscritto."
          pt => "O endereço ${email} já está registado."
+	 de => "Die Adresse ${email} ist bereits registriert."
      },
      ERR_IDENTIFIER => {
          en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
          fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
          it => "L'identificativo deve essere composto da almeno 3 caratteri alfanumerici (<tt>[a-zA-Z0-9_]</tt>)"
          pt => "O seu identificador deve conter pelo menos 3 caracteres, e apenas caracteres alfanuméricos (<tt>[a-zA-Z0-9_]</tt>)"
+	 de => "Die User-ID muss mindestens 3 Zeichen enthalten und darf nur aus alphanumerischen Zeichen bestehen (<tt>[a-zA-Z0-9_]</tt>)"
      },
      ERR_FIRST_NAME => {
          en => "You must enter your first name"
          fr => "Le prénom est obligatoire"
          it => "Il cognome è obbligatorio"
          pt => "O seu nome é obrigatório"
+	 de => "Bitte Vornamen eingeben"
      },
      ERR_LAST_NAME => {
          en => "You must enter your last name"
          fr => "Le nom est obligatoire"
          it => "Il nome è obbligatorio"
          pt => "O seu nome é obrigatório"
+	 de => "Bitte Nachnamen eingeben"
      },
      ERR_EMAIL => {
          en => "You must enter your email"
          fr => "L'adresse email est obligatoire"
          it => "L'indirizzo e-mail è obbligatorio"
          pt => "Deve introduzir um endereço de e-mail"
+	 de => "Bitte E-Mail Adresse eingeben"
      },
      ERR_COUNTRY => {
          en => "You must enter a country from the list"
          fr => "Un pays est obligatoire"
          it => "Dovete scegliere una nazione dall'elenco"
          pt => "Deve escolher um país da lista"
+	 de => "Bitte ein Land aus der Liste auswählen"
      },
      ERR_EMAIL_SYNTAX => {
          en => "Your email address looks bogus."
          fr => "Adresse email&nbsp;: syntaxe incorrecte."
          it => "L'indirizzo e-mail non sembra valido."
          pt => "O seu endereço de e-mail parece errado."
+	 de => "Die E-Mail Adresse scheint ungütig zu sein."
      },
   }
 %]
@@ -74,21 +83,21 @@
 <table border="0" cellpadding="0" cellspacing="10">
 
 <tr>
-  <td align="right"><t><en>Login</en><fr>Identifiant</fr><pt>Login</pt><it>Identificativo</it></t></td>
+  <td align="right"><t><en>Login</en><fr>Identifiant</fr><pt>Login</pt><it>Identificativo</it><de>User-ID</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="login" value="[% login %]" size="11" maxlength="10" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>First Name</en><pt>Primeiro Nome</pt><fr>Prénom</fr><it>Nome</it></t></td>
+  <td align="right"><t><en>First Name</en><pt>Primeiro Nome</pt><fr>Prénom</fr><it>Nome</it><de>Vorname</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="first_name" value="[% first_name %]" size="25" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Last Name</en><fr>Nom</fr><pt>Apelido</pt><it>Cognome</it></t></td>
+  <td align="right"><t><en>Last Name</en><fr>Nom</fr><pt>Apelido</pt><it>Cognome</it><de>Nachname</de></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="last_name" value="[% last_name %]" size="25" maxlength="256" />
@@ -102,7 +111,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Country</en><fr>Pays</fr><pt>País</pt><it>Nazione</it></t></td>
+  <td align="right"><t><en>Country</en><fr>Pays</fr><pt>País</pt><it>Nazione</it><de>Land</de></t></td>
   <td>&nbsp;</td>
   <td>
     <select name="country">
@@ -115,7 +124,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Join!</en><pt>Inscrever!</pt><fr>Inscription !</fr><it>Iscrivimi</it></t>" />
+      <input type="submit" name="join" value="<t><en>Join!</en><pt>Inscrever!</pt><fr>Inscription !</fr><it>Iscrivimi</it><de>Anmelden!</de></t>" />
    </td>
 </tr>
 </table>
@@ -150,6 +159,12 @@
    sistema, potete <a href="[% make_uri('main') %]">accedere</a> usando
    quello.
   </it>
+  <de>
+   Um sich anzumelden, müssen Sie zuerst einen Account anlegen. Wenn Sie
+   bereits einen Account für eine vergangene Act-Konferenz haben, brauchen
+   Sie keinen neuen Account anzulegen. Sie können sich mit dem alten
+   Account <a href="[% make_uri('main') %]">einloggen</a>. 
+  </de>
  </t>
 </p>
 <p>
@@ -183,6 +198,13 @@
    sarà utile dopo la conferenza, se vorrete contattare qualcuno dei
    partecipanti. O anche prima, se volete sapere chi ci sarà.
   </it>
+  <de>
+  Die gesammelten persönlichen Daten werden verwendet, um eine
+  <a href="[% make_uri('search') %]">Liste</a> aller Teilnehmenden zu
+  erstellen. Diese kann nach der Konferenz verwendet werden, um 
+  Teilnehmende zu kontaktieren, oder auch vorher, um festzustellen, wer
+  teilnehmen wird.
+  </de>
  </t>
 </p>
 <p>
@@ -220,6 +242,14 @@
    accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
    volta terminata la transazione <tt>;-)</tt>.
   </it>
+  <de>
+   Sobald Sie einen Account haben, können Sie unsere sicheres
+   Online-Bezahlungssystem verwenden, um den Teilnahmebeitrag zu bezahlen.
+   Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,
+   direkt von unserer Bank betreut wird. <b>Wir haben keinen Zugriff auf Ihre
+   Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen
+   lediglich das Geld...
+  </de>
  </t>
 </p>
 

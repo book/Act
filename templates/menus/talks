@@ -6,6 +6,7 @@
   <en>Presentations</en>
   <it>Interventi</it>
   <pt>Apresentações</pt>
+  <de>Vorträge</de>
  </t>
 </a>
 [% END %]
@@ -17,6 +18,7 @@
      <en>Schedule</en>
      <it>Programma</it>
      <pt>Programa</pt>
+     <de>Programm</de>
     </t>
    </a>
    [% END %]
@@ -29,6 +31,7 @@
      <en>iCal export</en>
      <it>Esporta per iCal</it>
      <pt>Exportar para iCal</pt>
+     <de>als iCal exportieren</de>
     </t>
    </a>
    [% END %]
@@ -39,6 +42,7 @@
      <en>iCal import</en>
      <it>Importa da iCal</it>
      <pt>Importar de iCal</pt>
+     <de>aus iCal importieren</de>
     </t>
    </a>
    [% END %]
@@ -51,6 +55,7 @@
      <en>Submit a talk proposal</en>
      <it>Invia una proposta di intervento</it>
      <pt>Propôr apresentação</pt>
+     <de>Vortrag einreichen</de>
     </t>
    </a>
    [% END %]

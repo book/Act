@@ -5,18 +5,19 @@
      fr => "Saisie d'un règlement"
      it => "Pagamento"
      pt => "Pagamento"
-   },
+     de => 'Bezahlung'
+},
 %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <input type="hidden" name="user_id" value="[% user.user_id %]" />
 <table border="0" cellspacing="0" cellpadding="4">
 <tr>
- <td><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt></t></td>
+ <td><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de></t></td>
  <td><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
 </tr>
 <tr>
- <td><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt></t></td>
+ <td><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt><de>Zahlungsart</de></t></td>
  <td>
   <select name="means">
     [% FOREACH m = means.keys %]
@@ -26,7 +27,7 @@
  </td>
 </tr>
 <tr>
- <td><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt></t></td>
+ <td><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t></td>
  <td>
   <select name="price">
     [% FOREACH p = prices %]
@@ -39,7 +40,7 @@
 </tr>
 </table>
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Valider</fr><it>Aggiorna</it><pt>Validar</pt></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Valider</fr><it>Aggiorna</it><pt>Validar</pt><de>Speichern</de></t>" />
 </form>
 </div>
 [% END %]

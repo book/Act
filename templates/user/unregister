@@ -4,7 +4,8 @@
        fr => 'Désinscription'
        pt => 'TRANSLATEME'
        it => 'TRANSLATEME'
-   },
+       de => 'Abmelden'
+},
 %]
 
 <p>
@@ -23,6 +24,9 @@
    Pour vous désinscrire de la conférence [% global.conference.name %],
    poussez simplement sur le bouton ci-dessous.
   </fr>
+  <de>
+  Um sich von der Konferenz [% global.conference.name %] abzumelden, bitte unten klicken.
+  </de>
  </t>
 </p>
 
@@ -35,7 +39,7 @@
 
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="leave" value="<t><en>Unregister from</en><pt>TRANSLATEME</pt><it>TRANSLATEME</it><fr>Désinscription de</fr></t> [% global.conference.name %]" />
+      <input type="submit" name="leave" value="<t><en>Unregister from</en><pt>TRANSLATEME</pt><it>TRANSLATEME</it><fr>Désinscription de</fr><de>Abmelden von</de></t> [% global.conference.name %]" />
    </td>
 </tr>
 </table>

@@ -1,7 +1,8 @@
 [% PROCESS common %]
 [% WRAPPER ui
    title = { en => 'Main private page', fr => 'Page personnelle', it => 'Pagina personale',
-             pt => 'Página pessoal' },
+             pt => 'Página pessoal'
+	     de => 'Private Seite'},
 %]
 <p>
  <t>
@@ -12,6 +13,7 @@
       D'ici vous pouvez gérer tout ce qui concerne votre participation</fr>
   <it>Questa è la vostra pagina personale. Da qui potete gestire tutto
       ciò che riguarda la vostra partecipazione</it>
+      <de>Das ist Ihre persönliche Seite. Von hier aus können Sie alle Aspekte Ihrer Teilnahme verwalten.</de>
  </t>
  [% IF global.request.conference %]
  <t>
@@ -19,6 +21,7 @@
   <en>to [% global.conference.name %].</en>
   <fr>à [% global.conference.name %].</fr>
   <it>a [% global.conference.name %].</it>
+  <de>[% global.conference.name %]</de>
  </t>
  [% ELSE %]
  <t>
@@ -26,6 +29,7 @@
   <pt>nas conferências geridas pelo Act.</pt>
   <fr>aux conférences gérées par Act.</fr>
   <it>alle conferenze gestito con Act.</it>
+  <de>mit Act betriebende Konferenzen</de>
  </t>
  [% END %]
 </p>
@@ -39,6 +43,7 @@
    <pt>Ainda não comprou o seu bilhete.</pt>
    <fr>Vous n'avez pas encore acheté votre billet pour la conférence.</fr>
    <it>Non avete ancora acquistato il vostro biglietto.</it>
+   <de>Sie haben nicht nicht bezahlt.</de>
   </t>
   [% IF global.config.payment_open %]
    <t>
@@ -47,6 +52,7 @@
     <fr>Merci de penser à le faire en utilisant notre système
         de vente en ligne.</fr>
     <it>Potreste farlo con il nostro sistema di pagamento on-line.</it>
+    <de>Bitte verwenden Sie dazu unser online Zahlungssystem.</de>
    </t>
    [% ELSE %]
    <t>
@@ -55,7 +61,8 @@
     <en>Please consider doing so once our online payment system is ready.</en>
     <fr>Merci de penser à le faire dès que le système de vente en ligne
    sera opérationnel.</fr>
-    <it>Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato.</it>    
+    <it>Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato.</it>
+    <de>Bitte verwenden Sie dazu unser online Zahlungssystem, sobald es bereit steht.</de>
    </t>
   [% END %]
  </p>
@@ -66,13 +73,16 @@
    <en>You did not <a href="[% make_uri('register') %]">register for this conference</a>. Please do so if you plan to attend or give a presentation there.</en>
    <fr>Vous n'êtes pas <a href="[% make_uri('register') %]">inscrit à cette conférence</a>. Merci de le faire si vous comptez y assister ou y faire une présentation.</fr>
    <it>TRANSLATEME</it>
+   <de>
+   Sie sind für diese Konferenz nicht angemeldet. <a href="[% make_uri('register') %]">Melden Sie sich an</a>, wenn sie teilnehmen wollen.
+   </de>
   </t>
  [% END %]
 [% ELSE %]
 <!-- no conference at all -->
 [% END %]
 
-<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt></t></b></p>
+<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt><de>Sie können</de></t></b></p>
    <ul>
    [% IF global.request.user.has_registered %]
     [% IF global.request.conference
@@ -82,7 +92,9 @@
           <fr>acheter votre billet pour la conférence</fr>
           <en>purchase your conference ticket</en>
           <pt>comprar o seu bilhete para a conferência</pt>
-          <it>acquistare il bigletto</it></t></a><br />
+          <it>acquistare il bigletto</it>
+	  <de>Ihre Teilnahme bezahlen</de>
+	  </t></a><br />
     </li>
     [% END %]
    [% ELSE %]
@@ -91,6 +103,7 @@
        <en><a href="[% make_uri('register') %]">register for this conference</a></en>
        <fr>Vous <a href="[% make_uri('register') %]">inscrire à cette conférence</a></fr>
        <it>TRANSLATEME</it>
+       <de>Sich <a href="[% make_uri('register') %]">für diese Konferenz anmelden</de>
         </t><br />
     </li>
    [% END %]
@@ -98,24 +111,31 @@
           <fr>mettre à jour les informations vous concernant</fr>
           <en>update your information</en>
           <pt>actualizar a sua informação</pt>
-          <it>aggiornare i vostri dati</it></t></a><br />
+          <it>aggiornare i vostri dati</it>
+	  <de>Ihre Informationen ändern</de>
+	  </t></a><br />
     </li>
     <li><a href="[% make_uri('photo') %]"><t>
           <fr>modifier votre photo</fr>
           <en>manage your photo</en>
           <pt>alterar a sua foto</pt>
-          <it>cambiare la vostra foto</it></t></a><br />
+          <it>cambiare la vostra foto</it>
+	  <de>Ihr Foto verwalten</de>
+	  </t></a><br />
     </li>
     <li><a href="[% make_uri('updatepw') %]"><t>
           <fr>modifier votre mot de passe</fr>
           <en>change your password</en>
+	  <de>Ihr Passwort ändern</de>
     </li>
     [% IF global.request.conference
        AND talks.size %]
         <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
         <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr>
         <pt>ver as suas apresentações (as apresentações aceites são mostradas a <b>negrito</b>)</pt>
-        <it>vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)</it></t>:
+        <it>vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)</it>
+	<de>Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)</de>
+	</t>:
           <br />
           <ul>
            [% FOR t = talks %]
@@ -130,12 +150,14 @@
             <fr>soumettre une présentation</fr>
             <pt>submeter uma apresentação</pt>
             <en>submit a talk</en>
-            <it>proporre un intervento</it></t></a><br />
+            <it>proporre un intervento</it>
+	    <de>Einen Vortrag einreichen</de>
+	    </t></a><br />
       </li>
     [% END %]
-   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it></t></a></li>
+   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de></t></a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>TRANSLATEME</it></t></a></li>
+   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>TRANSLATEME</it><de>sich von der Konferenz [% global.conference.name %] abmelden </t></a></li>
    [% END %]
    </ul>
 
@@ -145,6 +167,7 @@
  <fr>Autres conférences Act&nbsp;:</fr>
  <en>Other Act conferences:</en>
  <it>Altre conferenze gestite con Act:</it>
+ <de>Andere Act Konferenzen:</de>
 </t></b></p>
 <ul>
 [% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
@@ -155,6 +178,7 @@
    <fr>(Vous y étiez)</fr>
    <pt>(Esteve aqui)</pt>
    <it>TRANSLATEME</it>
+   <de>(Sie waren dort)</de>
  </t>
  [% CASE 'now' %]
  <t>
@@ -162,6 +186,7 @@
    <fr>(Vous y êtes)</fr>
    <pt>(Está aqui)</pt>
    <it>TRANSLATEME</it>
+   <de>(Sie sind hier)</de>
  </t>
  [% CASE 'future' %]
  <t>
@@ -169,6 +194,7 @@
    <fr>(Vous y serez)</fr>
    <pt>(Irá estar aqui)</pt>
    <it>TRANSLATEME</it>
+   <de>(Sie werden dort sein)</de>
  </t>
 [% END %]
 </li>[% END %]

@@ -4,15 +4,15 @@
 %]
 
 <p>
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it><pt>Data:</pt></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it><pt>Data:</pt><de>Datum:</de></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it><pt>Ainda não marcada.</pt></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it><pt>Ainda não marcada.</pt><de>Noch nicht festgelegt.</de></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it><pt>Duração:</pt></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr><it>minuti</it><pt>minutos</pt></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it><pt>Duração:</pt><de>Dauer:</de></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr><it>minuti</it><pt>minutos</pt><de>Minuten</de></t><br />
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
- <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de></t></a>)
 [% END %]
 </p>
 
@@ -22,6 +22,7 @@
   <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
   <it>Potete trovare ulteriori informazioni sul sito:</it>
   <pt>Pode encontrar mais informação no seguinte endereço:</pt>
+  <de>Mehr Informationen:</de>
  </t></p>
  <ul>
    <li>

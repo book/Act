@@ -1,7 +1,7 @@
 <!-- admin menu -->
 [% IF global.request.user.is_admin %]
    [% WRAPPER menus/section %]
-   <t><fr>Admin</fr><en>Admin</en><it>Admin</it><pt>Admin</pt></t>
+   <t><fr>Admin</fr><en>Admin</en><it>Admin</it><pt>Admin</pt><de>Admin</de></t>
    [% END %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('rights') %]">
@@ -10,6 +10,7 @@
      <en>Rights management</en>
      <it>Gestione dei permessi</it>
      <pt>Gestão de permissões</pt>
+     <de>Rechtemanagement</de>
     </t>
    </a>
    [% END %]

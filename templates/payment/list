@@ -5,17 +5,18 @@
      fr => 'Facturation'
      it => 'Fatturazione'
      pt => 'Factuação'
-   },
+     de => 'Abrechnung'
+},
 %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt></t></th>
- <th><t><en>Payment date</en><fr>Date du règlement</fr><it>Data del pagamento</it><pt>Data de pagamento</pt></t></th>
- <th><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt></t></th>
- <th><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt></t></th>
- <th><t><en>Invoice OK</en><fr>Facture OK</fr><it>Fattura OK</it><pt>Factura OK</pt></t></th>
+ <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de></t></th>
+ <th><t><en>Payment date</en><fr>Date du règlement</fr><it>Data del pagamento</it><pt>Data de pagamento</pt><de>Zahlungsdatum</de></t></th>
+ <th><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt><de>Zahlungsart</de></t></th>
+ <th><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t></th>
+ <th><t><en>Invoice OK</en><fr>Facture OK</fr><it>Fattura OK</it><pt>Factura OK</pt><de>Rechnungsnummer</de></t></th>
 </tr>
 [% FOREACH u = users %]
   [% o = orders.${u.user_id} %]
@@ -37,7 +38,7 @@
 [% END %]
 </table>
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr><it>Aggiorna</it><pt>Actualizar</pt></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr><it>Aggiorna</it><pt>Actualizar</pt><de>Aktualisieren</de></t>" />
 </form>
 </div>
 [% END %]
