@@ -37,7 +37,11 @@ sub authen_cred ($$\@)
     my ($self, $r, $login, $sent_pw) = @_;
 
     # error message prefix
-    my $prefix = join ' ', map { "[$_]" } $r->connection->remote_ip, $login, $sent_pw;
+    my $prefix = join ' ', map { "[$_]" }
+        $r->server->server_hostname,
+        $r->connection->remote_ip,
+        $login,
+        $sent_pw;
 
     # remove leading and trailing spaces
     for ($login, $sent_pw) {
