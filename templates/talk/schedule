@@ -1,6 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma' }
+   title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa' }
 %]
 
 [% IF not ( global.request.user.is_orga or global.config.talks_show_schedule ) %]
@@ -10,12 +10,14 @@
  <fr>Les horaires ne sont pas encore finalisés.
  </fr>
  <it>Il programma non è ancora pronto.</it>
+ <pt>O programa ainda está em construção.</pt>
 </t>
 [% ELSE %]
 <t>
  <fr>Les présentations en gras ont été confirmées par leurs auteurs.</fr>
  <en>Talks in bold type have been confirmed by their respective speakers.</en>
  <it>Gli interventi in <b>grassetto</b> sono stati confermati dai rispettivi oratori.</it>
+ <pt>As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores.</pt>
 </t>
 [% FOREACH d IN table.keys.sort %]
 [% date = d.replace('$', ' 00:00:00' ) %]
@@ -24,12 +26,13 @@
 <table border="0">
  <tr class="header">
   <th>
-   <t><en>Time</en><fr>Heure</fr><it>Ora</it></t>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt></t>
   </th>
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
     <t><fr>Salle [% global.config.rooms.$r %]</fr>
        <en>[% global.config.rooms.$r %] Room</en>
+       <pt>Sala [% global.config.rooms.$r %]</pt>
        <it>Stanza [% global.config.rooms.$r %]</t></th>
   [% END %]
  </tr>

@@ -4,6 +4,7 @@
      en => 'List of talks'
      fr => 'Liste des présentations'
      it => 'Elenco degli interventi'
+     pt => 'Lista de apresentações'
    },
 %]
 <div align="center">
@@ -11,6 +12,7 @@
  [% IF talks_total == 0 %]
  <t><fr>Aucune présentation n'a encore été proposée.</fr>
     <en>No talk was submitted yet.</en>
+    <pt>Nenhuma apresentação proposta.</pt>
     <it>Nessun intervento proposto.</it>
  </t>
  [% ELSE %]
@@ -21,6 +23,8 @@
       Accepted talks: [% talks_accepted %]</en>
   <it>Interventi proposti: [% talks_total %]<br />
       Interventi accettati: [% talks_accepted %]</it>
+  <pt>Apresentações propostas: [% talks_total %]<br />
+      Apresentações aceites: [% talks_accepted %]</pt>
  </t>
  [% END %]
 </p>
@@ -36,6 +40,7 @@
   <it>
    Gli interventi accettati sono mostrati in <b>grassetto</b>.
   </it>
+  <pt>As apresentações aceites são mostradas a <b>negrito</b>.</pt>
  </t>
 </p>
 [% END %]
@@ -45,14 +50,16 @@
   <fr>Durée totale des présentations acceptées&nbsp;:</fr>
   <en>Total duration of accepted talks:</en>
   <it>Durata totale degli interventi accettati:</it>
+  <pt>Duração total das apresentações aceites:</pt>
  </t>
- [% talks_duration div 60 %] <t><fr>heures</fr><en>hours</en><it>ore</it></t>
- [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><it>minuti</it></t>
+ [% talks_duration div 60 %] <t><fr>heures</fr><pt>horas</pt><en>hours</en><it>ore</it></t>
+ [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><pt>minutos</pt><it>minuti</it></t>
  <br />
  <t>
   <fr>Communications éclair acceptées&nbsp;:</fr>
   <en>Accepted lightning talks:</en>
   <it>Interventi lampo accettati:</it>
+  <pt>Apresentações relâmpago aceites:</pt>
  </t>
  [% talks_lightning %]
 </p> 
@@ -62,14 +69,14 @@
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>Speaker</en><fr>Présentateur</fr><it>Oratore</it></t></th>
- <th><t><en>Talk title</en><fr>Présentation</fr><it>Intervento</it></t></th>
- <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it></t></th>
+ <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it></t></th>
+ <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt></t></th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
- <th><t><en>Date</en><fr>Date</fr><it>Data</it></t></th>
+ <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it></t></th>
  [% END %]
  [% IF global.request.user.is_orga %]
- <th><t><en>Accepted</en><fr>Accepté</fr><it>Accettato</it></t></th>
+ <th><t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it></t></th>
  [% END %]
 </tr>
 [% FOREACH t = talks %]
@@ -83,9 +90,9 @@
         [% talk_modify_link(t) %]
     </td>
     <td nowrap="nowrap">[% IF t.lightning %]
-          <t><en>lightning</en><fr>éclair</fr><it>lampo</itP</t>
+          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</itP</t>
         [% ELSE %]
-         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><it>minuti</it></t>
+         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t>
         [% END %]
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
@@ -102,7 +109,7 @@
 </table>
 [% IF global.request.user.is_orga %]
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr><it>Aggiorna</it></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><pt>Modificar</pt><fr>Modifier</fr><it>Aggiorna</it></t>" />
 </form>
 [% END %]
 </div>
