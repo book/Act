@@ -64,7 +64,8 @@
 <center>
 
 <span class="error">
-[% PROCESS err_messages = {
+[% PROCESS error
+   err_messages = {
      ERR_IDENTIFIER_EXISTS => {
          en => "Identifier [% fixme %] is already in use. Please choose another."
          fr => "L'identifiant [% fixme %] est déjà utilisé.  Veuillez en choisir un autre."
@@ -93,7 +94,8 @@
          en => "Your email address looks bogus."
          fr => "Adresse email&nbsp;: syntaxe incorrecte."
      },
-   [% END %]
+  }
+%]
 </span><br /><br />
 
 <form method="post" action="/[% global.request.conference %]/join/" enctype="application/x-www-form-urlencoded">
