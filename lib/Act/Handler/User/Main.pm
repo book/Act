@@ -30,7 +30,8 @@ sub handler {
     }
     # add this guy's participations
     $confs{$_->{conf_id}}{participation} = 1
-      for @{$Request{user}->participations};
+      for grep { $_->{conf_id} ne $Request{conference} }
+               @{$Request{user}->participations};
 
     $template->variables(
         talks => $talks,
