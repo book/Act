@@ -6,6 +6,11 @@
    [% WRAPPER menus/item %]
    <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en></t></a>
    [% END %]
+   [% UNLESS global.request.user.participation %]
+     [% WRAPPER menus/item %]
+     <a href="[% make_uri('register') %]"><t><fr>S'inscrire</fr><en>Register</en></t></a>
+     [% END %]
+   [% END %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en></t></a>
    [% END %]
