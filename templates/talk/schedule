@@ -11,6 +11,10 @@
  </fr>
 </t>
 [% ELSE %]
+<t>
+ <fr>Les présentations en gras ont été confirmées par leurs auteurs.</fr>
+ <en>Talks in bold type have been confirmed by their respective speakers.</en>
+</t>
 [% FOREACH d IN table.keys %]
 <p>Date [% d %]</p>
 <table border="0">
