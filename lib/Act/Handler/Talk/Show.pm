@@ -7,16 +7,18 @@ use Act::Talk;
 
 sub handler
 {
+    # retrieve talk
+    my $talk = Act::Talk->new(talk_id => $Request{path_info});
+
     # available only if submissions open or organizer
-    unless ($Config->talks_submissions_open
-            || ($Request{user} && $Request{user}->is_orga))
+    unless ($talk->accepted
+            || ($Request{user} && $Request{user}->is_orga)
+            || ($Request{user}->user_id == $talk->user_id) )
     {
         $Request{status} = NOT_FOUND;
         return;
     }
 
-    # retrieve talk
-    my $talk = Act::Talk->new(talk_id => $Request{path_info});
 
     # only organizer or submitter may see non accepted talk
     undef $talk
