@@ -20,19 +20,26 @@ sub create {
     $class = ref $class  || $class;
     $class->init();
 
-    my $item = $class->new( %args );
-    return undef if $item;
-
-    my $table;
-    { no strict 'refs'; $table = ${"${class}::table"}; }
+    my ($table, $pkey, $seq);
+    { no strict 'refs';
+      $table = ${"${class}::table"};
+      $pkey  = ${"${class}::primary_key"};
+      $seq   = join '_', $table, $pkey, 'seq';
+    }
+    # insert the new record
     my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
                       join(",", keys %args), join(",", ( "?" ) x keys %args);
     my $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( values %args );
+
+    # retrieve inserted row's id
+    $sth = $Request{dbh}->prepare_cached("SELECT currval(?)");
+    $sth->execute($seq);
+    my ($id) = $sth->fetchrow_array;
     $sth->finish();
     $Request{dbh}->commit;
 
-    return $class->new( %args );
+    return $class->new( $pkey => $id );
 }
 
 sub update {
