@@ -18,7 +18,7 @@
      ERR_IDENTIFIER_EXISTS => {
          en => "Identifier ${login} is already in use. Please choose another."
          fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
-         it => "L'identificativo ${login} è già usato. Vi preghiamo di sceglierne un altro.'
+         it => "L'identificativo ${login} è già usato. Vi preghiamo di sceglierne un altro."
      },
      ERR_EMAIL_EXISTS => {
          en => "The address ${email} is already registered."
