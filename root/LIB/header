@@ -1,5 +1,5 @@
 <body>
 <head>
-[% IF template.title %]<title>[% template.title  %]</title>
+[% IF template.title %]<title>[% template.title  %]</title>[% END %]
 </head>
 <body>
