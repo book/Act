@@ -53,16 +53,16 @@ CREATE INDEX rights_idx ON rights (conf_id);
 DROP   TABLE participations;
 CREATE TABLE participations
 (
-    conf_id     text,
-    user_id     integer,
-    registered  boolean,
-    payment     integer, /* notyet, cash, online, cheque, waived */
-    tshirt_size integer,
-    nb_family   integer,
+    conf_id     text                      NOT NULL,
+    user_id     integer                   NOT NULL,
+    registered  boolean    DEFAULT FALSE,
+    payment     integer,                  /* notyet, cash, online, cheque, waived */
+    tshirt_size text,                     /* S, M, L, XL, XXL */
+    nb_family   integer    DEFAULT 0,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
-CREATE INDEX participations_idx ON rights (conf_id);
+CREATE INDEX participations_idx ON participations (conf_id, user_id);
 
 /*** Talks related tables ***/
 /* talks */
