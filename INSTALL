@@ -56,6 +56,18 @@ This file is not part of the distribution: its contents override
 the global settings in $ACTHOME/conf/act.ini. If you have no need
 to override these standard settings, just create an empty file.
 
+You are now ready to install and configure the database system.
+See the details in database/INSTALL.<db> (where <db> is one of
+Pg, MySQL...).
+
+In the end, you must have the following section in your conf/act.ini
+or conf/local.ini file:
+
+    [database]
+    dsn    = <dsn>
+    user   = <db user>
+    passwd = <db password>
+
 To make sure that your system has all the requirements to run Act,
 and that Act works correctly on it, you can now run Act's test suite:
 
