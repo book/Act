@@ -6,6 +6,7 @@ use Apache::Constants qw(OK);
 use Digest::MD5 ();
 
 use Act::Config;
+use Act::User;
 use Act::Template::HTML;
 
 use base qw(Apache::AuthCookie);
