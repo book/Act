@@ -1,0 +1,47 @@
+<!-- talks menu -->
+[% WRAPPER menus/section %]
+<a href="[% make_uri('talks') %]">
+ <t>
+  <fr>Présentations</fr>
+  <en>Presentations</en>
+ </t>
+</a>
+[% END %]
+[% IF global.config.talks_show_schedule OR global.request.user.is_orga %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('schedule') %]">
+    <t>
+     <fr>Horaires</fr>
+     <en>Schedule</en>
+    </t>
+   </a>
+   [% END %]
+[% END %]
+[% IF global.request.user.is_orga %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('export') %]">
+    <t>
+     <fr>Export iCal</fr>
+     <en>iCal export</en>
+    </t>
+   </a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('import') %]">
+    <t>
+     <fr>Import iCal</fr>
+     <en>iCal import</en>
+    </t>
+   </a>
+   [% END %]
+[% END %]
+[% IF global.config.talks_submissions_open %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('newtalk') %]">
+    <t>
+     <fr>Soumettre une présentation</fr>
+     <en>Submit a talk proposal</en>
+    </t>
+   </a>
+   [% END %]
+[% END %]

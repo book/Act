@@ -1,0 +1,15 @@
+<!-- admin menu -->
+[% IF global.request.user.is_admin %]
+   [% WRAPPER menus/section %]
+   <t><fr>Admin</fr><en>Admin</en></t>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('rights') %]">
+    <t>
+     <fr>Gestion des droits</fr>
+     <en>Rights management</en>
+    </t>
+   </a>
+   [% END %]
+[% END %]
+

@@ -1,0 +1,6 @@
+<!-- money menu -->
+[% IF global.request.user.is_treasurer %]
+   [% WRAPPER menus/section %]
+   Trésorier
+   [% END %]
+[% END %]

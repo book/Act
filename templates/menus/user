@@ -1,0 +1,27 @@
+<!-- user menu -->
+[% IF global.request.user %]
+   [% WRAPPER menus/section %]
+   <a href="[% make_uri_info('user', global.request.user.user_id) %]">[% global.request.user.login %]</a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en></t></a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en></t></a>
+   [% END %]
+[% ELSE %]
+   [% WRAPPER menus/section %]
+   <t><fr>Inscription</fr><en>Registration</en></t>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('main') %]">Login</a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('register') %]"><t><fr>Nouvel utilisateur</fr><en>New user</en></t></a></li>
+   [% END %]
+[% END %]
+[% FOREACH lang = global.languages %]
+   [% WRAPPER menus/item %]
+   <a href="[% lang.uri %]">([% lang.name %])</a></li>
+   [% END %]
+[% END %]
