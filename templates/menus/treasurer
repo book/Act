@@ -3,4 +3,7 @@
    [% WRAPPER menus/section %]
    Trésorier
    [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en></t></a>
+   [% END %]
 [% END %]

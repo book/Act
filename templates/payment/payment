@@ -1,0 +1,43 @@
+[% PROCESS common %]
+[% WRAPPER ui
+   title = {
+     en => 'Payment'
+     fr => "Saisie d'un règlement"
+   },
+%]
+<div align="center">
+<form method="POST" action="[% global.request.r.uri %]">
+<input type="hidden" name="user_id" value="[% user.user_id %]" />
+<table border="0" cellspacing="0" cellpadding="4">
+<tr>
+ <td><t><en>User</en><fr>Utilisateur</fr></t></td>
+ <td><strong>[% user.last_name %] [% user.first_name %]</strong></td>
+</tr>
+<tr>
+ <td><t><en>Payment means</en><fr>Moyen de paiement</fr></t></td>
+ <td>
+  <select name="means">
+    [% FOREACH m = means.keys %]
+        <option value="[% m %]">[% means.$m %]</option>
+    [% END %]
+  </select>
+ </td>
+</tr>
+<tr>
+ <td><t><en>Price</en><fr>Tarif</fr></t></td>
+ <td>
+  <select name="price">
+    [% FOREACH p = prices %]
+        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% p.currency %]</option>
+    [% END %]
+  </select>
+  &nbsp;
+  <input type="text" name="amount" value="" size="5" /> EUR.
+ </td>
+</tr>
+</table>
+<br />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Valider</fr></t>" />
+</form>
+</div>
+[% END %]
