@@ -33,7 +33,13 @@ CREATE TABLE users
 
     /* website preferences */
     language     text,
-    timezone     text         DEFAULT 'Europe/Paris'   NOT NULL
+    timezone     text         DEFAULT 'Europe/Paris'   NOT NULL,
+
+    /* billing info */
+    company      text,
+    company_url  text,
+    address      text
+
 );
 CREATE UNIQUE INDEX users_session_id ON users (session_id);
 CREATE UNIQUE INDEX users_login ON users (login);
