@@ -1,0 +1,4 @@
+
+[Sat Oct  2 01:02:00 2004] [error] DBD::Pg::st execute failed: ERROR:  pg_atoi: error in "28&prev=/search": can't parse "&prev=/search" at /home/apache/lib/Act/Object.pm line 202.
+
+conferences.mongueurs.net 213.185.106.3 - - [02/Oct/2004:01:02:00 +0200] "GET /2004/talk/28&prev=/search%3Fq%3Dbooter%2Bbooter%26num%3D100%26hl%3Den%26lr%3D%26ie%3DUTF-8 HTTP/1.1" 500 538 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
