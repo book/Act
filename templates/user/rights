@@ -26,7 +26,7 @@
    <td colspan="2"><select name="newuser">
        <option value="" selected="selected" />
        [% FOREACH u=users %]
-         <option value="[% u.user_id %]">[% u.first_name %] [% u.last_name %]</option>
+         <option value="[% u.user_id %]">[[% u.login %]] [% PROCESS user/info u=u %]</option>
        [% END %]
        </select>
    </td>
