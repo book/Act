@@ -37,7 +37,7 @@ sub _init
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs
-        push @path, map join('/', $Config->home, $Request{conference}, $_), TEMPLATE_DIRS
+        push @path, map join('/', $Config->home, 'actdocs', $Request{conference}, $_), TEMPLATE_DIRS
             if $Request{conference};
         # global template dirs
         push @path, map join('/', $Config->home, $_), TEMPLATE_DIRS;

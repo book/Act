@@ -27,7 +27,7 @@ sub load_configs
     for my $conf (keys %{$GlobalConfig->conferences}) {
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
-        _load_config($ConfConfigs{$conf}, "$home/$conf");
+        _load_config($ConfConfigs{$conf}, "$home/actdocs/$conf");
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
