@@ -11,8 +11,11 @@ use Act::Config;
 use Act::Talk;
 use Act::Template;
 
-use constant CID => 'AEDDA55C-ACDC-11D7-9018-000393DB4634';
-use constant UID => "CBBCAB60-ACDC-11D7-9018-000393DB4634";
+# latin1 to utf8 converter
+my $to_utf8 = Text::Iconv->new('ISO-8859-1', 'UTF-8');
+
+use constant CID => '532E0386-A523-11D8-A904-000393DB4634';
+use constant UID => "5F451677-A523-11D8-928A-000393DB4634";
 
 sub handler
 {
@@ -21,9 +24,6 @@ sub handler
         $Request{status} = NOT_FOUND;
         return;
     }
-
-    # latin1 to utf8 converter
-    my $to_utf8 = Text::Iconv->new('ISO-8859-1', 'UTF-8');
 
     # retrieve talks
     my $talks = Act::Talk->get_talks(
@@ -40,7 +40,6 @@ sub handler
 
     # generate iCal events for each talk
     my @talks;
-    my $uid = UID;
     for my $t (@$talks) {
         unless ($t->lightning) {
             my $dtstart = $t->datetime
@@ -51,8 +50,8 @@ sub handler
             push @talks, {
                 dtstart => DateTime::Format::ICal->format_datetime($dtstart),
                 dtend   => DateTime::Format::ICal->format_datetime($dtend),
-                title   => $to_utf8->convert($t->title),
-                uid     => $uid++,
+                title   => join('-', $t->talk_id, $to_utf8->convert($t->title)),
+                uid     => sprintf('%04x', $t->talk_id) . substr(UID,4),
             };
         }
     }
@@ -66,7 +65,7 @@ sub handler
         cid      => CID,
         calname  => $Request{conference},
     );
-    $Request{r}->send_http_header('text/plain');
+    $Request{r}->send_http_header('text/calendar');
     $template->process('talk/ical');
 }
 
