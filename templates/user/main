@@ -24,6 +24,26 @@
           <fr>modifier votre photo</fr>
           <en>manage your photo</en></t></a><br />
     </li>
+    [% IF global.config.talks_submissions_open %]
+      [% IF talks.size %]
+        <li><t><en>Your talks</en><fr>Vos présentations </fr></t>:
+          <br />
+          <ul>
+           [% FOR t = talks %]
+             <li><a href="[% make_uri_info('talk', t.talk_id) %]">
+                 [%- "<b>"  IF global.request.user.is_orga AND t.accepted %]
+                 [% t.title %]
+                 [%- "</b>" IF global.request.user.is_orga AND t.accepted %]
+             </a></li>
+           [% END %]
+          </ul>
+        </li>
+      [% END %]
+      <li><a href="[% make_uri('newtalk') %]"><t>
+            <fr>Soumettre une présentation</fr>
+            <en>Submit a talk</en></t></a><br />
+      </li>
+    [% END %]
    </ul>
 
 [% END %]

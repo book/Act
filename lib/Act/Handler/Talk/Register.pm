@@ -1,4 +1,7 @@
 package Act::Handler::Talk::Register;
+use strict;
+
+use Apache::Constants qw(NOT_FOUND);
 
 use Act::Config;
 use Act::Country;
@@ -20,6 +23,10 @@ my $form = Act::Form->new(
 
 sub handler
 {
+    unless ($Config->talks_submissions_open or $Request{user}->is_orga) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     my $template = Act::Template::HTML->new();
     my $fields;
 
