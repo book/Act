@@ -83,6 +83,7 @@
   <td>&nbsp;</td>
   <td>
    <select name="date">
+     <option value=""[% ' selected="selected"' UNLESS datetime %] />
    [% FOREACH d=dates %]
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
