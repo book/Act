@@ -1,3 +1,5 @@
+/*** users' related tables ***/
+
 /* users */
 DROP   TABLE users CASCADE;
 CREATE TABLE users
@@ -42,9 +44,24 @@ CREATE TABLE rights
     conf_id     text       NOT NULL,
     user_id     integer    NOT NULL,
 
-    FOREIGN KEY( user_id  ) REFERENCES users( user_id  )
+    FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 CREATE INDEX rights_idx ON rights (conf_id);
+
+/* user's participations to conferences */
+DROP   TABLE participations;
+CREATE TABLE participations
+(
+    conf_id     text,
+    user_id     integer,
+    registered  boolean,
+    payment     integer, /* notyet, cash, online, cheque, waived */
+    tshirt_size integer,
+    nb_family   integer
+
+    FOREIGN KEY( user_id  ) REFERENCES users( user_id )
+);
+CREATE INDEX participations_idx ON rights (conf_id);
 
 /* multilingual entries */
 DROP   TABLE translations;
