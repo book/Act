@@ -96,7 +96,7 @@ sub get_items {
     # search field to SQL mapping
     my %req = %{"${class}::sql_mapping"};
 
-    # SQL options
+    # SQL options that can be passed from a form
     my %opt = (
         offset   => '',
         limit    => '',
@@ -113,7 +113,7 @@ sub get_items {
     }
 
     # SQL options for the derived class
-    %opt = ( %opt, %{"{$class}::sql_opts"} );
+    %opt = ( %opt, %{"${class}::sql_opts"} );
 
     # create the big hairy SQL statement
     my $SQL = join ' ',
@@ -131,8 +131,9 @@ sub get_items {
         ),
         # WHERE clause
         'WHERE', join( ' AND ', 'TRUE', @req{keys %args} ),
-        # OPTIONS
-        map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () } keys %opt );
+        # OPTIONS (option order is important)
+        map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
+              ( 'order by', qw( limit offset ) ) );
 
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
