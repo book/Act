@@ -10,7 +10,10 @@ our $table = 'users';
 our $primary_key = 'user_id';
 
 our %sql_stub    = (
-    select     => "u.*, EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_id AND t.conf_id=p.conf_id) AS have_talk",
+    select     => "u.*",
+    select_opt => {
+        have_talk => sub { exists $_[0]{conf_id} ? ( conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?) AS have_talk" ) : () },
+        },
     from       => "users u",
     from_opt   => [
         sub { exists $_[0]{conf_id} ? "participations p" : () },
@@ -24,14 +27,13 @@ our %sql_mapping = (
     pm_group   => "(u.pm_group~*?)",
     # standard stuff
     map( { ($_, "(u.$_=?)") }
-      qw( user_id session_id login country have_paid ) )
+      qw( user_id session_id login country ) )
 );
 our %sql_opts = ( 'order by' => 'user_id' );
 
 *get_users = \&Act::Object::get_items;
 
 sub pm_group  { ucfirst $_[0]{pm_group} }
-sub have_talk { $_[0]{have_talk} }
 
 sub rights {
     my $self = shift;

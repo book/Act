@@ -42,11 +42,18 @@ sub db_add_users {
         email   => 'foo@bar.com',
         country => 'en',
     );
+    Act::User->create(
+        login   => 'user',
+        passwd  => 'UZer',
+        email   => 'user@example.com',
+        country => 'uk',
+    );
 
     # add participations as well
     my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id) VALUES(?,?);");
     $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf' );
     $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf' );
+    $sth->execute( Act::User->new( login => 'user' )->user_id, 'newconf' );
     $sth->finish();
 }
 

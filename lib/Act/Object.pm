@@ -81,6 +81,7 @@ sub init {
           unless *{"${class}::$a"}{CODE};
     }
     *{"${class}::fields"} = { map { ($_=> 1) } @$fields };
+    #*{"${class}::types"} = 
 
     # let's disappear ;-)
     *{"${class}::init"} = sub {};
@@ -116,12 +117,14 @@ sub get_items {
     %opt = ( %opt, %{"${class}::sql_opts"} );
 
     # create the big hairy SQL statement
+    my %select_opt = map { $_->(\%args) }
+                         values %{ ${"${class}::sql_stub"}{select_opt} };
+
     my $SQL = join ' ',
         # SELECT clause
         'SELECT', join( ', ',
             ${"${class}::sql_stub"}{select},
-            map ( { $_->(\%args) }
-                  values %{ ${"${class}::sql_stub"}{select_opt} } ),
+            values %select_opt,
         ),
         # FROM
         'FROM', join( ', ',
@@ -138,8 +141,8 @@ sub get_items {
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute(
-        map { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// }
-        keys %args
+        map ( { ( $args{$_} ) x $select_opt{$_} =~ y/?// } keys %select_opt ),
+        map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
     );
 
     my ($items, $item) = [ ];
@@ -220,47 +223,119 @@ These classes can also be called on an object instance.
 
 =head1 SUBCLASSES
 
-Creating a subclass of Act::Object should be quite easy:
+Creating a subclass of Act::Object should be quite easy: one must
+define several package variables in the subclass.
 
-    package Act::Foo;
-    use Act::Object;
-    use base qw( Act::Object );
+The list of those variables is:
 
-    # information used by new()
-    our $new_args = qr/^(?:foo_id|user_id)$/;
+=over 4
 
-    # information used by create()
-    our $table = "foos";     # the table holding object data
-    out $primary_key = 'foo_id';  # used by update()
+=item $table
 
-    # information used by get_items()
-    our %sql_stub = (
-        select => "f.*",
-        select_opt => {
-            max => sub { exists $_[0]{bar} ? 'max( f.number )' : () }
-        },
-        from       => "foos f",
-        from_opt   => [
-            # a list of subroutines that return table names given $args
-        ],
-    };
-    our %sql_opts = ();      # SQL options for get_items()
+The name of the table that holds the data for this kind of object in the
+database.
+
+=item $primary_key
+
+The column name of the primary key of the table.
+
+=item %sql_mapping
+
+This hash maps search fields to individual parts of the C<WHERE> clause
+of the C<SELECT> statement used internaly by C<get_items()>.
+
+Example:
+
     our %sql_mapping = (
-          bar => "(f.bar1=? OR f.bar=?)",
-          # simple stuff
-          map ( { ( $_, "(f.$_=?)" ) } qw( foo_id conf_id ) ),
+        user_id => '(u.user_id=?)',
+        name    => '(u.first_name LIKE ? OR u.last_name LIKE ?),
     );
 
-    # Your class now inherits new(), create(), update(), get_items()
-    # and the accessors (for the column names and optional fields)
+In this configuration, C<get_items()> will add the C<(u.user_id=?)>
+string to the C<WHERE> clause and bind it to the C<user_id> argument
+to C<get_items>.
 
-    # Alias the search method
-    *get_foos = \&Act::Object::get_items;
+The second pair show that you can use any name for your parameter. And
+also that if the string contains several C<?> caracters, the parameter
+value will be bound as many times as necessary.
 
-    # Create the accessors and helper methods
-    Act::Foo->init();
+=item %sql_stub
+
+This hash is used to create the complete SQL statement. It can be as
+simple as:
+
+    our %sql_stub = (
+        select => "u.*",
+        from   => "users u",
+    );
+
+In some cases, a specific search will require an additional table.
+The C<from_opt> key can be used to add optional tables to the C<FROM>
+clause.
+
+C<from_opt> is an array reference that contains code references.
+The coderefs are passed a hash reference that lists the named arguments
+to C<get_items> and must return a string to be added to the C<FROM>
+clause.
+
+    our %sql_stub = (
+        select   => "u.*",
+        from     => "users u",
+        from_opt => [
+            sub { exists $_[0]{conf_id} ? "participations p" : () },
+        ],
+    );
+
+In this example, if C<conf_id> is part of the search parameters, then
+the C<participation> table will be added to the C<FROM> clause.
+
+The reason is that C<$sql_mapping{conf_id}> is
+C<(p.conf_id=? AND u.user_id=p.user_id)>, which requires to add C<p>
+(C<participations>) to the C<FROM> clause.
+
+Finaly, some optional columns can be returned by the query. This is
+done by with the C<select_opt> key.
+
+The C<select_opt> key points to a hash reference, which keys are
+the name of the created fields in the corresponding Act::Object subclass
+and which values are code reference, just as for C<from_opt>.
+
+The coderefs still receive a hash reference that lists the named
+arguments, but they must now return a pair composed of the name of the
+query parameter to bind to the placeholder and the SQL code used to 
+create the computed column.
+
+    our %sql_stub    = (
+        select     => "u.*",
+        select_opt => {
+            have_talk => sub { exists $_[0]{conf_id} ? ( conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_i d AND t.conf_id=p.conf_id AND p.conf_id=?) AS have_talk" ) : () },
+            },
+        from       => "users u",
+        from_opt   => [
+            sub { exists $_[0]{conf_id} ? "participations p" : () },
+        ],
+    );
+
+Please note that it is not possible to do a search based on those
+optional columns.
+
+=item %sql_opts
+
+This hash holds some options this class can pass to the C<SELECT> clause
+created by C<get_items()>. For the moment, only C<order by> is supported.
+
+Example: 
+
+    our %sql_opts = ( 'order by' => 'user_id ASC' );
+
+=back
+
+Once all these package variables are defined, the subclass inherits
+C<new()>, C<create()>, C<update()>, C<get_items()> from Act::Object,
+as well as the the accessors (for the column names and optional fields).
 
 See Act::Talk for a simple setup and Act::User for a setup using all
 these features.
 
 =cut
+

@@ -1,4 +1,4 @@
-use Test::More tests => 40;
+use Test::More tests => 39;
 use strict;
 use Act::User;
 use t::Util;   # load the test database
