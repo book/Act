@@ -69,10 +69,6 @@ sub init {
     # fill possibly missing keys
     ${"${class}::sql_stub"}{select_opt} ||= {};
     ${"${class}::sql_stub"}{from_opt}   ||= [];
-    ${"${class}::sql_repeat_bind"} = map {
-        my $n = ${"${class}::sql_mapping"}{$_} =~ y/?//;
-        $n > 1 ? ( $_ => $n ) : ()
-    } keys %{ ${"${class}::sql_mapping"} };
 
     # create all the accessors at once
     for my $a (@$fields, keys %{ ${"${class}::sql_stub"}{select_opt} }) {
@@ -139,9 +135,10 @@ sub get_items {
           map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () } keys %opt );
     
       # repeat some bind variables
-      exists $args{$_}
-        and $args{$_} = [ ( $args{$_} ) x ${"${class}::sql_repeat_bind"}{$_} ]
-        for keys %{"${class}::sql_repeat_bind"};
+      for ( keys %args ) {
+          my $n = ${"${class}::sql_mapping"}{$_} =~ y/?//;
+          $args{$_} = [ ( $args{$_} ) x $n ] if $n > 1;
+      }
     }
 
     # run the request
