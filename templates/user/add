@@ -6,9 +6,15 @@
  <t>
   <en>
    To register, you first need to create an account on the site.
+   If you already have an account from any previous Act conference,
+   you do not need to register again, simply
+   <a href="[% make_uri('main') %]">log in</a> using your account.
   </en>
   <fr>
    Pour vous inscrire, vous devez d'abord vous créer un compte sur le site.
+   Si vous possédez déjà un compte pour une conférence Act précédente,
+   vous pouvez simplement vous <a href="[% make_uri('main') %]">identifier</a>
+   avec ce compte.
   </fr>
  </t>
 </p>
