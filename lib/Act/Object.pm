@@ -51,19 +51,25 @@ sub create {
       $data_type = \%{"${class}::data_type"};
     }
     # insert the new record
-    my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
-                      join(",", keys %args), join(",", ( "?" ) x keys %args);
-    my $sth = $Request{dbh}->prepare_cached( $SQL );
-    _normalize( \%args, 'pg', $data_type );
-    $sth->execute( values %args );
+    my $id;
+    eval {
+        my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
+                          join(",", keys %args), join(",", ( "?" ) x keys %args);
+        my $sth = $Request{dbh}->prepare_cached( $SQL );
+        _normalize( \%args, 'pg', $data_type );
+        $sth->execute( values %args );
 
-    # retrieve inserted row's id
-    $sth = $Request{dbh}->prepare_cached("SELECT currval(?)");
-    $sth->execute($seq);
-    my ($id) = $sth->fetchrow_array;
-    $sth->finish();
-    $Request{dbh}->commit;
-
+        # retrieve inserted row's id
+        $sth = $Request{dbh}->prepare_cached("SELECT currval(?)");
+        $sth->execute($seq);
+        ($id) = $sth->fetchrow_array;
+        $sth->finish();
+        $Request{dbh}->commit;
+    };
+    if ($@) {
+        $Request{dbh}->rollback;
+        die $@;
+    }
     return $class->new( $pkey => $id );
 }
 
@@ -77,13 +83,19 @@ sub update {
       exists ${"${class}::fields"}{$_} or delete $args{$_} for keys %args;
       $data_type = \%{"${class}::data_type"};
     }
-    my $SQL = "UPDATE $table SET "
-            . join(',', map "$_=?", keys %args)
-            . " WHERE $pkey=?";
-    my $sth = $Request{dbh}->prepare_cached( $SQL );
-    _normalize( \%args, 'pg', $data_type );
-    $sth->execute(values %args, $self->{$pkey});
-    $Request{dbh}->commit;
+    eval {
+        my $SQL = "UPDATE $table SET "
+                . join(',', map "$_=?", keys %args)
+                . " WHERE $pkey=?";
+        my $sth = $Request{dbh}->prepare_cached( $SQL );
+        _normalize( \%args, 'pg', $data_type );
+        $sth->execute(values %args, $self->{$pkey});
+        $Request{dbh}->commit;
+    };
+    if ($@) {
+        $Request{dbh}->rollback;
+        die $@;
+    }
     @$self{keys %args} = values %args;
     $self->_normalize( 'perl' );
 }
