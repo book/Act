@@ -18,47 +18,6 @@
   </fr>
  </t>
 </p>
-<p>
- <t>
-  <en>
-   The personal data that will be gathered here will be used to create
-   an <a href="[% make_uri('search') %]">online
-   <i>who's who</i></a> of all the attendees. This will be very useful after
-   the conference, when you'll want to get in touch with someone you
-   met during the conference. Or even before, if you want to know
-   which gurus will be there.
-  </en>
-  <fr>
-   Les données personnelles qui sont récupérées ici seront utilisées
-   pour créer un <a href="[% make_uri('search') %]">trombinoscope en ligne</a>
-   des participants. Ceci sera bien utile après
-   la conférence, si vous cherchez à contacter quelqu'un que vous avez
-   rencontré pendant celle-ci. Ou même avant, pour savoir quels
-   gourous comptent venir.
-  </fr>
- </t>
-</p>
-<p>
- <t>
-  <en>
-   Once you have an account, you'll be able to use our secure payment
-   platform to buy your ticket for the conference. Please note that
-   everything regarding your bank account and credit card number
-   is handled by the bank. <b>We do not have access to your credit
-   information at any time during the payment process.</b> We just
-   get the money in the end. <tt>;-)</tt>
-  </en>
-  <fr>
-   Une fois que vous avez un compte, vous pourrez utiliser notre
-   plate-forme de paiement sécurisé pour acheter votre billet
-   d'entrée à la conférence. Veuillez noter que tout ce qui concerne
-   votre compte en banque et votre numéro de carte bleue est géré
-   par la banque. <b>Nous n'avons à aucun moment accès aux informations
-   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
-   à la fin. <tt>;-)</tt>
-  </fr>
- </t>
-</p>
 
 <p>
  <t>
@@ -106,7 +65,7 @@
      },
   }
 %]
-</span><br /><br />
+</span>
 
 <form method="POST" action="[% global.request.r.uri %]">
 
@@ -163,5 +122,47 @@
 
 </form>
 </center>
+
+<p>
+ <t>
+  <en>
+   The personal data that will be gathered here will be used to create
+   an <a href="[% make_uri('search') %]">online
+   <i>who's who</i></a> of all the attendees. This will be very useful after
+   the conference, when you'll want to get in touch with someone you
+   met during the conference. Or even before, if you want to know
+   which gurus will be there.
+  </en>
+  <fr>
+   Les données personnelles qui sont récupérées ici seront utilisées
+   pour créer un <a href="[% make_uri('search') %]">trombinoscope en ligne</a>
+   des participants. Ceci sera bien utile après
+   la conférence, si vous cherchez à contacter quelqu'un que vous avez
+   rencontré pendant celle-ci. Ou même avant, pour savoir quels
+   gourous comptent venir.
+  </fr>
+ </t>
+</p>
+<p>
+ <t>
+  <en>
+   Once you have an account, you'll be able to use our secure payment
+   platform to buy your ticket for the conference. Please note that
+   everything regarding your bank account and credit card number
+   is handled by the bank. <b>We do not have access to your credit
+   information at any time during the payment process.</b> We just
+   get the money in the end. <tt>;-)</tt>
+  </en>
+  <fr>
+   Une fois que vous avez un compte, vous pourrez utiliser notre
+   plate-forme de paiement sécurisé pour acheter votre billet
+   d'entrée à la conférence. Veuillez noter que tout ce qui concerne
+   votre compte en banque et votre numéro de carte bleue est géré
+   par la banque. <b>Nous n'avons à aucun moment accès aux informations
+   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
+   à la fin. <tt>;-)</tt>
+  </fr>
+ </t>
+</p>
 
 [% END %]
