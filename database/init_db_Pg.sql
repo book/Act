@@ -28,7 +28,7 @@ CREATE TABLE users
     gpg_pub_key  text,
     pause_id     text,
     monk_id      text,
-    icq          text,
+    im           text,
     bio          integer,    /* handled in translations? */
 
     /* website preferences */
