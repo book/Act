@@ -1,7 +1,7 @@
 use strict;
 package Act::Dispatcher;
 
-use Apache::Constants qw(OK DECLINED);
+use Apache::Constants qw(:common);
 use Apache::Cookie ();
 use DBI;
 
@@ -11,7 +11,7 @@ use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
-    login => { handler => \&Act::Auth::login_form_handler },
+    login => { handler => \&Act::Auth::login_form_handler, status => DONE },
 
 # for testing...
     coucou => {
@@ -96,7 +96,7 @@ sub handler
     # dispatch
     $dispatch{$Request{action}}{handler}->();
 
-    return OK;
+    return $dispatch{$Request{action}}{status} || OK;
 }
 
 sub _set_language

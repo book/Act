@@ -2,7 +2,7 @@ package Act::Auth;
 
 use strict;
 use Apache::AuthCookie;
-use Apache::Constants qw(OK DONE);
+use Apache::Constants qw(OK);
 use Digest::MD5 ();
 
 use Act::Config;
@@ -86,7 +86,6 @@ sub login_form_handler
         url => $r->prev && $r->prev->uri ? $r->prev->uri : '/',
     );
     $template->process('login.html');
-    return DONE;
 }
 
 sub authen_ses_key ($$$)
