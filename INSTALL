@@ -54,7 +54,7 @@ an easy setup is to use a port-based virtual host:
 Next, create a local configuration file in $ACTHOME/conf/local.ini.
 This file is not part of the distribution: its contents override
 the global settings in $ACTHOME/conf/act.ini. If you have no need
-to override these standard settings, just create an empty file.
+to override these standard settings, local.ini isn't needed.
 
 You are now ready to install and configure the database system.
 See the details in database/INSTALL.<db> (where <db> is one of
