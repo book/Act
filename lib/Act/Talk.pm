@@ -4,6 +4,8 @@ use base qw( Act::Object );
 
 # class data used by Act::Object
 our $table       = 'talks';
+our $primary_key = 'talk_id';
+
 our %sql_stub    = (
     select => "t.*",
     from   => "talks t",
