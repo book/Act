@@ -95,10 +95,16 @@ sub _set_field
 {
     my ($self, $field, $value) = @_;
     if (defined $value) {
+        # trim whitespace
         for ($value) {
             s/^\s+//;
             s/\s+$//;
         }
+        # apply user-defined filters
+        if ($value && $self->{profile}{filters} && $self->{profile}{filters}{$field}) {
+            $value = $self->{profile}{filters}{$field}->($value);
+        }
+        
     }
     $self->{fields}{$field} = $value if defined $value and $value ne '';
 }
@@ -118,6 +124,9 @@ Act::Form - Form object class
   my $form = Act::Form->new(
     required    => [ qw(name email) ],
     optional    => [ qw(timezone homepage zip) ],
+    filters => {
+       email => \&lc,
+    }
     dependencies => {
        # If cc_no is entered, make cc_type and cc_exp required
        cc_no => [ qw( cc_type cc_exp ) ],
@@ -148,6 +157,18 @@ A simple scalar can be used instead of an array reference when
 only one field needs to be specified:
 
    required => 'field'
+
+The filters key lists fields that require their values to be
+altered in some way before being verified and returned.
+The value is a hash whose keys are field names, and values
+are references to the filtering function. A filtering function
+takes one argument, the value to be filtered, and returns
+the filtered value.
+
+    filters => {
+       email    => \&lc,
+       pm_group => \&ucfirst,
+    }
 
 The dependencies key lists fields required only if a specific
 field value isn't empty.

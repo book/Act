@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 102;
+use Test::More tests => 109;
 
 my @tests = (
 { profile => {
@@ -194,6 +194,25 @@ my @tests = (
     },
     { input  => { r1 => 'http://abc' },
       fields => { r1 => 'http://abc' },
+      valid  => 1,
+    },
+  ],
+},
+{ profile => {
+      required    => 'r1',
+      optional    => 'r2',
+      filters     => {
+         r1 => sub { lc shift },
+         r2 => sub { ucfirst shift },
+      },
+  },
+  inputs => [
+    { input  => { r1 => 'FOO' },
+      fields => { r1 => 'foo' },
+      valid  => 1,
+    },
+    { input  => { r1 => 'FOO', r2 => 'bAr' },
+      fields => { r1 => 'foo', r2 => 'BAr' },
       valid  => 1,
     },
   ],
