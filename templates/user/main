@@ -31,12 +31,9 @@
           <ul>
            [% FOR t = talks %]
              <li><a href="[% make_uri_info('talk', t.talk_id) %]">
-                 [%- "<b>"  IF t.accepted %]
-                 [% t.title %]
-                 [%- "</b>" IF t.accepted %]
-             </a>
+                 [% "<b>"  IF t.accepted %][% t.title %][% "</b>" IF t.accepted %]</a>
              (<a href="[% make_uri('edittalk', 'talk_id', t.talk_id) %]"><t>
-             <en>edit</en><fr>modifier</fr></t>)</a></li>
+             <en>edit</en><fr>modifier</fr></t></a>)</li>
            [% END %]
           </ul>
         </li>
@@ -47,6 +44,7 @@
             <en>submit a talk</en></t></a><br />
       </li>
     [% END %]
+   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><fr>vous déconnecter</fr></t></a></li>
    </ul>
 
 [% END %]

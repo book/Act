@@ -19,7 +19,11 @@ my $form = Act::Form->new(
 sub handler
 {
     # this is not for logged in users!
-    defined($Request{user}) and die "don't call register() for logged users!";
+    if( defined $Request{user} ) {
+        require Act::Handler::User::Main;
+        Act::Handler::User::Main->handler;
+        return;
+    }
 
     my $template = Act::Template::HTML->new();
     my $fields = {};
