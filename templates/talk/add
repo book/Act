@@ -160,20 +160,30 @@
        [% FOREACH d = global.config.talks_durations.keys.nsort %]
        <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><fr>minutes</fr></t></option>
        [% END %]
+       <t>
+       <fr>Si les durées proposées ne conviennent pas, utiliser le champ
+       commentaire pour indiquer la durée préférée.</fr>
+       <en>If the proposed durations do not quite fit your talk, please
+       use the comment field to indicate the preferred duration.</en>
+       </t>
      [% END %]
    [% END %]
     </select>
   </td>
 </tr>
-[% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 <tr>
   <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr></t></td>
   <td>&nbsp;</td>
   <td>
+    <t>
+    <en>The comment field is used for communicating information about
+    this talk to the organisers.</en>
+    <fr>Le champ commentaire permet de passer de l'inforamation au
+    sujet de cette présentation aux organisateurs.</fr>
+    </t>
     <textarea name="comment" cols="50" rows="3">[% comment %]</textarea>
   </td>
 </tr>
-[% END %]
 <tr>
   <td align="right" valign="top"><t><en>Status</en><fr>État</fr></t></td>
   <td>&nbsp;</td>
