@@ -1,4 +1,4 @@
-use Test::More tests => 9;
+use Test::More tests => 11;
 use Act::User;
 use t::Util;   # load the test database
 
@@ -10,8 +10,8 @@ isa_ok( $user, 'Act::User' );
 is_deeply( $user, {}, "Empty new user" );
 
 # manually insert a user and fetch it
-my $sth = $Request{dbh}->prepare_cached("INSERT INTO users (login,passwd,email,country) VALUES(?,?,?,?);");
-$sth->execute( 'test', 't3st', 'foo@bar.com', 'fr' );
+my $sth = $Request{dbh}->prepare_cached("INSERT INTO users (login,passwd,email,country, first_name, last_name) VALUES(?,?,?,?,?,?);");
+$sth->execute( 'test', 't3st', 'foo@bar.com', 'fr', 'first', 'last' );
 $sth->finish();
 
 $user = Act::User->new( login => 'test' );
@@ -23,6 +23,10 @@ $user = Act::User->create(
     passwd  => 't3st',
     email   => 'bar@bar.com',
     country => 'en',
+    first_name => 'Foo',
+    last_name => 'bar',
+    nick_name => 'baz',
+    pseudonymous => 't',
 );
 isa_ok( $user, 'Act::User' );
 is( $user->login, 'test2', "check accessor" );
@@ -42,4 +46,12 @@ isa_ok( $user, 'Act::User' );
 
 $user2 = Act::User->new( user_id => $user->user_id );
 is_deeply( $user, $user2, "Same data from login or user_id" );
+
+# fetch a user by name
+$user = Act::User->new( login => 'test' );
+is_deeply( Act::User->get_users( name => 'last' ), [ $user ], "Found a user by name" );
+
+# fecth a pseudonymous user by nick_name
+$user = Act::User->new( login => 'test2' );
+is_deeply( Act::User->get_users( name => 'baz' ), [ $user ], "Found a pseudonymous user" );
 
