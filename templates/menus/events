@@ -1,0 +1,18 @@
+[% IF global.request.user.is_orga %]
+   [% WRAPPER menus/section %]
+   <a href="[% make_uri('events') %]">
+    <t>
+     <fr>Événements</fr>
+     <en>Events</en>
+    </t>
+   </a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('newevent') %]">
+    <t>
+     <fr>Soumettre un événement</fr>
+     <en>Submit a new event</en>
+    </t>
+   </a>
+   [% END %]
+[% END %]
