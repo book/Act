@@ -10,28 +10,6 @@ our $table = 'users';
 our $primary_key = 'user_id';
 *get_items = \&get_users; # redefined here
 
-=head1 NAME
-
-Act::User - A user object for the Act framework
-
-=head1 DESCRIPTION
-
-This is a standard Act::Object class. See Act::Object for details.
-
-A few methods have been added.
-
-=head2 Methods
-
-=over 4
-
-=item rights()
-
-Returns a hash reference which keys are the rights awarded to the
-user. Lazy loading is used to fetch the data from the database only
-if necessary. The data is then cached for the duration of the request.
-
-=cut
-
 sub rights {
     my $self = shift;
     return $self->{rights} if exists $self->{rights};
@@ -47,13 +25,7 @@ sub rights {
     return $self->{rights};
 }
 
-=item is_I<right>()
-
-Returns a boolean value indicating if the current user has the corresponding
-I<right>. These convenience methods are autoloaded.
-
-=cut
-
+# generate the is_right methods
 sub AUTOLOAD {
 
     # don't DESTROY
@@ -72,21 +44,6 @@ sub AUTOLOAD {
     # die on error
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
-
-=back
-
-=head2 Class methods
-
-Act::User also defines the following class methods:
-
-=over 4
-
-=item get_users( %req )
-
-Same as get_items(), except that C<conf_id> can be used to JOIN the users
-on their participation to specific conferences.
-
-=cut
 
 sub get_users {
     my ( $class, %args ) = @_;
@@ -144,24 +101,10 @@ sub get_users {
     return $users;
 }
 
-=item talks( %req )
-
-Return a reference to an array holding the user's talks that match
-the request criterion.
-
-=cut
-
 sub talks {
     my ($self, %args) = @_;
     return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
-
-=item participation
-
-Return a hash reference holding the user data related to the current
-conference.
-
-=cut
 
 sub participation {
     my ( $self ) =@_;
@@ -174,4 +117,57 @@ sub participation {
 }
 
 1;
+
+__END__
+=head1 NAME
+
+Act::User - A user object for the Act framework
+
+=head1 DESCRIPTION
+
+This is a standard Act::Object class. See Act::Object for details.
+
+A few methods have been added.
+
+=head2 Methods
+
+=over 4
+
+=item rights()
+
+Returns a hash reference which keys are the rights awarded to the
+user. Lazy loading is used to fetch the data from the database only
+if necessary. The data is then cached for the duration of the request.
+
+=item is_I<right>()
+
+Returns a boolean value indicating if the current user has the corresponding
+I<right>. These convenience methods are autoloaded.
+
+=back
+
+=head2 Class methods
+
+Act::User also defines the following class methods:
+
+=over 4
+
+=item get_users( %req )
+
+Same as get_items(), except that C<conf_id> can be used to JOIN the users
+on their participation to specific conferences.
+
+=item talks( %req )
+
+Return a reference to an array holding the user's talks that match
+the request criterion.
+
+=item participation
+
+Return a hash reference holding the user data related to the current
+conference.
+
+=back
+
+=cut
 
