@@ -1,54 +1,51 @@
 [% PROCESS common %]
-<center>
-<p>
- <t>
+<p><t>
   <en>
-   Committed users are listed in bold font (they have bought their
-   ticket, or will give a talk).
+   Committed users are listed in <strong>bold</strong> font (they have 
+   bought their ticket, or will give a talk).
   </en>
   <fr>
    Les utilisateurs dont l'inscription est confirmée sont affichés
-   en gras (ils ont payé leur billet ou feront une présentation à
-   la conférence).
+   en <strong>gras</strong> (ils ont payé leur billet ou feront une 
+   présentation à la conférence).
   </fr>
   <it>
    Gli utenti che hanno confermato la partecipazione (ovvero, che
    hanno pagato il biglietto o terranno un intervento) sono mostrati in
-   <b>grassetto</b>
+   <strong>grassetto</strong>
   </it>
- </t>
-</p>
+</t></p>
 
 [% IF users.size %]
-<table border="1" cellspacing="0" cellpadding="4">
-<tr bgcolor="#FFFFFF">
+<table id="user-list">
+<tr>
  <th><t><en>Name</en><fr>Nom</fr><it>Nome</it></t></th>
  <th><t><en>City</en><fr>Ville</fr><it>Città</it></t></th>
  <th><t><en>Country</en><fr>Pays</fr><t>Nazione</it></t></th>
- <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</ih></t></th>
+ <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</it></t></th>
  [% IF global.user.is_admin %]
  <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it></t></th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
  <tr>
-   <td align="center">
-    [% "<b>" IF u.committed %][% user_info(u) %][% "</b>" IF u.committed %]
+   <td>
+    [% "<strong>" IF u.committed %][% user_info(u) %][% "</strong>" IF u.committed %]
     [% IF u.photo_name %]
     <img src="/images/photo.png" alt="photo" title="photo" width="12" height="12" />
     [% END %]
    </td>
-   <td align="center">
+   <td>
       [%- IF u.town %]
          [% u.town %]
       [%- ELSE %]
          &nbsp;
       [% END %]
    </td>
-   <td align="center">
+   <td>
       [% countries_iso.${u.country} %]
    </td>
-   <td align="center">
+   <td>
       [%- IF u.pm_group %]
          [% IF u.pm_group_url %]<a href="[% u.pm_group_url %]">[% END %]
          [%- u.pm_group -%]
@@ -67,4 +64,3 @@
 
 </table>
 [% END %]
-</center>
