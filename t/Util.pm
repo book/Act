@@ -15,6 +15,7 @@ $Request{dbh} = DBI->connect(
 $Request{dbh}->do("DELETE FROM rights");
 $Request{dbh}->do("DELETE FROM participations");
 $Request{dbh}->do("DELETE FROM talks");
+$Request{dbh}->do("DELETE FROM orders");
 $Request{dbh}->do("DELETE FROM users");
 $Request{dbh}->do("DELETE FROM news");
 $Request{dbh}->do("DELETE FROM translations");

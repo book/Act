@@ -100,6 +100,21 @@ CREATE TABLE talks
 );
 CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 
+/* orders */
+DROP   TABLE orders CASCADE;
+DROP   TABLE orders_order_id_seq;
+CREATE TABLE orders
+(
+    order_id   serial    NOT NULL    PRIMARY KEY,
+    conf_id    text      NOT NULL,
+    user_id    integer   NOT NULL,
+
+    /* order info */
+    amount     integer               NOT NULL,
+    paid       boolean DEFAULT false NOT NULL,
+
+    FOREIGN KEY( user_id  ) REFERENCES users( user_id )
+);
 
 /* multilingual entries */
 DROP   TABLE translations;
