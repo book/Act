@@ -5,7 +5,7 @@ Install (or cvs checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 
 The required modules are tested for in t/01cpan.t. You'll find the
-complete and up-to-date list of prerequisite in that file.
+complete and up-to-date list of prerequisites in that file.
 
 First thing is to enable Perl (and mod_perl) to find the Act modules.
 
@@ -17,7 +17,9 @@ configuration file. This is done by setting the ACTHOME environment variable:
     export ACTHOME=/home/act
 
 Make sure both ACTHOME and PERL5LIB are set and exported when
-running httpd or 'make test'.
+running httpd or 'make test': include these settings in both your
+shell profile (~/.bashrc or equivalent) and Apache startup script
+(apachectl or equivalent.)
 
 Next, define a virtual host in your Apache configuration file
 (httpd.conf) for Act. Here's an example:
@@ -37,7 +39,7 @@ containers):
     PerlInitHandler Apache::Reload
     PerlSetVar ReloadAll Off
 
-Then and add this inside Act's VirtualHost container:
+Then add this inside Act's VirtualHost container:
 
     PerlSetVar ReloadModules "Act::*"
 
@@ -64,7 +66,7 @@ to override these standard settings, local.ini isn't needed.
 
 You are now ready to install and configure the database system.
 See the details in database/INSTALL.<db> (where <db> is one of
-Pg, MySQL...).
+Pg, MySQL....)
 
 In the end, you must have the following section in your conf/act.ini
 or conf/local.ini file:
@@ -89,7 +91,7 @@ out of your Act installation, in a production environment. Full
 explanations of the techniques used are outside of the scope of this
 document, so we only provide introductory comments.
 
-* pre-loading modules at Apache startup
+* pre-loading modules at Apache startup and persistent database connections
 
 Insert the following configuration directive in httpd.conf:
 
@@ -97,13 +99,16 @@ PerlModule $ACTHOME/conf/startup.pl
 
 This improves performance (modules are pre-loaded at server startup)
 and memory usage (modules are loaded in the parent server and thanks
-to copy-on-write their code is shared, at least for a while).
+to copy-on-write their code is shared, at least for a while.)
+
+startup.pl also uses Apache::DBI to enable persistent database connections,
+obviating the need to connect to the database for each request.
 
 * Dual Apache setup
 
 mod_perl-enabled servers tend to have a large memory footprint, so you don't
 want too many of them. Server instances tend to spend most of their time
-serving responses to slow clients ("spoon-feeding" clients). 
+serving responses to slow clients ("spoon-feeding" clients.) 
 
 This setup uses 2 instances of Apache: the front-end, or "light" server
 serves static content (images, CSS files), and reverse-proxies dynamic
@@ -139,7 +144,7 @@ and amount of available RAM. We keep MaxClients low because that's
 the whole point of this setup, and MaxRequestsPerChild low to improve
 sharing.
 
-  PerlRequire /home/apache/conf/startup.pl
+  PerlRequire /home/act/conf/startup.pl
   Listen 9000
   <VirtualHost 127.0.0.1:9000>
     ServerName    www.example.com
