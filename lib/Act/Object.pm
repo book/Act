@@ -117,14 +117,14 @@ sub get_items {
     %opt = ( %opt, %{"${class}::sql_opts"} );
 
     # create the big hairy SQL statement
-    my %select_opt = map { $_->(\%args) }
+    my @select_opt = map { $_->(\%args) }
                          values %{ ${"${class}::sql_stub"}{select_opt} };
 
     my $SQL = join ' ',
         # SELECT clause
         'SELECT', join( ', ',
             ${"${class}::sql_stub"}{select},
-            values %select_opt,
+            map { $_->[1] } @select_opt,
         ),
         # FROM
         'FROM', join( ', ',
@@ -141,7 +141,7 @@ sub get_items {
     # run the request
     my $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute(
-        map ( { ( $args{$_} ) x $select_opt{$_} =~ y/?// } keys %select_opt ),
+        map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
         map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
     );
 
@@ -301,14 +301,14 @@ the name of the created fields in the corresponding Act::Object subclass
 and which values are code reference, just as for C<from_opt>.
 
 The coderefs still receive a hash reference that lists the named
-arguments, but they must now return a pair composed of the name of the
-query parameter to bind to the placeholder and the SQL code used to 
-create the computed column.
+arguments, but they must now return an array reference holding the name
+of the query parameter to bind to the placeholder and the SQL code used
+to create the computed column.
 
     our %sql_stub    = (
         select     => "u.*",
         select_opt => {
-            have_talk => sub { exists $_[0]{conf_id} ? ( conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_i d AND t.conf_id=p.conf_id AND p.conf_id=?) AS have_talk" ) : () },
+            have_talk => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_i d AND t.conf_id=p.conf_id AND p.conf_id=?) AS have_talk" ] : () },
             },
         from       => "users u",
         from_opt   => [
