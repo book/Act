@@ -2,19 +2,11 @@ package Act::Plugin::News;
 use Template::Plugin;
 use base qw( Template::Plugin );
 use Act::Config;
+use Act::News;
 
 sub items {
-    my ($self, $count) = @_;
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM news WHERE conf_id=? AND lang=? ORDER BY date DESC');
-    $sth->execute($Request{conference}, $Request{language});
-
-    my @items;
-    while( my $news = $sth->fetchrow_hashref()) {
-        push @items, $news;
-        last if @items == $count;
-    }
-    $sth->finish;
-    return \@items;
+    my ( undef, $n ) = @_;
+    Act::News->get_news( conf_id => $Request{conference}, limit => $n );
 }
 
 1;

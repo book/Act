@@ -12,20 +12,10 @@
  </t>
  [% ELSE %]
  <t>
-   <fr>[% talks_total > 1 ? "$talks_total présentations ont été proposées,"
-                          : "Une présentation a été proposée" %] dont
-       [% talks_accepted == 0
-          ? "aucune n'a encore été acceptée."
-          : talks_accepted == 1
-          ? "une seule est acceptée."
-          : "$talks_accepted ont été acceptées." %]</fr>
-   <en>[% talks_total > 1 ? "$talks_total talks were submitted,"
-                          : "one talk was submitted" %] of which
-       [% talks_accepted == 0
-          ? "none were accepted yet."
-          : talks_accepted == 1
-          ? "one was accepted."
-          : "$talks_accepted were accepted." %]</en>
+  <fr>Présentations soumises&nbsp;: [% talks_total %]<br />
+      Présentations acceptées&nbsp;: [% talks_accepted %]</fr>
+  <en>Submitted talks: [% talks_total %]<br />
+      Accepted talks: [% talks_accepted %]</en>
  </t>
  [% END %]
 </p>
@@ -40,7 +30,7 @@
   </fr>
  </t>
 </p>
-<form method="POST" action="[% make_uri('talks') %]">
+<form method="POST" >
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>

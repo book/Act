@@ -68,7 +68,7 @@ sub _extract
             if ($opts{c}) {
                 for my $language (sort keys %{$Config->languages}) {
                     my ($ltext) = ($text =~ m!<$language>(.*?)</$language>!s);
-                    print "$fname-$num: missing $language\n" unless $ltext;
+                    print "$file-$num: missing $language\n" unless $ltext;
                 }
             }
         }

@@ -43,10 +43,12 @@
 [% IF talk_id %]
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
 [% END %]
+[% IF talk_id %]
 <p>
  <t><en>View</en><fr>Voir</fr></t>
  <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
 </p>
+[% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 [% IF global.request.user.is_orga %]
