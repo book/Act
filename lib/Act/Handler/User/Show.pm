@@ -23,7 +23,11 @@ sub handler
         %$user,
         country => Act::Country::CountryName($user->country),
         civility => Act::Util::get_translation( users => civility => $user->civility ),
-        talks    => $user->talks,
+        talks    => [
+          grep { $_->accepted || $Request{user} &&
+                 ($Request{user}->is_orga || $Request{user}->user_id == $_->user_id) }
+          @{$user->talks},
+        ],
     );
     $template->process('user/show');
 }

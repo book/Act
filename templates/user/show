@@ -148,15 +148,12 @@
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
           <ul>
            [% FOREACH t = talks %]
-             [% IF t.accepted || global.request.user.is_orga
-                              || global.request.user.user_id == t.user_id %]
 	    <li><a href="/yapc/talk/?tid=[% t.talk_id %]">
             [% "<b>" IF t.accepted %]
             [% t.title %][% "</b>" IF t.accepted %]</a>
             ([% IF t.duration ; t.duration %] minutes[% ELSE %]
             <t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])</li>
              [% END %]
-           [% END %]
           </ul>
          </td></tr></table>
       </td>
