@@ -1,4 +1,4 @@
-package Act::Handler::User;
+package Act::Handler::User::Register;
 
 use Act::Config;
 use Act::Country;
@@ -15,17 +15,6 @@ my $form = Act::Form->new(
      email => 'email',
   }
 );
-
-sub search {
-
-    # process the search template
-    my $template = Act::Template::HTML->new();
-    $template->variables(
-        users => %{$Request{args}}
-               ? Act::User->get_users( %{$Request{args}} ) : [],
-    );
-    $template->process('user/search_form');
-}
 
 sub register
 {
