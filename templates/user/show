@@ -1,6 +1,7 @@
 [% WRAPPER ui
    title = { en => 'User information', fr => 'Informations utilisateur' },
 %]
+[% PROCESS common %]
 
 <div align="center">
 
