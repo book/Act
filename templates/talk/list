@@ -70,9 +70,8 @@
     <td><a href="[% make_uri_info('user', t.user.user_id) %]">
         [% user_info(t.user) %]
     </a></td>
-    <td><a href="[% make_uri_info('talk', t.talk_id) %]">
-           [% "<b>"  IF t.accepted %][% t.title %][% "</b>" IF t.accepted %]</a>
-           [% talk_modify_link(t) %]
+    <td>[% talk_link(t) %]
+        [% talk_modify_link(t) %]
     </td>
     <td>[% IF t.lightning %]
           <t><en>lightning</en><fr>éclair</fr></t>
