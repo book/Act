@@ -10,6 +10,7 @@ use Act::Config;
 my %filters = (
     form_unescape  => sub { HTML::Entities::decode($_[0], '"') },
 );
+my %encoded;
 
 sub _init
 {
@@ -27,7 +28,7 @@ sub _init
 
 sub encode
 {
-   # recursively encode HTML entities
+    # recursively encode HTML entities
     my $self = shift;
     if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
         $self->encode($_) for @{$_[0]};
@@ -38,7 +39,7 @@ sub encode
     elsif (ref $_[0] eq 'CODE') {
         return;
     }
-    elsif (!ref($_[0]) && defined($_[0])) {
+    elsif (!ref($_[0]) && defined($_[0]) && !$encoded{\$_[0]}++) {
         $_[0] = HTML::Entities::encode($_[0], '<>&"');
     }
 }

@@ -64,6 +64,7 @@ my @templates = (
                   ],
     },
 );
+my $quote = { q => '"' };
 my @html_templates = (
     { in  => 'foo',
       out => 'foo',
@@ -98,6 +99,12 @@ my @html_templates = (
       in  => '[% v | form_unescape %]',
       out => 'a"b',
       sections => [ { text => '[% v | form_unescape %]' } ],
+    },
+    {
+      var => { v => $quote, w => { v => $quote } },
+      in  => '[% v.q; w.v.q %]',
+      out => '&quot;&quot;',
+      sections => [ { text => '[% v.q; w.v.q %]' } ],
     },
     {
       var => { v => 'foo' },
