@@ -1,4 +1,4 @@
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
    [% WRAPPER menus/section %]
    <a href="[% make_uri('events') %]">
     <t>

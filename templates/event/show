@@ -10,7 +10,7 @@
 
 <b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 
    <t><en>minutes</en><fr>minutes</fr></t><br />
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
  <en>edit</en><fr>modifier</fr></t></a>)
 [% END %]

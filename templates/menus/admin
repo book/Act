@@ -1,5 +1,5 @@
 <!-- admin menu -->
-[% IF global.request.user.is_admin %]
+[% IF global.request.webuser.is_admin %]
    [% WRAPPER menus/section %]
    <t><fr>Admin</fr><en>Admin</en></t>
    [% END %]

@@ -7,7 +7,7 @@
  </t>
 </a>
 [% END %]
-[% IF global.config.talks_show_schedule OR global.request.user.is_orga %]
+[% IF global.config.talks_show_schedule OR global.request.webuser.is_orga %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('schedule') %]">
     <t>
@@ -17,7 +17,7 @@
    </a>
    [% END %]
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('timetable.ics') %]">
     <t>
@@ -35,7 +35,7 @@
    </a>
    [% END %]
 [% END %]
-[% IF global.config.talks_submissions_open OR global.request.user.is_orga %]
+[% IF global.config.talks_submissions_open OR global.request.webuser.is_orga %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('newtalk') %]">
     <t>

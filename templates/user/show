@@ -64,7 +64,7 @@
          [% "<a href=\"$company_url\">" IF company_url %][% company %][% '</a>' IF company_url %]
       </td>
 [% END %]
-[%- UNLESS email_hide and not global.request.user.is_orga %]
+[%- UNLESS email_hide and not global.request.webuser.is_orga %]
    </tr><tr>
       <td align="right">
          Email
@@ -140,7 +140,7 @@
 [% IF talks.size %]
    <tr>
       <td align="right" valign="top">
-    [% IF global.request.user.is_orga %]
+    [% IF global.request.webuser.is_orga %]
 	  [% IF talks.size == 1 %]
 	     <t><en>Talk</en> <fr>Présentation</fr></t>
 	  [% ELSE %]

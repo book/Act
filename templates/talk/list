@@ -20,7 +20,7 @@
  </t>
  [% END %]
 </p>
-[% IF global.request.user.is_orga || global.request.user.has_talk %]
+[% IF global.request.webuser.is_orga || global.request.user.has_talk %]
 <p>
  <t>
   <en>
@@ -32,7 +32,7 @@
  </t>
 </p>
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
 <p>
  <t>
   <fr>Durée totale des présentations acceptées&nbsp;:</fr>
@@ -48,7 +48,7 @@
  [% talks_lightning %]
 </p> 
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
 <form method="POST" action="[% global.request.r.uri %]">
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
@@ -56,15 +56,15 @@
  <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
  <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
  <th><t><en>Duration</en><fr>Durée</fr></t></th>
- [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
+ [% IF global.request.webuser.is_orga OR global.config.talks_show_schedule %]
  <th><t><en>Date</en><fr>Date</fr></t></th>
  [% END %]
- [% IF global.request.user.is_orga %]
+ [% IF global.request.webuser.is_orga %]
  <th><t><en>Accepted</en><fr>Accepté</fr></t></th>
  [% END %]
 </tr>
 [% FOREACH t = talks %]
-  [% IF t.accepted || global.request.user.is_orga
+  [% IF t.accepted || global.request.webuser.is_orga
                    || global.request.user.user_id == t.user_id %]
   <tr>
     <td><a href="[% make_uri_info('user', t.user.user_id) %]">
@@ -79,10 +79,10 @@
          [% t.duration %] <t><en>minutes</en><fr>minutes</fr></t>
         [% END %]
     </td>
-    [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
+    [% IF global.request.webuser.is_orga OR global.config.talks_show_schedule %]
     <td align="center" nowrap="nowrap">[% IF t.datetime; date_format(t.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>
     [% END %]
-    [% IF global.request.user.is_orga %]
+    [% IF global.request.webuser.is_orga %]
     <td align="center">
     <input type="checkbox" name="[% t.talk_id %]"[% ' checked' IF t.accepted %] />
     </td>
@@ -91,7 +91,7 @@
   [% END %]
 [% END %]
 </table>
-[% IF global.request.user.is_orga %]
+[% IF global.request.webuser.is_orga %]
 <br />
 <input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr></t>" />
 </form>

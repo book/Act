@@ -21,7 +21,7 @@
  <th><t><en>City</en><fr>Ville</fr></t></th>
  <th><t><en>Country</en><fr>Pays</fr></t></th>
  <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr></t></th>
- [% IF global.user.is_admin %]
+ [% IF global.webuser.is_admin %]
  <th><t><en>Admin links</en><fr>Liens d'admin</fr></t></th>
  [% END %]
 </tr>
@@ -52,7 +52,7 @@
          &nbsp;
       [% END %]
    </td>
-   [% IF global.user.is_admin %]
+   [% IF global.webuser.is_admin %]
    <td>
     [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr></t></a>[% END %]
   </td>
