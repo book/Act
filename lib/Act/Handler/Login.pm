@@ -13,10 +13,6 @@ sub handler
     # disable client-side caching
     $r->no_cache(1);
 
-    # domain the cookie applies to
-    my $domain = $r->server->server_hostname;
-    $domain =~ s/^.*?\.([^.]+\.[^.])$/$1/;
-
     # process the login form template
     my $template = Act::Template::HTML->new();
     $template->variables(
@@ -24,7 +20,7 @@ sub handler
                      ? $r->prev->uri
                      : Act::Util::make_uri(''),
         action      => Act::Util::make_uri('LOGIN'),
-        domain      => $domain,
+        domain      => join('.', (split /\./, $r->server->server_hostname)[-2, -1]),
     );
     $template->process('login');
     $Request{status} = DONE;
