@@ -47,6 +47,7 @@ sub handler
                    )
                  },
         ],
+        bio => ( $user->bio->{$Request{language}} || $user->bio->{en} )
     );
     $template->process('user/show');
 }
