@@ -6,9 +6,9 @@ use Act::Country;
 
 use constant SQL_FMT      => q{
     SELECT %s FROM users u, participations p WHERE u.user_id=p.user_id AND p.conf_id=? %s };
-use constant SQL_COMMITED => q{
+use constant SQL_COMMITTED => q{
   (
-    EXISTS(SELECT 1 from talks t where t.user_id=u.user_id and t.accepted)
+    EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND t.accepted IS TRUE AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?)
   )
 };
 #    EXISTS(SELECT 1 from orders o where o.user_id=u.user_id and o.state='paid')
@@ -20,14 +20,15 @@ my %sql = (
                'AND u.pm_group IS NOT NULL GROUP BY LOWER(u.pm_group)' ),
     countries =>
       sprintf( SQL_FMT, 'COUNT(*), u.country', 'GROUP BY u.country' ),
-    towns => 
+    towns     => 
       sprintf( SQL_FMT, 'COUNT(*), LOWER(u.town), u.country',
                'AND u.town IS NOT NULL GROUP BY u.country, LOWER(u.town)' ),
-    users => sprintf( SQL_FMT, 'COUNT(*)', '' ),
-    #committed => sprintf( SQL_FMT, 'COUNT(*)', "AND" . SQL_COMMITTED ),
-    #com_countries => sprintf( SQL_FMT, 'COUNT(*), u.country', SQL_COMMITTED . ' GROUP BY u.country') ,
-    #com_towns => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.town), country', SQL_COMMITTED . ' AND u.town IS NOT NULL GROUP BY u.country, LOWER(u.town)' ),
-    #com_pm_groups => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.pm_group)', 'AND u.pm_group IS NOT NULL AND' . SQL_COMMITTED .  ' GROUP BY LOWER(u.pm_group)',
+    users     => sprintf( SQL_FMT, 'COUNT(*)', '' ),
+    # committed information
+    committed     => sprintf( SQL_FMT, 'COUNT(*)', "AND" . SQL_COMMITTED ),
+    com_countries => sprintf( SQL_FMT, 'COUNT(*), u.country', "AND" . SQL_COMMITTED . ' GROUP BY u.country') ,
+    com_towns     => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.town), country', "AND" . SQL_COMMITTED . ' AND u.town IS NOT NULL GROUP BY u.country, LOWER(u.town)' ),
+    com_pm_groups => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.pm_group)', 'AND u.pm_group IS NOT NULL AND' . SQL_COMMITTED .  ' GROUP BY LOWER(u.pm_group)' ),
 );
 
 sub handler {
@@ -35,7 +36,7 @@ sub handler {
     my $temp = {};
     for my $query (keys %sql) {
         my $sth = $Request{dbh}->prepare( $sql{$query} );
-        $sth->execute( $Request{conference} );
+        $sth->execute( ( $Request{conference} ) x $sql{$query} =~ y/?// );
         $temp->{$query} = $sth->fetchall_arrayref();
         $sth->finish();
     }
@@ -48,26 +49,26 @@ sub handler {
     $stats->{$_} = $temp->{$_}[0][0] for qw( users committed );
 
     # temp data for committed users
-    #my $committed = {};
-    #$committed->{countries}{$_->[1]} = $_->[0]
-    #    for @{ $temp->{com_countries} };
-    #$committed->{towns}{$_->[2]}{$_->[1]} = $_->[0]
-    #    for @{ $temp->{com_towns} };
-    #$committed->{pm_groups}{$_->[1]} = $_->[0]
-    #    for @{ $temp->{com_pm_groups} };
+    my $committed = {};
+    $committed->{countries}{$_->[1]} = $_->[0]
+        for @{ $temp->{com_countries} };
+    $committed->{towns}{$_->[2]}{$_->[1]} = $_->[0]
+        for @{ $temp->{com_towns} };
+    $committed->{pm_groups}{$_->[1]} = $_->[0]
+        for @{ $temp->{com_pm_groups} };
 
     # list of monger groups
     $stats->{pm} = [ sort { $b->{count} <=> $a->{count} }
           map {{ name      => ucfirst( $_->[1] ),
                  count     => $_->[0],
-                 #committed => $committed->{pm_groups}{ $_->[1] } || 0,
+                 committed => $committed->{pm_groups}{ $_->[1] } || 0,
             }} @{ $temp->{pm_groups} } ];
     # list of countries
     $stats->{countries} = [ sort { $b->{count} <=> $a->{count} }
           map {{ name      => Act::Country::CountryName( $_->[1] ),
                  iso       => $_->[1],
                  count     => $_->[0],
-                 #committed => $committed->{countries}{$_->[1]} || 0,
+                 committed => $committed->{countries}{$_->[1]} || 0,
               }} @{ $temp->{countries} } ];
     # list of towns by country
     for (@{$temp->{towns}}) {
@@ -76,7 +77,7 @@ sub handler {
         push @{ $stats->{towns}{$_->[2]} }, {
           name      => $_->[1],
           count     => $_->[0],
-          #committed => $committed->{towns}{$_->[2]}{$town} || 0
+          committed => $committed->{towns}{$_->[2]}{$town} || 0
         };
     }
     for my $country (keys %{ $stats->{towns} } ) {
