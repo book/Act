@@ -3,6 +3,7 @@
      en => "${global.conference.name} Statistics"
      fr => "Statistiques pour ${global.conference.name}"
      it => "Statistiche per ${global.conference.name}"
+     pt => "Estatísticas da ${global.conference.name}"
    }
 %]
 
@@ -16,6 +17,13 @@
    that is to say, people that either paid their
    conference ticket or will give a talk.
   </en>
+  <pt>
+   Existem [% stats.users %] pessoas registadas, de 
+   [% stats.countries.size %] país[% stats.countries.size > 1 ? "es" : "" %]
+   e [% stats.pm.size %] grupo[% "s" IF stats.pm.size > 1 %] de monges.
+   Existem [% stats.committed %] utilizador[% "s" IF stats.committed > 1 %]
+   que já apagaram ou irão realizar uma apresentação.
+  </pt>
   <fr>
    La conférence compte [% stats.users %] inscrit[% "s" IF stats.users > 1 %],
    venus de [% stats.countries.size %] pays
@@ -40,6 +48,10 @@
    You can have a look at <a href="[% make_uri('stats') %]">country / mongers</a>
    or <a href="[% make_uri('stats', 'show', 'cities') %]">cities</a> statistics.
   </en>
+  <pt>
+   Pode ver estatísticas de <a href="[% make_uri('stats') %]">países / monges</a>
+   ou de <a href="[% make_uri('stats', 'show', 'cities') %]">cidades</a>.
+  </pt>
   <fr>
    Vous pouvez jeter un &oelig;il aux statistiques par 
    <a href="[% make_uri('stats') %]">pays / groupe de mongueurs</a> ou par
@@ -55,6 +67,8 @@
  <t>
   <en>The number of committed users is listed between parentheses
   in the following tables.</en>
+  <pt>O número de utilizadores que irão assistir está listado 
+	entre parêntesis nas seguintes tabelas.</pt>
   <fr>Les nombres entre parenthèses dans les tableaux qui suivent
   indiquent le nombre d'inscrits engagés.</fr>
   <it>Il numero degli utenti confermati è mostrato tra parentesi nelle
@@ -65,7 +79,8 @@
  <t>
   <en>Click on the various links to find the corresponding users!</en>
   <fr>Cliquez sur les liens pour obtenir la liste des utilisateurs
-      correspondants&nbsp;!</fr>
+      correspondants&nbsp;!</fr> 
+  <pt>Clique nas ligações seguintes para saber mais sobre os utilizadores respectivos.</pt>
   <it>Seguite i vari link per trovare gli utenti corrispondenti.</it>
  </t>
 </p>
@@ -79,6 +94,11 @@
    Or the cities are sometimes not in the relevant country.
    Blame the users!
   </en>
+  <pt>
+   Note: o total de países nem sempre é igual ao total de cidades.
+   Ou, por vezes, as cidades não estão no país correcto. É culpa
+   dos utilizadores!
+  </pt>
   <fr>
    Note&nbsp;: le total pour chaque pays est parfois différent du total
    des villes associées. Ou même une ville ne correspond pas au pays
@@ -95,12 +115,13 @@
 [% cols = 3 %]
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><it>Città</it></t></th>
+  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><pt>Cidades</pt><it>Città</it></t></th>
  </tr>
   <!-- cities within countries -->
   [% IF stats.towns.size == 0 %]
   <td><t>
     <en>No city information entered</en>
+    <pt>Nenhuma cidade encontrada</pt>
     <fr>Aucune ville n'a été renseignée</fr>
     <it>Nessuna informazione sulle città</it>
   </t></td>
@@ -126,8 +147,9 @@
 <center>
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it></t></th>
-  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it></t></th>
+  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt></t></th>
+  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it>
+	<pt>Grupos de monges</pt></t></th>
  </tr>
  <tr>
   <!-- Countries -->

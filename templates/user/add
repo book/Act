@@ -1,10 +1,11 @@
 [% WRAPPER ui
-   title = { en => 'Registration', fr => 'Inscription', it => 'Iscrizione' },
+   title = { en => 'Registration', fr => 'Inscription', it => 'Iscrizione', pt => "Inscrição" },
 %]
 
 <p>
  <t>
   <en>Please create your user below.</en>
+  <pt>Por favor, crie o seu utilizador.</pt>
   <fr>Vous pouvez créer votre utilisateur ci-dessous.</fr>
   <it>Create il vostro account.</it>
  </t>
@@ -19,41 +20,49 @@
          en => "Identifier ${login} is already in use. Please choose another."
          fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
          it => "L'identificativo ${login} è già usato. Vi preghiamo di sceglierne un altro."
+         pt => "O identificador ${login} já está a ser usado. Por favor, escolha outro."
      },
      ERR_EMAIL_EXISTS => {
          en => "The address ${email} is already registered."
          fr => "L'adresse ${email} est déjà enregistrée."
          it => "L'indirizzo ${email} è già iscritto."
+         pt => "O endereço ${email} já está registado."
      },
      ERR_IDENTIFIER => {
          en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
          fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
          it => "L'identificativo deve essere composto da almeno 3 caratteri alfanumerici (<tt>[a-zA-Z0-9_]</tt>)"
+         pt => "O seu identificador deve conter pelo menos 3 caracteres, e apenas caracteres alfanuméricos (<tt>[a-zA-Z0-9_]</tt>)"
      },
      ERR_FIRST_NAME => {
          en => "You must enter your first name"
          fr => "Le prénom est obligatoire"
          it => "Il cognome è obbligatorio"
+         pt => "O seu nome é obrigatório"
      },
      ERR_LAST_NAME => {
          en => "You must enter your last name"
          fr => "Le nom est obligatoire"
          it => "Il nome è obbligatorio"
+         pt => "O seu nome é obrigatório"
      },
      ERR_EMAIL => {
          en => "You must enter your email"
          fr => "L'adresse email est obligatoire"
          it => "L'indirizzo e-mail è obbligatorio"
+         pt => "Deve introduzir um endereço de e-mail"
      },
      ERR_COUNTRY => {
          en => "You must enter a country from the list"
          fr => "Un pays est obligatoire"
          it => "Dovete scegliere una nazione dall'elenco"
+         pt => "Deve escolher um país da lista"
      },
      ERR_EMAIL_SYNTAX => {
          en => "Your email address looks bogus."
          fr => "Adresse email&nbsp;: syntaxe incorrecte."
          it => "L'indirizzo e-mail non sembra valido."
+         pt => "O seu endereço de e-mail parece errado."
      },
   }
 %]
@@ -65,21 +74,21 @@
 <table border="0" cellpadding="0" cellspacing="10">
 
 <tr>
-  <td align="right"><t><en>Login</en><fr>Identifiant</fr><it>Identificativo</it></t></td>
+  <td align="right"><t><en>Login</en><fr>Identifiant</fr><pt>Login</pt><it>Identificativo</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="login" value="[% login %]" size="11" maxlength="10" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>First Name</en><fr>Prénom</fr><it>Nome</it></t></td>
+  <td align="right"><t><en>First Name</en><pt>Primeiro Nome</pt><fr>Prénom</fr><it>Nome</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="first_name" value="[% first_name %]" size="25" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Last Name</en><fr>Nom</fr><it>Cognome</it></t></td>
+  <td align="right"><t><en>Last Name</en><fr>Nom</fr><pt>Apelido</pt><it>Cognome</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="last_name" value="[% last_name %]" size="25" maxlength="256" />
@@ -93,7 +102,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Country</en><fr>Pays</fr><it>Nazione</it></t></td>
+  <td align="right"><t><en>Country</en><fr>Pays</fr><pt>País</pt><it>Nazione</it></t></td>
   <td>&nbsp;</td>
   <td>
     <select name="country">
@@ -106,7 +115,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Join!</en><fr>Inscription !</fr><it>Iscrivimi</it></t>" />
+      <input type="submit" name="join" value="<t><en>Join!</en><pt>Inscrever!</pt><fr>Inscription !</fr><it>Iscrivimi</it></t>" />
    </td>
 </tr>
 </table>
@@ -123,6 +132,12 @@
    you do not need to register again, simply
    <a href="[% make_uri('main') %]">log in</a> using your account.
   </en>
+  <pt>
+   Para registar, deve primeiro criar um utilizador neste site.
+   Se já se registou e tem um utilizador de qualquer outra conferência
+   baseada no Act, não precisa de se registar de novo, simplemente
+   <a href="[% make_uri('main') %]">entre</a> com o seu utilizador.
+  </pt>
   <fr>
    Pour vous inscrire, vous devez d'abord vous créer un compte sur le site.
    Si vous possédez déjà un compte pour une conférence Act précédente,
@@ -147,6 +162,13 @@
    met during the conference. Or even before, if you want to know
    which gurus will be there.
   </en>
+  <pt>
+   A informação pessoal que será recolhida será usada para cirar um sistema de
+    <a href="[% make_uri('search') %]">pesquisa online</a> de todos os assistentes.
+   Isto será muito útil depois da conferência quando quiser entrar em contacto 
+    com alguém que conheceu. Mesmo antes, pode ser útil para saber que gurus
+    irão comparecer.
+  </pt>
   <fr>
    Les données personnelles qui sont récupérées ici seront utilisées
    pour créer un <a href="[% make_uri('search') %]">trombinoscope en ligne</a>
@@ -173,6 +195,14 @@
    information at any time during the payment process.</b> We just
    get the money in the end. <tt>;-)</tt>
   </en>
+  <pt>
+   Uma vez criado um utilizador, será possível usar a nossa plataforma
+   de pagamento seguro para comprar o bilhete para a conferência. Note que
+   todo o processo de gestão da sua conta bancária e do número do 
+   cartão será realizada pelo banco. <b>Nós não teremos acesso a nenhuma
+   informação do seu crédito durante nenhuma altura do processo de pagamento.</b>
+   Simplesmente teremos o dinheiro no fim. <tt>;-)</tt>
+  </pt>
   <fr>
    Une fois que vous avez un compte, vous pourrez utiliser notre
    plate-forme de paiement sécurisé pour acheter votre billet

@@ -1,18 +1,18 @@
 [% WRAPPER ui
-   title = { en => 'Search for users', fr => "Recherche d'utilisateurs", it => 'Ricerca degli utenti' },
+   title = { en => 'Search for users', fr => "Recherche d'utilisateurs", it => 'Ricerca degli utenti' , pt => 'Procurar utilizadores'},
 %]
 
 <form method="POST" action="[% global.request.r.uri %]" id="user-search">
 
 <fieldset>
 <legend><t>
-  <en>Search form</en> <fr>Formulaire de recherche</fr> <it>Ricerca</it>
+  <en>Search form</en> <pt>Formulário de pesquisa</pt> <fr>Formulaire de recherche</fr> <it>Ricerca</it>
 </t></legend>
 
 <table>
 <tr>
    <td><label for="user-name"><t>
-     <en>Name</en> <fr>Nom</fr> <it>Nome</it>
+     <en>Name</en> <fr>Nom</fr> <it>Nome</it> <pt>Nome</pt>
    </t></label></td>
    <td>
       <input type="text" name="name" id="user-name" value="[% global.request.args.name %]" size="25" maxlength="60" />
@@ -20,7 +20,7 @@
 </tr>
 <tr>
    <td><label for="user-town"><t>
-     <en>Town</en> <fr>Ville</fr> <it>Città</it>
+     <en>Town</en> <fr>Ville</fr> <it>Città</it> <pt>Cidade</pt>
    </t></label></td>
    <td>
       <input type="text" name="town" id="user-town" value="[% global.request.args.town %]" size="25" maxlength="60" />
@@ -28,11 +28,11 @@
 </tr>
 <tr>
    <td><label for="user-country"><t>
-     <en>Country</en> <fr>Pays</fr> <it>Nazione</it>
+     <en>Country</en> <fr>Pays</fr> <it>Nazione</it> <pt>País</pt>
    </t></label></td>
    <td>
       <select name="country" id="user-country">
-         <option value=""[% ' selected="selected"' UNLESS global.request.args.country %]><t><en>Any</en><fr>Tous</fr><it>Qualsiasi</it></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.country %]><t><en>Any</en><fr>Tous</fr><pt>Todas</pt><it>Qualsiasi</it></t></option>
          [% FOREACH c = countries %]
             <option value="[% c.iso %]"[% ' selected="selected"' IF global.request.args.country == c.iso %]>[% c.name %]</option>
          [% END %]
@@ -41,11 +41,11 @@
 </tr>
 <tr>
    <td><label for="user-group"><t>
-     <en>Monger group</en> <fr>Groupe de mongueurs</fr> <it>Gruppo di mongers</it>
+     <en>Monger group</en> <pt>Grupo de monges</pt><fr>Groupe de mongueurs</fr> <it>Gruppo di mongers</it>
    </t></label></td>
    <td>
       <select name="pm_group" id="user-group">
-         <option value=""[% ' selected="selected"' UNLESS global.request.args.pm_group %]><t><en>Any</en><fr>Tous</fr><it>Qualsiasi</it></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.pm_group %]><t><en>Any</en><fr>Tous</fr><pt>Todos</pt><it>Qualsiasi</it></t></option>
          [% FOREACH g = pm_groups %]
             <option value="[% g %]"[% ' selected="selected"' IF global.request.args.pm_group == g %]>[% g %]</option>
          [% END %]
@@ -54,7 +54,7 @@
 </tr>
 </table>
 
-<input type="submit" name="search" value="<t><en>Search</en><fr>Chercher</fr><it>Cerca</it></t>" />
+<input type="submit" name="search" value="<t><en>Search</en><fr>Chercher</fr><pt>Procurar</pt><it>Cerca</it></t>" />
 
 </fieldset>
 

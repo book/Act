@@ -16,6 +16,11 @@
   modulo vi porterebbe sul sito della banca dove potreste inserire i
   dati della vostra carta di credito.<br /><br />Premete il pulsante per
   simulare il pagamento.</it>
+   <pt>Esta é uma simulação. Em circunstâncias reais, a submissão
+    deste formulário irá levá-lo ao site do banco onde irá introduzir
+    informação sobre o seu cartão de crédito.<br/><br/>
+    Clique no botão para simular o pagamento.
+   </pt>
  </t>
 </p>
 
@@ -23,7 +28,7 @@
 
 <input type="hidden" name="order_id" value="[% order.order_id %]" />
 <input type="hidden" name="amount"   value="[% order.amount %]" />
-<input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr><it>Pagare</it></t>" />
+<input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr><pt>Pagar</pt><it>Pagare</it></t>" />
 
 </form>
 </center>

@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Your photo', fr => 'Votre photo', it => 'La vostra foto' },
+   title = { en => 'Your photo', fr => 'Votre photo', it => 'La vostra foto', pt => 'A sua foto' },
 %]
 <center>
 <form method="POST" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
       [%- IF global.request.user.photo_name %]
          <img src="[% photo_uri %]" border="0">
       [%- ELSE %]
-         <t><fr>Pas de photo</fr><en>No photo</en><it>Nessuna foto</it></t>
+         <t><fr>Pas de photo</fr><pt>Sem foto</pt><en>No photo</en><it>Nessuna foto</it></t>
       [% END %]<br />
    </td>
 </tr>
@@ -28,6 +28,12 @@
       reconnaître facilement.<br />
       Souvenez-vous en téléchargeant votre photo !
      </fr>
+     <pt>
+      Esta foto irá acabar, provavelmente, no <i>quem é quem</i> da conferência,
+      de forma a que as pessoas o possam reconhecer, e encontrar aqueles com quem tiveram
+      uma conversa agradável, depois de o conhecer na conferência.<br/> 
+      Pense nisso anes de enviar a fotografia!
+     </pt>
      <en>
       This photo will probably end up on the conference <i>who's who</i>,
       so that people can actually recognize you when they want to find
@@ -51,11 +57,11 @@
 <tr>
    <td align="left">
       [%- IF global.request.user.photo_name %]
-         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en><it>Elimina foto</it></t>" />
+         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en><it>Elimina foto</it><pt>Apagar a foto</pt></t>" />
       [% END %]
    </td>
    <td align="right">
-      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en><it>Aggiorna foto</it></t>" />
+      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en><it>Aggiorna foto</it><pt>Enviar a foto</pt></t>" />
    </td>
 </tr>
 </table>

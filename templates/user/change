@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Your information', fr => 'Vos informations', it => 'I vostri dati' },
+   title = { en => 'Your information', fr => 'Vos informations', it => 'I vostri dati' , pt => 'A sua informação'},
 %]
 <center>
 
@@ -9,67 +9,80 @@
      ERR_FIRST_NAME => {
        en => "You must enter your first name",
        fr => "Le prénom est obligatoire",
-         it => "Il nome è obbligatorio"
+       it => "Il nome è obbligatorio",
+       pt => "O seu nome é obrigatório"
      },
      ERR_LAST_NAME => {
        en => "You must enter your last name",
        fr => "Le nom est obligatoire",
-       it => "Il cognome è obbligatorio"
+       it => "Il cognome è obbligatorio",
+       pt => "O seu nome é obrigatório"
      },
      ERR_EMAIL => {
        en => "You must enter your email address",
        fr => "L'adresse email est obligatoire",
-         it => "L'indirizzo e-mail è obbligatorio"
+       it => "L'indirizzo e-mail è obbligatorio",
+       pt => "Deve indicar um endereço de e-mail válido"
      },
      ERR_EMAIL_SYNTAX => {
        en => "Not a valid email address",
        fr => "Adresse email : syntaxe incorrecte",
-         it => "L'indirizzo e-mail non sembra valido."
+       it => "L'indirizzo e-mail non sembra valido.",
+       pt => "O endereço de e-mail não parece válido."
      },
      ERR_COUNTRY => {
-         en => "You must enter a country from the list"
-         fr => "Un pays est obligatoire"
-         it => "Dovete scegliere una nazione dall'elenco"
+         en => "You must enter a country from the list",
+         fr => "Un pays est obligatoire",
+         it => "Dovete scegliere una nazione dall'elenco",
+         pt => "Deve escolher um país da lista",
      },
      ERR_NICK => {
        en => "You cannot be pseudonymous with a blank nickname",
        fr => "Vous ne pouvez pas être anonyme avec un pseudo vide",
-       it => "Per mostrare solo lo pseudonimo dovete almeno indicarlo"
+       it => "Per mostrare solo lo pseudonimo dovete almeno indicarlo",
+       pt => "Para ser pseudo-anónimo deve indicar o seu nick",
      },
      ERR_PMGROUP => {
        en => "The Perl monger group must end with <tt>.pm</tt>",
        fr => "Le groupe de mongueurs doit se terminer par <tt>.pm</tt>",
-       it => "Il nome del gruppo di mongers deve finire per <tt>.pm</tt>"
+       it => "Il nome del gruppo di mongers deve finire per <tt>.pm</tt>",
+       pt => "O grupo de monges Perl deve acabar com <tt>.pm</tt>",
      },
      ERR_PM_URL => {
        en => "The Perl monger group URL must start with http://",
        fr => "URL du groupe de mongueurs&nbsp;: syntaxe incorrecte",
        it => "La URL del gruppo di mongers deve cominciare per <tt>http://</tt>"
+       pt => "O URL do grupo de monges Perl deve começar por <tt>http://</tt>"
      },
      ERR_COMPANY_URL => {
        en => "The company URL must start with http://",
        fr => "URL de la société&nbsp;: syntaxe incorrecte",
        it => "La URL dell'azienda deve cominciare per <tt>http://</tt>"
+       pt => "O URL da sua empresa deve começar por <tt>http://</tt>"
      },
      ERR_WEBPAGE => {
        en => "Your web site URL must start with http://",
        fr => "Page Web&nbsp;: syntaxe incorrecte",
        it => "La URL della vostra pagina deve cominciare per <tt>http://</tt>"
+       pt => "O URL da sua página web deve começar por <tt>http://</tt>"
      },
      ERR_MONKID => {
        en => "Your perlmonks id must be a number",
        fr => "Votre id perlmonks doit être un nombre",
        it => "Il vostro id su perlmonks deve essere un numero"
+       pt => "O seu identificador do perlmonks deve ser um número"
      },
      ERR_NBFAMILY = {
        en => "Number of family members attending must be a number",
        fr => "Le nombre de personnes vous accompagnant doit être un nombre",
-       it => "Il numero di accompagnatori deve essere un numero"
+       it => "Il numero di accompagnatori deve essere un numero",
+       pt => "O número de acompanhantes deve ser um número"
      },
      ERR_TSHIRT => {
        en => "Not a valid T-shirt size",
        fr => "Taille de T-shirt incorrecte",
        it => "La taglia della maglietta non è valida"
+       pt => "Tamanho de T-shirt inválido",
      },
   }
 %]
@@ -82,7 +95,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Civility</en><fr>Civilité</fr><it>Titolo</it></t>
+      <t><en>Civility</en><fr>Civilité</fr><it>Titolo</it><pt>Título</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -93,7 +106,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>First Name</en><fr>Prénom</fr><it>Nome</it></t>
+      <t><en>First Name</en><fr>Prénom</fr><it>Nome</it><pt>Nome</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -102,7 +115,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Last Name</en><fr>Nom</fr><it>Cognome</it></t>
+      <t><en>Last Name</en><fr>Nom</fr><it>Cognome</it><pt>Apelido</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -111,7 +124,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Nickname</en><fr>Pseudo</fr><it>Pseudonimo</it></t>
+      <t><en>Nickname</en><fr>Pseudo</fr><it>Pseudonimo</it><pt>Nick</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -120,12 +133,12 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Stay pseudonymous</en><fr>Rester anonyme</fr><it>Mostra solo ol pseudonimo</it></t>
+      <t><en>Stay pseudonymous</en><fr>Rester anonyme</fr><it>Mostra solo ol pseudonimo</it><pt>Mostrar apenas o nick</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> <t><en>Yes</en><fr>Oui</fr><it>Sì</it></t>
-      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> <t><en>No</en><fr>Non</fr><it>No</it></t>
+      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> <t><en>Yes</en><pt>Sim</pt><fr>Oui</fr><it>Sì</it></t>
+      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> <t><en>No</en><fr>Non</fr><pt>Não</pt><it>No</it></t>
    </td>
 </tr>
 <tr>
@@ -139,17 +152,17 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Hide email</en><fr>Email caché</fr><it>Nascondi l'indirizzo e-mail</it></t>
+      <t><en>Hide email</en><fr>Email caché</fr><pt>Esconder o e-mail</pt><it>Nascondi l'indirizzo e-mail</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> <t><en>Yes</en><fr>Oui</fr><it>Sì</it></t>
-      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> <t><en>No</en><fr>Non</fr><it>No</it></t>
+      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> <t><en>Yes</en><pt>Sim</pt><fr>Oui</fr><it>Sì</it></t>
+      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> <t><en>No</en><fr>Non</fr><pt>Não</pt><it>No</it></t>
    </td>
 </tr>
 <tr>
    <td align="right">
-    <t><en>Coming with</en><fr>Je viens avec</fr><it>Sarò accompagnato da</it></t>
+    <t><en>Coming with</en><fr>Je viens avec</fr><it>Sarò accompagnato da</it><pt>Vem com</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -158,18 +171,19 @@
          [% FOREACH c = [ 1..5 ] %]
          <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
          [% END %]
-         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]><t><en>6 or more</en><fr>6 ou plus</fr><it>6 o più</it></t></option>
+         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]><t><en>6 or more</en><pt>6 ou mais</pt><fr>6 ou plus</fr><it>6 o più</it></t></option>
       </select>
       <t>
       <en>people (who will not attend the conference)</en>
       <fr>personne(s) (qui n'assisteront pas à la conférence)</fr>
       <it>persone, che non parteciperanno alla conferenza</it>
+      <pt>acompanhantes, que não irão participar na conferência</pt>
       </t>
    </td>
 </tr>
 <tr>
    <td align="right">
-    <t><en>T-shirt size</en><fr>Taille du T-shirt</fr><it>Taglia per la maglietta</it></t>
+    <t><en>T-shirt size</en><fr>Taille du T-shirt</fr><it>Taglia per la maglietta</it><pt>Tamanho de T-shirt</pt></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -183,7 +197,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Town</en><fr>Ville</fr><it>Città</it></t>
+      <t><en>Town</en><fr>Ville</fr><pt>Cidade</pt><it>Città</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -192,7 +206,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Country</en><fr>Pays</fr><it>Nazione</it></t>
+      <t><en>Country</en><fr>Pays</fr><pt>País</pt><it>Nazione</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -206,7 +220,7 @@
 </tr>
 <tr>
    <td align="right" valign="top">
-      <t><en>Full address</en><fr>Adresse complète</fr><it>Indirizzo completo</it></t>
+      <t><en>Full address</en><pt>Endereço completo</pt><fr>Adresse complète</fr><it>Indirizzo completo</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -215,7 +229,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Timezone</en><fr>Fuseau horaire</fr><it>Fuso orario</it></t>
+      <t><en>Timezone</en><fr>Fuseau horaire</fr><pt>Fuso horário</pt><it>Fuso orario</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -231,7 +245,7 @@
       [%- IF web_page %]
          <a href="[% web_page %]" >
       [% END %]
-      <t><en>Web page</en><fr>Page web</fr><it>Pagina web</it></t>
+      <t><en>Web page</en><fr>Page web</fr><pt>Página web</pt><it>Pagina web</it></t>
       [%- IF web_page %]
          </a>
       [% END %]
@@ -246,7 +260,7 @@
       [%- IF pm_group_url %]
          <a href="[% pm_group_url %]" >
       [% END %]
-      <t><en>Monger group</en><fr>Groupe de Mongueurs</fr><it>Gruppo di mongers</it></t>
+      <t><en>Monger group</en><fr>Groupe de Mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it></t>
       [%- IF pm_group_url %]
          </a>
       [% END %]
@@ -256,6 +270,7 @@
       <input type="text" name="pm_group"  value="[% pm_group %]" size="40" maxlength="120" /><br />
       <t><en>(city.pm, city name in English, please)</en>
          <fr>(ville.pm avec le nom de ville en anglais, merci)</fr>
+         <pt>(cidade.pm com o nome da cidade em Inglês, obrigado)</pt>
          <it>(<em>città.pm</em>, con il nome della città in Inglese, grazie)</it></t>
    </td>
 </tr>
@@ -264,7 +279,7 @@
       [%- IF pm_group_url %]
          <a href="[% pm_group_url %]" >
       [% END %]
-      <t><en>Monger group URL</en><fr>URL du groupe de mongueurs</fr><it>URL del gruppo</it></t>
+      <t><en>Monger group URL</en><pt>URL do grupo de monges</pt><fr>URL du groupe de mongueurs</fr><it>URL del gruppo</it></t>
       [%- IF pm_group_url %]
          </a>
       [% END %]
@@ -279,7 +294,7 @@
       [%- IF company_url %]
          <a href="[% company_url %]" >
       [% END %]
-      <t><en>Company</en><fr>Société</fr><it>Azienda</it></t>
+      <t><en>Company</en><fr>Société</fr><pt>Empresa</pt><it>Azienda</it></t>
       [%- IF company_url %]
          </a>
       [% END %]
@@ -294,7 +309,7 @@
       [%- IF company_url %]
          <a href="[% company_url %]" >
       [% END %]
-      <t><en>Company URL</en><fr>URL de la société</fr><it>URL dell'azienda</it></t>
+      <t><en>Company URL</en><pt>URL da empresa</pt><fr>URL de la société</fr><it>URL dell'azienda</it></t>
       [%- IF company_url %]
          </a>
       [% END %]
@@ -306,7 +321,7 @@
 </tr>
 <tr>
    <td align="right" valign="top">
-      <t><en>GPG public key</en><fr>Clé publique GPG</fr><it>Chiave pubblica GPG</it></t>
+      <t><en>GPG public key</en><fr>Clé publique GPG</fr><pt>Chave pública GPG</pt><it>Chiave pubblica GPG</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -363,6 +378,7 @@
       [% IF lang == 'en' %]
       <t><en>(please fill at least this one)</en>
          <fr>(merci de compléter au moins celle-ci)</fr>
+         <pt>(por favor preencha pelo menos este)</pt>
          <it>(scrivete almeno questa)</it></t>
       [% END %]<br />
       <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang | form_unescape %]</textarea>
@@ -372,7 +388,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Update info</en><fr>Envoyer</fr><it>Invia</it></t>" />
+      <input type="submit" name="join" value="<t><en>Update info</en><pt>Enviar</pt><fr>Envoyer</fr><it>Invia</it></t>" />
    </td>
 </tr>
 </table>

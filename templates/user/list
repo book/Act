@@ -4,6 +4,10 @@
    Committed users are listed in <strong>bold</strong> font (they have 
    bought their ticket, or will give a talk).
   </en>
+  <pt>
+   Os utilizadores registados estão listados a <strong>negrito</strong> (aqueles
+   que compraram os seus bilhetes, ou irão realizar uma apresentação).
+  </pt>
   <fr>
    Les utilisateurs dont l'inscription est confirmée sont affichés
    en <strong>gras</strong> (ils ont payé leur billet ou feront une 
@@ -19,12 +23,12 @@
 [% IF users.size %]
 <table id="user-list">
 <tr>
- <th><t><en>Name</en><fr>Nom</fr><it>Nome</it></t></th>
- <th><t><en>City</en><fr>Ville</fr><it>Città</it></t></th>
- <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it></t></th>
- <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</it></t></th>
+ <th><t><en>Name</en><fr>Nom</fr><pt>Nome</pt><it>Nome</it></t></th>
+ <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt></t></th>
+ <th><t><en>Country</en><fr>Pays</fr><t>Nazione</it><pt>País</pt></t></th>
+ <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it></t></th>
  [% IF global.user.is_admin %]
- <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it></t></th>
+ <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it><pt>Zona de administração</pt></t></th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
@@ -56,7 +60,7 @@
    </td>
    [% IF global.user.is_admin %]
    <td>
-    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><it>Modifica</it></t></a>[% END %]
+    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><pt>Modificar</pt><it>Modifica</it></t></a>[% END %]
   </td>
   [% END %]
 </tr>
