@@ -63,16 +63,6 @@
 
 <center>
 
-[% PROCESS error                                                             
-      msgs = {                                                                  
-          ERR_COUNTRY => {                                                      
-              fr => "Vous devez donner votre pays",                             
-              en => "You must enter your country name",                         
-          },                                                                    
-          ERR_NAME => { ... },                                                  
-      },                                                                        
-   %]       
-
 <span class="error">
 [% PROCESS err_messages = {
      ERR_IDENTIFIER_EXISTS => {
