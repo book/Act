@@ -57,7 +57,7 @@
 [% END %]
 
 <br />
-<pre>[% abstract %]</pre>
+[% abstract | html_line_break %]
 
 [%END %]
 
