@@ -27,7 +27,8 @@
 </p>
 
 [% IF global.request.conference %]
- [% UNLESS global.request.user.has_paid %]
+ [% IF global.request.user.participation %]
+  [% UNLESS global.request.user.has_paid %]
  <p>
   <t>
    <en>You have not bought your conference ticket yet.</en>
@@ -51,7 +52,14 @@
   [% END %]
  </p>
  [% END %]
+ [% ELSE %]
+  <t>
+   <en>You did not <a href="[% make_uri('register') %]">register for this conference</a>. Please do so if you plan to attend or give a presentation there.</en>
+   <fr>Vous n'êtes pas <a href="[% make_uri('register') %]">inscrit à cette conférence</a>. Merci de le faire si vous comptez y assister ou y faire une présentation.</fr>
+  </t>
+ [% END %]
 [% ELSE %]
+<!-- no conference at all -->
 [% END %]
 
 <p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it></t></b></p>
