@@ -25,16 +25,17 @@ name. If no user by this name exists, return C<undef>.
 =cut
 
 sub new {
-    my ( $class, $id ) = @_;
+    my ( $class, %args ) = @_;
 
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM talks WHERE conf_id=? talk_id=?');
-    $sth->execute($Request{conference}, $id);
-    my $self = $sth->fetchrow_hashref();
-    $sth->finish;
+    # can only create talks based on talk_id
+    /^(?:talk_id)$/ or delete $args{$_} for keys %args;
 
-    return undef unless $self;
+    return bless {}, $class unless %args;
 
-    bless $self, $class;
+    my $talks = Act::User->get_talks( %args );
+    return undef if @$talks != 1;
+
+    $talks->[0];
 }
 
 =item accessors
@@ -92,16 +93,14 @@ sub get_talks {
 
     # search field to SQL mapping
     my %req = (
-        conf      => "(conf_id=?)",
-        user      => "(user_id=?)",
-        title     => "(title~*?)",
-        abstract  => "(abstract~*?)",
-        duration  => "(duration=?)",
-        room      => "(room=?)",
-        lightning => "(lightning IS TRUE)",
-        accepted  => "(accepted IS TRUE)",
-        confirmed => "(confirmed IS TRUE)",
+        title     => "(t.title~*?)",
+        abstract  => "(t.abstract~*?)",
         # given    => recherche par date ?
+        # standard stuff
+        map( { ($_, "(t.$_=?)") }
+            qw( user_id conf_id duration room ) ),
+        map( { ($_, "(t.$_ IS TRUE)") }
+            qw( lightning accepted confirmed ) )
     );
 
     # SQL options
@@ -124,7 +123,7 @@ sub get_talks {
     $args{name} = [ ( $args{name} ) x 3 ] if exists $args{name};
 
     # build the request string
-    my $SQL = "SELECT DISTINCT * FROM talks WHERE ";
+    my $SQL = "SELECT DISTINCT t.* FROM talks t WHERE ";
     $SQL .= join " AND ", "TRUE", @req{keys %args};
     $SQL .= join " ", "", map { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
                           keys %opt;
