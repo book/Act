@@ -60,17 +60,17 @@
 <t>
  <en>
    This site uses cookies to authenticate logged in users. You might need
-   to instruct your browser to accept cookies from the domain <b>mongueurs.net</b>.
+   to instruct your browser to accept cookies from the domain <b>[% domain %]</b>.
  </en>
  <fr>
    Ce site utilise des cookies pour identifier les utilisateurs. Il peut
    être nécessaire de les activer dans votre navigateur pour le domaine
-   <b>mongueurs.net</b>.
+   <b>[% domain %]</b>.
  </fr>
  <it>
    Questo sito usa dei <em>cookie</em> per gestire l'autenticazione
    degli utenti. Potreste aver bisogno di configurare il vostro browser
-   per accettare <m>cookie</em> dal dominio <b>mongueurs.net</b>.
+   per accettare <m>cookie</em> dal dominio <b>[% domain %]</b>.
  </it>
 </t>
 </font>
