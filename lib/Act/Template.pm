@@ -14,11 +14,11 @@ sub new
 
     # return a cached template if we have one
     my $conf = $Request{conference} || '-global';
-    return $templates{$conf} if exists $templates{$conf};
+    return $templates{$class}{$conf} if exists $templates{$class}{$conf};
 
     # otherwise create one
     my $self = $class->SUPER::new(@_);
-    $templates{$conf} = $self;
+    $templates{$class}{$conf} = $self;
     return $self;
 }
 sub _init

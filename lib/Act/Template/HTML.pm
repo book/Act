@@ -29,6 +29,7 @@ sub variables_raw
 {
     my $self = shift;
     {
+        no warnings 'redefine';
         local *encode = sub { $_[1] };
         $self->SUPER::variables(@_);
     }
