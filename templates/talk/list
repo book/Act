@@ -20,7 +20,7 @@
  </t>
  [% END %]
 </p>
-[% IF global.request.user.is_orga || global.request.user.have_talk %]
+[% IF global.request.user.is_orga || global.request.user.has_talk %]
 <p>
  <t>
   <en>

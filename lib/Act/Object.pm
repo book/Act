@@ -308,7 +308,7 @@ to create the computed column.
     our %sql_stub    = (
         select     => "u.*",
         select_opt => {
-            have_talk => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_i d AND t.conf_id=p.conf_id AND p.conf_id=?) AS have_talk" ] : () },
+            has_talk => sub { exists $_[0]{conf_id} ? [ conf_id => "EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND p.user_id=u.user_i d AND t.conf_id=p.conf_id AND p.conf_id=?) AS has_talk" ] : () },
             },
         from       => "users u",
         from_opt   => [

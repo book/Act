@@ -91,7 +91,7 @@ is_deeply( $talks, [ $talk1, $talk3 ], "Got the user's talks" );
 
 # reload the user, since the talks were added after we got him
 $user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
-ok( $user->have_talk, "User actually has talks" );
+ok( $user->has_talk, "User actually has talks" );
 
 ok( $user->committed, "User is committed" );
 
