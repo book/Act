@@ -104,8 +104,9 @@ CREATE TABLE events
 (
     event_id   serial    NOT NULL    PRIMARY KEY,
     conf_id    text      NOT NULL,
-    user_id    integer   NOT NULL,
     title      text      NOT NULL,
+    abstract   text,
+    url_event  text,
     room       text, 
     duration   integer,
     datetime   timestamp without time zone
