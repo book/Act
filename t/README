@@ -1,0 +1,35 @@
+README file for the Act tests
+
+* Helper modules
+
+Act can test itself with touching the production database.
+Add the following configuration items to [database]:
+    test_dsn
+    test_user
+    test_passwd
+
+The t/Utils.pm file (use t::Utils in some test files)
+connect the request object to the test database and clean up all
+tables after each test suite.
+
+* Test categories
+
+The tests are prefixed with a number, which indicates several categories:
+
+0x - Basic tests
+     t/00test.t      - test if Test::More is here
+     t/01cpan.t      - test for the CPAN modules we need
+     t/02act.t       - try to require the Act::* modules
+     t/02config.t    - test Act::Config
+     t/03database.t  - try to connect to the database
+     t/04template.t  - test Act::Template
+     t/05util.t      - test Act::Util
+
+1x - Core Act classes
+     t/10user.t      - Act::User
+
+Some test are not numbered, because the order of tests is unimportant,
+once the numbered tests pass.
+
+     t/form.t        - test Act::Form
+
