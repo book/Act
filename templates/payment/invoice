@@ -17,9 +17,9 @@
               </td>
               <td width="20%" />
               <td>
-                <b>Facture N° [%NUM_FACTURE%]</b><br>
-                <b>En date du [%DATE_FACTURE%]</b><br>
-                <b>Editée le [%TODAY%]</b><br>
+                <b>Facture N° [% invoice_no %]</b><br>
+                <b>En date du [% datetime %]</b><br>
+                <b>Editée le [% today %]</b><br>
               </td>
             </tr>
           </table>
@@ -30,10 +30,12 @@
       </tr>
       <tr>
         <td>
-          Description
+          [% means %]
         </td>
         <td>
-          Client / Raison sociale
+          [% first_name %]&nbsp;[% last_name %]<br>
+          [% company %]<br>
+          [% address %]
         </td>
       </tr>
       <tr>
@@ -44,7 +46,7 @@
           <table border width="100%">
             <tr>
               <th colspan="2">&nbsp;</th>
-              <th colspan="2">devise</th>
+              <th colspan="2">[% currency %]</th>
             </tr>
             <tr>
               <th>Désignation</th>
