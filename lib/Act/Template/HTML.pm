@@ -17,10 +17,7 @@ sub encode
     elsif (ref $_[0] eq 'CODE') {
         return;
     }
-    elsif (ref $_[0]) {
-        die "unsupported reference: " . ref $_[0];
-    }
-    elsif (defined $_[0]) {
+    elsif (!ref($_[0]) && defined($_[0])) {
         $_[0] = HTML::Entities::encode($_[0], '<>&"');
     }
 }

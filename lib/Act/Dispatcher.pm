@@ -43,7 +43,7 @@ sub trans_handler
     # set the correct configuration
     $Config = Act::Config::get_config($Request{conference});
 
-    # pre-request initialization now that we have $Config
+    # per-request initialization now that we have $Config
     _set_language();
     _db_connect();
 
