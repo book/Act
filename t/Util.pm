@@ -12,9 +12,10 @@ $Request{dbh} = DBI->connect(
 ) or die "can't connect to database: " . $DBI::errstr;
 
 # clean up before
-$Request{dbh}->do("DELETE FROM talks;");
-$Request{dbh}->do("DELETE FROM users;");
-$Request{dbh}->do("DELETE FROM news;");
+$Request{dbh}->do("DELETE FROM talks");
+$Request{dbh}->do("DELETE FROM users");
+$Request{dbh}->do("DELETE FROM news");
+$Request{dbh}->do("DELETE FROM translations");
 
 # fill the database with simple default data
 sub db_add_users {

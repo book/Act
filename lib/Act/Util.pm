@@ -46,6 +46,28 @@ sub gen_password
    return ($clear_passwd, $crypt_passwd);
 }
 
+sub get_translation
+{
+    my ($tbl, $col, $id) = @_;
+
+    # retreive text in current language
+    my $lang = $Request{language} || $Config->general_default_language;
+    my $sql = 'SELECT text FROM translations WHERE '
+            . join(' AND ', map "$_=?", qw(tbl col id lang));
+    my $sth = $Request{dbh}->prepare_cached($sql);
+    $sth->execute($tbl, $col, $id, $lang);
+    my ($text) = $sth->fetchrow_array();
+    $sth->finish;
+
+    # if that failed, try the default language
+    if (!$text && $lang ne $Config->general_default_language) {
+        $sth->execute($tbl, $col, $id, $Config->general_default_language);
+        ($text) = $sth->fetchrow_array();
+        $sth->finish;
+    }
+    return $text;
+}
+
 1;
 
 __END__
