@@ -17,8 +17,8 @@ my @partfields = qw(tshirt_size nb_family);
 
 # registration form
 my $form = Act::Form->new(
-  required => [qw(title abstract duration)],
-  optional => [qw(url_abstract url_talk comment)],
+  required => [qw(title abstract)],
+  optional => [qw(url_abstract url_talk comment duration is_lightning)],
   constraints => {
      duration     => sub { $_[0] =~ /^(lightning|\d+)$/ },
      url_abstract => 'url',
@@ -77,14 +77,23 @@ sub handler
             }
             # a normal user cannot comment a talk or edit the duration
             delete $fields->{comment};
-            $fields->{duration} = $talk->duration;
+            $fields->{duration} = $talk->duration || $talk->lightning;
         }
 
+        if( not $fields->{duration} and not $fields->{is_lightning} ){
+            $form->{invalid}{duration} = 'invalid';
+            $ok = 0;
+        };
+
         if ($ok) {
+            # handle is_lightning (from orga's form)
+            $fields->{duration} = 'lightning' if delete $fields->{is_lightning};
+            $fields->{lightning} = 0;
+
             # separate lightning from duration
             if ($fields->{duration} eq 'lightning') {
-                $fields->{lightning} = 't';
-                delete $fields->{duration};
+                $fields->{lightning} = 1;
+                $fields->{duration}  = undef;
             }
             $talk->update( %$fields );
         }
@@ -101,7 +110,10 @@ sub handler
     }
 
     # display the talk submission form
-    $template->variables( %$talk );
+    $template->variables(
+        %$talk,
+        duration => ( $talk->lightning ? 'lightning' : $talk->duration )
+    );
     $template->variables(
         users => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
                    @{Act::User->get_users(conf_id => $Request{conference})}

@@ -49,8 +49,9 @@
   <td>&nbsp;</td>
   <td>
     <select name="user_id">
+    [% uid = user_id ? user_id : global.request.user.user_id %]
     [% FOREACH u=users %]
-      <option value="[% u.user_id %]"[% ' selected="selected"' IF u.user_id == global.request.user.user_id %]>
+      <option value="[% u.user_id %]"[% ' selected="selected"' IF u.user_id == uid %]>
         [% u.first_name %] [% u.last_name %]
       </option>
     [% END %]
@@ -97,13 +98,12 @@
      <fr>Les durées standards pour [% global.conference.name %] sont&nbsp;:
      <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</fr>
     </t><br />
-    <input name="duration" value="[% duration %]" size="3" />
-    <input type="checkbox" name="lightning"[% ' checked' IF lightning %] />
+    <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="3" />
+    <input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] />
     <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
   [% ELSE %]
     [% IF talk_id %]
-      <input type="hidden" name="duration" value="[% duration %]" />
-      [% IF lightning %]
+      [% IF duration == 'lightning' %]
         <t><en>Lightning talk</en><fr>Communication éclair</fr></t>
       [% ELSE %]
         [% duration %] <t><en>minutes</en><fr>minutes</fr></t>
