@@ -1,0 +1,90 @@
+=head1 TALK SCHEDULE WITH ACT
+
+Once you have enough accepted talks, you can start working out
+the talk schedule.
+
+Here are a few general tips:
+
+=over 4
+
+=item *
+
+Print the talk list, try to find a few general groups, and try to
+group them in tracks. Ideally, someone interested in say, XML, or Security
+should be able to follow all talks related to their pet subject
+without changing rooms.
+
+=item *
+
+You should know your speakers or their subject enough to decide which
+speakers/talks get the big room.
+
+=item *
+
+Leave 5 minutes between talks. It always takes the speakers some time
+to set up their material. It also takes time to kick the previous
+speaker out. ;-)
+
+=item *
+
+Count 1 minute between two lightning talks (you need time to swap speakers)
+So, that's ten 5 minutes lightning talks per hour.
+
+=item *
+
+Do not pit any talker against the lightning talks. The lightning talks
+will win.
+
+=back
+
+Once you've worked out a rough draft of the schedule, you can start
+using Act to edit the talks date, time and room. You can also change
+the duration, but discuss it with the speaker first.
+
+=head1 THE SCHEDULE
+
+Act can lay out the schedule when there are talks with a date and room
+defined. It should gracefully show overlapping talks, so that you can detect
+there is a problem.
+
+Events are basically talks without a speaker. Only events can happen in
+rooms 'out' and 'venue'.
+
+Rooms 'out' and 'venue' are special in the sense that events occuring
+there prevent talks from happening and actually "cut" any overlapping
+talk in two. One part before the event (usually a coffee break) and
+the remaining time after.
+
+Only hour-long tutorial should be cut by events.
+
+There are some cases for which Act does not display the schedule
+properly (this should not happen once your schedule is finished, since
+you shouldn't have any overlapping talks). Please let us know when
+this happens.
+
+Events are:
+
+=over 4
+
+=item *
+
+the coffee breaks, lunch
+
+=item *
+
+anything happening outside the conference (pub crawls, etc.)
+
+=item *
+
+special talks without a defined speaker.
+
+=back
+
+Lightning talks sessions are currently not fully handled by Act. One
+can submit a lightning talk, which will be accepted or not, as for the
+other talks. But you'll need to create one or several "lightning talks"
+events in which you'll paste the list of lightning talks. We should
+probably fix this.
+
+=cut
+
