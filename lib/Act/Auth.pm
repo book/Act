@@ -10,7 +10,7 @@ use Act::Template::HTML;
 
 use base qw(Apache::AuthCookie);
 
-use constant LOGIN_PAGE => 'login';  # must match <Files login> section in httpd.conf
+use constant LOGIN_PAGE => 'login';  # needs corresponding action in Act::Dispatcher
 
 sub access_handler ($$)
 {
