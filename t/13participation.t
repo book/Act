@@ -1,4 +1,4 @@
-use Test::More tests => 3;
+use Test::More tests => 2;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -34,15 +34,14 @@ is_deeply( $user,
         last_name    => 'Bruhat',
         email        => 'book@yyy.zzz',
         email_hide   => '1',
-        bio          => undef,
         civility     => undef,
         country      => 'fr',
         web_page     => undef,
         timezone     => 'Europe/Paris',
         language     => undef,
         pause_id     => undef,
-        has_talk    => '1',
-        has_paid     => '0',
+        #has_talk    => '1',
+        #has_paid     => '0',
         login        => 'book',
         passwd       => 'BOOK',
         pm_group     => undef,
@@ -60,4 +59,7 @@ is_deeply( $user,
 
 my $user2 = Act::User->new( login => 'book', conf_id => 'conf' );
 is_deeply( $user2, $user, "Same user with new()" );
+
+is( $user->has_talk, 2, "has_talk" );
+is( $user->has_paid, 0, "has_paid" );
 

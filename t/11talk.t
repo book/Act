@@ -7,6 +7,7 @@ use DateTime;
 
 # load some users
 db_add_users();
+$Request{conference} = 'conf'; # needed by has_talk
 
 my $user  = Act::User->new( login => 'book' );
 my $user2 = Act::User->new( login => 'echo' );

@@ -7,6 +7,8 @@ use Act::User;
 
 use constant AMOUNT => 42;
 
+$Request{conference} = 'conf'; # required for has_* methods
+
 # empty order
 my $order = Act::Order->new();
 isa_ok( $order, 'Act::Order' );

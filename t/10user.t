@@ -71,3 +71,15 @@ for( keys %$user2 ) {
         "clone has a distinct $_");
 }
 
+# the bio table
+$sth = $Request{dbh}->prepare_cached(
+    "INSERT INTO bios ( user_id, lang, bio ) VALUES (?, ?, ?)"
+);
+
+$sth->execute( $user->user_id, 'fr', 'French bio' );
+$sth->execute( $user->user_id, 'en', 'English bio' );
+$Request{dbh}->commit;
+
+is_deeply( $user->bio, { fr => 'French bio', en => 'English bio' }, "Bio" );
+
+
