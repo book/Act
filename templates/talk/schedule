@@ -18,7 +18,7 @@
    [% IF loop.first %]
      <td>[% col %]</td>
    [% ELSE %]
-     <td>[% col.title %]</td>
+     <td rowspan="[% col.height %]">[% col.title %]</td>
    [% END %]
   [% END %]
  </tr>

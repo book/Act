@@ -79,13 +79,15 @@ sub handler {
         for my $row ( @{$table{$day}} ) {
             for my $room ( keys %room ) {
                 # fill with blanks
+                $row->[1]{$room} ||= [];
                 push @{ $row->[1]{$room} },
-                     ' ' x ( $room{$room}{$day} - @{ $row->[1]{$room} } );
+                     ('-') x ( $room{$room}{$day} - @{ $row->[1]{$room} } );
             }
             # remove duplicate talks
             @$row = (
                 $row->[0]->strftime('%H:%M'),
-                grep { $seen{$_}++ ? ( $_ eq ' ' ? ' ' : () ) : $_ }
+                grep { $seen{$_}++ ? ( $_ eq '-' ? $_ : () ) : $_ }
+                map { ref and $_->{height}++; $_ }
                 # from the list of items
                 map { @{ $row->[1]{$_} } } keys %room
             );
