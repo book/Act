@@ -1,0 +1,29 @@
+[% WRAPPER ui
+   title = { en => 'Schedule', fr => 'Emploi du temps' }
+%]
+
+[% FOREACH d IN table.keys %]
+<p>Date [% d %]</p>
+<table border=1>
+ <tr>
+ <th>
+  <t><en>Time</en><fr>Heure</fr></t>
+  [% FOREACH r IN room.keys %]
+  <th colspan="[% room.$r.$d %]">[% r %]</th>
+  [% END %]
+ </tr>
+ [% FOREACH row IN table.$d %]
+ <tr>
+  [% FOREACH col IN row %]
+   [% IF loop.first %]
+     <td>[% col %]</td>
+   [% ELSE %]
+     <td>[% col.title %]</td>
+   [% END %]
+  [% END %]
+ </tr>
+ [% END %]
+</table>
+
+[% END %]
+[% END %]

@@ -1,11 +1,13 @@
 package Act::TimeSlot;
+use Act::Event;
+use Act::Talk;
 
 sub get_items {
     my ( undef, %args ) = @_;
 
     # supprime les champs inutiles
     !/^(id|conf_id|datetime|room)$/ && delete $args{$_} for keys %args;
-    my %args_talk  = ( %args, accepted => 1 );
+    my %args_talk  = ( %args, accepted => 1, lightning => 0 );
     my %args_event = %args;
     $args_talk{talk_id}   = delete $args_talk{id};
     $args_event{event_id} = delete $args_event{id};
@@ -22,8 +24,10 @@ sub get_items {
 }
 *get_slots = \&get_items;
 
+sub clone { bless {%{$_[0]}}, ref $_[0]; }
+
 # a few accessors
-for my $attr ( qw( id datetime room conf_id type title abstract ) ) {
+for my $attr ( qw( id datetime room conf_id type title abstract duration ) ) {
     no strict 'refs';
     *$attr = sub { $_[0]{$attr} };
 }
