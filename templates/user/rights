@@ -3,7 +3,7 @@
    title = { en => 'User rights', fr => 'Droits des utilisateurs' },
 %]
 <div align="center">
-<form method="POST">
+<form method="POST" action="[% global.request.r.uri %]">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
  <th><t><en>Right</en><fr>Droit</fr></t></th>

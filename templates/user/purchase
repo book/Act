@@ -2,7 +2,7 @@
    title = { en => 'Online payment', fr => 'Paiement en ligne' },
 %]
 <center>
-<form method="POST">
+<form method="POST" action="[% global.request.r.uri %]">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">

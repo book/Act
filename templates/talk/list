@@ -49,7 +49,7 @@
 </p> 
 [% END %]
 [% IF global.request.user.is_orga %]
-<form method="POST" >
+<form method="POST" action="[% global.request.r.uri %]">
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>

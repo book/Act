@@ -38,7 +38,7 @@
 %]
 </span><br />
 
-<form method="POST">
+<form method="POST" action="[% global.request.r.uri %]">
 
 [% IF talk_id %]
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
