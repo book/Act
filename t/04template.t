@@ -39,6 +39,11 @@ my @templates = (
       in  => "<t><fr>foo</fr>\n<en>bar</en></t>",
       out => 'bar',
     },
+    {
+      var => { v => 'foo' },
+      in  => "bar\n  [% v %]  \nbaz",
+      out => "bar\n  foo  \nbaz",
+    },
 );
 my @html_templates = (
     { in  => 'foo',
@@ -63,6 +68,11 @@ my @html_templates = (
       raw => 1,
       in  => '[% v %]',
       out => '<>&',
+    },
+    {
+      var => { v => 'foo' },
+      in  => "bar\n  [% v %]  \nbaz",
+      out => "bar foo baz",
     },
 );
 use Test::More;

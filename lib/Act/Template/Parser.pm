@@ -4,20 +4,6 @@ use strict;
 use base qw(Template::Parser);
 use constant LANG_RE => qr{<([a-z]{2})>(.*?)</\1>}s;
 
-sub new
-{
-    my ($class, $options) = @_;
-    my $self = $class->SUPER::new();
-    $self->init($options);
-    return $self;
-}
-
-sub init
-{
-    my ($self, $options) = @_;
-    $self->{$_} = $options->{$_} for keys %$options;
-}
-
 sub parse
 {
     my ($self, $text) = @_;

@@ -2,9 +2,21 @@ package Act::Template::HTML;
 
 use strict;
 use HTML::Entities;
+use Template::Constants qw(CHOMP_COLLAPSE);
 use base 'Act::Template';
 
 use Act::Config;
+
+sub _init
+{
+    my ($self, $options) = @_;
+
+    for (qw(PRE_CHOMP POST_CHOMP)) {
+        $options->{$_} = CHOMP_COLLAPSE
+            unless defined $options->{$_};
+    }
+    $self->SUPER::_init($options);
+}
 
 sub encode
 {
