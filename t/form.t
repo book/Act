@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests => 42;
+use Test::More tests => 50;
 
 my @tests = (
 { profile => {
@@ -111,6 +111,9 @@ for my $t (@tests) {
         is_deeply($f->fields, $i->{fields});
         if ($i->{invalid}) {
             is_deeply($f->invalid, $i->{invalid});
+        }
+        else {
+            ok(!defined($i->{invalid}));
         }
     }
 }
