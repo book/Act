@@ -145,7 +145,7 @@ sub get_translation
 sub date_format
 {
     my ($s, $fmt) = @_;
-    my $dt = DateTime::Format::Pg->parse_timestamp($s);
+    my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
     return $dt->strftime($Languages{$lang}{"fmt_$fmt"});
