@@ -26,6 +26,8 @@ my $form = Act::Form->new(
      duration     => sub { $_[0] =~ /^(lightning|\d+)$/ },
      url_abstract => 'url',
      url_talk     => 'url',
+     date         => 'date',
+     time         => 'time',
   }
 );
 
