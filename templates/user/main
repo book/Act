@@ -16,7 +16,7 @@
 
 <p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en></t></b></p>
    <ul>
-    <li><a href="/2004/change"><t>
+    <li><a href="[% make_uri('change') %]"><t>
           <fr>mettre à jour les informations vous concernant</fr>
           <en>update your information</en></t></a><br />
     </li>

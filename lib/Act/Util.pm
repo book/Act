@@ -3,7 +3,7 @@ package Act::Util;
 
 use vars qw(@ISA @EXPORT);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri self_uri);
+@EXPORT = qw(make_uri make_uri_info self_uri);
 
 use Crypt::RandPasswd ();
 use URI::Escape ();
@@ -18,6 +18,18 @@ sub make_uri
             ? "/$Request{conference}/$action"
             : "/$action";
     return _build_uri($uri, %params);
+}
+
+# create a uri pathinfo-style
+sub make_uri_info
+{
+    my ($action, $pathinfo) = @_;
+
+    my $uri = $Request{conference}
+            ? "/$Request{conference}/$action"
+            : "/$action";
+    $uri .= "/$pathinfo" if $pathinfo;
+    return $uri;
 }
 
 # self-referential uri with new args

@@ -28,7 +28,7 @@
 [%# committed = u.have_paid OR u.have_talk %]
  <tr>
    <td align="center">
-    <a href="/2004/user/[% u.user_id %]">
+    <a href="[% make_uri_info('user', u.user_id) %]">
     [% IF committed %]<b>[% END %]
       [%- IF u.pseudonymous %]
          [% u.nick_name %]

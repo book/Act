@@ -99,7 +99,11 @@ sub process
          ];
     }
 
-    $self->variables(global => \%global);
+    $self->variables(
+      global        => \%global,
+      make_uri      => \&Act::Util::make_uri,
+      make_uri_info => \&Act::Util::make_uri_info,
+    );
 
     # process and output
     my $ok;

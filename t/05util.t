@@ -2,7 +2,7 @@
 
 use strict;
 use Test::MockObject;
-use Test::More tests => 11;
+use Test::More tests => 15;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -24,6 +24,18 @@ my @t = (
 while (my ($conf, $action, $args, $expected) = splice(@t, 0, 4)) {
     $Request{conference} = $conf;
     is(make_uri($action, %$args), $expected);
+}
+
+# make_uri_info
+@t = (
+  undef,  'foo', undef,     '/foo',
+  undef,  'foo', 'bar',     '/foo/bar',
+  '2004', 'foo', 'bar',     '/2004/foo/bar',
+  '2004', 'foo', 'bar/baz', '/2004/foo/bar/baz',
+);
+while (my ($conf, $action, $pathinfo, $expected) = splice(@t, 0, 4)) {
+    $Request{conference} = $conf;
+    is(make_uri_info($action, $pathinfo), $expected);
 }
 
 # self_uri
