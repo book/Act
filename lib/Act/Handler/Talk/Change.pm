@@ -7,6 +7,7 @@ use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Country;
 use Act::Form;
+use Act::Handler::Talk::Util;
 use Act::Template::HTML;
 use Act::User;
 use Act::Talk;
@@ -101,7 +102,11 @@ sub handler
                 $fields->{lightning} = 1;
                 $fields->{duration}  = undef;
             }
+            my $tbefore = $talk->clone;
             $talk->update( %$fields );
+
+            # optional email notification
+            Act::Handler::Talk::Util::notify('update', $tbefore, $talk);
         }
         else {
             # map errors

@@ -6,6 +6,7 @@ use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Country;
 use Act::Form;
+use Act::Handler::Talk::Util;
 use Act::Talk;
 use Act::Template::HTML;
 use Act::Util;
@@ -68,6 +69,9 @@ sub handler
             # thanks, come again
             $template->variables(%$fields, talk_id => $talk->talk_id);
             $template->process('talk/added');
+
+            # optional email notification
+            Act::Handler::Talk::Util::notify(insert => $talk);
         }
         else {
             # map errors
