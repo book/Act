@@ -28,6 +28,7 @@ sub load_configs
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, "$home/$conf");
+        _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
         # general_conferences isn't overridable
         $ConfConfigs{$conf}->set(conferences => $GlobalConfig->conferences);
     }

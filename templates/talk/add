@@ -1,0 +1,90 @@
+[% WRAPPER ui
+   title = { en => 'Submit a talk', fr => 'Soumettre une présentation' },
+%]
+
+<center>
+
+<span class="error">
+[% PROCESS error
+   msgs = {
+     ERR_TITLE => {
+         en => "You must enter a title for the talk"
+         fr => "Le titre est obligatoire"
+     },
+     ERR_ABSTRACT => {
+         en => "You must provide an abstract"
+         fr => "Le résumé est obligatoire"
+     },
+     ERR_DURATION => {
+         en => "Please choose a duration",
+         fr => "Vous devez choisir une durée"
+     },
+     ERR_URL_ABSTRACT => {
+         en => "Abstract URL is not a valid URL",
+         fr => "L'URL du résumé n'est pas une URL valide"
+     },
+     ERR_URL_TALK => {
+         en => "Talk URL is not a valid URL"
+         fr => "L'URL de la présentation n'est pas une URL valide"
+     },
+  }
+%]
+</span><br /><br />
+
+<form method="POST">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+  <td align="right"><t><en>Title</en><fr>Titre</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="title" value="[% title %]" size="51" maxlength="50" />
+  </td>
+</tr>
+<tr>
+  <td align="right" valign="top"><t><en>Abstract</en><fr>Résumé</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="abstract" cols="50" rows="10">[% abstract %]</textarea>
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Talk URL</en><fr>URL présentation</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Duration</en><fr>Durée</fr></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <select name="duration">
+     <option value=""[% ' selected="selected"' UNLESS duration %]></option>
+     [% FOREACH d = global.config.talks_durations.keys.nsort %]
+     <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %]</option>
+     [% END %]
+    </select>
+  </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="submit" value="<t><en>Submit this talk</en><fr>Soumettre</fr></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+
+[% END %]

@@ -1,0 +1,16 @@
+[% WRAPPER ui
+   title = { en => 'Talk submitted', fr => 'Présentation soumise' },
+%]
+
+<p>
+ <t>
+  <en>
+   Thanks, your talk submission has been recorded.
+  </en>
+  <fr>
+   Merci, votre soumission de présentation est enregistrée.
+  </fr>
+ </t>
+</p>
+
+[% END %]
