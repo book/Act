@@ -105,7 +105,7 @@ CREATE TABLE translations
 (
     tbl      text,
     col      text,           
-    id       integer,
+    id       text,
     lang     text,
     text     text
 );
