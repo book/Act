@@ -19,7 +19,8 @@
    <t><en>Time</en><fr>Heure</fr></t>
   </th>
   [% FOREACH r IN room.keys.sort %]
-  <th colspan="[% width.$r.$d %]">[% r %]</th>
+  <th colspan="[% width.$r.$d %]">
+    <t><fr>Salle [% r %]</fr><en>[% r %] Room</en></t></th>
   [% END %]
  </tr>
  [% FOREACH row IN table.$d %]

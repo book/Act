@@ -29,8 +29,10 @@
    BLOCK;
     IF t.type == 'Act::Talk' %]
 [% user_info(t.user) %] -
+[% '<b>' IF t.confirmed %]
 <a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
-([% t.duration %])
+[% '</b>' IF t.confirmed %]
+([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en></t>)
     [% ELSIF t.type == 'Act::Event' %]
 <a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
     [% ELSE ; t %]
