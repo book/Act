@@ -3,17 +3,18 @@
    title = {
      en => 'Billing'
      fr => 'Facturation'
+     it => 'Fatturazione'
    },
 %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>User</en><fr>Utilisateur</fr></t></th>
- <th><t><en>Payment date</en><fr>Date du règlement</fr></t></th>
- <th><t><en>Payment means</en><fr>Moyen de paiement</fr></t></th>
- <th><t><en>Price</en><fr>Tarif</fr></t></th>
- <th><t><en>Invoice OK</en><fr>Facture OK</fr></t></th>
+ <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it></t></th>
+ <th><t><en>Payment date</en><fr>Date du règlement</fr><it>Data del pagamento</it></t></th>
+ <th><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it></t></th>
+ <th><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it></t></th>
+ <th><t><en>Invoice OK</en><fr>Facture OK</fr><it>Fattura OK</it></t></th>
 </tr>
 [% FOREACH u = users %]
   [% o = orders.${u.user_id} %]
@@ -35,7 +36,7 @@
 [% END %]
 </table>
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr><it>Aggiorna</it></t>" />
 </form>
 </div>
 [% END %]

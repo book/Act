@@ -7,15 +7,16 @@
 <b><t>
   <en>By</en>
   <fr>Par</fr>
+  <it>Oratore</it>
 </t></b>
 [% user_info(user) %]
 </a>
 [% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
- <en>edit</en><fr>modifier</fr></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it></t></a>)
 [% END %]
 [% IF user.pm_group %]
-  <t> <en> from </en> <fr> de </fr> </t>
+  <t> <en> from </en> <fr> de </fr> <it>da</it></t>
   [% IF user.pm_group_url %]
     <a href="[% user.pm_group_url %]">[% user.pm_group %]</a>
   [% ELSE %]
@@ -25,34 +26,35 @@
 <br />
 
 [% IF lightning %]
-  <t><en>Lightning talk</en><fr>Communication éclair</fr></t> <br />
+  <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it></t> <br />
 [% ELSE %]
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr><it>minuti</it></t><br />
 [% END %]
 
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
-<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr></t></b>
+<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><it>Commenti:</it></t></b>
 [% comment %]
 [% END %]
 </p>
 [% IF url_abstract || url_talk %]
 <p> <t>  <en>You can find more information on the speaker's site:</en>
       <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
+  <it>Potete trovare ulteriori informazioni su questo intervento sul sito:</it>
  </t></p>
  <ul>
   [% IF url_abstract %]
-      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en></t>
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it></t>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
       </li>
   [% END %]
   [% IF url_talk %]
-      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en></t>
+      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it></t>
          <a href="[% url_talk %]">[% url_talk %]</a>
       </li>
   [% END %]

@@ -1,8 +1,9 @@
 [% PROCESS common %]
 [% WRAPPER ui
    title = {
-     en => 'Payment'
-     fr => "Saisie d'un règlement"
+     en => 'Payment',
+     fr => "Saisie d'un règlement",
+     it => "Pagamento"
    },
 %]
 <div align="center">
@@ -10,11 +11,11 @@
 <input type="hidden" name="user_id" value="[% user.user_id %]" />
 <table border="0" cellspacing="0" cellpadding="4">
 <tr>
- <td><t><en>User</en><fr>Utilisateur</fr></t></td>
+ <td><t><en>User</en><fr>Utilisateur</fr><it>Utente</it></t></td>
  <td><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
 </tr>
 <tr>
- <td><t><en>Payment means</en><fr>Moyen de paiement</fr></t></td>
+ <td><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it></t></td>
  <td>
   <select name="means">
     [% FOREACH m = means.keys %]
@@ -24,7 +25,7 @@
  </td>
 </tr>
 <tr>
- <td><t><en>Price</en><fr>Tarif</fr></t></td>
+ <td><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it></t></td>
  <td>
   <select name="price">
     [% FOREACH p = prices %]
@@ -37,7 +38,7 @@
 </tr>
 </table>
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Valider</fr></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Valider</fr><it>Aggiorna</it></t>" />
 </form>
 </div>
 [% END %]

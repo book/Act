@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'User information', fr => 'Informations utilisateur' },
+   title = { en => 'User information', fr => 'Informations utilisateur', it => "dati dell'utente" },
 %]
 [% PROCESS common %]
 
@@ -14,7 +14,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Name</en><fr>Nom</fr></t>
+      <t><en>Name</en><fr>Nom</fr><it>Nome</it></t>
    </td>
    <td>&nbsp;</td>
    <td align="left">
@@ -30,14 +30,14 @@
 </tr>
 [%- IF town %]
 <tr>
-   <td align="right"><t><en>City</en><fr>Ville</fr></t></td>
+   <td align="right"><t><en>City</en><fr>Ville</fr><it>Città</it></t></td>
    <td>&nbsp;</td>
    <td align="left">[% town %]</td>
 </tr>
 [% END %]
 <tr>
    <td align="right">
-      <t><en>Country</en><fr>Pays</fr></t>
+      <t><en>Country</en><fr>Pays</fr><it>Nazione</it></t>
    </td>
    <td>&nbsp;</td>
    <td align="left">
@@ -46,7 +46,7 @@
 [%- IF pm_group %]
 </tr><tr>
    <td align="right">
-      <t><en>Perl mongers group</en><fr>Groupe de mongueurs</fr></t>
+      <t><en>Perl mongers group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</it></t>
    </td>
    <td>&nbsp;</td>
    <td align="left">
@@ -57,7 +57,7 @@
 [% IF company %]
    </tr><tr>
       <td align="right">
-         <t><en>Company</en><fr>Société</fr></t>
+         <t><en>Company</en><fr>Société</fr><it>Azienda</it></t>
       </td>
       <td>&nbsp;</td>
       <td align="left">
@@ -77,7 +77,7 @@
 [%- IF web_page %]
    </tr><tr>
       <td align="right">
-         <t><en>Web page</en><fr>Page Web</fr></t>
+         <t><en>Web page</en><fr>Page Web</fr><it>Pagina web</it></t>
       </td>
       <td>&nbsp;</td>
       <td align="left">
@@ -125,7 +125,7 @@
       [%- IF photo_name %]
          <img src="/[% global.config.general_dir_photos %]/[% photo_name %]" border="0" alt="Photo">
       [%- ELSE %]
-         <t><en>No Photo</en><fr>Pas de photo</fr></t>
+         <t><en>No Photo</en><fr>Pas de photo</fr><it>Nessuna foto</it></t>
       [% END %]
    </td></tr></table>
 
@@ -142,15 +142,15 @@
       <td align="right" valign="top">
     [% IF global.request.user.is_orga %]
 	  [% IF talks.size == 1 %]
-	     <t><en>Talk</en> <fr>Présentation</fr></t>
+	     <t><en>Talk</en> <fr>Présentation</fr><it>Intervento</it></t>
 	  [% ELSE %]
-	     <t><en>Talks</en> <fr>Présentations</fr></t>
+	     <t><en>Talks</en> <fr>Présentations</fr><it>Interventi</it></t>
 	  [% END %]
     [% ELSE %]
 	  [% IF talks.size == 1 %]
-	     <t><en>Accepted Talk</en> <fr>Présentation acceptée</fr></t>
+	     <t><en>Accepted Talk</en> <fr>Présentation acceptée</fr><it>Intervento accettato</it></t>
 	  [% ELSE %]
-	     <t><en>Accepted Talks</en> <fr>Présentations acceptées</fr></t>
+	     <t><en>Accepted Talks</en> <fr>Présentations acceptées</fr><it>Interventi accettati</it></t>
       [% END %]
       </td>
     [% END %]
@@ -161,7 +161,7 @@
            [% FOREACH t = talks %]
 	    <li>[% talk_link(t) %]
             ([% IF t.duration ; t.duration %]
-            <t><fr>minutes</fr><en>minutes</en></t>[% ELSE %]<t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])
+            <t><fr>minutes</fr><en>minutes</en><it>minuti</it></t>[% ELSE %]<t><fr>Communication éclair</fr><en>Lightning talk</en><it>Intervento lampo</it></t>[% END %])
            [% talk_modify_link(t) %]</li>
              [% END %]
           </ul>
@@ -200,6 +200,11 @@
          publique<br />
          GPG
         </fr>
+        <it>
+         chiave<br />
+         pubblica<br />
+         GPG
+        </it>
        </t>
       </td>
       <td>&nbsp;</td>

@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Talk submitted', fr => 'Présentation soumise' },
+   title = { en => 'Talk submitted', fr => 'Présentation soumise', it => 'Intervento inviato' },
 %]
 
 <p>
@@ -12,6 +12,10 @@
    Merci, votre soumission de présentation est enregistrée
    en tant que <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
   </fr>
+  <it>
+   Grazie, la vostra proposta è stata registrata come
+   <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
+  </it>
  </t>
 </p>
 

@@ -2,6 +2,7 @@
    title = {
      en => 'Submit/Edit a non-talk event'
      fr => 'Soumettre/Modifier un évenement'
+     it => 'Aggiunta/Modifica di un evento'
    }
 %]
 
@@ -13,34 +14,42 @@
      ERR_TITLE => {
          en => "You must enter a title for the event"
          fr => "La désignation est obligatoire"
+         it => "Il titolo è obbligatorio"
      },
      ERR_ABSTRACT => {
          en => "You must enter a short description for the event"
          fr => "Une courte description est obligatoire"
+         it => "Una breve descrizione è obbligatoria"
      },
      ERR_DURATION => {
          en => "Please choose a duration",
          fr => "Vous devez choisir une durée"
+         it => "Dovete indicare una durata"
      },
      ERR_DATE => {
          en => "The supplied date is invalid"
          fr => "La date fournie est invalide"
+         it => "La data indicata non è valida"
      },
      ERR_TIME => {
          en => "The supplied time is invalid"
          fr => "L'heure fournie est invalide"
+         it => "L'ora indicata non è valida"
      },
      ERR_DATERANGE => {
          en => "The date/time is out of range"
          fr => "Date/heure hors limites"
+         it => "La data o l'ora sono fuori dai limiti"
      },
      ERR_URL_ABSTRACT => {
          en => "Event URL is not a valid URL",
          fr => "L'URL de l'événement n'est pas une URL valide"
+         it => "La URL indicata non è valida"
      },
      ERR_ROOM => {
          en => "Incorrect room submitted",
          fr => "Salle incorrecte",
+         it => "La stanza indicata non è valida"
      },
   }
 %]
@@ -53,21 +62,21 @@
 [% END %]
 [% IF event_id %]
 <p>
- <t><en>View</en><fr>Voir</fr></t>
+ <t><en>View</en><fr>Voir</fr><it>Mostra</it></t>
  <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 <tr>
-  <td align="right"><t><en>Title</en><fr>Titre</fr></t></td>
+  <td align="right"><t><en>Title</en><fr>Titre</fr><it>Titolo</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Date</en><fr>Date</fr></t></td>
+  <td align="right"><t><en>Date</en><fr>Date</fr><it>Data</it></t></td>
   <td>&nbsp;</td>
   <td>
    <select name="date">
@@ -76,9 +85,9 @@
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
     </select>
-   <t><en>Time</en><fr>Heure</fr></t>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it></t>
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   <t><en>Room</en><fr>Salle</fr></t>
+   <t><en>Room</en><fr>Salle</fr><it>Stanza</it></t>
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
@@ -91,6 +100,7 @@
   <td align="right" valign="top">
   <t><en>Abstract<br />(plain text)</en>
      <fr>Description<br />(texte brut)</fr>
+     <it>Descrizione<br />(testo semplice)</it>
   </t></td>
   <td>&nbsp;</td>
   <td>
@@ -98,23 +108,23 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>External URL</en><fr>URL externe</fr></t></td>
+  <td align="right"><t><en>External URL</en><fr>URL externe</fr><it>URL esterna</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr></t></td>
+  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><it>Durata</it></t></td>
   <td>&nbsp;</td>
   <td>
     <input name="duration" value="[% duration %]" size="3" />
-    <t><fr>minutes</fr><en>minutes</en></t>
+    <t><fr>minutes</fr><en>minutes</en><it>minuti</it></t>
   </td>
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr></t>" />
+      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr><it>Invia</it></t>" />
    </td>
 </tr>
 </table>

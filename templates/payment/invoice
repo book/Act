@@ -1,11 +1,12 @@
 [% WRAPPER ui 
-   title = { en => 'Invoice', fr => 'Facture' }
+   title = { en => 'Invoice', fr => 'Facture', it => 'Fattura' }
 %]
 <div id="contentHeader">
 <p><t>
 <en>You can print this page: only the invoice below will be printed.</en>
 <fr>Vous pouvez imprimer cette page&nbsp;: seule la facture ci-dessous
 sera imprimée.</fr>
+<it>Potete stampare questa pagina: solo la fattura sarà stampata.</it>
 </t></p>
 </div>
     <table border="0">
@@ -22,12 +23,12 @@ sera imprimée.</fr>
               </td>
               <td width="20%" />
               <td>
-                <b><t><en>Invoice #</en><fr>Facture N°</fr></t>
-                   [% invoice_no %]</b><br>
-                <b><t><en>Dated </en><fr>En date du</fr></t>
-                   [% datetime %]</b><br>
-                <b><t><en>Edited on</en><fr>Editée le</fr>
-                   [% today %]</b><br>
+                <b><t><en>Invoice #</en><fr>Facture N°</fr><it>Fattura n.</it></t>
+                   [% invoice_no %]</b><br />
+                <b><t><en>Dated </en><fr>En date du</fr><it>del</it></t>
+                   [% datetime %]</b><br />
+                <b><t><en>Edited on</en><fr>Editée le</fr><it>Stampata il</it></t>
+                   [% today %]</b><br />
               </td>
             </tr>
           </table>
@@ -56,10 +57,10 @@ sera imprimée.</fr>
               <th colspan="2">[% currency %]</th>
             </tr>
             <tr>
-              <th><t><fr>Désignation</fr></t></th>
-              <th><t><en>Quantity</en><fr>Quantité</fr></t></th>
-              <th><t><en>Unit Price</en><fr>Prix Unitaire</fr></t></th>
-              <th><t><en>Total</en><fr>Total</fr></t></th>
+              <th><t><en>Description</en><fr>Désignation</fr><it>Descrizione</it></t></th>
+              <th><t><en>Quantity</en><fr>Quantité</fr><it>Quantità</it></t></th>
+              <th><t><en>Unit Price</en><fr>Prix Unitaire</fr><it>Prezzo unitario</it></t></th>
+              <th><t><en>Total</en><fr>Total</fr><it>Totale</it></t></th>
             </tr>
             <tr>
               <td align="left">[% means %]</td>
@@ -68,7 +69,7 @@ sera imprimée.</fr>
               <td align="right">[% amount %]</td>
             </tr>
             <tr>
-              <td colspan="3" align="right"><t><en>Due total</en><fr>Total à payer</fr></t></td>
+              <td colspan="3" align="right"><t><en>Due total</en><fr>Total à payer</fr><it>Totale fattura</it></t></td>
               <td align="right">[% amount %]</td>
             </tr>
           </table>

@@ -1,31 +1,31 @@
 [%- SWITCH op %]
-[%- CASE 'insert' %]<t><en>Talk inserted</en><fr>Présentation ajoutée </fr></t>
-[%- CASE 'update' %]<t><en>Talk updated</en><fr>Présentation modifiée </fr></t>
+[%- CASE 'insert' %]<t><en>Talk inserted</en><fr>Présentation ajoutée </fr><it>Intervento aggiunto</it></t>
+[%- CASE 'update' %]<t><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it></t>
 [%- END -%]
 : [% talk.title %]
 [% global.config.general_base_url %][% make_uri_info('talk', talk.talk_id ) %]
-<t><fr>Soumis par </fr><en>Submitted by</en></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
+<t><fr>Soumis par </fr><en>Submitted by</en><it>Inviato da</it></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
 
 [%- IF tbefore %]
-<t><en>The following fields have been updated</en><fr>Les champs suivant on été modifiés </fr></t>:
+<t><en>The following fields have been updated</en><fr>Les champs suivant on été modifiés </fr><it>Sono stati modificati i campi seguenti</it></t>:
 [%- FOREACH d=diff %]
 -[% d %]: [% tbefore.$d %]
 +[% d %]: [% talk.$d %]
 [% END %][% END %]
 
-<t><en>By</en><fr>Par </fr></t>: [% user.first_name %] [% user.last_name %]
+<t><en>By</en><fr>Par </fr><it>Oratore</it></t>: [% user.first_name %] [% user.last_name %]
 [% IF talk.lightning -%]
-<t><en>Lightning talk</en><fr>Communication éclair</fr></t>
+<t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it></t>
 [% ELSE -%]
-<t><en>Date</en><fr>Date </fr></t>: [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]
-<t><en>Duration</en><fr>Durée </fr></t>: [% talk.duration %] <t><en>minutes</en><fr>minutes</fr></t>
+<t><en>Date</en><fr>Date </fr><it>Data</it></t>: [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it></t>[% END %]
+<t><en>Duration</en><fr>Durée </fr></t>: [% talk.duration %] <t><en>minutes</en><fr>minutes</fr><it>minuti</it</t>
 [%- END -%]
 
 [% IF talk.url_abstract -%]
-   <t><fr>Résumé </fr><en>Abstract</en></t>: [% talk.url_abstract %]
+   <t><fr>Résumé </fr><en>Abstract</en><it>Abstract</it></t>: [% talk.url_abstract %]
 [% END -%]
 [% IF talk.url_talk -%]
-   <t><fr>Présentation </fr><en>Talk</en></t>: [% talk.url_talk %]
+   <t><fr>Présentation </fr><en>Talk</en><it>Intervento</it></t>: [% talk.url_talk %]
 [% END -%]
 
 [% talk.abstract %]

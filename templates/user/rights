@@ -1,14 +1,14 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => 'User rights', fr => 'Droits des utilisateurs' },
+   title = { en => 'User rights', fr => 'Droits des utilisateurs', it => 'Permessi degli utenti' },
 %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
- <th><t><en>Right</en><fr>Droit</fr></t></th>
- <th><t><en>User</en><fr>Utilisateur</fr></t></th>
- <th><t><en>Delete</en><fr>Supprimer</fr></t></th>
+ <th><t><en>Right</en><fr>Droit</fr><it>Permessi</it></t></th>
+ <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it></t></th>
+ <th><t><en>Delete</en><fr>Supprimer</fr><it>Elimina</it></t></th>
 </tr>
 [% FOREACH r=rights %]
  <tr>
@@ -19,7 +19,7 @@
 [% END %]
  <tr>
    <td align="center" colspan="3">
-    <t><fr>Ajouter un droit</fr><en>Add a new right</en></t>
+    <t><fr>Ajouter un droit</fr><en>Add a new right</en><it>Aggiungi permesso</it></t>
    </td>
  </tr>
  <tr>
@@ -35,7 +35,7 @@
 </table>
 <br />
 <input type="submit" name="ok"
-   value="<t><fr>Valider</fr><en>Submit</en></t>" />
+   value="<t><fr>Valider</fr><en>Submit</en><it>Invia</it></t>" />
 
 </form>
 </div>
@@ -44,22 +44,26 @@
  <t>
   <fr>Les droits existants sont&nbsp;:</fr>
   <en>The recognised rights are:</en>
+  <it>I permessi possibili sono:</it>
  </t>
 </p>
 <ul>
  <li><tt>orga</tt> -
   <t><fr>Organisateur (gestion des présentations)</fr>
      <en>Organiser (talks management)</en>
+     <it>Organizzatore (gestione interventi)</it>
   </t>
  </li>
  <li><tt>treasurer</tt> -
   <t><fr>Trésorier (gestion des paiements)</fr>
      <en>Treasurer (payment management)</en>
+     <it>Tesoriere (gestione pagamenti)</it>
   </t>
  </li>
  <li><tt>admin</tt> -
   <t><fr>Administrateur (gestion des droits)</fr>
      <en>Administrator (rights management)</en>
+     <it>Amministratore (gestione permessi)</it>
   </t>
  </li>
 </ul>

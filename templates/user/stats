@@ -2,6 +2,7 @@
    title = {
      en => "${global.conference.name} Statistics"
      fr => "Statistiques pour ${global.conference.name}"
+     it => "Statistiche per ${global.conference.name}"
    }
 %]
 
@@ -23,6 +24,13 @@
    sont engagées, soit en payant leur place, soit
    parce qu'elles donneront une conférence.
   </fr>
+  <it>
+   Ci sono [% stats.users %] persone iscritte provenienti da
+   [% stats.countries.size %] nazion[% stats.countries.size > 1 ? "i" : "e" %]
+   e [% stats.pm.size %] grupp[% stats.pm.size > 1 ? "i" : "o" %] di mongers.
+   Ci sono [% stats.committed %] utenti confermati, ovvero che hanno pagato
+   il biglietto o che terranno un intervento.
+  </it>
  </t>
 </p>
 
@@ -37,6 +45,10 @@
    <a href="[% make_uri('stats') %]">pays / groupe de mongueurs</a> ou par
    <a href="[% make_uri('stats', 'show', 'cities') %]">villes</a>.
   </fr>
+  <it>
+   Potete vedere le statistiche per <a href="[% make_uri('stats') %]">nazione / gruppo</a>
+   o per <a href="[% make_uri('stats', 'show', 'cities') %]">città</a>.
+  </it>
  </t>
 </p>
 <p>
@@ -45,6 +57,8 @@
   in the following tables.</en>
   <fr>Les nombres entre parenthèses dans les tableaux qui suivent
   indiquent le nombre d'inscrits engagés.</fr>
+  <it>Il numero degli utenti confermati è mostrato tra parentesi nelle
+  tabelle che seguono.</it>
  </t>
 </p>
 <p>
@@ -52,6 +66,7 @@
   <en>Click on the various links to find the corresponding users!</en>
   <fr>Cliquez sur les liens pour obtenir la liste des utilisateurs
       correspondants&nbsp;!</fr>
+  <it>Seguite i vari link per trovare gli utenti corrispondenti.</it>
  </t>
 </p>
 
@@ -69,6 +84,10 @@
    des villes associées. Ou même une ville ne correspond pas au pays
    indiqué. C'est la faute des utilisateurs&nbsp;!
   </fr>
+  <it>
+   Nota: il totale per nazione non corrisponde alla somma dei totali
+   delle città relative. O una città non compare nella nazione
+   giusta. Tutta colpa degli utenti!</it>
  </t>
 </p>
 <center>
@@ -76,13 +95,14 @@
 [% cols = 3 %]
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr></t></th>
+  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><it>Città</it></t></th>
  </tr>
   <!-- cities within countries -->
   [% IF stats.towns.size == 0 %]
   <td><t>
     <en>No city information entered</en>
     <fr>Aucune ville n'a été renseignée</fr>
+    <it>Nessuna informazione sulle città</it>
   </t></td>
   [% END %]
   [% FOREACH c = stats.countries %]
@@ -106,8 +126,8 @@
 <center>
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th><t><en>Countries</en><fr>Pays</fr></t></th>
-  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr></t></th>
+  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it></t></th>
+  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it></t></th>
  </tr>
  <tr>
   <!-- Countries -->

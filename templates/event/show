@@ -1,24 +1,25 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => title, fr => title }
+   title = { en => title, fr => title, it => title }
 %]
 
 <p>
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it></t></b> [% duration %] 
+   <t><en>minutes</en><fr>minutes</fr><it>minuti</it></t><br />
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
- <en>edit</en><fr>modifier</fr></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it></t></a>)
 [% END %]
 </p>
 
 [% IF url_abstract %]
 <p> <t>  <en>You can find more information on the following site:</en>
       <fr>Vous pouvez trouver plus d'information sur le site suivant&nbsp;:</fr>
+  <it>Potete trovare ulteriori informazioni sul sito:</it>
  </t></p>
  <ul>
    <li>

@@ -1,19 +1,20 @@
 [% WRAPPER ui
-   title = { en => 'iCal Import', fr => 'Import iCal' },
+   title = { en => 'iCal Import', fr => 'Import iCal', it => 'Importa da iCal' },
 %]
 <center>
 [% IF talks %]
   <p>
    <t><fr>Les présentations suivantes ont été modifiées :</fr>
       <en>The following talks have been updated:</en>
+      <it>Sono stati modificati gli interventi seguenti:</it>
    </t>
   </p>
   <table border="1" cellspacing="0" cellpadding="0">
   <tr>
     <th>talk_id</th>
-    <th><t><en>Old time</en><fr>Ancien horaire</fr></t></th>
-    <th><t><en>New time</en><fr>Nouvel horaire</fr></t></th>
-    <th><t><en>title</en><fr>titre</fr></t></th>
+    <th><t><en>Old time</en><fr>Ancien horaire</fr><it>Vecchio orario</it></t></th>
+    <th><t><en>New time</en><fr>Nouvel horaire</fr><it>Nuovo orario</it></t></th>
+    <th><t><en>title</en><fr>titre</fr><it>titolo</it></t></th>
   </tr>
   [% FOREACH t=talks %]
     <tr>
@@ -34,6 +35,7 @@
    <td>
      <t><fr>Envoyer un fichier iCal</fr>
         <en>Upload an iCal file</en>
+        <it>Invia un file iCal</it>
      </t>
   </td>
 </tr>
@@ -44,7 +46,7 @@
 </tr>
 <tr>
    <td align="right">
-      <input type="submit" name="update" value="<t><fr>Importer</fr><en>Import</en></t>" />
+      <input type="submit" name="update" value="<t><fr>Importer</fr><en>Import</en><it>Importa</it></t>" />
    </td>
 </tr>
 </table>

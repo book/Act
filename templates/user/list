@@ -11,18 +11,23 @@
    en gras (ils ont payé leur billet ou feront une présentation à
    la conférence).
   </fr>
+  <it>
+   Gli utenti che hanno confermato la partecipazione (ovvero, che
+   hanno pagato il biglietto o terranno un intervento) sono mostrati in
+   <b>grassetto</b>
+  </it>
  </t>
 </p>
 
 [% IF users.size %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
- <th><t><en>Name</en><fr>Nom</fr></t></th>
- <th><t><en>City</en><fr>Ville</fr></t></th>
- <th><t><en>Country</en><fr>Pays</fr></t></th>
- <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr></t></th>
+ <th><t><en>Name</en><fr>Nom</fr><it>Nome</it></t></th>
+ <th><t><en>City</en><fr>Ville</fr><it>Cognome</it></t></th>
+ <th><t><en>Country</en><fr>Pays</fr><t>Nazione</it></t></th>
+ <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</ih></t></th>
  [% IF global.user.is_admin %]
- <th><t><en>Admin links</en><fr>Liens d'admin</fr></t></th>
+ <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it></t></th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
@@ -54,7 +59,7 @@
    </td>
    [% IF global.user.is_admin %]
    <td>
-    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr></t></a>[% END %]
+    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><it>Modifica</it></t></a>[% END %]
   </td>
   [% END %]
 </tr>

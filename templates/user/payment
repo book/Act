@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Online Payment', fr => 'Paiement en ligne' },
+   title = { en => 'Online Payment', fr => 'Paiement en ligne', it => 'Pagamento on-line' },
 %]
 <center>
 
@@ -8,7 +8,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Your name</en><fr>Votre nom</fr></t>
+      <t><en>Your name</en><fr>Votre nom</fr><it>Nome</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -17,7 +17,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Order #</en><fr>Commande n°</fr></t>
+      <t><en>Order #</en><fr>Commande n°</fr><it>Ordine n.</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -26,7 +26,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Amount</en><fr>Montant</fr></t>
+      <t><en>Amount</en><fr>Montant</fr><it>Valore</it></t>
    </td>
    <td>&nbsp;</td>
    <td>

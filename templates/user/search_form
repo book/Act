@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Search for users', fr => "Recherche d'utilisateurs" },
+   title = { en => 'Search for users', fr => "Recherche d'utilisateurs", it => 'Ricerca degli utenti' },
 %]
 
 <center>
@@ -10,7 +10,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Name</en><fr>Nom</fr></t>
+      <t><en>Name</en><fr>Nom</fr><it>Nome</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -19,7 +19,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Town</en><fr>Ville</fr></t>
+      <t><en>Town</en><fr>Ville</fr><it>Città</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -28,12 +28,12 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Country</en><fr>Pays</fr></t>
+      <t><en>Country</en><fr>Pays</fr><it>Nazione</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
       <select name="country">
-         <option value=""[% ' selected="selected"' UNLESS global.request.args.country %]><t><en>Any</en><fr>Tous</fr></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.country %]><t><en>Any</en><fr>Tous</fr><it>Qualsiasi</it></t></option>
          [% FOREACH c = countries %]
             <option value="[% c.iso %]"[% ' selected="selected"' IF global.request.args.country == c.iso %]>[% c.name %]</option>
          [% END %]
@@ -42,12 +42,12 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Monger group</en><fr>Groupe de mongueurs</fr></t>
+      <t><en>Monger group</en><fr>Groupe de mongueurs</fr><it>Gruppo di mongers</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
       <select name="pm_group">
-         <option value=""[% ' selected="selected"' UNLESS global.request.args.pm_group %]><t><en>Any</en><fr>Tous</fr></t></option>
+         <option value=""[% ' selected="selected"' UNLESS global.request.args.pm_group %]><t><en>Any</en><fr>Tous</fr><it>Qualsiasi</it></t></option>
          [% FOREACH g = pm_groups %]
             <option value="[% g %]"[% ' selected="selected"' IF global.request.args.pm_group == g %]>[% g %]</option>
          [% END %]
@@ -56,7 +56,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="search" value="<t><en>Search</en><fr>Chercher</fr></t>" />
+      <input type="submit" name="search" value="<t><en>Search</en><fr>Chercher</fr><it>Cerca</it></t>" />
    </td>
 </tr>
 </table>

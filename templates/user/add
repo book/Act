@@ -1,6 +1,119 @@
 [% WRAPPER ui
-   title = { en => 'Registration', fr => 'Inscription' },
+   title = { en => 'Registration', fr => 'Inscription', it => 'Iscrizione' },
 %]
+
+<p>
+ <t>
+  <en>Please create your user below.</en>
+  <fr>Vous pouvez créer votre utilisateur ci-dessous.</fr>
+  <it>Create il vostro account.</it>
+ </t>
+</p>
+
+<center>
+
+<span class="error">
+[% PROCESS error
+   msgs = {
+     ERR_IDENTIFIER_EXISTS => {
+         en => "Identifier ${login} is already in use. Please choose another."
+         fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
+         it => "L'identificativo ${login} è già usato. Vi preghiamo di sceglierne un altro.'
+     },
+     ERR_EMAIL_EXISTS => {
+         en => "The address ${email} is already registered."
+         fr => "L'adresse ${email} est déjà enregistrée."
+         it => "L'indirizzo ${email} è già iscritto."
+     },
+     ERR_IDENTIFIER => {
+         en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
+         fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
+         it => "L'identificativo deve essere composto da almeno 3 caratteri alfanumerici (<tt>[a-zA-Z0-9_]</tt>)"
+     },
+     ERR_FIRST_NAME => {
+         en => "You must enter your first name"
+         fr => "Le prénom est obligatoire"
+         it => "Il cognome è obbligatorio"
+     },
+     ERR_LAST_NAME => {
+         en => "You must enter your last name"
+         fr => "Le nom est obligatoire"
+         it => "Il nome è obbligatorio"
+     },
+     ERR_EMAIL => {
+         en => "You must enter your email"
+         fr => "L'adresse email est obligatoire"
+         it => "L'indirizzo e-mail è obbligatorio"
+     },
+     ERR_COUNTRY => {
+         en => "You must enter a country from the list"
+         fr => "Un pays est obligatoire"
+         it => "Dovete scegliere una nazione dall'elenco"
+     },
+     ERR_EMAIL_SYNTAX => {
+         en => "Your email address looks bogus."
+         fr => "Adresse email&nbsp;: syntaxe incorrecte."
+         it => "L'indirizzo e-mail non sembra valido."
+     },
+  }
+%]
+</span>
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+  <td align="right"><t><en>Login</en><fr>Identifiant</fr><it>Identificativo</it></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="login" value="[% login %]" size="11" maxlength="10" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>First Name</en><fr>Prénom</fr><it>Nome</it></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="first_name" value="[% first_name %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Last Name</en><fr>Nom</fr><it>Cognome</it></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="last_name" value="[% last_name %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right">Email</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+  <td align="right"><t><en>Country</en><fr>Pays</fr><it>Nazione</it></t></td>
+  <td>&nbsp;</td>
+  <td>
+    <select name="country">
+     <option value=""[% ' selected="selected"' UNLESS country %]></option>
+     [% FOREACH c = countries %]
+     <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+     [% END %]
+    </select>
+ </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="<t><en>Join!</en><fr>Inscription !</fr><it>Iscrivimi</it></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
 
 <p>
  <t>
@@ -16,113 +129,14 @@
    vous pouvez simplement vous <a href="[% make_uri('main') %]">identifier</a>
    avec ce compte.
   </fr>
+  <it>
+   Per iscriversi, dovete prima creare un account su questo sito. Se
+   avete già creato un account per un'altra conferenza gestita con questo
+   sistema, potete <a href="[% make_uri('main') %]">accedere</a> usando
+   quello.
+  </it>
  </t>
 </p>
-
-<p>
- <t>
-  <en>Please create your user below.</en>
-  <fr>Vous pouvez créer votre utilisateur ci-dessous.</fr>
- </t>
-</p>
-
-<center>
-
-<span class="error">
-[% PROCESS error
-   msgs = {
-     ERR_IDENTIFIER_EXISTS => {
-         en => "Identifier ${login} is already in use. Please choose another."
-         fr => "L'identifiant ${login} est déjà utilisé.  Veuillez en choisir un autre."
-     },
-     ERR_EMAIL_EXISTS => {
-         en => "The address ${email} is already registered."
-         fr => "L'adresse ${email} est déjà enregistrée."
-     },
-     ERR_IDENTIFIER => {
-         en => "Your identifier must contain at least 3 caracters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
-         fr => "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
-     },
-     ERR_FIRST_NAME => {
-         en => "You must enter your first name"
-         fr => "Le prénom est obligatoire"
-     },
-     ERR_LAST_NAME => {
-         en => "You must enter your last name"
-         fr => "Le nom est obligatoire"
-     },
-     ERR_EMAIL => {
-         en => "You must enter your email"
-         fr => "L'adresse email est obligatoire"
-     },
-     ERR_COUNTRY => {
-         en => "You must enter a country from the list"
-         fr => "Un pays est obligatoire"
-     },
-     ERR_EMAIL_SYNTAX => {
-         en => "Your email address looks bogus."
-         fr => "Adresse email&nbsp;: syntaxe incorrecte."
-     },
-  }
-%]
-</span>
-
-<form method="POST" action="[% global.request.r.uri %]">
-
-<table border="1" cellpadding="10" cellspacing="0"><tr><td>
-<table border="0" cellpadding="0" cellspacing="10">
-
-<tr>
-  <td align="right"><t><en>Login</en><fr>Identifiant</fr></t></td>
-  <td>&nbsp;</td>
-  <td>
-    <input type="text" name="login" value="[% login %]" size="11" maxlength="10" />
-  </td>
-</tr>
-<tr>
-  <td align="right"><t><en>First Name</en><fr>Prénom</fr></t></td>
-  <td>&nbsp;</td>
-  <td>
-    <input type="text" name="first_name" value="[% first_name %]" size="25" maxlength="256" />
-  </td>
-</tr>
-<tr>
-  <td align="right"><t><en>Last Name</en><fr>Nom</fr></t></td>
-  <td>&nbsp;</td>
-  <td>
-    <input type="text" name="last_name" value="[% last_name %]" size="25" maxlength="256" />
-  </td>
-</tr>
-<tr>
-  <td align="right">Email</td>
-  <td>&nbsp;</td>
-  <td>
-    <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
-  </td>
-</tr>
-<tr>
-  <td align="right"><t><en>Country</en><fr>Pays</fr></t></td>
-  <td>&nbsp;</td>
-  <td>
-    <select name="country">
-     <option value=""[% ' selected="selected"' UNLESS country %]></option>
-     [% FOREACH c = countries %]
-     <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
-     [% END %]
-    </select>
- </td>
-</tr>
-<tr>
-   <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Join!</en><fr>Inscription !</fr></t>" />
-   </td>
-</tr>
-</table>
-</td></tr></table>
-
-</form>
-</center>
-
 <p>
  <t>
   <en>
@@ -141,6 +155,12 @@
    rencontré pendant celle-ci. Ou même avant, pour savoir quels
    gourous comptent venir.
   </fr>
+  <it>
+   I dati personali qui raccolti saranno usati per creare un <a
+   href="[% make_uri('search') %]">elenco dei partecipanti</a>. Questo
+   sarà utile dopo la conferenza, se vorrete contattare qualcuno dei
+   partecipanti. O anche prima, se volete sapere chi ci sarà.
+  </it>
  </t>
 </p>
 <p>
@@ -162,6 +182,14 @@
    bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
    à la fin. <tt>;-)</tt>
   </fr>
+  <it>
+   Una volta creato l'account, potrete usare il nostro sistema di
+   pagamento sicuro on-line per acquistare il biglietto. Notate che tutti
+   i dettagli relativi al vostro conto in banca e carta di credito sono
+   gestiti direttamente dalla banca: <b>in nessun momento noi avremo
+   accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
+   volta terminata la transazione <tt>;-)</tt>.
+  </it>
  </t>
 </p>
 

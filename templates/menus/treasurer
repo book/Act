@@ -1,9 +1,9 @@
 <!-- money menu -->
 [% IF global.request.user.is_treasurer %]
    [% WRAPPER menus/section %]
-   <t><en>Treasurer</en><fr>Trésorier</fr></t>
+   <t><en>Treasurer</en><fr>Trésorier</fr><it>Tesoriere</it></t>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en></t></a>
+   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it></t></a>
    [% END %]
 [% END %]

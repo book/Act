@@ -2,6 +2,7 @@
    title = {
        en => 'Login',
        fr => 'Connexion',
+       it => 'Login'
    }
 %]
 <center>
@@ -14,7 +15,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr></t>
+      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -23,7 +24,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr></t>
+      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -32,7 +33,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr></t>" />
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it></t>" />
    </td>
 </tr>
 </table>
@@ -48,6 +49,9 @@
   <fr>
     Mot de passe oublié ? Cliquez <a href="[% make_uri('resetpw') %]">ici</a>.
   </fr>
+  <it>
+    Password dimenticata? Segui <a href="[% make_uri('resetpw') %]">questo link</a>.
+  </it>
  </t>
 </p>
 
@@ -63,6 +67,11 @@
    être nécessaire de les activer dans votre navigateur pour le domaine
    <b>mongueurs.net</b>.
  </fr>
+ <it>
+   Questo sito usa dei <em>cookie</em> per gestire l'autenticazione
+   degli utenti. Potreste aver bisogno di configurare il vostro browser
+   per accettare <m>cookie</em> dal dominio <b>mongueurs.net</b>.
+ </it>
 </t>
 </font>
 </p>

@@ -3,6 +3,7 @@
    title = {
      en => 'List of talks'
      fr => 'Liste des présentations'
+     it => 'Elenco degli interventi'
    },
 %]
 <div align="center">
@@ -10,6 +11,7 @@
  [% IF talks_total == 0 %]
  <t><fr>Aucune présentation n'a encore été proposée.</fr>
     <en>No talk was submitted yet.</en>
+    <it>Nessun intervento proposto.</it>
  </t>
  [% ELSE %]
  <t>
@@ -17,6 +19,8 @@
       Présentations acceptées&nbsp;: [% talks_accepted %]</fr>
   <en>Submitted talks: [% talks_total %]<br />
       Accepted talks: [% talks_accepted %]</en>
+  <it>Interventi proposti: [% talks_total %]<br />
+      Interventi accettati: [% talks_accepted %]</it>
  </t>
  [% END %]
 </p>
@@ -29,6 +33,9 @@
   <fr>
    Les présentations acceptées sont affichées en caractères <b>gras</b>.
   </fr>
+  <it>
+   Gli interventi accettati sono mostrati in <b>grassetto</b>.
+  </it>
  </t>
 </p>
 [% END %]
@@ -37,13 +44,15 @@
  <t>
   <fr>Durée totale des présentations acceptées&nbsp;:</fr>
   <en>Total duration of accepted talks:</en>
+  <it>Durata totale degli interventi accettati:</it>
  </t>
- [% talks_duration div 60 %] <t><fr>heures</fr><en>hours</en></t>
- [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en></t>
+ [% talks_duration div 60 %] <t><fr>heures</fr><en>hours</en><it>ore</it></t>
+ [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><it>minuti</it></t>
  <br />
  <t>
   <fr>Communications éclair acceptées&nbsp;:</fr>
   <en>Accepted lightning talks:</en>
+  <it>Interventi lampo accettati:</it>
  </t>
  [% talks_lightning %]
 </p> 
@@ -53,14 +62,14 @@
 [% END %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>Speaker</en><fr>Présentateur</fr></t></th>
- <th><t><en>Talk title</en><fr>Présentation</fr></t></th>
- <th><t><en>Duration</en><fr>Durée</fr></t></th>
+ <th><t><en>Speaker</en><fr>Présentateur</fr><it>Oratore</it></t></th>
+ <th><t><en>Talk title</en><fr>Présentation</fr><it>Intervento</it></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it></t></th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
- <th><t><en>Date</en><fr>Date</fr></t></th>
+ <th><t><en>Date</en><fr>Date</fr><it>Data</it></t></th>
  [% END %]
  [% IF global.request.user.is_orga %]
- <th><t><en>Accepted</en><fr>Accepté</fr></t></th>
+ <th><t><en>Accepted</en><fr>Accepté</fr><it>Accettato</it></t></th>
  [% END %]
 </tr>
 [% FOREACH t = talks %]
@@ -74,9 +83,9 @@
         [% talk_modify_link(t) %]
     </td>
     <td nowrap="nowrap">[% IF t.lightning %]
-          <t><en>lightning</en><fr>éclair</fr></t>
+          <t><en>lightning</en><fr>éclair</fr><it>lampo</itP</t>
         [% ELSE %]
-         [% t.duration %] <t><en>minutes</en><fr>minutes</fr></t>
+         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><it>minuti</it></t>
         [% END %]
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
@@ -93,7 +102,7 @@
 </table>
 [% IF global.request.user.is_orga %]
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr></t>" />
+<input type="submit" name="ok" value="<t><en>Update</en><fr>Modifier</fr><it>Aggiorna</it></t>" />
 </form>
 [% END %]
 </div>

@@ -1,6 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => 'Main private page', fr => 'Page personnelle' },
+   title = { en => 'Main private page', fr => 'Page personnelle', it => 'Pagina personale' },
 %]
 <p>
  <t>
@@ -8,16 +8,20 @@
       From here you can manage everything regarding your participation</en>
   <fr>Ceci est votre page personnelle.
       D'ici vous pouvez gérer tout ce qui concerne votre participation</fr>
+  <it>Questa è la vostra pagina personale. Da qui potete gestire tutto
+      ciò che riguarda la vostra partecipazione</it>
  </t>
  [% IF global.request.conference %]
  <t>
   <en>to [% global.conference.name %].</en>
   <fr>à [% global.conference.name %].</fr>
+  <it>a [% global.conference.name %].</it>
  </t>
  [% ELSE %]
  <t>
   <en>to Act-enabled conferences.</en>
   <fr>aux conférences gérées par Act.</fr>
+  <it>alle conferenze gestito con Act.</it>
  </t>
  [% END %]
 </p>
@@ -28,18 +32,21 @@
   <t>
    <en>You have not bought your conference ticket yet.</en>
    <fr>Vous n'avez pas encore acheté votre billet pour la conférence.</fr>
+   <it>Non avete ancora acquistato il vostro biglietto.</it>
   </t>
   [% IF global.config.payment_open %]
    <t>
     <en>Please consider doing so using our online payment system.</en>
     <fr>Merci de penser à le faire en utilisant notre système
         de vente en ligne.</fr>
+    <it>Potreste farlo con il nostro sistema di pagamento on-line.</it>
    </t>
    [% ELSE %]
    <t>
     <en>Please consider doing so once our online payment system is ready.</en>
     <fr>Merci de penser à le faire dès que le système de vente en ligne
    sera opérationnel.</fr>
+    <it>Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato.</it>    
    </t>
   [% END %]
  </p>
@@ -47,28 +54,32 @@
 [% ELSE %]
 [% END %]
 
-<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en></t></b></p>
+<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it></t></b></p>
    <ul>
     [% IF global.request.conference
        AND global.config.payment_open
        AND NOT global.request.user.has_paid %]
     <li><a href="[% make_uri('purchase') %]"><t>
           <fr>acheter votre billet pour la conférence</fr>
-          <en>purchase your conference ticket</en></t></a><br />
+          <en>purchase your conference ticket</en>
+          <it>acquistare il bigletto</it></t></a><br />
     </li>
     [% END %]
     <li><a href="[% make_uri('change') %]"><t>
           <fr>mettre à jour les informations vous concernant</fr>
-          <en>update your information</en></t></a><br />
+          <en>update your information</en>
+          <it>aggiornare i vostri dati</it></t></a><br />
     </li>
     <li><a href="[% make_uri('photo') %]"><t>
           <fr>modifier votre photo</fr>
-          <en>manage your photo</en></t></a><br />
+          <en>manage your photo</en>
+          <it>cambiare la vostra foto</it></t></a><br />
     </li>
     [% IF global.request.conference
        AND talks.size %]
         <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
-        <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr></t>:
+        <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr>
+        <it>vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)</it></t>:
           <br />
           <ul>
            [% FOR t = talks %]
@@ -80,16 +91,18 @@
     [% IF global.config.talks_submissions_open %]
       <li><a href="[% make_uri('newtalk') %]"><t>
             <fr>soumettre une présentation</fr>
-            <en>submit a talk</en></t></a><br />
+            <en>submit a talk</en>
+            <it>proporre un intervento</it></t></a><br />
       </li>
     [% END %]
-   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><fr>vous déconnecter</fr></t></a></li>
+   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><fr>vous déconnecter</fr><it>uscire dal sistema</it></t></a></li>
    </ul>
 
 [% IF conferences.size %]
 <p><b><t>
  <fr>Autres conférences Act&nbsp;:</fr>
  <en>Other Act conferences:</en>
+ <it>Altre conferenze gestite con Act:</it>
 </t></b></p>
 <ul>
 [% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
@@ -98,16 +111,19 @@
  <t>
    <en>(You were there)</en>
    <fr>(Vous y étiez)</fr>
+   <it>XXX</it>
  </t>
  [% CASE 'now' %]
  <t>
    <en>(You are there)</en>
    <fr>(Vous y êtes)</fr>
+   <it>XXX</it>
  </t>
  [% CASE 'future' %]
  <t>
    <en>(You will be there)</en>
    <fr>(Vous y serez)</fr>
+   <it>XXX</it>
  </t>
 [% END %]
 </li>[% END %]
