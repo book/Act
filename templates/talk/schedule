@@ -16,8 +16,9 @@
  <en>Talks in bold type have been confirmed by their respective speakers.</en>
 </t>
 [% FOREACH d IN table.keys.sort %]
+[% date = d.replace('$', ' 00:00:00' ) %]
 <a name="[% d %]"></a>
-<p>Date [% d %]</p>
+<h2>[% date_format(date, 'date_full') | ucfirst %]</h2>
 <table border="0">
  <tr class="header">
   <th>
