@@ -9,7 +9,7 @@
 <p>
  [% IF talks_total == 0 %]
  <t><fr>Aucune présentation n'a encore été proposée.</fr>
-    <en>No talks was submitted yet.</en>
+    <en>No talk was submitted yet.</en>
  </t>
  [% ELSE %]
  <t>
