@@ -40,8 +40,8 @@
         </li>
       [% END %]
       <li><a href="[% make_uri('newtalk') %]"><t>
-            <fr>Soumettre une présentation</fr>
-            <en>Submit a talk</en></t></a><br />
+            <fr>soumettre une présentation</fr>
+            <en>submit a talk</en></t></a><br />
       </li>
     [% END %]
    </ul>
