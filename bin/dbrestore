@@ -1,0 +1,5 @@
+#!/bin/sh
+scp cvs.mongueurs.net:/home/act/actdb .
+psql act < database/init_db_Pg.sql
+pg_restore -a -d act actdb
+
