@@ -1,0 +1,36 @@
+[% WRAPPER ui
+   title = { en => 'Registration', fr => 'Inscription' },
+%]
+
+<p>
+ <t>
+  <en>
+   To register to the [% global.conference.name %] conference,
+   simply push the button below.
+  </en>
+  <fr>
+   Pour vous inscrire à la conférence [% global.conference.name %],
+   poussez simplement sur le bouton ci-dessous.
+  </fr>
+ </t>
+</p>
+
+<center>
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="<t><en>Join</en><fr>Inscription à</fr></t> [% global.conference.name %]" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+
+[% END %]

@@ -22,9 +22,28 @@ my $form = Act::Form->new(
 
 sub handler
 {
-    # this is not for logged in users!
+    # special case of logged in users!
     if( defined $Request{user} ) {
-        return Act::Util::redirect(make_uri('main'));
+        # already registered, move along
+        return Act::Util::redirect(make_uri('main'))
+          if defined $Request{user}->participation;
+
+        # user logged in but not registered (yet)
+        if ($Request{args}{join}) {
+            # create a new participation to this conference
+            my $sth = $Request{dbh}->prepare_cached(
+                "INSERT INTO participations (user_id, conf_id) VALUES (?,?);"
+            );
+            $sth->execute($Request{user}->user_id, $Request{conference});
+            $sth->finish();
+            $Request{dbh}->commit;
+            return Act::Util::redirect(make_uri('main'))
+        }
+        else {
+            my $template = Act::Template::HTML->new();
+            $template->process('user/register');
+            return;
+        }
     }
 
     my $template = Act::Template::HTML->new();
