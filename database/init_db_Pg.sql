@@ -2,7 +2,6 @@
 
 /* users */
 DROP   TABLE users CASCADE;
-DROP   TABLE users_user_id_seq;
 CREATE TABLE users
 (
     user_id     serial     NOT NULL  PRIMARY KEY,
@@ -69,7 +68,6 @@ CREATE INDEX participations_idx ON participations (conf_id, user_id);
 /*** Talks related tables ***/
 /* talks */
 DROP   TABLE talks CASCADE;
-DROP   TABLE talks_talk_id_seq;
 CREATE TABLE talks
 (
     talk_id    serial    NOT NULL    PRIMARY KEY,
@@ -102,7 +100,6 @@ CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 
 /* orders */
 DROP   TABLE orders CASCADE;
-DROP   TABLE orders_order_id_seq;
 CREATE TABLE orders
 (
     order_id   serial    NOT NULL    PRIMARY KEY,
