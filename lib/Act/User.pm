@@ -1,80 +1,29 @@
 package Act::User;
 use Act::Config;
+use Act::Object;
 use Act::Talk;
+use Carp;
+use base qw( Act::Object );
+
+# class data used by Act::Object
+our $table = 'users';
+*get_items = \&get_users; # redefined here
+
+Act::User->init();
 
 =head1 NAME
 
-Act::User - A user object
-
-=head1 SYNOPSIS
-
-    $user = Act::User->new();  # empty user
-    $user = Act::User->new( login => $login );
-
-    # check the user's rights
-    $ok = $user->rights()->{orga};
-    $ok = $user->is_orga();    # same as above
-    
+Act::User - A user object for the Act framework
 
 =head1 DESCRIPTION
 
+This is a standard Act::Object class. See Act::Object for details.
+
+A few methods have been added.
+
 =head2 Methods
 
-The Act::User class implements the following methods:
-
 =over 4
-
-=item new( %args )
-
-The constructor returns a new Act::User object.
-If %args is empty, return a new, empty Act::User.
-
-If called with C<login>, C<id> or C<sid>, return the user
-with the corresponding login, id or session id.
-
-=cut
-
-sub new {
-    my ( $class, %args ) = @_;
-    $class = ref $class  || $class;
-
-    # can only create users based on login or id
-    /^(?:login|user_id|session_id)$/ or delete $args{$_} for keys %args;
-
-    return bless {}, $class unless %args;
-
-    my $users = Act::User->get_users( %args );
-    return undef if @$users != 1;
-
-    $users->[0];
-}
-
-=item create( %fields )
-
-Create a new user in the database.
-
-=cut
-
-sub create {
-    my ($class, %args ) = @_;
-    $class = ref $class  || $class;
-
-    my $user = Act::User->new( %args );
-    return undef if $user;
-
-    my $SQL = sprintf "INSERT INTO users (%s) VALUES (%s);",
-                      join(",", keys %args), join(",", ( "?" ) x keys %args);
-    my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute( values %args );
-    $sth->finish();
-    $Request{dbh}->commit;
-
-    return Act::User->new( %args );
-}
-
-=item update( %fields )
-
-Update the user's entry in the database.
 
 =item rights()
 
@@ -104,41 +53,25 @@ sub rights {
 Returns a boolean value indicating if the current user has the corresponding
 I<right>. These convenience methods are autoloaded.
 
-=item accessors
-
-All the accessors give read access to the data held in the users table.
-The accessors are autoloaded.
-
 =cut
 
 sub AUTOLOAD {
+
     # don't DESTROY
     return if $AUTOLOAD =~ /::DESTROY/;
 
     # methods is_something regard the user rights
     if( $AUTOLOAD =~ /::is_(\w+)$/ ) {
         my $attr = $1;
-        if ( $attr eq lc $attr ) {
-            no strict 'refs';
+        no strict 'refs';
     
-            # create the method and call it
-            *{$AUTOLOAD} = sub { $_[0]->rights()->{$attr} };
-            goto &{$AUTOLOAD};
-        }
+        # create the method and call it
+        *{$AUTOLOAD} = sub { $_[0]->rights()->{$attr} };
+        goto &{$AUTOLOAD};
     }
-    # get the user attributes
-    if( $AUTOLOAD =~  /::(\w+)$/ and exists $_[0]->{$1} ) {
-        my $attr = $1;
-        if ( $attr eq lc $attr ) {
-            no strict 'refs';
     
-            # create the method and call it
-            *{$AUTOLOAD} = sub { $_[0]->{$attr} };
-            goto &{$AUTOLOAD};
-        }
-    }
-
-    # should we croak? carp? do something?
+    # die on error
+    croak "Unknown method $AUTOLOAD";
 }
 
 =item update_language
@@ -188,17 +121,8 @@ Act::User also defines the following class methods:
 
 =item get_users( %req )
 
-Return a reference to an array of Act::User objects matching the request
-parameters.
-
-    $users = Act::User->get_users( country => 'fr' );
-
-Acceptable parameter are: C<conf>, C<country>, C<town>, C<name> and
-C<pm_group>. The C<limit> and C<offset> options can be given to limit
-the number of results. All other parameters are ignored.
-
-C<name> does a combined search on the nickname and (if the user does
-not want to stay pseudonymous) first name and last name.
+Same as get_items(), except that C<conf_id> can be used to JOIN the users
+on their participation to specific conferences.
 
 =cut
 
@@ -266,7 +190,7 @@ the request criterion.
 
 sub talks {
     my ($self, %args) = @_;
-    return Act::Talk->get_talks( %args, user => $self->user_id );
+    return Act::Talk->get_talks( %args, user_id => $self->user_id );
 }
 
 1;
