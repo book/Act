@@ -27,6 +27,7 @@ my %dispatch = (
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
     photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
+    rights   => { handler => 'Act::Handler::User::Rights',   private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
     edittalk => { handler => 'Act::Handler::Talk::Change',   private => 1 },
 );
