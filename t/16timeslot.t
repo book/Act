@@ -19,7 +19,7 @@ is_deeply( $event, {
     room      => 'out',
     datetime  => undef,
     conf_id   => 'conf',
-    url_event => undef,
+    url_abstract => undef,
     id        => $event->{id},
     title     => 'Lunch',
     abstract  => 'Lunch, outside of the conference premises',
