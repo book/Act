@@ -16,19 +16,19 @@ use constant SQL_COMMITTED => q{
 
 my %sql = (
     pm_groups =>
-      sprintf( SQL_FMT, 'COUNT(*), LOWER(u.pm_group)',
-               'AND u.pm_group IS NOT NULL GROUP BY LOWER(u.pm_group)' ),
+      sprintf( SQL_FMT, 'COUNT(*), u.pm_group',
+               'AND u.pm_group IS NOT NULL GROUP BY u.pm_group' ),
     countries =>
       sprintf( SQL_FMT, 'COUNT(*), u.country', 'GROUP BY u.country' ),
     towns     => 
-      sprintf( SQL_FMT, 'COUNT(*), LOWER(u.town), u.country',
-               'AND u.town IS NOT NULL GROUP BY u.country, LOWER(u.town)' ),
+      sprintf( SQL_FMT, 'COUNT(*), u.town, u.country',
+               'AND u.town IS NOT NULL GROUP BY u.country, u.town' ),
     users     => sprintf( SQL_FMT, 'COUNT(*)', '' ),
     # committed information
     committed     => sprintf( SQL_FMT, 'COUNT(*)', "AND" . SQL_COMMITTED ),
     com_countries => sprintf( SQL_FMT, 'COUNT(*), u.country', "AND" . SQL_COMMITTED . ' GROUP BY u.country') ,
-    com_towns     => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.town), country', "AND" . SQL_COMMITTED . ' AND u.town IS NOT NULL GROUP BY u.country, LOWER(u.town)' ),
-    com_pm_groups => sprintf( SQL_FMT, 'COUNT(*), LOWER(u.pm_group)', 'AND u.pm_group IS NOT NULL AND' . SQL_COMMITTED .  ' GROUP BY LOWER(u.pm_group)' ),
+    com_towns     => sprintf( SQL_FMT, 'COUNT(*), u.town, country', "AND" . SQL_COMMITTED . ' AND u.town IS NOT NULL GROUP BY u.country, u.town' ),
+    com_pm_groups => sprintf( SQL_FMT, 'COUNT(*), u.pm_group', 'AND u.pm_group IS NOT NULL AND' . SQL_COMMITTED .  ' GROUP BY u.pm_group' ),
 );
 
 sub handler {
@@ -59,7 +59,7 @@ sub handler {
 
     # list of monger groups
     $stats->{pm} = [ sort { $b->{count} <=> $a->{count} }
-          map {{ name      => ucfirst( $_->[1] ),
+          map {{ name      => $_->[1],
                  count     => $_->[0],
                  committed => $committed->{pm_groups}{ $_->[1] } || 0,
             }} @{ $temp->{pm_groups} } ];
@@ -73,7 +73,6 @@ sub handler {
     # list of towns by country
     for (@{$temp->{towns}}) {
         my $town = $_->[1];
-        $_->[1] =~ s/\b(\w)/uc($1)/eg;
         push @{ $stats->{towns}{$_->[2]} }, {
           name      => $_->[1],
           count     => $_->[0],
