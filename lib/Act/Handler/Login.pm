@@ -1,6 +1,7 @@
 package Act::Handler::Login;
 
 use strict;
+use Apache::Constants qw(DONE);
 use Act::Config;
 use Act::Template::HTML;
 use Act::Util;
@@ -19,6 +20,7 @@ sub handler
         action      =>  Act::Util::make_uri('LOGIN'),
     );
     $template->process('login');
+    $Request{status} = DONE;
 }
 1;
 __END__

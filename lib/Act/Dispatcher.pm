@@ -14,20 +14,18 @@ use constant DEFAULT_PAGE => 'index.html';
 # main dispatch table
 my %dispatch = (
     # regular handlers
+    login    => { handler => 'Act::Handler::Login' },
     search   => { handler => 'Act::Handler::User::Search' },
     register => { handler => 'Act::Handler::User::Register' },
     user     => { handler => 'Act::Handler::User::Show' },
     stats    => { handler => 'Act::Handler::User::Stats' },
     
     # protected handlers
+    logout   => { handler => 'Act::Handler::Logout',         private => 1 },
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
     photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
-
-    # special stuff
-    login    => { handler => 'Act::Handler::Login', status => DONE },
-    logout   => { handler => 'Act::Handler::Logout', private => 1 },
 );
 
 # translation handler
@@ -104,7 +102,7 @@ sub handler
         $dispatch{$Request{action}}{handler}->handler();
     }
 
-    return $dispatch{$Request{action}}{status} || OK;
+    return $Request{status} || OK;
 }
 
 sub _set_language
