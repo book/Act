@@ -17,7 +17,7 @@
 [% IF talk.lightning -%]
 <t><en>Lightning talk</en><fr>Communication éclair</fr></t>
 [% ELSE -%]
-<t><en>Date</en><fr>Date </fr></t>: [% talk.given %]
+<t><en>Date</en><fr>Date </fr></t>: [% IF given; date_format(talk.given, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]
 <t><en>Duration</en><fr>Durée </fr></t>: [% talk.duration %] <t><en>minutes</en><fr>minutes</fr></t>
 [%- END -%]
 

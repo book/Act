@@ -8,6 +8,7 @@ my @modules = (
                  'Apache::Request',
                  'AppConfig',
                  'Crypt::RandPasswd',
+                 'DateTime::Format::Pg',
                  'DateTime::TimeZone',
                  'DBD::Pg',
                  'DBI',

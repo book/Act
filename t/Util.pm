@@ -62,7 +62,6 @@ sub db_add_users {
 sub db_add_talks {
     Act::Talk->create(
         title     => 'First talk',
-        talk_id   => 1,
         user_id   => Act::User->new( login => 'book' )->user_id,
         conf_id   => 'conf',
         lightning => 'false',
@@ -72,7 +71,6 @@ sub db_add_talks {
     );
     Act::Talk->create(
         title     => 'Second talk',
-        talk_id   => 2,
         user_id   => Act::User->new( login => 'book' )->user_id,
         conf_id   => 'conf',
         lightning => 'true',
@@ -82,7 +80,6 @@ sub db_add_talks {
     );
     Act::Talk->create(
         title     => 'My talk',
-        talk_id   => 3,
         user_id   => Act::User->new( login => 'echo' )->user_id,
         conf_id   => 'conf',
         lightning => 'false',

@@ -68,25 +68,7 @@ sub _load_config
         my $path = "$dir/conf/$file.ini";
         $cfg->file($path) if -e $path;
     }
-    # read language settings
-    my %languages;
-    for my $lang (split /\s+/, $cfg->general_languages) {
-        my $section = join '_', 'language', $lang;
-        my (%language, $err);
-        for my $key (qw(name date_format date_locale)) {
-            my $s = join '_', $section, $key;
-            my $value = $cfg->$s;
-            if ($value) {
-                $language{$key} = $value;
-            }
-            else {
-                $err = 1;
-                last;
-            }
-        }
-        $languages{$lang} = \%language unless $err;
-    }
-    $cfg->set(languages => \%languages);
+    _make_hash($cfg, languages => $cfg->general_languages);
 }
 
 sub _make_hash

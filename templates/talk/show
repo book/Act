@@ -27,7 +27,7 @@
   <t><en>Lightning talk</en><fr>Communication éclair</fr></t> <br />
 [% ELSE %]
   <b><t><en>Date:</en><fr>Date&nbsp;:</fr></t></b>
-  [%IF given ; given ; ELSE %]
+  [% IF given ; date_format(given, 'datetime_full') ; ELSE %]
   <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en></t>[% END %]<br />
 
 <b><t><en>Duration:</en><fr>Durée&nbsp;:</fr></t></b> [% duration %] 

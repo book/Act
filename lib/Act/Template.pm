@@ -90,7 +90,7 @@ sub process
     if ($web) {
          $global{languages} = [
            map {{
-                 %{$Config->languages->{$_}},
+                 %{$Languages{$_}},
                  uri => self_uri(%{$Request{args}}, language => $_),
                }}
            grep { $_ ne $Request{language} }
@@ -99,6 +99,7 @@ sub process
         $self->variables(
           make_uri      => \&Act::Util::make_uri,
           make_uri_info => \&Act::Util::make_uri_info,
+          date_format   => \&Act::Util::date_format,
         );
         if ($Request{conference} && $Request{dbh}) {
             $global{conference} = {

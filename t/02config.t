@@ -1,4 +1,5 @@
 use strict;
+use Act::Util;
 use Test::More qw(no_plan);
 
 my @simple = qw(
@@ -55,11 +56,7 @@ sub _global_config
     isa_ok($cfg->languages, 'HASH', "$name general_languages");
     ok($cfg->languages->{$cfg->general_default_language}, "$name default_language is in languages");
     for my $lang (sort keys %{$cfg->languages}) {
-        my $sect = "language_$lang";
-        for my $key (qw(name date_format date_locale)) {
-            my $meth = join '_', $sect, $key;
-            ok($cfg->$meth, "$name $meth");
-        }
+        ok($Languages{$lang}, "$lang is in %Languages");
     }
 }
 

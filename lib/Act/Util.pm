@@ -1,15 +1,35 @@
 use strict;
 package Act::Util;
+
 use Apache::Constants qw(M_GET REDIRECT);
-use Digest::MD5 ();
-
-use vars qw(@ISA @EXPORT);
-@ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_uri_info self_uri);
-
 use Crypt::RandPasswd ();
+use DateTime::Format::Pg;
+use Digest::MD5 ();
 use URI::Escape ();
+
 use Act::Config;
+
+use vars qw(@ISA @EXPORT %Languages);
+@ISA    = qw(Exporter);
+@EXPORT = qw(make_uri make_uri_info self_uri %Languages);
+
+# language-specific constants
+%Languages = (
+    fr => { name               => 'français',
+            fmt_datetime_full  => '%A %e %B %Y %Hh%M',
+            fmt_datetime_short => '%d/%m/%y %Hh%M',
+            fmt_date_full      => '%A %e %B %Y',
+            fmt_date_short     => '%d/%m/%y',
+            fmt_time           => '%Hh%M',
+          },
+    en => { name               => 'English',
+            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
+            fmt_datetime_short => '%m/%d/%y %H:%M',
+            fmt_date_full      => '%A %B %e, %Y',
+            fmt_date_short     => '%m/%d/%y',
+            fmt_time           => '%H:%M',
+          },
+);
 
 # create a uri for an action with args
 sub make_uri
@@ -119,6 +139,16 @@ sub get_translation
         $sth->finish;
     }
     return $text;
+}
+
+# datetime formatting suitable for display
+sub date_format
+{
+    my ($s, $fmt) = @_;
+    my $dt = DateTime::Format::Pg->parse_timestamp($s);
+    my $lang = $Request{language} || $Config->general_default_language;
+    $dt->set(locale => $lang);
+    return $dt->strftime($Languages{$lang}{"fmt_$fmt"});
 }
 
 1;
