@@ -1,0 +1,174 @@
+[% WRAPPER ui
+   title = { en => 'User information', fr => 'Informations utilisateur' },
+%]
+
+<div align="center">
+
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td valign="top" align="center">
+
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      <t><en>Name</en><fr>Nom</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td align="left">
+      [%- IF pseudonymous %]
+         [% nick_name %]
+      [%- ELSE %]
+         [% civility %]
+         [% first_name %]
+         [% last_name %]
+         [% "($nick_name)" IF nick_name %]
+      [% END %]
+   </td>
+</tr>
+[%- IF town %]
+<tr>
+   <td align="right"><t><en>City</en><fr>Ville</fr></t></td>
+   <td>&nbsp;</td>
+   <td align="left">[% town %]</td>
+</tr>
+[% END %]
+<tr>
+   <td align="right">
+      <t><en>Country</en><fr>Pays</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td align="left">
+      [% country %]
+   </td>
+[%- IF pm_group %]
+</tr><tr>
+   <td align="right">
+      <t><en>Perl mongers group</en><fr>Groupe de mongueurs</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td align="left">
+      [% IF pm_group_url %]<a href="[% pm_group_url %]">[% pm_group %]</a>
+      [% ELSE %][% pm_group %][% END %]
+   </td>
+[% END %]
+[%- UNLESS email_hide %]
+   </tr><tr>
+      <td align="right">
+         Email
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <tt><a href="mailto:[% email %]">[% email %]</a></tt>
+      </td>
+[% END %]
+[%- IF web_page %]
+   </tr><tr>
+      <td align="right">
+         <t><en>Web page</en><fr>Page Web</fr></t>
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <tt><a href="[% web_page %]" target="_blank">[% web_page %]</a></tt>
+      </td>
+[% END %]
+[%- IF pause_id %]
+   </tr><tr>
+      <td align="right">
+         Pause id
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <a href="http://search.cpan.org/author/[% pause_id %]/" target="_blank">[% pause_id %]</a>
+      </td>
+[% END %]
+[%- IF monk_id %]
+   </tr><tr>
+      <td align="right">
+         Perlmonks id
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" target="_blank">[% monk_id %]</a>
+      </td>
+[% END %]
+[%- IF im %]
+   </tr><tr>
+      <td align="right">
+         IM
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         [% im %]
+      </td>
+[% END %]
+   </tr>
+
+</table>
+
+</td>
+<td valign="top" align="left">
+
+   <table border="1" cellpadding="10" cellspacing="0"><tr><td>
+      [%- IF photo_name %]
+         <img src="/[% global.config.general_dir_photos %]/[% photo_name %]" border="0" alt="Photo">
+      [%- ELSE %]
+         <t><en>No Photo</en><fr>Pas de photo</fr></t>
+      [% END %]
+   </td></tr></table>
+
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="left">
+
+<table border="0" cellpadding="0" cellspacing="10">
+
+[%- IF bio %]
+   <tr>
+      <td align="right" valign="top">
+         Bio
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
+            [% bio | replace('\n', '<br />') %]
+         </td></tr></table>
+      </td>
+   </tr>
+[% END %]
+[%- IF gpg_pub_key %]
+   <tr>
+      <td align="right" valign="top">
+       <t>
+        <en>
+         GPG<br />
+         public<br />
+         key
+        </en>
+        <fr>
+         clé<br />
+         publique<br />
+         GPG
+        </fr>
+       </t>
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
+            <font size="-1"><tt>
+            [% gpg_pub_key  | replace('\n', '<br />') %]
+            </tt></font>
+         </td></tr></table>
+      </td>
+   </tr>
+[% END %]
+
+</table>
+</td></tr></table>
+</td></tr></table>
+
+</div>
+[% END %]
