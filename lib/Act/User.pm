@@ -34,7 +34,7 @@ sub new {
     my ( $class, %args ) = @_;
 
     # can only create users based on login or id
-    /^(?:login|id)$/ or delete $args{$_} for keys %args;
+    /^(?:login|id|sid)$/ or delete $args{$_} for keys %args;
 
     return unless %args;
 
@@ -42,28 +42,6 @@ sub new {
     return undef if @$users != 1;
 
     $users->[0];
-}
-
-=item new_from_sid( $sid )
-
-Return a new user object, corresponding to the given session id.
-If no user corresponds to the session id, C<undef> is returned.
-
-=cut
-
-sub new_from_sid {
-    my ( $class, $sid ) = @_;
-
-    # search for this user in our database
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM users WHERE session_id=?');
-    $sth->execute($sid);
-    $self = $sth->fetchrow_hashref;
-    $sth->finish;
-
-    # unknown session id
-    return undef unless $self;
-
-    return bless $self, $class;
 }
 
 =item rights()
@@ -199,6 +177,7 @@ sub get_users {
     # search field to SQL mapping
     my %req = (
         id       => "(u.user_id=?)",
+        sid      => "(u.session_id=?)",
         login    => "(u.login=?)",
         conf     => "(p.conf_id=? AND p.user_id=u.user_id)",
         country  => "(u.country=?)",

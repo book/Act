@@ -51,7 +51,7 @@ sub authen_cred ($$\@)
     $sent_pw or do { $r->log_error("$prefix No password");   return undef; };
 
     # search for this user in our database
-    my $user = Act::User->new( $login );
+    my $user = Act::User->new( login => $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
     # compare passwords
     $sent_pw eq $user->{passwd}
@@ -94,7 +94,7 @@ sub authen_ses_key ($$$)
     my ($self, $r, $sid) = @_;
 
     # search for this user in our database
-    my $user = Act::User->new_from_sid( $sid );
+    my $user = Act::User->new( sid => $sid );
 
     # unknown session id
     return () unless $user;
