@@ -45,12 +45,10 @@ In that sub:
     $template->variables(
       name  => $user->{name},
     );
-
-- Whether you're doing HTML or not, always send a correct HTTP header
-  with the right Content-type. This is done in one step:
-        $Request{r}->send_http_header('text/html; charset=ISO-8859-1');
-  Always include a charset--it mitigates certain types of cross-site-scripting
-  attacks.
+- If you're not doing HTML, set the response's Content-Type header:
+        $Request{r}->content_type('text/plain; charset=ISO-8859-1');
+  Always include a charset when sending text--it mitigates certain types of
+  cross-site-scripting attacks.
 - Finally process the template. Its output will be sent to the client's
   browser
     $template->process('foo.html');

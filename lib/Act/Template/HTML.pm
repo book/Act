@@ -4,6 +4,8 @@ use strict;
 use HTML::Entities;
 use base 'Act::Template';
 
+use Act::Config;
+
 sub encode
 {
    # recursively encode HTML entities
@@ -30,6 +32,20 @@ sub variables_raw
         local *encode = sub { $_[1] };
         $self->SUPER::variables(@_);
     }
+}
+
+sub process
+{
+    my $self = shift;
+
+    # set Content-Type and send HTTP headers if not already done
+    my $r = $Request{r};
+    if ($r && ref($r) eq 'Apache' && !$r->header_out('Content-type')) {
+        $r->content_type('text/html; charset=iso-8859-1')
+            unless $r->content_type;
+        $r->send_http_header();
+    }
+    return $self->SUPER::process(@_);
 }
 
 1;
@@ -69,5 +85,10 @@ HTML entities).
 
 Set template variables without escaping. This is useful when a variable
 value holds an already properly formatted HTML or XML snippet.
+
+=item process(I<$template_name>, I<$output>)
+
+This will set the response's Content-Type and send the HTTP headers
+if necessary when used in a mod_perl context.
 
 =cut
