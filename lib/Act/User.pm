@@ -31,16 +31,17 @@ name. If no user by this name exists, return C<undef>.
 =cut
 
 sub new {
-    my ( $class, $login ) = @_;
+    my ( $class, %args ) = @_;
 
-    my $sth = $Request{dbh}->prepare_cached('SELECT * FROM users WHERE login=?');
-    $sth->execute($login);
-    my $self = $sth->fetchrow_hashref();
-    $sth->finish;
+    # can only create users based on login or id
+    /^(?:login|id)$/ or delete $args{$_} for keys %args;
 
-    return undef unless $self;
+    return unless %args;
 
-    bless $self, $class;
+    my $users = Act::User->get_users( %args );
+    return undef if @$users != 1;
+
+    $users->[0];
 }
 
 =item new_from_sid( $sid )
@@ -197,6 +198,8 @@ sub get_users {
 
     # search field to SQL mapping
     my %req = (
+        id       => "(u.user_id=?)",
+        login    => "(u.login=?)",
         conf     => "(p.conf_id=? AND p.user_id=u.user_id)",
         country  => "(u.country=?)",
         town     => "(u.town~*?)",
