@@ -148,6 +148,30 @@ CREATE TABLE orders
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 
+/* invoices */
+DROP   TABLE invoices CASCADE;
+CREATE TABLE invoices
+(
+    /* invoice info */
+    invoice_id serial    NOT NULL    PRIMARY KEY,
+    order_id   integer   NOT NULL,
+    datetime   timestamp without time zone NOT NULL,
+    invoice_no integer   NOT NULL,
+
+    /* order info */
+    amount     integer   NOT NULL,
+    means      text,
+    currency   text,
+
+    /* billing info */
+    company      text,
+    company_url  text,
+    address      text,
+
+    FOREIGN KEY( order_id  ) REFERENCES orders( order_id )
+);
+CREATE UNIQUE INDEX invoices_idx ON invoices ( order_id );
+
 /* multilingual entries */
 DROP   TABLE translations;
 CREATE TABLE translations
