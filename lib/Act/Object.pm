@@ -352,12 +352,12 @@ The reason is that C<$sql_mapping{conf_id}> is
 C<(p.conf_id=? AND u.user_id=p.user_id)>, which requires to add C<p>
 (C<participations>) to the C<FROM> clause.
 
-Finaly, some optional columns can be returned by the query. This is
-done by with the C<select_opt> key.
+Finally, some optional columns can be returned by the query. This is
+done with the C<select_opt> key.
 
-The C<select_opt> key points to a hash reference, which keys are
-the name of the created fields in the corresponding Act::Object subclass
-and which values are code reference, just as for C<from_opt>.
+The C<select_opt> key points to a hash reference, whose keys are
+the names of the created fields in the corresponding Act::Object subclass
+and whose values are code references, just as for C<from_opt>.
 
 The coderefs still receive a hash reference that lists the named
 arguments, but they must now return an array reference holding the name
