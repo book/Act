@@ -115,7 +115,7 @@
   <td>&nbsp;</td>
   <td>
     <select name="country">
-     <option value=""[% ' selected="selected"' UNLESS country %]></option>
+     [% country = global.config.general_default_country UNLESS country %]
      [% FOREACH c = countries %]
      <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
      [% END %]
