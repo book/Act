@@ -5,6 +5,20 @@ use Act::Template::HTML;
 use strict;
 
 sub handler {
+    my ($table, $room, $width, $maxwidth) = compute_schedule();
+
+    # process the template
+    my $template = Act::Template::HTML->new();
+    $template->variables(
+        table    => $table,
+        room     => $room,
+        width    => $width,
+        maxwidth => $maxwidth
+    );
+    $template->process('talk/schedule');
+}
+
+sub compute_schedule {
     my (%table, %index, %room, %time); # helpful structures
     my ($todo, $globals) = ([],[]);    # events lists
 
@@ -141,15 +155,7 @@ sub handler {
             $i++;
         }
     }
-    # process the template
-    my $template = Act::Template::HTML->new();
-    $template->variables(
-        table    => \%table,
-        room     => \%room,
-        width    => \%width,
-        maxwidth => \%maxwidth
-    );
-    $template->process('talk/schedule');
+    return ( \%table, \%room, \%width, \%maxwidth );
 }
 
 1;
