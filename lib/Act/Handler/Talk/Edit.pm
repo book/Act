@@ -107,13 +107,11 @@ sub handler {
         if ($ok) {
             # handle is_lightning (from orga's form)
             $fields->{duration} = 'lightning' if delete $fields->{is_lightning};
-            $fields->{lightning} = 'f';
-            # boolean fields
-            $fields->{$_} = $fields->{$_} ? 't' : 'f' for qw( accepted confirmed );
+            $fields->{lightning} = 0;
 
             # separate lightning from duration
             if ($fields->{duration} eq 'lightning') {
-                $fields->{lightning} = 't';
+                $fields->{lightning} = 1;
                 $fields->{duration}  = undef;
             }
 

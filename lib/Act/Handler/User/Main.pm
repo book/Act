@@ -10,7 +10,7 @@ sub handler {
 
     # get this guy's talks
     my %t = ( conf_id => $Request{conference} );
-    $t{accepted} = 't' unless $Config->talks_submissions_open
+    $t{accepted} = 1 unless $Config->talks_submissions_open
                          or $Request{user}->is_orga;
     my $talks = $Request{user}->talks(%t);
     $template->variables(talks => $talks);
