@@ -1,4 +1,17 @@
 /** GERMAN */
+/* civility */
+INSERT INTO translations VALUES('users', 'civility', 1, 'de', 'Herr');
+INSERT INTO translations VALUES('users', 'civility', 2, 'de', 'Frau');
+
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out', 'de', 'Ausserhalb' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'de', 'Veranstalungsort' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'de', 'Scheck' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'de', 'Barzahlung' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'de', 'Online' );
+
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'de', 'Andorra');
 INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'de', 'Vereinigte Arabische Emirate');
