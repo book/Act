@@ -29,7 +29,8 @@ CREATE TABLE users
     pause_id     text,
     monk_id      text,
     im           text,
-    bio          integer,    /* handled in translations? */
+    photo_name   text,
+    bio          text,
 
     /* website preferences */
     language     text,

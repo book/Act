@@ -80,7 +80,7 @@ sub encode
 sub process
 {
     my ($self, $filename, $output) = @_;
-    my $web = $Request{r} && ref($Request{r}) eq 'Apache';
+    my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Apache');
     $output ||= $Request{r} if $web;
 
     # set global variables

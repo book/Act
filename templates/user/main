@@ -20,6 +20,10 @@
           <fr>mettre à jour les informations vous concernant</fr>
           <en>update your information</en></t></a><br />
     </li>
+    <li><a href="[% make_uri('photo') %]"><t>
+          <fr>modifier votre photo</fr>
+          <en>manage your photo</en></t></a><br />
+    </li>
    </ul>
 
 [% END %]

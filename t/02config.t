@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 10;
+use Test::More tests => 11;
 
 BEGIN { use_ok('Act::Config') }
 ok($Config, "config chargée");
@@ -14,6 +14,7 @@ for my $key (qw(dsn user passwd)) {
   ok($Config->$pref, $pref);
 }
 
-ok($Config->email_smtp_server);
+ok($Config->email_smtp_server, 'smtp_server');
+ok($Config->general_dir_photos, 'dir_photos');
 
 __END__

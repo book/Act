@@ -1,0 +1,61 @@
+[% WRAPPER ui
+   title = { en => 'Your photo', fr => 'Votre photo' },
+%]
+<center>
+<form method="POST" enctype="multipart/form-data">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10" width="100%">
+<tr>
+   <td align="center">
+      [%- IF global.request.user.photo_name %]
+         <img src="[% photo_uri %]" border="0">
+      [%- ELSE %]
+         <t><fr>Pas de photo</fr><en>No photo</en></t>
+      [% END %]<br />
+   </td>
+</tr>
+</table>
+</td></tr><tr><td>
+<table border="0" cellpadding="0" cellspacing="10" width="100%">
+<tr>
+   <td colspan="2" align="left">
+    <t>
+     <fr>
+      Cette photo finira probablement dans l'annuaire de la conférence&nbsp;:
+      ainsi, quand quelqu'un essayera de savoir avec qui il a eu
+      cette charmante discussion à Paris, cette personne pourra vous
+      reconnaître facilement.<br />
+      Souvenez-vous en téléchargeant votre photo !
+     </fr>
+     <en>
+      This photo will probably end up on the conference <i>who's who</i>,
+      so that people can actually recognize you when they want to find
+      out who they had a nice chat with, back when they met you in Paris.<br />
+      Think about that when uploading it!
+     </en>
+    </t>
+    <tt>;-)</tt>
+   </td>
+</tr>
+<tr>
+   <td colspan="2" align="center">
+      <input type="file" name="photo" size="40" /><br />
+   </td>
+</tr>
+<tr>
+   <td align="left">
+      [%- IF global.request.user.photo_name %]
+         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en></t>" />
+      [% END %]
+   </td>
+   <td align="right">
+      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
+[% END %]

@@ -5,6 +5,7 @@ my @modules = (
                  'Apache',
                  'Apache::AuthCookie',
                  'Apache::Cookie',
+                 'Apache::Request',
                  'AppConfig',
                  'Crypt::RandPasswd',
                  'DateTime::TimeZone',

@@ -3,6 +3,7 @@ package Act::Dispatcher;
 
 use Apache::Constants qw(:common);
 use Apache::Cookie ();
+use Apache::Request;
 use DBI;
 
 use Act::Config;
@@ -21,6 +22,7 @@ my %dispatch = (
     # protected handlers
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
+    photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
     newtalk  => { handler => 'Act::Handler::Talk::Register', private => 1 },
 
     # special stuff
@@ -32,7 +34,7 @@ my %dispatch = (
 sub trans_handler
 {
     # the Apache request object
-    my $r = shift;
+    my $r = Apache::Request->instance(shift);
 
     # break it up in components
     my @c = grep $_, split '/', $r->uri;
@@ -40,7 +42,7 @@ sub trans_handler
     # initialize our per-request variables
     %Request = (
         r         => $r,
-        args      => { $r->args },
+        args      => { map { $_ => $r->param($_) } $r->param },
         path_info => join('/', @c),
     );
     # see if URI starts with a conf name
@@ -80,7 +82,6 @@ sub _dispatch
 {
     my ($r, $handler) = @_;
 
-    $Request{args} = { $r->method eq 'POST' ? $r->content : $r->args };
     $r->handler("perl-script");
     $r->push_handlers(PerlHandler => $handler);
     return OK;
@@ -90,7 +91,7 @@ sub _dispatch
 sub handler
 {
     # the Apache request object
-    $Request{r} = shift;
+    $Request{r} = Apache::Request->instance(shift);
 
     # dispatch
     if( ref $dispatch{$Request{action}}{handler} eq 'CODE' ) {
