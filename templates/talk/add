@@ -71,7 +71,7 @@
   <td align="right"><t><en>Title</en><fr>Titre</fr></t></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="title" value="[% title %]" size="51" maxlength="50" />
+    <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@
     </select>
   </td>
 </tr>
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 <tr>
   <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr></t></td>
   <td>&nbsp;</td>
