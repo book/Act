@@ -26,6 +26,7 @@ conference   name of the current conference if applicable
 path_info    what's left of the URI that hasn't been parsed,
              in other words "conference/", if any, has been stripped
 dbh          handle to the database. connect/disconnect is automatic.
+user         a hashref to the current registered user, if applicable
 
 
 * How to write a handler
@@ -62,7 +63,8 @@ adding the mapping to the %dispatch hash in Act::Dispatcher.
   use Act::Foo;
   ...
   my %dispatch = (
-    "foo" => \&Act::Foo::handler,
+    foo => { handler => \&Act::Foo::handler },
+    ...
   );
 
 This will enable this handler for all URLs that start with /conference/foo
@@ -70,6 +72,19 @@ where conference is a conference name, e.g.
   /2004/foo
   /2004/foo?q=1
   /2004/foo/bar
+
+If this action requires the user to be registered, add the key "private"
+to the dispatch value:
+
+  my %dispatch = (
+    foo => { private => 1,
+             handler => \&Act::Foo::handler },
+    ...
+  );
+
+The user will be prompted for credentials (login and password) the first time
+a protected page is requested in a given session.
+
 
 * Templates
 

@@ -3,10 +3,12 @@
 use strict;
 my @modules = (
                  'Apache',
+                 'Apache::AuthCookie',
                  'Apache::Cookie',
                  'AppConfig',
                  'DBD::Pg',
                  'DBI',
+                 'Digest::MD5',
                  'HTML::Entities',
                  'Template',
               );

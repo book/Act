@@ -11,12 +11,21 @@ use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %dispatch = (
-    coucou => sub {
+    coucou => {
+      handler => sub {
         my $sth = $Request{dbh}->prepare('SELECT NOW()');
         $sth->execute();
         my ($now) = $sth->fetchrow_array();
         $Request{r}->send_http_header('text/plain');
         $Request{r}->print("$now - conférence ", $Request{conference});
+      },
+    },
+    toto => {
+      private => 1,
+      handler => sub {
+        $Request{r}->send_http_header('text/plain');
+        $Request{r}->print("bonjour, ", $Request{user}{login});
+      },
     },
 );
 
@@ -57,15 +66,18 @@ sub trans_handler
     }
     # pseudo-static pages
     if ($r->uri =~ /\.html$/) {
+        $r->handler("perl-script");
         $r->push_handlers(PerlHandler => 'Act::Static');
         return OK;
     }
     # we're looking for /x/y where
     # x is a conference name, and
     # y is an action key in %dispatch
-    if (@c && $Request{conference} && exists $dispatch{$c[0]}) {
+    elsif (@c && $Request{conference} && exists $dispatch{$c[0]}) {
         $Request{action}     = shift @c;
         $Request{path_info}  = join '/', @c;
+        $Request{private} = $dispatch{$Request{action}}{private};
+        $r->handler("perl-script");
         $r->push_handlers(PerlHandler => 'Act::Dispatcher');
         return OK;
     }
@@ -79,7 +91,7 @@ sub handler
     $Request{r} = shift;
 
     # dispatch
-    $dispatch{$Request{action}}->();
+    $dispatch{$Request{action}}{handler}->();
 
     return OK;
 }

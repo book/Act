@@ -1,0 +1,55 @@
+[% WRAPPER ui
+   title = 'Login',
+%]
+<center>
+
+<form method="post" action="/LOGIN">
+<input type="hidden" name="destination" value="[% url %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      <t><en>Identifier</en><fr>Identifiant</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="credential_0" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      <t><en>Password</en><fr>Mot de passe</fr></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="password" name="credential_1" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr></t>" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+
+<font size="-1">
+<t>
+ <en>
+   This site uses cookies to authenticate logged in users. You might need
+   to instruct your browser to accept cookies from the domain <b>mongueurs.net</b>.
+ </en>
+ <fr>
+   Ce site utilise des cookies pour identifier les utilisateurs. Il peut
+   être nécessaire de les activer dans votre navigateur pour le domaine
+   <b>mongueurs.net</b>.
+ </fr>
+</t>
+</font>
+
+</center>
+[% END %]
