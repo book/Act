@@ -23,6 +23,7 @@ sub handler
         %$user,
         country => Act::Country::CountryName($user->country),
         civility => Act::Util::get_translation( users => civility => $user->civility ),
+        talks    => $user->talks,
     );
     $template->process('user/show');
 }

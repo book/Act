@@ -126,6 +126,43 @@
 
 <table border="0" cellpadding="0" cellspacing="10">
 
+[% IF talks.size %]
+   <tr>
+      <td align="right" valign="top">
+    [% IF global.request.user.is_orga %]
+	  [% IF talks.size == 1 %]
+	     <t><en>Talk</en> <fr>Présentation</fr></t>
+	  [% ELSE %]
+	     <t><en>Talks</en> <fr>Présentations</fr></t>
+	  [% END %]
+    [% ELSE %]
+	  [% IF talks.size == 1 %]
+	     <t><en>Accepted Talk</en> <fr>Présentation Acceptée</fr></t>
+	  [% ELSE %]
+	     <t><en>Accepted Talks</en> <fr>Présentations Acceptées</fr></t>
+      [% END %]
+      </td>
+    [% END %]
+      <td>&nbsp;</td>
+      <td align="left">
+         <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
+          <ul>
+           [% FOREACH t = talks %]
+             [% IF t.accepted || global.request.user.is_orga
+                              || global.request.user.user_id == t.user_id %]
+	    <li><a href="/yapc/talk/?tid=[% t.talk_id %]">
+            [% "<b>" IF t.accepted %]
+            [% t.title %][% "</b>" IF t.accepted %]</a>
+            ([% IF t.duration ; t.duration %] minutes[% ELSE %]
+            <t><fr>Communication éclair</fr><en>Lightning talk</en></t>[% END %])</li>
+             [% END %]
+           [% END %]
+          </ul>
+         </td></tr></table>
+      </td>
+   </tr>
+[% END %]
+
 [%- IF bio %]
    <tr>
       <td align="right" valign="top">
