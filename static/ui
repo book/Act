@@ -6,3 +6,6 @@
 </head>
 <body>
 [% IF template.title %]<h1>[% template.title  %]</h1>[% END %]
+[% content %]
+</body>
+</html>
