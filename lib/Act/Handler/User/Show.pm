@@ -32,7 +32,9 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     my $bio = $user->bio;
-    exists $Config->languages->{$_} || delete $bio->{$_} for keys %$bio;
+    ( exists $Config->languages->{$_} && $bio->{$_} !~ /^\s*$/ )
+    || delete $bio->{$_} for keys %$bio;
+    
 
     $template->variables(
         %$user,
