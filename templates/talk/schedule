@@ -13,8 +13,8 @@
 [% ELSE %]
 [% FOREACH d IN table.keys %]
 <p>Date [% d %]</p>
-<table border=1>
- <tr>
+<table border="0">
+ <tr class="header">
   <th>
    <t><en>Time</en><fr>Heure</fr></t>
   </th>
@@ -23,12 +23,12 @@
   [% END %]
  </tr>
  [% FOREACH row IN table.$d %]
- <tr>
+ <tr class="header">
   [% FOREACH col IN row %]
    [% IF loop.first %]
-     <td align="center" valign="top">[% col %]</td>
+     <td align="center" valign="top" class="header">[% col %]</td>
    [% ELSE %]
-     <td valign="top" rowspan="[% col.height %]">
+     <td valign="top" rowspan="[% col.height %]" class="[% col.room %]"[% IF col.room.match('^(?:out|venue)$') %] colspan="[% maxwidth.$d %]"[% END %]>
        [% timeslot(col) %]
      </td>
    [% END %]
