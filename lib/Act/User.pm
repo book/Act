@@ -132,7 +132,7 @@ sub get_users {
     my %req = (
         conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
         town       => "(u.town~*?)",
-        name       => "(u.nick_name~*? OR (u.pseudonymous=FALSE AND (u.first_name~*? OR last_name~*?)))",
+        name       => "(u.nick_name~*? OR (u.pseudonymous IS FALSE AND (u.first_name~*? OR last_name~*?)))",
         pm_group   => "(u.pm_group~*?)",
         # standard stuff
         map( { ($_, "(u.$_=?)") }
