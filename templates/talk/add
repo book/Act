@@ -238,7 +238,7 @@
   <td>
     [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
-    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></t><br />
+    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it></t><br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
     <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it></t><br />
     [% ELSE %]
