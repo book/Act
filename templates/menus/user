@@ -4,25 +4,25 @@
    <a href="[% make_uri_info('user', global.request.user.user_id) %]">[% global.request.user.login %]</a>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en><it>Uscita</it></t></a>
+   <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en><it>Uscita</it><pt>Sair</pt></t></a>
    [% END %]
    [% UNLESS global.request.user.participation %]
      [% WRAPPER menus/item %]
-     <a href="[% make_uri('register') %]"><t><fr>S'inscrire</fr><en>Register</en><it>Iscrizione</it></t></a>
+     <a href="[% make_uri('register') %]"><t><fr>S'inscrire</fr><en>Register</en><it>Iscrizione</it><pt>Registar</pt></t></a>
      [% END %]
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en><it>Modifica profilo</it></t></a>
+   <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en><it>Modifica profilo</it><pt>Modificar perfil</pt></t></a>
    [% END %]
 [% ELSE %]
    [% WRAPPER menus/section %]
-   <t><fr>Inscription</fr><en>Registration</en><it>Iscrizione</it></t>
+   <t><fr>Inscription</fr><en>Registration</en><it>Iscrizione</it><pt>Inscrição</pt></t>
    [% END %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('main') %]">Login</a>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('register') %]"><t><fr>Nouvel utilisateur</fr><en>New user</en><it>Nuovo utente</it></t></a>
+   <a href="[% make_uri('register') %]"><t><fr>Nouvel utilisateur</fr><en>New user</en><it>Nuovo utente</it><pt>Novo utilizador</pt></t></a>
    [% END %]
 [% END %]
 [% FOREACH lang = global.languages %]
