@@ -46,7 +46,7 @@
   <td>
     <select name="user_id">
     [% FOREACH u=users %]
-      <option value="[% u.user_id %]"[% ' select="selected"' IF u.user_id == global.request.user.user_id %]>
+      <option value="[% u.user_id %]"[% ' selected="selected"' IF u.user_id == global.request.user.user_id %]>
         [% u.first_name %] [% u.last_name %]
       </option>
     [% END %]
@@ -88,6 +88,9 @@
   <td>
     <select name="duration">
      <option value=""[% ' selected="selected"' UNLESS duration %]></option>
+     <option value="lightning"[% ' selected="selected"' IF lightning %]>
+        <t><fr>Communication éclair</fr><en>Lightning talk</en></t>
+     </option>
      [% FOREACH d = global.config.talks_durations.keys.nsort %]
      <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %]</option>
      [% END %]

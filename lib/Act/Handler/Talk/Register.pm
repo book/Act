@@ -15,7 +15,7 @@ my $form = Act::Form->new(
   required => [qw(title abstract duration)],
   optional => [qw(url_abstract url_talk)],
   constraints => {
-     duration     => sub { exists $Config->talks_durations->{$_[0]} },
+     duration     => sub { $_[0] eq 'lightning' || exists $Config->talks_durations->{$_[0]} },
      url_abstract => 'url',
      url_talk     => 'url',
   }
@@ -38,7 +38,7 @@ sub handler
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
-        # organize specifies user id
+        # organizer specifies user id
         my $user_id = $Request{user}->is_orga
                     ? $Request{args}{user_id}
                     : $Request{user}->user_id;
@@ -54,6 +54,11 @@ sub handler
             }
         }
         if ($ok) {
+            # separate lightning from duration
+            if ($fields->{duration} eq 'lightning') {
+                $fields->{lightning} = 't';
+                delete $fields->{duration};
+            }
             # add this talk
             Act::Talk->create(
               %$fields,

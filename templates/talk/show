@@ -22,10 +22,10 @@
   <t><en>Lightning talk</en><fr>Communication éclair</fr></t> <br />
 [% ELSE %]
   <b><t><en>Date:</en><fr>Date :</fr></t></b> [% given %] <br />
-[% END %]
 
 <b><t><en>Duration:</en><fr>Durée :</fr></t></b> [% duration %] 
    <t><en>minutes</en><fr>minutes</fr></t><br />
+[% END %]
 
 [% IF url_abstract || url_talk %]
  <t>  <en>You can find more information on the speaker's site:</en>
