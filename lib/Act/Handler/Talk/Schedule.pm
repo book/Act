@@ -71,18 +71,20 @@ sub handler {
         # FIXME check conflicts with globals
     }
     # compute the max
+    my %width;
     for my $day (keys %table) {
         for my $r (keys %room) {
             my $max;
             $max = $max < $room{$r}{$day}[$_] ? $room{$r}{$day}[$_] : $max
                 for 0 .. @{ $room{$r}{$day} } - 1;
-            $room{$r}{$day} = $max;
+            $width{$r}{$day} = $max;
         }
     }
 
     # finish line
     my $def = '-';
     for my $day ( keys %table ) {
+        my $i = 0;
         for my $row ( @{$table{$day}} ) {
             # fill the blanks
             @$row = (
@@ -90,14 +92,15 @@ sub handler {
                 # from the list of items
                 map { (
                     @{ $row->[1]{$_} },
-                    ("[$_]") x ( $room{$_}{$day} - @{ $row->[1]{$_} } )
+                    ("[$_]") x ( $width{$_}{$day} - $room{$_}{$day}[$i] )
                 ) } sort keys %room
             );
+            $i++;
         }
     }
     # process the template
     my $template = Act::Template::HTML->new();
-    $template->variables( table => \%table, room => \%room );
+    $template->variables( table => \%table, room => \%room, width => \%width );
     $template->process('talk/schedule');
 }
 
