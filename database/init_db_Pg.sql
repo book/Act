@@ -110,7 +110,7 @@ CREATE TABLE translations
     lang     text,
     text     text
 );
-CREATE INDEX translations_idx ON translations ( tbl, col, id );
+CREATE UNIQUE INDEX translations_idx ON translations ( tbl, col, id, lang );
 
 /* conference news */
 DROP   TABLE news;
