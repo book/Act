@@ -28,6 +28,9 @@
  <tr>
    <td align="center">
     [% PROCESS user/info u=u %]
+    [% IF u.photo_name %]
+    <img src="/images/photo.png" alt="photo" title="photo" width="12" height="12" />
+    [% END %]
    </td>
    <td align="center">
       [%- IF u.town %]
