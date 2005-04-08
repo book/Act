@@ -10,7 +10,6 @@
 
 <center>
 
-<span class="error">
 [% PROCESS error
    msgs = {
      ERR_TITLE => {
@@ -71,7 +70,6 @@
      },
   }
 %]
-</span><br />
 
 <form method="POST" action="[% global.request.r.uri %]">
 

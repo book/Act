@@ -14,7 +14,6 @@
 
 <center>
 
-<span class="error">
 [% PROCESS error
    msgs = {
      ERR_IDENTIFIER_EXISTS => {
@@ -75,7 +74,7 @@
      },
   }
 %]
-</span>
+<br />
 
 <form method="POST" action="[% global.request.r.uri %]">
 
