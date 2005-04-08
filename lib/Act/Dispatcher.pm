@@ -59,6 +59,10 @@ sub trans_handler
         r         => $r,
         path_info => join('/', @c),
     );
+    
+    # connect to database
+    _db_connect();
+
     # URI must start with a conf name
     unless (@c && exists $Config->uris->{$c[0]}) {
         return DECLINED;
@@ -67,7 +71,6 @@ sub trans_handler
     $Request{conference} = $Config->uris->{shift @c};
     $Request{path_info}  = join '/', @c;
     $Config = Act::Config::get_config($Request{conference});
-    _db_connect();
 
     # default pages à la mod_dir
     if (!@c && $r->uri =~ m!/$!) {
