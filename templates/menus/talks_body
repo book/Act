@@ -1,0 +1,50 @@
+[% IF global.config.talks_show_schedule OR global.request.user.is_orga %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('schedule') %]">
+    <t>
+     <fr>Horaires</fr>
+     <en>Schedule</en>
+     <it>Programma</it>
+     <pt>Programa</pt>
+     <de>Programm</de>
+    </t>
+   </a>
+   [% END %]
+[% END %]
+[% IF global.request.user.is_orga %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('timetable.ics') %]">
+    <t>
+     <fr>Export iCal</fr>
+     <en>iCal export</en>
+     <it>Esporta per iCal</it>
+     <pt>Exportar para iCal</pt>
+     <de>als iCal exportieren</de>
+    </t>
+   </a>
+   [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('ical_import') %]">
+    <t>
+     <fr>Import iCal</fr>
+     <en>iCal import</en>
+     <it>Importa da iCal</it>
+     <pt>Importar de iCal</pt>
+     <de>aus iCal importieren</de>
+    </t>
+   </a>
+   [% END %]
+[% END %]
+[% IF global.config.talks_submissions_open OR global.request.user.is_orga %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('newtalk') %]">
+    <t>
+     <fr>Soumettre une présentation</fr>
+     <en>Submit a talk proposal</en>
+     <it>Invia una proposta di intervento</it>
+     <pt>Propôr apresentação</pt>
+     <de>Vortrag einreichen</de>
+    </t>
+   </a>
+   [% END %]
+[% END %]
