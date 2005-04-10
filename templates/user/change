@@ -395,8 +395,8 @@
       <t><en>(please fill at least this one)</en>
          <fr>(merci de compléter au moins celle-ci)</fr>
          <pt>(por favor preencha pelo menos este)</pt>
-         <it>(scrivete almeno questa)</it></t>
-	 <de>(bitte zumindest dieses Feld ausfüllen)</de>
+         <it>(scrivete almeno questa)</it>
+	 <de>(bitte zumindest dieses Feld ausfüllen)</de></t>
       [% END %]<br />
       <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang | form_unescape %]</textarea>
       <br />
