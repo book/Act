@@ -1,31 +1,47 @@
-TODO
-====
+CRITICAL
+========
+
+[Sat Oct  2 01:02:00 2004] [error] DBD::Pg::st execute failed: ERROR:  pg_atoi: error in "28&prev=/search": can't parse "&prev=/search" at /home/apache/lib/Act/Object.pm line 202.
+
+conferences.mongueurs.net 213.185.106.3 - - [02/Oct/2004:01:02:00 +0200] "GET /2004/talk/28&prev=/search%3Fq%3Dbooter%2Bbooter%26num%3D100%26hl%3Den%26lr%3D%26ie%3DUTF-8 HTTP/1.1" 500 538 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+
+* quand un user avec les droits treasurer regarde payment?user_id=xx où xx
+  est son propre user_id, erreur 500
+
+[Fri Nov 19 12:59:20 2004] [error] Can't call method "has_paid" on an undefined value at /root/lib//Act/Handler/Payment/Payment.pm line 21.\n
+
+IMPORTANT
+=========
 
 - gestion des talks:
   + maintenant que l'on peut afficher les talks non acceptés, il faut
     regarder les divers templates et vérifier qu'on est cohérent sur
     accepté/non accepté
 
-- gestion de l'inscription :
-  + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
-    les participants qui ne sont pas venus
-
 - page de modification du mot de passe
 - quid de resetpw si le user est loggé ? redirection vers updatepw ?
-
-- possibilite (dans act.ini) de rendre visible les talks non acceptés
-  (demandé par ambs sur irc)
-
-- galerie de photos
-  + upload par les photographes, annotation
-  + redimensionnement des photos trop grosses ?
-  + outil de recherche (par conf, par auteur, par mots-clé ?)
 
 - un user doit pouvoir accéder à une page perso HORS CONFERENCE,
   par exemple, pour éditer sa bio, changer sa photo, s'inscrire
   à une ou plusieurs conférences, voir toutes ses factures, etc.
   + aujourd'hui, le site suppose toujours que conf_id est défini...
     et que $Request{user} est inscrit à cette conférence
+
+NORMAL
+======
+
+- gestion de l'inscription :
+  + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
+    les participants qui ne sont pas venus
+
+- galerie de photos
+  + upload par les photographes, annotation
+  + redimensionnement des photos trop grosses ?
+  + outil de recherche (par conf, par auteur, par mots-clé ?)
+  + si possible, intégrer des outils qui existent déjà pour la gallerie
+    (mais visu par auteur, conférence, recherche sur le titre, etc.)
+  + possibilité d'annoter les photos par exemple pour les lier à un talk,
+    une salle, un jour ?
 
 - il y a un module Act::Invoice (pour les factures), mais je ne vois
   pas de Act::Handler::User::Invoice pour les afficher.
@@ -38,23 +54,11 @@ TODO
     contenir les informations à afficher (les mêmes pour toutes les
     conferences)
 
-- les photos doivent être stockées dans endroit commun ?
-  ou est-ce qu'on permet à un user d'avoir une photo différente par
-  conférence ? dans ce cas, doit-il l'uploader chaque année ?
-
 - dans conf/act.ini, rajouter un [general] finished = 1 quand la conf
   est terminée. Ca devrait simplifier les affichages de payments.
 
-- possibilité pour l'utilisateur d'afficher autant de users qu'il veut
-  sur la page de recherche (genre 50, all), etc.
-  + tri par nom, pays, ville... multicritère ?
-  
 - possibilité pour les orga/admin de modifier le fait que l'utilisateur
   a participé ou non, pour avoir une liste correcte à la fin de la conf
-
-- test de la fermeture/ouverture des diverses options
-
-- le nom "orga" est-il bien choisi ?
 
 - creation de roles globaux ?
   + gestion des users (ajout, suppression, edition)
@@ -65,15 +69,16 @@ TODO
     et en copiant la liste dedans
   => est-ce la solution définitive ?
 
-- réflexion sur les urls, vhosts, etc
+- test de la fermeture/ouverture des diverses options
 
-- gestion des favicon.ico/png en fonction de la conf
-  => peut-être avec le Referer, mais je crois qu'en général il n'y en a pas
+UNIMPORTANT
+===========
 
-- virer le '/' de conferences.mongueurs.net de Act
+- les photos doivent être stockées dans endroit commun ?
+  ou est-ce qu'on permet à un user d'avoir une photo différente par
+  conférence ? dans ce cas, doit-il l'uploader chaque année ?
 
-- un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
-  juste aux users
+- le nom "orga" est-il bien choisi ?
 
 - vu que Act gère des conférences multiples, qui n'offrent pas toujours
   les mêmes langues (e.g. fr+en ou pt+en), est-ce qu'il ne faut pas
@@ -88,37 +93,26 @@ TODO
   la langue voulue partout. Ca va ?
   ou alors, on ajoute encore un truc à gérer, mais bof.
 
-MAIN
-====
-la page main d'un user contient:
-- les liens pour acheter le billet, s'inscrire, changer sa photo, ses infos
-- la liste des confs auxquelles il a participé, avec un lien vers
-  l'order correspondant (i.e. facture) s'il a payé
-- la liste des confs ouvertes (pour pouvoir visiter le site associé
-  et s'inscrire)
+- un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
+  juste aux users
 
-
-WISHLIST
-========
-- gallerie de photos
-  + possibilité pour chaque participant d'ajouter des photos pour les
-    conférences auxquelles il a participé, avec commentaires
-  + redimensionnement et thumbnails automatiques
-  + si possible, intégrer des outils qui existent déjà pour la gallerie
-    (mais visu par auteur, conférence, recherche sur le titre, etc.)
-  + possibilité d'annoter les photos par exemple pour les lier à un talk,
-    une salle, un jour ?
 - statistiques pour les users, globales à toutes les conférences
   (e.g. top participant, top speaker, etc)
 
-BUGS
-====
-[Sat Oct  2 01:02:00 2004] [error] DBD::Pg::st execute failed: ERROR:  pg_atoi: error in "28&prev=/search": can't parse "&prev=/search" at /home/apache/lib/Act/Object.pm line 202.
+WISHLIST
+========
 
-conferences.mongueurs.net 213.185.106.3 - - [02/Oct/2004:01:02:00 +0200] "GET /2004/talk/28&prev=/search%3Fq%3Dbooter%2Bbooter%26num%3D100%26hl%3Den%26lr%3D%26ie%3DUTF-8 HTTP/1.1" 500 538 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+- stocker le username perlmonk en plus de l'id
+  (le nom est optionnel, l'id est obligatoire)
+  => DB
 
-* quand un user avec les droits treasurer regarde payment?user_id=xx où xx
-  est son propre user_id, erreur 500
+- possibilité pour l'utilisateur d'afficher autant de users qu'il veut
+  sur la page de recherche (genre 50, all), etc.
+  + tri par nom, pays, ville... multicritère ?
 
-[Fri Nov 19 12:59:20 2004] [error] Can't call method "has_paid" on an undefined value at /root/lib//Act/Handler/Payment/Payment.pm line 21.\n
+I WISH THERE WAS A LOWER PRIORITY THAN WISHLIST
+- support de plusieurs groupes de mongueurs
+  => DB
+  => recherche
+
 
