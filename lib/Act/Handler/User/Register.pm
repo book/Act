@@ -68,6 +68,9 @@ warn "check for existing\n";
             }
             # create this user
             else {
+            	# default timezone
+            	$fields->{timezone} = $Config->general_timezone;
+
                 # generate a random password
 warn "gen_password\n";
                 my ($clear_passwd, $crypt_passwd) = Act::Util::gen_password();

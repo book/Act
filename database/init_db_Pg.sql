@@ -32,7 +32,7 @@ CREATE TABLE users
 
     /* website preferences */
     language     text,
-    timezone     text         DEFAULT 'Europe/Paris'   NOT NULL,
+    timezone     text         NOT NULL,
 
     /* billing info */
     company      text,

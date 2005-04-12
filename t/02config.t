@@ -18,6 +18,7 @@ my @simple = qw(
 my @conf_simple = qw(
     uri
     general_default_language
+    general_default_country
     general_timezone
     talks_submissions_open
     talks_submissions_notify_address
