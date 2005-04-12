@@ -134,6 +134,7 @@ sub _init_config
          }
     );
     $cfg->set(home => $home);
+    $cfg->set(talks_show_all => undef);
     return $cfg;
 }
 sub _get
