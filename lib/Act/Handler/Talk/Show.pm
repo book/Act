@@ -15,7 +15,8 @@ sub handler
 
     # available only if submissions open or organizer
     unless ($talk
-            && ( $talk->accepted
+            && ( $Config->talks_show_all
+                 || $talk->accepted
                  || ($Request{user} && $Request{user}->is_orga)
                  || ($Request{user} && $Request{user}->user_id == $talk->user_id) ) )
     {
@@ -23,10 +24,11 @@ sub handler
         return;
     }
 
-
     # only organizer or submitter may see non accepted talk
+    # except when the config says show_all !
     undef $talk
-        if $talk
+        if !$Config->talks_show_all
+        && $talk
         && !$talk->{accepted}
         && !($Request{user}
              && ($Request{user}->user_id == $talk->user_id
