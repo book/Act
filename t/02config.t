@@ -3,7 +3,6 @@ use Act::Util;
 use Test::More qw(no_plan);
 
 my @simple = qw(
-    general_base_url
     general_cookie_name
     general_dir_photos
     general_searchlimit

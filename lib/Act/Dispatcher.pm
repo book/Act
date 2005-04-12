@@ -58,6 +58,7 @@ sub trans_handler
     %Request = (
         r         => $r,
         path_info => join('/', @c),
+        base_url  => _base_url($r),
     );
     
     # connect to database
@@ -195,6 +196,15 @@ sub _db_connect
     ) or die "can't connect to database: " . $DBI::errstr;
     $Request{r}->register_cleanup( sub { $Request{dbh}->disconnect } );
 }
+
+sub _base_url
+{
+    my $r = shift;
+    my $url = 'http://' . $r->server->server_hostname;
+    $url .= ':' . $r->server->port if $r->server->port != 80;
+    return $url;
+}
+
 1;
 __END__
 

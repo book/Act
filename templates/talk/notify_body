@@ -3,7 +3,7 @@
 [%- CASE 'update' %]<t><pt>Apresentação actualizada</pt><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it><de>Vortrag geändert</de></t>
 [%- END -%]
 : [% talk.title %]
-[% global.config.general_base_url %][% make_uri_info('talk', talk.talk_id ) %]
+[% global.request.base_url %][% make_uri_info('talk', talk.talk_id ) %]
 <t><fr>Soumis par </fr><pt>Submetida por</pt><en>Submitted by</en><it>Inviato da</it><de>Eingegeben von</de></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
 
 [%- IF tbefore %]
