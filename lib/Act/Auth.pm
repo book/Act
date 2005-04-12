@@ -11,14 +11,12 @@ use Act::Util;
 
 use base qw(Apache::AuthCookie);
 
-use constant LOGIN_PAGE => 'login';  # needs corresponding action in Act::Dispatcher
-
 sub access_handler ($$)
 {
     my ($self, $r) = @_;
 
     # set correct login script url
-    $r->dir_config(ActLoginScript => Act::Util::make_uri(LOGIN_PAGE));
+    $r->dir_config(ActLoginScript => join('/', '', $Request{conference}, 'login'));
 
     # disable authentication unless required
     # (Apache doesn't let us do it the other way around)

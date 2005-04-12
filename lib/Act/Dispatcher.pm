@@ -64,11 +64,12 @@ sub trans_handler
     _db_connect();
 
     # URI must start with a conf name
-    unless (@c && exists $Config->uris->{$c[0]}) {
+    unless (@c && (exists $Config->uris->{$c[0]} || exists $Config->conferences->{$c[0]})) {
         return DECLINED;
     }
     # set the correct configuration
-    $Request{conference} = $Config->uris->{shift @c};
+    $Request{conference} = $Config->uris->{$c[0]} || $c[0];
+    shift @c;
     $Request{path_info}  = join '/', @c;
     $Config = Act::Config::get_config($Request{conference});
 
