@@ -17,11 +17,11 @@
    Gli utenti che hanno confermato la partecipazione (ovvero, che
    hanno pagato il biglietto o terranno un intervento) sono mostrati in
    <strong>grassetto</strong>
+   </it>
    <de>
     Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder
     einen Vortrag halten werden), sind in <b>fett</b> aufgelistet.
    </de>
-  </it>
 </t></p>
 
 [% IF users.size %]
