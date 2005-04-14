@@ -43,6 +43,25 @@ the duration, but discuss it with the speaker first.
 
 =head1 THE SCHEDULE
 
+=head2 How it looks
+
+People with the 'orga' bit set can always see (and edit) the schedule. It
+becomes public when the [talks] item named "show_schedule" is set to 1.
+
+The first time you'll look at the schedule, it'll be ugly : all the
+talks are schedule to a non existing room at the same time. This will
+change once you assigned a room to each talk.
+
+The HTML table uses as many styles as you have rooms, plus three. Imagine
+you have three rooms, the table will use the following styles: header,
+out, venue, r1, r2 and r3. Please note that you do not need to define
+your own CSS for this: simply load the style located at /css/schedule.css
+with <link rel="stylesheet" type="text/css" href="/css/schedule.css" />.
+
+We'll add new colours when a conference has more than three rooms.
+
+=head2 How it works
+
 Act can lay out the schedule when there are talks with a date and room
 defined. It should gracefully show overlapping talks, so that you can detect
 there is a problem.
