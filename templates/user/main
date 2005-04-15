@@ -72,7 +72,7 @@
    <pt>Não se <a href="[% make_uri('register') %]">registou para esta conferência</a>. Faça-o se planeia assistir a realizar uma apresentação.</pt>
    <en>You did not <a href="[% make_uri('register') %]">register for this conference</a>. Please do so if you plan to attend or give a presentation there.</en>
    <fr>Vous n'êtes pas <a href="[% make_uri('register') %]">inscrit à cette conférence</a>. Merci de le faire si vous comptez y assister ou y faire une présentation.</fr>
-   <it>TRANSLATEME</it>
+   <it>Non siete <a href="[% make_uri('register') %]">iscritti a questa canferenza</a>. Vi preghiamo di iscrivervi se prevedete di partecipare o proporre un intervernto.</it>
    <de>
    Sie sind für diese Konferenz nicht angemeldet. <a href="[% make_uri('register') %]">Melden Sie sich an</a>, wenn sie teilnehmen wollen.
    </de>
@@ -102,7 +102,7 @@
        <pt><a href="[% make_uri('register') %]">registou para esta conferência</a></pt>
        <en><a href="[% make_uri('register') %]">register for this conference</a></en>
        <fr>Vous <a href="[% make_uri('register') %]">inscrire à cette conférence</a></fr>
-       <it>TRANSLATEME</it>
+       <it><a href="[% make_uri('register') %]">Iscrivervi a questa conferenza</a></it>
        <de>Sich <a href="[% make_uri('register') %]">für diese Konferenz anmelden</de>
         </t><br />
     </li>
@@ -158,7 +158,7 @@
     [% END %]
    <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de></t></a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>TRANSLATEME</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de></t></a></li>
+   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de></t></a></li>
    [% END %]
    </ul>
 
@@ -178,7 +178,7 @@
    <en>(You were there)</en>
    <fr>(Vous y étiez)</fr>
    <pt>(Esteve aqui)</pt>
-   <it>TRANSLATEME</it>
+   <it>(Avete partecipato)</it>
    <de>(Sie waren dort)</de>
  </t>
  [% CASE 'now' %]
@@ -186,7 +186,7 @@
    <en>(You are there)</en>
    <fr>(Vous y êtes)</fr>
    <pt>(Está aqui)</pt>
-   <it>TRANSLATEME</it>
+   <it>(Partecipate)</it>
    <de>(Sie sind hier)</de>
  </t>
  [% CASE 'future' %]
@@ -194,7 +194,7 @@
    <en>(You will be there)</en>
    <fr>(Vous y serez)</fr>
    <pt>(Irá estar aqui)</pt>
-   <it>TRANSLATEME</it>
+   <it>(Parteciperete)</it>
    <de>(Sie werden dort sein)</de>
  </t>
 [% END %]

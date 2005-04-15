@@ -3,7 +3,7 @@
        en => 'Un-Registration'
        fr => 'Désinscription'
        pt => 'TRANSLATEME'
-       it => 'TRANSLATEME'
+       it => 'Annullamento dell\'iscrizione'
        de => 'Abmelden'
 },
 %]
@@ -15,7 +15,8 @@
    simply push the button below.
   </en>
   <it>
-   TRANSLATEME
+   Per annullare la vostra iscrizione a [% global.conference.name %],
+   premete il pulsante qui sotto.
   </it>
   <pt>
    TRANSLATEME
@@ -39,7 +40,7 @@
 
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="leave" value="<t><en>Unregister from</en><pt>TRANSLATEME</pt><it>TRANSLATEME</it><fr>Désinscription de</fr><de>Abmelden von</de></t> [% global.conference.name %]" />
+      <input type="submit" name="leave" value="<t><en>Unregister from</en><pt>TRANSLATEME</pt><it>Annulla l'iscrizione a</it><fr>Désinscription de</fr><de>Abmelden von</de></t> [% global.conference.name %]" />
    </td>
 </tr>
 </table>
