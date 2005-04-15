@@ -17,6 +17,15 @@ use vars qw(@ISA @EXPORT %Languages);
 # utf8 to latin1 converter
 my $utf8_latin1 = Text::Iconv->new('UTF-8', 'ISO-8859-1');
 
+# password generation data
+my %grams = (
+    v => [ qw( a ai e ia ou u o al il ol in on an ) ],
+    c => [ qw( b bl br c ch cr chr dr f fr gu gr gl h j k kr ks kl
+               m n p pr pl q qu r rh sb sc sf st sl sm sp tr ts v
+               vr vl w x y z ) ],
+);
+my @pass = qw( vcvcvc cvcvcv cvcvc vcvcv );
+
 # create a uri for an action with args
 sub make_uri
 {
@@ -75,7 +84,8 @@ sub redirect
 
 sub gen_password
 {
-    my $clear_passwd = Crypt::RandPasswd->word(7, 7);
+    my $clear_passwd = $pass[ rand @pass ];
+    $clear_passwd =~ s/([vc])/$grams{$1}[rand@{$grams{$1}}]/g;
     return ($clear_passwd, crypt_password( $clear_passwd ));
 }
 

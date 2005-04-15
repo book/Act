@@ -2,7 +2,8 @@
 
 use strict;
 use Test::MockObject;
-use Test::More tests => 15;
+use constant NBPASS => 100;
+use Test::More tests => 15 + 4 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -53,5 +54,15 @@ while (my ($u, $args, $expected) = splice(@t, 0, 3)) {
     $uri = $u;
     is(self_uri(%$args), $expected);
 }
+
+# gen_password
+for (1..NBPASS) {
+    my ($clear, $crypted) = Act::Util::gen_password();
+    ok($clear);
+    ok($crypted);
+    like($clear,   qr/^[a-z]+$/);
+    like($crypted, qr/^\S+$/);
+}
+
 
 __END__

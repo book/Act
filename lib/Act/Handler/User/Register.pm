@@ -52,14 +52,13 @@ sub handler
     if ($Request{args}{join}) {
         # form has been submitted
         my @errors;
-warn "\njoining\n";
+
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
-warn "ok = $ok\n";
+
         if ($ok) {
             # check for existing user
-warn "check for existing\n";
             if (Act::User->new(login => $fields->{login})) {
                 push @errors, 'ERR_IDENTIFIER_EXISTS';
             }
@@ -72,18 +71,15 @@ warn "check for existing\n";
             	$fields->{timezone} = $Config->general_timezone;
 
                 # generate a random password
-warn "gen_password\n";
                 my ($clear_passwd, $crypt_passwd) = Act::Util::gen_password();
                 $fields->{passwd} = $crypt_passwd;
 
                 # insert user in database
                 # and participation to this conference
-warn "before create\n";
                 my $user = Act::User->create(
                     %$fields,
                     participation => { },
                 );
-warn "after create\n\n";
 
                 # display "added page"
                 $template->variables(
