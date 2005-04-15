@@ -158,7 +158,7 @@
     [% END %]
    <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de></t></a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>TRANSLATEME</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de></t></a></li>
+   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>cancelar registo na [% global.conference.name %]</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de></t></a></li>
    [% END %]
    </ul>
 
