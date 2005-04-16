@@ -31,7 +31,7 @@
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
     <t><fr>Salle [% global.config.rooms.$r %]</fr>
-       <en>[% global.config.rooms.$r %] Room</en>
+       <en>Room [% global.config.rooms.$r %]</en>
        <pt>Sala [% global.config.rooms.$r %]</pt>
        <it>Stanza [% global.config.rooms.$r %]</it>
        <de>Raum: [% global.config.rooms.$r %]</de>
