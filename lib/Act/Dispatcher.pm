@@ -184,7 +184,7 @@ sub _set_language
 
 sub _db_connect
 {
-    $Request{dbh} = DBI->connect(
+    $Request{dbh} = DBI->connect_cached(
         $Config->database_dsn,
         $Config->database_user,
         $Config->database_passwd,

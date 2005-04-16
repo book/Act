@@ -8,7 +8,6 @@ use Apache::Constants  qw(:common);
 # CPAN modules
 use Apache::AuthCookie ();
 use Apache::Cookie     ();
-use Apache::DBI        ();
 use AppConfig          ();
 use DBI                ();
 use Digest::MD5        ();
@@ -36,17 +35,5 @@ use Act::Handler::Static;
 
 # preload DBD drivers
 DBI->install_driver('Pg');
-
-# persistent DBI connections
-Apache::DBI->connect_on_init(
-    $Config->database_dsn,
-    $Config->database_user,
-    $Config->database_passwd,
-    { AutoCommit => 0,
-      PrintError => 0,
-      RaiseError => 1,
-    }
-) or die "can't connect to database: " . $DBI::errstr;
-
 
 1;
