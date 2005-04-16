@@ -63,7 +63,6 @@ sub verify
 sub create_response
 {
     my ($class, $verified, $order) = @_;
-    use Data::Dumper; warn "create_response verified = $verified, order = ", Dumper $order;
 
     # create the response to the payment notification request
     require CMSSL;
