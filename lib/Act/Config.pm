@@ -134,7 +134,8 @@ sub _init_config
          }
     );
     $cfg->set(home => $home);
-    $cfg->set(talks_show_all => undef);
+    $cfg->set($_ => undef)
+        for qw(talks_show_all payment_notify_address);
     return $cfg;
 }
 sub _get

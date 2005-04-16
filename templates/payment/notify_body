@@ -1,0 +1,17 @@
+[% global.request.user.first_name %] [% global.request.user.last_name %]
+
+<t><en>Your online payment for your [% global.conference.name %] registration has been approved.
+
+Your order number is [% order.order_id %].
+
+Be sure to bring it along with you when you come to the conference.
+
+Thanks for joining [% global.conference.name %]!
+</en><fr>Votre paiement en ligne de l'inscription à [% global.conference.name %] est enregistré.
+
+Votre numéro d'inscription est [% order.order_id %].
+
+N'oubliez pas de vous munir de ce numéro lors de votre venue à la conférence.
+
+Merci de votre participation à [% global.conference.name %] !</fr></t>
+[% global.request.base_url %]
