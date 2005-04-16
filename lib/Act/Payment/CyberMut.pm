@@ -3,7 +3,7 @@ use strict;
 
 use Act::Config;
 use Act::Order;
-use Act::Template::HTML;
+use Act::Util;
 
 # CyberMut settings
 use constant CM_VERSION => '1.2';
@@ -19,6 +19,7 @@ sub create_form
 
     require CMSSL;
 
+    my $url = make_uri('main');
     return CMSSL::CreerFormulaireCM(
        $Config->cybermut_url_bank,
        CM_VERSION,
@@ -26,9 +27,7 @@ sub create_form
        $order->amount,
        $order->order_id,
        '',
-       $Config->cybermut_url_home,
-       $Config->cybermut_url_ok,
-       $Config->cybermut_url_error,
+       $url, $url, $url,
        $languages{$Request{language}},
        $Config->cybermut_company_code,
        $submit_button{$Request{language}}
@@ -39,23 +38,41 @@ sub verify
 {
     my ($class, $args) = @_;
 
+    require CMSSL;
+
     my $verified = CMSSL::TestMAC(
        $args->{MAC},
        CM_VERSION,
-       $YAPC::Globals::Payment_key_file,
+       $Config->cybermut_key_file,
        $args->{date},
        $args->{montant},
        $args->{reference},
        $args->{'texte-libre'},
        $args->{'code-retour'},
     );
-    if ($args->{order_id}) {
-        my $order = Act::Order->new(order_id => $args->{order_id});
-        if ($order && $order->status eq 'init') {
-            return $order;
+    my $order;
+    if ($verified && $args->{order_id}) {
+        my $o = Act::Order->new(order_id => $args->{order_id});
+        if ($o && $o->status eq 'init') {
+            $order = $o;
         }
     }
-    return undef;
+    return ($verified, $order);
+}
+
+sub create_response
+{
+    my ($class, $verified, $order) = @_;
+    use Data::Dumper; warn "create_response verified = $verified, order = ", Dumper $order;
+
+    # create the response to the payment notification request
+    require CMSSL;
+    my $response = CMSSL::CreerReponseCM($verified ? 'OK' : 'Document Falsifié');
+
+    # we'll send the HTTP headers ourselves, thank you
+    $response =~ s/^.*\n\n//s;
+    $Request{r}->send_http_header( 'text/plain' );
+    $Request{r}->print($response);
 }
 
 1;

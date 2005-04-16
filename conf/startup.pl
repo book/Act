@@ -26,6 +26,7 @@ use Act::Config;
 use Act::Dispatcher;
 use Act::Email;
 use Act::Form;
+use Act::Handler::Payment::Confirm;
 use Act::Talk;
 use Act::Template;
 use Act::User;

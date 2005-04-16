@@ -29,7 +29,7 @@
  </t>
 </p>
 
-<form method="POST" action="[% make_uri('fakepay') %]">
+<form method="POST" action="/confirm">
 
 <input type="hidden" name="order_id" value="[% order.order_id %]" />
 <input type="hidden" name="amount"   value="[% order.amount %]" />

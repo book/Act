@@ -1,8 +1,10 @@
 package Act::Payment::Fake;
 use strict;
 
+use Act::Config;
 use Act::Order;
 use Act::Template::HTML;
+use Act::Util;
 
 sub create_form
 {
@@ -21,10 +23,21 @@ sub verify
     if ($args->{order_id}) {
         my $order = Act::Order->new(order_id => $args->{order_id});
         if ($order && $order->status eq 'init') {
-            return $order;
+            return (1, $order);
         }
     }
-    return undef;
+    return (1, undef);
+}
+
+sub create_response
+{
+    my ($class, $verified, $order) = @_;
+
+    # we aren't being dispatched by Act::Dispatcher
+    $Config = Act::Config::get_config($Request{conference} = $order->conf_id);
+
+    # back to the user's main page
+    Act::Util::redirect(make_uri('main'));
 }
 
 1;
