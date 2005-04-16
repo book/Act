@@ -52,6 +52,9 @@ sub compute_schedule {
     }
     # create the empty table
     for my $day (keys %table) {
+        # the table is a hash keyed by date/day
+        # each row structure is a list of rows as
+        # [ datetime, { room => [ list of talks ] }, [ globals ] ]
         $table{$day} = [
             map { [ $time{$day}{$_}, { map { $_ => [] } keys %room }, [] ] }
                 sort keys %{$time{$day}}
@@ -59,8 +62,8 @@ sub compute_schedule {
         $index{$day} = 0;
     }
     
-    # insert all globals
-    # FIXME we suppose no conflict between globals...
+    # first insert all globals in the table
+    # FIXME we suppose there is no conflict between globals...
     for( @$globals ) {
         my $dt  = $_->datetime;
         my $day = $dt->ymd;
@@ -97,7 +100,7 @@ sub compute_schedule {
         #}
         push @{ $row->[$i][1]{$r} }, $_;
         $room{$r}{$day}[$i++]++;
-        # insert the event several times if it spans several blocks
+        # insert the talk several times if it spans several blocks
         my $n = 1;
         while($i < @$row and $row->[$i][0] < $_->{end}) {
             if( @{ $row->[$i][2] } ) { # we only care about the longuest
@@ -114,7 +117,7 @@ sub compute_schedule {
                     splice @$row, $j, 0, [ $new->datetime, {} ];
                 }
                 $j = 0;
-                $j++ while $todo->[$j]->datetime < $new->datetime;
+                $j++ while $j < @$todo and $todo->[$j]->datetime < $new->datetime;
                 splice @$todo, $j, 0, $new;
             }
             else {
