@@ -1,18 +1,18 @@
 package Act::Handler::Talk::Edit;
 
 use strict;
-use DateTime::TimeZone;
- 
 use Apache::Constants qw(NOT_FOUND FORBIDDEN);
+use DateTime::Format::Pg ();
+use Text::Diff ();
+ 
 use Act::Config;
-use Act::Form;
-use Act::Template::HTML;
-use Act::User;
-use Act::Talk;
-use Act::Util;
-
 use Act::Email;
+use Act::Form;
 use Act::Template;
+use Act::Template::HTML;
+use Act::Talk;
+use Act::User;
+
 
 # form
 my $form = Act::Form->new(
@@ -209,9 +209,17 @@ sub notify
         my $user = Act::User->new(user_id => $talk->user_id);
 
         # diff with previous version if update
-        my @diff;
-        @diff = grep { $tbefore->$_ ne $talk->$_ } keys %$talk
-            if $tbefore;
+        my (@diff, $adiff);
+        if ($tbefore) {
+            # simple fields
+            @diff = grep { $_ ne 'abstract' and $tbefore->$_ ne $talk->$_ } keys %$talk;
+            # abstract
+            my ($a1, $a2) = ($tbefore->abstract, $talk->abstract);
+            if ($a1 ne $a2) {
+                substr($_, length($_), 1) ne "\n" and $_ .= "\n" for ($a1, $a2);
+                $adiff = Text::Diff::diff(\$a1, \$a2);
+            }
+        }
 
         # determine which language to send the notification in
         local $Request{language} = $Config->talks_submissions_notify_language
@@ -227,11 +235,14 @@ sub notify
                 talk => $talk,
                 user => $user,
             );
-            $template->variables(
-                diff => \@diff,
-                tbefore => $tbefore,
-            ) if $tbefore;
-
+            if ($slot eq 'body') {
+                $template->variables(
+                        diff    => \@diff,
+                        tbefore => $tbefore)
+                    if @diff;
+                $template->variables(adiff => $adiff)
+                    if $adiff;
+            }
             $template->process("talk/notify_$slot", \$output{$slot});
         }
         # send the notification email

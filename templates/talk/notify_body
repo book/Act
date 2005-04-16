@@ -6,12 +6,16 @@
 [% global.request.base_url %][% make_uri_info('talk', talk.talk_id ) %]
 <t><fr>Soumis par </fr><pt>Submetida por</pt><en>Submitted by</en><it>Inviato da</it><de>Eingegeben von</de></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
 
-[%- IF tbefore %]
+[%- IF diff OR adiff %]
 <t><en>The following fields have been updated</en><pt>Os seguintes campos foram modificados</pt><fr>Les champs suivant on été modifiés </fr><it>Sono stati modificati i campi seguenti</it><de>Folgende Felder wurden geändert</de></t>:
-[%- FOREACH d=diff %]
+[% IF diff;
+   FOREACH d=diff %]
 -[% d %]: [% tbefore.$d %]
 +[% d %]: [% talk.$d %]
-[% END %][% END %]
+[% END; END; IF adiff %]
+abstract:
+[% adiff %]
+[% END; END %]
 
 <t><en>By</en><pt>Por </pt><fr>Par </fr><it>Oratore</it><de>VortragendeR</de></t>: [% user.first_name %] [% user.last_name %]
 [% IF talk.lightning -%]

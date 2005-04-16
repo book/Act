@@ -19,6 +19,7 @@ my @modules = (
                  'MIME::Lite',
                  'Net::SMTP',
                  'Template',
+                 'Text::Diff',
                  'Test::MockObject',
                  'Text::Iconv',
                  'URI::Escape',
