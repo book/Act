@@ -37,6 +37,8 @@ sub send
             unless $args{$key};
     }
     $args{to} = [ $args{to} ] if ref($args{to}) ne 'ARRAY';
+    $args{bcc} = [ $args{bcc} ] if $args{bcc} && ref($args{bcc}) ne 'ARRAY';
+    $args{bcc} ||= [];
 
     # sender
     my $from = ref($args{from}) ? $args{from} : { email => $args{from} };
@@ -45,10 +47,14 @@ sub send
     # with the original recipients prepended to the message body
     if ($Config->email_test) {
         $args{subject} = "[TEST] $args{subject}";
-        $args{body}    = 'To: '
-                       . join(',', map { ref $_ ? $_->{email} : $_ } @{$args{to}})
-                       . "\n\n$args{body}";
-        $args{to}      = [ $Config->email_test ];
+        require 'Data/Dumper.pm';
+        my $dump = Data::Dumper->Dump(
+                        [ map $args{$_}, qw(to cc bcc) ],
+                        [ qw(to cc bcc) ]
+                      );
+        $args{body}    = $dump . $args{body};
+        $args{to}      = { name => 'Testeur fou', email => $Config->email_test };
+        delete $args{$_} for qw(cc bcc);
     }
     # create message
     chomp $args{subject};
@@ -72,11 +78,22 @@ sub send
     $smtp->mail($from->{email});
 
     # recipients
-    for my $to (@{$args{to}}) {
-        $to = { email => $to } unless ref($to);
-        $msg->add(To => $to->{name} ? "$to->{name} <$to->{email}>"
-                                    : $to->{email});
-        $smtp->to($to->{email}) or die $smtp->message;
+    my %trecip = (
+        to  => 'To',
+        cc  => 'Cc',
+        bcc => undef,
+    );
+    while (my ($type, $header) = each %trecip) {
+        my $recip = $args{$type} or next;
+        $recip = [ $recip ] if ref($recip) ne "ARRAY";
+        for my $r (@$recip) {
+            $r = { email => $r } unless ref($r);
+            $msg->add($header => $r->{name} ? "$r->{name} <$r->{email}>"
+                                            : "<$r->{email}>"
+                     )
+                if $header;
+            $smtp->to($r->{email});
+        }
     }
     $smtp->data()                      or die $smtp->message;
     $smtp->datasend($msg->as_string()) or die $smtp->message;
