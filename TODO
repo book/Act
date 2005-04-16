@@ -27,6 +27,16 @@ IMPORTANT
   + aujourd'hui, le site suppose toujours que conf_id est défini...
     et que $Request{user} est inscrit à cette conférence
 
+- certains users se créent un nouveau compte au lieu d'utiliser l'ancien
+  (non, je ne montre pas stef/cognominal du doigt)
+  Serait-il utile de différer l'inscription en disant "il y a déjà un
+  user avec le même last_name que vous, etes vous sur que vous n'etes
+  pas ce type là. Si oui et que vous avez oublié votre mot de passe,
+  cliquez ici pour en créer un nouveau") Le problème, c'est qu'il faut
+  ajouter un champ caché au formulaire (genre force=1) pour ne pas
+  empecher la création du user, dans le cas où ce n'est pas la même
+  personne
+
 NORMAL
 ======
 
