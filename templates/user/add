@@ -136,33 +136,33 @@
  <t>
   <en>
    To register, you first need to create an account on the site.
-   If you already have an account from any previous Act conference,
+   <b>If you already have an account from any previous Act conference,
    you do not need to register again, simply
-   <a href="[% make_uri('main') %]">log in</a> using your account.
+   <a href="[% make_uri('main') %]">log in</a> using your account.</b>
   </en>
   <pt>
    Para registar, deve primeiro criar um utilizador neste site.
-   Se já se registou e tem um utilizador de qualquer outra conferência
+   <b>Se já se registou e tem um utilizador de qualquer outra conferência
    baseada no Act, não precisa de se registar de novo, simplemente
-   <a href="[% make_uri('main') %]">entre</a> com o seu utilizador.
+   <a href="[% make_uri('main') %]">entre</a> com o seu utilizador.</b>
   </pt>
   <fr>
    Pour vous inscrire, vous devez d'abord vous créer un compte sur le site.
-   Si vous possédez déjà un compte pour une conférence Act précédente,
+   <b>Si vous possédez déjà un compte pour une conférence Act précédente,
    vous pouvez simplement vous <a href="[% make_uri('main') %]">identifier</a>
-   avec ce compte.
+   avec ce compte.</b>
   </fr>
   <it>
-   Per iscriversi, dovete prima creare un account su questo sito. Se
+   Per iscriversi, dovete prima creare un account su questo sito. <b>Se
    avete già creato un account per un'altra conferenza gestita con questo
    sistema, potete <a href="[% make_uri('main') %]">accedere</a> usando
-   quello.
+   quello.</b>
   </it>
   <de>
-   Um sich anzumelden, müssen Sie zuerst einen Account anlegen. Wenn Sie
+   Um sich anzumelden, müssen Sie zuerst einen Account anlegen. <b>Wenn Sie
    bereits einen Account für eine vergangene Act-Konferenz haben, brauchen
    Sie keinen neuen Account anzulegen. Sie können sich mit dem alten
-   Account <a href="[% make_uri('main') %]">einloggen</a>. 
+   Account <a href="[% make_uri('main') %]">einloggen</a>.</b>
   </de>
  </t>
 </p>
