@@ -193,7 +193,6 @@ sub _db_connect
           RaiseError => 1,
         }
     ) or die "can't connect to database: " . $DBI::errstr;
-    $Request{r}->register_cleanup( sub { $Request{dbh}->disconnect } );
 }
 
 sub _base_url
