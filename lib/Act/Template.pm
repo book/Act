@@ -88,11 +88,12 @@ sub process
          request => \%Request,
     );
     if ($web) {
+         my %lparams = $Request{r}->method eq 'POST' ? () : %{$Request{args}};
          $global{languages} = [
            map {{
                  %{$Languages{$_}},
                  code => $_,
-                 uri => self_uri(%{$Request{args}}, language => $_),
+                 uri => self_uri(%lparams, language => $_),
                }}
            grep { $_ ne $Request{language} }
            sort keys %{$Config->languages}
