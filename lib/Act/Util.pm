@@ -80,6 +80,7 @@ sub redirect
     $r->headers_out->set(Location => $location);
     $r->status(REDIRECT);
     $r->send_http_header;
+    return REDIRECT;
 }
 
 sub gen_password
