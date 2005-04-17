@@ -102,6 +102,10 @@ sub _dispatch
     $Request{args} = { map { $_ => $r->param($_) || '' } $r->param };
     _set_language();
 
+    # redirect language change requests
+    if (delete $Request{args}{language}) {
+        return Act::Util::redirect(self_uri(%{$Request{args}}));
+    }
     # set up content handler
     $r->handler("perl-script");
     $r->push_handlers(PerlHandler => $handler);
