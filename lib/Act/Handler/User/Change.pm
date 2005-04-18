@@ -93,8 +93,8 @@ sub handler
         $template->variables(errors => \@errors);
     }
     else {
-        $fields = $Request{user};
         # deep copy bios to avoid double encoding issue
+        $fields = {%{$Request{user}}};
         $fields->{bio} = {%{$Request{user}->bio}};
 
         # participation to this conference
