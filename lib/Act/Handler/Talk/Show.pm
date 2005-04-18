@@ -7,9 +7,15 @@ use Act::Talk;
 
 sub handler
 {
+    # retrieve talk_id
+    my $talk_id = $Request{path_info};
+    unless ($talk_id =~ /^\d+$/) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     # retrieve talk
     my $talk = Act::Talk->new(
-        talk_id => $Request{path_info},
+        talk_id => $talk_id,
         $Request{conference} ? ( conf_id => $Request{conference} ) : ()
     );
 
@@ -41,7 +47,6 @@ sub handler
 
     unless ($talk && $user) {
         $Request{status} = NOT_FOUND;
-        warn "unknown talk: $Request{path_info}";
         return;
     };
 

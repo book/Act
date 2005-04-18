@@ -9,22 +9,27 @@ use Act::Util;
 
 sub handler
 {
+    # retrieve user_id
+    my $user_id = $Request{path_info};
+    unless ($user_id =~ /^\d+$/) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     # retrieve user
     my $user;
     # the logged in user is narcissistic
-    if ( $Request{user} && $Request{user}->user_id == $Request{path_info} ) {
+    if ( $Request{user} && $Request{user}->user_id == $user_id ) {
         # because of the cached $Request{user}, we must load a new user
-        $user = Act::User->new( user_id => $Request{path_info} );
+        $user = Act::User->new( user_id => $user_id );
     }
     else {
         # "other" user
         $user = Act::User->new(
-            user_id => $Request{path_info},
+            user_id => $user_id,
             $Request{conference} ? ( conf_id => $Request{conference} ) : (),
           )
           or do {
             $Request{status} = NOT_FOUND;
-            warn "unknown user: $Request{path_info}";
             return;
           };
     }

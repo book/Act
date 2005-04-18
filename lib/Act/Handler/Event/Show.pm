@@ -7,9 +7,15 @@ use Act::Event;
 
 sub handler
 {
+    # retrieve event_id
+    my $event_id = $Request{path_info};
+    unless ($event_id =~ /^\d+$/) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     # retrieve event
     my $event = Act::Event->new(
-        event_id => $Request{path_info},
+        event_id => $event_id,
         $Request{conference} ? ( conf_id => $Request{conference} ) : (),
     );
 

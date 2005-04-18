@@ -7,11 +7,18 @@ use Act::Config;
 use Act::User;
 use Act::Invoice;
 
-sub handler {
+sub handler
+{
+    # retrieve order_id
+    my $order_id = $Request{path_info};
+    unless ($order_id =~ /^\d+$/) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
 
     # get the order and invoice
-    my $order   = Act::Order->new(   order_id => $Request{path_info} );
-    my $invoice = Act::Invoice->new( order_id => $Request{path_info} );
+    my $order   = Act::Order->new(   order_id => $order_id );
+    my $invoice = Act::Invoice->new( order_id => $order_id );
 
     # both must exist
     if( ! defined $invoice || ! defined $order ) {
