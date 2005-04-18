@@ -3,6 +3,8 @@
 package Act::Handler::Static;
 
 use strict;
+use Apache::Constants qw(NOT_FOUND);
+use File::Spec;
 
 use Act::Config;
 use Act::Template::HTML;
@@ -10,7 +12,22 @@ use Act::Template::HTML;
 sub handler
 {
     my $template = Act::Template::HTML->new();
-    $template->process($Request{path_info});
+
+    # make sure requested template file exists
+    my $file = $Request{path_info};
+    my $found;
+    for my $dir (@{$template->{INCLUDE_PATH}}) {
+        if (-e File::Spec->catfile($dir, $file)) {
+            ++$found;
+            last;
+        }
+    }
+    if ($found) {
+        $template->process($Request{path_info});
+    }
+    else {
+        $Request{status} = NOT_FOUND;
+    }
 }
 1;
 __END__
