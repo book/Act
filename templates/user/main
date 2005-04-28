@@ -123,7 +123,7 @@
 	  <de>Ihr Foto verwalten</de>
 	  </t></a><br />
     </li>
-    <li><a href="[% make_uri('updatepw') %]"><t>
+    <li><a href="[% make_uri('resetpw') %]"><t>
           <fr>modifier votre mot de passe</fr>
           <en>change your password</en>
 	  <de>Ihr Passwort ändern</de>
