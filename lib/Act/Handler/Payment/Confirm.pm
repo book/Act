@@ -13,14 +13,18 @@ sub handler
     $Request{args} = { map { $_ => $Request{r}->param($_) || '' } $Request{r}->param };
 
     # verify payment
-    my ($verified, $order) = Act::Payment->verify($Request{args});
-    if ($verified && $order) {
-        # update order
-        $order->update(status => 'paid',
-                       means  => 'ONLINE'
-                      );
-        # send email notification
-        _notify($order);
+    my ($verified, $order_id) = Act::Payment->verify($Request{args});
+    my $order;
+    if ($verified && $order_id) {
+        $order = Act::Order->new(order_id => $order_id);
+        if ($order && $order->status eq 'init') {
+            # update order
+            $order->update(status => 'paid',
+                           means  => 'ONLINE'
+                          );
+            # send email notification
+            _notify($order);
+        }
     }
     Act::Payment->create_response($verified, $order);
 }

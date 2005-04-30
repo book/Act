@@ -50,19 +50,12 @@ sub verify
        $args->{'texte-libre'},
        $args->{'code-retour'},
     );
-    my $order;
-    if ($verified && $args->{order_id}) {
-        my $o = Act::Order->new(order_id => $args->{order_id});
-        if ($o && $o->status eq 'init') {
-            $order = $o;
-        }
-    }
-    return ($verified, $order);
+    return ($verified, $args->{reference});
 }
 
 sub create_response
 {
-    my ($class, $verified, $order) = @_;
+    my ($class, $verified) = @_;
 
     # create the response to the payment notification request
     require CMSSL;

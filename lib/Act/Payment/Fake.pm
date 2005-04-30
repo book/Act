@@ -19,14 +19,7 @@ sub create_form
 sub verify
 {
     my ($class, $args) = @_;
-
-    if ($args->{order_id}) {
-        my $order = Act::Order->new(order_id => $args->{order_id});
-        if ($order && $order->status eq 'init') {
-            return (1, $order);
-        }
-    }
-    return (1, undef);
+    return (1, $args->{order_id});
 }
 
 sub create_response
