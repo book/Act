@@ -2,9 +2,9 @@ package Act::Template;
 
 use strict;
 use Carp;
+use Template::Multilingual::Parser;
 
 use Act::Config;
-use Act::Template::Parser;
 use Act::Util;
 
 use base qw(Template);
@@ -32,7 +32,8 @@ sub _init
     my ($self, $options) = @_;
 
     # default options
-    $options->{PARSER} ||= Act::Template::Parser->new($options);
+    $options->{LANGUAGE_VAR} = 'global.request.language';
+    $options->{PARSER} = Template::Multilingual::Parser->new($options);
     $options->{PLUGIN_BASE} = 'Act::Plugin';
     unless ($options->{INCLUDE_PATH}) {
         my @path;
@@ -114,9 +115,6 @@ sub process
     $self->variables(
       global        => \%global,
     );
-
-    # parser sections are used by ttextract
-    $self->{PARSER}->reset_sections();
 
     # process and output
     my $ok;

@@ -156,7 +156,7 @@ sub _ttest
     my $output;
     ok($template->process(\$t->{in}, \$output));
     is($output, $t->{out});
-    is_deeply($template->{PARSER}->get_sections, $t->{sections});
+    is_deeply($template->{PARSER}->sections, $t->{sections});
 }
 
 __END__
