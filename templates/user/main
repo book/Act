@@ -36,7 +36,25 @@
 
 [% IF global.request.conference %]
  [% IF global.request.user.has_registered %]
-  [% UNLESS global.request.user.has_paid %]
+  [% IF global.request.user.has_paid %]
+ <p>
+  <t>
+   <en>You have purchased your conference ticket</en>
+   <pt>TRANSLATEME</pt>
+   <fr>Vous avez acheté votre billet pour la conférence </fr>
+   <it>TRANSLATEME</it>
+   <de>TRANSLATEME</de>
+  </t>
+ :
+ </p>
+ <p>
+  <blockquote>
+   [% date_format(order.datetime, 'datetime_full') %]
+   &nbsp;--&nbsp;
+   <strong>[% order.amount; ' '; order.currency %]</strong>
+  </blockquote/>
+ </p>
+  [% ELSE %]
  <p>
   <t>
    <en>You have not bought your conference ticket yet.</en>

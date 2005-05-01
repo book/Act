@@ -41,7 +41,15 @@ sub handler {
         elsif ( $c->{begin} > $now ) { $$p = 'future'; }
         else                         { $$p = 'now'; }
     }
-
+    # this guy's payment info
+    if ($Request{user}->has_registered() && $Request{user}->has_paid()) {
+        $template->variables(
+            order => Act::Order->new(
+                        user_id => $Request{user}->user_id(),
+                        conf_id => $Request{conference},
+                     ),
+        );
+    }
     $template->variables(
         talks => $talks,
         conferences => [ sort { $b->{start} cmp $a->{start} } values %confs ],
