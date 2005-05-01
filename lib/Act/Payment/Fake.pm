@@ -19,7 +19,7 @@ sub create_form
 sub verify
 {
     my ($class, $args) = @_;
-    return (1, $args->{order_id});
+    return (1, 1, $args->{order_id});
 }
 
 sub create_response

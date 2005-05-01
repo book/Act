@@ -28,36 +28,27 @@ sub AUTOLOAD
 sub get_price
 {
     my $price_id = shift;
-    my $sth = $Request{dbh}->prepare_cached(
-                'SELECT amount, currency FROM prices WHERE conf_id=? AND price_id=?');
-    $sth->execute($Request{conference}, $price_id);
-    my ($amount, $currency) = $sth->fetchrow_array();
-    $sth->finish;
-    return $amount
-         ? { 
-            price_id => $price_id,
-            amount   => $amount,
-            currency => $currency,
-            name     => Act::Util::get_translation('prices', 'name', $price_id),
-           }
-         : undef;
+    my $prices = get_prices();
+    for my $p (@$prices) {
+        if ($p->{price_id} == $price_id) {
+            return $p;
+        }
+    }
+    return undef;
 }
 
 sub get_prices
 {
-    my $sth = $Request{dbh}->prepare_cached(
-                'SELECT price_id, amount, currency FROM prices WHERE conf_id=? ORDER BY price_id');
-    $sth->execute($Request{conference});
     my @prices;
-    while (my ($price_id, $amount, $currency) = $sth->fetchrow_array()) {
+    for my $price_id (1..$Config->payment_prices) {
+        my $s = 'price' . $price_id . '_';
         push @prices, {
             price_id => $price_id,
-            amount   => $amount,
-            currency => $currency,
-            name     => Act::Util::get_translation('prices', 'name', $price_id),
+            amount   => $Config->get($s . 'amount'),
+            currency => $Config->get($s . 'currency'),
+            name     => Act::Util::get_translation('prices', 'name', $Config->get($s . 'type')),
         };
     }
-    $sth->finish;
     return \@prices;
 }
 

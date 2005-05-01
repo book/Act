@@ -1,4 +1,3 @@
-<center>
 <p>
  <t>
   <en>This is a simulation. Under real circumstances, submitting
@@ -36,4 +35,3 @@
 <input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr><pt>Pagar</pt><it>Pagare</it><de>Zahlen</de></t>" />
 
 </form>
-</center>

@@ -12,6 +12,11 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'de', 'Scheck' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'de', 'Barzahlung' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'de', 'Online' );
 
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'de', 'Normal' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'de', 'Ermässigt' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'de', 'Business' );
+
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'de', 'Andorra');
 INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'de', 'Vereinigte Arabische Emirate');
@@ -232,6 +237,11 @@ INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'en', 'Cheque' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'en', 'Cash' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
+
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'en', 'Regular price' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'en', 'Reduced price' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'en', 'Business price' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'en', 'Andorra');
@@ -659,8 +669,13 @@ INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'fr', 'Sur place' );
 
 /* payment means */
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );
-INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Liquide' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Espèces' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'fr', 'En ligne' );
+
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'fr', 'Tarif normal' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'fr', 'Tarif réduit' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'fr', 'Tarif sociétés' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'fr', 'Andorre');
@@ -883,6 +898,11 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'pt', 'Cheque' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'pt', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'pt', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'pt', 'TRANSLATEME' );
+
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'pt', 'Andorra');
 INSERT INTO translations VALUES ('countries', 'iso', 'ae', 'pt', 'Emiratos Árabes Unidos');
@@ -1103,6 +1123,11 @@ INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'it', 'Aree comuni' )
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'it', 'Assegno' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'it', 'Contanti' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'it', 'On-line' );
+
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'it', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'it', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'it', 'TRANSLATEME' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'it', 'Andorra');
