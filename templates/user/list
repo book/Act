@@ -31,11 +31,8 @@
  <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt><de>Stadt</de></t></th>
  <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt><de>Land</de></t></th>
  <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it><de>Monger Gruppe</de></t></th>
- [% IF global.user.is_orga %]
+ [% IF global.request.user.is_orga %]
  <th><t><en>email address</en><fr>Adresse email</fr><it>Indirizzo e-mail</it><pt>endereço de e-mail</pt><de>E-Mail Adresse</de></t></th>
- [% END %]
- [% IF global.user.is_admin %]
- <th><t><en>Admin links</en><fr>Liens d'admin</fr><it>Link per amministratori</it><pt>Zona de administração</pt><de>Admin links</de></t></th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
@@ -65,16 +62,11 @@
          &nbsp;
       [% END %]
    </td>
-   [% IF global.user.is_orga %]
+   [% IF global.request.user.is_orga %]
    <td>
     <a href="mailto:[% u.email %]">[% u.email %]</a>
    </td>
    [% END %]
-   [% IF global.user.is_admin %]
-   <td>
-    [%- IF u.user_id > 0 %]<a href="/admin/users/change?user_id=[% u.user_id %]"><t><en>Change</en><fr>Modifier</fr><pt>Modificar</pt><it>Modifica</it><de>bearbeiten</de></t></a>[% END %]
-  </td>
-  [% END %]
 </tr>
 [% END %]
 
