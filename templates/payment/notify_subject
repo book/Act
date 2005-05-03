@@ -1,1 +1,1 @@
-[% global.conference.name %] - <t><en>payment confirmation</en><fr>Confirmation de règlement</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>
+[% global.conference.name %] - <t><en>Payment confirmation</en><fr>Confirmation de règlement</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>

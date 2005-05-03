@@ -49,9 +49,9 @@
  </p>
  <p>
   <blockquote>
-   [% date_format(order.datetime, 'datetime_full') %]
-   &nbsp;--&nbsp;
-   <strong>[% order.amount; ' '; order.currency %]</strong>
+    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% order.order_id %]</strong><br />
+    <t><fr>Date de règlement </fr><en>Payment date</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
+    <t><fr>Montant réglé </fr><en>Amount paid</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
   [% ELSE %]
