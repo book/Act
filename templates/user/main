@@ -39,19 +39,19 @@
   [% IF global.request.user.has_paid %]
  <p>
   <t>
-   <en>You have purchased your conference ticket</en>
-   <pt>TRANSLATEME</pt>
-   <fr>Vous avez acheté votre billet pour la conférence </fr>
-   <it>TRANSLATEME</it>
-   <de>TRANSLATEME</de>
+   <en>You have purchased your conference ticket.</en>
+   <pt>Acabou de comprar o seu bilhete para a conferência.</pt>
+   <fr>Vous avez acheté votre billet pour la conférence.</fr>
+   <it>Avete acquistato il biglietto.</it>
+   <de>Sie haben Ihre Teilnahme bezahlt.</de>
   </t>
  :
  </p>
  <p>
   <blockquote>
-    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% order.order_id %]</strong><br />
-    <t><fr>Date de règlement </fr><en>Payment date</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
-    <t><fr>Montant réglé </fr><en>Amount paid</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
+    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>Ihre Bestellnummer</de><it>Vostro ordine</it><pt>Número da compra</pt></t>: <strong>[% order.order_id %]</strong><br />
+    <t><fr>Date de règlement </fr><en>Payment date</en><de>Zahlungsdatum</de><it>Data del pagamento</it><pt>Data de pagamento</pt></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
+    <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
   [% ELSE %]

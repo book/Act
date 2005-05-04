@@ -43,7 +43,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="purchase" value="<t><pt>Comprar!</pt><fr>J'achète</fr><en>Buy now!</en><it>Compra</it><de>Kaufen!</de></t>" />
+      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de></t>" />
    </td>
 </tr>
 </table>

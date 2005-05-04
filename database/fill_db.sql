@@ -899,9 +899,9 @@ INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' )
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
 /* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'pt', 'TRANSLATEME' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'pt', 'TRANSLATEME' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'pt', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'pt', 'normal' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'pt', 'reduzido' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'pt', 'profissional' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'pt', 'Andorra');
@@ -1125,9 +1125,9 @@ INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'it', 'Contanti' )
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'it', 'On-line' );
 
 /* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'it', 'TRANSLATEME' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'it', 'TRANSLATEME' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'it', 'TRANSLATEME' );
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'it', 'intero' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'it', 'ridotto' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'it', 'per aziende' );
 
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'it', 'Andorra');
