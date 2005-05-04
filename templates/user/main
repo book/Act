@@ -39,13 +39,12 @@
   [% IF global.request.user.has_paid %]
  <p>
   <t>
-   <en>You have purchased your conference ticket.</en>
-   <pt>Acabou de comprar o seu bilhete para a conferência.</pt>
-   <fr>Vous avez acheté votre billet pour la conférence.</fr>
-   <it>Avete acquistato il biglietto.</it>
-   <de>Sie haben Ihre Teilnahme bezahlt.</de>
+   <en>You have purchased your conference ticket:</en>
+   <pt>Acabou de comprar o seu bilhete para a conferência:</pt>
+   <fr>Vous avez acheté votre billet pour la conférence :</fr>
+   <it>Avete acquistato il biglietto:</it>
+   <de>Sie haben Ihre Teilnahme bezahlt:</de>
   </t>
- :
  </p>
  <p>
   <blockquote>
