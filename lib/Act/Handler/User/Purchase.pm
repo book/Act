@@ -1,4 +1,5 @@
 package Act::Handler::User::Purchase;
+use Apache::Constants qw(NOT_FOUND);
 
 use Act::Config;
 use Act::Order;
@@ -8,8 +9,11 @@ use Act::Template::HTML;
 sub handler
 {
     # shouldn't get here unless the online payment is open
-    # and this users hasn't paid
-    unless ($Config->payment_open && !$Request{user}->has_paid) {
+    # and this user is registered and hasn't paid
+    unless ($Config->payment_open &&
+            $Request{user}->has_registered() &&
+            !$Request{user}->has_paid)
+    {
         $Request{status} = NOT_FOUND;
         return;
     }
