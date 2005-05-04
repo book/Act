@@ -30,7 +30,7 @@ Betrag: [% order.amount %] [% order.currency %]
 Ihre Bestellnummer ist [% order.order_id %]. Bitte notieren Sie diese
 Nummer und bringen Sie zur Veranstaltung mit.
 
-Danke für Ihre Teilnahme!<de>
+Danke für Ihre Teilnahme!</de>
 <it>Il pagamento per la Vostra registrazione a [% global.conference.name %]
  è stato approvato.
 

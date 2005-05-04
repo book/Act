@@ -23,7 +23,7 @@ sub create_form
 
     # variables submitted to the bank
     my $url_bank = $Config->cybermut_url_bank;
-    my $url_main = join('/', $Request{base_url}, make_uri('main'));
+    my $url_main = join('', $Request{base_url}, make_uri('main'));
     my $key      = pack("H*", $Config->cybermut_key);
     my $date     = DateTime->now->strftime("%d/%m/%Y:%H:%M:%S");
     my $tpe      = $Config->cybermut_tpe;
@@ -81,10 +81,13 @@ sub create_response
 {
     my ($class, $verified) = @_;
 
-    my $response = $verified ? "OK\n" : "Document falsifie\n";
-    $Request{r}->no_cache(1);
-    $Request{r}->send_http_header( 'text/plain' );
-    $Request{r}->print($response);
+    my $response = $verified ? "OK" : "Document falsifie";
+    $Request{r}->print(<<EOF);
+Pragma: no-cache
+Content-type: text/plain
+Version: 1
+$response
+EOF
 }
 
 1;
