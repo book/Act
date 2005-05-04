@@ -25,7 +25,7 @@ sub create_form
     my $url_bank = $Config->cybermut_url_bank;
     my $url_main = join('', $Request{base_url}, make_uri('main'));
     my $key      = pack("H*", $Config->cybermut_key);
-    my $date     = DateTime->now->strftime("%d/%m/%Y:%H:%M:%S");
+    my $date     = DateTime->now->set_time_zone('Europe/Paris')->strftime("%d/%m/%Y:%H:%M:%S");
     my $tpe      = $Config->cybermut_tpe;
     my $societe  = $Config->cybermut_societe;
     my $montant  = $order->amount . $order->currency;
