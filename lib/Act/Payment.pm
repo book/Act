@@ -9,9 +9,9 @@ use Act::Util;
     my $class = join '::', qw(Act Payment), $Config->payment_type;
     eval "require $class";
     die "require $class failed!" if $@;
-    for $meth (qw( create_form verify create_response )) {
+    for my $meth (qw( create_form verify create_response )) {
         no strict 'refs';
-        *$meth = &{"$class\::$meth"};
+        *$meth = \&{"$class\::$meth"};
     }
 }
 
