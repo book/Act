@@ -5,21 +5,23 @@ use DateTime;
 
 use Act::Config;
 use Act::Order;
+use Act::Template;
 use Act::Util;
 
 # CyberMut settings
 my $Version  = '1.2open';
-my %Submit_button = (
-    FR => 'Paiement par carte bancaire',
-    EN => 'Credit card payment',
-);
 
 sub create_form
 {
     my ($class, $order) = @_;
 
-    require Digest::HMAC_SHA1;
+    # submit button
+    my $template = Act::Template->new();
+    my $button;
+    $template->process('payment/button', \$button);
+    chomp $button;
 
+    # variables submitted to the bank
     my $url_bank = $Config->cybermut_url_bank;
     my $url_main = join('/', $Request{base_url}, make_uri('main'));
     my $key      = pack("H*", $Config->cybermut_key);
@@ -32,6 +34,8 @@ sub create_form
     my $ref      = $order->order_id;
     my $txt      = '';
 
+    # compute the Digest
+    require Digest::HMAC_SHA1;
     my $hstring = join("*", $tpe, $date, $montant, $ref, $txt, $Version, $langue, $societe) . "*";
     my $mac = Digest::HMAC_SHA1::hmac_sha1_hex($hstring, $key);
 
@@ -49,7 +53,7 @@ sub create_form
 <INPUT TYPE="hidden" NAME="lgue"           VALUE="$langue" />
 <INPUT TYPE="hidden" NAME="societe"        VALUE="$societe" />
 <INPUT TYPE="hidden" NAME="texte-libre"    VALUE="$txt" />
-<INPUT TYPE="submit" NAME="bouton"         VALUE="$Submit_button{$langue}" />
+<INPUT TYPE="submit" NAME="bouton"         VALUE="$button" />
 </FORM>
 EOF
 }
