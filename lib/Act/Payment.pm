@@ -3,26 +3,16 @@ use strict;
 use Act::Config;
 use Act::Util;
 
-our $AUTOLOAD;
-
-sub AUTOLOAD
+# store the methods in the symbol table
+# there's only one payment system in a single run, anyway
 {
-    my $method = substr($AUTOLOAD, rindex($AUTOLOAD, '::')+2);
-    return if $method eq "DESTROY";
-
-    # load appropriate payment backend class
     my $class = join '::', qw(Act Payment), $Config->payment_type;
     eval "require $class";
     die "require $class failed!" if $@;
-
-    # class methods only here
-    shift;
-
-    # we create the function here so that it will not need to be
-    # autoloaded the next time.
-    no strict 'refs';
-    *$method = eval "sub { $class->$method(\@_) }";
-    $class->$method(@_);
+    for $meth (qw( create_form verify create_response )) {
+        no strict 'refs';
+        *$meth = &{"$class\::$meth"};
+    }
 }
 
 sub get_price
