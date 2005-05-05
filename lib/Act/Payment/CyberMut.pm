@@ -10,6 +10,7 @@ use Act::Util;
 
 # CyberMut settings
 my $Version  = '1.2open';
+my %Languages = map { $_ => 1 } qw(DE EN ES FR IT);
 
 sub create_form
 {
@@ -30,9 +31,9 @@ sub create_form
     my $societe  = $Config->cybermut_societe;
     my $montant  = $order->amount . $order->currency;
     my $langue   = uc $Request{language};
-    $langue = 'EN' unless $langue eq 'FR';
+    $langue = 'EN' unless exists $Languages{$langue}; 
     my $ref      = $order->order_id;
-    my $txt      = '';
+    my $txt      = $Request{conference};
 
     # compute the Digest
     require Digest::HMAC_SHA1;
