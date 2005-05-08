@@ -2,7 +2,6 @@ use strict;
 package Act::Util;
 
 use Apache::Constants qw(M_GET REDIRECT);
-use Crypt::RandPasswd ();
 use DateTime::Format::Pg;
 use Digest::MD5 ();
 use Text::Iconv ();
