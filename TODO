@@ -8,6 +8,9 @@ IMPORTANT
   + maintenant que l'on peut afficher les talks non acceptés, il faut
     regarder les divers templates et vérifier qu'on est cohérent sur
     accepté/non accepté
+  + support d'une langue pour les talks, à choisir parmi les
+    langues de la conf (e.g., FPW aurait fr (defaut) et en,
+    APW de (defaut) et en, YAPC en seulement.
 
 - page de modification du mot de passe
 - quid de resetpw si le user est loggé ? redirection vers updatepw ?
