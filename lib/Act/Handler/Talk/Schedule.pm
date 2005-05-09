@@ -109,6 +109,7 @@ sub compute_schedule {
                 $new->{datetime} = $row->[$i][2][-1]->{end}->clone;
                 $new->{duration} = ($_->{end} - $row->[$i][2][-1]->datetime)->delta_minutes;
                 $_->{duration} -= $new->{duration};
+                $_->{end} = $_->{datetime}->add( minutes => $_->{duration} );
                 $new->{end} = $new->{datetime}->clone->add( minutes => $new->duration );
                 ( $new->{title} = $_->title ) =~ s/(?: \((\d+)\))?$/ (@{[($1||1)+1]})/;
                 my $j = $i;
