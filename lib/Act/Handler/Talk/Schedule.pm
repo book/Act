@@ -33,6 +33,7 @@ sub compute_schedule {
     @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
         my $day = $_->datetime->ymd;  # current day
         $table{$day} ||= [];          # create table structure
+        $_->{room} = 'r1' unless $_->room;
         $room{$_->room}++             # compute the room list
             unless $_->is_global;
         $_->{height} = 1;             # minimum height
