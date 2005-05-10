@@ -14,7 +14,7 @@ use Act::Template;
 # form
 my $form = Act::Form->new(
   required => [qw( title abstract )],
-  optional => [qw( url_abstract duration date time room )],
+  optional => [qw( url_abstract duration date time room delete )],
   constraints => {
      duration     => sub { $_[0] =~ /^\d+$/ },
      url_abstract => 'url',
@@ -76,8 +76,13 @@ sub handler {
         if ($ok) {
             # update existing event
             if( defined $event ) { 
-                my $tbefore = $event->clone;
-                $event->update( %$fields );
+                if( $fields->{delete} ) {
+                    $event->delete;
+                    $template->variables(%$fields);
+                    $template->process('event/removed');
+                    return;
+                }
+                else { $event->update( %$fields ); }
             }
             # insert new event
             else {
