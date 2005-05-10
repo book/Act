@@ -1,4 +1,4 @@
-use Test::More tests => 6;
+use Test::More tests => 7;
 use Act::Event;
 use strict;
 use t::Util;
@@ -38,4 +38,8 @@ $event2->update( title => 'new test' );
 $event = Act::Event->new( event_id => $id );
 is_deeply( $event, $event2, "field modified by update" );
 
+# try deleting the event
+$event->delete;
+
+is( Act::Event->new( event_id => $id ), undef, "Event removed" );
 

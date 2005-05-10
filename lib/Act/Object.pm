@@ -120,6 +120,29 @@ sub _normalize {
       for keys %$self;
 }
 
+# FIXME
+# must add checking somewhere to prevent deleting a user who has talks
+sub delete {
+    my $self  = shift;
+    my $class = ref $self;
+    # $class->init; # probably not needed
+
+    no strict 'refs';
+    my $table = ${"${class}::table"};
+    my $pkey  = ${"${class}::primary_key"};
+
+    eval {
+        my $SQL = "DELETE FROM $table WHERE $pkey=?";
+        my $sth = $Request{dbh}->prepare_cached( $SQL );
+        $sth->execute( $self->{$pkey});
+        $Request{dbh}->commit;
+    };
+    if ($@) {
+        $Request{dbh}->rollback;
+        die $@;
+    }
+}
+
 sub init {
     my $class = shift;
     $class = (ref $class) || $class;
