@@ -75,11 +75,17 @@
 
 [% IF event_id %]
 <input type="hidden" name="event_id" value="[% event_id %]" />
-[% END %]
-[% IF event_id %]
 <p>
  <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt></t>
  <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
+</p><p>
+<input type="checkbox" name="delete" />
+<t><en>Delete this event</en>
+   <fr>Supprimer cet événement</fr>
+   <it>TRANSLATEME</it>
+   <pt>TRANSLATEME</pt>
+   <de>TRANSLATEME</de>
+</t>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
