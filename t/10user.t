@@ -11,8 +11,8 @@ isa_ok( $user, 'Act::User' );
 is_deeply( $user, {}, "Empty new user" );
 
 # manually insert a user and fetch it
-my $sth = $Request{dbh}->prepare_cached("INSERT INTO users (login,passwd,email,country, first_name, last_name) VALUES(?,?,?,?,?,?);");
-$sth->execute( 'test', 't3st', 'foo@bar.com', 'fr', 'first', 'last' );
+my $sth = $Request{dbh}->prepare_cached("INSERT INTO users (login,passwd,email,country, first_name, last_name, timezone) VALUES(?,?,?,?,?,?,?);");
+$sth->execute( 'test', 't3st', 'foo@bar.com', 'fr', 'first', 'last', 'Europe/Paris' );
 $sth->finish();
 
 $user = Act::User->new( login => 'test' );
@@ -29,6 +29,7 @@ $user = Act::User->create(
     nick_name => 'baz',
     pseudonymous => 't',
     pm_group  => 'paris.pm',
+    timezone => 'Europe/Paris',
 );
 isa_ok( $user, 'Act::User' );
 is( $user->login, 'test2', "check accessor" );

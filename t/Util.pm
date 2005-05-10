@@ -26,24 +26,28 @@ sub db_add_users {
         first_name => 'Philippe',
         last_name  => 'Bruhat',
         pseudonymous => 'f',
+        timezone => 'Europe/Paris',
     );
     Act::User->create(
         login   => 'echo',
         passwd  => 'ECHO',
         email   => 'echo@yyy.zzz',
         country => 'fr',
+        timezone => 'Europe/Paris',
     );
     Act::User->create(
         login   => 'foo',
         passwd  => 'FOO',
         email   => 'foo@bar.com',
         country => 'en',
+        timezone => 'Europe/Paris',
     );
     Act::User->create(
         login   => 'user',
         passwd  => 'UZer',
         email   => 'user@example.com',
         country => 'uk',
+        timezone => 'Europe/Paris',
     );
 
     # add participations as well
