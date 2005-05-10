@@ -231,19 +231,25 @@ sub get_items {
               ( 'order by', qw( limit offset ) ) );
 
     # run the request
-    my $sth = $Request{dbh}->prepare_cached( $SQL );
-    $sth->execute(
-        map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
-        map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
-    );
+    my $items = [ ];
+    eval {
+        my $sth = $Request{dbh}->prepare_cached( $SQL );
+        $sth->execute(
+            map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
+            map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
+        );
 
-    my ($items, $item) = [ ];
-    push @$items, bless $item, $class
-      and $item->_normalize( 'perl' )
-      while $item = $sth->fetchrow_hashref();
+        my $item;
+        push @$items, bless $item, $class
+          and $item->_normalize( 'perl' )
+          while $item = $sth->fetchrow_hashref();
 
-    $sth->finish();
-
+        $sth->finish();
+    };
+    if ($@) {
+        $Request{dbh}->rollback;
+        die $@;
+    }
     return $items;
 }
 
