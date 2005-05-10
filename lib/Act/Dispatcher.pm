@@ -24,6 +24,7 @@ my %dispatch = (
     talk     => { handler => 'Act::Handler::Talk::Show' },
     talks    => { handler => 'Act::Handler::Talk::List' },
     event    => { handler => 'Act::Handler::Event::Show' },
+    events   => { handler => 'Act::Handler::Event::List' },
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
 
     # protected handlers
