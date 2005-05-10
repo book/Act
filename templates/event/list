@@ -29,8 +29,7 @@
 </tr>
 [% FOREACH e = events %]
   <tr>
-    <td>[% talk_link(e) %]
-        [% talk_modify_link(e) %]
+    <td>[% event_link(e) %] [% event_modify_link(e) %]
     </td>
     <td nowrap="nowrap">
          [% e.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it></t>

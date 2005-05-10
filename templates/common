@@ -13,6 +13,16 @@
 [%   END;
   END;
 %]
+[% MACRO event_link(event)
+   BLOCK %]
+<a href="[% make_uri_info('event', event.event_id) %]">[% event.title %]</a>
+[% END %]
+[% MACRO event_modify_link(event)
+   BLOCK %]
+[% IF global.request.user.is_orga %]
+(<a href="[% make_uri('editevent', 'event_id', event.event_id ) %]"><t>
+<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
+[% END ; END %]
 [% MACRO user_info(user)
    BLOCK;
 %]<a href="[% make_uri_info('user', user.user_id) %]">[%
@@ -29,21 +39,13 @@
    BLOCK;
     IF t.type == 'Act::Talk' %]
 [% user_info(t.user) %] -
-[% '<b>' IF t.confirmed %]
-<a href="[% make_uri_info('talk', t.id) %]">[% t.title %]</a>
-[% '</b>' IF t.confirmed %]
+[% talk_link(t) %]
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt></t>)
-[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
-(<a href="[% make_uri('edittalk', 'talk_id', t.id ) %]"><t>
-<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
-[% END %]
+[% talk_modify_link(t) %]
     [% ELSIF t.type == 'Act::Event' %]
-<a href="[% make_uri_info('event', t.id) %]">[% t.title %]</a>
+[% event_link(t) %]
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt></t>)
-[% IF global.request.user.is_orga OR global.request.user.user_id == t.user_id %]
-(<a href="[% make_uri('editevent', 'event_id', t.id ) %]"><t>
-<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
-[% END %]
+[% event_modify_link(t) %]
     [% ELSE ; t %]
 [% END;
    END;
