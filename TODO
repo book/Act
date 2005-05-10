@@ -34,6 +34,11 @@ IMPORTANT
 NORMAL
 ======
 
+- http://conferences.yapceurope.org/2005/user/214
+  la Clé GPG est souvent une longue longue chaîne.
+  Il faudrait peut-être la wrapper nous-même, ou trouver
+  le tag HTML qui va bien.
+
 - gestion de l'inscription :
   + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
     les participants qui ne sont pas venus
