@@ -1,0 +1,59 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::User;
+use Act::Talk;
+use DBI;
+
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn,
+    $Config->database_user,
+    $Config->database_passwd,
+    { AutoCommit => 0 }
+) or die "can't connect to database: " . $DBI::errstr;
+
+END {
+    $Request{dbh}->commit;
+    $Request{dbh}->disconnect;
+}
+
+# FIXME - autodetects users with the same name ?
+#       - or accept a list of user_id ?
+my @users = @{ Act::User->get_items( name => shift ) };
+exit unless @users > 1; # no users match
+
+print "Do you want to merge the following users:\n";
+@users = sort { $a->user_id <=> $b->user_id } @users;
+for my $u ( @users ) {
+    no warnings;
+    print "    ", join( " ", 
+          $u->user_id, $u->email, $u->first_name, $u->last_name,
+          $u->nick_name), "\n";
+}
+print "into the user $users[-1]{user_id} ? [y/n]\n";
+
+redo while( <> !~ /^([yYNnOo])$/ );
+exit if lc $1 eq 'n';
+
+my $main = pop @users;
+
+my ( @talks, @orders, @participations, @rights );
+
+# récupère les infos
+for my $u ( @users ) {
+    push @talks, @{$u->talks};
+    push @orders, @{ Act::Order->get_items( user_id => $u->user_id ) };
+};
+
+# associe les talks et les orders au user $main
+# $_->update( user_id => $main->user_id ) for @talks, @orders;
+
+# associe les participations et les rights au user $main
+
+# supprime les bios
+for my $u ( @users ) {
+}
+
+# supprime les users devenus inutiles
+# $_->delete for @users;
+
