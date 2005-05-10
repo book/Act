@@ -16,7 +16,7 @@ sub get_items {
     return [
         map {
             $_->{type} = ref;
-            $_->{id}   = delete($_->{talk_id}) || delete($_->{event_id});
+            $_->{id}   = $_->{talk_id} || $_->{event_id};
             bless $_, 'Act::TimeSlot';
         }
         @{ Act::Event->get_events( %args_event ) },
