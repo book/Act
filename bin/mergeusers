@@ -54,6 +54,8 @@ for my $u ( @users ) {
 for my $u ( @users ) {
 }
 
+# FIXME et les photos ?
+
 # supprime les users devenus inutiles
 # $_->delete for @users;
 
