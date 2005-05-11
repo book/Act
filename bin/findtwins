@@ -47,12 +47,13 @@ message( scalar @users, "users found\n" );
 message("Normalising users\n");
 
 # normalise users
-my $suspects = normalise(@users);
+normalise(@users);
 
 # match
 my $total = @users;
 message( "Using comparison functions:", keys %match, "\n" );
 
+my $suspects = {};
 while (@users) {
     message(
         sprintf "Comparing users... %3d%%\r",
@@ -62,9 +63,10 @@ while (@users) {
     for my $func ( keys %match ) {
         for my $v (@users) {
             if( $match{$func}->( $u, $v ) ) {
-                my $new = $u->{__id} < $v->{__id} ? $v : $u;
-                $new->{__id} = min $u->{__id}, $v->{__id};
-                push @{ $suspects->{ $new->{__id} } }, $new;
+                my ( $old, $new ) =
+                  $u->{__id} < $v->{__id} ? ( $u, $v ) : ( $v, $u );
+                $new->{__id} = $old->{__id};
+                push @{ $suspects->{ $old->{__id} } ||= [ $old ] }, $new;
             }
         }
     }
@@ -72,8 +74,7 @@ while (@users) {
 message("Comparing users... 100%\n\n");
 
 # show the results
-for my $u ( values %$suspects ) {
-    next if @$u < 2;
+for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
@@ -86,15 +87,12 @@ for my $u ( values %$suspects ) {
 sub message { print "@_" unless $conf{quiet}; }
 
 sub normalise {
-    my %users;
     for my $u (@_) {
         $u->{__fullname}     = lc( $u->first_name . " " . $u->last_name );
         $u->{__nick}         = lc $u->nick_name;
         $u->{__email}        = lc $u->email;
         $u->{__id}           = $u->user_id;
-        $users{ $u->{__id} } = [$u];
     }
-    return \%users;
 }
 
 __END__
