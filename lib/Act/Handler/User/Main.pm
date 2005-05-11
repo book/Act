@@ -47,6 +47,7 @@ sub handler {
             order => Act::Order->new(
                         user_id => $Request{user}->user_id(),
                         conf_id => $Request{conference},
+                        status  => 'paid',
                      ),
         );
     }
