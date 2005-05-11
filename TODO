@@ -30,6 +30,16 @@ IMPORTANT
   ajouter un champ caché au formulaire (genre force=1) pour ne pas
   empecher la création du user, dans le cas où ce n'est pas la même
   personne
+  => bin/findtwins
+  => bin/mergeusers
+
+- demander la taille du T-shirt à la création du user (pour avoir une
+  info précise)
+
+- statistiques sur les T-shirts
+  select count(*), tshirt_size from participations where conf_id=? group by tshirt_size;
+- statistiques sur les familles
+  select sum(nb_family) from participations where conf_id=a?
 
 NORMAL
 ======
