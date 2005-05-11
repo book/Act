@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+use strict;
+use DBI;
+use Text::xSV;
+
+use Act::Config;
+use Act::Email;
+
+# connect to database
+my $dbh = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 1 }
+  )
+  or die "can't connect to database: " . $DBI::errstr;
+
+# CSV file
+my $csv = Text::xSV->new;
+my $sth = $dbh->prepare(
+    'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
+  . ' FROM orders o, users u'
+  . ' WHERE o.user_id = u.user_id AND o.status = ?'
+  . ' ORDER BY o.datetime'
+);
+$sth->execute('paid');
+my $body;
+while (my @row = $sth->fetchrow_array) {
+    $body .= $csv->format_row(@row);
+}
+
+# send email
+Act::Email::send(
+    from     => { name => 'Agent Smith',     email => 'root@mongueurs.net' },
+    to       => { name => 'David lacravate', email => 'lacravate@mongueurs.net' },
+    cc       => { name => 'Eric Cholet',     email => 'cholet@logilune.com' },
+    subject  => "Act payment report",
+    body     => $body,
+);
