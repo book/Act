@@ -1,0 +1,99 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::User;
+use Act::Talk;
+use DBI;
+use Getopt::Long;
+$|++;
+
+# command-line parameters
+my %conf = (
+    quiet => 0,
+);
+GetOptions( \%conf, "quiet!" )
+  or die << 'EOT';
+Valid options:
+  --quiet         - be quiet
+EOT
+
+# init the database handle
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 0 }
+  )
+  or die "can't connect to database: " . $DBI::errstr;
+
+# comparison algorithms
+# given two user objects, return a "probability" of being the same user
+my %compare = (
+    email => sub {
+        my ( $a, $b ) = @_;
+        return 1 if $a->{__email} eq $b->{__email};
+    },
+    name => sub {
+        my ( $a, $b ) = @_;
+        return 1 if $a->{__fullname} eq $b->{__fullname};
+    },
+    nick => sub {
+        my ( $a, $b ) = @_;
+        return 0 unless $a->{__nick};
+        return 1 if $a->{__nick} eq $b->{__nick};
+    },
+);
+
+# fetch all users
+my @users = @{ Act::User->get_items() };
+message( scalar @users, "users found\n" );
+message("Normalising users\n");
+
+# normalise users
+my $suspects = normalise(@users);
+
+# compare
+my $total = @users;
+message( "Using comparison functions:", keys %compare, "\n" );
+
+while (@users) {
+    message(
+        sprintf "Comparing users... %3d%%\r",
+        100 * ( $total - @users ) / $total
+    );
+    my $u = shift @users;
+    for my $func ( keys %compare ) {
+        $compare{$func}->( $u, $_ )
+          && push @{ $suspects->{ $u->{__id} } }, $_
+          for @users;
+    }
+}
+message("Comparing users... 100%\n\n");
+
+# show the results
+for my $u ( values %$suspects ) {
+    next if @$u < 2;
+    print "# Are these users the same? ",
+      join( " ", map( { $_->user_id } @$u ) ), "\n";
+    no warnings;
+    printf "- %3d %s %s (%s) <%s>\n", $_->user_id, $_->first_name, $_->last_name,
+      $_->nick_name, $_->email
+      for @$u;
+    print "\n";
+}
+
+sub message { print "@_" unless $conf{quiet}; }
+
+sub normalise {
+    my %users;
+    for my $u (@_) {
+        $u->{__fullname}     = lc( $u->first_name . " " . $u->last_name );
+        $u->{__nick}         = lc $u->nick_name;
+        $u->{__email}        = lc $u->email;
+        $u->{__id}           = $u->user_id;
+        $users{ $u->{__id} } = [$u];
+    }
+    return \%users;
+}
+
+__END__
+
+
