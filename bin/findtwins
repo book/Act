@@ -22,9 +22,9 @@ $Request{dbh} = DBI->connect(
   )
   or die "can't connect to database: " . $DBI::errstr;
 
-# comparison algorithms
-# given two user objects, return a "probability" of being the same user
-my %compare = (
+# match functions
+# given two user objects, return true if they could be the same
+my %match = (
     email => sub {
         my ( $a, $b ) = @_;
         return 1 if $a->{__email} eq $b->{__email};
@@ -48,9 +48,9 @@ message("Normalising users\n");
 # normalise users
 my $suspects = normalise(@users);
 
-# compare
+# match
 my $total = @users;
-message( "Using comparison functions:", keys %compare, "\n" );
+message( "Using comparison functions:", keys %match, "\n" );
 
 while (@users) {
     message(
@@ -58,8 +58,8 @@ while (@users) {
         100 * ( $total - @users ) / $total
     );
     my $u = shift @users;
-    for my $func ( keys %compare ) {
-        $compare{$func}->( $u, $_ )
+    for my $func ( keys %match ) {
+        $match{$func}->( $u, $_ )
           && push @{ $suspects->{ $u->{__id} } }, $_
           for @users;
     }
