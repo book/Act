@@ -116,14 +116,13 @@
  <table border="1" cellpadding="2" cellspacing="0">
   <tr>
    <th align="left" valign="top"><t><en>Account owner</en><pt>Títular da conta</pt><fr>Propriétaire du compte</fr><it>Titolare del conto</it></t></th>
-   <td>XXXXX XXXXXXXXXXX XXXXXXX XXX<br /> 
-       XXXXXXXXXXXXXXXXXXXXX</td>
+   <td>YAPC Europe Foundation</td>
   </tr><tr>
    <th align="left" valign="top">IBAN</th>
-   <td>FRXX XXXX XXXX XXXX XXXX XXXX XXX</td>
+   <td>FR76 3006 6106 4100 0104 8480 193</td>
   </tr><tr>
    <th align="left" valign="top"><t><en>Bank identification code</en><pt>Código de identificação bancário</pt><fr>Code d'indentification bancaire</fr><it>Codice identificativo bancario</it></t></th>
-   <td>XXXXXXXX</td>
+   <td>30066</td>
   </tr>
  </table>
 </center>
