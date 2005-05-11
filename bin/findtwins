@@ -8,9 +8,7 @@ use Getopt::Long;
 $|++;
 
 # command-line parameters
-my %conf = (
-    quiet => 0,
-);
+my %conf = ( quiet => 0, );
 GetOptions( \%conf, "quiet!" )
   or die << 'EOT';
 Valid options:
@@ -74,8 +72,8 @@ for my $u ( values %$suspects ) {
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
-    printf "- %3d %s %s (%s) <%s>\n", $_->user_id, $_->first_name, $_->last_name,
-      $_->nick_name, $_->email
+    printf "- %3d %s %s (%s) <%s> (%d talks)\n", $_->user_id, $_->first_name,
+      $_->last_name, $_->nick_name, $_->email, scalar @{ $_->talks }
       for @$u;
     print "\n";
 }
