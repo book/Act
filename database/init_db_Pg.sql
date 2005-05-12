@@ -27,6 +27,7 @@ CREATE TABLE users
     gpg_pub_key  text,
     pause_id     text,
     monk_id      text,
+    monk_name    text,
     im           text,
     photo_name   text,
 
