@@ -62,11 +62,11 @@ while (@users) {
     my $u = shift @users;
     for my $func ( keys %match ) {
         for my $v (@users) {
-            if( $match{$func}->( $u, $v ) ) {
+            if ( $match{$func}->( $u, $v ) ) {
                 my ( $old, $new ) =
                   $u->{__id} < $v->{__id} ? ( $u, $v ) : ( $v, $u );
                 $new->{__id} = $old->{__id};
-                push @{ $suspects->{ $old->{__id} } ||= [ $old ] }, $new;
+                push @{ $suspects->{ $old->{__id} } ||= [$old] }, $new;
             }
         }
     }
@@ -78,8 +78,9 @@ for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
-    printf "- %3d %s %s (%s) <%s> (%d talks)\n", $_->user_id, $_->first_name,
-      $_->last_name, $_->nick_name, $_->email, scalar @{ $_->talks }
+    printf "- %3d | %s | %s %s (%s) <%s> (%d talks)\n", $_->user_id,
+      $_->login, $_->first_name, $_->last_name, $_->nick_name, $_->email,
+      scalar @{ $_->talks }
       for sort { $a->user_id <=> $b->user_id } @$u;
     print "\n";
 }
@@ -88,10 +89,10 @@ sub message { print "@_" unless $conf{quiet}; }
 
 sub normalise {
     for my $u (@_) {
-        $u->{__fullname}     = lc( $u->first_name . " " . $u->last_name );
-        $u->{__nick}         = lc $u->nick_name;
-        $u->{__email}        = lc $u->email;
-        $u->{__id}           = $u->user_id;
+        $u->{__fullname} = lc( $u->first_name . " " . $u->last_name );
+        $u->{__nick}     = lc $u->nick_name;
+        $u->{__email}    = lc $u->email;
+        $u->{__id}       = $u->user_id;
     }
 }
 
