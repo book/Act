@@ -1,1 +1,3 @@
 Stuff to do when upgrading the production server
+
+ALTER TABLE users ADD monk_name text;

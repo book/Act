@@ -121,16 +121,14 @@ UNIMPORTANT
 WISHLIST
 ========
 
-- stocker le username perlmonk en plus de l'id
-  (le nom est optionnel, l'id est obligatoire)
-  => DB
-
 - possibilité pour l'utilisateur d'afficher autant de users qu'il veut
   sur la page de recherche (genre 50, all), etc.
   + tri par nom, pays, ville... multicritère ?
   + Act::Handler::User::Search n'utilise pas Act::Form
 
 I WISH THERE WAS A LOWER PRIORITY THAN WISHLIST
+===============================================
+
 - support de plusieurs groupes de mongueurs
   => DB
   => recherche

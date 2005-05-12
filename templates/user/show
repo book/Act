@@ -101,7 +101,7 @@
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" >[% monk_id %]</a>
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" >[% monk_name OR monk_id %]</a>
       </td>
 [% END %]
 [%- IF im %]

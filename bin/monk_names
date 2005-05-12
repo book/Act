@@ -1,0 +1,29 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::User;
+use LWP::Simple;
+use DBI;
+
+use Getopt::Std;
+our $opt_v;
+getopts("v") or die "There a single valid option, you dummy!";
+
+# init the database handle
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 0 }
+  )
+  or die "can't connect to database: " . $DBI::errstr;
+
+# fetch all users
+my @users = grep { $_->monk_id && !$_->monk_name } @{ Act::User->get_items() };
+
+print "Updating monk ids...\n" if @users && $opt_v;
+for my $u (@users) {
+    my ($name) =
+      get("http://perlmonks.org/index.pl?node_id=$u->{monk_id}") =~
+      m!<title>([^<]*)</title>!;
+    print $u->monk_id, "\t", $name, "\n" if $opt_v;
+    $u->update( monk_name => $name ) if defined $name;
+}

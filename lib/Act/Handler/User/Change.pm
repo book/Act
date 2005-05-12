@@ -67,6 +67,10 @@ sub handler
                 $bio{$lang} = delete $fields->{"bio_$lang"};
             }
 
+            # check if the monk_id changed
+            $fields->{monk_name} = ''
+              if $fields->{monk_id} ne $Request{user}->monk_id;
+
             # update user
             $Request{user}->update(%$fields, participation => \%part,
                                              bio => \%bio);
