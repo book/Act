@@ -18,10 +18,10 @@ my $csv = Text::xSV->new;
 my $sth = $dbh->prepare(
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
-  . ' WHERE o.user_id = u.user_id AND o.status = ?'
+  . ' WHERE o.user_id = u.user_id AND o.status = ? AND o.means = ?'
   . ' ORDER BY o.datetime'
 );
-$sth->execute('paid');
+$sth->execute('paid', 'ONLINE');
 my $body;
 while (my @row = $sth->fetchrow_array) {
     $body .= $csv->format_row(@row);
