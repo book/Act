@@ -9,10 +9,10 @@ use constant SQL_FMT      => q{
 use constant SQL_COMMITTED => q{
   (
     EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND t.accepted IS TRUE AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?)
+     OR
+    EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status='paid')
   )
 };
-#    EXISTS(SELECT 1 from orders o where o.user_id=u.user_id and o.state='paid')
-#      OR
 
 my %sql = (
     pm_groups =>
