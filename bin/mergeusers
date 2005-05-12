@@ -32,6 +32,14 @@ print "Merging the following users:\n";
 print "into the user $users[-1]{user_id}\n";
 
 my $main = pop @users;
+
+### alternative 1
+for my $table (qw(talks orders participations rights)) {
+    my $sth = $Request{dbh}->prepare('UPDATE $table SET user_id = ? WHERE user_id = ?');
+    $sth->execute($main->user_id, $_->user_id) for @users;
+}
+
+### alternative 2
 my ( @talks, @orders, @participations, @rights );
 
 # récupère les infos
