@@ -38,7 +38,7 @@
 [% FOREACH u=users %]
  <tr>
    <td>
-    [% "<strong>" IF u.committed OR u.is_orga %][% user_info(u) %][% "</strong>" IF u.committed %]
+    [% "<strong>" IF u.committed %][% user_info(u) %][% "</strong>" IF u.committed %]
     [% IF u.photo_name %]
     <img src="/images/photo.png" alt="photo" title="photo" width="12" height="12" />
     [% END %]
