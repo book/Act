@@ -75,6 +75,8 @@ message("Comparing users... 100%\n\n");
 
 # show the results
 for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
+    my %seen; # remove duplicates
+    @$u = grep { !$seen{$_->user_id}++ } @$u;
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
