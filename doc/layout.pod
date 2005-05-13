@@ -115,6 +115,8 @@ framework. You can therefore create your own menus very easily:
     [% PROCESS menus/treasurer %]
     <!-- administrative pages -->
     [% PROCESS menus/admin %]
+    <!-- other current Act conferences -->
+    [% PROCESS menus/act_confs %]
 
 If you want to integrate those menus in you UI, you'll only have to
 redefine the following templates in the actdocs/templates directory.
