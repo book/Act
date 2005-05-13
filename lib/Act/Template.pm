@@ -109,6 +109,31 @@ sub process
                 name => $Config->name->{$Request{language}},
             };
         }
+        # other confs
+        $global{conferences} = { past => [], present => [], future => []};
+        my $now = DateTime->now;
+        for my $conf_id ( keys %{ $Config->conferences } ) {
+            next if $conf_id eq $Request{conference};
+            my $cfg = Act::Config::get_config($conf_id);
+            my $conf = {
+                conf_id => $conf_id,
+                url     => '/' . $cfg->uri . '/',
+                name    => $cfg->name->{ $Request{language} },
+                begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date),
+                end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
+            };
+            my $when;
+            if    ( $conf->{end} < $now )   { $when = 'past'; }
+            elsif ( $conf->{begin} > $now ) { $when = 'future'; }
+            else { $when = 'now'; }
+            push @{ $global{conferences}{$when} }, $conf;
+        }
+        for ( keys %{ $global{conferences} } ) {
+            @{ $global{conferences}{$_} } =
+              sort { $a->{begin} <=> $b->{begin} }
+              @{ $global{conferences}{$_} };
+        }
+
         $output ||= $Request{r};
     }
 

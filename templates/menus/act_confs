@@ -1,0 +1,13 @@
+[% WRAPPER menus/section %]
+<t>
+ <pt>Conferências Act</pt>
+ <fr>Conférences Act</fr>
+ <en>Act conferences</en>
+ <it>Conferenze Act</it>
+ <de>Act Konferenzen</de>
+</t>
+[% END %]
+[% FOREACH c = global.conferences.present.merge( global.conferences.future ) %]
+  [% WRAPPER menus/item %]<a href="[% c.url %]">[% c.name %]</a>[% END %]
+[% END %]
+
