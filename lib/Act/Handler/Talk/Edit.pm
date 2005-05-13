@@ -18,7 +18,7 @@ use Act::User;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room )],
+                  accepted confirmed date time room delete )],
   filters  => {
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
@@ -141,11 +141,21 @@ sub handler {
 
             # update existing talk
             if( defined $talk ) { 
-                my $tbefore = $talk->clone;
-                $talk->update( %$fields );
+                if( $fields->{delete} ) {
+                    # optional email notification ?
+                    # notify('delete', $talk); # FIXME
+                    $talk->delete;
+                    $template->variables(%$fields);
+                    $template->process('talk/removed');
+                    return;
+                }
+                else {
+                    my $tbefore = $talk->clone;
+                    $talk->update( %$fields );
 
-                # optional email notification
-                notify('update', $tbefore, $talk);
+                    # optional email notification
+                    notify('update', $tbefore, $talk);
+                }
             }
             # insert new talk
             else {

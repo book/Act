@@ -1,0 +1,31 @@
+[% WRAPPER ui
+   title = {
+       en => 'Talk removed', 
+       fr => 'Présentation supprimée',
+       it => 'Intervento TRANSLATEME',
+       pt => 'Apresentação TRANSLATEME'
+       de => 'Vortrag TRANSLATEME'
+   }
+%]
+
+<p>
+ <t>
+  <en>
+   The Talk <b>[% title %] has been removed.
+  </en>
+  <fr>
+   La présentation <b>[% title %]</b> a été supprimée.
+  </fr>
+  <it>
+   Grazie, l'intervento <b>[% title %]</b> è stato TRANSLATEME.
+  </it>
+  <pt>
+   Obrigado, o apresentação <b>[% title %]</b> foi TRANSLATEME.
+  </pt>
+  <de>
+  Danke, der Vortrag <b>[% title %]</b> wurde TRANSLATEME.
+  </de>
+ </t>
+</p>
+
+[% END %]

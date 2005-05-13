@@ -89,11 +89,17 @@
 
 [% IF talk_id %]
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
-[% END %]
-[% IF talk_id %]
 <p>
  <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><de>Zeige: </de></t>
  <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
+</p><p>
+<input type="checkbox" name="delete" />
+<t><en>Delete this talk</en>
+   <fr>Supprimer cette présentation</fr>
+   <it>TRANSLATEME</it>
+   <pt>TRANSLATEME</pt>
+   <de>TRANSLATEME</de>
+</t>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
