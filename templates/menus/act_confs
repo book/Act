@@ -1,3 +1,4 @@
+[% IF global.conferences.present.merge( global.conferences.future ).size %]
 [% WRAPPER menus/section %]
 <t>
  <pt>Conferências Act</pt>
@@ -10,4 +11,4 @@
 [% FOREACH c = global.conferences.present.merge( global.conferences.future ) %]
   [% WRAPPER menus/item %]<a href="[% c.url %]">[% c.name %]</a>[% END %]
 [% END %]
-
+[% END %]
