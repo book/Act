@@ -50,6 +50,14 @@
  </t>
 </p>
 <ul>
+ <li><tt>staff</tt> -
+  <t><fr>Organisateur</fr>
+     <en>Organiser</en>
+     <it>Organizzatore</it>
+     <pt>Organização</pt>
+     <de>Organisator</de>
+  </t>
+ </li>
  <li><tt>orga</tt> -
   <t><fr>Organisateur (gestion des présentations)</fr>
      <en>Organiser (talks management)</en>
