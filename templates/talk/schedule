@@ -3,7 +3,9 @@
    title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm'}
 %]
 
-[% IF not ( global.request.user.is_orga or global.config.talks_show_schedule ) %]
+[% IF not ( global.request.user.is_orga
+         or global.request.user.is_staff
+         or global.config.talks_show_schedule ) %]
 <t>
  <en>The schedule is not ready to be seen.</en>
  <fr>Les horaires ne sont pas encore finalisés.</fr>
