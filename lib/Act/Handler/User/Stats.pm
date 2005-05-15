@@ -4,90 +4,59 @@ use Act::Template::HTML;
 use Act::User;
 use Act::Country;
 
-use constant SQL_FMT      => q{
-    SELECT %s FROM users u, participations p WHERE u.user_id=p.user_id AND p.conf_id=? %s };
-use constant SQL_COMMITTED => q{
-  (
-    EXISTS(SELECT 1 FROM talks t, participations p WHERE t.user_id=u.user_id AND t.accepted IS TRUE AND p.user_id=u.user_id AND t.conf_id=p.conf_id AND p.conf_id=?)
-     OR
-    EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status='paid')
-  )
-};
-
-my %sql = (
-    pm_groups =>
-      sprintf( SQL_FMT, 'COUNT(*), u.pm_group',
-               'AND u.pm_group IS NOT NULL GROUP BY u.pm_group' ),
-    countries =>
-      sprintf( SQL_FMT, 'COUNT(*), u.country', 'GROUP BY u.country' ),
-    towns     => 
-      sprintf( SQL_FMT, 'COUNT(*), u.town, u.country',
-               'AND u.town IS NOT NULL GROUP BY u.country, u.town' ),
-    users     => sprintf( SQL_FMT, 'COUNT(*)', '' ),
-    # committed information
-    committed     => sprintf( SQL_FMT, 'COUNT(*)', "AND" . SQL_COMMITTED ),
-    com_countries => sprintf( SQL_FMT, 'COUNT(*), u.country', "AND" . SQL_COMMITTED . ' GROUP BY u.country') ,
-    com_towns     => sprintf( SQL_FMT, 'COUNT(*), u.town, country', "AND" . SQL_COMMITTED . ' AND u.town IS NOT NULL GROUP BY u.country, u.town' ),
-    com_pm_groups => sprintf( SQL_FMT, 'COUNT(*), u.pm_group', 'AND u.pm_group IS NOT NULL AND' . SQL_COMMITTED .  ' GROUP BY u.pm_group' ),
-);
-
 sub handler {
-    # store some temporary stuff
-    my $temp = {};
-    for my $query (keys %sql) {
-        my $sth = $Request{dbh}->prepare( $sql{$query} );
-        $sth->execute( ( $Request{conference} ) x $sql{$query} =~ y/?// );
-        $temp->{$query} = $sth->fetchall_arrayref();
-        $sth->finish();
-    }
 
-    # compute the results the template will show
-    my $stats = {};
-    my $lang  = $Request{language};
+    # temporary variables
+    my $users     = Act::User->get_items( conf_id => $Request{conference} );
+    my $countries = {};
+    my $towns     = {};
+    my $pm        = {};
+    my $stats     = {};
 
-    # easy ones, just a copy (one row, one column)
-    $stats->{$_} = $temp->{$_}[0][0] for qw( users committed );
-
-    # temp data for committed users
-    my $committed = {};
-    $committed->{countries}{$_->[1]} = $_->[0]
-        for @{ $temp->{com_countries} };
-    $committed->{towns}{$_->[2]}{$_->[1]} = $_->[0]
-        for @{ $temp->{com_towns} };
-    $committed->{pm_groups}{$_->[1]} = $_->[0]
-        for @{ $temp->{com_pm_groups} };
-
-    # list of monger groups
-    $stats->{pm} = [ sort { $b->{count} <=> $a->{count} }
-          map {{ name      => $_->[1],
-                 count     => $_->[0],
-                 committed => $committed->{pm_groups}{ $_->[1] } || 0,
-            }} @{ $temp->{pm_groups} } ];
-    # list of countries
-    $stats->{countries} = [ sort { $b->{count} <=> $a->{count} }
-          map {{ name      => Act::Country::CountryName( $_->[1] ),
-                 iso       => $_->[1],
-                 count     => $_->[0],
-                 committed => $committed->{countries}{$_->[1]} || 0,
-              }} @{ $temp->{countries} } ];
-    # list of towns by country
-    for (@{$temp->{towns}}) {
-        my $town = $_->[1];
-        push @{ $stats->{towns}{$_->[2]} }, {
-          name      => $_->[1],
-          count     => $_->[0],
-          committed => $committed->{towns}{$_->[2]}{$town} || 0
+    for my $u (@$users) {
+        my ( $c, $t, $p ) = ( $u->country, $u->town, $u->pm_group );
+        $countries->{$c}{count}++ || do {
+            $countries->{$c}{name} ||= Act::Country::CountryName($c);
+            $countries->{$c}{iso}  ||= $c;
+            $countries->{$c}{committed} = 0;
         };
+        if ($t) {
+            $towns->{$c}{$t}{count}++ || do {
+                $towns->{$c}{$t}{name}      = $t;
+                $towns->{$c}{$t}{committed} = 0;
+            };
+        }
+        if ($p) {
+            $pm->{$p}{count}++ || do {
+                $pm->{$p}{name}      = $p;
+                $pm->{$p}{committed} = 0;
+            };
+        }
+
+        # commited info
+        if ( $u->committed ) {
+            $countries->{$c}{committed}++;
+            $towns->{$c}{$t}{committed}++ if $t;
+            $pm->{$p}{committed}++        if $p;
+            $stats->{committed}++;
+        }
     }
-    for my $country (keys %{ $stats->{towns} } ) {
-        $stats->{towns}{$country} =
-          [ sort { $b->{count} <=> $a->{count} }
-            @{ $stats->{towns}{$country} } ];
-    }
+
+    # sort the towns for each country
+    $towns->{$_} =
+      [ sort { $b->{count} <=> $a->{count} } values %{ $towns->{$_} } ]
+      for keys %$towns;
+
+    # update the stats information
+    $stats->{users}     = scalar @$users;
+    $stats->{countries} =
+      [ sort { $b->{count} <=> $a->{count} } values %$countries ];
+    $stats->{towns} = $towns;
+    $stats->{pm}    = [ sort { $b->{count} <=> $a->{count} } values %$pm ];
 
     my $template = Act::Template::HTML->new();
     $template->variables( stats => $stats );
-    $template->process( 'user/stats' );
+    $template->process('user/stats');
 }
 
 1;
@@ -101,3 +70,4 @@ Act::Handler::User::Stats - display user statistics
 See F<DEVDOC> for a complete discussion on handlers.
 
 =cut
+
