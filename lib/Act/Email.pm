@@ -9,18 +9,23 @@ use Act::Config;
 
 # send an email
 # Act::Email::send(
-#     from    => 'foo@example.com',
-# or  from    => { name => 'Foo Bar', email => 'foo@example.com' },
-#     to      => 'foo@example.com',
-# or  to      => { name => 'Foo Bar', email => 'foo@example.com' },
-# or  to      => [ \$address1, \%address2 ],
+#     from    => <address>
+#     to      => <addresses>
 #     subject => 'blah',
 #     body    => 'more blah',
 # optional args (default values are shown):
+#     cc           => <addresses>
+#     bcc          => <addresses>
 #     encoding     => 'ISO-8859-1',
 #     content_type => 'text/plain',
 #     precedence   => 'bulk',
+#     xheader      => <headers>,
 # );
+#
+# <address>   'foo@example.com' or { name => 'Foo Bar', email => 'foo@example.com' }
+# <addresses>  <address> or [ <address>, <address>, ... ]
+# <header>     { 'X-foo' => 'bar' }
+# <headers>    <header> or [ <headers>, <header>, ... ]
 
 my %defaults = (
      encoding     => 'ISO-8859-1',
@@ -95,6 +100,14 @@ sub send
             $smtp->to($r->{email});
         }
     }
+
+    # x-headers
+    if (my $xh = $args{xheaders}) {
+        $xh = [ $xh ] unless ref($xh) eq 'ARRAY';
+        $msg->add(%$_) for @$xh;
+    }
+
+    # send it!
     $smtp->data()                      or die $smtp->message;
     $smtp->datasend($msg->as_string()) or die $smtp->message;
     $smtp->dataend()                   or die $smtp->message;

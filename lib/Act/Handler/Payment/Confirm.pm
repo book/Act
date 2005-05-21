@@ -52,6 +52,7 @@ sub _notify
         from    => $Config->email_sender_address,
         to      => $Request{user}->email,
         bcc     => [ $Config->payment_notify_bcc ],
+        xheaders => { 'X-Act' => "payment confirmation $Request{conference} " . $order->order_id },
         %output,
     );
     push @{$args{bcc}}, $Config->payment_notify_address

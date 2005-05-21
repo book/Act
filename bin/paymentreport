@@ -33,5 +33,6 @@ Act::Email::send(
     to       => { name => 'David lacravate', email => 'lacravate@mongueurs.net' },
     cc       => { name => 'Eric Cholet',     email => 'cholet@logilune.com' },
     subject  => "Act payment report",
+    xheaders => { 'X-Act' => 'payment report' },
     body     => $body,
 );
