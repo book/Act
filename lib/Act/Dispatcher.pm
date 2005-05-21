@@ -32,6 +32,7 @@ my %dispatch = (
     logout   => { handler => 'Act::Handler::Logout',         private => 1 },
     main     => { handler => 'Act::Handler::User::Main',     private => 1 },
     change   => { handler => 'Act::Handler::User::Change',   private => 1 },
+    export   => { handler => 'Act::Handler::User::Export',   private => 1 },
     photo    => { handler => 'Act::Handler::User::Photo',    private => 1 },
     purchase => { handler => 'Act::Handler::User::Purchase', private => 1 },
     rights   => { handler => 'Act::Handler::User::Rights',   private => 1 },
