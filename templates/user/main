@@ -36,8 +36,7 @@
 
 [% IF global.request.conference %]
  [% IF global.request.user.has_registered %]
-  [% IF global.request.user.has_paid %]
- <p>
+  [% IF global.request.user.has_paid %] <p>
   <t>
    <en>You have purchased your conference ticket:</en>
    <pt>Acabou de comprar o seu bilhete para a conferência:</pt>
@@ -53,6 +52,17 @@
     <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
+ [% IF order.invoice_ok %]
+ <p>
+  <t>
+   <fr>Téléchargez <a href="[% make_uri_info('invoice', global.request.user.order_id ) %]">votre reçu</a>.</fr>
+   <en>Download <a href="[% make_uri_info('invoice', global.request.user.order_id) %]">your invoice</a>.</en>
+   <it><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">TRANSLATEME</a></it>
+   <de><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">TRANSLATEME</a></de>
+   <pt><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">TRANSLATEME</a></pt>
+  </t>
+ </p>
+ [% END %]
   [% ELSE %]
  <p>
   <t>

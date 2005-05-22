@@ -22,7 +22,7 @@ sera imprimée.</fr>
           <table>
             <tr>
               <td>
-                <img src="/fpw2004/images/journees-perl-2004.png" alt="Logo Conférence" />
+                <img src="[% global.conference.logo %]" alt="Logo Conférence" />
               </td>
               <td width="20%" />
               <td>
@@ -45,7 +45,7 @@ sera imprimée.</fr>
           [% first_name %]&nbsp;[% last_name %]
         </td>
         <td valign="top" width="50%">
-          [% company %]<br>
+          [% IF company %][% company %]<br />[% END %]
           [% address %]
         </td>
       </tr>

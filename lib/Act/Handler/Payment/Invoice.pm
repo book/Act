@@ -6,6 +6,7 @@ use Act::Template::HTML;
 use Act::Config;
 use Act::User;
 use Act::Invoice;
+use Act::Order;
 
 sub handler
 {
@@ -17,6 +18,7 @@ sub handler
     }
 
     # get the order and invoice
+    # shall we limit those to the current conference?
     my $order   = Act::Order->new(   order_id => $order_id );
     my $invoice = Act::Invoice->new( order_id => $order_id );
 
@@ -26,8 +28,10 @@ sub handler
         return;
     }
 
+    # FIXME the address must exist for us to create the invoice
+
     # only a treasurer or the client can see the invoice
-    if ( ( $Request{user}->user_id == $order->user_id && $order->invoice_ok )
+    if ( ! ( $Request{user}->user_id == $order->user_id && $order->invoice_ok )
         || $Request{user}->is_treasurer )
     {
         $Request{status} = FORBIDDEN;
