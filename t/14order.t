@@ -1,4 +1,4 @@
-use Test::More tests => 7;
+use Test::More tests => 8;
 use strict;
 use DateTime;
 use t::Util;
@@ -68,3 +68,5 @@ is_deeply(  Act::Order->new( order_id => $order->order_id ),
 # reload the user, since the order was updated after we got him
 $user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
 ok( $user->has_paid, "User has paid" );
+
+is( $user->order_id, $order->order_id, "Fetch the order_id" );
