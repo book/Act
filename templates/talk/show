@@ -65,6 +65,7 @@
  </ul>
 [% END %]
 
+<hr />
 <p>
 [% abstract | html_line_break %]
 </p>
