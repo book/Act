@@ -34,7 +34,7 @@
 [% WRAPPER menus/item %]
 <a href="[% make_uri('export') %]">
  <t>
-  <fr>Export CVS</fr>
+  <fr>Export CSV</fr>
   <en>CSV export</en>
   <it>Esporta CSV</it>
   <pt>Exportar CSV</pt>
