@@ -11,35 +11,46 @@ use Act::Order;
 sub handler
 {
     # retrieve order_id
-    my $order_id = $Request{path_info};
+    my $order_id = $Request{path_info} || $Request{args}{order_id};
     unless ($order_id =~ /^\d+$/) {
         $Request{status} = NOT_FOUND;
         return;
     }
 
-    # get the order and invoice
-    # shall we limit those to the current conference?
+    # get the order
     my $order   = Act::Order->new(   order_id => $order_id );
-    my $invoice = Act::Invoice->new( order_id => $order_id );
-
-    # both must exist
-    if( ! defined $invoice || ! defined $order ) {
-        $Request{status} = NOT_FOUND;
-        return;
-    }
-
-    # FIXME the address must exist for us to create the invoice
 
     # only a treasurer or the client can see the invoice
-    if ( ! ( $Request{user}->user_id == $order->user_id && $order->invoice_ok )
-        || $Request{user}->is_treasurer )
+    unless ( $order
+        &&  ($Request{user}->user_id == $order->user_id || $Request{user}->is_treasurer))
     {
         $Request{status} = FORBIDDEN;
         return;
     }
 
-    # process the template
+    # get the invoice
     my $template = Act::Template::HTML->new();
+    my $invoice = Act::Invoice->new( order_id => $order_id );
+
+    # invoice doesn't exist
+    unless ($invoice) {
+        # user confirms billing info
+        if ($Request{args}{ok}) {
+            # create invoice
+            $invoice = Act::Invoice->create(
+                (map { $_ => $order->$_ }         qw(order_id amount currency means)),
+                (map { $_ => $Request{user}->$_ } qw( first_name last_name company address )),
+            );
+        }
+        else {
+            # display billing info confirmation form
+            $template->variables(order_id => $order_id);
+            $template->process('payment/confirm_invoice');
+            return;
+        }
+    }
+
+    # process the template
     $template->variables( %{$invoice} );
     $template->process('payment/invoice');
 }

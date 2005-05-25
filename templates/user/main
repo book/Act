@@ -52,7 +52,7 @@
     <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
- [% IF order.invoice_ok %]
+ [% IF global.config.payment_invoices %]
  <p>
   <t>
    <fr>Téléchargez <a href="[% make_uri_info('invoice', global.request.user.order_id ) %]">votre reçu</a>.</fr>
