@@ -50,13 +50,14 @@
 [% END;
    END;
 %]
-[% MACRO expand( list )
+[% MACRO expand( chunks )
    BLOCK;
-   FOREACH t = list ;
-     IF loop.count % 2 ;
-       t ;
+   FOREACH c = chunks ;
+     IF c.text ;
+       c.text ;
      ELSE ;
-       talk_link(t) ;
+       user_info(c.user) ; " - " ;
+       talk_link(c.talk) ;
      END ;
    END;
    END;

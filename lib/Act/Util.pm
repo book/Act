@@ -8,6 +8,8 @@ use Text::Iconv ();
 use URI::Escape ();
 
 use Act::Config;
+use Act::Talk;
+use Act::User;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
@@ -156,9 +158,16 @@ sub chunk {
     my $i = 0;
     return [
         map {
-            $i++ % 2
-              ? Act::Talk->new( talk_id => $_, conf_id => $Request{conference} )
-              : $_
+            my $t = { };
+            if ( $i++ % 2 ) {
+                $t->{talk} = Act::Talk->new(
+                    talk_id => $_,
+                    conf_id => $Request{conference}
+                ) ;
+                $t->{user} = Act::User->new( user_id => $t->{talk}->user_id );
+            }
+            else { $t->{text} = $_ };
+            $t;
           } split /talk:(\d+)/,
         $_[0]
     ];
