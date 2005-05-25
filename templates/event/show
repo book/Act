@@ -32,7 +32,7 @@
 [% END %]
 
 <p>
-[% abstract | html_line_break %]
+[% expand(chunked_abstract) | html_line_break %]
 </p>
 [%END %]
 

@@ -50,3 +50,14 @@
 [% END;
    END;
 %]
+[% MACRO expand( list )
+   BLOCK;
+   FOREACH t = list ;
+     IF loop.count % 2 ;
+       t ;
+     ELSE ;
+       talk_link(t) ;
+     END ;
+   END;
+   END;
+%]

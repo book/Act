@@ -151,6 +151,19 @@ sub date_format
     return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
 
+# turn talk:id into real talks
+sub chunk {
+    my $i = 0;
+    return [
+        map {
+            $i++ % 2
+              ? Act::Talk->new( talk_id => $_, conf_id => $Request{conference} )
+              : $_
+          } split /talk:(\d+)/,
+        $_[0]
+    ];
+}
+
 1;
 
 __END__
