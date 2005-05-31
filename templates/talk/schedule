@@ -14,6 +14,38 @@
  <de>Das Programm ist noch in Arbeit.</de>
 </t>
 [% ELSE %]
+[% IF todo.size %]
+<p>
+ <t>
+  <fr>Les date et lieu de ces présentations n'ont pas encore été décidés.</fr>
+  <en>The time and place of the following talks haven't been decided yet.</en>
+  <pt>TRANSLATEME</pt>
+  <it>TRANSLATEME</it>
+  <de>TRANSLATEME</de>
+ </t>
+</p>
+<table>
+ <tr>
+  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de></t></th>
+  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de></t></th>
+  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de></t></th>
+ </tr>
+ [% FOREACH t IN todo %]
+ <tr>
+  <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+   [% user_info(t.user) %]
+  </a></td>
+  <td>[% talk_confirmed_link(t) %]
+      [% talk_modify_link(t) %]
+  </td>
+  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
+  </td>
+ </tr>
+ [% END %]
+</table>
+<hr />
+[% END %]
+<p>
 <t>
  <fr>Les présentations en gras ont été confirmées par leurs auteurs.</fr>
  <en>Talks in bold type have been confirmed by their respective speakers.</en>
@@ -21,6 +53,7 @@
  <pt>As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores.</pt>
  <de>Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt.</de>
 </t>
+</p>
 [% FOREACH d IN table.keys.sort %]
 [% date = d.replace('$', ' 00:00:00' ) %]
 <a name="[% d %]"></a>

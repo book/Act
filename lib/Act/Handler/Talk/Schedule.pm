@@ -5,7 +5,7 @@ use Act::Template::HTML;
 use strict;
 
 sub handler {
-    my ($table, $room, $width, $maxwidth) = compute_schedule();
+    my ($table, $room, $width, $maxwidth, $todo) = compute_schedule();
 
     # process the template
     my $template = Act::Template::HTML->new();
@@ -13,7 +13,8 @@ sub handler {
         table    => $table,
         room     => $room,
         width    => $width,
-        maxwidth => $maxwidth
+        maxwidth => $maxwidth,
+        todo     => $todo
     );
     $template->process('talk/schedule');
 }
@@ -22,18 +23,23 @@ sub compute_schedule {
     my (%table, %index, %room, %time); # helpful structures
     my ($todo, $globals) = ([],[]);    # events lists
 
+    # pick up talks and events without a time or a place
+    my (@ts, @undecided );
+    for( @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
+        if( ( defined $_->{datetime} && defined $_->room ) ) {
+            push @ts, $_;
+        }
+        else { push @undecided, $_ }
+    }
+ 
     # sort and separate global and normal items
     # compute the times to show in the chart
     for ( sort {
         DateTime->compare( $a->datetime, $b->datetime )
         || $a->duration <=> $b->duration 
-    }
-    # default date
-    map { $_->{datetime} ||= DateTime::Format::Pg->parse_timestamp($Config->talks_start_date); $_ }
-    @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
+    } @ts) {
         my $day = $_->datetime->ymd;  # current day
         $table{$day} ||= [];          # create table structure
-        $_->{room} = 'r1' unless $_->room;
         $room{$_->room}++             # compute the room list
             unless $_->is_global;
         $_->{height} = 1;             # minimum height
@@ -160,7 +166,7 @@ sub compute_schedule {
             $i++;
         }
     }
-    return ( \%table, \%room, \%width, \%maxwidth );
+    return ( \%table, \%room, \%width, \%maxwidth, \@undecided );
 }
 
 1;
