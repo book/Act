@@ -1,1 +1,5 @@
 Stuff to do when upgrading the production server
+
+update users set country = 'gb' where country = 'uk';
+update users set country = 'cd' where country = 'zr';
+update users set country = 'cs' where country = 'yu';
