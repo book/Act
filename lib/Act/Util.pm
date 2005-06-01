@@ -115,7 +115,7 @@ sub get_translations
 
     my %texts;
     while (my ($id, $t) = each %alltexts) {
-        $texts{$id} = $t->{$Request{language}} || $t->{$Config->general_default_language};
+        $texts{$id} = $t->{$Request{language}} || $t->{$Config->default_language};
     }
     return \%texts;
 }
@@ -135,8 +135,8 @@ sub get_translation
     $sth->finish;
 
     # if that failed, try the default language
-    if (!$text && $lang ne $Config->general_default_language) {
-        $sth->execute($tbl, $col, $id, $Config->general_default_language);
+    if (!$text && $lang ne $Config->default_language) {
+        $sth->execute($tbl, $col, $id, $Config->default_language);
         ($text) = $sth->fetchrow_array();
         $sth->finish;
     }
@@ -148,7 +148,7 @@ sub date_format
 {
     my ($s, $fmt) = @_;
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
-    my $lang = $Request{language} || $Config->general_default_language;
+    my $lang = $Request{language} || $Config->default_language;
     $dt->set(locale => $lang);
     return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
