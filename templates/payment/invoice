@@ -12,6 +12,9 @@ sera imprimée.</fr>
 <de>Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt.</de>
 </t></p>
 </div>
+
+[%# BEGIN INVOICE  %]
+
     <table border="0">
       <tr>
         <td>&nbsp;</td>
@@ -19,20 +22,18 @@ sera imprimée.</fr>
       </tr>
       <tr>
         <td colspan="2">
-          <table>
+          <table border="0">
             <tr>
-              <td>
-                <img src="[% global.conference.logo %]" alt="Logo Conférence" />
-              </td>
-              <td width="20%" />
-              <td>
-                <b><t><en>Invoice #</en><fr>Facture N°</fr><it>Fattura n.</it><pt>Factura nº</pt><de>Rechnung Nr.</de></t>
-                   [% invoice_no %]</b><br />
-                <b><t><en>Dated </en><fr>En date du</fr><it>del</it><pt>Datada de</pt><de>Datum</de></t>
-                   [% datetime %]</b><br />
-                <b><t><en>Edited on</en><fr>Editée le</fr><it>Stampata il</it><pt>Alterada a</pt><de>Ausgestellt am</de></t>
-                   [% today %]</b><br />
-              </td>
+              <td><b><t><en>Invoice #</en><fr>Facture N°</fr><it>Fattura n.</it><pt>Factura nº</pt><de>Rechnung Nr.</de></t></b></td>
+              <td>[% invoice.invoice_no %]</td>
+            </tr>
+            <tr>
+              <td><b><t><en>Dated </en><fr>En date du</fr><it>del</it><pt>Datada de</pt><de>Datum</de></t></b></td>
+              <td>[% date_format(invoice.datetime, 'date_full') %]</td>
+            </tr>
+            <tr>
+              <td><b><t><en>Printed on</en><fr>Editée le</fr><it>Stampata il</it><pt>Alterada a</pt><de>Ausgestellt am</de></t></b></td>
+              <td>[% date_format(today, 'date_full') %]</td>
             </tr>
           </table>
         </td>
@@ -42,11 +43,11 @@ sera imprimée.</fr>
       </tr>
       <tr>
         <td valign="top" width="50%">
-          [% first_name %]&nbsp;[% last_name %]
+          [% invoice.first_name %]&nbsp;[% invoice.last_name %]
         </td>
         <td valign="top" width="50%">
-          [% IF company %][% company %]<br />[% END %]
-          [% address | html_line_break %]
+          [% IF invoice.company; invoice.company; "<br />"; END %]
+          [% invoice.address | html_line_break %]
         </td>
       </tr>
       <tr>
@@ -54,47 +55,33 @@ sera imprimée.</fr>
       </tr>
       <tr>
         <td colspan="2">
-          <table border width="100%">
-            <tr>
-              <th colspan="2">&nbsp;</th>
-              <th colspan="2">[% currency %]</th>
-            </tr>
+          <table border="1" width="100%">
             <tr>
               <th><t><en>Description</en><fr>Désignation</fr><it>Descrizione</it><pt>Descrição</pt><de>Beschreibung</de></t></th>
               <th><t><en>Quantity</en><fr>Quantité</fr><it>Quantità</it><pt>Quantidade</pt><de>Anzahl</de></t></th>
-              <th><t><en>Unit Price</en><fr>Prix Unitaire</fr><it>Prezzo unitario</it><pt>Preço unitário</pt><de>Stückpreis</de></t></th>
+              <th><t><en>Unit Price</en><fr>Prix unitaire</fr><it>Prezzo unitario</it><pt>Preço unitário</pt><de>Stückpreis</de></t></th>
               <th><t><en>Total</en><fr>Total</fr><it>Totale</it><pt>Total</pt><de>Summe</de></t></th>
             </tr>
             <tr>
-              <td align="left">[% means %]</td>
+              <td align="left">
+               <t>
+                <en>[% global.conference.name %] registration<br />Your order number:</en>
+                <fr>Inscription à [% global.conference.name %]<br />Votre commande n°&nbsp;:</fr>
+                <pt>Inscrição em [% global.conference.name %]<br />Compra:</pt>
+                <it>Iscrizione a [% global.conference.name %]<br />Vostro ordine:</it>
+                <de>[% global.conference.name %] Anmelden<br />Ihre Bestellnummer:</de>
+               </t>
+               [% order.order_id %] - [% date_format(order.datetime, 'date_short') %] - [% order.means %]
+              </td>
               <td align="center">1</td>
-              <td align="right">[% amount %]</td>
-              <td align="right">[% amount %]</td>
+              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
+              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
             </tr>
             <tr>
-              <td colspan="3" align="right"><t><en>Due total</en><fr>Total à payer</fr><it>Totale fattura</it><pt>Total a pagar</pt></de>Zu zahlende Summe</de></t></td>
-              <td align="right">[% amount %]</td>
+              <td colspan="3" align="right"><t><en>Total due</en><fr>Total à payer</fr><it>Totale fattura</it><pt>Total a pagar</pt><de>Zu zahlende Summe</de></t></td>
+              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
             </tr>
           </table>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" colspan="2">
-          <font size="1">
-          Les Mongueurs de Perl chez M. David Landgren<br>
-          30, rue Volta / 75003 Paris / France
-          </font>
-        </td>
-      </tr>
-      <tr>
-        <td align="center" colspan="2">
-          <font size="1">
-          Association sans but lucratif, régie par la loi du 1er juillet 1901.<br>
-          Parution au JO le 15/12/2001 (N° de parution 20010050, N° d'annonce 2200)<br>
-          </font>
         </td>
       </tr>
     </table>

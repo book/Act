@@ -51,7 +51,12 @@ sub handler
     }
 
     # process the template
-    $template->variables( %{$invoice}, today => DateTime->now );
+    $order->{means} = Act::Util::get_translation('payment', 'name', $order->means);
+    $template->variables(
+        order   => $order,
+        invoice => $invoice,
+        today   => DateTime->now,
+    );
     $template->process('payment/invoice');
 }
 
