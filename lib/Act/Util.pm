@@ -27,6 +27,20 @@ my %grams = (
 );
 my @pass = qw( vcvcvc cvcvcv cvcvc vcvcv );
 
+# connect to the database
+sub db_connect
+{
+    $Request{dbh} = DBI->connect_cached(
+        $Config->database_dsn,
+        $Config->database_user,
+        $Config->database_passwd,
+        { AutoCommit => 0,
+          PrintError => 0,
+          RaiseError => 1,
+        }
+    ) or die "can't connect to database: " . $DBI::errstr;
+}
+
 # create a uri for an action with args
 sub make_uri
 {

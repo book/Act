@@ -64,7 +64,7 @@ sub trans_handler
     );
     
     # connect to database
-    _db_connect();
+    Act::Util::db_connect();
 
     # URI must start with a conf name
     unless (@c && (exists $Config->uris->{$c[0]} || exists $Config->conferences->{$c[0]})) {
@@ -187,19 +187,6 @@ sub _set_language
         );
         $cookie->bake;
     }
-}
-
-sub _db_connect
-{
-    $Request{dbh} = DBI->connect_cached(
-        $Config->database_dsn,
-        $Config->database_user,
-        $Config->database_passwd,
-        { AutoCommit => 0,
-          PrintError => 0,
-          RaiseError => 1,
-        }
-    ) or die "can't connect to database: " . $DBI::errstr;
 }
 
 sub _base_url
