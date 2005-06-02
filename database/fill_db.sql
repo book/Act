@@ -567,11 +567,11 @@ INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'fr', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'it', 'Gibraltar');
 INSERT INTO translations VALUES ('countries', 'iso', 'gi', 'pt', 'Gibraltar');
 
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'de', 'Gambia');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'en', 'Gambia');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'fr', 'Gambie');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'it', 'Gambia');
-INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'pt', 'Gâmbia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'de', 'Grönland');
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'en', 'Greenland');
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'fr', 'Groenland');
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'it', 'Groenlandia');
+INSERT INTO translations VALUES ('countries', 'iso', 'gl', 'pt', 'Gronelândia');
 
 INSERT INTO translations VALUES ('countries', 'iso', 'gm', 'en', 'Gambia');
 INSERT INTO translations VALUES ('countries', 'iso', 'gm', 'fr', 'Gambie');
