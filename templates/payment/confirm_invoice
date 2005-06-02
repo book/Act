@@ -45,7 +45,7 @@
 <tr>
    <td align="right"><t><en>Address</en><fr>Ville</fr><pt>Cidade</pt><it>Città</it><de>Stadt</de></t></td>
    <td>&nbsp;</td>
-   <td align="left">[% global.request.user.address %]</td>
+   <td align="left">[% global.request.user.address | html_line_break %]</td>
 </tr>
 <tr>
   <td align="right">

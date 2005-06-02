@@ -46,7 +46,7 @@ sera imprimée.</fr>
         </td>
         <td valign="top" width="50%">
           [% IF company %][% company %]<br />[% END %]
-          [% address %]
+          [% address | html_line_break %]
         </td>
       </tr>
       <tr>
