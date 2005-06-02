@@ -51,7 +51,7 @@ sub handler
     }
 
     # process the template
-    $template->variables( %{$invoice} );
+    $template->variables( %{$invoice}, today => DateTime->now );
     $template->process('payment/invoice');
 }
 
