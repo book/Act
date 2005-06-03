@@ -79,7 +79,7 @@
   </td>
   <td>&nbsp;</td>
   <td align="left">
-     [% company %]
+     [% global.request.user.company %]
   </td>
 </tr>
 </table>
