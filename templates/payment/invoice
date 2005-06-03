@@ -1,19 +1,4 @@
-[% WRAPPER ui 
-   title = { en => 'Invoice', fr => 'Facture', it => 'Fattura', pt => 'Factura' }
-%]
-<div id="contentHeader">
-<p><t>
-<en>You can print this page: only the invoice below will be printed.</en>
-<pt>Pode imprimir esta página; apenas a factura será impressa.</pt>
-<fr>Vous pouvez imprimer cette page&nbsp;: seule la facture ci-dessous
-sera imprimée.</fr>
-<it>Potete stampare questa pagina: solo la fattura sarà stampata.</it>
-<pt>Pode imprimir esta página; apenas a factura será impressa.</pt>
-<de>Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt.</de>
-</t></p>
-</div>
-
-[%# BEGIN INVOICE  %]
+[% BLOCK invoice_body  %]
 
     <table border="0">
       <tr>
@@ -71,7 +56,12 @@ sera imprimée.</fr>
                 <it>Iscrizione a [% global.conference.name %]<br />Vostro ordine:</it>
                 <de>[% global.conference.name %] Anmelden<br />Ihre Bestellnummer:</de>
                </t>
+
+               [%# info about the payment: order #, payment date and payment means
+                   you can use this to turn this invoice into a receipt
+               %]
                [% order.order_id %] - [% date_format(order.datetime, 'date_short') %] - [% order.means %]
+
               </td>
               <td align="center">1</td>
               <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
@@ -86,3 +76,41 @@ sera imprimée.</fr>
       </tr>
     </table>
 [% END %]
+
+[% IF printer_friendly %]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="[% global.request.language %]" xml:lang="[% global.request.language %]">
+<head>
+<title><t><en>Invoice</en><fr>Facture</fr><it>Fattura</it><pt>Factura</pt><de>Rechnung</de></t></title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+[% PROCESS invoice_body %]
+</body>
+</html>
+
+
+[% ELSE;
+   WRAPPER ui title = { en => 'Invoice', fr => 'Facture', it => 'Fattura', pt => 'Factura', de => 'Rechnung' }
+%]
+
+[%# Remove the following <div>...</div> if you use the printer_friendly version mechanism %]
+<div id="dontprint">
+<p><t>
+<en>You can print this page: only the invoice below will be printed.</en>
+<pt>Pode imprimir esta página; apenas a factura será impressa.</pt>
+<fr>Vous pouvez imprimer cette page&nbsp;: seule la facture ci-dessous
+sera imprimée.</fr>
+<it>Potete stampare questa pagina: solo la fattura sarà stampata.</it>
+<pt>Pode imprimirr esta página; apenas a factura será impressa.</pt>
+<de>Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt.</de>
+</t></p>
+</div>
+
+[% PROCESS invoice_body %]
+
+<div align="center">
+<p><a href="[% printer_uri %]" target="_new"><t><fr>Version imprimable</fr><en>Printer friendly version</en><de>XXX</de><it>XXX</it><pt>XXX</pt></t></a></p>
+</div>
+
+[% END; END %]

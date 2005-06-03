@@ -7,6 +7,7 @@ use Act::Config;
 use Act::User;
 use Act::Invoice;
 use Act::Order;
+use Act::Util;
 
 sub handler
 {
@@ -56,6 +57,8 @@ sub handler
         order   => $order,
         invoice => $invoice,
         today   => DateTime->now,
+        printer_friendly => $Request{args}{printer},
+        printer_uri      => self_uri(printer => 1),
     );
     $template->process('payment/invoice');
 }
