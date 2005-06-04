@@ -38,7 +38,8 @@ CREATE TABLE users
     /* billing info */
     company      text,
     company_url  text,
-    address      text
+    address      text,
+    vat          text
 
 );
 CREATE UNIQUE INDEX users_session_id ON users (session_id);
@@ -186,6 +187,7 @@ CREATE TABLE invoices
     /* billing info */
     company      text,
     address      text,
+    vat          text,
 
     FOREIGN KEY( order_id  ) REFERENCES orders( order_id )
 );

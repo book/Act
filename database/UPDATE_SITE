@@ -1,2 +1,6 @@
 Stuff to do when upgrading the production server
 
+alter table invoices drop column company_url;
+
+alter table users add column vat text;
+alter table invoices add column vat text;

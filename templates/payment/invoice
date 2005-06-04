@@ -33,6 +33,10 @@
         <td valign="top" width="50%">
           [% IF invoice.company; invoice.company; "<br />"; END %]
           [% invoice.address | html_line_break %]
+          [% IF invoice.vat %]
+            <br />
+            <t><en>VAT Number</en><fr>Numéro de TVA&nbsp;</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de></t>:
+          [% invoice.vat; END %]
         </td>
       </tr>
       <tr>

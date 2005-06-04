@@ -42,7 +42,7 @@ sub handler
     my $form = Act::Form->new( @form_params, 
         optional => [qw(im civility email_hide gpg_pub_key im pause_id
                         monk_id pm_group pm_group_url timezone town web_page
-                        company company_url address ),
+                        company company_url vat address ),
                         @partfields,
                         map { "bio_$_" } keys %{ $Config->languages } ]
     );

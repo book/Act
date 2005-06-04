@@ -30,6 +30,7 @@ my %user_info = (
 my %billing_info = (
    company     => 'Acme Inc',
    address     => '42 Recursive Drive, Palo Bajo',
+   vat         => '87654-US-ZCZC',
 );
 my $order = Act::Order->create(
    user_id   => $user->user_id,

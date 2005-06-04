@@ -322,6 +322,15 @@
 </tr>
 <tr>
    <td align="right">
+      <t><en>VAT Number</en><fr>Numéro de TVA</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de></t>
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="vat" value="[% vat %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
       [%- IF company_url %]
          <a href="[% company_url %]" >
       [% END %]

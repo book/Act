@@ -40,7 +40,7 @@ sub handler
             # create invoice
             $invoice = Act::Invoice->create(
                 (map { $_ => $order->$_ }         qw(order_id amount currency means)),
-                (map { $_ => $Request{user}->$_ } qw( first_name last_name company address )),
+                (map { $_ => $Request{user}->$_ } qw( first_name last_name company vat address )),
             );
             # redirect to canonical invoice URL
             return Act::Util::redirect(make_uri_info('invoice', $order_id));

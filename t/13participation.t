@@ -55,6 +55,7 @@ is_deeply( $user,
         address      => undef,
         company      => undef,
         company_url  => undef,
+        vat          => undef,
     }, "Got the user and the new fields" );
 
 my $user2 = Act::User->new( login => 'book', conf_id => 'conf' );
