@@ -57,7 +57,7 @@
   <t>
    <fr>Téléchargez <a href="[% make_uri_info('invoice', global.request.user.order_id ) %]">votre reçu</a>.</fr>
    <en>Download <a href="[% make_uri_info('invoice', global.request.user.order_id) %]">your invoice</a>.</en>
-   <it><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">TRANSLATEME</a></it>
+   <it><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">Scarica la fattura</a></it>
    <de><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">Rechnung herunterladen</a></de>
    <pt>Descarregar a <a href="[% make_uri_info('invoice', global.request.user.order_id) %]">factura</a></pt>
   </t>

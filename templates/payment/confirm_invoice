@@ -11,7 +11,7 @@
    <en>Click here</en>
    <de>Hier klicken</de>
    <pt>Clique aqui</pt>
-   <it>TRANSLATEME</it>
+   <it>Modifica o aggiorna queste informazioni.</it>
   </t>
  </a>
  <t>
@@ -19,7 +19,7 @@
   <en>to modify or update this information.</en>
   <de>um diese Informationen zu ändern.</de>
   <pt>para modificar ou actualizar esta informação.</pt>
-  <it>TRANSLATEME</it>
+  <it></it>
  </t>
 </p>
 [% END %]
@@ -32,7 +32,7 @@
   <en>Establishing your invoice requires your address.</en>
   <de>Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben.</de>
   <pt>A criação da sua factura precisa do seu endereço postal.</pt>
-  <it>TRANSLATEME</it>
+  <it>Per preparare la fattura è necessario il vostro indirizzo.</it>
  </t>
 </p>
 [% PROCESS update_link %]
@@ -46,7 +46,7 @@
   <en>Please make sure the billing information is correct.</en>
   <de>Bitte überprüfen Sie, on die Rechnungsdaten stimmen.</de>
   <pt>Por favor, verifique se a sua informação está correcta.</pt>
-  <it>TRANSLATEME</it>
+  <it>Per favore controllate che i dati di fatturazione siano corretti.</it>
  </t>
 </p>
 
