@@ -110,7 +110,7 @@ sera imprimée.</fr>
 [% PROCESS invoice_body %]
 
 <div align="center">
-<p><a href="[% printer_uri %]" target="_new"><t><fr>Version imprimable</fr><en>Printer friendly version</en><de>TRANSLATEME</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t></a></p>
+<p><a href="[% printer_uri %]" target="_new"><t><fr>Version imprimable</fr><en>Printer friendly version</en><de>Drucker-freundliche Version</de><it>TRANSLATEME</it><pt>TRANSLATEME</pt></t></a></p>
 </div>
 
 [% END; END %]

@@ -9,7 +9,7 @@
   <t>
    <fr>Cliquer ici</fr>
    <en>Click here</en>
-   <de>TRANSLATEME</de>
+   <de>Hier klicken</de>
    <pt>TRANSLATEME</pt>
    <it>TRANSLATEME</it>
   </t>
@@ -17,7 +17,7 @@
  <t>
   <fr>pour modifier ou compléter ces informations.</fr>
   <en>to modify or update this information.</en>
-  <de>TRANSLATEME</de>
+  <de>um diese Informationen zu ändern.</de>
   <pt>TRANSLATEME</pt>
   <it>TRANSLATEME</it>
  </t>
@@ -30,7 +30,7 @@
  <t>
   <fr>Votre adresse est indispensable pour l'émission d'une facture.</fr>
   <en>Establishing your invoice requires your address.</en>
-  <de>TRANSLATEME</de>
+  <de>Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben.</de>
   <pt>TRANSLATEME</pt>
   <it>TRANSLATEME</it>
  </t>
@@ -44,7 +44,7 @@
  <t>
   <fr>Merci de vérifier l'exactitude des informations de facturation.</fr>
   <en>Please make sure the billing information is correct.</en>
-  <de>TRANSLATEME</de>
+  <de>Bitte überprüfen Sie, on die Rechnungsdaten stimmen.</de>
   <pt>TRANSLATEME</pt>
   <it>TRANSLATEME</it>
  </t>
@@ -85,7 +85,7 @@
 </table>
 </td></tr></table>
 </td></tr></table>
-<input type="submit" name="ok" value="<t><fr>Je confirme</fr><en>I confirm</en></t>" />
+<input type="submit" name="ok" value="<t><fr>Je confirme</fr><en>I confirm</en><de>Bestätigen</de></t>" />
 </form>
 [% END %]
 </div>
