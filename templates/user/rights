@@ -8,7 +8,7 @@
 <tr bgcolor="#FFFFFF">
  <th><t><en>Right</en><fr>Droit</fr><it>Permessi</it><pt>Permissões</pt><de>Recht</de></t></th>
  <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>User</de></t></th>
- <th><t><en>Delete</en><fr>Supprimer</fr><it>Elimina</it><pt>Apagar</pt><de>L&oum;schen</de></t></th>
+ <th><t><en>Delete</en><fr>Supprimer</fr><it>Elimina</it><pt>Apagar</pt><de>Löschen</de></t></th>
 </tr>
 [% FOREACH r=rights %]
  <tr>
@@ -79,7 +79,7 @@
      <en>Administrator (rights management)</en>
      <it>Amministratore (gestione permessi)</it>
      <pt>Administrador (gestão de permissões)</pt>
-     <de>Administrator (Rechtemanagement)<de>
+     <de>Administrator (Rechtemanagement)</de>
   </t>
  </li>
 </ul>
