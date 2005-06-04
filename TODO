@@ -62,17 +62,6 @@ NORMAL
   + possibilité d'annoter les photos par exemple pour les lier à un talk,
     une salle, un jour ?
 
-- il y a un module Act::Invoice (pour les factures), mais je ne vois
-  pas de Act::Handler::User::Invoice pour les afficher.
-  + le lien vers cette page devrait apparaitre seulement si invoice_ok
-    a été coché par le trésorier
-
-- template générique pour les factures, modifiable localement par chaque
-  conf
-  + le template de base est "blanc", avec un autre template pour
-    contenir les informations à afficher (les mêmes pour toutes les
-    conferences)
-
 - dans conf/act.ini, rajouter un [general] finished = 1 quand la conf
   est terminée. Ca devrait simplifier les affichages de payments.
 
