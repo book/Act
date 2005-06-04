@@ -6,6 +6,7 @@ use Act::Invoice;
 use Act::Order;
 use Act::Template::HTML;
 use Act::User;
+use Act::Util;
 
 sub handler
 {
@@ -16,13 +17,18 @@ sub handler
     }
     # retrieve users and their payment info
     my $users = Act::User->get_items( conf_id => $Request{conference} );
-    my %orders;
+    my (%orders, %invoice_uri);
     for my $u (@$users) {
         $orders{$u->user_id} = Act::Order->new(
             user_id  => $u->user_id,
             conf_id  => $Request{conference},
             status   => 'paid',
         );
+        if ($orders{$u->user_id}) {
+            if (my $i = Act::Invoice->new(order_id => $orders{$u->user_id}->order_id)) {
+                $invoice_uri{$u->user_id} = make_uri_info('invoice', $i->order_id);
+            }
+        }
     }
 
     # process the template
@@ -35,7 +41,7 @@ sub handler
                    @$users
                  ],
         orders => \%orders,
-        
+        invoice_uri => \%invoice_uri,
     ); 
     $template->process('payment/list');
 }
