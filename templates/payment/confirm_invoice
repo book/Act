@@ -85,7 +85,7 @@
 </table>
 </td></tr></table>
 </td></tr></table>
-<input type="submit" name="ok" value="<t><fr>Je confirme</fr><en>I confirm</en><de>Bestätigen</de></t>" />
+<input type="submit" name="ok" value="<t><fr>Je confirme</fr><en>I confirm</en><de>Bestätigen</de><pt>TRANSLATEME</pt><it>TRANSLATEME</it></t>" />
 </form>
 [% END %]
 </div>
