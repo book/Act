@@ -160,7 +160,6 @@ CREATE TABLE orders
     means      text,
     currency   text,
     status     text      NOT NULL,
-    invoice_ok boolean   DEFAULT false,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );

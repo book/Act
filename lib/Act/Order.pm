@@ -15,7 +15,7 @@ our %sql_stub    = (
 our %sql_mapping = (
     # standard stuff
     map( { ($_, "(o.$_=?)") }
-         qw( order_id user_id conf_id amount means currency status invoice_ok) )
+         qw( order_id user_id conf_id amount means currency status ) )
 );
 our %sql_opts    = ( 'order by' => 'order_id' );
 

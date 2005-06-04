@@ -40,7 +40,6 @@ is_deeply( Act::Order->new( user_id => $user->user_id ),
    amount       => AMOUNT,
    currency     => 'EUR',
    means        => undef,
-   invoice_ok   => 0,
    },
   "fetch" );
 
@@ -61,7 +60,6 @@ is_deeply(  Act::Order->new( order_id => $order->order_id ),
    amount       => AMOUNT,
    currency     => 'EUR',
    means        => 'ONLINE',
-   invoice_ok   => 0,
    },
   "update" );
 
