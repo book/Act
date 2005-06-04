@@ -185,7 +185,6 @@ CREATE TABLE invoices
 
     /* billing info */
     company      text,
-    company_url  text,
     address      text,
 
     FOREIGN KEY( order_id  ) REFERENCES orders( order_id )

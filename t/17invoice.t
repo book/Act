@@ -29,7 +29,6 @@ my %user_info = (
 );
 my %billing_info = (
    company     => 'Acme Inc',
-   company_url => 'http://www.example.org',
    address     => '42 Recursive Drive, Palo Bajo',
 );
 my $order = Act::Order->create(
