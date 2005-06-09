@@ -125,7 +125,7 @@ sub process
             my $when;
             if    ( $conf->{end} < $now )   { $when = 'past'; }
             elsif ( $conf->{begin} > $now ) { $when = 'future'; }
-            else { $when = 'now'; }
+            else { $when = 'present'; }
             push @{ $global{conferences}{$when} }, $conf;
         }
         for ( keys %{ $global{conferences} } ) {
