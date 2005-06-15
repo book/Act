@@ -11,6 +11,12 @@ use Act::Util;
 
 sub handler
 {
+    # invoices must be enabled
+    unless ($Config->payment_invoices) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
+
     # retrieve order_id
     my $order_id = $Request{path_info} || $Request{args}{order_id};
     unless ($order_id =~ /^\d+$/) {
