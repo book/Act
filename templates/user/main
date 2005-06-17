@@ -55,11 +55,11 @@
  [% IF global.config.payment_invoices %]
  <p>
   <t>
-   <fr>Téléchargez <a href="[% make_uri_info('invoice', global.request.user.order_id ) %]">votre reçu</a>.</fr>
-   <en>Download <a href="[% make_uri_info('invoice', global.request.user.order_id) %]">your invoice</a>.</en>
-   <it><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">Scarica la fattura</a></it>
-   <de><a href="[% make_uri_info('invoice', global.request.user.order_id) %]">Rechnung herunterladen</a></de>
-   <pt>Descarregar a <a href="[% make_uri_info('invoice', global.request.user.order_id) %]">factura</a></pt>
+   <fr>Téléchargez <a   href="[% make_uri_info('invoice', order.order_id) %]">votre reçu</a>.</fr>
+   <en>Download <a      href="[% make_uri_info('invoice', order.order_id) %]">your invoice</a>.</en>
+   <it><a               href="[% make_uri_info('invoice', order.order_id) %]">Scarica la fattura</a>.</it>
+   <de><a               href="[% make_uri_info('invoice', order.order_id) %]">Rechnung herunterladen</a>.</de>
+   <pt>Descarregar a <a href="[% make_uri_info('invoice', order.order_id) %]">factura</a>.</pt>
   </t>
  </p>
  [% END %]

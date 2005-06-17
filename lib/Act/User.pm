@@ -110,8 +110,6 @@ my %methods = (
         "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
     has_registered => 
         'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=?',
-    order_id =>
-        'SELECT order_id FROM orders o WHERE o.user_id=? AND o.conf_id=?',
 );
 
 for my $meth (keys %methods) {
