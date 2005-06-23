@@ -76,8 +76,11 @@ sub send
     my %opts;
     $opts{Port} = $Config->email_smtp_port
         if $Config->email_smtp_port;
-    my $smtp = Net::SMTP->new($Config->email_smtp_server, %opts)
-      or die "can't create new Net::SMTP object";
+    my $smtp = Net::SMTP->new($Config->email_smtp_server, %opts);
+    unless ($smtp) {
+        warn "can't create new Net::SMTP object\n";
+        return;
+    }
 
     # envelope sender
     $smtp->mail($from->{email});
@@ -108,10 +111,13 @@ sub send
     }
 
     # send it!
-    $smtp->data()                      or die $smtp->message;
-    $smtp->datasend($msg->as_string()) or die $smtp->message;
-    $smtp->dataend()                   or die $smtp->message;
-    $smtp->quit()                      or die $smtp->message;
+       $smtp->data()
+    && $smtp->datasend($msg->as_string())
+    && $smtp->dataend()
+    && $smtp->quit()
+    && return;
+
+    warn $smtp->message;
 }
 1;
 __END__
