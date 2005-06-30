@@ -26,6 +26,7 @@ my %dispatch = (
     event    => { handler => 'Act::Handler::Event::Show' },
     events   => { handler => 'Act::Handler::Event::List' },
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
+    'timetable.ics' => { handler => 'Act::Handler::Talk::Export' },
 
     # protected handlers
     unregister => { handler => 'Act::Handler::User::Unregister', private => 1 },
@@ -41,7 +42,6 @@ my %dispatch = (
     newevent  => { handler => 'Act::Handler::Event::Edit',  private => 1 },
     editevent => { handler => 'Act::Handler::Event::Edit',  private => 1 },
     ical_import => { handler => 'Act::Handler::Talk::Import',   private => 1 },
-    'timetable.ics' => { handler => 'Act::Handler::Talk::Export',   private => 1 },
     payment   => { handler => 'Act::Handler::Payment::Payment', private => 1 },
     payments  => { handler => 'Act::Handler::Payment::List',   private => 1 },
     invoice   => { handler => 'Act::Handler::Payment::Invoice', private => 1 },

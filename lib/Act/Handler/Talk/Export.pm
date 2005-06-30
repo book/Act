@@ -20,12 +20,6 @@ use constant UID => "5F451677-A523-11D8-928A-000393DB4634";
 
 sub handler
 {
-    # only for admins
-    unless ($Request{user}->is_orga) {
-        $Request{status} = NOT_FOUND;
-        return;
-    }
-
     # get the table information
     my ($talks) = Act::Handler::Talk::Schedule::compute_schedule();
     # keep only the Act::TimeSlot objects

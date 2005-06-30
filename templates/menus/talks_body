@@ -10,8 +10,6 @@
     </t>
    </a>
    [% END %]
-[% END %]
-[% IF global.request.user.is_orga %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('timetable.ics') %]">
     <t>
@@ -23,6 +21,8 @@
     </t>
    </a>
    [% END %]
+[% END %]
+[% IF global.request.user.is_orga %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('ical_import') %]">
     <t>
