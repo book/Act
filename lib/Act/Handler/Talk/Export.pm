@@ -1,7 +1,6 @@
 package Act::Handler::Talk::Export;
 use strict;
 
-use Apache::Constants qw(NOT_FOUND);
 use DateTime;
 use DateTime::Format::Pg;
 use DateTime::Format::ICal;
@@ -51,7 +50,7 @@ sub handler
         now      => DateTime::Format::ICal->format_datetime($now),
         timezone => $Config->general_timezone,
         cid      => CID,
-        calname  => $Request{conference},
+        calname  => $Config->name->{$Request{language}},
     );
     $Request{r}->send_http_header('text/calendar');
     $template->process('talk/ical');
