@@ -55,7 +55,7 @@
     Password dimenticata? Segui <a href="[% make_uri('resetpw') %]">questo link</a>.
   </it>
   <pt>
-    Esqueceu-se do seu código secreto? Sigua <a href="[% make_uri('resetpw') %]">esta ligação</a>.
+    Esqueceu-se do seu código secreto? Siga <a href="[% make_uri('resetpw') %]">esta ligação</a>.
   </pt>
   <de>
   Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
