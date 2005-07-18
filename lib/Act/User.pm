@@ -12,7 +12,7 @@ our $primary_key = 'user_id';
 our %sql_stub    = (
     select     => "u.*",
     select_opt => {
-        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = 'paid') OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=u.user_id AND r.conf_id=? AND r.right_id IN ('orga','staff'))) AS committed" ] : () },
+        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = 'paid') OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=u.user_id AND r.conf_id=? AND r.right_id IN ('orga','staff','invited'))) AS committed" ] : () },
     },
     from       => "users u",
     from_opt   => [
