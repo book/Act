@@ -22,8 +22,8 @@
    Existem [% stats.users %] pessoas registadas, de 
    [% stats.countries.size %] país[% stats.countries.size > 1 ? "es" : "" %]
    e [% stats.pm.size %] grupo[% "s" IF stats.pm.size > 1 %] de monges.
-   Existem [% stats.committed %] utilizador[% "s" IF stats.committed > 1 %]
-   que já apagaram ou irão realizar uma apresentação.
+   Existem [% stats.committed %] utilizador[% "es" IF stats.committed > 1 %]
+   que já pagaram ou irão realizar uma apresentação.
   </pt>
   <fr>
    La conférence compte [% stats.users %] inscrit[% "s" IF stats.users > 1 %],
