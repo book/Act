@@ -12,11 +12,21 @@
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
  <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de></t></th>
+ <th>Status</th>
  <th><t><en>Payment date</en><fr>Date du règlement</fr><it>Data del pagamento</it><pt>Data de pagamento</pt><de>Zahlungsdatum</de></t></th>
  <th><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt><de>Zahlungsart</de></t></th>
  <th><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t></th>
 </tr>
 [% total = { } %]
+[% speaker = BLOCK %]<t><en>speaker</en><fr>présentateur</fr><pt>orador</pt><it>oratore</it><de>Vortragende/r</de></t>[% END %]
+[% BLOCK user_status;
+     lines = [];
+     FOREACH r = user.rights.keys;
+        lines.push(r);
+     END;
+     lines.push(speaker) IF user.has_talk;
+     lines.sort.join('<br />');
+   END %]
 [% FOREACH u = users %]
   [% o = orders.${u.user_id} %]
   <tr>
@@ -30,11 +40,13 @@
             [% END %]
             </strong>
         </td>
+        <td>[% PROCESS user_status user = u %]</td>
         <td>[% date_format(o.datetime,'datetime_short') %]</td>
         <td>[% o.means %]</td>
         <td>[% o.amount %]&nbsp;[% o.currency %]</td>
     [% ELSE %]
         <td><a href="[% make_uri('payment', 'user_id', u.user_id) %]">[% u.last_name %] [% u.first_name %]</a></td>
+        <td>[% PROCESS user_status user = u %]</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
