@@ -57,6 +57,7 @@
      <td><strong>Total</strong>
      <td>&nbsp;</td>
      <td>&nbsp;</td>
+     <td>&nbsp;</td>
      <td>
        [% FOREACH currency = total.keys.sort;
             total.$currency; ' '; currency;
