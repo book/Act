@@ -26,7 +26,9 @@ sub handler
         && (my $price = Act::Payment::get_price($Request{args}{price})))
     {
         # first form has been submitted
-        # fetch or create order
+        # purge existing order from previous failed attempt
+        # and always a use a newly created order
+        # (the bank will only process an order once)
         my %f = (
             user_id  => $Request{user}{user_id},
             conf_id  => $Request{conference},
@@ -34,7 +36,9 @@ sub handler
             currency => $price->{currency},
             status   => 'init',
         );
-        my $order = Act::Order->new(%f) || Act::Order->create(%f);
+        my $order = Act::Order->new(%f);
+        $order->delete() if $order;
+        $order = Act::Order->create(%f);
 
         # display second form (submits to the bank)
         $template->variables(order => $order);
