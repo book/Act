@@ -4,3 +4,4 @@
 [% PROCESS menus/events %]
 [% PROCESS menus/treasurer %]
 [% PROCESS menus/admin %]
+[% PROCESS menus/act_confs %]
