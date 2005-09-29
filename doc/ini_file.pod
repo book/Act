@@ -14,8 +14,7 @@ conference.
 =head2 Conference configuration
 
     [general]
-    uri         = 2004
-    base_url    = http://conferences.mongueurs.net
+    uri         = 2004                 # optional URI alias
     languages   = fr en                # languages supported
     default_language = fr
     searchlimit = 20                   # max number of users returned
@@ -41,6 +40,12 @@ conference.
 
     [payment]
     open        = 0
+    prices      = 1        # how many different registration prices
+    
+    [price1]
+    type        = NORMAL   # NORMAL, REDUCED or BUSINESS
+    amount      = 25
+    currency    = EUR
 
 =head2 Infrastructure configuration
 
