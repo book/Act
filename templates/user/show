@@ -12,6 +12,13 @@
 
 <table border="0" cellpadding="0" cellspacing="10">
 
+[% IF global.request.user.is_staff %]
+<tr>
+ <td align="right"><t><en>Login</en><fr>Identifiant</fr><pt>Login</pt><it>Identificativo</it><de>User-ID</de></t></td>
+ <td>&nbsp;</td>
+ <td align="left">[% login %]</td>
+</tr>
+[% END %]
 <tr>
    <td align="right">
       <t><en>Name</en><fr>Nom</fr><it>Nome</it><pt>Nome</pt><de>Name</de></t>
@@ -64,7 +71,7 @@
          [% "<a href=\"$company_url\">" IF company_url %][% company %][% '</a>' IF company_url %]
       </td>
 [% END %]
-[%- UNLESS email_hide and not global.request.user.is_orga %]
+[%- IF not email_hide or global.request.user.is_orga %]
    </tr><tr>
       <td align="right">
          Email
