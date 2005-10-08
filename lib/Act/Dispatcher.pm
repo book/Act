@@ -63,8 +63,8 @@ sub trans_handler
         base_url  => _base_url($r),
     );
 
-    # reload configuration in test mode
-    Act::Config::load_configs() if $Config->general_test;
+    # reload configuration if needed
+    Act::Config::reload_configs();
 
     # connect to database
     Act::Util::db_connect();

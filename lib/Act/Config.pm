@@ -8,7 +8,7 @@ use vars qw(@ISA @EXPORT $Config %Request %Languages);
 use AppConfig qw(:expand :argcount);
 
 # our configs
-my ($GlobalConfig, %ConfConfigs);
+my ($GlobalConfig, %ConfConfigs, %Timestamps);
 
 # language-specific constants
 %Languages = (
@@ -71,6 +71,7 @@ sub load_configs
     my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
     $GlobalConfig = _init_config($home);
     %ConfConfigs = ();
+    %Timestamps  = ();
 
     # load global configuration
     _load_config($GlobalConfig, $home);
@@ -119,6 +120,17 @@ sub load_configs
     # default current config (for non-web stuff that doesn't call get_config)
     $Config = $GlobalConfig;
 }
+# reload configuration if one of the ini files has changed
+sub reload_configs
+{
+    while (my ($file, $timestamp) = each %Timestamps) {
+        my $mtime = (stat($file))[9];
+        if (!defined($mtime) or $mtime > $timestamp) {
+            load_configs();
+            last;
+        }
+    }
+}
 # get configuration for current request
 sub get_config
 {
@@ -143,7 +155,7 @@ sub _init_config
     );
     $cfg->set(home => $home);
     $cfg->set($_ => undef)
-        for qw(general_test talks_show_all payment_notify_address);
+        for qw(talks_show_all payment_notify_address);
     return $cfg;
 }
 sub _get
@@ -156,7 +168,10 @@ sub _load_config
     my ($cfg, $dir) = @_;
     for my $file qw(act local) {
         my $path = "$dir/conf/$file.ini";
-        $cfg->file($path) if -e $path;
+        if (-e $path) {
+            $Timestamps{$path} = (stat _)[9];
+            $cfg->file($path);
+        }
     }
 }
 
