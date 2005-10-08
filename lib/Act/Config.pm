@@ -54,6 +54,13 @@ my ($GlobalConfig, %ConfConfigs);
             fmt_date_short     => '%d/%m/%y',
             fmt_time           => '%H:%M',
           },
+    hu => { name               => 'Magyar',
+            fmt_datetime_full  => '%Y %B %e, %A, %H:%M',
+            fmt_datetime_short => '%Y %m %d %H:%M',
+            fmt_date_full      => '%Y %B %e, %A',
+            fmt_date_short     => '%Y %m %d',
+            fmt_time           => '%H:%M',
+          },
 );
 
 # load configurations

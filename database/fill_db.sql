@@ -80,6 +80,27 @@ INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'pt', 'normal' );
 INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'pt', 'reduzido' );
 INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'pt', 'profissional' );
 
+/** HUNGARIAN **/
+/* civility */
+INSERT INTO translations VALUES('users', 'civility', 1, 'hu', 'Mr.');
+INSERT INTO translations VALUES('users', 'civility', 2, 'hu', 'Mrs.');
+INSERT INTO translations VALUES('users', 'civility', 3, 'hu', 'Ms.');
+
+/* hard coded rooms */
+INSERT INTO translations VALUES ('rooms', 'name', 'out',   'hu', 'Szabadtér' );
+INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'hu', 'Terem' );
+
+/* payment means */
+INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'hu', 'Csekk' );
+INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'hu', 'Kézpénz' );
+INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'hu', 'Online' );
+
+/* price types */
+INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'hu', 'Belépo díj' );
+INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'hu', 'Csökkentett belépo díj' );
+INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'hu', 'Vállalati belépo díj' );
+
+/*****************************************************************************************/
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'de', 'Andorra');
 INSERT INTO translations VALUES ('countries', 'iso', 'ad', 'en', 'Andorra');
