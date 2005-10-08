@@ -63,6 +63,7 @@ sub load_configs
 {
     my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
     $GlobalConfig = _init_config($home);
+    %ConfConfigs = ();
 
     # load global configuration
     _load_config($GlobalConfig, $home);
@@ -135,7 +136,7 @@ sub _init_config
     );
     $cfg->set(home => $home);
     $cfg->set($_ => undef)
-        for qw(talks_show_all payment_notify_address);
+        for qw(general_test talks_show_all payment_notify_address);
     return $cfg;
 }
 sub _get

@@ -62,7 +62,10 @@ sub trans_handler
         path_info => join('/', @c),
         base_url  => _base_url($r),
     );
-    
+
+    # reload configuration in test mode
+    Act::Config::load_configs() if $Config->general_test;
+
     # connect to database
     Act::Util::db_connect();
 
