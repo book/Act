@@ -22,22 +22,29 @@
   <pt>TRANSLATEME</pt>
   <it>TRANSLATEME</it>
   <de>TRANSLATEME</de>
+  <hu>TRANSLATEME</hu>
  </t>
 </p>
 <table>
  <tr>
   <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de></t></th>
-  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de></t></th>
+  <th><t><en>Talk/event title</en><fr>Présentation/événement</fr><pt>Título/evento</pt><it>Intervento/evento</it><de>Titel/event</de></t></th>
   <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de></t></th>
  </tr>
  [% FOREACH t IN todo %]
  <tr>
+ [% IF t.type == 'Act::Talk' %]
   <td><a href="[% make_uri_info('user', t.user.user_id) %]">
    [% user_info(t.user) %]
   </a></td>
   <td>[% talk_confirmed_link(t) %]
       [% talk_modify_link(t) %]
   </td>
+ [% ELSE %]
+  <td>&nbsp;</td>
+  <td>[% event_link(t) %]
+      [% event_modify_link(t) %]
+ [% END %]
   <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
   </td>
  </tr>
