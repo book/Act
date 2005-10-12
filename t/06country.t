@@ -1,7 +1,7 @@
 #!perl
 
 use strict;
-use Test::More tests => 4325;
+use Test::More tests => 5046;
 use DBI;
 use Act::Config;
 use Act::Country;
