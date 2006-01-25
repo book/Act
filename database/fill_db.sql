@@ -400,7 +400,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'de', 'Elfenbeinküste
 INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'en', 'Côte d\'Ivoire');
 INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'fr', 'Côte d\'Ivoire');
 INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'hu', 'Elefántcsontpart');
-INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'it', 'Costa d'Avorio');
+INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'it', 'Costa d\'Avorio');
 INSERT INTO translations VALUES ('countries', 'iso', 'ci', 'pt', 'Costa do Marfim');
 
 INSERT INTO translations VALUES ('countries', 'iso', 'ck', 'de', 'Cook-Inseln');
@@ -820,7 +820,7 @@ INSERT INTO translations VALUES ('countries', 'iso', 'io', 'de', 'Britisches Ter
 INSERT INTO translations VALUES ('countries', 'iso', 'io', 'en', 'British Indian Ocean Territory');
 INSERT INTO translations VALUES ('countries', 'iso', 'io', 'fr', 'Territoire Britannique de l\'océan Indien');
 INSERT INTO translations VALUES ('countries', 'iso', 'io', 'hu', 'Brit Indiai-óceáni terület');
-INSERT INTO translations VALUES ('countries', 'iso', 'io', 'it', 'Territorio britannico dell'Oceano Indiano');
+INSERT INTO translations VALUES ('countries', 'iso', 'io', 'it', 'Territorio britannico dell\'Oceano Indiano');
 INSERT INTO translations VALUES ('countries', 'iso', 'io', 'pt', 'Território Britânico do Oceano Índico');
 
 INSERT INTO translations VALUES ('countries', 'iso', 'iq', 'de', 'Irak');
