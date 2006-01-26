@@ -12,11 +12,11 @@ and translations.
 =head2 Translating templates
 
 Multilingual templates are set up directly in the HTML, with the help
-of the special tag C<< <t> ... </t> >>.
+of the special tag E<lt>tE<gt> ... E<lt>/tE<gt>.
 
     find templates -type f | xargs grep -c '<t>' |grep -v :0
 
-Will list the template files that contain the <t> tag.
+Will list the template files that contain the E<lt>tE<gt> tag.
 
 Here's a very simple example:
 

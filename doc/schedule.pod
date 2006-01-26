@@ -56,7 +56,7 @@ The HTML table uses as many styles as you have rooms, plus three. Imagine
 you have three rooms, the table will use the following styles: header,
 out, venue, r1, r2 and r3. Please note that you do not need to define
 your own CSS for this: simply load the style located at /css/schedule.css
-with <link rel="stylesheet" type="text/css" href="/css/schedule.css" />.
+with E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>.
 
 We'll add new colours when a conference has more than three rooms.
 
