@@ -45,18 +45,18 @@ the duration, but discuss it with the speaker first.
 
 =head2 How it looks
 
-People with the 'orga' bit set can always see (and edit) the schedule. It
-becomes public when the [talks] item named "show_schedule" is set to 1.
+People with the C<orga> bit set can always see (and edit) the schedule. It
+becomes public when the C<[talks]> item named C<show_schedule> is set to 1.
 
-The first time you'll look at the schedule, it'll be ugly : all the
+The first time you'll look at the schedule, it'll be ugly: all the
 talks are schedule to a non existing room at the same time. This will
 change once you assigned a room to each talk.
 
 The HTML table uses as many styles as you have rooms, plus three. Imagine
-you have three rooms, the table will use the following styles: header,
-out, venue, r1, r2 and r3. Please note that you do not need to define
-your own CSS for this: simply load the style located at /css/schedule.css
-with E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>.
+you have three rooms, the table will use the following styles: C<header>,
+C<out>, C<venue>, C<r1>, C<r2> and C<r3>. Please note that you do not need to define
+your own CSS for this: simply load the style located at F</css/schedule.css>
+with C<E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>>.
 
 We'll add new colours when a conference has more than three rooms.
 
@@ -67,9 +67,9 @@ defined. It should gracefully show overlapping talks, so that you can detect
 there is a problem.
 
 Events are basically talks without a speaker. Only events can happen in
-rooms 'out' and 'venue'.
+rooms C<out> and C<venue>.
 
-Rooms 'out' and 'venue' are special in the sense that events occuring
+Rooms C<out> and C<venue> are special in the sense that events occuring
 there prevent talks from happening and actually "cut" any overlapping
 talk in two. One part before the event (usually a coffee break) and
 the remaining time after.

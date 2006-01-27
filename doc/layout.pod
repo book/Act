@@ -90,7 +90,7 @@ Here an example of what you can do:
 
 =back
 
-It is not possible to put E<lt>tE<gt>...E<lt>/tE<gt> tags within TT2 [% ... %] blocs.
+It is not possible to put C<E<lt>tE<gt>...E<lt>/tE<gt>> tags within TT2 C<[% ... %]> blocs.
 But it is rarely needed.
 
 Act manages the language of the generated pages according to the user's

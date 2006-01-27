@@ -12,11 +12,11 @@ and translations.
 =head2 Translating templates
 
 Multilingual templates are set up directly in the HTML, with the help
-of the special tag E<lt>tE<gt> ... E<lt>/tE<gt>.
+of the special tag C<E<lt>tE<gt> ... E<lt>/tE<gt>>.
 
     find templates -type f | xargs grep -c '<t>' |grep -v :0
 
-Will list the template files that contain the E<lt>tE<gt> tag.
+Will list the template files that contain the C<E<lt>tE<gt>> tag.
 
 Here's a very simple example:
 
@@ -82,7 +82,6 @@ handled in each supported language. The structure needs to be updated
 for any new language.
 
 Here's the structure for English:
-
 
     en => { name               => 'English',
             fmt_datetime_full  => '%A %B %e, %Y %H:%M',
