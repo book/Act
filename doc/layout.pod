@@ -55,9 +55,9 @@ Links to the so-called "static" pages are created with the macro
 
     [% make_uri('news.html') %]
 
-The parameter being the file path relative to actdocs/static.
+The parameter being the file path relative to F<actdocs/static>.
 
-Please note that at least one template is required: actdocs/templates/ui
+Please note that at least one template is required: F<actdocs/templates/ui>
 This file contains a TT2 wrapper that will be used by the framework
 to create full pages from the bits of HTML it generates.
 
@@ -131,7 +131,7 @@ framework. You can therefore create your own menus very easily:
     [% PROCESS menus/act_confs %]
 
 If you want to integrate those menus in you UI, you'll only have to
-redefine the following templates in the actdocs/templates directory.
+redefine the following templates in the F<actdocs/templates> directory.
 For example:
 
 =over 4
