@@ -19,7 +19,7 @@ contains all the files that will be statically served
 You organise F<wwwdocs> as you please. There will be a TT2 macro to create
 correct links to any file in the directory, given its relative path.
 
-F<actdocs> is laid out as follows:
+The F<actdocs> directory is laid out as follows:
 
 =over 4
 
