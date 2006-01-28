@@ -14,7 +14,7 @@
         || ( (global.config.talks_submissions_open OR global.config.talks_edition_open ) AND global.request.user.user_id == talk.user_id )
 %]
 (<a href="[% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]"><t>
-<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
+<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><hu>szerkeszt</hu></t></a>)
 [%   END;
   END;
 %]
@@ -26,7 +26,7 @@
    BLOCK %]
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event.event_id ) %]"><t>
-<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt></t></a>)
+<en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><hu>szerkeszt</hu></t></a>)
 [% END ; END %]
 [% MACRO user_info(user)
    BLOCK;
@@ -45,11 +45,11 @@
     IF t.type == 'Act::Talk' %]
 [% user_info(t.user) %] -
 [% talk_confirmed_link(t) %]
-([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt></t>)
+([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt><hu>min.</hu></t>)
 [% talk_modify_link(t) %]
     [% ELSIF t.type == 'Act::Event' %]
 [% event_link(t) %]
-([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt></t>)
+([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt><hu>min.</hu></t>)
 [% event_modify_link(t) %]
     [% ELSE ; t %]
 [% END;

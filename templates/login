@@ -5,6 +5,7 @@
        it => 'Login',
        pt => 'Entrar'
        de => 'Login',
+       hu => 'Bejelentkezés',
 }
 %]
 <center>
@@ -17,7 +18,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de></t>
+      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de><hu>Azonosító</hu></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -26,7 +27,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de></t>
+      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de><hu>Jelszó</hu></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -35,7 +36,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de></t>" />
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de><hu>Elküld</hu></t>" />
    </td>
 </tr>
 </table>
@@ -60,6 +61,9 @@
   <de>
   Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
   </de>
+  <hu>
+  <a href="[% make_uri('resetpw') %]">Elfelejtett jelszó</a>
+  </hu>
  </t>
 </p>
 
@@ -82,12 +86,17 @@
  </it>
  <pt>
    Este site usa <em>cookies</em> para a autenticação dos utilizadores. É provável
-   que tenha de indicar ao seu browser para aceitar <em>cookies</em> do 
+   que tenha de indicar ao seu browser para aceitar <em>cookies</em> do
    domínio <b>[% domain %]</b>.
  </pt>
  <de>
  Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen Sie Ihren Browser so ein, dass er Cookies von der Domain <b>[% domain %]</b> akzeptiert.
  </de>
+ <hu>
+   Ez az oldalt böngészõ sütiket használ a felhasználók bejelentkezésének
+   nyilvántartásához. Ha a sütik kezelése a böngészõben tiltott (alapértelmezett
+   esetben NEM tiltott), engedélyezni kell a következõ domaint: <b>[% domain %]</b>.
+ </hu>
 </t>
 </font>
 </p>

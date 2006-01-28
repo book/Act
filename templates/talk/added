@@ -5,6 +5,7 @@
     it => 'Intervento inviato'
     pt => 'Apresentação inserida'
     de => 'Vortrag eingereicht'
+    hu => 'Elõadás beküldve'
 },
 %]
 
@@ -30,6 +31,10 @@
   Danke, Ihr Vortrag wurde gespeichert als
   <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
   </de>
+  <hu>
+   Köszönjük, az elõadás <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>
+   néven mentésre került.
+  </hu>
  </t>
 </p>
 

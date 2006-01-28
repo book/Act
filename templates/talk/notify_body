@@ -1,13 +1,13 @@
 [%- SWITCH op %]
-[%- CASE 'insert' %]<t><pt>Apresentação inserida</pt><en>Talk inserted</en><fr>Présentation ajoutée </fr><it>Intervento aggiunto</it><de>Vortrag eingegeben</de></t>
-[%- CASE 'update' %]<t><pt>Apresentação actualizada</pt><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it><de>Vortrag geändert</de></t>
+[%- CASE 'insert' %]<t><pt>Apresentação inserida</pt><en>Talk inserted</en><fr>Présentation ajoutée </fr><it>Intervento aggiunto</it><de>Vortrag eingegeben</de><hu>Az elõadás hozzáadásra került</hu></t>
+[%- CASE 'update' %]<t><pt>Apresentação actualizada</pt><en>Talk updated</en><fr>Présentation modifiée </fr><it>Intervento modificato</it><de>Vortrag geändert</de><hu>Az elõadás módosítva</hu></t>
 [%- END -%]
 : [% talk.title %]
 [% global.request.base_url %][% make_uri_info('talk', talk.talk_id ) %]
-<t><fr>Soumis par </fr><pt>Submetida por</pt><en>Submitted by</en><it>Inviato da</it><de>Eingegeben von</de></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
+<t><fr>Soumis par </fr><pt>Submetida por</pt><en>Submitted by</en><it>Inviato da</it><de>Eingegeben von</de><hu>Beküldte</hu></t>: [% global.request.user.first_name %] [% global.request.user.last_name %]
 
 [%- IF diff OR adiff %]
-<t><en>The following fields have been updated</en><pt>Os seguintes campos foram modificados</pt><fr>Les champs suivant on été modifiés </fr><it>Sono stati modificati i campi seguenti</it><de>Folgende Felder wurden geändert</de></t>:
+<t><en>The following fields have been updated</en><pt>Os seguintes campos foram modificados</pt><fr>Les champs suivant on été modifiés </fr><it>Sono stati modificati i campi seguenti</it><de>Folgende Felder wurden geändert</de><hu>A következõ mezõk lett módosítva</hu></t>:
 [% IF diff;
    FOREACH d=diff %]
 -[% d %]: [% tbefore.$d %]
@@ -17,19 +17,19 @@ abstract:
 [% adiff %]
 [% END; END %]
 
-<t><en>By</en><pt>Por </pt><fr>Par </fr><it>Oratore</it><de>VortragendeR</de></t>: [% user.first_name %] [% user.last_name %]
+<t><en>By</en><pt>Por </pt><fr>Par </fr><it>Oratore</it><de>VortragendeR</de><hu>Módosító</hu></t>: [% user.first_name %] [% user.last_name %]
 [% IF talk.lightning -%]
-<t><en>Lightning talk</en><pt>Apresentação relâmpago</pt><fr>Communication éclair</fr><it>Intervento lampo</it><de>Lightning talk</de></t>
+<t><en>Lightning talk</en><pt>Apresentação relâmpago</pt><fr>Communication éclair</fr><it>Intervento lampo</it><de>Lightning talk</de><hu>Villámelõadás</hu></t>
 [% ELSE -%]
-<t><en>Date</en><fr>Date </fr><pt>Data</pt><it>Data</it><de>Datum</de></t>: [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><pt>Ainda não marcada.</pt><en>Not scheduled yet.</en><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de></t>[% END %]
-<t><en>Duration</en><pt>Duração</pt><fr>Durée </fr><it>Durata</it><de>Dauer</de></t>: [% talk.duration %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it></de>Minuten</de></t>
+<t><en>Date</en><fr>Date </fr><pt>Data</pt><it>Data</it><de>Datum</de><hu>Dátum</hu></t>: [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]<t><fr>Pas encore planifié</fr><pt>Ainda não marcada.</pt><en>Not scheduled yet.</en><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de></t>[% END %]
+<t><en>Duration</en><pt>Duração</pt><fr>Durée </fr><it>Durata</it><de>Dauer</de><hu>Idõtartam</hu></t>: [% talk.duration %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it></de>Minuten</de></t>
 [%- END -%]
 
 [% IF talk.url_abstract -%]
-   <t><fr>Résumé </fr><pt>Resumo</pt><en>Abstract</en><it>Abstract</it><de>Kurzbeschreibunge</de></t>: [% talk.url_abstract %]
+   <t><fr>Résumé </fr><pt>Resumo</pt><en>Abstract</en><it>Abstract</it><de>Kurzbeschreibunge</de><hu>Absztrakt</hu></t>: [% talk.url_abstract %]
 [% END -%]
 [% IF talk.url_talk -%]
-   <t><fr>Présentation </fr><en>Talk</en><pt>Apresentação</pt><it>Intervento</it><de>Vortrag</de></t>: [% talk.url_talk %]
+   <t><fr>Présentation </fr><en>Talk</en><pt>Apresentação</pt><it>Intervento</it><de>Vortrag</de><hu>Elõadás</hu></t>: [% talk.url_talk %]
 [% END -%]
 
 [% talk.abstract %]

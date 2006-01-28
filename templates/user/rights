@@ -1,14 +1,14 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => 'User rights', fr => 'Droits des utilisateurs', it => 'Permessi degli utenti' , pt => 'Permissões do utilizador',de=>'Userrechte'},
+   title = { en => 'User rights', fr => 'Droits des utilisateurs', it => 'Permessi degli utenti' , pt => 'Permissões do utilizador',de=>'Userrechte', hu=>'Felhasználó jogok'},
 %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr bgcolor="#FFFFFF">
- <th><t><en>Right</en><fr>Droit</fr><it>Permessi</it><pt>Permissões</pt><de>Recht</de></t></th>
- <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>User</de></t></th>
- <th><t><en>Delete</en><fr>Supprimer</fr><it>Elimina</it><pt>Apagar</pt><de>Löschen</de></t></th>
+ <th><t><en>Right</en><fr>Droit</fr><it>Permessi</it><pt>Permissões</pt><de>Recht</de><hu>Jog</hu></t></th>
+ <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>User</de><hu>Felhasználó</hu></t></th>
+ <th><t><en>Delete</en><fr>Supprimer</fr><it>Elimina</it><pt>Apagar</pt><de>Löschen</de><hu>Törlés</hu></t></th>
 </tr>
 [% FOREACH r=rights %]
  <tr>
@@ -19,7 +19,7 @@
 [% END %]
  <tr>
    <td align="center" colspan="3">
-    <t><fr>Ajouter un droit</fr><pt>Adicionar permissão</pt><en>Add a new right</en><it>Aggiungi permesso</it><de>Neues Recht</de></t>
+    <t><fr>Ajouter un droit</fr><pt>Adicionar permissão</pt><en>Add a new right</en><it>Aggiungi permesso</it><de>Neues Recht</de><hu>Új jogosultság hozzáadása</hu></t>
    </td>
  </tr>
  <tr>
@@ -35,7 +35,7 @@
 </table>
 <br />
 <input type="submit" name="ok"
-   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de></t>" />
+   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de><hu>Elküld</hu></t>" />
 
 </form>
 </div>
@@ -47,6 +47,7 @@
   <it>I permessi possibili sono:</it>
   <pt>Os direitos disponíveis são:</pt>
   <de>Rechte sind:</de>
+  <hu>A rendelkezésre álló jogok:</hu>
  </t>
 </p>
 <ul>
@@ -56,6 +57,7 @@
      <it>Organizzatore</it>
      <pt>Organização</pt>
      <de>Organisator</de>
+     <hu>Szervezõ</hu>
   </t>
  </li>
  <li><tt>orga</tt> -
@@ -64,6 +66,7 @@
      <it>Organizzatore (gestione interventi)</it>
      <pt>Organização (gestão de apresentações)</pt>
      <de>Organisator (Vorträge verwalten)</de>
+     <hu>Szervezõ (elõadás kezelõ)</hu>
   </t>
  </li>
  <li><tt>treasurer</tt> -
@@ -72,6 +75,7 @@
      <it>Tesoriere (gestione pagamenti)</it>
      <pt>Tesoureiro (gestão de pagamentos)</pt>
      <de>Kassier (Zahlungsmanagement)</de>
+     <hu>Pénztáros (fizetés kezelõ)</hu>
   </t>
  </li>
  <li><tt>admin</tt> -
@@ -80,6 +84,7 @@
      <it>Amministratore (gestione permessi)</it>
      <pt>Administrador (gestão de permissões)</pt>
      <de>Administrator (Rechtemanagement)</de>
+     <hu>Adminisztrátor (jogosultság kezelõ)</en>
   </t>
  </li>
 </ul>

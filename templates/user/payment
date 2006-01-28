@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Online Payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt=>'Pagamento On-line',de=>'Online Bezahlung' },
+   title = { en => 'Online Payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt=>'Pagamento On-line',de=>'Online Bezahlung', hu=>'Online fizetés' },
 %]
 <center>
 
@@ -8,7 +8,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Your name</en><fr>Votre nom</fr><it>Nome</it><pt>Nome</pt><de>Ihr Name</de></t>
+      <t><en>Your name</en><fr>Votre nom</fr><it>Nome</it><pt>Nome</pt><de>Ihr Name</de><hu>Név</hu></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -17,7 +17,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Order #</en><fr>Commande n°</fr><it>Ordine n.</it><pt>Registo nº</pt><de>Rechnungsnummer</de></t>
+      <t><en>Order #</en><fr>Commande n°</fr><it>Ordine n.</it><pt>Registo nº</pt><de>Rechnungsnummer</de><hu>Rendelés szám</hu></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -26,7 +26,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Amount</en><fr>Montant</fr><it>Valore</it><pt>Valor</pt><de>Betrag</de></t>
+      <t><en>Amount</en><fr>Montant</fr><it>Valore</it><pt>Valor</pt><de>Betrag</de><hu>Összeg</hu></t>
    </td>
    <td>&nbsp;</td>
    <td>

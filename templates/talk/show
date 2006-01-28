@@ -1,6 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => title, fr => title, pt => title, de => title }
+   title = { en => title, fr => title, pt => title, de => title, hu => title }
 %]
 
 <p>
@@ -10,15 +10,16 @@
   <it>Oratore</it>
   <pt>Por</pt>
   <de>Von</de>
+  <hu>Elõadó</hu>
 </t></b>
 [% user_info(user) %]
 </a>
 [% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
- <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de><hu>szerkeszt</hu></t></a>)
 [% END %]
 [% IF user.pm_group %]
-  <t> <en> from </en> <fr> de </fr> <it>da</it> <pt> de </pt><de> aus </de></t>
+  <t> <en> from </en> <fr> de </fr> <it>da</it> <pt> de </pt><de> aus </de><hu> csoportja: </hu></t>
   [% IF user.pm_group_url %]
     <a href="[% user.pm_group_url %]">[% user.pm_group %]</a>
   [% ELSE %]
@@ -28,19 +29,19 @@
 <br />
 
 [% IF lightning %]
-  <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it> <pt>Apresentação Relâmpago</pt><de>Lightning talk</de></t> <br />
+  <t><en>Lightning talk</en><fr>Communication éclair</fr><it>Intervento lampo</it> <pt>Apresentação Relâmpago</pt><de>Lightning talk</de><hu>Villámelõadás</hu></t> <br />
 [% ELSE %]
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt><de>Datum:</de></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data</it><pt>Data</pt><de>Datum:</de><hu>Dátum:</hu></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><pt>Ainda não marcado.</pt><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><pt>Ainda não marcado.</pt><it>Non ancora pianificato</it><de>Noch nicht festgelegt</de><hu>Nincs még eldöntve</hu></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it><de>Dauer:</de></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><pt>Duração:</pt><it>Durata:</it><de>Dauer:</de><hu>Hossza:</hu></t></b> [% duration %]
+   <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t><br />
 [% END %]
 
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
-<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it><de>Kommentar:</de></t></b>
+<b><t><en>Comment:</en><fr>Commentaire&nbsp;:</fr><pt>Comentários</pt><it>Commenti:</it><de>Kommentar:</de><hu>Megjegyzés:</hu></t></b>
 [% comment %]
 [% END %]
 </p>
@@ -50,15 +51,16 @@
       <fr>Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:</fr>
   <it>Potete trovare ulteriori informazioni su questo intervento sul sito:</it>
   <de>Mehr Informationen gibts auf der Seite des/der Vortragenden:</de>
+  <hu>További információk az elõadó weblapján:</hu>
 </t></p>
  <ul>
   [% IF url_abstract %]
-      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt><de>Weitere Infos:</de></t>
+      <li><t><fr>Résumé&nbsp;:</fr><en>Abstract:</en><it>Abstract:</it><pt>Resumo:</pt><de>Weitere Infos:</de><hu>Absztrakt:</hu></t>
          <a href="[% url_abstract %]">[% url_abstract %]</a>
       </li>
   [% END %]
   [% IF url_talk %]
-      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt><de>Vortrag (Slides etc):</de></t>
+      <li><t><fr>Présentation&nbsp;:</fr><en>Talk:</en><it>Intervento:</it><pt>Apresentação</pt><de>Vortrag (Slides etc):</de><hu>Elõadás:</hu></t>
          <a href="[% url_talk %]">[% url_talk %]</a>
       </li>
   [% END %]

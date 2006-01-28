@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Online payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt => 'Pagamento on-line',de=>'Online bezahlen' },
+   title = { en => 'Online payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt => 'Pagamento on-line',de=>'Online bezahlen', hu=>'Online fizetés' },
 %]
 <center>
 <form method="POST" action="[% global.request.r.uri %]">
@@ -25,12 +25,15 @@
    <de>
    Teilnahme an [% global.conference.name %].
    </de>
+   <hu>
+    [% global.conference.name %] jegy.
+   </hu>
   </t>
  </td>
 </tr>
 <tr>
    <td align="right">
-      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t>:
+      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de><hu>Ár</hu></t>:
    </td>
    <td>&nbsp;</td>
    <td>
@@ -43,7 +46,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de></t>" />
+      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de><hu>Azonnali megvétel</hu></t>" />
    </td>
 </tr>
 </table>
@@ -64,7 +67,7 @@
   <pt>
    Por favor, repare que
    toda a gestão da sua conta bancária e do número do seu cartão é
-   feita pelo banco. <b>Nós não temos acesso à sua informação de 
+   feita pelo banco. <b>Nós não temos acesso à sua informação de
    crédito em qualquer altura do processo de pagamento.</b> Só
    iremos receber o dinheiro no fim. <tt>;-)</tt>
   </pt>
@@ -88,6 +91,12 @@
    Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen
    lediglich das Geld...
   </de>
+  <hu>
+   Fontos tudni, hogy a bankszámlaszámot, a bankkártya számát és magát a
+   tranzakciót a bank fogja kezelni. <b>Az oldal üzemeltetõi nem férnek
+   hozzá semmilyen formában és módon ezekhez a fizetési információkhoz.</b>
+   Csak a pénz érkezik meg a folyamat végén... <tt>;-)</tt>
+  </hu>
  </t>
 </p>
 <hr size="1" />
@@ -109,19 +118,22 @@
   <de>
   Wenn Sie nicht mit Kreditkarte bezahlen können/wollen, könnten folgende Informationen nützlich sein (sobald sie vorhanden sind...)
   </de>
+  <hu>Amennyiben nincs bankkártyája, vagy a bankátutalást preferálja,
+      a következõ információ hasznos lehet:
+  </hu>
  </t>
 </p>
 
 <center>
  <table border="1" cellpadding="2" cellspacing="0">
   <tr>
-   <th align="left" valign="top"><t><en>Account owner</en><pt>Títular da conta</pt><fr>Propriétaire du compte</fr><it>Titolare del conto</it></t></th>
+   <th align="left" valign="top"><t><en>Account owner</en><pt>Títular da conta</pt><fr>Propriétaire du compte</fr><it>Titolare del conto</it><hu>Számlatulajdonos</hu></t></th>
    <td>YAPC Europe Foundation</td>
   </tr><tr>
    <th align="left" valign="top">IBAN</th>
    <td>FR76 3006 6106 4100 0104 8480 193</td>
   </tr><tr>
-   <th align="left" valign="top"><t><en>Bank identification code</en><pt>Código de identificação bancário</pt><fr>Code d'indentification bancaire</fr><it>Codice identificativo bancario</it></t></th>
+   <th align="left" valign="top"><t><en>Bank identification code</en><pt>Código de identificação bancário</pt><fr>Code d'indentification bancaire</fr><it>Codice identificativo bancario</it><hu>Bank azonosító kód</hu></t></th>
    <td>30066</td>
   </tr>
  </table>
@@ -139,6 +151,8 @@
   <it>Vi preghiamo di informarci nel caso vogliate effettuare un
       bonifico, così che possiamo associare ciascun pagamento con la persona
       giusta.</it>
+  <hu>Ha bankátutalással szeretne fizetni, kérjük értesítsen minket elõtte, hogy
+      beazonosíthassuk az átutalását.</hu>
  </t>
 </p>
 

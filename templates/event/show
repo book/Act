@@ -1,18 +1,18 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => title, fr => title, it => title, pt => title }
+   title = { en => title, fr => title, it => title, pt => title, hu => title }
 %]
 
 <p>
-  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it><pt>Data:</pt><de>Datum:</de></t></b>
+  <b><t><en>Date:</en><fr>Date&nbsp;:</fr><it>Data:</it><pt>Data:</pt><de>Datum:</de><hu>Dátum:</hu></t></b>
   [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
-  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it><pt>Ainda não marcada.</pt><de>Noch nicht festgelegt.</de></t>[% END %]<br />
+  <t><fr>Pas encore planifié</fr><en>Not scheduled yet.</en><it>Non ancora pianificato</it><pt>Ainda não marcada.</pt><de>Noch nicht festgelegt.</de><hu>Még nincs besorolva.</hu></t>[% END %]<br />
 
-<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it><pt>Duração:</pt><de>Dauer:</de></t></b> [% duration %] 
-   <t><en>minutes</en><fr>minutes</fr><it>minuti</it><pt>minutos</pt><de>Minuten</de></t><br />
+<b><t><en>Duration:</en><fr>Durée&nbsp;:</fr><it>Durata:</it><pt>Duração:</pt><de>Dauer:</de><hu>Hossz:</hu></t></b> [% duration %]
+   <t><en>minutes</en><fr>minutes</fr><it>minuti</it><pt>minutos</pt><de>Minuten</de><hu>perc</hu></t><br />
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event_id) %]"><t>
- <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de></t></a>)
+ <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de><hu>szerkeszt</hu></t></a>)
 [% END %]
 </p>
 
@@ -23,6 +23,7 @@
   <it>Potete trovare ulteriori informazioni sul sito:</it>
   <pt>Pode encontrar mais informação no seguinte endereço:</pt>
   <de>Mehr Informationen:</de>
+  <hu>A következõ oldalon további információk állnak rendelkezésre:</hu>
  </t></p>
  <ul>
    <li>

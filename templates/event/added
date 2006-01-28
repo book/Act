@@ -1,10 +1,11 @@
 [% WRAPPER ui
    title = {
-       en => 'Event submitted', 
+       en => 'Event submitted',
        fr => 'Événement ajouté',
        it => 'Evento inviato',
-       pt => 'Evento submetido'
-       de => 'Event angemeldet'
+       pt => 'Evento submetido',
+       de => 'Event angemeldet',
+       hu => 'Esemény beküldve',
    }
 %]
 
@@ -30,6 +31,10 @@
   Danke, der Event wurde gespeichert als
   <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
   </de>
+  <hu>
+   Köszönjük, az esemény <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>
+   néven mentésre került.
+  </hu>
  </t>
 </p>
 

@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Registered!', fr => 'Inscrit !', it => "Iscritto!", pt => 'Inscrito!', de => 'Angemeldet!' },
+   title = { en => 'Registered!', fr => 'Inscrit !', it => "Iscritto!", pt => 'Inscrito!', de => 'Angemeldet!', hu => 'Sikeres regisztráció' },
 %]
 
 <p>
@@ -24,6 +24,11 @@
    Herzlich Wilkommen, <b>[% login %]</b>, Sie sind hiermit angemeldet.
    Ihr Passwort ist: <b>[% clear_passwd %]</b> .
   </de>
+  <hu>
+   Gratulálunk <b>[% login %]</b>, a regisztráció sikeresen lezajlott.
+   A jelszó: <b>[% clear_passwd %]</b>. A következõ lépés a személyes
+   adatok beállítása lehet.
+  </hu>
  </t>
 </p>
 

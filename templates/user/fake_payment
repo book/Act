@@ -24,7 +24,13 @@
    Das ist nur eine Simulation. Wenn dieses Formular abgeschickt wird,
    würden Sie zur Webseite der Bank weitergeleitet werden, wo Sie dann
    Ihre Kreditkarteninformationen eingeben könnten.<br /><br />
-   Klicken Sie unten, um den Zahlungsvorgang zu simulieren
+   Klicken Sie unten, um den Zahlungsvorgang zu simulieren.
+   </de>
+  <hu>Ez egy szimuláció. Normál körülmények között ennak a kérdõívnek
+      az elküldése a bank weblapjára vinne, ahol meg kéne adni
+      a bankkártya informcáiókat.<<br /><br />
+      A szimulált fizetéshez az Elküld gombra kell kattintani.
+  </hu>
  </t>
 </p>
 
@@ -32,6 +38,6 @@
 
 <input type="hidden" name="order_id" value="[% order.order_id %]" />
 <input type="hidden" name="amount"   value="[% order.amount %]" />
-<input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr><pt>Pagar</pt><it>Pagare</it><de>Zahlen</de></t>" />
+<input type="submit" name="pay" value="<t><en>Pay</en><fr>Payer</fr><pt>Pagar</pt><it>Pagare</it><de>Zahlen</de><hu>Elküld</hu></t>" />
 
 </form>

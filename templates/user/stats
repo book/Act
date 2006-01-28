@@ -5,6 +5,7 @@
      it => "Statistiche per ${global.conference.name}"
      pt => "Estatísticas da ${global.conference.name}"
      de => "Statistiken für ${global.conference.name}"
+     hu => "${global.conference.name} statisztika"
    }
 %]
 
@@ -19,7 +20,7 @@
    conference ticket or will give a talk.
   </en>
   <pt>
-   Existem [% stats.users %] pessoas registadas, de 
+   Existem [% stats.users %] pessoas registadas, de
    [% stats.countries.size %] país[% stats.countries.size > 1 ? "es" : "" %]
    e [% stats.pm.size %] grupo[% "s" IF stats.pm.size > 1 %] de monges.
    Existem [% stats.committed %] utilizador[% "es" IF stats.committed > 1 %]
@@ -47,6 +48,13 @@
   [% stats.committed %] fixe Anmeldungen, also Leute, die entweder vortragen
   oder ihren Beitrag bezahlt haben.
   </de>
+  <hu>
+   [% stats.users %] regisztrált
+   [% stats.countries.size %] országból
+   és [% stats.pm.size %] Perl csoportból vesz részt a rendezvényen.
+   [% stats.committed %] felhasználó van, aki elõad, vagy fizetett
+   a konferencián történõ részvételért.
+  </hu>
  </t>
 </p>
 
@@ -61,7 +69,7 @@
    ou de <a href="[% make_uri('stats', 'show', 'cities') %]">cidades</a>.
   </pt>
   <fr>
-   Vous pouvez jeter un &oelig;il aux statistiques par 
+   Vous pouvez jeter un &oelig;il aux statistiques par
    <a href="[% make_uri('stats') %]">pays / groupe de mongueurs</a> ou par
    <a href="[% make_uri('stats', 'show', 'cities') %]">villes</a>.
   </fr>
@@ -73,13 +81,17 @@
 	Hier gibt es <a href="[% make_uri('stats') %]">Land / Monger-</a> und
 	<a href="[% make_uri('stats', 'show', 'cities') %]">Stadt-Statistiken</a>.
   </de>
+  <hu>
+   További statisztika tekinthetõ meg az <a href="[% make_uri('stats') %]">ország / csoport</a>
+   és a <a href="[% make_uri('stats', 'show', 'cities') %]">városok</a> tekintetében.
+  </hu>
  </t>
 </p>
 <p>
  <t>
   <en>The number of committed users is listed between parentheses
   in the following tables.</en>
-  <pt>O número de utilizadores que irão assistir está listado 
+  <pt>O número de utilizadores que irão assistir está listado
 	entre parêntesis nas seguintes tabelas.</pt>
   <fr>Les nombres entre parenthèses dans les tableaux qui suivent
   indiquent le nombre d'inscrits engagés.</fr>
@@ -88,16 +100,19 @@
   <de>
   Die Nummer der fixangemeldeten TeilnehmerInnen steht in Klammern.
   </de>
+  <hu>A kiemelt felhasználók (fizetett/elõad) a következõ táblázatban
+  zárójelek között szerepelnek.</hu>
  </t>
 </p>
 <p>
  <t>
   <en>Click on the various links to find the corresponding users!</en>
   <fr>Cliquez sur les liens pour obtenir la liste des utilisateurs
-      correspondants&nbsp;!</fr> 
+      correspondants&nbsp;!</fr>
   <pt>Clique nas ligações seguintes para saber mais sobre os utilizadores respectivos.</pt>
   <it>Seguite i vari link per trovare gli utenti corrispondenti.</it>
   <de>Klicken Sie auf die jeweiligen Links, um die entsprechenden UserInnen zu finden!</de>
+  <hu>Az egyes felhasználók listájának megtekintéséhez a linkre kell kattintani.</hu>
  </t>
 </p>
 
@@ -124,6 +139,11 @@
    Nota: il totale per nazione non corrisponde alla somma dei totali
    delle città relative. O una città non compare nella nazione
    giusta. Tutta colpa degli utenti!</it>
+  <hu>
+   Megjegyzés: a hibás felvitelnek köszönhetõen az ország összessítés
+   nem mindig egyenlõ a települések összegével, a települések nem mindig
+   a helyes országban vannak.
+  </hu>
  </t>
 </p>
 <center>
@@ -141,6 +161,7 @@
     <fr>Aucune ville n'a été renseignée</fr>
     <it>Nessuna informazione sulle città</it>
     <de>Keine Stadtinformation eingegeben</de>
+    <hu>Nincs település megadva</hu>
   </t></td>
   [% END %]
   [% FOREACH c = stats.countries %]
@@ -158,15 +179,15 @@
    [% count = ( count + 1) % cols %]
   [% END %]
   </tr>
-</table> 
+</table>
 </center>
 [% CASE DEFAULT %]
 <center>
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt><de>Land</de></t></th>
+  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt><de>Land</de><hu>Országok</hu></t></th>
   <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it><de>Monger Gruppe</de>
-	<pt>Grupos de monges</pt></t></th>
+	<pt>Grupos de monges</pt><hu>Perl csoportok</hu></t></th>
  </tr>
  <tr>
   <!-- Countries -->
@@ -185,7 +206,7 @@
      [% END %]
     </tr>
     [% END %]
-   </table> 
+   </table>
   </td>
   <!-- PM groups -->
   <td valign="top">
@@ -204,7 +225,7 @@
      [% END %]
      </tr>
     [% END %]
-   </table> 
+   </table>
   </td>
  </tr>
 </table>

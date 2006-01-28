@@ -6,6 +6,7 @@
  <en>Act conferences</en>
  <it>Conferenze Act</it>
  <de>Act Konferenzen</de>
+ <hu>További konferenciák</hu>
 </t>
 [% END %]
 [% FOREACH c = global.conferences.present.merge( global.conferences.future ) %]

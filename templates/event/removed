@@ -1,10 +1,11 @@
 [% WRAPPER ui
    title = {
-       en => 'Event removed', 
+       en => 'Event removed',
        fr => 'Événement supprimé',
        it => 'Evento TRANSLATEME',
        pt => 'Evento TRANSLATEME'
        de => 'Event TRANSLATEME'
+       hu => 'Esemény törölve'
    }
 %]
 
@@ -25,6 +26,9 @@
   <de>
   Danke, der Event <b>[% title %]</b> wurde TRANSLATEME.
   </de>
+  <hu>
+   <b>[% title %]</b> esemény törlésre került.
+  </hu>
  </t>
 </p>
 

@@ -1,8 +1,7 @@
 [% PROCESS common %]
 [% WRAPPER ui
    title = { en => 'Main private page', fr => 'Page personnelle', it => 'Pagina personale',
-             pt => 'Página pessoal'
-	     de => 'Private Seite'},
+             pt => 'Página pessoal', de => 'Private Seite', hu => 'Személyes oldal'},
 %]
 <p>
  <t>
@@ -13,7 +12,9 @@
       D'ici vous pouvez gérer tout ce qui concerne votre participation</fr>
   <it>Questa è la vostra pagina personale. Da qui potete gestire tutto
       ciò che riguarda la vostra partecipazione</it>
-      <de>Das ist Ihre persönliche Seite. Von hier aus können Sie alle Aspekte Ihrer Teilnahme verwalten.</de>
+  <de>Das ist Ihre persönliche Seite. Von hier aus können Sie alle Aspekte Ihrer Teilnahme verwalten.</de>
+  <hu>Ez a személyes felhasználói oldal. Innen kiindulva lehet karbantartani a
+      felvitt adatokat, például a konferenciára történõ jelentkezést.</hu>
  </t>
  [% IF global.request.conference %]
  <t>
@@ -22,6 +23,7 @@
   <fr>à [% global.conference.name %].</fr>
   <it>a [% global.conference.name %].</it>
   <de>[% global.conference.name %]</de>
+  <hu>[% global.conference.name %]</hu>
  </t>
  [% ELSE %]
  <t>
@@ -30,6 +32,7 @@
   <fr>aux conférences gérées par Act.</fr>
   <it>alle conferenze gestito con Act.</it>
   <de>mit Act betriebende Konferenzen</de>
+  <hu>a Perl konferenciákhoz.</hu>
  </t>
  [% END %]
 </p>
@@ -43,13 +46,14 @@
    <fr>Vous avez acheté votre billet pour la conférence :</fr>
    <it>Avete acquistato il biglietto:</it>
    <de>Sie haben Ihre Teilnahme bezahlt:</de>
+   <hu>A következõ konferencia jegyek lett megvásárolva:</hu>
   </t>
  </p>
  <p>
   <blockquote>
-    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>Ihre Bestellnummer</de><it>Vostro ordine</it><pt>Número da compra</pt></t>: <strong>[% order.order_id %]</strong><br />
-    <t><fr>Date de règlement </fr><en>Payment date</en><de>Zahlungsdatum</de><it>Data del pagamento</it><pt>Data de pagamento</pt></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
-    <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt></t>: <strong>[% order.amount %] [% order.currency %]</strong>
+    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>Ihre Bestellnummer</de><it>Vostro ordine</it><pt>Número da compra</pt><hu>Rendelési szám</hu></t>: <strong>[% order.order_id %]</strong><br />
+    <t><fr>Date de règlement </fr><en>Payment date</en><de>Zahlungsdatum</de><it>Data del pagamento</it><pt>Data de pagamento</pt><hu>Vásárlás ideje</hu></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
+    <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt><hu>Fizetett összeg</hu></t>: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
  [% IF global.config.payment_invoices %]
@@ -60,6 +64,7 @@
    <it><a               href="[% make_uri_info('invoice', order.order_id) %]">Scarica la fattura</a>.</it>
    <de><a               href="[% make_uri_info('invoice', order.order_id) %]">Rechnung herunterladen</a>.</de>
    <pt>Descarregar a <a href="[% make_uri_info('invoice', order.order_id) %]">factura</a>.</pt>
+   <hu><a href="[% make_uri_info('invoice', order.order_id) %]">Számla letöltése</a>.</hu>
   </t>
  </p>
  [% END %]
@@ -71,6 +76,7 @@
    <fr>Vous n'avez pas encore acheté votre billet pour la conférence.</fr>
    <it>Non avete ancora acquistato il vostro biglietto.</it>
    <de>Sie haben nicht nicht bezahlt.</de>
+   <hu>Még nem került sor konferencia jegy vásárlásra.</hu>
   </t>
   [% IF global.config.payment_open %]
    <t>
@@ -80,6 +86,7 @@
         de vente en ligne.</fr>
     <it>Potreste farlo con il nostro sistema di pagamento on-line.</it>
     <de>Bitte verwenden Sie dazu unser online Zahlungssystem.</de>
+    <hu>Kérjük vásároljon konferencia jegyet.</hu>
    </t>
    [% ELSE %]
    <t>
@@ -90,6 +97,7 @@
    sera opérationnel.</fr>
     <it>Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato.</it>
     <de>Bitte verwenden Sie dazu unser online Zahlungssystem, sobald es bereit steht.</de>
+    <hu>Kérjük a fizetési rendszer elindítása után vásároljon konferencia jegyet.</hu>
    </t>
   [% END %]
  </p>
@@ -103,13 +111,14 @@
    <de>
    Sie sind für diese Konferenz nicht angemeldet. <a href="[% make_uri('register') %]">Melden Sie sich an</a>, wenn sie teilnehmen wollen.
    </de>
+   <hu>Erre a konferenciára <a href="[% make_uri('register') %]">még nem regisztrált</a>. Kérjük regisztráljon!</hu>
   </t>
  [% END %]
 [% ELSE %]
 <!-- no conference at all -->
 [% END %]
 
-<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt><de>Sie können</de></t></b></p>
+<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt><de>Sie können</de><hu>Lehetõségek:</hu></t></b></p>
    <ul>
    [% IF global.request.user.has_registered %]
     [% IF global.request.conference
@@ -120,7 +129,8 @@
           <en>purchase your conference ticket</en>
           <pt>comprar o seu bilhete para a conferência</pt>
           <it>acquistare il bigletto</it>
-	  <de>Ihre Teilnahme bezahlen</de>
+          <de>Ihre Teilnahme bezahlen</de>
+          <hu>jegyvásárlás</hu>
 	  </t></a><br />
     </li>
     [% END %]
@@ -131,6 +141,7 @@
        <fr>Vous <a href="[% make_uri('register') %]">inscrire à cette conférence</a></fr>
        <it><a href="[% make_uri('register') %]">Iscrivervi a questa conferenza</a></it>
        <de>Sich <a href="[% make_uri('register') %]">für diese Konferenz anmelden</de>
+       <hu><a href="[% make_uri('register') %]">regisztráció erre a konferenciára</a></hu>
         </t><br />
     </li>
    [% END %]
@@ -139,7 +150,8 @@
           <en>update your information</en>
           <pt>actualizar a sua informação</pt>
           <it>aggiornare i vostri dati</it>
-	  <de>Ihre Informationen ändern</de>
+		  <de>Ihre Informationen ändern</de>
+          <hu>személyes adatok frissítése</hu>
 	  </t></a><br />
     </li>
     <li><a href="[% make_uri('photo') %]"><t>
@@ -147,7 +159,8 @@
           <en>manage your photo</en>
           <pt>alterar a sua foto</pt>
           <it>cambiare la vostra foto</it>
-	  <de>Ihr Foto verwalten</de>
+          <de>Ihr Foto verwalten</de>
+          <hu>fotó kezelése</hu>
 	  </t></a><br />
     </li>
 [% BLOCK commentaire %]
@@ -157,6 +170,7 @@
           <de>Ihr Passwort ändern</de>
           <it>TRANSLATEME</it>
           <pt>TRANSLATEME</pt>
+          <hu>jelszóváltoztatás</hu>
       </t></a>
     </li>
 [% END %]
@@ -166,7 +180,8 @@
         <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr>
         <pt>ver as suas apresentações (as apresentações aceites são mostradas a <b>negrito</b>)</pt>
         <it>vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)</it>
-	<de>Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)</de>
+        <de>Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)</de>
+        <hu>saját elõadások (az elfogadott elõadások <b>ki vannak emelve</b>)</hu>
 	</t>:
           <br />
           <ul>
@@ -183,13 +198,14 @@
             <pt>submeter uma apresentação</pt>
             <en>submit a talk</en>
             <it>proporre un intervento</it>
-	    <de>Einen Vortrag einreichen</de>
+            <de>Einen Vortrag einreichen</de>
+            <hu>elõadás beküldése</hu>
 	    </t></a><br />
       </li>
     [% END %]
-   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de></t></a></li>
+   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de><hu>kijelentkezés</hu></t></a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>cancelar registo na [% global.conference.name %]</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de></t></a></li>
+   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>cancelar registo na [% global.conference.name %]</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de><hu>leiratkozás: [% global.conference.name %]</hu></t></a></li>
    [% END %]
    </ul>
 
@@ -200,6 +216,7 @@
  <en>Other Act conferences:</en>
  <it>Altre conferenze gestite con Act:</it>
  <de>Andere Act Konferenzen:</de>
+ <hu>További Perl konferenciák:</hu>
 </t></b></p>
 <ul>
 [% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
@@ -211,6 +228,7 @@
    <pt>(Esteve aqui)</pt>
    <it>(Avete partecipato)</it>
    <de>(Sie waren dort)</de>
+   <hu>(Részt vett rajta)</hu>
  </t>
  [% CASE 'now' %]
  <t>
@@ -219,6 +237,7 @@
    <pt>(Está aqui)</pt>
    <it>(Partecipate)</it>
    <de>(Sie sind hier)</de>
+   <hu>(Éppen részt vesz rajta)</hu>
  </t>
  [% CASE 'future' %]
  <t>
@@ -227,6 +246,7 @@
    <pt>(Irá estar aqui)</pt>
    <it>(Parteciperete)</it>
    <de>(Sie werden dort sein)</de>
+   <hu>(Részt fog venni rajta)</hu>
  </t>
 [% END %]
 </li>[% END %]

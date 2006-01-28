@@ -5,6 +5,7 @@
        it => 'Uscita dal sistema',
        pt => 'Sair'
        de => 'Logout',
+       hu => 'Kijelentkezés',
 }
 %]
 <center>
@@ -26,6 +27,9 @@
  <de>
    Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht.
  </de>
+ <hu>
+   A kijelentkezés megtörtént, a böngészõ süti törlésre került.
+ </hu>
 </t>
 </font>
 

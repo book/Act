@@ -5,6 +5,7 @@
      it => 'Aggiunta/Modifica di un evento'
      pt => 'Submissão/Modificação de um evento'
      de => 'Eingeben/Bearbeiten eines Events (kein Vortrag)'
+     hu => 'Nem elõadás esemény hozzáadása, szerkesztése'
 }
 %]
 
@@ -17,56 +18,64 @@
          fr => "La désignation est obligatoire"
          it => "Il titolo è obbligatorio"
          pt => "Deve introduzir um título para o evento"
-	 de => "Sie müssen einen Titel eingeben"
+         de => "Sie müssen einen Titel eingeben"
+         hu => "A cím megadása kötelezõ"
      },
      ERR_ABSTRACT => {
          en => "You must enter a short description for the event"
          fr => "Une courte description est obligatoire"
          it => "Una breve descrizione è obbligatoria"
          pt => "A descrição do evento é obrigatória"
-	 de => "Sie müssen eine Kurzbeschreibung eingeben"
+         de => "Sie müssen eine Kurzbeschreibung eingeben"
+         hu => "Az esemény rövid leírásának megadása kötelezõ"
      },
      ERR_DURATION => {
          en => "Please choose a duration"
          fr => "Vous devez choisir une durée"
          it => "Dovete indicare una durata"
          pt => "Deve indicar a duração"
-	 de => "Bitte wählen Sie eine Dauer aus"
+         de => "Bitte wählen Sie eine Dauer aus"
+         hu => "Az esemény hosszát meg kell adni"
      },
      ERR_DATE => {
          en => "The supplied date is invalid"
          fr => "La date fournie est invalide"
          it => "La data indicata non è valida"
          pt => "A data indicada não é válida"
-	 de => "Das angegebene Datum ist ungültig"
+         de => "Das angegebene Datum ist ungültig"
+         hu => "A megadott dátum érvénytelen"
      },
      ERR_TIME => {
          en => "The supplied time is invalid"
          fr => "L'heure fournie est invalide"
          it => "L'ora indicata non è valida"
          pt => "A hora indicada não é válida"
-	 de => "Die angegebene Zeit ist ungültig"
+         de => "Die angegebene Zeit ist ungültig"
+         hu => "A megadott idõpont érvénytelen"
      },
      ERR_DATERANGE => {
          en => "The date/time is out of range"
          fr => "Date/heure hors limites"
          it => "La data o l'ora sono fuori dai limiti"
          pt => "A data ou hora estão fora dos limites"
-	 de => "Das Datum bzw die Uhrzeit is ausserhalb des gültigen Zeitraums"
+         de => "Das Datum bzw die Uhrzeit is ausserhalb des gültigen Zeitraums"
+         hu => "A dátum/idõ rossz tartományba esik"
      },
      ERR_URL_ABSTRACT => {
          en => "Event URL is not a valid URL",
          fr => "L'URL de l'événement n'est pas une URL valide"
          it => "La URL indicata non è valida"
          pt => "O URL indicado não é válido"
-	 de => "Die URL ist nicht gültig"
+         de => "Die URL ist nicht gültig"
+         hu => "Az esemény URL-je érvénytelen"
      },
      ERR_ROOM => {
          en => "Incorrect room submitted",
          fr => "Salle incorrecte",
          it => "La stanza indicata non è valida"
          pt => "A sala indicada não é válida"
-	 de => "Falscher Veranstaltungsraum"
+         de => "Falscher Veranstaltungsraum"
+         hu => "Érvénytelen helyszín"
      },
   }
 %]

@@ -1,17 +1,18 @@
 [% WRAPPER ui
    title = {
-       en => 'Talk removed', 
+       en => 'Talk removed',
        fr => 'Présentation supprimée',
        it => 'Intervento TRANSLATEME',
        pt => 'Apresentação TRANSLATEME'
        de => 'Vortrag TRANSLATEME'
+       hu => 'Elõadás törölve'
    }
 %]
 
 <p>
  <t>
   <en>
-   The Talk <b>[% title %] has been removed.
+   The Talk <b>[% title %]</b> has been removed.
   </en>
   <fr>
    La présentation <b>[% title %]</b> a été supprimée.
@@ -25,6 +26,9 @@
   <de>
   Danke, der Vortrag <b>[% title %]</b> wurde TRANSLATEME.
   </de>
+  <hu>
+   Az elõadás törlésre került: <b>[% title %]</b>.
+  </hu>
  </t>
 </p>
 

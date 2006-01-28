@@ -1,5 +1,5 @@
 [% WRAPPER ui
-   title = { en => 'Your photo', fr => 'Votre photo', it => 'La vostra foto', pt => 'A sua foto',de=>'Ihr Foto' },
+   title = { en => 'Your photo', fr => 'Votre photo', it => 'La vostra foto', pt => 'A sua foto',de=>'Ihr Foto', hu=>'Fotó' },
 %]
 <center>
 <form method="POST" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
       [%- IF global.request.user.photo_name %]
          <img src="[% photo_uri %]" border="0">
       [%- ELSE %]
-         <t><fr>Pas de photo</fr><pt>Sem foto</pt><en>No photo</en><it>Nessuna foto</it><de>Kein Foto</de></t>
+         <t><fr>Pas de photo</fr><pt>Sem foto</pt><en>No photo</en><it>Nessuna foto</it><de>Kein Foto</de><hu>Nincs fotó</hu></t>
       [% END %]<br />
    </td>
 </tr>
@@ -31,7 +31,7 @@
      <pt>
       Esta foto irá acabar, provavelmente, no <i>quem é quem</i> da conferência,
       de forma a que as pessoas o possam reconhecer, e encontrar aqueles com quem tiveram
-      uma conversa agradável, depois de o conhecer na conferência.<br/> 
+      uma conversa agradável, depois de o conhecer na conferência.<br/>
       Pense nisso anes de enviar a fotografia!
      </pt>
      <en>
@@ -50,6 +50,12 @@
     Andere Teilnehmende können so nach der Konfernent rausfinden, mit wem
     sie so nett geplaudert etc haben...
     </de>
+     <hu>
+      Ez a fénykép a konferencia <i>Ki-kicsodájában</i> fog kikötni,
+      a célja pedig, hogy az egymást keresõ résztvevõk felismerjék ez alapján,
+      hogy kivel beszélgettek egy jót. Ez további kapcsolatépítésnek lehet az
+      alapja. A fényképet ennek fényében lehet feltölteni.
+     </hu>
     </t>
     <tt>;-)</tt>
    </td>
@@ -62,11 +68,11 @@
 <tr>
    <td align="left">
       [%- IF global.request.user.photo_name %]
-         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en><it>Elimina foto</it><pt>Apagar a foto</pt><de>Foto löschen</de></t>" />
+         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en><it>Elimina foto</it><pt>Apagar a foto</pt><de>Foto löschen</de><hu>Fénykép törlése</hu></t>" />
       [% END %]
    </td>
    <td align="right">
-      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en><it>Aggiorna foto</it><pt>Enviar a foto</pt><de>Foto ändern</t>" />
+      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en><it>Aggiorna foto</it><pt>Enviar a foto</pt><de>Foto ändern</de><hu>Fénykép mentése</hu></t>" />
    </td>
 </tr>
 </table>

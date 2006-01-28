@@ -1,6 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui
-   title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm'}
+   title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idõbeosztás'}
 %]
 
 [% IF not ( global.request.user.is_orga
@@ -12,6 +12,7 @@
  <it>Il programma non è ancora pronto.</it>
  <pt>O programa ainda está em construção.</pt>
  <de>Das Programm ist noch in Arbeit.</de>
+ <hu>A program még nincs meghatározva.</hu>
 </t>
 [% ELSE %]
 [% IF todo.size %]
@@ -22,30 +23,24 @@
   <pt>TRANSLATEME</pt>
   <it>TRANSLATEME</it>
   <de>TRANSLATEME</de>
-  <hu>TRANSLATEME</hu>
+  <hu>A következõ elõadások helye és ideje még nem lett eldöntve.</hu>
  </t>
 </p>
 <table>
  <tr>
-  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de></t></th>
-  <th><t><en>Talk/event title</en><fr>Présentation/événement</fr><pt>Título/evento</pt><it>Intervento/evento</it><de>Titel/event</de></t></th>
-  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de></t></th>
+  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de><hu>Elõadó</hu></t></th>
+  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de><hu>Elõadás címe</hu></t></th>
+  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu></t></th>
  </tr>
  [% FOREACH t IN todo %]
  <tr>
- [% IF t.type == 'Act::Talk' %]
   <td><a href="[% make_uri_info('user', t.user.user_id) %]">
    [% user_info(t.user) %]
   </a></td>
   <td>[% talk_confirmed_link(t) %]
       [% talk_modify_link(t) %]
   </td>
- [% ELSE %]
-  <td>&nbsp;</td>
-  <td>[% event_link(t) %]
-      [% event_modify_link(t) %]
- [% END %]
-  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de></t>
+  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
   </td>
  </tr>
  [% END %]
@@ -59,6 +54,7 @@
  <it>Gli interventi in <b>grassetto</b> sono stati confermati dai rispettivi oratori.</it>
  <pt>As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores.</pt>
  <de>Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt.</de>
+ <hu>A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette.</hu>
 </t>
 </p>
 [% FOREACH d IN table.keys.sort %]
@@ -68,7 +64,7 @@
 <table border="0">
  <tr class="header">
   <th>
-   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Zeit</de></t>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Zeit</de><hu>Idõ</hu></t>
   </th>
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
@@ -77,6 +73,7 @@
        <pt>Sala [% global.config.rooms.$r %]</pt>
        <it>Stanza [% global.config.rooms.$r %]</it>
        <de>Raum: [% global.config.rooms.$r %]</de>
+       <hu>Helyszín: [% global.config.rooms.$r %]</hu>
        </t></th>
   [% END %]
  </tr>
