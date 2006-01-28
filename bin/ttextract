@@ -74,13 +74,14 @@ sub _extract
             ++$num;
             print "$fname-$num\t" . join('', map("<$_>$texts->{$_}</$_>", sort keys %$texts)) . "\n" if $opts{v};
             if ($opts{l}) {
-                my $ltext = $texts->{$opts{l}};
+                my $ltext = exists $texts->{$opts{l}} ? $texts->{$opts{l}} : "TRANSLATEME";
                 print "$fname-$num\t$ltext\n";
             }
             if ($opts{c}) {
                 for my $language (LANGUAGES) {
-                    my $ltext = $texts->{$language};
-                    print "$file-$num: missing $language\n" unless $ltext;
+                    print "$file-$num: missing $language\n"
+                        unless exists $texts->{$language}
+                                   && $texts->{$language} !~ /TRANSLATEME/;
                 }
             }
         }
