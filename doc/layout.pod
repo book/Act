@@ -1,7 +1,6 @@
 =head1 MANAGING YOUR ACT WEB SITE
 
-The CVS repository for an Act-enabled conference web site has two
-subdirectories:
+An Act-enabled conference web site uses two subdirectories:
 
 =over 4
 
