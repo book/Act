@@ -5,22 +5,13 @@
 
 [% BLOCK update_link %]
 <p>
- <a href="[% make_uri('change') %]">
   <t>
-   <fr>Cliquer ici</fr>
-   <en>Click here</en>
-   <de>Hier klicken</de>
-   <pt>Clique aqui</pt>
-   <it>Modifica o aggiorna queste informazioni.</it>
+   <fr><a href="[% make_uri('change') %]">Cliquer ici</a> pour modifier ou compléter ces informations.</fr>
+   <en><a href="[% make_uri('change') %]">Click here</a> to modify or update this information.</en>
+   <de><a href="[% make_uri('change') %]">Hier klicken</a> um diese Informationen zu ändern.</de>
+   <pt><a href="[% make_uri('change') %]">Clique aqui</a> para modificar ou actualizar esta informação.</pt>
+   <it><a href="[% make_uri('change') %]">Modifica o aggiorna queste informazioni.</a></it>
   </t>
- </a>
- <t>
-  <fr>pour modifier ou compléter ces informations.</fr>
-  <en>to modify or update this information.</en>
-  <de>um diese Informationen zu ändern.</de>
-  <pt>para modificar ou actualizar esta informação.</pt>
-  <it></it>
- </t>
 </p>
 [% END %]
 
