@@ -7,14 +7,15 @@ use strict;
 
 use File::Find     qw(find);
 use Getopt::Std    qw(getopts);
+use Template::Multilingual::Parser;
 
 use Act::Config;
-use Act::Template;
 
+use constant LANGUAGES     => qw(de en fr hu it pt);
 use constant TEMPLATE_DIRS => qw(static templates);
 
-# global template object
-my $template = Act::Template->new;
+# global template parser object
+my $parser = Template::Multilingual::Parser->new;
 
 # parse command line options
 my %opts;
@@ -32,7 +33,6 @@ else {
     for my $conf (sort keys %{$Config->conferences}) {
         $Request{conference} = $conf;
         $Config = Act::Config::get_config($Request{conference});
-        $template = Act::Template->new;
         _extract(join '/', $Config->home, $conf, $_) for TEMPLATE_DIRS;
     }
 }
@@ -52,34 +52,34 @@ sub _extract
              $dir
         );
     }
-    else {
+    elsif (-e $dir) {
         @files = ($dir);
     }
     # process each file
     for my $file (sort @files) {
         (my $fname = $file) =~ s!^$dir/!!;
-        my ($input, $output);
+        my $input;
         {
             local $/ = undef;
             open my $fh, $file or die "can't open $file: $!\n";
             $input = <$fh>;
             close $fh;
         }
-        $template->process(\$input, \$output);
+        $parser->_tokenize($input);
 
         # loop on multilingual text sections
         my $num = 0;
-        for my $section (grep $_->{lang}, @{$template->{PARSER}->get_sections()}) {
-            my $text = $section->{text};
+        for my $section (@{$parser->sections()}) {
+            my $texts = $section->{lang} or next;
             ++$num;
-            print "$fname-$num\t$text\n" if $opts{v};
+            print "$fname-$num\t" . join('', map("<$_>$texts->{$_}</$_>", sort keys %$texts)) . "\n" if $opts{v};
             if ($opts{l}) {
-                my ($ltext) = ($text =~ m!<$opts{l}>(.*?)</$opts{l}>!s);
+                my $ltext = $texts->{$opts{l}};
                 print "$fname-$num\t$ltext\n";
             }
             if ($opts{c}) {
-                for my $language (sort keys %{$Config->languages}) {
-                    my ($ltext) = ($text =~ m!<$language>(.*?)</$language>!s);
+                for my $language (LANGUAGES) {
+                    my $ltext = $texts->{$language};
                     print "$file-$num: missing $language\n" unless $ltext;
                 }
             }
