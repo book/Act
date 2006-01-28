@@ -107,7 +107,7 @@
 <input type="checkbox" name="delete" />
 <t><en>Delete this talk</en>
    <fr>Supprimer cette présentation</fr>
-   <it>TRANSLATEME</it>
+   <it>Elimina questo intervento</it>
    <pt>TRANSLATEME</pt>
    <de>TRANSLATEME</de>
    <hu>Elõadás törlése</hu>

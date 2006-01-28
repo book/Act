@@ -2,7 +2,7 @@
    title = {
        en => 'Event removed',
        fr => 'Événement supprimé',
-       it => 'Evento TRANSLATEME',
+       it => 'Evento eliminato',
        pt => 'Evento TRANSLATEME'
        de => 'Event TRANSLATEME'
        hu => 'Esemény törölve'
@@ -18,7 +18,7 @@
    L'événement <b>[% title %]</b> a été supprimé.
   </fr>
   <it>
-   Grazie, l'evento <b>[% title %]</b> è stato TRANSLATEME.
+   Grazie, l'evento <b>[% title %]</b> è stato eliminato.
   </it>
   <pt>
    Obrigado, o evento <b>[% title %]</b> foi TRANSLATEME.

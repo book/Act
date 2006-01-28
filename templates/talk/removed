@@ -18,7 +18,7 @@
    La présentation <b>[% title %]</b> a été supprimée.
   </fr>
   <it>
-   Grazie, l'intervento <b>[% title %]</b> è stato TRANSLATEME.
+   Grazie, l'intervento <b>[% title %]</b> è stato eliminato.
   </it>
   <pt>
    Obrigado, o apresentação <b>[% title %]</b> foi TRANSLATEME.

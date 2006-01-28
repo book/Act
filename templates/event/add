@@ -91,7 +91,7 @@
 <input type="checkbox" name="delete" />
 <t><en>Delete this event</en>
    <fr>Supprimer cet événement</fr>
-   <it>TRANSLATEME</it>
+   <it>Elimina questo evento</it>
    <pt>TRANSLATEME</pt>
    <de>TRANSLATEME</de>
 </t>
