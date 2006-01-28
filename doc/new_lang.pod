@@ -21,7 +21,7 @@ Will list the template files that contain the C<E<lt>tE<gt>> tag.
 Here's a very simple example:
 
     <t>
-     <en>Welcome on the YAPC::Europe web site!</en>
+     <en>Welcome to the YAPC::Europe web site!</en>
      <pt>Boa vinda no web site de YAPC::Europe!</pt>
      <fr>Bienvenue sur le site de YAPC::Europe&nbsp;!</fr>
      <de>Willkommen auf der YAPC::Europe web site!</de>
