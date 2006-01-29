@@ -3,16 +3,25 @@ use strict;
 use Act::Config;
 use Act::Util;
 
-# store the methods in the symbol table
-# there's only one payment system in a single run, anyway
+my %Plugins;
+
+# load appropriate payment plugin
+sub load_plugin
 {
-    my $class = join '::', qw(Act Payment), $Config->payment_type;
-    eval "require $class";
-    die "require $class failed!" if $@;
-    for my $meth (qw( create_form verify create_response )) {
-        no strict 'refs';
-        *$meth = \&{"$class\::$meth"};
+    my $name = shift || $Config->payment_type;
+
+    # return new plugin if not already in cache
+    unless (exists $Plugins{$name}) {
+
+        # require new plugin
+        my $class = join '::', qw(Act Payment), $name;
+        eval "require $class";
+        die "require $class failed!" if $@;
+
+        # instantiate
+        $Plugins{$name} = $class->new();
     }
+    return $Plugins{$name};
 }
 
 sub get_price
@@ -54,7 +63,8 @@ Act::Payment - Online payment routines
 
     use Act::Payment;
 
-    my $form = Act::Payment->create_form(
+    my $plugin = Act::Payment::load_plugin();
+    my $form = $plugin->create_form(
         order_id => $order_id,
         amount   => $Config->payment_amount,
     );

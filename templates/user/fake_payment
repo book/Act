@@ -34,7 +34,7 @@
  </t>
 </p>
 
-<form method="POST" action="/confirm">
+<form method="POST" action="/fakeconfirm">
 
 <input type="hidden" name="order_id" value="[% order.order_id %]" />
 <input type="hidden" name="amount"   value="[% order.amount %]" />

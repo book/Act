@@ -41,8 +41,9 @@ sub handler
         $order = Act::Order->create(%f);
 
         # display second form (submits to the bank)
+        my $plugin = Act::Payment::load_plugin();
         $template->variables(order => $order);
-        $template->variables_raw(form => Act::Payment->create_form($order));
+        $template->variables_raw(form => $plugin->create_form($order));
         $template->process('user/payment');
     }
     else {

@@ -12,9 +12,14 @@ use Act::Util;
 my $Version  = '1.2open';
 my %Languages = map { $_ => 1 } qw(DE EN ES FR IT);
 
+sub new
+{
+    bless {}, shift;
+}
+
 sub create_form
 {
-    my ($class, $order) = @_;
+    my ($self, $order) = @_;
 
     # submit button
     my $template = Act::Template->new();
@@ -61,7 +66,7 @@ EOF
 
 sub verify
 {
-    my ($class, $args) = @_;
+    my ($self, $args) = @_;
 
     require Digest::HMAC_SHA1;
 
@@ -80,7 +85,7 @@ sub verify
 
 sub create_response
 {
-    my ($class, $verified) = @_;
+    my ($self, $verified) = @_;
 
     my $response = $verified ? "OK" : "Document falsifie";
     $Request{r}->print(<<EOF);

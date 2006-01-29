@@ -12,8 +12,11 @@ sub handler
     # we aren't dispatched by Act::Dispatcher
     $Request{args} = { map { $_ => $Request{r}->param($_) || '' } $Request{r}->param };
 
+    # load appropriate plugin, hardwired to the url in httpd.conf
+    my $plugin = Act::Payment::load_plugin( $Request{r}->dir_config('ActPluginName') );
+
     # verify payment
-    my ($verified, $paid, $order_id) = Act::Payment->verify($Request{args});
+    my ($verified, $paid, $order_id) = $plugin->verify($Request{args});
     my $order;
     if ($verified && $paid && $order_id) {
         $order = Act::Order->new(order_id => $order_id);
@@ -26,7 +29,7 @@ sub handler
             _notify($order);
         }
     }
-    Act::Payment->create_response($verified, $order);
+    $plugin->create_response($verified, $order);
 }
 
 sub _notify

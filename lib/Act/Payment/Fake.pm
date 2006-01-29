@@ -6,9 +6,14 @@ use Act::Order;
 use Act::Template::HTML;
 use Act::Util;
 
+sub new
+{
+    bless {}, shift;
+}
+
 sub create_form
 {
-    my ($class, $order) = @_;
+    my ($self, $order) = @_;
     my $template = Act::Template::HTML->new(AUTOCLEAR => 0);
     $template->variables(order => $order);
     my $form;
@@ -18,13 +23,13 @@ sub create_form
 
 sub verify
 {
-    my ($class, $args) = @_;
+    my ($self, $args) = @_;
     return (1, 1, $args->{order_id});
 }
 
 sub create_response
 {
-    my ($class, $verified, $order) = @_;
+    my ($self, $verified, $order) = @_;
 
     # we aren't being dispatched by Act::Dispatcher
     $Config = Act::Config::get_config($Request{conference} = $order->conf_id);
