@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+
+use strict;
+use DBI;
+
+use Act::Config;
+
+# command line arguments
+my $database = shift or usage();
+my $username = shift or usage();
+
+# relation types
+my %types = (
+ S => 'sequence',
+ i => 'index',
+ r => 'table',
+ v => 'view',
+);
+
+# connect to database
+my $dbh = DBI->connect(
+    $Config->database_dsn,
+    $Config->database_user,
+    $Config->database_passwd,
+);
+
+# fetch database's owner ID
+my $sth = $dbh->prepare('SELECT datdba FROM pg_database WHERE datname = ?');
+$sth->execute($Config->database_name);
+my ($dbowner) = $sth->fetchrow_array();
+
+# fetch list of relations
+$sth = $dbh->prepare(
+    "SELECT relname FROM pg_class"
+    . " WHERE relowner = ? AND relname NOT LIKE ? AND relkind IN (?, ?) ORDER BY relname"
+    
+);
+$sth->execute($dbowner, 'pg_%', 'r', 'S');
+while (my ($relname) = $sth->fetchrow_array()) {
+    print "GRANT ALL ON $relname TO $username;\n";
+}
+####################
+sub usage
+{
+    die "Syntax: $0 database_name user_name\n";
+}
