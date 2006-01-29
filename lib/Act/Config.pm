@@ -64,7 +64,7 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
 );
 
 # load configurations
-load_configs();
+load_configs() unless $^C;
 
 sub load_configs
 {
