@@ -32,6 +32,11 @@ isa_ok( $talk, 'Act::Talk' );
 is_deeply( $talk, {}, "create empty talk with new()" );
 
 # create a talk
+my $date = DateTime->new(
+       year  => 2004, month  => 10, day   => 16,
+       hour  => 16,   minute => 0,
+);
+
 $talk2 = Act::Talk->create(
    title     => 'test',
    user_id   => $user2->user_id,
@@ -40,10 +45,7 @@ $talk2 = Act::Talk->create(
    lightning => 'true',
    accepted  => '0',
    confirmed => 'false',
-   datetime  => DateTime->new(
-       year  => 2004, month  => 10, day   => 16,
-       hour  => 16,   minute => 0,
-   )
+   datetime  => $date,
 );
 isa_ok( $talk2, 'Act::Talk' );
 isa_ok( $talk2->datetime, 'DateTime' );
@@ -56,7 +58,7 @@ is_deeply( Act::Talk->new( user_id => $user2->user_id ),
    title        => 'test',
    conf_id      => 'conf',
    duration     => 5,
-   datetime     => undef,
+   datetime     => $date,
    url_talk     => undef,
    url_abstract => undef,
    abstract     => undef,

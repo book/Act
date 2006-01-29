@@ -152,8 +152,8 @@ use_ok('Act::Dispatcher');
 
 {
     no warnings 'redefine';
-    *Act::Config::get_config = sub { $cfg };
-    *Act::Dispatcher::_db_connect   = sub {};
+    *Act::Config::get_config        = sub { $cfg };
+    *Act::Util::db_connect          = sub {};
     *Act::Dispatcher::_set_language = sub {};
 }
 $Config = $cfg;

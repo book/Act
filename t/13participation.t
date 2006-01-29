@@ -27,6 +27,7 @@ $user = Act::User->get_items( login => 'book', conf_id => 'conf' )->[0];
 is_deeply( $user,
     {
         monk_id      => undef,
+        monk_name    => undef,
         session_id   => undef,
         town         => undef,
         nick_name    => undef,
