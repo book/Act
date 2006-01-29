@@ -9,14 +9,6 @@ use Act::Config;
 my $database = shift or usage();
 my $username = shift or usage();
 
-# relation types
-my %types = (
- S => 'sequence',
- i => 'index',
- r => 'table',
- v => 'view',
-);
-
 # connect to database
 my $dbh = DBI->connect(
     $Config->database_dsn,
