@@ -111,7 +111,7 @@ Act know how to display pages in other languages, no language other than
 the official languages for the conference will be displayed. (Note to
 Eric: we'll need to keep track of language preferences per Act subsite)
 
-Act provide menu template for all the categories provided by the
+Act provides menu templates for all the categories provided by the
 framework. You can therefore create your own menus very easily:
 
     <!-- user info, login, language -->
