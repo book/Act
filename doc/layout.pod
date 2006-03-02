@@ -57,8 +57,6 @@ Links to the so-called "static" pages are created with the macro
 
 The parameter being the file path relative to F<actdocs/static>.
 
-Links to real stati
-
 Please note that at least one template is required: F<actdocs/templates/ui>
 This file contains a TT2 wrapper that will be used by the framework
 to create full pages from the bits of HTML it generates.
