@@ -54,7 +54,7 @@ sub handler {
     }
     $template->variables(
         talks => $talks,
-        conferences => [ sort { $b->{begin} cmp $a->{begin} } values %confs ],
+        conferences => [ sort { $b->{begin} <=> $a->{begin} } values %confs ],
         can_unregister =>  $Request{user}->has_registered()
                        && !$Request{user}->has_paid()
                        && !$Request{user}->has_talk(),
