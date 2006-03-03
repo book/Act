@@ -24,12 +24,15 @@ conference.
     sender_address = your@address.com
 
     [talks]
-    submissions_open = 0
-    submissions_notify_address = interventions@mongueurs.net
+    submissions_open = 0               # can talks be proposed
+    submissions_notify_address  = interventions@mongueurs.net
     submissions_notify_language = fr
-    edition_open = 1
+    edition_open  = 1                  # let users edit talks
     show_schedule = 1
+    show_all  = 0                      # show accepted talks (or all)
     durations = 20 40 120              # default talk durations
+
+    # dates of the conference (schedule)
     start_date = 2004-06-05 18:00:00
     end_date   = 2004-06-07 18:00:00
 
@@ -40,11 +43,16 @@ conference.
 
     [payment]
     open        = 0
-    prices      = 1        # how many different registration prices
+    prices      = 2        # how many different registration prices
     
     [price1]
-    type        = NORMAL   # NORMAL, REDUCED or BUSINESS
+    type        = NORMAL
     amount      = 25
+    currency    = EUR
+
+    [price2]
+    type        = REDUCED
+    amount      = 15
     currency    = EUR
 
 =head2 Infrastructure configuration
