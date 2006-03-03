@@ -80,9 +80,9 @@ for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
-    printf "- %3d | %s | %s %s (%s) <%s> (%d talks)\n", $_->user_id,
+    printf "- %3d | %s | %s %s (%s) <%s> (%d talks) [%s]\n", $_->user_id,
       $_->login, $_->first_name, $_->last_name, $_->nick_name, $_->email,
-      scalar @{ $_->talks }
+      scalar @{ $_->talks }, "@{[map { $_->{conf_id} } @{$_->participations}]}"
       for sort { $a->user_id <=> $b->user_id } @$u;
     print "\n";
 }
@@ -90,6 +90,7 @@ for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
 sub message { print "@_" unless $conf{quiet}; }
 
 sub normalise {
+    no warnings;
     for my $u (@_) {
         $u->{__fullname} = lc( $u->first_name . " " . $u->last_name );
         $u->{__nick}     = lc $u->nick_name;
