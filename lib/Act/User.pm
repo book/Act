@@ -2,6 +2,7 @@ package Act::User;
 use Act::Config;
 use Act::Object;
 use Act::Talk;
+use Act::Country;
 use Carp;
 use base qw( Act::Object );
 
@@ -70,8 +71,10 @@ sub AUTOLOAD {
     croak "AUTOLOAD: Unknown method $AUTOLOAD";
 }
 
-# This is a pseudo field!
+# This are pseudo fields!
 sub full_name { $_[0]->first_name . ' ' . $_[0]->last_name; }
+sub country_name { Act::Country::CountryName( $_[0]->country ) }
+
 
 sub bio {
     my $self = shift;
