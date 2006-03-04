@@ -102,8 +102,30 @@ special talks without a defined speaker.
 Lightning talks sessions are currently not fully handled by Act. One
 can submit a lightning talk, which will be accepted or not, as for the
 other talks. But you'll need to create one or several "lightning talks"
-events in which you'll paste the list of lightning talks. We should
-probably fix this.
+events (or talks) in which you'll paste the list of lightning talks.
+
+However, it's rather easy to link talks from with an event or talk.
+Simply note the talk id and use it to create a link to the user and talk
+in the event or talk description.
+
+Here is the source description of the lightning talks session of
+the French Perl Workshop 2005:
+
+    Programme des présentations éclairs :
+    - talk:101
+    - talk:63
+    - talk:201
+    - talk:198
+    - talk:190
+    - Alexandre Buisse - Le GC de Parrot
+    - Pierre Weis - Présentation d'OCaml
+    - Stéphane Payrard - GreaseMonkey
+
+(The last three talks were last minutes talks that were not registered
+in the database.)
+
+And here is the result:
+L<http://conferences.yapceurope.org/fpw2005/event/43>.
 
 =cut
 
