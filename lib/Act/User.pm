@@ -199,7 +199,7 @@ sub possible_duplicates {
     my %seen = ( $self->user_id => 1 );
     my @twins;
     
-    for my $attr (qw( email nick_name )) {
+    for my $attr (qw( email nick_name full_name )) {
         push @twins,
             grep { !$seen{ $_->user_id }++ }
             @{ Act::User->get_items( $attr => $self->$attr() ) }
