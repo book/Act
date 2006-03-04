@@ -23,6 +23,7 @@ my @modules = (
                  'Text::Diff',
                  'Test::MockObject',
                  'Text::Iconv',
+                 'Text::xSV',
                  'URI::Escape',
               );
 use Test::More;
