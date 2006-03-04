@@ -189,9 +189,26 @@ sub update {
         }
     }
 }
+
+sub possible_duplicates {
+    my ($self) = @_;
+    my %seen = ( $self->user_id => 1 );
+    my @twins;
+    
+    for my $attr (qw( email nick_name )) {
+        push @twins,
+            grep { !$seen{ $_->user_id }++ }
+            @{ Act::User->get_items( $attr => $self->$attr() ) }
+            if $self->$attr();
+    }
+
+    return \@twins;
+}
+
 1;
 
 __END__
+
 =head1 NAME
 
 Act::User - A user object for the Act framework

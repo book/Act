@@ -55,7 +55,7 @@ is_deeply( Act::User->get_users( name => 'baz' ), [ $user ], "Found a pseudonymo
 
 # update a user
 $user = Act::User->new( login => 'test' );
-$user->update(email => 'bar@baz.com', login => 'frobb');
+$user->update(email => 'bar@baz.com', login => 'frobb', nick_name => 'baz' );
 $user = Act::User->new( login => 'frobb' );
 isa_ok( $user, 'Act::User' );
 is($user->login, 'frobb', 'Updated login');
@@ -83,4 +83,10 @@ $Request{dbh}->commit;
 
 is_deeply( $user->bio, { fr => 'French bio', en => 'English bio' }, "Bio" );
 
+# find a twin in the db
+my $twins = $user->possible_duplicates();
+is( grep( { $_->user_id == $user->user_id } @$twins ),
+    0, "User is not his own twin" );
+is( scalar @$twins, 1, "Found 1 possible duplicate" );
+is( $user->nick_name, $twins->[0]->nick_name, "  based on the nick_name" );
 
