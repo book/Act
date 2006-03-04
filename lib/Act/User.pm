@@ -26,7 +26,7 @@ our %sql_mapping = (
     full_name  =>  "(u.first_name || ' ' || u.last_name = ?)",
     # text search
     map( { ($_, "(u.$_~*?)") }
-      qw( town pm_group company address ) ),
+      qw( town pm_group company address nick_name ) ),
     # standard stuff
     map( { ($_, "(u.$_=?)") }
       qw( user_id session_id login email country ) )
