@@ -83,6 +83,18 @@ $Request{dbh}->commit;
 
 is_deeply( $user->bio, { fr => 'French bio', en => 'English bio' }, "Bio" );
 
+Act::User->create(
+    login   => 'test3',
+    passwd  => 't3st',
+    email   => 'bar@bar.com',
+    country => 'en',
+    first_name => 'Bonk',
+    last_name => 'Zwap',
+    pseudonymous => 't',
+    pm_group  => 'paris.pm',
+    timezone => 'Europe/Paris',
+);
+
 # find a twin in the db
 my $twins = $user->possible_duplicates();
 is( grep( { $_->user_id == $user->user_id } @$twins ),
