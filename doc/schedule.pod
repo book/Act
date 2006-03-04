@@ -28,7 +28,7 @@ speaker out. ;-)
 =item *
 
 Count 1 minute between two lightning talks (you need time to swap speakers)
-So, that's ten 5 minutes lightning talks per hour.
+So, that's 10 five minutes lightning talks per hour (not 12).
 
 =item *
 
