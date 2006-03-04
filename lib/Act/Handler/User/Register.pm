@@ -1,4 +1,5 @@
 package Act::Handler::User::Register;
+use strict;
 
 use Act::Config;
 use Act::Country;
@@ -48,6 +49,7 @@ sub handler
 
     my $template = Act::Template::HTML->new();
     my $fields = {};
+    my $duplicates = [];
 
     if ($Request{args}{join}) {
         # form has been submitted
@@ -58,12 +60,21 @@ sub handler
         $fields = $form->{fields};
 
         if ($ok) {
+            # create a user in memory only and find duplicates
+            my $ghost = Act::User->new();
+            $ghost->{$_} = $fields->{$_}
+                for qw(login first_name last_name email country);
+            $duplicates = $ghost->possible_duplicates();
+            use Data::Dumper 'Dumper'; warn Dumper [$duplicates];
+
             # check for existing user
             if (Act::User->new(login => $fields->{login})) {
                 push @errors, 'ERR_IDENTIFIER_EXISTS';
             }
-            elsif (Act::User->new(email => $fields->{email})) {
-                push @errors, 'ERR_EMAIL_EXISTS';
+            # check for duplicates
+            elsif ( ! $fields->{ignore_duplicates} && @$duplicates ) {
+                push @errors, 'ERR_DUPLICATE_EXISTS';
+                $fields->{ignore_duplicates} = 1;
             }
             # create this user
             else {
@@ -105,7 +116,8 @@ sub handler
     # display the registration form
     $template->variables(
         countries => Act::Country::CountryNames(),
-        %$fields
+        %$fields,
+        duplicates => $duplicates,
     );
     $template->process('user/add');
 }
