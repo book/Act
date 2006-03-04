@@ -99,17 +99,21 @@ special talks without a defined speaker.
 
 =back
 
-Lightning talks sessions are currently not fully handled by Act. One
-can submit a lightning talk, which will be accepted or not, as for the
-other talks. But you'll need to create one or several "lightning talks"
-events (or talks) in which you'll paste the list of lightning talks.
+=head2 Lightning talks sessions
 
-However, it's rather easy to link talks from with an event or talk.
+Lightning talks sessions are fully handled by Act. One
+can submit a lightning talk, which will be accepted or not, as for the
+other talks. Lightning talks do not have an individual date, time and
+duration: you'll have to create one or several "lightning talks"
+events (or talks if you want the name of the master of ceremony to
+appear in the schedule) in which you'll paste the list of lightning talks.
+
+It's rather easy to link talks from within an event or talk.
 Simply note the talk id and use it to create a link to the user and talk
 in the event or talk description.
 
-Here is the source description of the lightning talks session of
-the French Perl Workshop 2005:
+As an exemple, here is the source description of the lightning talks
+session of the French Perl Workshop 2005:
 
     Programme des présentations éclairs :
     - talk:101
