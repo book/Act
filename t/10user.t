@@ -1,4 +1,4 @@
-use Test::More tests => 46;
+use Test::More tests => 50;
 use strict;
 use Act::User;
 use t::Util;   # load the test database
@@ -90,3 +90,9 @@ is( grep( { $_->user_id == $user->user_id } @$twins ),
 is( scalar @$twins, 1, "Found 1 possible duplicate" );
 is( $user->nick_name, $twins->[0]->nick_name, "  based on the nick_name" );
 
+# full_name
+$user = Act::User->new( full_name => 'Foo bar' );
+isa_ok( $user, 'Act::User' );
+is( $user->first_name, 'Foo',     'first name Foo' );
+is( $user->last_name,  'bar',     'last name bar' );
+is( $user->full_name,  'Foo bar', 'full name Foo bar' );
