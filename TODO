@@ -4,6 +4,29 @@ CRITICAL
 IMPORTANT
 =========
 
+2) Is it possible to enable another field in the database for
+>"language of presentation"
+>    in HPW we accept talks in either English or Hungarian. I would
+>like the
+>    speakers to indicate which one will they use for their
+>presentation.
+>
+>3) In the future (not in the current HPW) I would like to let the
+>speakers select
+>   a track for their presentation, for easier categorization.
+
+
+
+- participants 
+  + si un user est inscrit, a payé, mais n'a finalement pas participé,
+    souhaite-on le compter ? En fait, je suis en train de parler d'un
+    problème distinct, qui est le décompte des utilisateurs effectivement
+    présents à la conf. On peut payer et ne pas venir.
+    => ce serait sympa de pouvoir lister sur le profil d'un utilisateur
+       à quelles conférences il a participé (avec un lien vers son
+       profil dans l'autre conférence)
+    => n'est pas lié à un site qui soit indépendant des conférences ?
+
 - gestion des talks:
   + maintenant que l'on peut afficher les talks non acceptés, il faut
     regarder les divers templates et vérifier qu'on est cohérent sur
@@ -35,6 +58,9 @@ IMPORTANT
 
 - demander la taille du T-shirt à la création du user (pour avoir une
   info précise)
+- dupliquer cette information depuis la conf la plus récente quand
+  un utilisateur a plusieurs participations (imaginons qu'il maigrisse
+  ou grossisse !)
 
 - statistiques sur les T-shirts
   select count(*), tshirt_size from participations where conf_id=? group by tshirt_size;
@@ -72,11 +98,6 @@ NORMAL
   + gestion des users (ajout, suppression, edition)
   + gestion des photos/videos (si on fait une gallerie)
 
-- meilleure gestion des sessions de lightning talks :
-  + aujourd'hui, le problème a été réglé en créant un événement LT,
-    et en copiant la liste dedans
-  => est-ce la solution définitive ?
-
 - test de la fermeture/ouverture des diverses options
 
 UNIMPORTANT
@@ -100,6 +121,9 @@ UNIMPORTANT
   autres sites, pour arriver à pt,fr,en ou fr,pt,en, ce qui lui donnera
   la langue voulue partout. Ca va ?
   ou alors, on ajoute encore un truc à gérer, mais bof.
+  => autre possibilite, rajouter un champ lang dans participations,
+     comme ca un user inscrit à une conf aura sa langue de préference
+     inscrite en dur pour cette conf...
 
 - un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
   juste aux users
