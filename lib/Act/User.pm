@@ -210,7 +210,7 @@ sub possible_duplicates {
     for my $attr (qw( email nick_name full_name last_name )) {
         push @twins,
             grep { !$seen{ $_->user_id }++ }
-            @{ Act::User->get_items( $attr => $self->$attr() ) }
+            @{ Act::User->get_items( $attr => quotemeta( $self->$attr() ) ) }
             if $self->$attr();
     }
 
