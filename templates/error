@@ -3,4 +3,3 @@
   [% msgs.$err_id.${global.request.language} %]
   [% END %]
 [% END %]
-<br />
