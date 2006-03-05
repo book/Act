@@ -207,13 +207,14 @@ sub possible_duplicates {
     my %seen = ( $self->user_id => 1 );
     my @twins;
     
-    for my $attr (qw( email nick_name full_name last_name )) {
+    for my $attr (qw( login email nick_name full_name last_name )) {
         push @twins, grep { !$seen{ $_->user_id }++ }
             map {@$_}
             Act::User->get_items( $attr => map { s/([.*(){}^$?])/\\$1/g; $_ }
                 $self->$attr() )
             if $self->$attr();
     }
+    @twins = sort { $a->user_id <=> $b->user_id } @twins;
 
     return \@twins;
 }
