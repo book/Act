@@ -172,7 +172,7 @@ sub update {
 
     my $part = delete $args{participation};
     my $bio  = delete $args{bio};
-    $self->SUPER::update(%args);
+    $self->SUPER::update(%args) if %args;
     if ($part && $Request{conference}) {
         delete $part->{$_} for qw(conf_id user_id);
         my $SQL = sprintf 'UPDATE participations SET %s WHERE conf_id=? AND user_id=?',
