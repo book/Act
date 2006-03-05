@@ -28,6 +28,9 @@ our %sql_mapping = (
     # text search
     map( { ($_, "(u.$_~*?)") }
       qw( town pm_group company address nick_name ) ),
+    # text egality
+    map( { ($_, "(lower(u.$_)=lower(?))") }
+      qw( first_name last_name ) ),
     # standard stuff
     map( { ($_, "(u.$_=?)") }
       qw( user_id session_id login email country ) )
@@ -204,7 +207,7 @@ sub possible_duplicates {
     my %seen = ( $self->user_id => 1 );
     my @twins;
     
-    for my $attr (qw( email nick_name full_name )) {
+    for my $attr (qw( email nick_name full_name last_name )) {
         push @twins,
             grep { !$seen{ $_->user_id }++ }
             @{ Act::User->get_items( $attr => $self->$attr() ) }
