@@ -3,6 +3,6 @@
 %]
 
 <!-- The schedule table -->
-[% PROCESS schedule_table %]
+[% PROCESS talk/schedule_table %]
 
 [% END %]

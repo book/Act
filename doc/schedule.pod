@@ -70,7 +70,7 @@ F<actdocs/templates/talk/schedule>, based on the following:
     %]
     
     <!-- The schedule table -->
-    [% PROCESS schedule_table %]
+    [% PROCESS talk/schedule_table %]
     
     [% END %]
 
