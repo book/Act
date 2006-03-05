@@ -1,0 +1,360 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::User;
+use Act::Talk;
+use Act::Event;
+use Act::Order;
+use DBI;
+use Getopt::Long;
+use File::Copy;
+$|++;
+
+# options
+my $usage = << 'EOT';
+Valid options:
+  --quiet             - be quiet
+  --yapc_dsn  <dsn>   - connection string to the YAPC 2003 DB
+  --yapc_user <user>
+  --yapc_pass <pass>
+  --src       <source photo dir>
+  --dst       <destination photo dir>
+  --config    <yapc2act.conf duplicates file>
+EOT
+
+# command-line parameters
+my %conf = ( quiet => 0, );
+GetOptions( \%conf, "quiet!", "yapc_dsn=s", "yapc_user=s", "yapc_pass=s",
+    "config=s", "src=s", "dst=s" )
+    or die $usage;
+
+die $usage
+    unless $conf{yapc_dsn}
+    && $conf{yapc_user}
+    && $conf{config}
+    && $conf{src}
+    && $conf{dst};
+
+# init the database handle
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 0, RaiseError => 1 }
+    )
+    or die "can't connect to database: " . $DBI::errstr;
+$Request{conference} = 'ye2003';    # hard-coded destination conference
+
+my $yapc_dbh = DBI->connect(
+    $conf{yapc_dsn}, $conf{yapc_user},
+    $conf{yapc_pass}, { RaiseError => 1 }
+    )
+    or die "can't connect to database: " . $DBI::errstr;
+
+# read the conversion config file
+my %id;
+my %login;
+{
+    open my $fh, $conf{config} or die "$conf{config}: $!";
+    while (<$fh>) {
+        /(\d+) => (\d+)/ && do { $id{$1}    = $2; };
+        /(\d+) => (\w+)/ && do { $login{$1} = $2; };
+    }
+    close $fh;
+}
+
+###############################################################
+# fields correspondence
+###############################################################
+my %yapc2act = (
+
+    # yapc_event
+    event => {
+        title    => 'title',
+        date     => 'datetime',
+        duration => 'duration',
+        room     => 'room',
+
+# ACT events
+# event_id | conf_id | title | abstract | url_abstract | room | duration | datetime
+    },
+
+    # yapc_order
+    order => {
+
+        #order_id => 'order_id',
+        #user_id => 'user_id',
+        amount  => 'amount',
+        state   => 'status',
+
+        #date_created
+        date_modified => 'datetime',
+
+# ACT orders
+# order_id | conf_id | user_id | datetime | amount | means | currency | status
+
+    },
+
+    # yapc_user
+    user => {
+
+        #user_id      => 'user_id',
+        identifier   => 'login',
+        passwd       => 'passwd',
+        civility     => 'civility',
+        first_name   => 'first_name',
+        last_name    => 'last_name',
+        nick_name    => 'nick_name',
+        pseudonymous => 'pseudonymous',
+        web_page     => 'web_page',
+        pm_group     => 'pm_group',
+        pm_group_url => 'pm_group_url',
+        email        => 'email',
+        email_hide   => 'email_hide',
+        gpg_pub_key  => 'gpg_pub_key',
+        pause_id     => 'pause_id',
+        icq          => 'im',
+
+        # bio          => BIOS
+        # profile_id   => RIGHTS
+        #   yapc_profile_type => 1, 2 => orga, 3 => admin
+        country    => 'country',
+        town       => 'town',
+        lang       => 'language',
+        timezone   => 'timezone',
+        photo_name => 'photo_name',
+
+        # change_photo
+        # newsletter
+        # creation
+        # modification
+        # deleted  => ignorer ces users
+        # nb_family    => PARTICIPATIONS
+        # tshirt_size  => PARTICIPATIONS
+        # session_id
+        monk_id => 'monk_id',
+
+# ACT users
+#  user_id | login | passwd | session_id | civility | first_name | last_name | nick_name | pseudonymous | country | town | web_page | pm_group | pm_group_url | email | email_hide | gpg_pub_key | pause_id | monk_id | monk_name | im | photo_name | language | timezone | company | company_url | address | vat
+    },
+
+    # yapc_talk
+    talk => {
+
+        #id        => 'talk_id',
+        #user_id   => 'user_id',
+        accepted  => 'accepted',
+        confirmed => 'confirmed',
+
+        #meta (not used)
+        lightning => 'lightning',
+        given     => 'datetime',
+        duration  => 'duration',
+        title     => 'title',
+        abstract  => 'abstract',
+        comment   => 'comment',
+
+        #msgid
+        room         => 'room',
+        url_abstract => 'url_abstract',
+
+        #content_fnm  (empty)
+        url_talk => 'url_talk',
+
+        #bio (empty)
+        #blurb (empty)
+        category => 'track_id',
+
+# ACT talk
+#  talk_id | conf_id | user_id | title | abstract | url_abstract | url_talk | duration | lightning | accepted | confirmed | comment | room | datetime
+    },
+);
+
+my %yapc_tracks = (
+    A => 'Audio/Video/Imaging',
+    B => 'CPAN/Module creation/Embedding/Internals',
+    C => 'Databases/Persistence',
+    D => 'GUI',
+    E => 'Methodology/Cool tricks/Cool style/Performance',
+    F => 'mod_Perl',
+    G => 'Networking/Security/Filtering/Multitasking',
+    H => 'Parrot/Perl',
+    I => 'Testing/Quality/Configuration/Debugging',
+    J => 'Third Party software & OS',
+    K => 'War Story/Fun/Obfuscation/Other',
+    L => 'XML/HTML/Templating/Web services',
+    M => 'Special Event',
+);
+
+###############################################################
+# Actual conversion happens here
+###############################################################
+
+# fetch all users from YAPC
+my $yapc_sth = $yapc_dbh->prepare( << 'SQL');
+select * from yapc_user where deleted is not true order by user_id;
+SQL
+$yapc_sth->execute;
+my @yapc_users;
+while ( my $u = $yapc_sth->fetchrow_hashref ) {
+    push @yapc_users, $u;
+}
+
+# convert the users first
+for my $u (@yapc_users) {
+    import_user( $u, \%id );
+}
+print "# => ", scalar(@yapc_users), " users\n";
+
+# convert the rest
+my %tables = (
+    yapc_talk  => 'talk',
+    yapc_order => 'order',
+    yapc_event => 'event',
+);
+for my $t ( keys %tables ) {
+    $yapc_sth = $yapc_dbh->prepare("select * from $t");
+    $yapc_sth->execute();
+    my $i = 0;
+    while ( my $r = $yapc_sth->fetchrow_hashref ) {
+        no strict 'refs';
+        "import_$tables{$t}"->( $r, \%id );
+        $i++;
+    }
+    print "# => $i $tables{$t}s\n";
+}
+
+# port the tracks
+{
+    my $sth;
+    $sth = $Request{dbh}->prepare(
+        'insert into tracks (track_id, conf_id, title, description) values (?,?,?,?)'
+        );
+    for my $t ( keys %yapc_tracks ) {
+        $sth->execute( $t, $Request{conference}, $yapc_tracks{$t}, '' );
+    }
+    $Request{dbh}->commit;
+}
+
+exit;    # END
+
+###############################################################
+# conversion functions
+###############################################################
+
+sub import_user {
+    my ( $u, $id ) = @_;
+    my $act_user;
+
+    $u->{country} = 'gb' if $u->{country} eq 'uk';
+
+    # duplicate
+    my $exist = 0;
+    if ( $id->{ $u->{user_id} } ) {
+        $exist = 1;
+        $act_user = Act::User->new( user_id => $id->{ $u->{user_id} } );
+
+        # add participation
+        $act_user->update( participation =>
+                { map { $_ => $u->{$_} } qw( nb_family tshirt_size) } );
+    }
+
+    # new user
+    else {
+
+        # modify the login (if needed)
+        $u->{identifier} = $login{ $u->{user_id} } if $login{ $u->{user_id} };
+
+        # at least one field is required, otherwise create fails
+        $act_user = Act::User->create(
+            participation =>
+                { map { $_ => $u->{$_} } qw( nb_family tshirt_size) },
+            map { $yapc2act{user}{$_} => $u->{$_} }
+                qw( identifier passwd timezone email country )
+        );
+
+        # remember this id for the talks, orders, etc
+        $id->{ $u->{user_id} } = $act_user->user_id;
+
+        # port the bio (english)
+        $act_user->update( bio => { en => $u->{bio} } );
+
+        # civility
+        my %civility = ( Mr => 1, Mrs => 2, Ms => 3 );
+        $u->{civility} = $civility{ $u->{civility} };
+
+        # copy all fields
+        simple_copy( $u, $act_user, $yapc2act{user} );
+    }
+
+    # rights
+    my $right_id =
+          $u->{profile_id} == 3 ? 'admin'
+        : $u->{profile_id} == 2 ? 'orga'
+        : '';
+    if ($right_id) {
+        my $sth = $Request{dbh}->prepare_cached(
+            'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)');
+        $sth->execute( $right_id, $act_user->user_id, $Request{conference} );
+        $Request{dbh}->commit;
+    }
+
+    # photo
+    print "cp $conf{src}/$u->{photo_name} $conf{dst}/$u->{photo_name}\n"
+      if $u->{photo_name};
+
+    print "# Ported user $u->{user_id} to ", $act_user->user_id,
+         ( $exist ? '' : ' (new)' ), "\n";
+}
+
+sub import_talk {
+    my ( $t, $id ) = @_;
+    my $act_talk = Act::Talk->create(
+        conf_id => $Request{conference},
+        user_id => $id{ $t->{user_id} }
+    );
+    simple_copy( $t, $act_talk, $yapc2act{talk} );
+
+    # conf_id
+    $act_talk->update( conf_id => $Request{conference} );
+
+    # user_id
+    $act_talk->update( user_id => $id->{ $t->{user_id} } );
+    print "# Ported talk $t->{id} to ", $act_talk->talk_id, "\n";
+}
+
+sub import_event {
+    my ( $e, $id ) = @_;
+    $e->{room} = 'venue' if $e->{room} eq 'foyer';
+    my $act_event = Act::Event->create(
+        conf_id => $Request{conference},
+        map { $yapc2act{event}{$_} => $e->{$_} }
+            keys %{ $yapc2act{event} }
+    );
+
+    print qq{# Ported event "$e->{title}" to }, $act_event->event_id, "\n";
+}
+
+sub import_order {
+    my ( $o, $id ) = @_;
+    if( ! exists $id{ $o->{user_id} } ) {
+        print "# Ignored order $o->{order_id} (yapc user $o->{user_id})\n";
+        return;
+    }
+    my $act_order = Act::Order->create(
+        means   => 'ONLINE',
+        conf_id => $Request{conference},
+        user_id => $id{ $o->{user_id} },
+        map { $yapc2act{order}{$_} => $o->{$_} }
+            keys %{ $yapc2act{order} }
+    );
+
+    print "# Ported order $o->{order_id} to ", $act_order->order_id, "\n";
+}
+
+# copie des champs qui peuvent l'être en direct
+sub simple_copy {
+    my ( $src, $dst, $corresp ) = @_;
+    my %fields;
+    $fields{ $corresp->{$_} } = $src->{$_} for keys %$corresp;
+    $dst->update(%fields);
+}
+
