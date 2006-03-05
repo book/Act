@@ -114,8 +114,7 @@ CREATE TABLE talks
     /* for the schedule */
     room         text,
     datetime     timestamp without time zone,
-    /* category_id  integer, */
-  
+    track_id     text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
     /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
@@ -133,9 +132,21 @@ CREATE TABLE events
     url_abstract text,
     room       text, 
     duration   integer,
-    datetime   timestamp without time zone
+    datetime   timestamp without time zone,
+    track_id   text
 );
 CREATE INDEX events_idx ON events ( event_id, conf_id );
+
+/* tracks */
+DROP   TABLE tracks CASCADE;
+CREATE TABLE tracks
+(   
+    track_id    text       NOT NULL,
+    conf_id     text       NOT NULL,
+    title       text,
+    description text
+);
+CREATE INDEX tracks_idx ON tracks ( track_id, conf_id );
 
 /* prices */
 DROP   TABLE prices CASCADE;

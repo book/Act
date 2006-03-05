@@ -1,2 +1,15 @@
 Stuff to do when upgrading the production server
 
+
+CREATE TABLE tracks
+(   
+    track_id    text       NOT NULL,
+    conf_id     text       NOT NULL,
+    title       text,
+    description text
+);
+CREATE INDEX tracks_idx ON tracks ( track_id, conf_id );
+ 
+alter table talks  add column track_id text;
+alter table events add column track_id text;
+
