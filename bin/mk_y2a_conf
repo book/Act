@@ -67,7 +67,8 @@ for my $u (@yapc_users) {
 
 sub user_info {
     my ($u) = @_;
-    return ( $u->user_id || $u->{yapc_user_id} ) . " "
+    return ( $u->user_id || $u->{yapc_user_id} ) . ' ['
+        . ( $u->login || $u->{identifier} ) . '] ' 
         . ( $u->full_name || '' ) . " "
         . ( $u->nick_name ? '(' . $u->nick_name . ')' : '' ) . " <"
         . ( $u->email || "no email" ) . ">";
