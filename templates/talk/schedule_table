@@ -1,0 +1,93 @@
+[% PROCESS common %]
+[% IF not ( global.request.user.is_orga
+         or global.request.user.is_staff
+         or global.config.talks_show_schedule ) %]
+<t>
+ <en>The schedule is not ready to be seen.</en>
+ <fr>Les horaires ne sont pas encore finalisés.</fr>
+ <it>Il programma non è ancora pronto.</it>
+ <pt>O programa ainda está em construção.</pt>
+ <de>Das Programm ist noch in Arbeit.</de>
+ <hu>A program még nincs meghatározva.</hu>
+</t>
+[% ELSE %]
+[% IF todo.size %]
+<p>
+ <t>
+  <fr>Les date et lieu de ces présentations n'ont pas encore été décidés.</fr>
+  <en>The time and place of the following talks haven't been decided yet.</en>
+  <pt>TRANSLATEME</pt>
+  <it>Le date e i luoghi dei seguenti interventi non sono ancora stati decisi.</it>
+  <de>TRANSLATEME</de>
+  <hu>A következõ elõadások helye és ideje még nem lett eldöntve.</hu>
+ </t>
+</p>
+<table>
+ <tr>
+  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de><hu>Elõadó</hu></t></th>
+  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de><hu>Elõadás címe</hu></t></th>
+  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu></t></th>
+ </tr>
+ [% FOREACH t IN todo %]
+ <tr>
+  <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+   [% user_info(t.user) %]
+  </a></td>
+  <td>[% talk_confirmed_link(t) %]
+      [% talk_modify_link(t) %]
+  </td>
+  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
+  </td>
+ </tr>
+ [% END %]
+</table>
+<hr />
+[% END %]
+<p>
+<t>
+ <fr>Les présentations en gras ont été confirmées par leurs auteurs.</fr>
+ <en>Talks in bold type have been confirmed by their respective speakers.</en>
+ <it>Gli interventi in <b>grassetto</b> sono stati confermati dai rispettivi oratori.</it>
+ <pt>As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores.</pt>
+ <de>Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt.</de>
+ <hu>A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette.</hu>
+</t>
+</p>
+[% FOREACH d IN table.keys.sort %]
+[% date = d.replace('$', ' 00:00:00' ) %]
+<a name="[% d %]"></a>
+<h2>[% date_format(date, 'date_full') | ucfirst %]</h2>
+<table border="0">
+ <tr class="header">
+  <th>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Zeit</de><hu>Idõ</hu></t>
+  </th>
+  [% FOREACH r IN room.keys.sort %]
+  <th colspan="[% width.$r.$d %]">
+    <t><fr>Salle [% global.config.rooms.$r %]</fr>
+       <en>Room [% global.config.rooms.$r %]</en>
+       <pt>Sala [% global.config.rooms.$r %]</pt>
+       <it>Stanza [% global.config.rooms.$r %]</it>
+       <de>Raum: [% global.config.rooms.$r %]</de>
+       <hu>Helyszín: [% global.config.rooms.$r %]</hu>
+       </t></th>
+  [% END %]
+ </tr>
+ [% FOREACH row IN table.$d %]
+ <tr class="header">
+  [% FOREACH col IN row %]
+   [% IF loop.first %]
+     <td align="center" valign="top" class="header">[% col %]</td>
+   [% ELSE %]
+     <td valign="top" [% IF col.height > 1 %]rowspan="[% col.height %]"[% END %] [% IF col.room %]class="[% col.room %]"[% IF col.room.match('^(?:out|venue)$') %] colspan="[% maxwidth.$d %]"[% END %][% END %]>
+       [% timeslot(col) %]
+     </td>
+   [% END %]
+  [% END %]
+ </tr>
+ [% END %]
+</table>
+
+[% END %]
+[% END %]
+[% END %]

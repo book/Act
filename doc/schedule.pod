@@ -60,6 +60,20 @@ with C<E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt
 
 We'll add new colours when a conference has more than three rooms.
 
+If you want to add some static information to the schedule
+(for example sponsor information), create a new template in
+F<actdocs/templates/talk/schedule>, based on the following:
+
+
+    [% WRAPPER ui
+       title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idõbeosztás'}
+    %]
+    
+    <!-- The schedule table -->
+    [% PROCESS schedule_table %]
+    
+    [% END %]
+
 =head2 How it works
 
 Act can lay out the schedule when there are talks with a date and room
