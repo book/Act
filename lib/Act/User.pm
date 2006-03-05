@@ -208,9 +208,10 @@ sub possible_duplicates {
     my @twins;
     
     for my $attr (qw( email nick_name full_name last_name )) {
-        push @twins,
-            grep { !$seen{ $_->user_id }++ }
-            @{ Act::User->get_items( $attr => quotemeta( $self->$attr() ) ) }
+        push @twins, grep { !$seen{ $_->user_id }++ }
+            map {@$_}
+            Act::User->get_items( $attr => map { s/([.*(){}^$?])/\\$1/g; $_ }
+                $self->$attr() )
             if $self->$attr();
     }
 
