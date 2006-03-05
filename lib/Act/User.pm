@@ -72,7 +72,9 @@ sub AUTOLOAD {
 }
 
 # This are pseudo fields!
-sub full_name { $_[0]->first_name . ' ' . $_[0]->last_name; }
+sub full_name {
+    ( $_[0]->first_name || '' ) . ' ' . ( $_[0]->last_name || '' );
+}
 sub country_name { Act::Country::CountryName( $_[0]->country ) }
 
 
