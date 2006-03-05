@@ -97,6 +97,7 @@
 [% IF duplicates ;
    "<p>";
    FOREACH u IN duplicates ;
+       "[" ; u.login ; "] ";
        user_info(u);
        " &lt;"; u.email;
        "&gt; ("; u.country_name;
