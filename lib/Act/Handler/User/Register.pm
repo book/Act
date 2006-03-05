@@ -64,12 +64,13 @@ sub handler
             my $ghost = Act::User->new();
             $ghost->{$_} = $fields->{$_}
                 for qw(login first_name last_name email country);
+            $ghost->{user_id} = 0; # avoid undef
             $duplicates = $ghost->possible_duplicates();
-            use Data::Dumper 'Dumper'; warn Dumper [$duplicates];
 
             # check for existing user
             if (Act::User->new(login => $fields->{login})) {
                 push @errors, 'ERR_IDENTIFIER_EXISTS';
+                push @errors, 'ERR_DUPLICATE_EXISTS' if @$duplicates;
             }
             # check for duplicates
             elsif ( ! $fields->{ignore_duplicates} && @$duplicates ) {
