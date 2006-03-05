@@ -1,0 +1,75 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::User;
+use DBI;
+use Getopt::Long;
+
+# options
+my $usage = << 'EOT';
+Valid options:
+  --quiet             - be quiet
+  --yapc_dsn  <dsn>   - connection string to the YAPC 2003 DB
+  --yapc_user <user>
+  --yapc_pass <pass>
+EOT
+
+# command-line parameters
+my %conf = ( quiet => 0, );
+GetOptions( \%conf, "quiet!", "yapc_dsn=s", "yapc_user=s", "yapc_pass=s" )
+    or die $usage;
+
+die $usage unless $conf{yapc_dsn} && $conf{yapc_user};
+
+# init the database handle
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 0 }
+    )
+    or die "can't connect to database: " . $DBI::errstr;
+
+my $yapc_dbh
+    = DBI->connect( $conf{yapc_dsn}, $conf{yapc_user}, $conf{yapc_pass} )
+    or die "can't connect to database: " . $DBI::errstr;
+
+# fetch all users from YAPC
+my $yapc_sth = $yapc_dbh->prepare( << 'SQL');
+select * from yapc_user where deleted is not true order by user_id;
+SQL
+$yapc_sth->execute;
+
+my %yapc2act = (
+    user_id    => 'yapc_user_id',
+    identifier => 'login',
+    first_name => 'first_name',
+    last_name  => 'last_name',
+    nick_name  => 'nick_name',
+    email      => 'email',
+);
+
+my @yapc_users;
+while ( my $u = $yapc_sth->fetchrow_hashref ) {
+    my $v = Act::User->new();
+    $v->{user_id} = 0;
+    $v->{ $yapc2act{$_} } = $u->{$_} for keys %yapc2act;
+    push @yapc_users, $v;
+}
+
+# find possible twins
+for my $u (@yapc_users) {
+    my $twins = $u->possible_duplicates;
+    for my $v (@$twins) {
+        my $t = scalar @{ $v->talks };
+        print "# YAPC ", user_info($u), "\n", "# ACT  ", user_info($v),
+            " ($t talks)\n", $u->{yapc_user_id}, " => ", $v->user_id, "\n";
+    }
+}
+
+sub user_info {
+    my ($u) = @_;
+    return ( $u->user_id || $u->{yapc_user_id} ) . " "
+        . ( $u->full_name || '' ) . " "
+        . ( $u->nick_name ? '(' . $u->nick_name . ')' : '' ) . " <"
+        . ( $u->email || "no email" ) . ">";
+}
+
