@@ -288,14 +288,15 @@ sub import_user {
     $Request{dbh}->commit;
 
     # rights
-    my $right_id =
-          $u->{profile_id} == 3 ? 'admin'
-        : $u->{profile_id} == 2 ? 'orga'
+    my $rights =
+          $u->{profile_id} == 3 ? [ 'admin', 'orga' ]
+        : $u->{profile_id} == 2 ? [ 'orga' ]
         : '';
-    if ($right_id) {
+    if ($rights) {
         my $sth = $Request{dbh}->prepare_cached(
             'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)');
-        $sth->execute( $right_id, $act_user->user_id, $Request{conference} );
+        $sth->execute( $_, $act_user->user_id, $Request{conference} )
+          for @$rights;
         $Request{dbh}->commit;
     }
 
