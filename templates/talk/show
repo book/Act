@@ -13,7 +13,7 @@
   <hu>Elõadó</hu>
 </t></b>
 [% user_info(user) %]
-</a>
+
 [% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t>
  <en>edit</en><fr>modifier</fr><it>modifica</it><pt>modificar</pt><de>bearbeiten</de><hu>szerkeszt</hu></t></a>)
