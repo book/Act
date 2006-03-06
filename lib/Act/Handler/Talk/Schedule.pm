@@ -127,11 +127,17 @@ sub compute_schedule {
                 my $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{datetime};
                 unless( $row->[$j][0] == $new->datetime ) {
-                    splice @$row, $j, 0, [ $new->datetime, {} ];
+                    splice @$row, $j, 0,
+                        [ $new->datetime, { map { $_ => [] } keys %room }, [] ];
                 }
 
-                # FIXME must check that a line exists to mark the end of the
-                # new talk
+                # check that a line exists to mark the end of the new talk
+                $j = $i;
+                $j++ while $j < @$row and $row->[$j][0] < $new->{end};
+                unless( $row->[$j][0] == $new->{end} ) {
+                    splice @$row, $j, 0,
+                        [ $new->{end}, { map { $_ => [] } keys %room }, [] ];
+                }
 
                 # add the new talk in the todo list
                 $j = 0;
