@@ -55,6 +55,7 @@ my %login;
 {
     open my $fh, $conf{config} or die "$conf{config}: $!";
     while (<$fh>) {
+        next if /^#/;
         /(\d+) => (\d+)/ && do { $id{$1}    = $2; };
         /(\d+) => (\w+)/ && do { $login{$1} = $2; };
     }
@@ -251,6 +252,14 @@ sub import_user {
     if ( $id->{ $u->{user_id} } ) {
         $exist = 1;
         $act_user = Act::User->new( user_id => $id->{ $u->{user_id} } );
+
+        # participation
+        my $sth = $Request{dbh}->prepare_cached(
+            'insert into participations (user_id, conf_id, nb_family, tshirt_size) values (?,?,?,?)'
+        );
+        $sth->execute( $act_user->user_id, $Request{conference},
+            map { $u->{$_} } qw( nb_family tshirt_size) );
+        $Request{dbh}->commit;
     }
 
     # new user
@@ -261,6 +270,8 @@ sub import_user {
 
         # at least one field is required, otherwise create fails
         $act_user = Act::User->create(
+            participation =>
+                { map { $_ => $u->{$_} } qw( nb_family tshirt_size) },
             map { $yapc2act{user}{$_} => $u->{$_} }
                 qw( identifier passwd timezone email country )
         );
@@ -278,14 +289,6 @@ sub import_user {
         # copy all fields
         simple_copy( $u, $act_user, $yapc2act{user} );
     }
-
-    # participation
-    my $sth = $Request{dbh}->prepare_cached(
-        'insert into participations (user_id, conf_id, nb_family, tshirt_size) values (?,?,?,?)'
-    );
-    $sth->execute( $act_user->user_id, $Request{conference},
-        map { $u->{$_} } qw( nb_family tshirt_size) );
-    $Request{dbh}->commit;
 
     # rights
     my $rights =
