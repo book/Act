@@ -110,20 +110,30 @@ sub compute_schedule {
         # insert the talk several times if it spans several blocks
         my $n = 1;
         while($i < @$row and $row->[$i][0] < $_->{end}) {
-            if( @{ $row->[$i][2] } ) { # we only care about the longuest
+            # if a global talk starts in the middle
+            if( @{ $row->[$i][2] } ) {
                 # split the talk in two
                 my $new = bless { %$_, height => 1 }, 'Act::TimeSlot';
                 $new->{datetime} = $row->[$i][2][-1]->{end}->clone;
+                
+                # we only care about the longuest global talk
+                # FIXME could fail is another global talk started later
                 $new->{duration} = ($_->{end} - $row->[$i][2][-1]->datetime)->delta_minutes;
                 $_->{duration} -= $new->{duration};
                 $_->{end} = $_->{datetime}->add( minutes => $_->{duration} );
                 $new->{end} = $new->{datetime}->clone->add( minutes => $new->duration );
                 ( $new->{title} = $_->title ) =~ s/(?: \((\d+)\))?$/ (@{[($1||1)+1]})/;
+                # eventually add a new line to put the new talk
                 my $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{datetime};
                 unless( $row->[$j][0] == $new->datetime ) {
                     splice @$row, $j, 0, [ $new->datetime, {} ];
                 }
+
+                # FIXME must check that a line exists to mark the end of the
+                # new talk
+
+                # add the new talk in the todo list
                 $j = 0;
                 $j++ while $j < @$todo and $todo->[$j]->datetime < $new->datetime;
                 splice @$todo, $j, 0, $new;
