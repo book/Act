@@ -251,10 +251,6 @@ sub import_user {
     if ( $id->{ $u->{user_id} } ) {
         $exist = 1;
         $act_user = Act::User->new( user_id => $id->{ $u->{user_id} } );
-
-        # add participation
-        $act_user->update( participation =>
-                { map { $_ => $u->{$_} } qw( nb_family tshirt_size) } );
     }
 
     # new user
@@ -265,8 +261,6 @@ sub import_user {
 
         # at least one field is required, otherwise create fails
         $act_user = Act::User->create(
-            participation =>
-                { map { $_ => $u->{$_} } qw( nb_family tshirt_size) },
             map { $yapc2act{user}{$_} => $u->{$_} }
                 qw( identifier passwd timezone email country )
         );
@@ -284,6 +278,14 @@ sub import_user {
         # copy all fields
         simple_copy( $u, $act_user, $yapc2act{user} );
     }
+
+    # participation
+    my $sth = $Request{dbh}->prepare_cached(
+        'insert into participations (user_id, conf_id, nb_family, tshirt_size) values (?,?,?,?)'
+    );
+    $sth->execute( $act_user->user_id, $Request{conference},
+        map { $u->{$_} } qw( nb_family tshirt_size) );
+    $Request{dbh}->commit;
 
     # rights
     my $right_id =
@@ -339,13 +341,21 @@ sub import_order {
         print "# Ignored order $o->{order_id} (yapc user $o->{user_id})\n";
         return;
     }
+    if( $o->{state} ne 'paid' ) {
+        print "# Ignored order $o->{order_id} (init)\n";
+        return;
+    }
     my $act_order = Act::Order->create(
+        currency => 'EUR',
         means   => 'ONLINE',
         conf_id => $Request{conference},
         user_id => $id{ $o->{user_id} },
         map { $yapc2act{order}{$_} => $o->{$_} }
             keys %{ $yapc2act{order} }
     );
+
+    # force older date
+    Act::Object::update( $act_order, datetime => $o->{date_modified} );
 
     print "# Ported order $o->{order_id} to ", $act_order->order_id, "\n";
 }
