@@ -49,6 +49,17 @@ my $yapc_dbh = DBI->connect(
     )
     or die "can't connect to database: " . $DBI::errstr;
 
+# delete users we do not want in the new DB
+$yapc_dbh->do( << 'SQL' );
+update yapc_user set deleted=true
+where
+   country in (
+     'sl', 'gn', 'gl', 'in', 'gh', 'ng', 'cn', 'az', 'al', 'fj', 'iq',
+     'za', 'yu', 'pk', 'tz', 'ma', 'dz', 'bs'
+   )
+or user_id in (58, 396, 397);
+SQL
+
 # read the conversion config file
 my %id;
 my %login;
