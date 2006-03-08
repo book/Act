@@ -79,6 +79,16 @@ NORMAL
   + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
     les participants qui ne sont pas venus
 
+- gestion des droits
+  + présentation des droits sous forme de tableaux
+    users en ligne et droits en colonne, avec des cases à cocher pour
+    les divers droits, et une list box pour ajouter un nouvel utilisateur
+    - avantage : on peut tout controler dans un seul formulaire (ajout
+      et suppression de droits), meilleure vision par utilisateur
+    - inconvenient : la liste des droits doit eêtre fournie
+      (au pire: select distinct right_id from rights devrait faire
+      l'affaire)
+
 - galerie de photos
   + upload par les photographes, annotation
   + redimensionnement des photos trop grosses ?
