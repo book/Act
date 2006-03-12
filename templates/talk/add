@@ -160,6 +160,28 @@
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
+[% IF global.request.user.is_orga && tracks.size != 0 %]
+<tr>
+  <td align="right" valign="top">
+  <t><en>Track</en>
+     <fr>Thème</fr>
+     <it>TRANSLATEME</it>
+     <de>TRANSLATEME</de>
+     <pt>TRANSLATEME</pt>
+     <hu>TRANSLATEME</hu>
+  </t></td>
+  <td></td>
+  <td>
+   <select name="track_id">
+     <option value=""[% ' selected="selected"' UNLESS track_id %] />
+   [% FOREACH t=tracks %]
+     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %] />[% t.track_id %] - [% t.title %]
+   [% END %]
+    </select>
+
+  </td>
+</tr>
+[% END %]
 <tr>
   <td align="right" valign="top">
   <t><en>Abstract<br />(plain text)</en>

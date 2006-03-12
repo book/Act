@@ -12,13 +12,14 @@ use Act::Template;
 use Act::Template::HTML;
 use Act::Talk;
 use Act::User;
+use Act::Track;
 
 
 # form
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete )],
+                  accepted confirmed date time room delete track_id)],
   filters  => {
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
@@ -68,7 +69,7 @@ sub handler {
 
         # validate form fields
         my $ok = $form->validate($Request{args});
-        $fields = { accepted => 0, confirmed => 0, %{$form->{fields}} };
+        $fields = { accepted => 0, confirmed => 0, track_id => undef, %{$form->{fields}} };
 
         # organizer specifies user id
         my $user_id = $Request{user}->is_orga
@@ -202,6 +203,7 @@ sub handler {
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
         rooms => $Config->rooms,
+        tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
     ) if $Request{user}->is_orga;
     $template->process('talk/add');
 }
