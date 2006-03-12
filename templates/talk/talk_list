@@ -1,0 +1,41 @@
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+ <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de><hu>Elõadó</hu></t></th>
+ <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de><hu>Elõadás címe</hu></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu></t></th>
+ [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
+ <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it><de>Datum</de><hu>Dátuma</hu></t></th>
+ [% END %]
+ [% IF global.request.user.is_orga %]
+ <th><t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>Angenommen</de><hu>Elfogadva</hu></t></th>
+ [% END %]
+</tr>
+[% FOREACH t = talks %]
+  [% IF t.accepted || global.request.user.is_orga
+                   || global.request.user.user_id == t.user_id
+                   || global.config.talks_show_all %]
+  <tr>
+    <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+        [% user_info(t.user) %]
+    </a></td>
+    <td>[% talk_link(t) %]
+        [% talk_modify_link(t) %]
+    </td>
+    <td nowrap="nowrap">[% IF t.lightning %]
+          <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</it><de>lightning talk</de><hu>villámelõadás</hu></t>
+        [% ELSE %]
+         [% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
+        [% END %]
+    </td>
+    [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
+    <td align="center" nowrap="nowrap">[% IF t.datetime; date_format(t.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>
+    [% END %]
+    [% IF global.request.user.is_orga %]
+    <td align="center">
+    <input type="checkbox" name="[% t.talk_id %]"[% ' checked' IF t.accepted %] />
+    </td>
+    [% END %]
+  </tr>
+  [% END %]
+[% END %]
+</table>

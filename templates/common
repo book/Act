@@ -46,6 +46,8 @@
 [% user_info(t.user) %] -
 [% talk_confirmed_link(t) %]
 ([% t.duration %]&nbsp;<t><fr>min</fr><en>min</en><it>min.</it><pt>min.</pt><hu>min.</hu></t>)
+[% IF t.track_id %][<a href="[% make_uri('talks') %]#[% t.track_id %]">[%
+t.track_id %]</a>][% END %]
 [% talk_modify_link(t) %]
     [% ELSIF t.type == 'Act::Event' %]
 [% event_link(t) %]
