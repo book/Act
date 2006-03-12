@@ -17,7 +17,7 @@ our %sql_mapping = (
     # standard stuff
     map( { ($_, "(t.$_=?)") }
          qw( talk_id user_id conf_id duration room
-             lightning accepted confirmed ) )
+             lightning accepted confirmed track_id ) )
 );
 our %sql_opts    = ( 'order by' => 'talk_id' );
 
