@@ -41,9 +41,16 @@ sub handler
 
     # link the talks to their tracks (keeping the talks ordered)
     my $tracks = Act::Track->get_tracks( conf_id => $Request{conference} );
+
+    # add the "empty track" for talks without a track
+    if( @$tracks ) {
+        unshift @$tracks, my $t = Act::Track->new();
+        @{$t}{qw( conf_id track_id title description )}
+            = ( $Request{conference}, '', '', '' );
+    }
     for my $track ( @$tracks ) {
         my $id = $track->track_id;
-        $track->{talks} = [ grep { $_->track_id eq $id } @talks ];
+        $track->{talks} = [ grep { $_->track_id eq $id } @$talks ];
     }
     
     # process the template

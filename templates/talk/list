@@ -94,6 +94,7 @@
   </h2>
   <ul>
   [% FOREACH tr = tracks %]
+  [% NEXT UNLESS tr.track_id %]
   <li>[% tr.track_id %] - <a href="#[% tr.track_id %]">[% tr.title %]</a></li>
   [% END %]
   </ul>
@@ -103,9 +104,20 @@
 [% END %]
 [% IF tracks.size != 0 %]
   [% FOREACH tr = tracks %]
-  <a name="[% tr.track_id %]" ><h2>[% tr.title %]</h2></a>
-  <p>[% tr.description %]</p>
-  [% PROCESS talk/talk_list talks = tr.talks %]
+  [% IF tr.track_id %]
+     <a name="[% tr.track_id %]" ><h2>[% tr.title %]</h2></a>
+     <p>[% tr.description %]</p>
+     [% PROCESS talk/talk_list talks = tr.talks %]
+  [% ELSIF tr.talks.size != 0 %]
+     <h2><t><en>No track</en>
+            <fr>Sans thème</fr>
+            <it>TRANSLATEME</it>
+            <de>TRANSLATEME</de>
+            <pt>TRANSLATEME</pt>
+            <hu>TRANSLATEME</hu>
+     </t></h2>
+     [% PROCESS talk/talk_list talks = tr.talks %]
+  [% END %]
   [% END %]
 [% ELSE %]
   [% PROCESS talk/talk_list talks = talks %]
