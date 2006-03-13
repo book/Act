@@ -234,7 +234,10 @@ CREATE TABLE pm_groups
     group_id      serial     NOT NULL  PRIMARY KEY,
     xml_group_id  integer,   /* from the perl_mongers.xml file */
     name          text,
-    status        text
+    status        text,
+    continent     text,
+    country       text,
+    state         text
 );
 CREATE INDEX pm_groups_idx ON pm_groups ( xml_group_id );
 
