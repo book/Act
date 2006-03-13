@@ -1,0 +1,51 @@
+#!/usr/bin/perl -w
+use strict;
+use Act::Config;
+use Act::PMGroup;
+use LWP::Simple;
+use XML::Simple;
+use DBI;
+
+use Getopt::Std;
+our $opt_v;
+getopts("v") or die "There a single valid option, you dummy!";
+
+# init the database handle
+$Request{dbh} = DBI->connect(
+    $Config->database_dsn, $Config->database_user,
+    $Config->database_passwd, { AutoCommit => 0 }
+    )
+    or die "can't connect to database: " . $DBI::errstr;
+
+# load the http://www.pm.org/groups/perl_mongers.xml file
+my $pm = get('http://www.pm.org/groups/perl_mongers.xml') or exit;
+
+#my $groups = XMLin('perl_mongers.xml')->{group};
+my $groups = XMLin($pm)->{group};
+
+# add new groups
+for my $name ( keys %$groups ) {
+
+    my $db_group
+        = Act::PMGroup->get_items( xml_group_id => $groups->{$name}{id} );
+
+    if (@$db_group) {
+
+        # update name/status
+        $db_group->[0]->update(
+            name   => $name,
+            status => $groups->{$name}{status},
+        );
+
+    }
+    else {
+
+        # new group
+        print "Adding $name ($groups->{$name}{id})\n" if $opt_v;
+        $db_group = Act::PMGroup->create(
+            xml_group_id => $groups->{$name}{id},
+            name         => $name,
+            status       => $groups->{$name}{status},
+        );
+    }
+}
