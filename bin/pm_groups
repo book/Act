@@ -20,8 +20,8 @@ $Request{dbh} = DBI->connect(
 # load the http://www.pm.org/groups/perl_mongers.xml file
 my $pm = get('http://www.pm.org/groups/perl_mongers.xml') or exit;
 
-#my $groups = XMLin('perl_mongers.xml')->{group};
-my $groups = XMLin($pm)->{group};
+#my $groups = XMLin('perl_mongers.xml', SuppressEmpty => '')->{group};
+my $groups = XMLin($pm, SuppressEmpty => '')->{group};
 
 # add new groups
 for my $name ( keys %$groups ) {
@@ -35,6 +35,9 @@ for my $name ( keys %$groups ) {
         $db_group->[0]->update(
             name   => $name,
             status => $groups->{$name}{status},
+            continent    => $groups->{$name}{location}{continent},
+            country      => $groups->{$name}{location}{country},
+            state        => $groups->{$name}{location}{state},
         );
 
     }
@@ -46,6 +49,10 @@ for my $name ( keys %$groups ) {
             xml_group_id => $groups->{$name}{id},
             name         => $name,
             status       => $groups->{$name}{status},
+            continent    => $groups->{$name}{location}{continent},
+            country      => $groups->{$name}{location}{country},
+            state        => $groups->{$name}{location}{state},
         );
     }
 }
+
