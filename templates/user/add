@@ -252,6 +252,13 @@
   Teilnehmende zu kontaktieren, oder auch vorher, um festzustellen, wer
   teilnehmen wird.
   </de>
+  <hu>
+   Figyelem! A megadott személyes adatok egy <a href="[% make_uri('search') %]">online
+   <i>ki-kicsodához</i></a> lesznek felhasználva, melyben minden résztvevõ szerepel. Ez
+   a lehetõség jellemzõen a konferencia után válik hasznossá, mikor a konferencia résztvevõk
+   fel szeretnék venni egymással a kapcsolatot (vagy elõzetesen, hiszen lekérdezhetõ, hogy
+   milyen guruk fognak megjelenni).
+  </hu>
  </t>
 </p>
 <p>
@@ -260,49 +267,64 @@
    Once you have an account, you'll be able to use our secure payment
    platform to buy your ticket for the conference. Please note that
    everything regarding your bank account and credit card number
-   is handled by the bank. <b>We do not have access to your credit
-   information at any time during the payment process.</b> We just
-   get the money in the end. <tt>;-)</tt>
+   is handled by the bank.
   </en>
   <pt>
    Uma vez criado um utilizador, será possível usar a nossa plataforma
    de pagamento seguro para comprar o bilhete para a conferência. Note que
    todo o processo de gestão da sua conta bancária e do número do
-   cartão será realizada pelo banco. <b>Nós não teremos acesso a nenhuma
-   informação do seu crédito durante nenhuma altura do processo de pagamento.</b>
-   Simplesmente teremos o dinheiro no fim. <tt>;-)</tt>
+   cartão será realizada pelo banco.
   </pt>
   <fr>
    Une fois que vous avez un compte, vous pourrez utiliser notre
    plate-forme de paiement sécurisé pour acheter votre billet
    d'entrée à la conférence. Veuillez noter que tout ce qui concerne
    votre compte en banque et votre numéro de carte bleue est géré
-   par la banque. <b>Nous n'avons à aucun moment accès aux informations
-   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
-   à la fin. <tt>;-)</tt>
+   par la banque.
   </fr>
   <it>
    Una volta creato l'account, potrete usare il nostro sistema di
    pagamento sicuro on-line per acquistare il biglietto. Notate che tutti
    i dettagli relativi al vostro conto in banca e carta di credito sono
-   gestiti direttamente dalla banca: <b>in nessun momento noi avremo
-   accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
-   volta terminata la transazione <tt>;-)</tt>.
+   gestiti direttamente dalla banca.
   </it>
   <de>
    Sobald Sie einen Account haben, können Sie unsere sicheres
    Online-Bezahlungssystem verwenden, um den Teilnahmebeitrag zu bezahlen.
    Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,
-   direkt von unserer Bank betreut wird. <b>Wir haben keinen Zugriff auf Ihre
+   direkt von unserer Bank betreut wird.
+  </de>
+ </t>
+</p>
+
+<p>
+ <t>
+  <en>
+   <b>We do not have access to your credit
+   information at any time during the payment process.</b> We just
+   get the money in the end. <tt>;-)</tt>
+  </en>
+  <fr>
+   <b>Nous n'avons à aucun moment accès aux informations
+   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
+   à la fin. <tt>;-)</tt>
+  </fr>
+  <it>
+   <b>In nessun momento noi avremo
+   accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
+   volta terminata la transazione <tt>;-)</tt>.
+  </it>
+  <pt>
+   <b>Nós não teremos acesso a nenhuma
+   informação do seu crédito durante nenhuma altura do processo de pagamento.</b>
+   Simplesmente teremos o dinheiro no fim. <tt>;-)</tt>
+  </pt>
+  <de>
+   <b>Wir haben keinen Zugriff auf Ihre
    Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen
    lediglich das Geld...
   </de>
   <hu>
-   Figyelem! A megadott személyes adatok egy <a href="[% make_uri('search') %]">online
-   <i>ki-kicsodához</i></a> lesznek felhasználva, melyben minden résztvevõ szerepel. Ez
-   a lehetõség jellemzõen a konferencia után válik hasznossá, mikor a konferencia résztvevõk
-   fel szeretnék venni egymással a kapcsolatot (vagy elõzetesen, hiszen lekérdezhetõ, hogy
-   milyen guruk fognak megjelenni).
   </hu>
  </t>
 </p>
