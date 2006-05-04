@@ -23,7 +23,7 @@ speakers/talks get the big room.
 
 Leave 5 minutes between talks. It always takes the speakers some time
 to set up their material. It also takes time to kick the previous
-speaker out. ;-)
+speaker out. C<;-)>
 
 =item *
 
@@ -48,22 +48,27 @@ the duration, but discuss it with the speaker first.
 People with the C<orga> bit set can always see (and edit) the schedule. It
 becomes public when the C<[talks]> item named C<show_schedule> is set to 1.
 
-The first time you'll look at the schedule, it'll be ugly: all the
-talks are schedule to a non existing room at the same time. This will
-change once you assigned a room to each talk.
+The first time you'll look at the schedule, it'll probably be empty:
+all the talks that have no assigned room and date/time are in a list at
+the top of the page.
+
+Once you've assigned a room and a date/time to a talk/event, it will be
+shown in the schedule. The system tries to show conflicting items (two talks
+at the same time in the same place) in a nice way.
 
 The HTML table uses as many styles as you have rooms, plus three. Imagine
 you have three rooms, the table will use the following styles: C<header>,
-C<out>, C<venue>, C<r1>, C<r2> and C<r3>. Please note that you do not need to define
-your own CSS for this: simply load the style located at F</css/schedule.css>
-with C<E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>>.
+C<out>, C<venue>, C<r1>, C<r2> and C<r3>. (If you have four rooms, a
+style C<r4> will automatically be used, and so on.)
 
+You can either define those styles in you stylesheet, or simply load the
+style located at F</css/schedule.css> with
+C<E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>>.
 We'll add new colours when a conference has more than three rooms.
 
 If you want to add some static information to the schedule
 (for example sponsor information), create a new template in
 F<actdocs/templates/talk/schedule>, based on the following:
-
 
     [% WRAPPER ui
        title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idõbeosztás'}
@@ -88,9 +93,9 @@ there prevent talks from happening and actually "cut" any overlapping
 talk in two. One part before the event (usually a coffee break) and
 the remaining time after.
 
-Only hour-long tutorial should be cut by events.
+Only hour-long tutorials should be cut by events.
 
-There are some cases for which Act does not display the schedule
+There may be some cases for which Act does not display the schedule
 properly (this should not happen once your schedule is finished, since
 you shouldn't have any overlapping talks). Please let us know when
 this happens.
@@ -105,7 +110,7 @@ the coffee breaks, lunch
 
 =item *
 
-anything happening outside the conference (pub crawls, etc.)
+anything happening outside the conference rooms (pub crawls, etc.)
 
 =item *
 
