@@ -1,5 +1,5 @@
 #!/bin/sh
-scp cvs.mongueurs.net:/home/act/actdb .
+scp profane.mongueurs.net:/home/act/actdb .
 psql act < database/init_db_Pg.sql
 pg_restore -O -a -d act actdb && mv -f actdb database/actdb.old
 
