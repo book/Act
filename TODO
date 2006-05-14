@@ -1,21 +1,23 @@
 CRITICAL
 ========
 
+- participants
+
+  possibilité pour les orga de forcer l'enregistrement d'utilisateurs
+  existants (typiquement pour les speakers)
+
+  
+
 IMPORTANT
 =========
 
-2) Is it possible to enable another field in the database for
->"language of presentation"
->    in HPW we accept talks in either English or Hungarian. I would
->like the
->    speakers to indicate which one will they use for their
->presentation.
->
->3) In the future (not in the current HPW) I would like to let the
->speakers select
->   a track for their presentation, for easier categorization.
+- traductions
 
+  il faut une procédure et une liste de personnes pour gérer les
+  modifications des langues dans les templates. Ces personnes auront
+  besoin d'un accès en écriture aux sources, probablement.
 
+- création (pour les orga) et sélection des tracks (pour les speakers)
 
 - participants 
   + si un user est inscrit, a payé, mais n'a finalement pas participé,
@@ -26,6 +28,11 @@ IMPORTANT
        à quelles conférences il a participé (avec un lien vers son
        profil dans l'autre conférence)
     => n'est pas lié à un site qui soit indépendant des conférences ?
+
+- pour utilisation le jour de la conférence :
+   => possibilité pour le tresorier de créer des users quand ceux-ci
+      se présentent et ne sont pas inscrits sur le site : faire en
+      même temps création du user et ajout du payment
 
 - gestion des talks:
   + maintenant que l'on peut afficher les talks non acceptés, il faut
