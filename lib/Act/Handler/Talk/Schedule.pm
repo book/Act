@@ -151,6 +151,18 @@ sub compute_schedule {
             $i++;
         }
     }
+
+    # FIXME
+    # we need a pass to check that each line in the table
+    # is either the beginning or the end of a TimeSlot
+    # if not, we must remove it, and decrease the height of all timeslots
+    # that span over it
+
+    # algo:
+    #  loop over the lines, keeping a list of started but not finished
+    #  timeslots, if a line must be removed, decrease the height of the
+    #  "opened" talks
+
     # compute the max
     my ( %width, %maxwidth );
     for my $day (keys %table) {
