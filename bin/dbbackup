@@ -28,6 +28,7 @@ my @cmd = (
             $Config->database_pg_dump,
             '-x',
             '-Fc',
+            '-a',
             -U => $Config->database_user,
             -f => $Config->database_dump_file,
             $Config->database_name,
