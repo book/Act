@@ -2,6 +2,7 @@ package Act::Handler::Talk::Schedule;
 use Act::Config;
 use Act::TimeSlot;
 use Act::Template::HTML;
+use List::Util qw( sum );
 use strict;
 
 sub handler {
@@ -152,17 +153,6 @@ sub compute_schedule {
         }
     }
 
-    # FIXME
-    # we need a pass to check that each line in the table
-    # is either the beginning or the end of a TimeSlot
-    # if not, we must remove it, and decrease the height of all timeslots
-    # that span over it
-
-    # algo:
-    #  loop over the lines, keeping a list of started but not finished
-    #  timeslots, if a line must be removed, decrease the height of the
-    #  "opened" talks
-
     # compute the max
     my ( %width, %maxwidth );
     for my $day (keys %table) {
@@ -180,7 +170,28 @@ sub compute_schedule {
     my $def = '-';
     for my $day ( keys %table ) {
         my $i = 0;
+        my (@started, @rows_to_remove);
         for my $row ( @{$table{$day}} ) {
+
+            # if the row is empty and no talk ends at that time
+            my $is_used = sum(
+                map ( { scalar @{ $row->[1]{$_} } } keys %room ),
+                map ( { $_->{end} == $row->[0] ? 1 : 0 } @started ),
+                scalar @{$row->[2]} # global talks
+            );
+            if( $is_used ) {
+                # add all talks to the "started" list
+                # remove talks that end at that time from the "started" list
+                @started = grep { $_->{end} != $row->[0] } @started,
+                    map { @{ $row->[1]{$_} } } keys %room;
+            }
+            else {
+                # mark the row to be removed later
+                push @rows_to_remove, $i;
+                # decrease height of all opened talks
+                $_->{height}-- for @started;
+            }
+        
             my $global = 0;
             my @row = ( $row->[0]->strftime('%H:%M') );
             $global++ if @{ $row->[2] };
@@ -193,7 +204,11 @@ sub compute_schedule {
             @$row = @row;
             $i++;
         }
+
+        # remove really empty rows (start from the end)
+        splice( @{$table{$day}}, $_, 1) for reverse @rows_to_remove;
     }
+
     return ( \%table, \%room, \%width, \%maxwidth, \@undecided );
 }
 
