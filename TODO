@@ -86,6 +86,8 @@ NORMAL
   simplifier ça en le faisant faire par un unique handler csv qui
   a des requêtes pré-définies..
 
+- intégrer un wiki à Act
+
 - http://conferences.yapceurope.org/2005/user/214
   la Clé GPG est souvent une longue longue chaîne.
   Il faudrait peut-être la wrapper nous-même, ou trouver
