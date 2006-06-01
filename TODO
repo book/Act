@@ -11,6 +11,18 @@ CRITICAL
 IMPORTANT
 =========
 
+- reprendre tous les templates pour isoler ceux qui concernent la logique
+  de l'application de la présentation de cette logique (cf schedule)
+  + rendre impossible aux orga de redéfinir ces templates "internes"
+    (c'est probablement très difficile, puisqu'ils seraient appelés depuis
+    les templates appelés par les handlers)
+  + documenter tous ces templates dans la doc
+    - templates requis (surchargeables)
+    - templates requis (non surchargeables)
+
+- définir un maximum de styles / CSS (et les documenter) pour permettre
+  aux orgas de gérer leur style facilement
+
 - traductions
 
   il faut une procédure et une liste de personnes pour gérer les
@@ -51,18 +63,6 @@ IMPORTANT
   + aujourd'hui, le site suppose toujours que conf_id est défini...
     et que $Request{user} est inscrit à cette conférence
 
-- certains users se créent un nouveau compte au lieu d'utiliser l'ancien
-  (non, je ne montre pas stef/cognominal du doigt)
-  Serait-il utile de différer l'inscription en disant "il y a déjà un
-  user avec le même last_name que vous, etes vous sur que vous n'etes
-  pas ce type là. Si oui et que vous avez oublié votre mot de passe,
-  cliquez ici pour en créer un nouveau") Le problème, c'est qu'il faut
-  ajouter un champ caché au formulaire (genre force=1) pour ne pas
-  empecher la création du user, dans le cas où ce n'est pas la même
-  personne
-  => bin/findtwins
-  => bin/mergeusers
-
 - demander la taille du T-shirt à la création du user (pour avoir une
   info précise)
 - dupliquer cette information depuis la conf la plus récente quand
@@ -74,8 +74,17 @@ IMPORTANT
 - statistiques sur les familles
   select sum(nb_family) from participations where conf_id=a?
 
+- problématique des users en doublon...
+  + il faut probablement contacter les utilisateur pour leur proposer de
+    faire cette fusion, en leur demandant quel login ils souhaitent garder.
+
 NORMAL
 ======
+
+- les orgas demandent de plus en plus l'accès à des extractions CSV
+  de diverses tables (users, payments), il est peut-être possible de
+  simplifier ça en le faisant faire par un unique handler csv qui
+  a des requêtes pré-définies..
 
 - http://conferences.yapceurope.org/2005/user/214
   la Clé GPG est souvent une longue longue chaîne.
