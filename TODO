@@ -6,6 +6,12 @@ CRITICAL
   possibilité pour les orga de forcer l'enregistrement d'utilisateurs
   existants (typiquement pour les speakers)
 
+- payment
+
+   la page payments devrait avoir un ligne speciale pour creer un nouvel
+   utilisateur, le registrer automatiquement et lui ajouter un payment
+   => penser a verifier les doublons pour forcer l'enregistrement d'un
+      user qui existe eventuellement deja. (radio bouton)
   
 
 IMPORTANT
@@ -77,6 +83,12 @@ IMPORTANT
 - problématique des users en doublon...
   + il faut probablement contacter les utilisateur pour leur proposer de
     faire cette fusion, en leur demandant quel login ils souhaitent garder.
+
+- probleme d'édition du profil :
+  + si on supprime la société, elle n'est pas retirée de la base (même
+    genre de problème que pour le "stay pseudonymous"
+  + le probleme se pose probablement avec tous les champs qu'on peut
+    laisser vides
 
 NORMAL
 ======
