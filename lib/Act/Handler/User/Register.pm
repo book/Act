@@ -11,6 +11,7 @@ use Act::Util;
 # registration form
 my $form = Act::Form->new(
   required => [qw(login first_name last_name email country)],
+  optional => [qw( ignore_duplicates )],
   filters => {
      login    => sub { lc shift },
      email    => sub { lc shift },
