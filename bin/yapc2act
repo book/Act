@@ -67,8 +67,8 @@ my %login;
     open my $fh, $conf{config} or die "$conf{config}: $!";
     while (<$fh>) {
         next if /^#/;
-        /(\d+) => (\d+)/ && do { $id{$1}    = $2; };
-        /(\d+) => (\w+)/ && do { $login{$1} = $2; };
+        /(\d+) => (\d+)/   && do { $id{$1}    = $2; };
+        /(\d+) => (\D\w*)/ && do { $login{$1} = $2; };
     }
     close $fh;
 }
