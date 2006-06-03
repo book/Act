@@ -8,7 +8,6 @@ use Act::Event;
 use Act::Order;
 use DBI;
 use Getopt::Long;
-use File::Copy;
 $|++;
 
 # options
@@ -133,7 +132,7 @@ my %yapc2act = (
         town       => 'town',
         lang       => 'language',
         timezone   => 'timezone',
-        photo_name => 'photo_name',
+        #photo_name => 'photo_name',
 
         # change_photo
         # newsletter
@@ -265,6 +264,12 @@ sub import_user {
         $exist = 1;
         $act_user = Act::User->new( user_id => $id->{ $u->{user_id} } );
 
+        # si pas de photo dans act, mais une dans yapc
+        if( $u->{photo_name} && ! $act_user->{photo_name} ) {
+            my ($base, $ext) = split /\./, $u->{photo_name};
+            $act_user->update( photo_name => "$act_user->{user_id}.$ext" );
+            print "cp -i $conf{src}/$u->{photo_name} $conf{dst}/$act_user->{photo_name}\n"
+        }
         # participation
         my $sth = $Request{dbh}->prepare_cached(
             'insert into participations (user_id, conf_id, nb_family, tshirt_size) values (?,?,?,?)'
@@ -294,6 +299,13 @@ sub import_user {
         # port the bio (english)
         $act_user->update( bio => { en => $u->{bio} } );
 
+        # photo
+        if( $u->{photo_name} ) {
+            my ($base, $ext) = split /\./, $u->{photo_name};
+            $act_user->update( photo_name => "$act_user->{user_id}.$ext" );
+            print "cp -i $conf{src}/$u->{photo_name} $conf{dst}/$act_user->{photo_name}\n"
+        }
+
         # civility
         my %civility = ( Mr => 1, Mrs => 2, Ms => 3 );
         $u->{civility} = $civility{ $u->{civility} };
@@ -314,10 +326,6 @@ sub import_user {
           for @$rights;
         $Request{dbh}->commit;
     }
-
-    # photo
-    print "cp -i $conf{src}/$u->{photo_name} $conf{dst}/$u->{photo_name}\n"
-      if $u->{photo_name};
 
     print "# Ported user $u->{user_id} to ", $act_user->user_id,
          ( $exist ? '' : ' (new)' ), "\n";
