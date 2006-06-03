@@ -98,7 +98,8 @@ NORMAL
   simplifier ça en le faisant faire par un unique handler csv qui
   a des requêtes pré-définies..
 
-- intégrer un wiki à Act
+- intégrer un wiki à Act (utilisation des login Act, possibilité de
+  bloquer l'édition après la fermeture du site).
 
 - http://conferences.yapceurope.org/2005/user/214
   la Clé GPG est souvent une longue longue chaîne.
