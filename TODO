@@ -13,6 +13,11 @@ CRITICAL
    => penser a verifier les doublons pour forcer l'enregistrement d'un
       user qui existe eventuellement deja. (radio bouton)
   
+- pour utilisation le jour de la conférence :
+   => possibilité pour le tresorier de créer des users quand ceux-ci
+      se présentent et ne sont pas inscrits sur le site : faire en
+      même temps création du user et ajout du payment
+
 
 IMPORTANT
 =========
@@ -46,11 +51,6 @@ IMPORTANT
        à quelles conférences il a participé (avec un lien vers son
        profil dans l'autre conférence)
     => n'est pas lié à un site qui soit indépendant des conférences ?
-
-- pour utilisation le jour de la conférence :
-   => possibilité pour le tresorier de créer des users quand ceux-ci
-      se présentent et ne sont pas inscrits sur le site : faire en
-      même temps création du user et ajout du payment
 
 - gestion des talks:
   + maintenant que l'on peut afficher les talks non acceptés, il faut
