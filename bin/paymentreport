@@ -5,23 +5,25 @@ use Text::xSV;
 
 use Act::Config;
 use Act::Email;
+use Act::Util;
+
+# command line arguments
+my $recipient = shift or usage();
+my @confs = @ARGV or usage();
 
 # connect to database
-my $dbh = DBI->connect(
-    $Config->database_dsn, $Config->database_user,
-    $Config->database_passwd, { AutoCommit => 1 }
-  )
-  or die "can't connect to database: " . $DBI::errstr;
+Act::Util::db_connect();
 
 # CSV file
 my $csv = Text::xSV->new;
-my $sth = $dbh->prepare(
+my $sth = $Request{dbh}->prepare(
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
   . ' WHERE o.user_id = u.user_id AND o.status = ? AND o.means = ?'
+  . ' AND o.conf_id IN (' . join(',', map '?', @confs) . ')'
   . ' ORDER BY o.datetime'
 );
-$sth->execute('paid', 'ONLINE');
+$sth->execute('paid', 'ONLINE', @confs);
 my $body;
 while (my @row = $sth->fetchrow_array) {
     $body .= $csv->format_row(@row);
@@ -29,10 +31,14 @@ while (my @row = $sth->fetchrow_array) {
 
 # send email
 Act::Email::send(
-    from     => { name => 'Agent Smith',     email => 'root@mongueurs.net' },
-    to       => { name => 'David lacravate', email => 'lacravate@mongueurs.net' },
-    cc       => { name => 'Eric Cholet',     email => 'cholet@logilune.com' },
+    from     => { name => 'Act', email => 'echo@mongueurs.net' },
+    to       => $recipient,
     subject  => "Act payment report",
     xheaders => { 'X-Act' => 'payment report' },
     body     => $body,
 );
+
+sub usage
+{
+    die "Usage: $0 email conf_id [conf_id...]\n"
+}
