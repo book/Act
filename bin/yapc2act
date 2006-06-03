@@ -316,7 +316,7 @@ sub import_user {
     }
 
     # photo
-    print "cp $conf{src}/$u->{photo_name} $conf{dst}/$u->{photo_name}\n"
+    print "cp -i $conf{src}/$u->{photo_name} $conf{dst}/$u->{photo_name}\n"
       if $u->{photo_name};
 
     print "# Ported user $u->{user_id} to ", $act_user->user_id,
