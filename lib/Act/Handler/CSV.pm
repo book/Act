@@ -44,6 +44,8 @@ sub handler
     $sth->execute( $Request{conference}, @{$report->[2]} );
 
     # and spit out the xSV report
+    $Request{r}->send_http_header('text/csv; charset=iso-8859-1');
+
     my $csv = Text::xSV->new;
     print $csv->format_row( @{$sth->{NAME_lc}} );
     while( my $row = $sth->fetchrow_arrayref() ) {
