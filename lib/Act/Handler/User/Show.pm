@@ -57,7 +57,7 @@ sub handler
                  },
         ],
         bio => \%bio,
-        conferences => $user->conferences(),
+        conferences => [ grep { $_->{participation} } @{$user->conferences()} ],
     );
     $template->process('user/show');
 }
