@@ -57,6 +57,7 @@ sub handler
                  },
         ],
         bio => \%bio,
+        conferences => $user->conferences(),
     );
     $template->process('user/show');
 }

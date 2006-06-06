@@ -239,6 +239,23 @@
       </td>
    </tr>
 [% END %]
+[% IF conferences.size %]
+<tr>
+ <td align="right" valign="top"><t>
+  <pt>Outras conferências geridas com o Act:</pt>
+  <fr>Autres conférences Act&nbsp;:</fr>
+  <en>Other Act conferences:</en>
+  <it>Altre conferenze gestite con Act:</it>
+  <de>Andere Act Konferenzen:</de>
+  <hu>További Perl konferenciák:</hu>
+ </t></td>
+ <td>&nbsp;</td>
+<td align="left">
+<ul>
+[% FOREACH c = conferences %][% IF c.participation %]<li><a href="[% c.url %]user/[% user_id %]">[% c.name %]</a>[% END %][% END %]
+</ul>
+</td></tr>
+[% END %]
 
 </table>
 </td></tr></table>
