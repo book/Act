@@ -251,9 +251,11 @@
  </t></td>
  <td>&nbsp;</td>
 <td align="left">
+<table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
 <ul>
 [% FOREACH c = conferences %][% IF c.participation %]<li><a href="[% c.url %]user/[% user_id %]">[% c.name %]</a>[% END %][% END %]
 </ul>
+</td></tr></table>
 </td></tr>
 [% END %]
 
