@@ -16,32 +16,6 @@ sub handler {
                          or $Request{user}->is_orga;
     my $talks = $Request{user}->talks(%t);
 
-    # all the Act conferences
-    my %confs;
-    for my $conf_id (keys %{ $Config->conferences }) {
-        next if $conf_id eq $Request{conference};
-        my $cfg = Act::Config::get_config($conf_id);
-        $confs{$conf_id} = {
-            conf_id => $conf_id,
-            url     => '/' . $cfg->uri . '/',
-            name    => $cfg->name->{$Request{language}},
-            begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
-            end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
-            participation => 0,
-            # opened => ?
-        };
-    }
-    # add this guy's participations
-    my $now = DateTime->now;
-    for my $conf (grep { $_->{conf_id} ne $Request{conference} }
-               @{$Request{user}->participations} )
-    {
-        my $c = $confs{$conf->{conf_id}};
-        my $p = \$c->{participation};
-        if( $c->{end} < $now )       { $$p = 'past'; }
-        elsif ( $c->{begin} > $now ) { $$p = 'future'; }
-        else                         { $$p = 'now'; }
-    }
     # this guy's payment info
     if ($Request{user}->has_registered() && $Request{user}->has_paid()) {
         $template->variables(
@@ -54,7 +28,7 @@ sub handler {
     }
     $template->variables(
         talks => $talks,
-        conferences => [ sort { $b->{begin} <=> $a->{begin} } values %confs ],
+        conferences => $Request{user}->conferences(),
         can_unregister =>  $Request{user}->has_registered()
                        && !$Request{user}->has_paid()
                        && !$Request{user}->has_talk(),

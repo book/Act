@@ -147,6 +147,39 @@ sub participations {
      return $participations;
 }
 
+sub conferences {
+    my $self = shift;
+
+    # all the Act conferences
+    my %confs;
+    for my $conf_id (keys %{ $Config->conferences }) {
+        next if $conf_id eq $Request{conference};
+        my $cfg = Act::Config::get_config($conf_id);
+        $confs{$conf_id} = {
+            conf_id => $conf_id,
+            url     => '/' . $cfg->uri . '/',
+            name    => $cfg->name->{$Request{language}},
+            begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
+            end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
+            participation => 0,
+            # opened => ?
+        };
+    }
+    # add this guy's participations
+    my $now = DateTime->now;
+    for my $conf (grep { $_->{conf_id} ne $Request{conference} }
+               @{$self->participations()} )
+    {
+        my $c = $confs{$conf->{conf_id}};
+        my $p = \$c->{participation};
+        if( $c->{end} < $now )       { $$p = 'past'; }
+        elsif ( $c->{begin} > $now ) { $$p = 'future'; }
+        else                         { $$p = 'now'; }
+    }
+
+    return [ sort { $b->{begin} <=> $a->{begin} } values %confs ]
+}
+
 sub create {
     my ($class, %args)  = @_;
     $class = ref $class || $class;
