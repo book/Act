@@ -19,12 +19,12 @@ my $csv = Text::xSV->new;
 my $sth = $Request{dbh}->prepare(
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
-  . ' WHERE o.user_id = u.user_id AND o.status = ? AND o.means = ?'
+  . ' WHERE o.user_id = u.user_id AND o.status = ?'
   . ' AND o.conf_id IN (' . join(',', map '?', @confs) . ')'
   . ' ORDER BY o.datetime'
 );
-$sth->execute('paid', 'ONLINE', @confs);
-my $body;
+$sth->execute('paid', @confs);
+my $body = $csv->format_row(qw(order_id user_id conf_id datetime first_name last_name email amount currency means));
 while (my @row = $sth->fetchrow_array) {
     $body .= $csv->format_row(@row);
 }
