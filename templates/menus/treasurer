@@ -6,4 +6,8 @@
    [% WRAPPER menus/item %]
    <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t></a>
    [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('csv/payments')
+   %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t> (CSV)</a>
+   [% END %]
 [% END %]
