@@ -31,6 +31,7 @@ while (my @row = $sth->fetchrow_array) {
 
 # send email
 Act::Email::send(
+    content_type => 'text/csv',
     from     => { name => 'Act', email => 'echo@mongueurs.net' },
     to       => $recipient,
     subject  => "Act payment report",
