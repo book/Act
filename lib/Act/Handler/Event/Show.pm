@@ -14,11 +14,17 @@ sub handler
         $Request{status} = NOT_FOUND;
         return;
     }
+
     # retrieve event
     my $event = Act::Event->new(
         event_id => $event_id,
         $Request{conference} ? ( conf_id => $Request{conference} ) : (),
     );
+
+    if ( ! defined $event ) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
 
     # process the template
     my $template = Act::Template::HTML->new();
