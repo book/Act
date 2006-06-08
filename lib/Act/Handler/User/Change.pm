@@ -20,9 +20,6 @@ my @form_params = (
      email    => sub { lc shift },
      pm_group => sub { ucfirst lc shift },
   },
-  dependencies => {
-    pseudonymous => [qw(nick_name)],
-  },
   constraints => {
     email        => 'email',
     monk_id      => 'numeric',
@@ -41,6 +38,7 @@ sub handler
     my $fields;
     my $form = Act::Form->new( @form_params, 
         optional => [qw(im civility email_hide gpg_pub_key im pause_id
+                        pseudonymous nick_name
                         monk_id pm_group pm_group_url timezone town web_page
                         company company_url vat address ),
                         @partfields,
@@ -54,6 +52,12 @@ sub handler
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
+
+        # needs a nick_name if pseudonymous
+        if( $fields->{pseudonymous} && ! exists $fields->{nick_name} ) {
+             $form->{invalid}{nick_name} = 1;
+             $ok = 0;
+        }
 
         if ($ok) {
             # extract participation data
