@@ -89,6 +89,14 @@
          pt => "TRANSLATEME"
          de => "TRANSLATEME"
          hu => "TRANSLATEME"
+     },
+     ERR_TSHIRT => {
+         en => "A valid T-shirt size is required."
+         fr => "Une taille de T-shirt valide est requise."
+         it => "TRANSLATEME"
+         pt => "TRANSLATEME"
+         de => "TRANSLATEME"
+         hu => "TRANSLATEME"
      }
   }
 %]
@@ -105,11 +113,11 @@
    "</p>";
 %]
 <p><t>
- <en>Use the links to check if you are one of those. If so, simply
-     <a href="[% make_uri('main') %]">log in</a> using your account. </en>
+ <en>Use the links above to check if you are one of those. If so, simply
+     <a href="[% make_uri('main') %]">log in</a> using your existing account. </en>
  <fr>Utilisez les liens ci-dessus pour vérifier si vous avez déjà un compte.
      Si oui vous pouvez simplement vous
-     <a href="[% make_uri('main') %]">identifier</a> avec ce compte.
+     <a href="[% make_uri('main') %]">identifier</a> avec votre compte existant.
  </fr>
  <it>TRANSLATEME</it>
  <pt>TRANSLATEME</pt>
@@ -161,6 +169,17 @@
      <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
      [% END %]
     </select>
+ </td>
+</tr>
+<tr>
+  <td align="right"><t><en>T-Shirt</en><fr>T-Shirt</fr><pt>T-Shirt</pt><it>Maglietta</it><de>T-Shirt</de><hu>Póló</hu></t></td>
+  <td>&nbsp;</td>
+  <td>
+   <select name="tshirt">
+    [% FOREACH t = ['', 'S', 'L', 'XL', 'XXL' ] %]
+      <option value="[% t %]"[% ' selected="selected"' IF t == '' %]>[% t %]</option>
+   [% END %]
+  </select>
  </td>
 </tr>
 <tr>

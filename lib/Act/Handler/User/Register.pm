@@ -10,15 +10,17 @@ use Act::Util;
 
 # registration form
 my $form = Act::Form->new(
-  required => [qw(login first_name last_name email country)],
+  required => [qw(login first_name last_name email country tshirt )],
   optional => [qw( ignore_duplicates )],
   filters => {
      login    => sub { lc shift },
      email    => sub { lc shift },
+     tshirt   => sub { uc shift },
   },
   constraints => {
      login => sub { $_[0] =~ /^[A-Za-z0-9_]{3,}$/ },
      email => 'email',
+     tshirt => sub { $_[0] =~ /^(?:S|X{0,2}L)$/ },
   }
 );
 
@@ -91,7 +93,7 @@ sub handler
                 # and participation to this conference
                 my $user = Act::User->create(
                     %$fields,
-                    participation => { },
+                    participation => { tshirt_size => $fields->{tshirt} },
                 );
 
                 # display "added page"
@@ -111,6 +113,7 @@ sub handler
             $form->{invalid}{country}    && push @errors, 'ERR_COUNTRY';
             $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
             $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+            $form->{invalid}{tshirt} && push @errors, 'ERR_TSHIRT';
 
         }
         $template->variables(errors => \@errors);
