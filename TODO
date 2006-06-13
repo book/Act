@@ -69,8 +69,6 @@ IMPORTANT
   + aujourd'hui, le site suppose toujours que conf_id est défini...
     et que $Request{user} est inscrit à cette conférence
 
-- demander la taille du T-shirt à la création du user (pour avoir une
-  info précise)
 - dupliquer cette information depuis la conf la plus récente quand
   un utilisateur a plusieurs participations (imaginons qu'il maigrisse
   ou grossisse !)
@@ -100,6 +98,9 @@ NORMAL
   la Clé GPG est souvent une longue longue chaîne.
   Il faudrait peut-être la wrapper nous-même, ou trouver
   le tag HTML qui va bien.
+
+- la plupart des tableau devraient pouvoir être triés en cliquant sur
+  le titre
 
 - gestion de l'inscription :
   + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
