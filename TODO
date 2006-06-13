@@ -73,6 +73,7 @@ IMPORTANT
   un utilisateur a plusieurs participations (imaginons qu'il maigrisse
   ou grossisse !)
 
+# à afficher sur la page des stats, pour les orga/staff ?
 - statistiques sur les T-shirts
   select count(*), tshirt_size from participations where conf_id=? group by tshirt_size;
 - statistiques sur les familles
@@ -87,6 +88,18 @@ IMPORTANT
     genre de problème que pour le "stay pseudonymous"
   + le probleme se pose probablement avec tous les champs qu'on peut
     laisser vides
+
+- séparation des rôles :
+  + les diverses zones restreintes du site concernent :
+    les users, les talks, les payments, les droits
+  + il faut donc 4 droits distincts
+  + staff est batard
+  + orga ne veut rien dire (comme nom)
+  + il ne devrait pas y avoir de vérification en "ou"
+    (genre is_staff || is_orga), car si un utilisateur doit
+    voir telle ou telle partie du site, il faut lui donner
+    les bons bits
+
 
 NORMAL
 ======
