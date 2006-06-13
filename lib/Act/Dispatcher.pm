@@ -46,6 +46,7 @@ my %dispatch = (
     payments  => { handler => 'Act::Handler::Payment::List',   private => 1 },
     invoice   => { handler => 'Act::Handler::Payment::Invoice', private => 1 },
     csv    => { handler => 'Act::Handler::CSV', private => 1 },
+    create => { handler => 'Act::Handler::User::Create', private => 1 },
 );
 
 # translation handler
