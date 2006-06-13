@@ -46,4 +46,16 @@
  </t>
 </a>
 [% END %]
+[% WRAPPER menus/item %]
+<a href="[% make_uri('create') %]">
+ <t>
+  <fr>Enregister un nouvel utilisateur</fr>
+  <en>Register a new user</en>
+  <it>TRANSLATEME</it>
+  <pt>TRANSLATEME</pt>
+  <de>TRANSLATEME</de>
+  <hu>TRANSLATEME</hu>
+ </t>
+</a>
+[% END %]
 [% END %]
