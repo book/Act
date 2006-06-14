@@ -50,7 +50,7 @@
   <td>
    <select name="tshirt">
     [% FOREACH t = ['', 'S', 'M', 'L', 'XL', 'XXL' ] %]
-      <option value="[% t %]"[% ' selected="selected"' IF t == '' %]>[% t %]</option>
+      <option value="[% t %]"[% ' selected="selected"' IF t == tshirt %]>[% t %]</option>
    [% END %]
   </select>
  </td>
