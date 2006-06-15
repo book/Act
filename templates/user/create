@@ -84,7 +84,7 @@
      },
      ERR_DUPLICATE_EXISTS => {
          en => "Other users exists that resemble this one"
-         fr => "D'autres utilisateurs existant pourraient déjà être cleui-ci."
+         fr => "D'autres utilisateurs existant pourraient déjà être celui-ci."
          it => "Ci sono altri utenti che potrebbero essere voi."
          pt => "TRANSLATEME"
          de => "TRANSLATEME"
