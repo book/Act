@@ -85,7 +85,7 @@
      ERR_DUPLICATE_EXISTS => {
          en => "Other users exists that resemble this one"
          fr => "D'autres utilisateurs existant pourraient déjà être cleui-ci."
-         it => "TRANSLATEME"
+         it => "Ci sono altri utenti che potrebbero essere voi."
          pt => "TRANSLATEME"
          de => "TRANSLATEME"
          hu => "TRANSLATEME"
@@ -93,7 +93,7 @@
      ERR_TSHIRT => {
          en => "A valid T-shirt size is required."
          fr => "Une taille de T-shirt valide est requise."
-         it => "TRANSLATEME"
+         it => "Serve una taglia per la maglietta."
          pt => "TRANSLATEME"
          de => "TRANSLATEME"
          hu => "TRANSLATEME"
@@ -101,7 +101,7 @@
   }
 %]
 
-[% IF duplicates.size %]
+[% IF duplicates %]
 <form method="POST" action="[% global.request.r.uri %]">
 <p>
  [% FOREACH u IN duplicates %]
@@ -119,7 +119,8 @@
      Si oui vous pouvez simplement cocher la bonne case et valider ce
      formulaire.
  </fr>
- <it>TRANSLATEME</it>
+ <it>Usate i link qui sopra per controllare se siete uno di quelli. Nel caso,
+     <a href="[% make_uri('main') %]">entrate</a> con il vostro account esistente.</it>
  <pt>TRANSLATEME</pt>
  <de>TRANSLATEME</de>
  <hu>TRANSLATEME</hu>

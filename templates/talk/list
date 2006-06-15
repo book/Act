@@ -86,7 +86,7 @@
   <h2><t>
       <en>Tracks</en>
       <fr>Thèmes</fr>
-      <it>TRANSLATEME</it>
+      <it>Tracce</it>
       <de>TRANSLATEME</de>
       <pt>TRANSLATEME</pt>
       <hu>TRANSLATEME</hu>
@@ -111,7 +111,7 @@
   [% ELSIF tr.talks.size != 0 %]
      <h2><t><en>No track</en>
             <fr>Sans thème</fr>
-            <it>TRANSLATEME</it>
+            <it>Fuori traccia</it>
             <de>TRANSLATEME</de>
             <pt>TRANSLATEME</pt>
             <hu>TRANSLATEME</hu>
