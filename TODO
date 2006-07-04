@@ -18,6 +18,10 @@ CRITICAL
       se présentent et ne sont pas inscrits sur le site : faire en
       même temps création du user et ajout du payment
 
+- conversion UTF-8
+
+- bugs de validation de formulaire
+   => étudier le remplacement de Act::Form par Data::FormValidator
 
 IMPORTANT
 =========
@@ -125,7 +129,7 @@ NORMAL
     les divers droits, et une list box pour ajouter un nouvel utilisateur
     - avantage : on peut tout controler dans un seul formulaire (ajout
       et suppression de droits), meilleure vision par utilisateur
-    - inconvenient : la liste des droits doit eêtre fournie
+    - inconvenient : la liste des droits doit être fournie
       (au pire: select distinct right_id from rights devrait faire
       l'affaire)
 
