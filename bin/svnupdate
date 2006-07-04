@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use strict;
+use Cwd;
+use FindBin qw($Bin);
+use Getopt::Std qw(getopts);
+
+my %opts;
+getopts('v', \%opts);
+$|++; 
+
+for my $subdir (qw(actdocs wwwdocs)) {
+    my $dir = "$Bin/../$subdir";
+    opendir DH, $dir or die "Can't open $dir: $!\n";
+    my @dirs = grep { /^[^.]/ && -d "$dir/$_" && -d "$dir/$_/.svn" } readdir(DH);
+    closedir DH;
+    for my $d (@dirs) {
+        my $sdir = "$dir/$d";
+        print "$sdir\n" if $opts{v};
+        chdir($sdir)
+            or do { warn "Can't chdir to $sdir!\n"; return };
+        my $status = system("svn up -q --non-interactive");
+        warn "Fatal error when trying to run 'svn up' in $sdir: $!\n"
+            if $status == -1;
+   }
+}
