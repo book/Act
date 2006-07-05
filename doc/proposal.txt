@@ -1,0 +1,48 @@
+
+Name
+  Philippe Bruhat & Éric Cholet
+
+Email
+  book@cpan.org
+  cholet@logilune.com
+
+Project Title
+  Integrating the TPF online payment system with Act
+
+Synopsis
+  Act (A Conference Toolkit, http://act.mongueurs.net/) is a framework
+  designed to host multiple conferences, with a Perl bias.
+
+  It currently only support payment with the YAPC Europe Foundation
+  online payment system. The goal of this proposal is to integrate
+  the TPF online payment system to Act, so as to facilitate the
+  organisation of american Perl conferences using Act.
+
+Benefits to the Perl Community
+  American YAPCs and Perl workshop could benefit from the system
+  already used by several european conferences.
+
+  http://news.perlfoundation.org/2006/03/i_need_a_perlbased_conference_1.html
+  mentions that "[Act] doesn't currently work with the TPF donation
+  system. (We can work on fixing this.)"
+
+  This is exactly what we are proposing.
+
+Deliverables
+  <Quantifiable results e.g. "Improve X modules in ways Y and Z",
+  "Write 3 articles for X website".>
+
+Project Details
+  <A more detailed description.>
+
+Project Schedule
+  <How long will the project take? When can you begin work?>
+
+Bio
+  We are the authors of Act.
+
+Amount Requested
+  0 USD.
+
+  On the other hand, Act could benefit from a little publicity from TPF.
+
