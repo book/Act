@@ -1,0 +1,61 @@
+=head1 ONLINE PAYMENT ARCHITECTURE
+
+This document describes the architecture of Act's online payment subsystem.
+This system defers the actual purchasing to a third party, usually a bank.
+We allow for pluggable backends to target various online payment solutions.
+Currently implemented backends are Act::Payment::CyberMut, used by the
+YEF, and Act::Payment::Fake, which emulates a purchase for testing purposes.
+
+Here at YEF payments for various conferences are all handled by the same
+account. This led to add hooks in the system to allow integration with
+foreign code bases, for such purposes as accounting, reporting, etc.
+
+The system is configured from each conference's C<conf/act.ini> configuration
+file.
+
+  [payment]
+  open        = 1
+  type        = CyberMut
+
+Set C<open> to 1 to enable, or to 0 to disable, the online payment system.
+C<type> can be set to any valid backend. Current valid backends are
+C<CyberMut> and C<Fake>.
+
+Let's now walk through the steps involved in a purchase.
+
+=over 4
+
+=item *
+
+In her main page, a user is invited to purchase a ticket to the conference
+if she's registered and hasn't yet paid.
+
+=item *
+
+Clicking the C<purchase> button invokes C<Act::Handler::User::Purchase>.
+This fetches the prices from the database table and displays the
+purchase form via C<templates/user/purchase>. This template can be overriden
+and customized on a per-conference basis.
+
+=item *
+
+When a purchase form with a valid price is submitted,  C<Act::Handler::User::Purchase>
+creates a new order in the database with a status of C<init>.
+
+We then call the plugged backend (C<Act::Payment::Foo>) to create a form
+which contains encrypted information about the purchase order. When this form
+is submitted, the user is taken to the bank's web site.
+
+=item *
+
+The bank handles credit card input and validation, and offers a link back
+to the user's main page in the conference.
+
+=item *
+
+Meanwhile, the bank sends us an HTTP request with the status of the purchase.
+
+=back
+
+=cut
+
