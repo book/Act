@@ -1,15 +1,10 @@
 package Act::Payment::Fake;
 use strict;
+use base qw(Act::Payment::Plugin);
 
 use Act::Config;
-use Act::Order;
 use Act::Template::HTML;
 use Act::Util;
-
-sub new
-{
-    bless {}, shift;
-}
 
 sub create_form
 {

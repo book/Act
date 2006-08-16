@@ -3,25 +3,21 @@ use strict;
 use Act::Config;
 use Act::Util;
 
-my %Plugins;
-
 # load appropriate payment plugin
 sub load_plugin
 {
-    my $name = shift || $Config->payment_type;
+    my $type = shift || $Config->payment_type;
 
-    # return new plugin if not already in cache
-    unless (exists $Plugins{$name}) {
+    # get plugin name
+    my $name = $Config->get("payment_type_${type}_plugin");
 
-        # require new plugin
-        my $class = join '::', qw(Act Payment), $name;
-        eval "require $class";
-        die "require $class failed!" if $@;
+    # require new plugin
+    my $class = join '::', qw(Act Payment), $name;
+    eval "require $class";
+    die "require $class failed!" if $@;
 
-        # instantiate
-        $Plugins{$name} = $class->new();
-    }
-    return $Plugins{$name};
+    # instantiate
+    return $class->new($type);
 }
 
 sub get_price
@@ -68,5 +64,6 @@ Act::Payment - Online payment routines
         order_id => $order_id,
         amount   => $Config->payment_amount,
     );
+    my $prices = Act::Payment::get_prices();
 
 =cut

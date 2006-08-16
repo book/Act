@@ -13,7 +13,7 @@ sub handler
     $Request{args} = { map { $_ => $Request{r}->param($_) || '' } $Request{r}->param };
 
     # load appropriate plugin, hardwired to the url in httpd.conf
-    my $plugin = Act::Payment::load_plugin( $Request{r}->dir_config('ActPluginName') );
+    my $plugin = Act::Payment::load_plugin( $Request{r}->dir_config('ActPaymentType') );
 
     # verify payment
     my ($verified, $paid, $order_id) = $plugin->verify($Request{args});

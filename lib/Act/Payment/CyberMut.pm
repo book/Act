@@ -1,21 +1,16 @@
 package Act::Payment::CyberMut;
 use strict;
+use base qw(Act::Payment::Plugin);
 
 use DateTime;
 
 use Act::Config;
-use Act::Order;
 use Act::Template;
 use Act::Util;
 
 # CyberMut settings
 my $Version  = '1.2open';
 my %Languages = map { $_ => 1 } qw(DE EN ES FR IT);
-
-sub new
-{
-    bless {}, shift;
-}
 
 sub create_form
 {
@@ -28,12 +23,12 @@ sub create_form
     chomp $button;
 
     # variables submitted to the bank
-    my $url_bank = $Config->cybermut_url_bank;
+    my $url_bank = $Config->payment_plugin_CyberMut_url_bank;
     my $url_main = join('', $Request{base_url}, make_uri('main'));
-    my $key      = pack("H*", $Config->cybermut_key);
+    my $key      = pack("H*", $self->_type_config('key'));
     my $date     = DateTime->now->set_time_zone('Europe/Paris')->strftime("%d/%m/%Y:%H:%M:%S");
-    my $tpe      = $Config->cybermut_tpe;
-    my $societe  = $Config->cybermut_societe;
+    my $tpe      = $self->_type_config('tpe');
+    my $societe  = $self->_type_config('societe');
     my $montant  = $order->amount . $order->currency;
     my $langue   = uc $Request{language};
     $langue = 'EN' unless exists $Languages{$langue}; 
@@ -71,13 +66,13 @@ sub verify
     require Digest::HMAC_SHA1;
 
     my $hstring = $args->{retourPLUS}
-                . join("+", $Config->cybermut_tpe,
+                . join("+", $self->_type_config('tpe'),
                             $args->{date}, $args->{montant}, $args->{reference}, $args->{'texte-libre'},
                             $Version,
                             $args->{'code-retour'},
                        )
                 . "+";
-    my $mac = Digest::HMAC_SHA1::hmac_sha1_hex($hstring, pack("H*", $Config->cybermut_key));
+    my $mac = Digest::HMAC_SHA1::hmac_sha1_hex($hstring, pack("H*", $self->_type_config('key')));
     my $verified = $mac eq lc $args->{MAC};
     my $paid = $verified && $args->{'code-retour'} =~ /^payetest|paiement$/;
     return ($verified, $paid, $args->{reference});
