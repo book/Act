@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+use strict;
+use Act::Util;
+
+print Act::Util::gen_password(), "\n";
