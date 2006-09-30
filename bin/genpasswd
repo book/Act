@@ -3,4 +3,5 @@
 use strict;
 use Act::Util;
 
-print Act::Util::gen_password(), "\n";
+my ($clear, $encrypted) = Act::Util::gen_password();
+print "$clear => $encrypted\n";
