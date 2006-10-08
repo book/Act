@@ -97,7 +97,7 @@ __END__
 
 =head1 NAME
 
-Act::Payment::CyberMut - Online payment simulation
+Act::Payment::CyberMut - Online payment using CyberMut
 
 =head1 DESCRIPTION
 
