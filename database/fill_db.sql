@@ -878,6 +878,13 @@ INSERT INTO translations VALUES ('countries', 'iso', 'it', 'hu', 'Olaszország');
 INSERT INTO translations VALUES ('countries', 'iso', 'it', 'it', 'Italia');
 INSERT INTO translations VALUES ('countries', 'iso', 'it', 'pt', 'Itália');
 
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'de', 'Jersey');
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'en', 'Jersey');
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'fr', 'Jersey');
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'hu', 'Jersey');
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'it', 'Jersey');
+INSERT INTO translations VALUES ('countries', 'iso', 'je', 'pt', 'Jersey');
+
 INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'de', 'Jamaika');
 INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'en', 'Jamaica');
 INSERT INTO translations VALUES ('countries', 'iso', 'jm', 'fr', 'Jamaïque');
