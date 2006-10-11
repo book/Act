@@ -19,9 +19,10 @@ sub create_form
         amount     => $order->amount,
         currency   => $order->currency,
         orderid    => $order->order_id,
-        category   => $Request{conference},
+        productid  => $Request{conference},
+        text       => $Config->name->{$Request{language}},
         language   => $Request{language},
-        return_url => join('', $Request{base_url}, make_uri('main')),
+        returnurl  => join('', $Request{base_url}, make_uri('main')),
     );
 
     # compute the digest
@@ -44,7 +45,7 @@ sub verify
 
     my $mac = $self->_compute_digest(
         join '+', $self->_type_config('clientid'),
-                  @$args{sort qw(date amount currency orderid category status)},
+                  @$args{sort qw(date amount currency orderid productid status)},
     );
     my $verified = $mac eq lc $args->{MAC};
     my $paid = $verified && $args->{'status'} eq 'paid';
