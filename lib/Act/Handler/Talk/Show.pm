@@ -4,7 +4,7 @@ use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Template::HTML;
 use Act::Talk;
-use Act::Util;
+use Act::Abstract;
 
 sub handler
 {
@@ -55,7 +55,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         %$talk,
-        chunked_abstract => Act::Util::chunk( $talk->abstract ),
+        chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
         user => $user,
     );
     $template->process('talk/show');

@@ -3,13 +3,12 @@ package Act::Util;
 
 use Apache::Constants qw(M_GET REDIRECT);
 use DateTime::Format::Pg;
+use DBI;
 use Digest::MD5 ();
 use Text::Iconv ();
 use URI::Escape ();
 
 use Act::Config;
-use Act::Talk;
-use Act::User;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
@@ -165,26 +164,6 @@ sub date_format
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
     return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
-}
-
-# turn talk:id into real talks
-sub chunk {
-    my $i = 0;
-    return [
-        map {
-            my $t = { };
-            if ( $i++ % 2 ) {
-                $t->{talk} = Act::Talk->new(
-                    talk_id => $_,
-                    conf_id => $Request{conference}
-                ) ;
-                $t->{user} = Act::User->new( user_id => $t->{talk}->user_id );
-            }
-            else { $t->{text} = $_ };
-            $t;
-          } split /talk:(\d+)/,
-        $_[0]
-    ];
 }
 
 1;

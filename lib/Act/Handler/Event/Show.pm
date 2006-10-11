@@ -4,7 +4,7 @@ use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Template::HTML;
 use Act::Event;
-use Act::Util;
+use Act::Abstract;
 
 sub handler
 {
@@ -28,7 +28,7 @@ sub handler
 
     # process the template
     my $template = Act::Template::HTML->new();
-    $template->variables( %$event, chunked_abstract => Act::Util::chunk( $event->abstract ) );
+    $template->variables( %$event, chunked_abstract => Act::Abstract::chunked( $event->abstract ) );
     $template->process('event/show');
 }
 
