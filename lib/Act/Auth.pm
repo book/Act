@@ -60,16 +60,8 @@ sub authen_cred ($$\@)
     $digest->b64digest() eq $user->{passwd}
         or do { $r->log_error("$prefix Bad password"); return undef; };
 
-    # user is authenticated - create a session id
-    $digest->reset;
-    $digest->add(rand(9999), time(), $$);
-    my $sid = $digest->b64digest();
-    $sid =~ s/\W/-/g;
-
-    # save this user for the content handler
-    $Request{user} = $user;
-    _update_language();
-    $user->update(session_id => $sid);
+    # user is authenticated - create a session
+    my $sid = Act::Util::create_session($user);
 
     return $sid;
 }

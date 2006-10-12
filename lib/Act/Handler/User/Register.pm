@@ -96,6 +96,9 @@ sub handler
                     participation => { tshirt_size => $fields->{tshirt} },
                 );
 
+                # log the user in
+                Act::Util::login($user);
+
                 # display "added page"
                 $template->variables(
                     clear_passwd => $clear_passwd,

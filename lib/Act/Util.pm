@@ -2,6 +2,7 @@ use strict;
 package Act::Util;
 
 use Apache::Constants qw(M_GET REDIRECT);
+use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
@@ -109,6 +110,28 @@ sub crypt_password
     my $digest = Digest::MD5->new;
     $digest->add(shift);
     return $digest->b64digest();
+}
+sub create_session
+{
+    my $user = shift;
+
+    # create a session ID
+    my $digest = Digest::MD5->new;
+    $digest->add(rand(9999), time(), $$);
+    my $sid = $digest->b64digest();
+    $sid =~ s/\W/-/g;
+
+    # save this user for the content handler
+    $Request{user} = $user;
+    $user->update(session_id => $sid, language => $Request{language});
+
+    return $sid;
+}
+sub login
+{
+    my $user = shift;
+    my $sid = create_session($user);
+    Apache::AuthCookie->send_cookie($sid);
 }
 
 # get all texts for a specific table/column/language
