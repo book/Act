@@ -107,7 +107,7 @@ sub handler {
                 return;
             }
             # cannot comment a talk or change the date/room
-            delete @{$fields}{qw( comment is_lightning date time room )};
+            delete @{$fields}{qw( is_lightning date time room )};
             # cannot modify the duration
             if( defined $talk ) {
                 $fields->{duration} = $talk->lightning
