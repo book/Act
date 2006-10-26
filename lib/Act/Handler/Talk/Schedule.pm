@@ -183,7 +183,8 @@ sub compute_schedule {
                 # add all talks to the "started" list
                 # remove talks that end at that time from the "started" list
                 @started = grep { $_->{end} != $row->[0] } @started,
-                    map { @{ $row->[1]{$_} } } keys %room;
+                    map( { @{ $row->[1]{$_} } } keys %room ),   # normal talks
+                    @{ $row->[2] };                             # global talks
             }
             else {
                 # mark the row to be removed later
