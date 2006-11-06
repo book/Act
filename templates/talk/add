@@ -308,7 +308,7 @@
       [% IF accepted %]
         <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>angenommen</de><hu>elfogadott</hu></t><br />
         <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de></t><hu>megerõsített</hu><br />
+        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de><hu>megerõsített</hu></t><br />
       [% ELSE %]
         <t><en>Pending</en><fr>En attente</fr><it>In attesa</it><pt>Pendente</pt><de>in Bearbeitung</de><hu>függõben</hu></t>
       [% END %]
