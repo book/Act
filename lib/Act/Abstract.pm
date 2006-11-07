@@ -15,7 +15,13 @@ sub chunked {
                     talk_id => $_,
                     conf_id => $Request{conference}
                 ) ;
-                $t->{user} = Act::User->new( user_id => $t->{talk}->user_id );
+                if ( $t->{talk} ) {
+                    $t->{user}
+                        = Act::User->new( user_id => $t->{talk}->user_id );
+                }
+                else {
+                    $t->{text} = "talk:$_"; # non-existent talk
+                }
             }
             else { $t->{text} = $_ };
             $t;
