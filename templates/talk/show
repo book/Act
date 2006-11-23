@@ -3,6 +3,7 @@
    title = { en => title, fr => title, pt => title, de => title, hu => title }
 %]
 
+<h1>[% title %]</h1>
 <p>
 <b><t>
   <en>By</en>
