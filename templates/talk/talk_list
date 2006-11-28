@@ -20,6 +20,15 @@
     </a></td>
     <td>[% talk_link(t) %]
         [% talk_modify_link(t) %]
+        [% IF t.url_abstract || t.url_talk %]<br />[[% END %]
+        [% IF t.url_abstract %]
+        <a href="[% t.url_abstract %]"><t><fr>Résumé</fr><en>Abstract</en><it>Abstract</it><pt>Resumo</pt><de>Weitere Infos</de><hu>Absztrakt</hu></t></a>
+        [% END %]
+        [% IF t.url_talk %]
+          [% IF t.url_abstract %]-[% END %]
+        <a href="[% t.url_talk %]"><t><fr>Présentation</fr><en>Talk</en><it>Intervento</it><pt>Apresentação</pt><de>Vortrag (Slides etc)</de><hu>Elõadás</hu></t></a>
+        [% END %]
+        [% IF t.url_abstract || t.url_talk %]][% END %]
     </td>
     <td nowrap="nowrap">[% IF t.lightning %]
           <t><en>lightning</en><fr>éclair</fr><pt>relâmpago</pt><it>lampo</it><de>lightning talk</de><hu>villámelõadás</hu></t>
