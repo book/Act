@@ -1,7 +1,7 @@
 #!perl
 
 use strict;
-use Test::More tests => 5130;
+use Test::More qw(no_plan);
 use DBI;
 use Act::Config;
 use Act::Country;
