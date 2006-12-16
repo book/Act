@@ -25,6 +25,7 @@ my @modules = (
                  'Text::Iconv',
                  'Text::xSV',
                  'URI::Escape',
+                 'Wiki::Toolkit',
               );
 use Test::More;
 plan tests => 1 + scalar(@modules);

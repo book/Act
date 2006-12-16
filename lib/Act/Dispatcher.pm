@@ -26,6 +26,7 @@ my %dispatch = (
     event    => { handler => 'Act::Handler::Event::Show' },
     events   => { handler => 'Act::Handler::Event::List' },
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
+    wiki     => { handler => 'Act::Handler::Wiki' },
     'timetable.ics' => { handler => 'Act::Handler::Talk::Export' },
 
     # protected handlers
