@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use DBI;
+use Getopt::Std qw(getopts);
 use Text::xSV;
 
 use Act::Config;
@@ -8,6 +9,8 @@ use Act::Email;
 use Act::Util;
 
 # command line arguments
+my %opts;
+getopts('t:', \%opts);
 my $recipient = shift or usage();
 my @confs = @ARGV or usage();
 
@@ -16,14 +19,19 @@ Act::Util::db_connect();
 
 # CSV file
 my $csv = Text::xSV->new;
-my $sth = $Request{dbh}->prepare(
+my $sql =
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
-  . ' WHERE o.user_id = u.user_id AND o.status = ?'
-  . ' AND o.conf_id IN (' . join(',', map '?', @confs) . ')'
-  . ' ORDER BY o.datetime'
-);
-$sth->execute('paid', @confs);
+  . ' WHERE o.user_id = u.user_id AND o.status = ?';
+$sql .= ' AND o.means = ?' if $opts{t};
+$sql .= ' AND o.conf_id IN (' . join(',', map '?', @confs) . ') ORDER BY o.datetime';
+my $sth = $Request{dbh}->prepare($sql);
+if ($opts{t}) {
+    $sth->execute('paid', $opts{t}, @confs);
+}
+else {
+    $sth->execute('paid', @confs);
+}
 my $body = $csv->format_row(qw(order_id user_id conf_id datetime first_name last_name email amount currency means));
 while (my @row = $sth->fetchrow_array) {
     $body .= $csv->format_row(@row);
@@ -41,5 +49,12 @@ Act::Email::send(
 
 sub usage
 {
-    die "Usage: $0 email conf_id [conf_id...]\n"
+    die <<EOF;
+Usage: $0 [-t type] email conf_id [conf_id...]
+Options:
+    -t type      only report on transactions of type 'type',
+                 where type if one of CASH, CHQ, ONLINE.
+ 
+
+EOF
 }
