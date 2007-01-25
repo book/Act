@@ -15,7 +15,7 @@ use constant LANGUAGES     => qw(de en fr hu it pt);
 use constant TEMPLATE_DIRS => qw(static templates);
 
 # global template parser object
-my $parser = Template::Multilingual::Parser->new;
+my $parser = Template::Multilingual::Parser->new({});
 
 # parse command line options
 my %opts;
@@ -47,7 +47,7 @@ sub _extract
     if (-d $dir) {
         find(sub {
                   local $_ = $File::Find::name;
-                  -f && !/CVS/ && push @files, $_;
+                  -f && !/CVS/ && !/\.svn/ && push @files, $_;
                  },
              $dir
         );
