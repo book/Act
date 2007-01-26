@@ -1,15 +1,11 @@
-CRITICAL
-========
+UNPRIORITIZED TODO LIST
+=======================
 
-* attendees
-
-  let the organizers force the registration of existing users
+* let the organizers force the registration of existing users
   (useful for speakers who can't be bothered to use the site,
   but will give a talk)
 
-* payment
-
-  the payments page should let the one create a new user, register it
+* the payments page should let the one create a new user, register it
   and add a payment (and use the code for finding duplicate users)
   (useful for on site registration during the conference)
   
@@ -17,87 +13,61 @@ CRITICAL
 
 * replace Act::Form by Data::FormValidator
 
-IMPORTANT
-=========
+* list and document all the templates in the application
 
-- reprendre tous les templates pour isoler ceux qui concernent la logique
-  de l'application de la présentation de cette logique (cf schedule)
-  + rendre impossible aux orga de redéfinir ces templates "internes"
-    (c'est probablement très difficile, puisqu'ils seraient appelés depuis
-    les templates appelés par les handlers)
-  + documenter tous ces templates dans la doc
-    - templates requis (surchargeables)
-    - templates requis (non surchargeables)
+* divide the template content between structural information needed
+  by the application (e.g. creation of the schedule, application
+  forms) and presentation information which should be overridable by
+  conference-specific templates
 
-- définir un maximum de styles / CSS (et les documenter) pour permettre
-  aux orgas de gérer leur style facilement
+* define a set of coherent CSS styles for the application templates,
+  so that conference organizers may easily override the application
+  look and feel, and integrate it into their web site
 
-- traductions
+* define a procedure (and possibly write some helper scripts) to
+  manage the text modifications. When someone changes some text
+  in the templates, the may be able to translate it at best in
+  one or two other languages. Other translators need to be
+  informed of the changes.
 
-  il faut une procédure et une liste de personnes pour gérer les
-  modifications des langues dans les templates. Ces personnes auront
-  besoin d'un accès en écriture aux sources, probablement.
+* track management: organizers should be able to create tracks for
+  their conference, speakers should be able to select a track for their talk
 
-- création (pour les orga) et sélection des tracks (pour les speakers)
+* conference language: define a set of accepted languages for a conference
+  and let the speakers set the talk language
 
-- participants 
-  + si un user est inscrit, a payé, mais n'a finalement pas participé,
-    souhaite-on le compter ? En fait, je suis en train de parler d'un
-    problème distinct, qui est le décompte des utilisateurs effectivement
-    présents à la conf. On peut payer et ne pas venir.
-    => ce serait sympa de pouvoir lister sur le profil d'un utilisateur
-       à quelles conférences il a participé (avec un lien vers son
-       profil dans l'autre conférence)
-    => n'est pas lié à un site qui soit indépendant des conférences ?
+* attendees: if a registered user doesn't show up, how is s/he counted?
+  should there be a way for the organisers to mark the attendees as
+  present?
 
-- gestion des talks:
-  + maintenant que l'on peut afficher les talks non acceptés, il faut
-    regarder les divers templates et vérifier qu'on est cohérent sur
-    accepté/non accepté
-  + support d'une langue pour les talks, à choisir parmi les
-    langues de la conf (e.g., FPW aurait fr (defaut) et en,
-    APW de (defaut) et en, YAPC en seulement.
+* password modification page
 
-- page de modification du mot de passe
-- quid de resetpw si le user est loggé ? redirection vers updatepw ?
+* a website for managing one's profile outside any conference
 
-- un user doit pouvoir accéder à une page perso HORS CONFERENCE,
-  par exemple, pour éditer sa bio, changer sa photo, s'inscrire
-  à une ou plusieurs conférences, voir toutes ses factures, etc.
-  + aujourd'hui, le site suppose toujours que conf_id est défini...
-    et que $Request{user} est inscrit à cette conférence
+* some statistics for the organizers
+  - T-shirts stats:
+    select count(*), tshirt_size from participations where conf_id=? group by tshirt_size;
+  - family stats:
+    select sum(nb_family) from participations where conf_id=?
 
-- dupliquer cette information depuis la conf la plus récente quand
-  un utilisateur a plusieurs participations (imaginons qu'il maigrisse
-  ou grossisse !)
+* remove duplicate users from the database. this is an administrative task 
+  which requires contacting users and asking which of their many logins
+  to keep
 
-# à afficher sur la page des stats, pour les orga/staff ?
-- statistiques sur les T-shirts
-  select count(*), tshirt_size from participations where conf_id=? group by tshirt_size;
-- statistiques sur les familles
-  select sum(nb_family) from participations where conf_id=a?
+* problem with empty fields: they are not updated
+  see: stay pseudonymous, remove company
 
-- problématique des users en doublon...
-  + il faut probablement contacter les utilisateur pour leur proposer de
-    faire cette fusion, en leur demandant quel login ils souhaitent garder.
-
-- probleme d'édition du profil :
-  + si on supprime la société, elle n'est pas retirée de la base (même
-    genre de problème que pour le "stay pseudonymous"
-  + le probleme se pose probablement avec tous les champs qu'on peut
-    laisser vides
-
-- séparation des rôles :
-  + les diverses zones restreintes du site concernent :
-    les users, les talks, les payments, les droits
-  + il faut donc 4 droits distincts
-  + staff est batard
-  + orga ne veut rien dire (comme nom)
-  + il ne devrait pas y avoir de vérification en "ou"
-    (genre is_staff || is_orga), car si un utilisateur doit
-    voir telle ou telle partie du site, il faut lui donner
-    les bons bits
-
+* there are 4 kinds or roles within a conference:
+  - user management
+  - talks management
+  - payments management
+  - rights management
+  this implies a modification of the existing rights:
+  - the name "orga" doesn't mean anything
+  - "staff" has no clear domain
+  - nowhere in the code should there be an "or" checking of rights
+    (like is_staff || is_orga): if some user needs to see such and
+    such parts of the site, they need the appropriate right
 
 NORMAL
 ======
