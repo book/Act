@@ -1,27 +1,21 @@
 CRITICAL
 ========
 
-- participants
+* attendees
 
-  possibilité pour les orga de forcer l'enregistrement d'utilisateurs
-  existants (typiquement pour les speakers)
+  let the organizers force the registration of existing users
+  (useful for speakers who can't be bothered to use the site,
+  but will give a talk)
 
-- payment
+* payment
 
-   la page payments devrait avoir un ligne speciale pour creer un nouvel
-   utilisateur, le registrer automatiquement et lui ajouter un payment
-   => penser a verifier les doublons pour forcer l'enregistrement d'un
-      user qui existe eventuellement deja. (radio bouton)
+  the payments page should let the one create a new user, register it
+  and add a payment (and use the code for finding duplicate users)
+  (useful for on site registration during the conference)
   
-- pour utilisation le jour de la conférence :
-   => possibilité pour le tresorier de créer des users quand ceux-ci
-      se présentent et ne sont pas inscrits sur le site : faire en
-      même temps création du user et ajout du payment
+* convert the whole application to UTF8
 
-- conversion UTF-8
-
-- bugs de validation de formulaire
-   => étudier le remplacement de Act::Form par Data::FormValidator
+* replace Act::Form by Data::FormValidator
 
 IMPORTANT
 =========
@@ -199,5 +193,4 @@ I WISH THERE WAS A LOWER PRIORITY THAN WISHLIST
 - support de plusieurs groupes de mongueurs
   => DB
   => recherche
-
 
