@@ -1,7 +1,36 @@
-Act - A Conference Toolkit
 
-This is a set of modules to handle several conferences with the
+    Act - A Conference Toolkit
+
+    Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet
+
+    This program is free software distributed under the same terms as
+    Perl itself; you can redistribute it and/or modify it under the
+    terms of either:
+
+        a) the GNU General Public License version 1 or any later
+           version, or
+
+        b) the Artistic License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See either the
+    GNU General Public License or the Artistic License for more details.
+
+    You should have received a copy of the Artistic License with this Kit,
+    in the file named "Artistic".  If not, I'll be glad to provide one.
+
+    You should also have received a copy of the GNU General Public License
+    along with this program in the file named "Copying". If not, write
+    to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+    Boston, MA 02111-1307, USA or visit their web page on the internet
+    at http://www.gnu.org/copyleft/gpl.html.
+
+--------------------------------------------------------------------------
+
+Act is a set of modules to handle several conferences with the
 help of Apache, mod_perl and Template-Toolkit.
 
-More documentation is available in pod, under doc/
+More documentation is available in pod, under doc/.
+All the documentation is also mirrored on http://act.mongueurs.net/
 
