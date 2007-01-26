@@ -33,8 +33,14 @@ UNPRIORITIZED TODO LIST
 * track management: organizers should be able to create tracks for
   their conference, speakers should be able to select a track for their talk
 
-* conference language: define a set of accepted languages for a conference
+* talk languages: define a set of accepted languages for a conference
   and let the speakers set the talk language
+
+* talk target audience: beginner, intermediate, advanced.
+
+* provide a full canonical url in each conf/act.ini for inter-conference links
+
+* move the existing conf/act.ini out of Act.
 
 * attendees: if a registered user doesn't show up, how is s/he counted?
   should there be a way for the organisers to mark the attendees as
