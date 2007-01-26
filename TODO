@@ -69,8 +69,8 @@ UNPRIORITIZED TODO LIST
     (like is_staff || is_orga): if some user needs to see such and
     such parts of the site, they need the appropriate right
 
-* integrate a wiki (using Act user login, make it possible to block
-  edits one the site is closed).
+* integrate a wiki into Act (using the Act users logins, maybe restricted
+  to users registered to the conference)
   => this is being developped in the dev branch.
 
 * http://conferences.yapceurope.org/2005/user/214
@@ -79,7 +79,7 @@ UNPRIORITIZED TODO LIST
 
 * most tables should be sortable by clicking on column headers.
 
-* when a conference is over, treasurer/orga should be able to delete
+* when a conference is over, treasurer/orga should be able to unregister
   participants who didn't show up.
 
 * rights management
@@ -90,58 +90,33 @@ UNPRIORITIZED TODO LIST
     - against: the list of rights must be supplied
       (at worse: select distinct right_id from rights should do it)
 
+* photo gallery? Links with Flickr? tags? links with talks? author?
+
 * in conf/act.ini, add [general] finished = 1 when the conf is over.
   => current thinking is do this automatically.
 
-======
-- galerie de photos
-  + upload par les photographes, annotation
-  + redimensionnement des photos trop grosses ?
-  + outil de recherche (par conf, par auteur, par mots-clé ?)
-  + si possible, intégrer des outils qui existent déjà pour la gallerie
-    (mais visu par auteur, conférence, recherche sur le titre, etc.)
-  + possibilité d'annoter les photos par exemple pour les lier à un talk,
-    une salle, un jour ?
+* image resizing
 
-- creation de roles globaux ?
-  + gestion des users (ajout, suppression, edition)
-  + gestion des photos/videos (si on fait une gallerie)
+* usefulness of global rights?
 
-- test de la fermeture/ouverture des diverses options
+* more tests, especially for the web interface
 
-- les photos doivent être stockées dans endroit commun ?
-  ou est-ce qu'on permet à un user d'avoir une photo différente par
-  conférence ? dans ce cas, doit-il l'uploader chaque année ?
+* may a user have a different photograph every year?
 
-- le nom "orga" est-il bien choisi ?
+* change the "orga" right name
 
-- vu que Act gère des conférences multiples, qui n'offrent pas toujours
-  les mêmes langues (e.g. fr+en ou pt+en), est-ce qu'il ne faut pas
-  gérer la liste des langues comme une liste de préférences ?
-  à chaque fois qu'un user sélectionne une liste, elle passe en
-  premier sur sa liste. exemple d'un portugais :
-  + sur ye2005,  pt => liste = pt
-  + sur fpw2005, fr => liste = fr,pt
-  + sur ipw2005, en => liste = en,fr,pt
-  Arrivé à ce stade, il faut reconfigurer la langue préférée sur les deux
-  autres sites, pour arriver à pt,fr,en ou fr,pt,en, ce qui lui donnera
-  la langue voulue partout. Ca va ?
-  ou alors, on ajoute encore un truc à gérer, mais bof.
-  => autre possibilite, rajouter un champ lang dans participations,
-     comme ca un user inscrit à une conf aura sa langue de préference
-     inscrite en dur pour cette conf...
+* think about the user prefered language as a preference list:
+  - ye2005,  pt => list = pt
+  - fpw2005, fr => list = fr,pt
+  - ipw2005, en => list = en,fr,pt
+  at that point, we need to reconfigure the prefered language for
+  the two other sites
+  Another option is to add a lang field in participations, to have
+  a favorite language per conference
 
-- un site Act "standalone" qui ne soit pas lié aux confs/talks, mais
-  juste aux users
+* global user stats (top attendee, top speaker, etc)
 
-- statistiques pour les users, globales à toutes les conférences
-  (e.g. top participant, top speaker, etc)
+* user-configurable searchlimit
 
-- possibilité pour l'utilisateur d'afficher autant de users qu'il veut
-  sur la page de recherche (genre 50, all), etc.
-  + tri par nom, pays, ville... multicritère ?
-  + Act::Handler::User::Search n'utilise pas Act::Form
-
-- support de plusieurs groupes de mongueurs
-  => DB
-  => recherche
+* support for several monger groups (addition, search)
+  
