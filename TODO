@@ -69,33 +69,31 @@ UNPRIORITIZED TODO LIST
     (like is_staff || is_orga): if some user needs to see such and
     such parts of the site, they need the appropriate right
 
+* integrate a wiki (using Act user login, make it possible to block
+  edits one the site is closed).
+  => this is being developped in the dev branch.
+
+* http://conferences.yapceurope.org/2005/user/214
+  The GPG key is often a very long string.
+  => we should just store a key id, keys can be fetched from GPG key servers.
+
+* most tables should be sortable by clicking on column headers.
+
+* when a conference is over, treasurer/orga should be able to delete
+  participants who didn't show up.
+
+* rights management
+  + show rights in table format, users as lines, rights as columns,
+    with checkboxes to grant rights, and a listbox to add a new user.
+    - pro: everything is controlled through a single form (granting
+      and removing rights), better per user vision.
+    - against: the list of rights must be supplied
+      (at worse: select distinct right_id from rights should do it)
+
+* in conf/act.ini, add [general] finished = 1 when the conf is over.
+  => current thinking is do this automatically.
+
 ======
-
-- intégrer un wiki à Act (utilisation des login Act, possibilité de
-  bloquer l'édition après la fermeture du site).
-
-- http://conferences.yapceurope.org/2005/user/214
-  la Clé GPG est souvent une longue longue chaîne.
-  Il faudrait peut-être la wrapper nous-même, ou trouver
-  le tag HTML qui va bien.
-
-- la plupart des tableau devraient pouvoir être triés en cliquant sur
-  le titre
-
-- gestion de l'inscription :
-  + en fin de conférence, les tresoriers/orga devraient pouvoir supprimer
-    les participants qui ne sont pas venus
-
-- gestion des droits
-  + présentation des droits sous forme de tableaux
-    users en ligne et droits en colonne, avec des cases à cocher pour
-    les divers droits, et une list box pour ajouter un nouvel utilisateur
-    - avantage : on peut tout controler dans un seul formulaire (ajout
-      et suppression de droits), meilleure vision par utilisateur
-    - inconvenient : la liste des droits doit être fournie
-      (au pire: select distinct right_id from rights devrait faire
-      l'affaire)
-
 - galerie de photos
   + upload par les photographes, annotation
   + redimensionnement des photos trop grosses ?
@@ -104,12 +102,6 @@ UNPRIORITIZED TODO LIST
     (mais visu par auteur, conférence, recherche sur le titre, etc.)
   + possibilité d'annoter les photos par exemple pour les lier à un talk,
     une salle, un jour ?
-
-- dans conf/act.ini, rajouter un [general] finished = 1 quand la conf
-  est terminée. Ca devrait simplifier les affichages de payments.
-
-- possibilité pour les orga/admin de modifier le fait que l'utilisateur
-  a participé ou non, pour avoir une liste correcte à la fin de la conf
 
 - creation de roles globaux ?
   + gestion des users (ajout, suppression, edition)
@@ -153,4 +145,3 @@ UNPRIORITIZED TODO LIST
 - support de plusieurs groupes de mongueurs
   => DB
   => recherche
-
