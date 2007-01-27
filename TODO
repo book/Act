@@ -126,3 +126,11 @@ UNPRIORITIZED TODO LIST
 
 * support for several monger groups (addition, search)
   
+* get the production conf/ out of Act
+
+* PDF immutable invoices
+
+* replace Act::Object with a more trendy ORM
+
+* create a eg/ directory with at least two example conferences
+
