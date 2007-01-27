@@ -137,3 +137,6 @@ UNPRIORITIZED TODO LIST
 * support for per conference options, like
   - register the hotel (e.g. european hackathon 2007)
   - vegeratian food
+
+* hackathons do not have talks. Support that by disabling the talks
+  related handlers.
