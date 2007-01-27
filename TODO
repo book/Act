@@ -134,3 +134,6 @@ UNPRIORITIZED TODO LIST
 
 * create a eg/ directory with at least two example conferences
 
+* support for per conference options, like
+  - register the hotel (e.g. european hackathon 2007)
+  - vegeratian food
