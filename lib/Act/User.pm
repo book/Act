@@ -157,7 +157,7 @@ sub conferences {
         my $cfg = Act::Config::get_config($conf_id);
         $confs{$conf_id} = {
             conf_id => $conf_id,
-            url     => '/' . $cfg->uri . '/',
+            url     => $cfg->general_full_uri,
             name    => $cfg->name->{$Request{language}},
             begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
             end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
