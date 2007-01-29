@@ -2,50 +2,6 @@
    title = { en => 'Registration', fr => 'Inscription', pt => "Inscrição", it => 'Iscrizione',de =>'Anmelden', hu => 'Regisztráció' },
 %]
 
-<p>
- <t>
-  <en>
-   To register to the [% global.conference.name %] conference,
-   simply push the button below.
-  </en>
-  <pt>
-   Para se inscrever na [% global.conference.name %] prima o botão abaixo.
-  </pt>
-  <fr>
-   Pour vous inscrire à la conférence [% global.conference.name %],
-   poussez simplement sur le bouton ci-dessous.
-  </fr>
-  <it>
-   Per iscrivervi a [% global.conference.name %], premete il
-   pulsante qui sotto.
-  </it>
-  <de>
-   Um sich für die Konferenz [% global.conference.name %] anzumelden,
-   klicken Sie bitte auf den Button.
-  </de>
-  <hu>
-   A [% global.conference.name %] konferenciára történõ jelentkezéshez
-   az alábbi gomb megnyomása szükséges.
-  </hu>
- </t>
-</p>
-
-<center>
-
-<form method="POST" action="[% global.request.r.uri %]">
-
-<table border="1" cellpadding="10" cellspacing="0"><tr><td>
-<table border="0" cellpadding="0" cellspacing="10">
-
-<tr>
-   <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Join</en><pt>Inscrever-me na</pt><fr>Inscription à</fr><it>Iscrivimi a</it><de>Anmelden</de><hu>Csatlakozom</hu></t> [% global.conference.name %]" />
-   </td>
-</tr>
-</table>
-</td></tr></table>
-
-</form>
-</center>
+[% PROCESS core/user/register %]
 
 [% END %]
