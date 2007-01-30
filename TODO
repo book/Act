@@ -142,3 +142,9 @@ UNPRIORITIZED TODO LIST
   the conference at the top of the country list when creating a new
   user on a conference
 
+* as a protection (and later analysis) tool against spammers, log
+  the date, time and IP address for any new user creation
+  => batches of new user creation should be easier to detect
+
+* two-steps new user creation using a confirmation email
+  and possibly a special validation URL
