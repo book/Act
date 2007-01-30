@@ -1,5 +1,6 @@
 [% USE date %]
-[% IF date.now > global.conference.start_date %]
+[% IF date.now > end_date %]
+[% end_date %]
 <p>
  <t>
   <en>Sorry, this conference is over.</en>
