@@ -84,6 +84,8 @@ CREATE TABLE participations
     payment     integer,                  /* notyet, cash, online, cheque, waived */
     tshirt_size text,                     /* S, M, L, XL, XXL */
     nb_family   integer    DEFAULT 0,
+    datetime    timestamp without time zone,
+    ip          text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
