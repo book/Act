@@ -45,6 +45,9 @@ sub handler
         }
         else {
             my $template = Act::Template::HTML->new();
+            $template->variables(
+                end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+            );
             $template->process('user/register');
             return;
         }
@@ -126,6 +129,7 @@ sub handler
         countries => Act::Country::CountryNames(),
         %$fields,
         duplicates => $duplicates,
+        end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
     );
     $template->process('user/add');
 }
