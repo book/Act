@@ -3,6 +3,19 @@
 %]
 [% PROCESS common %]
 
+[% USE date %]
+[% IF date.now > global.conference.start_date %]
+<p>
+ <t>
+  <en>Sorry, this conference is over.</en>
+  <pt>TRANSLATEME</pt>
+  <fr>Désolé, cette conférence est terminée.</fr>
+  <it>Questa conferenza è finita.</it>
+  <de>TRANSLATEME</de>
+  <hu>TRANSLATEME</hu>
+ </t>
+</p>
+[% ELSE %]
 <p>
  <t>
   <en>Please create your user below.</en>
@@ -283,5 +296,7 @@
   </hu>
  </t>
 </p>
+
+[% END %]
 
 [% END %]
