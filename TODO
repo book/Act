@@ -98,9 +98,6 @@ UNPRIORITIZED TODO LIST
 
 * photo gallery? Links with Flickr? tags? links with talks? author?
 
-* in conf/act.ini, add [general] finished = 1 when the conf is over.
-  => current thinking is do this automatically.
-
 * image resizing
 
 * usefulness of global rights?
