@@ -36,9 +36,10 @@ sub handler
         if ($Request{args}{join}) {
             # create a new participation to this conference
             my $sth = $Request{dbh}->prepare_cached(
-                "INSERT INTO participations (user_id, conf_id) VALUES (?,?);"
+                "INSERT INTO participations (user_id, conf_id, datetime, ip) VALUES (?,?, NOW(), ?);"
             );
-            $sth->execute($Request{user}->user_id, $Request{conference});
+            $sth->execute( $Request{user}->user_id, $Request{conference},
+                '0.0.0.0' ); # FIXME
             $sth->finish();
             $Request{dbh}->commit;
             return Act::Util::redirect(make_uri('main'))
@@ -96,7 +97,11 @@ sub handler
                 # and participation to this conference
                 my $user = Act::User->create(
                     %$fields,
-                    participation => { tshirt_size => $fields->{tshirt} },
+                    participation => {
+                        tshirt_size => $fields->{tshirt},
+                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
+                        ip          => '0.0.0.0', # FIXME
+                    },
                 );
 
                 # log the user in
