@@ -137,3 +137,8 @@ UNPRIORITIZED TODO LIST
 
 * hackathons do not have talks. Support that by disabling the talks
   related handlers.
+
+* add a list of the top ten countries of already registered users for
+  the conference at the top of the country list when creating a new
+  user on a conference
+
