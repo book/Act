@@ -7,11 +7,11 @@ use Text::xSV;
 my %CSV = (
     # report => [ auth_sub, sql, args ]
     users => [ sub { $_[0]->is_orga() }, << 'SQL', [] ],
-SELECT u.user_id, u.last_name, u.first_name, u.nick_name, u.email
+SELECT u.user_id, u.last_name, u.first_name, u.nick_name, u.email, p.datetime
 FROM users u, participations p
 WHERE u.user_id=p.user_id
   AND p.conf_id=?
-ORDER BY u.last_name, u.first_name
+ORDER BY p.datetime, u.last_name, u.first_name
 SQL
     payments => [ sub { $_[0]->is_treasurer() }, << 'SQL', [ 'paid'] ],
 SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name,
