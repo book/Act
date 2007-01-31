@@ -39,7 +39,7 @@ sub handler
                 "INSERT INTO participations (user_id, conf_id, datetime, ip) VALUES (?,?, NOW(), ?);"
             );
             $sth->execute( $Request{user}->user_id, $Request{conference},
-                '0.0.0.0' ); # FIXME
+                           $Request{r}->connection->remote_ip );
             $sth->finish();
             $Request{dbh}->commit;
             return Act::Util::redirect(make_uri('main'))
@@ -100,7 +100,7 @@ sub handler
                     participation => {
                         tshirt_size => $fields->{tshirt},
                         datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
-                        ip          => '0.0.0.0', # FIXME
+                        ip          => $Request{r}->connection->remote_ip,
                     },
                 );
 
