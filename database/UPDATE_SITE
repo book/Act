@@ -1,6 +1,2 @@
 -- Stuff to do when upgrading the production server
 
--- add IP and datetime to registration info
-alter table participations add column datetime timestamp without time zone;
-alter table participations add column ip text;
-
