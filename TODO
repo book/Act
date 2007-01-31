@@ -144,3 +144,8 @@ UNPRIORITIZED TODO LIST
 
 * two-steps new user creation using a confirmation email
   and possibly a special validation URL
+
+* allow a conference to put a limit on the number of "paying" attendees
+  => it may actually need to be a limit to "committed" attendes, since
+     speakers often have the entrance fee waived
+
