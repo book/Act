@@ -149,3 +149,9 @@ UNPRIORITIZED TODO LIST
   => it may actually need to be a limit to "committed" attendes, since
      speakers often have the entrance fee waived
 
+* handle the edition of lightning talk sessions, by creating something
+  less burdensome than the current talk:id 
+
+* have the wiki support talk:id links and user:id links (or something
+  similar)
+
