@@ -29,14 +29,14 @@ sub handler
 {
 
     # conference is closed, do not POST
-    if ( $Request{args}{join}
-        && DateTime->now()
-        > DateTime::Format::Pg->parse_timestamp( $Config->talks_end_date ) )
-    {
-        $Request{status} = FORBIDDEN;
-        return;
+    if ( $Request{args}{join} ) {
+        my $enddate = DateTime::Format::Pg->parse_timestamp( $Config->talks_end_date );
+        $enddate->set_time_zone($Config->general_timezone);
+        if ( DateTime->now() > $enddate ) {
+            $Request{status} = FORBIDDEN;
+            return;
+        }
     }
-
     # special case of logged in users!
     if( defined $Request{user} ) {
         # already registered, move along
