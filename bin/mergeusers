@@ -5,60 +5,115 @@ use Act::User;
 use Act::Talk;
 use Act::Order;
 use DBI;
+use Getopt::Long;
+
+# command line parameters
+my %conf = (
+    quiet     => 0,
+    'dry-run' => 0,
+);
+GetOptions( \%conf, 'quiet!', 'dry-run|n!' )
+    or die my $usage = << 'USAGE';
+Usage:
+mergeusers [-q] [-n] <uid> ... <uid> <main>
+  -quiet      : be quiet
+  -dry-run    : just show what you would do (implies -noquiet)
+USAGE
+
+$conf{verbose} = 1 if $conf{'dry-run'};
 
 # init the database handle
 $Request{dbh} = DBI->connect(
     $Config->database_dsn, $Config->database_user,
     $Config->database_passwd, { AutoCommit => 0 }
-  )
-  or die "can't connect to database: " . $DBI::errstr;
+) or die "Can't connect to database: " . $DBI::errstr;
 
-END {
-    $Request{dbh}->commit;
-    $Request{dbh}->disconnect;
-}
+print STDERR "Not enough parameters: @ARGV\n", $usage if @ARGV < 2;
 
-exit unless @ARGV > 1;
-
+# load the users
 my @users = map { Act::User->new( user_id => $_ ) } @ARGV;
 
-print "Merging the following users:\n";
-{
-    no warnings;
-    printf "- %3d %s %s (%s) <%s>\n", $_->user_id, $_->first_name,
-      $_->last_name, $_->nick_name, $_->email
-      for @users;
+if ( grep { !defined } @users ) {
+    for (@ARGV) {
+        print STDERR "User $_ doesn't exist in the database\n"
+            if !defined Act::User->new( user_id => $_ );
+    }
+    exit;
 }
-print "into the user $users[-1]{user_id}\n";
 
 my $main = pop @users;
 
-### alternative 1
-for my $table (qw(talks orders participations rights)) {
-    my $sth = $Request{dbh}->prepare('UPDATE $table SET user_id = ? WHERE user_id = ?');
-    $sth->execute($main->user_id, $_->user_id) for @users;
-}
+message("Merging the following users:\n");
+message( "-", userinfo($_) ) for @users;
+message("into the user", userinfo($main) );
 
-### alternative 2
-my ( @talks, @orders, @participations, @rights );
-
-# récupère les infos
 for my $u (@users) {
-    push @talks, @{ $u->talks };
-    push @orders, @{ Act::Order->get_items( user_id => $u->user_id ) };
+    message( "\nProcessing user", userinfo($u) );
+
+    # reassign the talks
+    message( "* talks\n" );
+    for my $t (@{ $u->talks }) {
+        message( "  - ", talkinfo( $t ) );
+        # FIXME
+    }
+
+    # reassign the orders
+    message( "* orders\n" );
+    for my $o (@{ Act::Order->get_items( user_id => $u->user_id )} ) {
+        message( "  - ", orderinfo( $o ) );
+        # FIXME
+    }
+
+    # reassign the participations
+    message( "* participations\n" );
+    for my $conf_id (map { $_->{conf_id} } @{ $u->participations }) {
+        message( "  - $conf_id\n" );
+        # FIXME
+        
+        # transfer the rights
+        local $Request{conference} = $conf_id;
+        message( "    rights: " );
+        for my $r (keys %{ $u->rights }) {
+            message( "$r ");
+        }
+        message("\n");
+        # FIXME
+    }
+
+    message( "* bios\n" );
+    # FIXME
+    message( "* photos\n" );
+    # FIXME
+
+    # delete the user
+    # FIXME
+    message( "Removed user", userinfo( $u ) );
 }
 
-# associe les talks et les orders au user $main
-# $_->update( user_id => $main->user_id ) for @talks, @orders;
+# commit everything
+$Request{dbh}->commit;
+$Request{dbh}->disconnect;
 
-# associe les participations et les rights au user $main
+# useful subs
+sub message { print "@_" if ! $conf{quiet}; }
 
-# supprime les bios
-for my $u (@users) {
+sub userinfo {
+    my $u = shift;
+    no warnings;
+    return sprintf "%4d %s %s (%s) <%s>\n", $u->user_id, $u->first_name,
+        $u->last_name, $u->nick_name, $u->email;
 }
 
-# FIXME et les photos ?
+sub talkinfo {
+    my $t = shift;
+    no warnings;
+    return sprintf "%4d [%-10s] %s\n", $t->talk_id, $t->conf_id, $t->title;
+}
 
-# supprime les users devenus inutiles
-# $_->delete for @users;
+sub orderinfo {
+    my $o = shift;
+    no warnings;
+    return sprintf "%4d [%-10s] %3d %s %s (%s)\n", $o->order_id, $o->conf_id,
+        $o->amount, $o->currency, $o->means, $o->status;
+}
 
