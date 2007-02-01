@@ -84,6 +84,8 @@ UNPRIORITIZED TODO LIST
   => we should just store a key id, keys can be fetched from GPG key servers.
 
 * most tables should be sortable by clicking on column headers.
+  => by default, sort the user search results by registration date, not
+     by user_id
 
 * when a conference is over, treasurer/orga should be able to unregister
   participants who didn't show up.
@@ -154,4 +156,7 @@ UNPRIORITIZED TODO LIST
 
 * have the wiki support talk:id links and user:id links (or something
   similar)
+
+* organizers can create new users, but there is no handler to manually
+  register/unregister an existing user
 
