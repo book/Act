@@ -1,5 +1,4 @@
 UNPRIORITIZED TODO LIST
-=======================
 
 * let the organizers force the registration of existing users
   (useful for speakers who can't be bothered to use the site,
@@ -8,7 +7,7 @@ UNPRIORITIZED TODO LIST
 * the payments page should let the one create a new user, register it
   and add a payment (and use the code for finding duplicate users)
   (useful for on site registration during the conference)
-  
+
 * convert the whole application to UTF8
 
 * replace Act::Form by Data::FormValidator
@@ -124,7 +123,7 @@ UNPRIORITIZED TODO LIST
 * user-configurable searchlimit
 
 * support for several monger groups (addition, search)
-  
+
 * get the production conf/ out of Act
 
 * PDF immutable invoices
