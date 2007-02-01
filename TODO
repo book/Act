@@ -155,3 +155,6 @@ UNPRIORITIZED TODO LIST
 * have the wiki support talk:id links and user:id links (or something
   similar)
 
+* organizers can create new users, but there is no handler to manually
+  register/unregister an existing user
+
