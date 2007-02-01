@@ -7,6 +7,7 @@ use Act::Form;
 use Act::Template::HTML;
 use Act::User;
 use Act::Util;
+use Apache::Constants qw(FORBIDDEN);
 
 # registration form
 my $form = Act::Form->new(
@@ -26,6 +27,16 @@ my $form = Act::Form->new(
 
 sub handler
 {
+
+    # conference is closed, do not POST
+    if ( $Request{args}{join} ) {
+        my $enddate = DateTime::Format::Pg->parse_timestamp( $Config->talks_end_date );
+        $enddate->set_time_zone($Config->general_timezone);
+        if ( DateTime->now() > $enddate ) {
+            $Request{status} = FORBIDDEN;
+            return;
+        }
+    }
     # special case of logged in users!
     if( defined $Request{user} ) {
         # already registered, move along
