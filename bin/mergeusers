@@ -67,12 +67,11 @@ for my $u (@users) {
     # reassign the participations
     message( "* participations\n" );
     for my $conf_id (map { $_->{conf_id} } @{ $u->participations }) {
-        message( "  - $conf_id\n" );
+        message( sprintf "  - %-10s ", $conf_id );
         # FIXME
         
         # transfer the rights
         local $Request{conference} = $conf_id;
-        message( "    rights: " );
         for my $r (keys %{ $u->rights }) {
             message( "$r ");
         }
