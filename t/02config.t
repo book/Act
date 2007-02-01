@@ -14,6 +14,9 @@ my @simple = qw(
     database_dump_file
     email_smtp_server
     email_sender_address
+    wiki_dbname
+    wiki_dbuser
+    wiki_dbpass
 );
 my @conf_simple = qw(
     uri
