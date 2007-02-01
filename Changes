@@ -1,0 +1,7 @@
+Changes in Act
+
+* 2007/01/31
+
+  - log the datetime and ip of registration when a user registers
+    to a conference
+
