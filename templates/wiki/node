@@ -7,10 +7,8 @@
 [% data %]
 
 <hr />
-[% IF global.request.user %]
 <p>
 <a href="[% uri_edit %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
 </p>
-[% END %]
 
 [% END %]
