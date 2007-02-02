@@ -3,6 +3,7 @@ package Act::Wiki;
 use strict;
 use Wiki::Toolkit;
 use Wiki::Toolkit::Formatter::Default;
+use Encode;
 
 use Act::Config;
 use Act::Wiki::Store;
