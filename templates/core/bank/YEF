@@ -1,0 +1,57 @@
+<hr size="1" />
+<p>
+ <t>
+  <en>If you cannot use a credit card, or prefer to pay
+      via a money transfer to our bank, you can use the following
+      information:
+  </en>
+  <pt>Se não pode usar um cartão de crédito, ou prefere pagar
+      usando transferência bancária, pode usar a seguinte informação:
+  </pt>
+  <fr>Si vous ne possédez pas de carte bleue, ou que vous préférez
+      payer par virement bancaire, vous pouvez toujours utiliser
+      les informations suivantes&nbsp;:
+  </fr>
+  <it>Se non potete usare una carta di credito, o preferite pagare con
+      bonifico bancario, potete usare questi dati:</it>
+  <de>
+  Wenn Sie nicht mit Kreditkarte bezahlen können/wollen, könnten folgende Informationen nützlich sein (sobald sie vorhanden sind...)
+  </de>
+  <hu>Amennyiben nincs bankkártyája, vagy a bankátutalást preferálja,
+      a következõ információ hasznos lehet:
+  </hu>
+ </t>
+</p>
+
+<center>
+ <table border="1" cellpadding="2" cellspacing="0">
+  <tr>
+   <th align="left" valign="top"><t><en>Account owner</en><pt>Títular da conta</pt><fr>Propriétaire du compte</fr><it>Titolare del conto</it><hu>Számlatulajdonos</hu></t></th>
+   <td>YAPC Europe Foundation</td>
+  </tr><tr>
+   <th align="left" valign="top">IBAN</th>
+   <td>FR76 3006 6106 4100 0104 8480 193</td>
+  </tr><tr>
+   <th align="left" valign="top"><t><en>Bank identification code</en><pt>Código de identificação bancário</pt><fr>Code d'indentification bancaire</fr><it>Codice identificativo bancario</it><hu>Bank azonosító kód</hu></t></th>
+   <td>30066</td>
+  </tr>
+ </table>
+</center>
+
+<p>
+ <t>
+  <en>Please notify us if you decide to perform a bank transfer, so that we can
+      match you with the payment.</en>
+  <pt>Por favor, avise-nos se decidir realizar uma transferência bancária, de forma
+      a que possámos associar o pagamento com a pessoa em causa.</pt>
+  <fr>Merci de nous informer si vous faites un virement, afin que nous fassions
+      la liaison entre le virement et vous.
+  </fr>
+  <it>Vi preghiamo di informarci nel caso vogliate effettuare un
+      bonifico, così che possiamo associare ciascun pagamento con la persona
+      giusta.</it>
+  <hu>Ha bankátutalással szeretne fizetni, kérjük értesítsen minket elõtte, hogy
+      beazonosíthassuk az átutalását.</hu>
+ </t>
+</p>
+
