@@ -1,0 +1,25 @@
+[% WRAPPER ui
+   title = { en => 'Wiki - Recent changes',
+             fr => 'Wiki - Modifications récentes',
+             it => 'TRANSLATEME',
+             pt => "TRANSLATEME",
+             de => 'TRANSLATEME',
+             hu => 'TRANSLATEME' },
+%]
+[%- PROCESS common -%]
+<h1>[% title %]</h1>
+<table>
+ <tr><th><t><fr>Page</fr><en>Page</en></t></th>
+     <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
+     <th><t><fr>Par</fr><en>By</en></t></th>
+ </tr>
+ [% FOREACH node IN nodes %]
+ <tr>
+     <td>[% node.name %]</td>
+     <td>[% node.last_modified %]</td>
+     <td>[% user_info(node.user) %]</td>
+ </tr>
+ [% END %]
+</table>
+
+[% END %]

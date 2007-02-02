@@ -30,10 +30,8 @@ sub display_node
     );
     $template->variables(
         node        => $node,
-        uri_edit    => make_uri('wikiedit',
-                                 action => 'edit',
-                                 node   => $node,
-                               ),
+        uri_edit    => make_uri('wikiedit', action => 'edit', node => $node),
+        uri_recent  => make_uri('wiki',     action => 'recent'),
     );
     $template->process('wiki/node');
 }

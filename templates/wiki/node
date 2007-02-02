@@ -9,6 +9,8 @@
 <hr />
 <p>
 <a href="[% uri_edit %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
+|
+<a href="[% uri_recent %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
 </p>
 
 [% END %]
