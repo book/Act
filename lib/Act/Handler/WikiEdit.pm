@@ -48,6 +48,10 @@ sub wiki_commit
 
     # store the node
     my $node = $Request{args}{node};
+    unless ($node) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
     if ($wiki->write_node(
                   @{$Request{args}}{qw(node content checksum)},
                   {

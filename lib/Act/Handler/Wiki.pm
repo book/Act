@@ -12,6 +12,7 @@ use Act::Wiki;
 my %actions = (
     display => \&wiki_display,
     recent  => \&wiki_recent,
+    history => \&wiki_history,
 );
 
 sub handler
@@ -31,7 +32,7 @@ sub wiki_display
 {
     my ($wiki, $template) = @_;
     my $node = $Request{args}{node} || 'HomePage';
-    Act::Wiki::display_node($wiki, $template, $node);
+    Act::Wiki::display_node($wiki, $template, $node, $Request{args}{version});
 }
 
 # list of recent changes
@@ -44,6 +45,28 @@ sub wiki_recent
     }
     $template->variables(nodes => \@nodes);
     $template->process('wiki/recent');
+}
+
+# page history
+sub wiki_history
+{
+    my ($wiki, $template) = @_;
+
+    my $node = $Request{args}{node};
+    unless ($node) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
+
+    my @versions = $wiki->list_node_all_versions(name => $node, with_metadata => 1);
+    for my $v (@versions) {
+        $v->{user} = Act::User->new(user_id => $v->{metadata}{user_id});
+    }
+    $template->variables(
+        node     => $node,
+        versions => \@versions,
+    );
+    $template->process('wiki/history');
 }
 1;
 __END__

@@ -1,6 +1,6 @@
 [% WRAPPER ui
-   title = { en => 'Wiki - Recent changes',
-             fr => 'Wiki - Modifications récentes',
+   title = { en => "Wiki - $node History",
+             fr => "Wiki - Historique $node",
              it => 'TRANSLATEME',
              pt => "TRANSLATEME",
              de => 'TRANSLATEME',
@@ -9,15 +9,15 @@
 [%- PROCESS common -%]
 <h1>[% title %]</h1>
 <table>
- <tr><th><t><fr>Page</fr><en>Page</en></t></th>
+ <tr><th><t><fr>Version</fr><en>Version</en></t></th>
      <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
      <th><t><fr>Par</fr><en>By</en></t></th>
  </tr>
- [% FOREACH node IN nodes %]
+ [% FOREACH v IN versions %]
  <tr>
-     <td><a href="[% make_uri('wiki', 'node', node.name) %]">[% node.name %]</a></td>
-     <td>[% node.last_modified %]</td>
-     <td>[% user_info(node.user) %]</td>
+     <td><a href="[% make_uri('wiki', 'node', node, 'version', v.version) %]">[% v.version %]</a></td>
+     <td>[% v.last_modified %]</td>
+     <td>[% user_info(v.user) %]</td>
  </tr>
  [% END %]
 </table>

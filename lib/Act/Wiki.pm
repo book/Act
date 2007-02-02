@@ -21,17 +21,16 @@ sub new
 }
 sub display_node
 {
-    my ($wiki, $template, $node) = @_;
+    my ($wiki, $template, $node, $version) = @_;
 
-    my %data = $wiki->retrieve_node(name => $node);
+    my %data = $wiki->retrieve_node(name => $node, version => $version);
 
     $template->variables_raw(
-        data => encode("ISO-8859-1", $wiki->format($data{content})),
+        content => encode("ISO-8859-1", $wiki->format($data{content})),
     );
-    $template->variables(
-        node        => $node,
-        uri_edit    => make_uri('wikiedit', action => 'edit', node => $node),
-        uri_recent  => make_uri('wiki',     action => 'recent'),
+    $template->variables(node    => $node,
+                         data    => \%data,
+                         version => $version,
     );
     $template->process('wiki/node');
 }

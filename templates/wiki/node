@@ -1,16 +1,35 @@
 [% WRAPPER ui
-   title = { en => 'Wiki', fr => 'Wiki', it => 'Wiki', pt => "Wiki", de => 'Wiki', hu => 'Wiki' },
+   title = { en => "Wiki - $node",
+             fr => "Wiki - $node",
+             it => "Wiki - $node",
+             pt => "Wiki - $node",
+             de => "Wiki - $node",
+             hu => "Wiki - $node" },
 %]
 
-<h1>[% node %]</h1>
-
-[% data %]
+[% content %]
 
 <hr />
+
 <p>
-<a href="[% uri_edit %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
+ [% IF version %]
+  <t><en>version</en><fr>version</fr></t> [% version %]
+  <t><en>saved on</en><fr>du</fr></t>
+ [% ELSE %]
+  <t><en>Last modified</en><fr>Dernière modification </fr></t>:
+ [% END %]
+ [% data.last_modified %]
+</p>
+<p>
+[% UNLESS version %]
+<a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
 |
-<a href="[% uri_recent %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
+[% END %]
+<a href="[% make_uri('wiki', 'action', 'recent') %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
+[% IF global.request.user.is_orga %]
+|
+<a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]"><t><fr>Historique</fr><en>History</en></t></a>
+[% END %]
 </p>
 
 [% END %]
