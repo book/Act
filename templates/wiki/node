@@ -21,15 +21,18 @@
  [% data.last_modified %]
 </p>
 <p>
-[% UNLESS version %]
-<a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
-|
+[% IF version %]
+   [% IF global.request.user.is_orga %]
+    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en></t></a>
+    |
+   [% END %]
+[% ELSE %]
+  <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
+  |
 [% END %]
 <a href="[% make_uri('wiki', 'action', 'recent') %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
-[% IF global.request.user.is_orga %]
 |
 <a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]"><t><fr>Historique</fr><en>History</en></t></a>
-[% END %]
 </p>
 
 [% END %]

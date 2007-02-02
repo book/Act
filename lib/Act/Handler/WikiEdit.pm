@@ -1,7 +1,7 @@
 package Act::Handler::WikiEdit;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Encode;
 
 use Act::Config;
@@ -12,6 +12,7 @@ use Act::Wiki;
 my %actions = (
     commit  => \&wiki_commit,
     edit    => \&wiki_edit,
+    revert  => \&wiki_revert,
 );
 
 sub handler
@@ -74,6 +75,36 @@ sub wiki_commit
         );
         $template->process('wiki/edit');
     }
+}
+sub wiki_revert
+{
+    my ($wiki, $template) = @_;
+
+    unless ($Request{user}->is_orga) {
+        $Request{status} = FORBIDDEN;
+        return;
+    }
+    my ($node, $version) = map $Request{args}{$_}, qw(node version);
+    unless ($node && $version) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
+    # retrieve checksum of latest version
+    my %node = $wiki->retrieve_node(name => $node);
+    my $checksum = $node{checksum};
+
+    # retrieve version to revert to
+    %node = $wiki->retrieve_node(name => $node, version => $version);
+
+    # revert
+    $wiki->write_node($node, $node{content}, $checksum,
+                  {
+                   user_id => $Request{user}->user_id,
+                  }
+                );
+
+    # display the node again
+    Act::Wiki::display_node($wiki, $template, $node);
 }
 1;
 __END__

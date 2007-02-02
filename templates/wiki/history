@@ -15,7 +15,12 @@
  </tr>
  [% FOREACH v IN versions %]
  <tr>
-     <td><a href="[% make_uri('wiki', 'node', node, 'version', v.version) %]">[% v.version %]</a></td>
+     <td><a href="[% IF loop.first;
+                       make_uri('wiki', 'node', node);
+                     ELSE;
+                       make_uri('wiki', 'node', node, 'version', v.version);
+                     END %]"
+         >[% v.version %]</a></td>
      <td>[% v.last_modified %]</td>
      <td>[% user_info(v.user) %]</td>
  </tr>
