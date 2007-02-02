@@ -59,17 +59,32 @@ UNPRIORITIZED TODO LIST
 * problem with empty fields: they are not updated
   see: stay pseudonymous, remove company
 
-* there are 4 kinds or roles within a conference:
-  - user management
-  - talks management
-  - payments management
-  - rights management
-  this implies a modification of the existing rights:
-  - the name "orga" doesn't mean anything
-  - "staff" has no clear domain
-  - nowhere in the code should there be an "or" checking of rights
-    (like is_staff || is_orga): if some user needs to see such and
-    such parts of the site, they need the appropriate right
+* better rights management interface using a table
+
+* B<current rights:> orga, treasurer, admin, staff, invited (no rights attached).
+  
+  better organisation: users, talks, orders, rights (i.e. attached to the
+  various things that Act can manage)
+  
+  nowhere in the code should there be an "or" checking of rights
+  (like is_staff || is_orga): if some user needs to see such and
+  such parts of the site, they need the appropriate right
+  
+  B<new rights:>
+  
+  rights: rights management (= current 'admin' right)
+  
+  users: users management (= part of current 'orga' right), should only
+  manage user registration, edition, etc
+  
+  talks: talks management (= part of currnet 'orga' right), should only
+  manage talks acceptation, edition, schedule
+  
+  orders: orders management (= current 'treasurer' right)
+
+* 'staff' and 'invited' are not rights giving access to special function
+  within Act, but rather "tags" on some users, relative to a specific
+  conference
 
 * http://conferences.yapceurope.org/2005/user/214
   The GPG key is often a very long string.
@@ -145,3 +160,4 @@ UNPRIORITIZED TODO LIST
 
 * have the wiki support talk:id links and user:id links (or something
   similar)
+
