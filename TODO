@@ -37,13 +37,10 @@ UNPRIORITIZED TODO LIST
 
 * talk target audience: beginner, intermediate, advanced.
 
-* provide a full canonical url in each conf/act.ini for inter-conference links
-
-* move the existing conf/act.ini out of Act.
-
 * attendees: if a registered user doesn't show up, how is s/he counted?
   should there be a way for the organisers to mark the attendees as
-  present?
+  present? When a conference is over, treasurer/orga should be able to
+  unregister participants who didn't show up.
 
 * password modification page
 
@@ -74,10 +71,6 @@ UNPRIORITIZED TODO LIST
     (like is_staff || is_orga): if some user needs to see such and
     such parts of the site, they need the appropriate right
 
-* integrate a wiki into Act (using the Act users logins, maybe restricted
-  to users registered to the conference)
-  => this is being developped in the dev branch.
-
 * http://conferences.yapceurope.org/2005/user/214
   The GPG key is often a very long string.
   => we should just store a key id, keys can be fetched from GPG key servers.
@@ -85,9 +78,6 @@ UNPRIORITIZED TODO LIST
 * most tables should be sortable by clicking on column headers.
   => by default, sort the user search results by registration date, not
      by user_id
-
-* when a conference is over, treasurer/orga should be able to unregister
-  participants who didn't show up.
 
 * rights management
   + show rights in table format, users as lines, rights as columns,
@@ -109,7 +99,7 @@ UNPRIORITIZED TODO LIST
 
 * change the "orga" right name
 
-* think about the user prefered language as a preference list:
+* think about the user preferred language as a preference list:
   - ye2005,  pt => list = pt
   - fpw2005, fr => list = fr,pt
   - ipw2005, en => list = en,fr,pt
@@ -155,7 +145,3 @@ UNPRIORITIZED TODO LIST
 
 * have the wiki support talk:id links and user:id links (or something
   similar)
-
-* organizers can create new users, but there is no handler to manually
-  register/unregister an existing user
-
