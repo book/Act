@@ -12,25 +12,35 @@ As the postgres superuser, create a database user named act (for example):
     Shall the new user be allowed to create databases? (y/n)        y
     Shall the new user be allowed to create more new users? (y/n)        n
 
-Still as the postgres superuser, create a database named act (for example)
-and install the plpgsql language for it
+Still as the postgres superuser, create two databases named act and actwiki:
 
     $ su - postgres
     $ createdb act
+    $ createdb actwiki
     $ ^D
 
 Run the init_db.pg.sql script in this directory. This will create
-the tables.
+the tables in database act.
 
     $ psql -U act act < database/init_db_Pg.sql
 
+Run wiki-toolkit-setupdb to create the tables in database actwiki.
+(This utility is installed by Wiki::Toolkit.)
+
+    $ wiki-toolkit-setupdb --type postgres --name actwiki --user act --pass xyzzy
+
 Update $ACTHOME/conf/act.ini (or $ACTHOME/conf/local.ini) with the
-database name and credentials.
+database names and credentials.
 
     [database]
     dsn    = dbi:Pg:dbname=act
     user   = act
-    passwd = @cT
+    passwd = xyzzy
+
+    [wiki]
+    dbname = actwiki
+    dbuser = act
+    dbpass = xyzzy
 
 Populate some tables with data required for Act's operation.
 
