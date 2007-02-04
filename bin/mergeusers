@@ -136,6 +136,8 @@ for my $u (@users) {
     # FIXME
 
     # delete the user
+    $Request{dbh}->prepare_cached('DELETE FROM users WHERE user_id=?')
+        ->execute( $u->user_id );
     message( "Removed user", userinfo($u) );
 }
 
