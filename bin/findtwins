@@ -10,11 +10,11 @@ use List::Util 'min';
 $|++;
 
 # command-line parameters
-my %conf = ( quiet => 0, );
-GetOptions( \%conf, "quiet!" )
+my %conf = ( verbose => 0, );
+GetOptions( \%conf, "verbose!" )
   or die << 'EOT';
 Valid options:
-  --quiet         - be quiet
+  --verbose       - show a progress counter
 EOT
 
 # init the database handle
@@ -88,7 +88,7 @@ for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
     print "\n";
 }
 
-sub message { print "@_" unless $conf{quiet}; }
+sub message { print "@_" if  $conf{verbose}; }
 
 sub normalise {
     no warnings;
