@@ -86,14 +86,20 @@ for my $u (@users) {
         local $Request{conference} = $conf_id;
         for my $r ( keys %{ $u->rights } ) {
             message("$r ");
-            $Request{dbh}->prepare_cached(
-                'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
-            )->execute( $r, $main->user_id, $conf_id );
+            if ( !exists $main->rights->{$r} ) {
+                $Request{dbh}->prepare_cached(
+                    'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
+                )->execute( $r, $main->user_id, $conf_id );
+            }
             $Request{dbh}->prepare_cached(
                 'DELETE FROM rights WHERE right_id=? AND user_id=? AND conf_id=?'
             )->execute( $r, $u->user_id, $conf_id );
         }
         message("\n");
+
+        # clean the caches
+        delete $u->{rights};
+        delete $main->{rights};
     }
 
     message("* bios\n");
@@ -172,6 +178,7 @@ sub full_userinfo {
         @{ Act::Order->get_items( user_id => $u->user_id ) } ),
         "* participations\n", map ( {
             local $Request{conference} = $_->{conf_id};
+                delete $u->{rights};    # clean the cache
                 sprintf( "  - %-10s ", $_->{conf_id} ),
             map ( {"$_ "} keys %{ $u->rights } ), "\n"
         } @{ $u->participations } ),
