@@ -145,7 +145,7 @@ for my $u (@users) {
 message( "\nResulting user", full_userinfo($main) );
 
 # commit everything
-$Request{dbh}->commit;
+$Request{dbh}->commit if ! $conf{'dry-run'};
 $Request{dbh}->disconnect;
 
 # useful subs
