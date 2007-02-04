@@ -80,8 +80,6 @@ CREATE TABLE participations
 (
     conf_id     text                      NOT NULL,
     user_id     integer                   NOT NULL,
-    registered  boolean    DEFAULT FALSE,
-    payment     integer,                  /* notyet, cash, online, cheque, waived */
     tshirt_size text,                     /* S, M, L, XL, XXL */
     nb_family   integer    DEFAULT 0,
     datetime    timestamp without time zone,

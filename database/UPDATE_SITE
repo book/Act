@@ -1,2 +1,5 @@
 -- Stuff to do when upgrading the production server
 
+alter table participations drop column payment;
+alter table participations drop column registered;
+
