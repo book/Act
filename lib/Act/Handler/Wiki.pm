@@ -42,6 +42,7 @@ sub wiki_recent
     my @nodes = $wiki->list_recent_changes(days => 7);
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
+        $node->{name} = Act::Wiki::split_node_name($node->{name});
     }
     $template->variables(nodes => \@nodes);
     $template->process('wiki/recent');
@@ -58,7 +59,7 @@ sub wiki_history
         return;
     }
 
-    my @versions = $wiki->list_node_all_versions(name => $node, with_metadata => 1);
+    my @versions = $wiki->list_node_all_versions(name => Act::Wiki::make_node_name($node), with_metadata => 1);
     for my $v (@versions) {
         $v->{user} = Act::User->new(user_id => $v->{metadata}{user_id});
     }

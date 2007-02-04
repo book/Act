@@ -24,7 +24,7 @@ sub display_node
 {
     my ($wiki, $template, $node, $version) = @_;
 
-    my %data = $wiki->retrieve_node(name => $node, version => $version);
+    my %data = $wiki->retrieve_node(name => make_node_name($node), version => $version);
 
     $template->variables_raw(
         content => encode("ISO-8859-1", $wiki->format($data{content})),
@@ -35,6 +35,9 @@ sub display_node
     );
     $template->process('wiki/node');
 }
+sub make_node_name  { join ';', $Request{conference}, $_[0] }
+sub split_node_name { (split ';', $_[0])[1] }
+
 1;
 __END__
 

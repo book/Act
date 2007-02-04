@@ -35,7 +35,7 @@ sub wiki_edit
         $Request{status} = NOT_FOUND;
         return;
     }
-    my %data = $wiki->retrieve_node(name => $node);
+    my %data = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node));
     $template->variables(
         node     => $node,
         data     => encode("ISO-8859-1", $data{content}),
@@ -53,19 +53,22 @@ sub wiki_commit
         $Request{status} = NOT_FOUND;
         return;
     }
+    my $name = Act::Wiki::make_node_name($node);
     if ($wiki->write_node(
-                  @{$Request{args}}{qw(node content checksum)},
-                  {
-                   user_id => $Request{user}->user_id,
-                  }
-                ))
+        $name,
+        $Request{args}{content},
+        $Request{args}{checksum},
+        { # metadata
+         user_id => $Request{user}->user_id,
+        }
+       ))
     {
         # display the node again
         Act::Wiki::display_node($wiki, $template, $node);
     }
     else {
         # conflict
-        my %data = $wiki->retrieve_node($node);
+        my %data = $wiki->retrieve_node(name => $name);
         $template->variables(
             conflict    => 1,
             node        => $node,
@@ -90,14 +93,15 @@ sub wiki_revert
         return;
     }
     # retrieve checksum of latest version
-    my %node = $wiki->retrieve_node(name => $node);
+    my $name = Act::Wiki::make_node_name($node);
+    my %node = $wiki->retrieve_node(name => $name);
     my $checksum = $node{checksum};
 
     # retrieve version to revert to
-    %node = $wiki->retrieve_node(name => $node, version => $version);
+    %node = $wiki->retrieve_node(name => $name, version => $version);
 
     # revert
-    $wiki->write_node($node, $node{content}, $checksum,
+    $wiki->write_node($name, $node{content}, $checksum,
                   {
                    user_id => $Request{user}->user_id,
                   }
