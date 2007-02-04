@@ -14,11 +14,12 @@
 <p>
  [% IF version %]
   <t><en>version</en><fr>version</fr></t> [% version %]
-  <t><en>saved on</en><fr>du</fr></t>
+  <t><en>saved on</en><fr>du</fr></t> [% data.last_modified %]
+ [% ELSIF data.last_modified %]
+  <t><en>Last modified</en><fr>Dernière modification </fr></t>: [% data.last_modified %]
  [% ELSE %]
-  <t><en>Last modified</en><fr>Dernière modification </fr></t>:
+  <t><en>new page</en><fr>nouvelle page</fr></t>
  [% END %]
- [% data.last_modified %]
 </p>
 <p>
 [% IF version %]
