@@ -45,56 +45,103 @@ my $main = pop @users;
 
 message("Merging the following users:\n");
 message( "-", userinfo($_) ) for @users;
-message("into the user", userinfo($main) );
+message( "into the user", userinfo($main) );
 
 for my $u (@users) {
     message( "\nProcessing user", userinfo($u) );
 
     # reassign the talks
-    message( "* talks\n" );
-    for my $t (@{ $u->talks }) {
-        message( "  - ", talkinfo( $t ) );
-        # FIXME
+    message("* talks\n");
+    for my $t ( @{ $u->talks } ) {
+        message( "  - ", talkinfo($t) );
+        $Request{dbh}
+            ->prepare_cached('UPDATE talks SET user_id=? WHERE talk_id=?')
+            ->execute( $main->user_id, $t->talk_id );
     }
 
     # reassign the orders
-    message( "* orders\n" );
-    for my $o (@{ Act::Order->get_items( user_id => $u->user_id )} ) {
-        message( "  - ", orderinfo( $o ) );
-        # FIXME
+    message("* orders\n");
+    for my $o ( @{ Act::Order->get_items( user_id => $u->user_id ) } ) {
+        message( "  - ", orderinfo($o) );
+        $Request{dbh}
+            ->prepare_cached('UPDATE orders SET user_id=? WHERE order_id=?')
+            ->execute( $main->user_id, $o->order_id );
     }
 
     # reassign the participations
-    message( "* participations\n" );
-    for my $conf_id (map { $_->{conf_id} } @{ $u->participations }) {
+    message("* participations\n");
+    for my $part ( @{ $u->participations } ) {
+        my $conf_id = $part->{conf_id};
         message( sprintf "  - %-10s ", $conf_id );
-        # FIXME
-        
+        $Request{dbh}->prepare_cached(
+            'INSERT INTO participations (conf_id, user_id, tshirt_size, nb_family, datetime, ip) VALUES (?,?,?,?,?,?)'
+            )
+            ->execute( $conf_id, $main->user_id, $part->{tshirt_size},
+            $part->{nb_family}, $part->{datetime}, $part->{ip} );
+        $Request{dbh}->prepare_cached(
+            'DELETE FROM participations WHERE user_id=? AND conf_id=?')
+            ->execute( $u->user_id, $conf_id );
+
         # transfer the rights
         local $Request{conference} = $conf_id;
-        for my $r (keys %{ $u->rights }) {
-            message( "$r ");
+        for my $r ( keys %{ $u->rights } ) {
+            message("$r ");
+            $Request{dbh}->prepare_cached(
+                'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
+            )->execute( $r, $main->user_id, $conf_id );
+            $Request{dbh}->prepare_cached(
+                'DELETE FROM rights WHERE right_id=? AND user_id=? AND conf_id=?'
+            )->execute( $r, $u->user_id, $conf_id );
         }
         message("\n");
-        # FIXME
     }
 
-    message( "* bios\n" );
-    # FIXME
-    message( "* photos\n" );
+    message("* bios\n");
+    for my $lang ( keys %{ $u->bio } ) {
+        message("  - $lang\n");
+
+        # remove empty bios in the target user
+        if ( exists $main->bio->{$lang} && $main->bio->{$lang} eq '' ) {
+            $Request{dbh}->prepare_cached(
+                'DELETE FROM bios WHERE user_id=? AND lang=?')
+                ->execute( $main->user_id, $lang );
+            delete $main->{bio};    # clean the cache
+        }
+
+        # copy bios from the old user to the new one
+        if ( exists $main->bio->{$lang} ) {
+            $Request{dbh}->prepare_cached(
+                'DELETE FROM bios WHERE user_id=? AND lang=?')
+                ->execute( $u->user_id, $lang );
+        }
+        else {
+            $Request{dbh}->prepare_cached(
+                'UPDATE bios SET user_id=? WHERE user_id=? AND lang=?')
+                ->execute( $main->user_id, $u->user_id, $lang );
+        }
+    }
+
+    # cleanup the bios cache
+    delete $u->{bio};
+    delete $main->{bio};
+
+    message("* photos\n");
+
     # FIXME
 
     # delete the user
-    # FIXME
-    message( "Removed user", userinfo( $u ) );
+    message( "Removed user", userinfo($u) );
 }
+
+# what the new user looks like now
+message( "\nResulting user", full_userinfo($main) );
 
 # commit everything
 $Request{dbh}->commit;
 $Request{dbh}->disconnect;
 
 # useful subs
-sub message { print "@_" if ! $conf{quiet}; }
+sub message { print "@_" if !$conf{quiet}; }
 
 sub userinfo {
     my $u = shift;
@@ -114,5 +161,20 @@ sub orderinfo {
     no warnings;
     return sprintf "%4d [%-10s] %3d %s %s (%s)\n", $o->order_id, $o->conf_id,
         $o->amount, $o->currency, $o->means, $o->status;
+}
+
+sub full_userinfo {
+    my $u = shift;
+    no warnings;
+    return join '', userinfo($u), "* talks\n",
+        map( { talkinfo($_) } @{ $u->talks } ), "* orders\n",
+        map( { orderinfo($_) }
+        @{ Act::Order->get_items( user_id => $u->user_id ) } ),
+        "* participations\n", map ( {
+            local $Request{conference} = $_->{conf_id};
+                sprintf( "  - %-10s ", $_->{conf_id} ),
+            map ( {"$_ "} keys %{ $u->rights } ), "\n"
+        } @{ $u->participations } ),
+        "* bios\n", map ( {"  - $_\n"} keys %{ $u->bio } );
 }
 
