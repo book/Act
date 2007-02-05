@@ -16,7 +16,7 @@
  [% FOREACH node IN nodes %]
  <tr>
      <td><a href="[% make_uri('wiki', 'node', node.name) %]">[% node.name %]</a></td>
-     <td>[% node.last_modified %]</td>
+     <td>[% date_format(node.last_modified, 'datetime_short') %]</td>
      <td>[% user_info(node.user) %]</td>
  </tr>
  [% END %]

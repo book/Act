@@ -4,6 +4,7 @@ use strict;
 use Wiki::Toolkit;
 use Wiki::Toolkit::Formatter::Default;
 use Encode;
+use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Wiki::Store;
@@ -25,6 +26,8 @@ sub display_node
     my ($wiki, $template, $node, $version) = @_;
 
     my %data = $wiki->retrieve_node(name => make_node_name($node), version => $version);
+    $data{last_modified} = DateTime::Format::Pg->parse_datetime($data{last_modified})
+        if $data{last_modified};
 
     $template->variables_raw(
         content => encode("ISO-8859-1", $wiki->format($data{content})),

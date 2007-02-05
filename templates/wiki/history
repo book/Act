@@ -21,7 +21,7 @@
                        make_uri('wiki', 'node', node, 'version', v.version);
                      END %]"
          >[% v.version %]</a></td>
-     <td>[% v.last_modified %]</td>
+     <td>[% date_format(v.last_modified, 'datetime_short') %]</td>
      <td>[% user_info(v.user) %]</td>
  </tr>
  [% END %]

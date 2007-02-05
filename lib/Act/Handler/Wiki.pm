@@ -2,6 +2,7 @@ package Act::Handler::Wiki;
 
 use strict;
 use Apache::Constants qw(NOT_FOUND);
+use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Template::HTML;
@@ -43,6 +44,7 @@ sub wiki_recent
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
         $node->{name} = Act::Wiki::split_node_name($node->{name});
+        $node->{last_modified} = DateTime::Format::Pg->parse_datetime($node->{last_modified});
     }
     $template->variables(nodes => \@nodes);
     $template->process('wiki/recent');
@@ -62,6 +64,7 @@ sub wiki_history
     my @versions = $wiki->list_node_all_versions(name => Act::Wiki::make_node_name($node), with_metadata => 1);
     for my $v (@versions) {
         $v->{user} = Act::User->new(user_id => $v->{metadata}{user_id});
+        $v->{last_modified} = DateTime::Format::Pg->parse_datetime($v->{last_modified});
     }
     $template->variables(
         node     => $node,
