@@ -14,6 +14,7 @@ my %actions = (
     display => \&wiki_display,
     recent  => \&wiki_recent,
     history => \&wiki_history,
+    help    => \&wiki_help,
 );
 
 sub handler
@@ -72,6 +73,12 @@ sub wiki_history
     );
     $template->process('wiki/history');
 }
+sub wiki_help
+{
+    my ($wiki, $template) = @_;
+    $template->process('wiki/help');
+}
+
 1;
 __END__
 

@@ -16,6 +16,8 @@
 <form method="POST" action="[% global.request.r.uri %]">
   <textarea name="content" rows="50" cols="100">[% data %]</textarea>
   <br />
+  <a href="[% make_uri('wiki', 'action', 'help') %]"><t><fr>Aide</fr><en>Help</en></t></a>
+  |
   <input type="hidden" name="action" value="commit" />
   <input type="hidden" name="node" value="[% node %]" />
   <input type="hidden" name="checksum" value="[% checksum %]" />
