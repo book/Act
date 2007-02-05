@@ -17,7 +17,7 @@ sub handler
     my $uri;
     if ($r->prev && $r->prev->uri) {
         $uri = $r->prev->uri;
-        if ($r->prev->args) {
+        if ($uri !~ /\?/ && $r->prev->args) {
             $uri .= '?' . $r->prev->args;
         }
     }
