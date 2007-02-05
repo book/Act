@@ -37,13 +37,10 @@ UNPRIORITIZED TODO LIST
 
 * talk target audience: beginner, intermediate, advanced.
 
-* provide a full canonical url in each conf/act.ini for inter-conference links
-
-* move the existing conf/act.ini out of Act.
-
 * attendees: if a registered user doesn't show up, how is s/he counted?
   should there be a way for the organisers to mark the attendees as
-  present?
+  present? When a conference is over, treasurer/orga should be able to
+  unregister participants who didn't show up.
 
 * password modification page
 
@@ -62,21 +59,32 @@ UNPRIORITIZED TODO LIST
 * problem with empty fields: they are not updated
   see: stay pseudonymous, remove company
 
-* there are 4 kinds or roles within a conference:
-  - user management
-  - talks management
-  - payments management
-  - rights management
-  this implies a modification of the existing rights:
-  - the name "orga" doesn't mean anything
-  - "staff" has no clear domain
-  - nowhere in the code should there be an "or" checking of rights
-    (like is_staff || is_orga): if some user needs to see such and
-    such parts of the site, they need the appropriate right
+* better rights management interface using a table
 
-* integrate a wiki into Act (using the Act users logins, maybe restricted
-  to users registered to the conference)
-  => this is being developped in the dev branch.
+* B<current rights:> orga, treasurer, admin, staff, invited (no rights attached).
+  
+  better organisation: users, talks, orders, rights (i.e. attached to the
+  various things that Act can manage)
+  
+  nowhere in the code should there be an "or" checking of rights
+  (like is_staff || is_orga): if some user needs to see such and
+  such parts of the site, they need the appropriate right
+  
+  B<new rights:>
+  
+  rights: rights management (= current 'admin' right)
+  
+  users: users management (= part of current 'orga' right), should only
+  manage user registration, edition, etc
+  
+  talks: talks management (= part of currnet 'orga' right), should only
+  manage talks acceptation, edition, schedule
+  
+  orders: orders management (= current 'treasurer' right)
+
+* 'staff' and 'invited' are not rights giving access to special function
+  within Act, but rather "tags" on some users, relative to a specific
+  conference
 
 * http://conferences.yapceurope.org/2005/user/214
   The GPG key is often a very long string.
@@ -85,9 +93,6 @@ UNPRIORITIZED TODO LIST
 * most tables should be sortable by clicking on column headers.
   => by default, sort the user search results by registration date, not
      by user_id
-
-* when a conference is over, treasurer/orga should be able to unregister
-  participants who didn't show up.
 
 * rights management
   + show rights in table format, users as lines, rights as columns,
@@ -100,6 +105,7 @@ UNPRIORITIZED TODO LIST
 * photo gallery? Links with Flickr? tags? links with talks? author?
 
 * image resizing
+  => domm has posted code to the list: Message-ID: <20070115120018.GA2301@domm2.zsi.at>
 
 * usefulness of global rights?
 
@@ -109,7 +115,7 @@ UNPRIORITIZED TODO LIST
 
 * change the "orga" right name
 
-* think about the user prefered language as a preference list:
+* think about the user preferred language as a preference list:
   - ye2005,  pt => list = pt
   - fpw2005, fr => list = fr,pt
   - ipw2005, en => list = en,fr,pt
@@ -155,7 +161,4 @@ UNPRIORITIZED TODO LIST
 
 * have the wiki support talk:id links and user:id links (or something
   similar)
-
-* organizers can create new users, but there is no handler to manually
-  register/unregister an existing user
 
