@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Act::Config;
 use Act::User;
+use Act::Order;
 use Act::Talk;
 use DBI;
 use Getopt::Long;
@@ -81,10 +82,12 @@ for my $u ( sort { $a->[0]{__id} <=> $b->[0]{__id} } values %$suspects ) {
     print "# Are these users the same? ",
       join( " ", map( { $_->user_id } @$u ) ), "\n";
     no warnings;
-    printf "- %3d | %s | %s %s (%s) <%s> (%d talks) [%s]\n", $_->user_id,
-      $_->login, $_->first_name, $_->last_name, $_->nick_name, $_->email,
-      scalar @{ $_->talks }, "@{[map { $_->{conf_id} } @{$_->participations}]}"
-      for sort { $a->user_id <=> $b->user_id } @$u;
+    for my $u ( sort { $a->user_id <=> $b->user_id } @$u ) {
+        printf "- %3d | %s | %s %s (%s) <%s> (%d talks) [%s]\n", $u->user_id,
+            $u->login, $u->first_name, $u->last_name, $u->nick_name,
+            $u->email, scalar @{ $u->talks },
+            "@{[ map { $_->{conf_id} . ( @{ Act::Order->get_items( user_id => $u->user_id, conf_id => $_->{conf_id} ) } ? '*': '') } @{$u->participations}]}";
+    }
     print "\n";
 }
 
