@@ -38,8 +38,8 @@ The following is valid Wiki formatting, with an extended link as marked.
 
         = my interesting text =
 
-        ANormalLink
-        [let the Sun shine|AnExtendedLink]
+        NormalLink
+        [AnExtendedLink|let the Sun shine]
 
         == my interesting lists ==
 
