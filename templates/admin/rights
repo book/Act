@@ -1,0 +1,20 @@
+[% IF global.request.user.is_admin %]
+<h2>
+   <t><fr>Admin</fr><en>Admin</en><it>Admin</it><pt>Admin</pt><de>Admin</de><hu>Admin</hu></t>
+</h2>
+<ul>
+ <li>
+   <a href="[% make_uri('rights') %]">
+    <t>
+     <fr>Gestion des droits</fr>
+     <en>Rights management</en>
+     <it>Gestione dei permessi</it>
+     <pt>Gestão de permissões</pt>
+     <de>Rechtemanagement</de>
+     <hu>Jogosultság beállítások</hu>
+    </t>
+   </a>
+ </li>
+</ul>
+[% END %]
+

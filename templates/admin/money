@@ -1,0 +1,15 @@
+[% IF global.request.user.is_treasurer %]
+<h2>
+   <t><en>Treasurer</en><fr>Trésorier</fr><it>Tesoriere</it><pt>Tesoureiro</pt><de>Kassier</de><hu>Pénztár</hu></t>
+</h2>
+<ul>
+ <li>
+   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t></a>
+ </li>
+ <li>
+   <a href="[% make_uri('csv/payments')
+   %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t> (CSV)</a>
+ </li>
+</ul>
+[% END %]
+
