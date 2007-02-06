@@ -1,0 +1,39 @@
+[% WRAPPER ui
+   title = { en => "Wiki - $node",
+             fr => "Wiki - $node",
+             it => "Wiki - $node",
+             pt => "Wiki - $node",
+             de => "Wiki - $node",
+             hu => "Wiki - $node" },
+%]
+
+[% content %]
+
+<hr />
+
+<p>
+ [% IF version %]
+  <t><en>version</en><fr>version</fr></t> [% version %]
+  <t><en>saved on</en><fr>du</fr></t> [% date_format(data.last_modified, 'datetime_short') %]
+ [% ELSIF data.last_modified %]
+  <t><en>Last modified</en><fr>Dernière modification </fr></t>: [% date_format(data.last_modified, 'datetime_short') %]
+ [% ELSE %]
+  <t><en>new page</en><fr>nouvelle page</fr></t>
+ [% END %]
+</p>
+<p>
+[% IF version %]
+   [% IF global.request.user.is_orga %]
+    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en></t></a>
+    |
+   [% END %]
+[% ELSE %]
+  <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
+  |
+[% END %]
+<a href="[% make_uri('wiki', 'action', 'recent') %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
+|
+<a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]"><t><fr>Historique</fr><en>History</en></t></a>
+</p>
+
+[% END %]

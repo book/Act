@@ -13,12 +13,22 @@ sub handler
     # disable client-side caching
     $r->no_cache(1);
 
+    # destination URI
+    my $uri;
+    if ($r->prev && $r->prev->uri) {
+        $uri = $r->prev->uri;
+        if ($uri !~ /\?/ && $r->prev->args) {
+            $uri .= '?' . $r->prev->args;
+        }
+    }
+    else {
+        $uri = Act::Util::make_uri('');
+    }
+
     # process the login form template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        destination => $r->prev && $r->prev->uri
-                     ? $r->prev->uri
-                     : Act::Util::make_uri(''),
+        destination => $uri,
         action      => join('/', '', $Request{conference}, 'LOGIN'),
         domain      => join('.', (split /\./, $r->server->server_hostname)[-2, -1]),
     );

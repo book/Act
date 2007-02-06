@@ -26,6 +26,7 @@ my %dispatch = (
     event    => { handler => 'Act::Handler::Event::Show' },
     events   => { handler => 'Act::Handler::Event::List' },
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
+    wiki     => { handler => 'Act::Handler::Wiki' },
     'timetable.ics' => { handler => 'Act::Handler::Talk::Export' },
 
     # protected handlers
@@ -47,6 +48,7 @@ my %dispatch = (
     invoice   => { handler => 'Act::Handler::Payment::Invoice', private => 1 },
     csv    => { handler => 'Act::Handler::CSV', private => 1 },
     create => { handler => 'Act::Handler::User::Create', private => 1 },
+    wikiedit  => { handler => 'Act::Handler::WikiEdit', private => 1 },
 );
 
 # translation handler

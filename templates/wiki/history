@@ -1,0 +1,30 @@
+[% WRAPPER ui
+   title = { en => "Wiki - $node History",
+             fr => "Wiki - Historique $node",
+             it => 'TRANSLATEME',
+             pt => "TRANSLATEME",
+             de => 'TRANSLATEME',
+             hu => 'TRANSLATEME' },
+%]
+[%- PROCESS common -%]
+<h1>[% title %]</h1>
+<table>
+ <tr><th><t><fr>Version</fr><en>Version</en></t></th>
+     <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
+     <th><t><fr>Par</fr><en>By</en></t></th>
+ </tr>
+ [% FOREACH v IN versions %]
+ <tr>
+     <td><a href="[% IF loop.first;
+                       make_uri('wiki', 'node', node);
+                     ELSE;
+                       make_uri('wiki', 'node', node, 'version', v.version);
+                     END %]"
+         >[% v.version %]</a></td>
+     <td>[% date_format(v.last_modified, 'datetime_short') %]</td>
+     <td>[% user_info(v.user) %]</td>
+ </tr>
+ [% END %]
+</table>
+
+[% END %]

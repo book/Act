@@ -125,6 +125,8 @@ F<templates/ui> template):
     [% PROCESS menus/user %]
     <!-- users list, search, stats -->
     [% PROCESS menus/users %]
+    <!-- wiki -->
+    [% PROCESS menus/wiki %]
     <!-- talk lists, submission and schedule -->
     [% PROCESS menus/talks %]
     <!-- event management in the schedule -->

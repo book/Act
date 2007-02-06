@@ -49,6 +49,7 @@ use Act::Handler::User::Search;
 use Act::Handler::User::Show;
 use Act::Handler::User::Stats;
 use Act::Handler::User::Unregister;
+use Act::Handler::Wiki;
 
 # preload DBD drivers
 DBI->install_driver('Pg');
