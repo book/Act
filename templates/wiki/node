@@ -25,6 +25,8 @@
  [% END %]
 </p>
 <p>
+<a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr></t></a>
+|
 [% IF version %]
    [% IF global.request.user.is_orga %]
     <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en></t></a>
