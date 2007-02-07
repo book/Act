@@ -41,7 +41,8 @@ sub wiki_display
 sub wiki_recent
 {
     my ($wiki, $template) = @_;
-    my @nodes = $wiki->list_recent_changes(days => 7);
+    my @nodes = grep { ( split /;/, $_->{name})[0] eq $Request{conference} }
+                $wiki->list_recent_changes(days => 7);
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
         $node->{name} = Act::Wiki::split_node_name($node->{name});
