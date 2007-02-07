@@ -162,3 +162,12 @@ UNPRIORITIZED TODO LIST
 * have the wiki support talk:id links and user:id links (or something
   similar)
 
+* list the author of the latest modification of the wiki,
+  and the revision number
+
+* shouldn't the tshirt size at user creation not be shown when the
+  conference doesn't include a T-shirt?
+
+* should the tshirt size be 'per conference'? (but copied from the
+  info stored in the users base)
+
