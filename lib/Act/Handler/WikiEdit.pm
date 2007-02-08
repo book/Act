@@ -56,11 +56,11 @@ sub wiki_commit
     if ($Request{args}{preview}) {
         $template->variables_raw(
             preview_content => Act::Wiki::format_node($wiki, $template, $Request{args}{content}),
+            content         => $Request{args}{content},
         );
         $template->variables(
             preview  => 1,
             node     => $node,
-            content  => encode("ISO-8859-1", $Request{args}{content}),
             checksum => $Request{args}{checksum},
         );
         $template->process('wiki/edit');
