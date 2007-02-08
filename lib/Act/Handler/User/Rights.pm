@@ -41,23 +41,19 @@ sub handler
 
         # new user with rights
         if( my $new = Act::User->new( user_id => $Request{args}{newuser} ) ) {
-            warn "new users $Request{args}{newuser}";
             $right{new}{user}    = $new;
             $right{new}{user_id} = $Request{args}{newuser};
             $right{new}{right}   = {};
         }
 
         # for all existing rights
-        use Data::Dumper; warn Dumper $Request{args};
         for my $right_id (keys %rights) {
 
             # for all users who already have rights
             for my $user_id ( keys %right ) {
-            warn "$user_id-$right_id\n";
                 if( $Request{args}{"$user_id-$right_id"} ) {
                     # only insert if it's new
                     if( ! $right{$user_id}{right}{$right_id} ) {
-                    warn "INSERT $user_id \n";
                         $Request{dbh}->prepare_cached(
                             'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
                             )
@@ -67,7 +63,6 @@ sub handler
                     }
                 }
                 elsif( $user_id ne 'new' ) {
-                    warn "DELETE\n";
                     $Request{dbh}->prepare_cached(
                         'DELETE FROM rights WHERE right_id=? AND user_id=? AND conf_id=?'
                         )
