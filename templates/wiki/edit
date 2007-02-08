@@ -1,8 +1,9 @@
 [% WRAPPER ui
-   title = { en => 'Wiki', fr => 'Wiki', it => 'Wiki', pt => "Wiki", de => 'Wiki', hu => 'Wiki' },
+   title = { en => "Wiki - editing $node",
+             fr => "Wiki - modification de $node",
+             it => 'TRANSLATEME', pt => 'TRANSLATEME', de => 'TRANSLATEME', hu => 'TRANSLATEME',
+           },
 %]
-
-<h1><t><fr>Modification de</fr><en>Editing</en></t> [% node %]</h1>
 
 [% IF preview %]
 [% preview_content %]

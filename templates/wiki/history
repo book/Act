@@ -7,7 +7,6 @@
              hu => 'TRANSLATEME' },
 %]
 [%- PROCESS common -%]
-<h1>[% title %]</h1>
 <table>
  <tr><th><t><fr>Version</fr><en>Version</en></t></th>
      <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
