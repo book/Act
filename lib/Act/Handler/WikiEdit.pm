@@ -38,7 +38,7 @@ sub wiki_edit
     my %data = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node));
     $template->variables(
         node     => $node,
-        data     => encode("ISO-8859-1", $data{content}),
+        content  => encode("ISO-8859-1", $data{content}),
         checksum => $data{checksum},
     );
     $template->process('wiki/edit');
@@ -47,12 +47,26 @@ sub wiki_commit
 {
     my ($wiki, $template) = @_;
 
-    # store the node
     my $node = $Request{args}{node};
     unless ($node) {
         $Request{status} = NOT_FOUND;
         return;
     }
+    # preview
+    if ($Request{args}{preview}) {
+        $template->variables_raw(
+            preview_content => Act::Wiki::format_node($wiki, $template, $Request{args}{content}),
+            content         => $Request{args}{content},
+        );
+        $template->variables(
+            preview  => 1,
+            node     => $node,
+            checksum => $Request{args}{checksum},
+        );
+        $template->process('wiki/edit');
+        return;
+    }
+    # store the node
     my $name = Act::Wiki::make_node_name($node);
     if ($wiki->write_node(
         $name,
@@ -72,8 +86,8 @@ sub wiki_commit
         $template->variables(
             conflict    => 1,
             node        => $node,
-            new_data    => $Request{args}{content},
-            data        => encode("ISO-8859-1", $data{content}),
+            new_content => $Request{args}{content},
+            content     => encode("ISO-8859-1", $data{content}),
             checksum    => $data{checksum},
         );
         $template->process('wiki/edit');

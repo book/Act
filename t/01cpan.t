@@ -24,6 +24,7 @@ my @modules = (
                  'Test::MockObject',
                  'Text::Iconv',
                  'Text::xSV',
+                 'URI',
                  'URI::Escape',
                  'Wiki::Toolkit',
               );

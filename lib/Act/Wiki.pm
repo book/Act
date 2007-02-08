@@ -7,6 +7,7 @@ use Encode;
 use DateTime::Format::Pg;
 
 use Act::Config;
+use Act::Wiki::Formatter;
 use Act::Wiki::Store;
 
 sub new
@@ -14,12 +15,23 @@ sub new
     return Wiki::Toolkit->new(
         store     => Act::Wiki::Store->new(map { $_ => $Config->get("wiki_$_") }
                                            qw(dbname dbuser dbpass)),
-        formatter => Wiki::Toolkit::Formatter::Default->new(
-                        extended_links  => 1,
-                        implicit_links  => 1,
-                        node_prefix => 'wiki?node=',
-                     ),
+        formatter => Act::Wiki::Formatter->new(),
     );
+}
+sub format_node
+{
+    my ($wiki, $template, $content) = @_;
+
+    my %metadata;
+    my $cooked = encode("ISO-8859-1", $wiki->format($content, \%metadata));
+    if ($metadata{chunks}) {
+        $cooked = '[% PROCESS common %][% TAGS {% %} %]' . $cooked;
+        my $output;
+        $template->variables(chunks => $metadata{chunks});
+        $template->process(\$cooked, \$output);
+        return $output;
+    }
+    return $cooked;
 }
 sub display_node
 {
@@ -29,9 +41,7 @@ sub display_node
     $data{last_modified} = DateTime::Format::Pg->parse_datetime($data{last_modified})
         if $data{last_modified};
 
-    $template->variables_raw(
-        content => encode("ISO-8859-1", $wiki->format($data{content})),
-    );
+    $template->variables_raw(content => format_node($wiki, $template, $data{content}));
     $template->variables(node    => $node,
                          data    => \%data,
                          version => $version,

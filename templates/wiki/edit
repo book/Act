@@ -1,10 +1,14 @@
 [% WRAPPER ui
-   title = { en => 'Wiki', fr => 'Wiki', it => 'Wiki', pt => "Wiki", de => 'Wiki', hu => 'Wiki' },
+   title = { en => "Wiki - editing $node",
+             fr => "Wiki - modification de $node",
+             it => 'TRANSLATEME', pt => 'TRANSLATEME', de => 'TRANSLATEME', hu => 'TRANSLATEME',
+           },
 %]
 
-<h1><t><fr>Modification de</fr><en>Editing</en></t> [% node %]</h1>
-
-[% IF conflict %]
+[% IF preview %]
+[% preview_content %]
+<hr />
+[% ELSIF conflict %]
   <div class="warning_text">
   Someone has committed changes to this node since you began editing.
   You will need to manually merge your changes into the new version.
@@ -14,20 +18,21 @@
 [% END %]
 
 <form method="POST" action="[% global.request.r.uri %]">
-  <textarea name="content" rows="50" cols="100">[% data %]</textarea>
+  <textarea name="content" rows="25" cols="80">[% content %]</textarea>
   <br />
   <a href="[% make_uri('wiki', 'action', 'help') %]"><t><fr>Aide</fr><en>Help</en></t></a>
   |
   <input type="hidden" name="action" value="commit" />
   <input type="hidden" name="node" value="[% node %]" />
   <input type="hidden" name="checksum" value="[% checksum %]" />
+  <input type="submit" name="preview" value="<t><fr>Aperçu</fr><en>Preview</en></t>" />
   <input type="submit" name="save" value="<t><fr>Enregistrer</fr><en>Save</en></t>" />
 </form>
 
 [% IF conflict %]
   <h2>Your proposed revision:</h2>
   <pre>
-    [% new_data %]
+    [% new_content %]
   </pre>
 [% END %]
 

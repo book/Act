@@ -13,11 +13,14 @@
 <hr />
 
 <p>
- [% IF version %]
+ [% IF version OR data.last_modified;
+    IF version %]
   <t><en>version</en><fr>version</fr></t> [% version %]
-  <t><en>saved on</en><fr>du</fr></t> [% date_format(data.last_modified, 'datetime_short') %]
- [% ELSIF data.last_modified %]
-  <t><en>Last modified</en><fr>Dernière modification </fr></t>: [% date_format(data.last_modified, 'datetime_short') %]
+  <t><en>saved on</en><fr>du</fr></t>
+    [% ELSE %]
+  <t><en>Last modified</en><fr>Dernière modification </fr></t>:
+    [% END %]
+  [% date_format(data.last_modified, 'datetime_short') %]
   <t><en>by</en><fr>par</fr></t>
   [% user_info( author ) %]
  [% ELSE %]
