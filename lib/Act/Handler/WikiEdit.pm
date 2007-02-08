@@ -55,7 +55,7 @@ sub wiki_commit
     # preview
     if ($Request{args}{preview}) {
         $template->variables_raw(
-            preview_content => encode("ISO-8859-1", $wiki->format($Request{args}{content})),
+            preview_content => Act::Wiki::format_node($wiki, $template, $Request{args}{content}),
         );
         $template->variables(
             preview  => 1,

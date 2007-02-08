@@ -159,11 +159,6 @@ UNPRIORITIZED TODO LIST
 * handle the edition of lightning talk sessions, by creating something
   less burdensome than the current talk:id 
 
-* have the wiki support talk:id links and user:id links (or something
-  similar)
-
-* add a "preview" button to the wiki
-
 * list the author of the latest modification of the wiki,
   and the revision number
 
