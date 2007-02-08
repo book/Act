@@ -21,5 +21,24 @@
  </tr>
  [% END %]
 </table>
-
+<form method="GET" action="[% make_uri('wiki') %]">
+<input type="hidden" name="action" value="recent" />
+<a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr></t></a>
+|
+<t><en>Changes in last</en><fr>Modifications depuis</fr></t>
+<select name="period" size="1" onChange="submit();">
+ [% periods = [
+      [ "1days",   { en => '1 day',    fr => '1 jour'     } ],
+      [ "2days",   { en => '2 days',   fr => '2 jours'    } ],
+      [ "3days",   { en => '3 days',   fr => '3 jours'    } ],
+      [ "1weeks",  { en => '1 week',   fr => '1 semaine'  } ],
+      [ "2weeks",  { en => '2 weeks',  fr => '2 semaines' } ],
+      [ "1months", { en => '1 month',  fr => '1 mois'     } ],
+      [ "2months", { en => '2 months', fr => '2 mois'     } ],
+    ];
+    FOREACH p IN periods %]
+ <option value="[% p.0 %]"[% ' selected="selected"' IF period == p.0 %]>[% p.1.${global.request.language} %]</option>
+ [% END %]
+</select>
+</form>
 [% END %]

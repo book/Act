@@ -2,6 +2,7 @@ package Act::Handler::Wiki;
 
 use strict;
 use Apache::Constants qw(NOT_FOUND);
+use DateTime;
 use DateTime::Format::Pg;
 
 use Act::Config;
@@ -41,14 +42,30 @@ sub wiki_display
 sub wiki_recent
 {
     my ($wiki, $template) = @_;
+
+    # default period is 1 week
+    my $period = $Request{args}{period};
+    $period ||= '1weeks';
+
+    # convert start of period to epoch
+    my ($quant, $unit) = $period =~ /^(\d)(.*)$/;
+    $quant ||= 1;
+    $unit  ||= 'weeks';
+
+    my $date = DateTime->now;
+    $date->subtract( $unit => $quant);
+
     my @nodes = grep { ( split /;/, $_->{name})[0] eq $Request{conference} }
-                $wiki->list_recent_changes(days => 7);
+                $wiki->list_recent_changes(since => $date->epoch);
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
         $node->{name} = Act::Wiki::split_node_name($node->{name});
         $node->{last_modified} = DateTime::Format::Pg->parse_datetime($node->{last_modified});
     }
-    $template->variables(nodes => \@nodes);
+    $template->variables(
+        nodes  => \@nodes,
+        period => $quant . $unit,
+    );
     $template->process('wiki/recent');
 }
 
