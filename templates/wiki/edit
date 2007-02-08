@@ -14,7 +14,7 @@
 [% END %]
 
 <form method="POST" action="[% global.request.r.uri %]">
-  <textarea name="content" rows="50" cols="100">[% data %]</textarea>
+  <textarea name="content" rows="25" cols="80">[% data %]</textarea>
   <br />
   <a href="[% make_uri('wiki', 'action', 'help') %]"><t><fr>Aide</fr><en>Help</en></t></a>
   |
