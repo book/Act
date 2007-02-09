@@ -1,7 +1,12 @@
 Changes in Act
 
-* 2007/01/31
+2007/02/08 r1125 remove conf/ and templates/core/bank/
 
-  - log the datetime and ip of registration when a user registers
-    to a conference
+2007/02/06 r1104 integrated wiki
 
+2007/02/05 r1093 bin/mergeusers: tool to merge duplicate users
+
+2007/02/01 r1061 forbid registration after the end of the conference
+
+2007/01/31 r1041 log the datetime and ip of registration when a user registers
+                 to a conference
