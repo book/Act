@@ -43,10 +43,12 @@ sub verify
 {
     my ($self, $args) = @_;
 
+    $args->{clientid} = $self->_type_config('clientid');
+
     my $mac = $self->_compute_digest(
-        join '+', $self->_type_config('clientid'),
-                  @$args{sort qw(date amount currency orderid productid status)},
+        join '*',  @$args{sort qw(clientid date amount currency orderid productid status)}
     );
+
     my $verified = $mac eq lc $args->{MAC};
     my $paid = $verified && $args->{'status'} eq 'paid';
     return ($verified, $paid, $args->{orderid});
