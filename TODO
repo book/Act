@@ -59,8 +59,6 @@ UNPRIORITIZED TODO LIST
 * problem with empty fields: they are not updated
   see: stay pseudonymous, remove company
 
-* better rights management interface using a table
-
 * B<current rights:> orga, treasurer, admin, staff, invited (no rights attached).
   
   better organisation: users, talks, orders, rights (i.e. attached to the
@@ -85,10 +83,6 @@ UNPRIORITIZED TODO LIST
 * 'staff' and 'invited' are not rights giving access to special function
   within Act, but rather "tags" on some users, relative to a specific
   conference
-
-* http://conferences.yapceurope.org/2005/user/214
-  The GPG key is often a very long string.
-  => we should just store a key id, keys can be fetched from GPG key servers.
 
 * most tables should be sortable by clicking on column headers.
   => by default, sort the user search results by registration date, not
@@ -129,8 +123,6 @@ UNPRIORITIZED TODO LIST
 * user-configurable searchlimit
 
 * support for several monger groups (addition, search)
-
-* get the production conf/ out of Act
 
 * PDF immutable invoices
 
