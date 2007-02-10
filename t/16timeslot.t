@@ -22,6 +22,7 @@ is_deeply( $event, {
     url_abstract => undef,
     id        => $event->{id},
     event_id  => $event->{id},
+    track_id  => undef,
     title     => 'Lunch',
     abstract  => 'Lunch, outside of the conference premises',
     type      => 'Act::Event',
