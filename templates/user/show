@@ -121,6 +121,22 @@
          [% im %]
       </td>
 [% END %]
+[%- IF gpg_key_id %]
+   </tr><tr>
+      <td align="right">
+       <t><en>GPG key ID</en>
+          <fr>clé publique GPG</fr>
+          <pt>chave publica GPG</pt>
+          <it>chiave pubblica GPG</it>
+          <de>GPG public key</de>
+          <hu>GPG publikus kulcsd</hu>
+       </t>
+      </td>
+      <td>&nbsp;</td>
+      <td align="left">
+         <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">[% gpg_key_id %]</a>
+      </td>
+[% END %]
    </tr>
 
 </table>
@@ -190,52 +206,6 @@
             [% bio.$lang | replace('\n', '<br />') %]
          </td></tr></table>
        [% END %]
-      </td>
-   </tr>
-[% END %]
-[%- IF gpg_pub_key %]
-   <tr>
-      <td align="right" valign="top">
-       <t>
-        <en>
-         GPG<br />
-         public<br />
-         key
-        </en>
-        <fr>
-         clé<br />
-         publique<br />
-         GPG
-        </fr>
-        <pt>
-         chave<br />
-         püblica<br />
-         GPG
-        </pt>
-        <it>
-         chiave<br />
-         pubblica<br />
-         GPG
-        </it>
-	<de>
-         GPG<br />
-         public<br />
-         key
- 	</de>
-        <hu>
-         GPG<br />
-         publikus<br />
-         kulcs
-        </hu>
-       </t>
-      </td>
-      <td>&nbsp;</td>
-      <td align="left">
-         <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
-            <font size="-1"><tt>
-            [% gpg_pub_key  | replace('\n', '<br />') %]
-            </tt></font>
-         </td></tr></table>
       </td>
    </tr>
 [% END %]
