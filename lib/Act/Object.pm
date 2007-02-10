@@ -227,7 +227,7 @@ sub get_items {
         # WHERE clause
         'WHERE', join( ' AND ', 'TRUE', @req{keys %args} ),
         # OPTIONS (option order is important)
-        map ( { $opt{$_} ne '' ? ( uc, $opt{$_} ) : () }
+        map ( { ($opt{$_} || '') ne '' ? ( uc, $opt{$_} ) : () }
               ( 'order by', qw( limit offset ) ) );
 
     # run the request
