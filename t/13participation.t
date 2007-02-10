@@ -15,10 +15,10 @@ is_deeply(
     {
         conf_id     => 'conf',
         user_id     => $user->user_id,
-        registered  => '0',
         tshirt_size => undef,
         nb_family   => '0',
-        payment     => undef,
+        ip          => '127.0.0.1',
+        datetime    => '2007-02-10 11:22:33',
     }, "Correct participation information"
 );
 

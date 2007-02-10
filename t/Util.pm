@@ -51,10 +51,10 @@ sub db_add_users {
     );
 
     # add participations as well
-    my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id) VALUES(?,?);");
-    $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf' );
-    $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf' );
-    $sth->execute( Act::User->new( login => 'user' )->user_id, 'newconf' );
+    my $sth = $Request{dbh}->prepare_cached("INSERT INTO participations (user_id,conf_id,ip,datetime) VALUES(?,?,?,?);");
+    $sth->execute( Act::User->new( login => 'book' )->user_id, 'conf',    '127.0.0.1', '2007-02-10 11:22:33' );
+    $sth->execute( Act::User->new( login => 'echo' )->user_id, 'conf',    '127.0.0.2', '2007-02-11 18:05:47' );
+    $sth->execute( Act::User->new( login => 'user' )->user_id, 'newconf', '127.0.0.3', '2007-02-10 23:58:59' );
     $sth->finish();
 }
 
