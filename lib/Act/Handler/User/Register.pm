@@ -143,11 +143,28 @@ sub handler
     # display the registration form
     $template->variables(
         countries => Act::Country::CountryNames(),
+        topten    => _topten_countries(),
         %$fields,
         duplicates => $duplicates,
         end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
     );
     $template->process('user/add');
+}
+sub _topten_countries
+{
+    # top 10 countries of registered users
+    my $sth = $Request{dbh}->prepare_cached(
+        'SELECT u.country FROM users u, PARTICIPATIONS p'
+      . ' WHERE u.user_id = p.user_id AND p.conf_id = ?'
+      . ' GROUP BY u.country ORDER BY COUNT(u.country) DESC LIMIT 10'
+      );
+      $sth->execute( $Request{conference} );
+      my @topten = map {{ iso  => $_->[0],
+                          name => Act::Country::CountryName($_->[0]),
+                       }}
+                       @{ $sth->fetchall_arrayref([]) };
+      $sth->finish;
+      return \@topten;
 }
 
 1;

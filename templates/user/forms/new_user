@@ -37,10 +37,17 @@
   <td>&nbsp;</td>
   <td>
     <select name="country">
-     [% country = global.config.general_default_country UNLESS country %]
-     [% FOREACH c = countries %]
-     <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
-     [% END %]
+      [% country = global.config.general_default_country UNLESS country %]
+      [% IF topten.size %]
+        [% FOREACH c = topten %]
+          <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+          [% IF country == c.iso; country = ''; END %]
+        [% END %]
+        <option value="" disabled="disabled">------------------------------</option>
+      [% END %]
+      [% FOREACH c = countries %]
+        <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+      [% END %]
     </select>
  </td>
 </tr>
