@@ -5,9 +5,13 @@ use Act::Config;
 use Act::Country;
 use Act::Form;
 use Act::Template::HTML;
+use Act::TwoStep;
 use Act::User;
 use Act::Util;
+
 use Apache::Constants qw(FORBIDDEN);
+use DateTime;
+use DateTime::Format::Pg;
 
 # registration form
 my $form = Act::Form->new(
@@ -68,9 +72,14 @@ sub handler
     my $template = Act::Template::HTML->new();
     my $fields = {};
     my $duplicates = [];
+    my $token;
 
-    if ($Request{args}{join}) {
-        # form has been submitted
+    if ($Request{args}{join}) {         # registration form has been submitted
+
+        # must have a valid twostep token
+        $token = Act::TwoStep::verify_form()
+            or return;
+            
         my @errors;
 
         # validate form fields
@@ -115,6 +124,9 @@ sub handler
                     },
                 );
 
+                # remove twostep token
+                Act::TwoStep::remove($token);
+
                 # log the user in
                 Act::Util::login($user);
 
@@ -139,6 +151,16 @@ sub handler
 
         }
         $template->variables(errors => \@errors);
+    }
+    elsif ($Request{args}{twostepsubmit}) {      # two-step form has been submitted
+        # validate form and create a new token
+        Act::TwoStep::create();
+        return;
+    }
+    else {
+        # do we have a twostep token in the uri?
+        $token = Act::TwoStep::verify_uri()
+            or return;
     }
     # display the registration form
     $template->variables(
