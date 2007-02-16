@@ -241,3 +241,10 @@ CREATE TABLE pm_groups
 );
 CREATE INDEX pm_groups_idx ON pm_groups ( xml_group_id );
 
+/* two-step handlers */
+DROP   TABLE twostep CASCADE;
+CREATE TABLE twostep
+(
+    token         char(32) NOT NULL PRIMARY KEY,
+    datetime      timestamp without time zone
+);
