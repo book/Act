@@ -246,5 +246,6 @@ DROP   TABLE twostep CASCADE;
 CREATE TABLE twostep
 (
     token         char(32) NOT NULL PRIMARY KEY,
+    email         text NOT NULL,
     datetime      timestamp without time zone
 );

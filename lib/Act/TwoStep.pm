@@ -49,8 +49,8 @@ sub create
         my $token = _create_token($email);
         
         # store it in the database
-        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, datetime) VALUES (?,NOW())');
-        $sth->execute($token);
+        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime) VALUES (?, ?, NOW())');
+        $sth->execute($token, $Request{args}{email});
         $Request{dbh}->commit;
 
         # email it
