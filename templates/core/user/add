@@ -116,8 +116,8 @@
    FOREACH u IN duplicates ;
        "[" ; u.login ; "] ";
        user_info(u);
-       " &lt;"; u.email;
-       "&gt; ("; u.country_name;
+       IF ! u.email_hide ; " &lt;"; u.email; "&gt;" ; END ;
+       " ("; u.country_name;
        ")<br />";
    END;
    "</p>";
