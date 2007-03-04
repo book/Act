@@ -1,0 +1,42 @@
+[% PROCESS common %]
+[% PROCESS error
+   msgs = {
+     ERR_EMAIL => {
+         en => "You must enter your email"
+         fr => "L'adresse email est obligatoire"
+         it => "L'indirizzo e-mail è obbligatorio"
+         pt => "Deve introduzir um endereço de e-mail"
+         de => "Bitte E-Mail Adresse eingeben"
+         hu => "Az email cím megadása kötelezõ."
+     },
+     ERR_EMAIL_SYNTAX => {
+         en => "Your email address looks bogus."
+         fr => "Adresse email&nbsp;: syntaxe incorrecte."
+         it => "L'indirizzo e-mail non sembra valido."
+         pt => "O seu endereço de e-mail parece errado."
+         de => "Die E-Mail Adresse scheint ungütig zu sein."
+         hu => "Az email cím hibásnak tûnik."
+     },
+  }
+%]
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+<tr>
+  <td align="right">Email</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="twostepsubmit" value="OK" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
