@@ -93,7 +93,7 @@
          hu => "Az email cím hibásnak tûnik."
      },
      ERR_DUPLICATE_EXISTS => {
-         en => "An account with similar information already exists."
+         en => "Accounts with similar information already exist."
          fr => "D'autres utilisateurs existant pourraient déjà être vous."
          it => "Ci sono altri utenti che potrebbero essere voi."
          pt => "TRANSLATEME"
