@@ -55,6 +55,7 @@ is_deeply( Act::Talk->new( user_id => $user2->user_id ),
    {
    talk_id      => $talk2->talk_id,
    user_id      => $user2->user_id,
+   track_id     => undef,
    title        => 'test',
    conf_id      => 'conf',
    duration     => 5,

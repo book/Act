@@ -4,6 +4,7 @@ use strict;
 use Test::MockObject;
 use Test::More;
 use Act::Config;
+use Act::Util;
 
 # Apache::Constants doesn't work offline
 BEGIN {
