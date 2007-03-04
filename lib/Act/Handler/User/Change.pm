@@ -17,8 +17,9 @@ my @partfields = qw(tshirt_size nb_family);
 my @form_params = (
   required => [qw(first_name last_name email country)],
   filters => {
-     email    => sub { lc shift },
-     pm_group => sub { ucfirst lc shift },
+     email      => sub { lc shift },
+     pm_group   => sub { ucfirst lc shift },
+     gpg_key_id => sub { uc shift },
   },
   constraints => {
     email        => 'email',
@@ -29,6 +30,7 @@ my @form_params = (
     company_url  => 'url',
     pm_group     => sub { $_[0] =~ /\.pm$/ },
     tshirt_size  => sub { $_[0] =~ /^(?:S|M|X{0,2}L)$/ },
+    gpg_key_id   => sub { $_[0] =~ /^[0-9A-F]{8}$/ },
   }
 );
 
@@ -37,7 +39,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     my $fields;
     my $form = Act::Form->new( @form_params, 
-        optional => [qw(im civility email_hide gpg_pub_key im pause_id
+        optional => [qw(im civility email_hide gpg_key_id im pause_id
                         pseudonymous nick_name
                         monk_id pm_group pm_group_url timezone town web_page
                         company company_url vat address ),
@@ -90,6 +92,7 @@ sub handler
             $form->{invalid}{pm_group}   && push @errors, 'ERR_PMGROUP';
             $form->{invalid}{web_page}   && push @errors, 'ERR_WEBPAGE';
             $form->{invalid}{monk_id}    && push @errors, 'ERR_MONKID';
+            $form->{invalid}{gpg_key_id} && push @errors, 'ERR_GPG_KEY_ID';
             $form->{invalid}{nb_family}  && push @errors, 'ERR_NBFAMILY';
             $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
             $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';

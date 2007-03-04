@@ -24,7 +24,7 @@ CREATE TABLE users
     pm_group_url text,
     email        text                       NOT NULL,
     email_hide   boolean      DEFAULT TRUE  NOT NULL,
-    gpg_pub_key  text,
+    gpg_key_id   text,
     pause_id     text,
     monk_id      text,
     monk_name    text,

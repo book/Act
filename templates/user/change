@@ -109,6 +109,14 @@
        de => "Keine gültige T-Shirt Grösse",
        hu => "Érvénytelen pólóméret",
      },
+     ERR_GPG_KEY_ID => {
+       en => "Not a valid GPG key ID: 8 hexadecimal digits expected",
+       fr => "Clé GPG invalide : 8 chiffres hexadécimaux attendus",
+       it => 'TRANSLATEME',
+       pt => 'TRANSLATEME',
+       de => 'TRANSLATEME',
+       hu => 'TRANSLATEME',
+     },
   }
 %]
 
@@ -357,12 +365,18 @@
    </td>
 </tr>
 <tr>
-   <td align="right" valign="top">
-      <t><en>GPG public key</en><fr>Clé publique GPG</fr><pt>Chave pública GPG</pt><it>Chiave pubblica GPG</it><de>PGP public key</de><hu>GPG publikus kulcs</hu></t>
+   <td align="right">
+      [%- IF gpg_key_id %]
+         <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">
+      [% END %]
+      <t><en>GPG public key ID</en><fr>Clé publique GPG</fr><pt>Chave pública GPG</pt><it>Chiave pubblica GPG</it><de>PGP public key</de><hu>GPG publikus kulcs</hu></t>
+      [%- IF gpg_key_id %]
+         </a>
+      [% END %]
    </td>
    <td>&nbsp;</td>
    <td>
-      <textarea name="gpg_pub_key" cols="25" rows="5">[% gpg_pub_key | form_unescape %]</textarea>
+      Ox<input type="text" name="gpg_key_id" value="[% gpg_key_id %]" size="8" maxlength="8" />
    </td>
 </tr>
 <tr>
