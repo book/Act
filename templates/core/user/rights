@@ -1,0 +1,86 @@
+[% PROCESS common %]
+<div align="center">
+<form method="POST" action="[% global.request.r.uri %]">
+<table>
+ <tr>
+   <td><t><en>Name</en><fr>Nom</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><hu>TRANSLATEME</hu><pt>TRANSLATEME</pt></t></td>
+   [% FOREACH r = right_list %]
+   <td>[% r %]</td>
+   [% END %]
+ </tr>
+ [% FOREACH u = right %]
+   <tr><td>[% user_info(u.user) %]</td>
+   [% FOREACH r = right_list %]
+    <td><input type="checkbox" name="[% u.user.user_id %]-[% r %]" [% IF u.right.$r %]checked="checked" [% END %]/></td>
+   [% END %]
+   </tr>
+ [% END %]
+   <tr>
+   <td><select name="newuser">
+       <option value="" selected="selected" />
+       [% FOREACH u=users %]
+         <option value="[% u.user_id %]">[[% u.login %]] [% user_info(u) %]</option>
+       [% END %]
+       </select>
+   </td>
+   [% FOREACH r = right_list %]
+    <td><input type="checkbox" name="new-[% r %]" /></td>
+   [% END %]
+
+</table>
+
+<input type="submit" name="ok"
+   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de><hu>Elküld</hu></t>" />
+
+</form>
+
+</div>
+
+<p>
+ <t>
+  <fr>Les droits existants sont&nbsp;:</fr>
+  <en>The recognised rights are:</en>
+  <it>I permessi possibili sono:</it>
+  <pt>Os direitos disponíveis são:</pt>
+  <de>Rechte sind:</de>
+  <hu>A rendelkezésre álló jogok:</hu>
+ </t>
+</p>
+<ul>
+ <li><tt>staff</tt> -
+  <t><fr>Organisateur</fr>
+     <en>Organiser</en>
+     <it>Organizzatore</it>
+     <pt>Organização</pt>
+     <de>Organisator</de>
+     <hu>Szervezõ</hu>
+  </t>
+ </li>
+ <li><tt>orga</tt> -
+  <t><fr>Organisateur (gestion des présentations)</fr>
+     <en>Organiser (talks management)</en>
+     <it>Organizzatore (gestione interventi)</it>
+     <pt>Organização (gestão de apresentações)</pt>
+     <de>Organisator (Vorträge verwalten)</de>
+     <hu>Szervezõ (elõadás kezelõ)</hu>
+  </t>
+ </li>
+ <li><tt>treasurer</tt> -
+  <t><fr>Trésorier (gestion des paiements)</fr>
+     <en>Treasurer (payment management)</en>
+     <it>Tesoriere (gestione pagamenti)</it>
+     <pt>Tesoureiro (gestão de pagamentos)</pt>
+     <de>Kassier (Zahlungsmanagement)</de>
+     <hu>Pénztáros (fizetés kezelõ)</hu>
+  </t>
+ </li>
+ <li><tt>admin</tt> -
+  <t><fr>Administrateur (gestion des droits)</fr>
+     <en>Administrator (rights management)</en>
+     <it>Amministratore (gestione permessi)</it>
+     <pt>Administrador (gestão de permissões)</pt>
+     <de>Administrator (Rechtemanagement)</de>
+     <hu>Adminisztrátor (jogosultság kezelõ)</en>
+  </t>
+ </li>
+</ul>

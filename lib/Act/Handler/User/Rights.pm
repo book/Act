@@ -6,6 +6,7 @@ use Act::Config;
 use Act::Template::HTML;
 use Act::User;
 use Act::Util;
+use List::Util qw( sum );
 
 sub handler
 {
@@ -14,38 +15,11 @@ sub handler
         $Request{status} = NOT_FOUND;
         return;
     }
-    # handle form submission
-    if ($Request{args}{ok}) {
-        my $commit;
-        # delete marked lines
-        for my $line (keys %{$Request{args}}) {
-            if (my ($user_id, $right_id) = $line =~ /^\s*(\d+)-(.*)\s*$/) {
-                my $sth = $Request{dbh}->prepare_cached(
-                 'DELETE FROM rights WHERE right_id=? AND user_id=? AND conf_id=?'
-                );
-                $sth->execute($right_id, $user_id, $Request{conference});
-                ++$commit;
-            }
-        }
-        # add a right
-        my ($user_id, $right_id) =
-           map { s/^\s+//; s/\s$//; $_ }
-           @{$Request{args}}{qw(newuser newright)};
 
-        if ($user_id =~ /^\d+/ && $right_id) {
-            my $u = Act::User->new(user_id => $user_id);
-            my $r = "is_$right_id";
-            if ($u && !$u->$r) {
-                my $sth = $Request{dbh}->prepare_cached(
-                 'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
-                );
-                $sth->execute($right_id, $user_id, $Request{conference});
-                ++$commit;
-            }
-        }
-        $Request{dbh}->commit if $commit;
-    }
-    # retrieve all rights
+    # FIXME fixed list of rights
+    my %rights = ( map { ( $_ => 1 ) } qw( orga treasurer admin ) );
+
+    # retrieve all existing rights
     my $sth = $Request{dbh}->prepare_cached(
         'SELECT right_id, user_id FROM rights WHERE conf_id=? ORDER BY right_id, user_id');
     $sth->execute($Request{conference});
@@ -54,11 +28,67 @@ sub handler
     # associated user info
     $_->{user} = Act::User->new(user_id => $_->{user_id}) for @$rights;
 
+    # rights by user
+    my %right;
+    for my $r (@$rights) {
+        $right{ $r->{user_id} }{user}                    = $r->{user};
+        $right{ $r->{user_id} }{user_id}                 = $r->{user_id};
+        $right{ $r->{user_id} }{right}{ $r->{right_id} } = 1;
+    }
+
+    # handle form submission
+    if ($Request{args}{ok}) {
+
+        # new user with rights
+        if( my $new = Act::User->new( user_id => $Request{args}{newuser} ) ) {
+            $right{new}{user}    = $new;
+            $right{new}{user_id} = $Request{args}{newuser};
+            $right{new}{right}   = {};
+        }
+
+        # for all existing rights
+        for my $right_id (keys %rights) {
+
+            # for all users who already have rights
+            for my $user_id ( keys %right ) {
+                if( $Request{args}{"$user_id-$right_id"} ) {
+                    # only insert if it's new
+                    if( ! $right{$user_id}{right}{$right_id} ) {
+                        $Request{dbh}->prepare_cached(
+                            'INSERT INTO rights (right_id, user_id, conf_id) VALUES (?,?,?)'
+                            )
+                            ->execute( $right_id, $right{$user_id}{user_id},
+                            $Request{conference} );
+                        $right{$user_id}{right}{$right_id} = 1;
+                    }
+                }
+                elsif( $user_id ne 'new' ) {
+                    $Request{dbh}->prepare_cached(
+                        'DELETE FROM rights WHERE right_id=? AND user_id=? AND conf_id=?'
+                        )
+                        ->execute( $right_id, $user_id,
+                        $Request{conference} );
+                    $right{$user_id}{right}{$right_id} = 0;
+                }
+            }
+        }
+        $Request{dbh}->commit;
+
+        # clean up the hash
+        sum( values %{ $right{$_}{right} } ) || delete $right{$_}
+            for keys %right;
+
+    }
+
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        rights => $rights,
+        rights => \%rights,
+        right  => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} }
+                    values %right ],
+        right_list => [ sort keys %rights ],
         users  => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
+                    grep { ! exists $right{$_->user_id} }
                     @{Act::User->get_users( conf_id => $Request{conference} )}
                   ],
     );
