@@ -30,7 +30,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      [% order.amount %] EUR.
+      [% order.amount %] [% order.currency %]
    </td>
 </tr>
 <tr>
