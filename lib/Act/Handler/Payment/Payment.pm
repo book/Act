@@ -29,8 +29,8 @@ sub handler
                     my %prices = map { $_->{price_id} => $_ } @$prices;
                     my ($amount, $currency);
                     if ($Request{args}{amount}) {
-                        $amount = $Request{args}{amount};
-                        $currency = 'EUR';
+                        $amount   = $Request{args}{amount};
+                        $currency = $Request{args}{currency};
                     }
                     else {
                         $amount   = $prices{$Request{args}{price}}{amount};

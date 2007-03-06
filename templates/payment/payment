@@ -30,12 +30,24 @@
  <td><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de></t></td>
  <td>
   <select name="price">
+    [% currencies = {} %]
     [% FOREACH p = prices %]
         <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% p.currency %]</option>
+        [% currencies.${p.currency} = 1 %]
     [% END %]
   </select>
   &nbsp;
-  <input type="text" name="amount" value="" size="5" /> EUR.
+  <input type="text" name="amount" value="" size="5" />
+  [% IF currencies.keys.size > 1 %]
+    <select name="currency">
+      [% FOREACH c = currencies.keys.sort %]
+        <option value="[% c %]">[% c %]</option>
+      [% END %]
+    </select>
+  [% ELSE %]
+    <input type="hidden" name="currency" value="[% currencies.keys.0 %]" />
+    [% currencies.keys.0 %]
+  [% END %]
  </td>
 </tr>
 </table>
