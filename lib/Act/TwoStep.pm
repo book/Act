@@ -50,7 +50,7 @@ sub create
         
         # store it in the database
         my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime) VALUES (?, ?, NOW())');
-        $sth->execute($token, $Request{args}{email});
+        $sth->execute($token, $email);
         $Request{dbh}->commit;
 
         # email it
