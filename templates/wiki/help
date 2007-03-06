@@ -40,6 +40,7 @@ The following is valid Wiki formatting, with an extended link as marked.
 
         NormalLink
         [AnExtendedLink|let the Sun shine]
+        [talk:id]
 
         == my interesting lists ==
 
