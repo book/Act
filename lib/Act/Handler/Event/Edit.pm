@@ -73,6 +73,13 @@ sub handler {
             }
         }
 
+        # does the event have any duration?
+
+        if (not exists $fields->{duration} or $fields->{duration} == 0) {
+            $form->{invalid}{duration} = 'invalid';
+            $ok = 0;
+        }
+
         if ($ok) {
             # update existing event
             if( defined $event ) { 
@@ -107,6 +114,7 @@ sub handler {
             $form->{invalid}{time}         && push @errors, 'ERR_TIME';
             $form->{invalid}{period}       && push @errors, 'ERR_DATERANGE';
             $form->{invalid}{room}         && push @errors, 'ERR_ROOM';
+            $form->{invalid}{duration}     && push @errors, 'ERR_DURATION';
         }
         $template->variables(errors => \@errors);
     }
