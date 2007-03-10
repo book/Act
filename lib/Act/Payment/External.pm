@@ -14,7 +14,6 @@ sub create_form
 
     # variables submitted to the payment gateway
     my %vars = (
-        clientid   => $self->_type_config('clientid'),
         date       => DateTime->now->strftime("%Y-%m-%dT%H:%M:%S"),
         amount     => $order->amount,
         currency   => $order->currency,
@@ -43,10 +42,8 @@ sub verify
 {
     my ($self, $args) = @_;
 
-    $args->{clientid} = $self->_type_config('clientid');
-
     my $mac = $self->_compute_digest(
-        join '*',  @$args{sort qw(clientid date amount currency orderid productid status)}
+        join '*',  @$args{sort qw(date amount currency orderid productid status)}
     );
 
     my $verified = $mac eq lc $args->{MAC};
