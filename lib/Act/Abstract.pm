@@ -11,21 +11,29 @@ sub chunked {
         map {
             my $t = { };
             if ( $i++ % 2 ) {
-                $t->{talk} = Act::Talk->new(
-                    talk_id => $_,
-                    conf_id => $Request{conference}
-                ) ;
-                if ( $t->{talk} ) {
-                    $t->{user}
-                        = Act::User->new( user_id => $t->{talk}->user_id );
+                my ($what, $id) = split ':';
+                if ($what eq 'talk') {
+                    $t->{talk} = Act::Talk->new(
+                        talk_id => $id,
+                        conf_id => $Request{conference}
+                    ) ;
+                    if ($t->{talk}) {
+                        $t->{user}
+                            = Act::User->new( user_id => $t->{talk}->user_id );
+                    }
+                    else {
+                        $t->{text} = "talk:$id"; # non-existent talk
+                    }
                 }
-                else {
-                    $t->{text} = "talk:$_"; # non-existent talk
+                elsif ($what eq 'user') {
+                    $t->{user} = Act::User->new( user_id => $id)
+                        or $t->{text} = "user:$id";  # non-existent user
                 }
+                else { $t->{text} = $_ }
             }
-            else { $t->{text} = $_ };
+            else { $t->{text} = $_ }
             $t;
-          } split /talk:(\d+)/,
+          } split /((?:talk|user):\d+)/,
         $_[0]
     ];
 }

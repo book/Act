@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More tests => 20;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -11,6 +11,16 @@ db_add_users();
 $Request{conference} = 'conf'; # needed by has_talk
 
 my @users = map Act::User->new(login => $_), qw(book echo);
+for my $user (@users) {
+    my $chunked = Act::Abstract::chunked('user:' . $user->user_id);
+    isa_ok($chunked, 'ARRAY');
+    my ($htext, $huser) = @$chunked;
+    isa_ok($htext, 'HASH');
+    isa_ok($huser, 'HASH');
+    isa_ok($huser->{user}, 'Act::User');
+    is($huser->{user}->user_id, $user->user_id);
+}
+
 my @talks = map Act::Talk->create(
    title     => "test $_",
    user_id   => $users[$_]->user_id,

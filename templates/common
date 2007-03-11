@@ -62,9 +62,11 @@ t.track_id %]</a>][% END %]
    FOREACH c = chunks ;
      IF c.text ;
        c.text ;
-     ELSE ;
+     ELSIF c.talk ;
        user_info(c.user) ; " - " ;
        talk_link(c.talk) ;
+     ELSIF c.user ;
+       user_info(c.user) ;
      END ;
    END;
    END;
