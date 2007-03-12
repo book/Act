@@ -22,12 +22,16 @@ sub chunked {
                             = Act::User->new( user_id => $t->{talk}->user_id );
                     }
                     else {
+                        delete $t->{talk};
                         $t->{text} = "talk:$id"; # non-existent talk
                     }
                 }
                 elsif ($what eq 'user') {
-                    $t->{user} = Act::User->new( user_id => $id)
-                        or $t->{text} = "user:$id";  # non-existent user
+                    $t->{user} = Act::User->new( user_id => $id);
+                    unless ($t->{user}) {  # non-existent user
+                        delete $t->{user};
+                        $t->{text} = "user:$id";
+                    }
                 }
                 else { $t->{text} = $_ }
             }
