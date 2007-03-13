@@ -37,6 +37,7 @@ INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
 INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'en', 'Regular price' );
 INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'en', 'Reduced price' );
 INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'en', 'Business price' );
+INSERT INTO translations VALUES ('prices', 'name', 'EARLYBIRD','en', 'Early bird' );
 
 
 /** FRENCH */
