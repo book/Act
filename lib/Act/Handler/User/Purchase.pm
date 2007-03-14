@@ -33,7 +33,7 @@ sub handler
             user_id  => $Request{user}{user_id},
             conf_id  => $Request{conference},
             amount   => $price->{amount},
-            currency => $price->{currency},
+            currency => $Config->payment_currency,
             status   => 'init',
         );
         my $order = Act::Order->new(%f);
@@ -48,7 +48,10 @@ sub handler
     }
     else {
         # display the first form
-        $template->variables(prices => Act::Payment::get_prices);
+        $template->variables(
+            currency => $Config->payment_currency,
+            prices   => Act::Payment::get_prices,
+        );
         $template->process('user/purchase');
     }
 }

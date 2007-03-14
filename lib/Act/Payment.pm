@@ -40,8 +40,7 @@ sub get_prices
         push @prices, {
             price_id => $price_id,
             amount   => $Config->get($s . 'amount'),
-            currency => $Config->get($s . 'currency'),
-            name     => Act::Util::get_translation('prices', 'name', $Config->get($s . 'type')),
+            name     => $Config->get($s . 'name_' . $Request{language}),
         };
     }
     return \@prices;

@@ -36,7 +36,7 @@
    <td>
       <select name="price">
        [% FOREACH p=prices %]
-        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% p.currency %]</option>
+        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% currency %]</option>
        [% END %]
       </select>
    </td>

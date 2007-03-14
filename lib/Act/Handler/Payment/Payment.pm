@@ -27,21 +27,14 @@ sub handler
                 if ($Request{args}{ok}) {
                     # payment form submission
                     my %prices = map { $_->{price_id} => $_ } @$prices;
-                    my ($amount, $currency);
-                    if ($Request{args}{amount}) {
-                        $amount   = $Request{args}{amount};
-                        $currency = $Request{args}{currency};
-                    }
-                    else {
-                        $amount   = $prices{$Request{args}{price}}{amount};
-                        $currency = $prices{$Request{args}{price}}{currency};
-                    }
+                    my $amount = $Request{args}{amount} || $prices{$Request{args}{price}}{amount};
+
                     # create an order row for this payment
                     Act::Order->create(
                         user_id  => $user->user_id,
                         conf_id  => $Request{conference},
                         amount   => $amount,
-                        currency => $currency,
+                        currency => $Config->payment_currency,
                         means    => $Request{args}{means},
                         status   => 'paid',
                     );
@@ -54,6 +47,7 @@ sub handler
                     user   => $user,
                     means  => $means,
                     prices => $prices,
+                    currency => $Config->payment_currency,
                 );
                 $template->process('payment/payment');
                 return;

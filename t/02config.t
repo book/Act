@@ -32,6 +32,7 @@ my @conf_simple = qw(
     talks_end_date
     payment_open
     payment_type
+    payment_prices
 );
 
 BEGIN { use_ok('Act::Config') }
@@ -49,19 +50,40 @@ for my $conf (keys %{$Config->conferences}) {
     _test_config($cfg, $conf);
     # conference-specific
     ok(defined $cfg->$_, "$conf $_") for @conf_simple;
-    isa_ok($cfg->talks_durations, 'HASH', "talks_durations");
-    isa_ok($cfg->uris, 'HASH', "uris");
+    isa_ok($cfg->talks_durations, 'HASH', "$conf talks_durations");
+    isa_ok($cfg->uris, 'HASH', "$conf uris");
     like($_, qr/^\d+$/, "$conf talks_durations $_") for keys %{$cfg->talks_durations};
     # languages
     isa_ok($cfg->languages, 'HASH', "$conf general_languages");
     ok($cfg->languages->{$cfg->general_default_language}, "$conf default_language is in languages");
     for my $lang (sort keys %{$cfg->languages}) {
-        ok($Languages{$lang}, "$lang is in %Languages");
+        ok($Languages{$lang}, "$conf $lang is in %Languages");
     }
     # names
-    isa_ok($cfg->name, 'HASH', 'name');
-    ok($cfg->name->{$_}, "name $_")
+    isa_ok($cfg->name, 'HASH', "$conf name");
+    ok($cfg->name->{$_}, "$conf name $_")
         for keys %{$cfg->languages};
+    # prices
+    my $oldstyle;
+    my $errhandler = $cfg->{STATE}->_ehandler();
+    $cfg->{STATE}->_ehandler( sub { $oldstyle = 1 } );
+    $cfg->payment_currency;
+    $cfg->{STATE}->_ehandler($errhandler);
+
+    ok(!$oldstyle, "$conf open payment is new style")
+        if $cfg->payment_open;
+    for my $i (1 .. $cfg->payment_prices) {
+        my $key = "price$i";
+        ok($cfg->get($key . '_amount'), "$conf $key amount");
+        if ($oldstyle) {
+            ok($cfg->get($key . "_$_"), "$conf $key $_")
+                for qw(type currency);
+        }
+        else {
+            ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
+                for keys %{$cfg->languages};
+        }
+    }
 }
 # uri <=> conf mapping
 while (my ($uri, $conf) = each %{$Config->uris}) {
