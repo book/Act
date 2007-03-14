@@ -60,7 +60,7 @@ sub _make_link
 
     my $prefix = '';
     if ($u->scheme) {
-        if ($u->scheme eq 'talk') {
+        if ($u->scheme eq 'talk' or $u->scheme eq 'user') {
             my $chunks = Act::Abstract::chunked($link);
             my $n = $formatter->new_chunk($chunks);
             return "{% expand(chunks.$n) %}\n";

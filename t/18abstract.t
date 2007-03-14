@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -6,28 +6,31 @@ use Act::User;
 use Act::Abstract;
 use DateTime;
 
-# load some users
-db_add_users();
+# create user and talk
 $Request{conference} = 'conf'; # needed by has_talk
+db_add_users();
+db_add_talks();
+my $user = Act::User->new(login => 'echo');
+my $talk = Act::Talk->new(title => 'My talk');
 
-my @users = map Act::User->new(login => $_), qw(book echo);
-my @talks = map Act::Talk->create(
-   title     => "test $_",
-   user_id   => $users[$_]->user_id,
-   conf_id   => 'conf',
-   duration  => 5,
-   lightning => 'true',
-   accepted  => '0',
-   confirmed => 'false',
-   datetime  => DateTime->new( year => 2004, month => 10, day => 16, hour => 16, minute => 0),
-), 0..$#users;
+my $uid = $user->user_id;
+my $tid = $talk->talk_id;
 
-for my $talk (@talks) {
-    my $chunked =  Act::Abstract::chunked('talk:' . $talk->talk_id);
-    isa_ok($chunked, 'ARRAY');
-    my ($htext, $htalk) = @$chunked;
-    isa_ok($htext, 'HASH');
-    isa_ok($htalk, 'HASH');
-    isa_ok($htalk->{talk}, 'Act::Talk');
-    is($htalk->{talk}->talk_id, $talk->talk_id);
+my @tests = (
+  # name      input         expected
+  [ 'empty',        '',                  [ ]                                                           ],
+  [ 'string',       'foo',               [ { text => 'foo' } ]                                         ],
+  [ 'user',         "user:$uid",         [ { text => '' }, { user => $user } ]                         ],
+  [ 'talk',         "talk:$tid",         [ { text => '' }, { talk => $talk, user => $user } ]          ],
+  [ 'mixed',        "foo user:$uid bar", [ { text => 'foo ' }, { user => $user }, { text => ' bar' } ] ],
+  [ 'unknown user', 'user:9999',         [ { text => '' }, { text => 'user:9999' } ]                   ],
+  [ 'unknown talk', 'talk:9999',         [ { text => '' }, { text => 'talk:9999' } ]                   ],
+);
+
+plan tests => scalar(@tests);
+
+for my $test (@tests) {
+    my ($name, $input, $expected) = @$test;
+    my $chunked = Act::Abstract::chunked($input);
+    is_deeply($chunked, $expected, $name);
 }
