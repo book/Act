@@ -27,17 +27,20 @@ sub handler {
             };
         }
         if ($p) {
-            $pm->{$p}{count}++ || do {
-                $pm->{$p}{name}      = $p;
-                $pm->{$p}{committed} = 0;
-            };
+            for my $g (split(/\s*[^\w. ]\s*/, $p)) {
+                my $lg = lc $g;
+                $pm->{$lg}{count}++ || do {
+                    $pm->{$lg}{name}      = $g;
+                    $pm->{$lg}{committed} = 0;
+                };
+                $pm->{$lg}{committed}++ if $u->committed;
+            }
         }
 
         # commited info
         if ( $u->committed ) {
             $countries->{$c}{committed}++;
             $towns->{$c}{$t}{committed}++ if $t;
-            $pm->{$p}{committed}++        if $p;
             $stats->{committed}++;
         }
     }

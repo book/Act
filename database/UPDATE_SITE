@@ -1,6 +1,2 @@
 -- Stuff to do when upgrading the production server
 
-ALTER TABLE users RENAME gpg_pub_key TO gpg_key_id;
-UPDATE users SET gpg_key_id = NULL;
-
-alter table twostep add column email text not null;
