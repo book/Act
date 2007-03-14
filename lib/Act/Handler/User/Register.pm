@@ -165,6 +165,7 @@ sub handler
     # display the registration form
     $template->variables(
         countries => Act::Country::CountryNames(),
+        topten    => Act::Country::TopTen(),
         %$fields,
         duplicates => $duplicates,
         end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,

@@ -137,6 +137,7 @@ sub handler
     # display the registration form
     $template->variables(
         countries => Act::Country::CountryNames(),
+        topten    => Act::Country::TopTen(),
         %$fields,
         duplicates => $duplicates,
         errors     => \@errors,
