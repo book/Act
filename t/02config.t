@@ -44,6 +44,7 @@ _test_config($Config, 'global');
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");
 isa_ok($Config->uris, 'HASH', "uris");
+my %payment_types;
 for my $conf (keys %{$Config->conferences}) {
     my $cfg = Act::Config::get_config($conf);
     # global config may be overridden
@@ -84,11 +85,20 @@ for my $conf (keys %{$Config->conferences}) {
                 for keys %{$cfg->languages};
         }
     }
+    # remember payment type
+    $payment_types{$cfg->payment_type} = 1;
 }
 # uri <=> conf mapping
 while (my ($uri, $conf) = each %{$Config->uris}) {
     like($uri, qr(^[^/]+$), "uri $uri");
     ok(exists $Config->conferences->{$conf}, "$uri points to existing conf $conf");
+}
+# payment types
+for my $type (sort keys %payment_types) {
+    my $prefix = 'payment_type_' . $type . '_';
+    my $plugin_type = $Config->get($prefix . 'plugin');
+    ok($plugin_type, "payment_type_$type: plugin type = $plugin_type");
+    ok($Config->get($prefix . 'notify_bcc'), "payment_type_$type notify_bcc");
 }
 
 sub _test_config
