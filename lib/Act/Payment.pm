@@ -4,6 +4,8 @@ use Act::Config;
 use Act::I18N;
 use Act::Util;
 
+my @MEANS = qw(CHQ CASH ONLINE);
+
 # load appropriate payment plugin
 sub load_plugin
 {
@@ -50,14 +52,7 @@ sub get_prices
 sub get_means
 {
     my $lh = Act::I18N->get_handle($Request{language});
-    my %means;
-    my $lexicon = $lh->lexicon();
-    while (my ($k, $v) = each %$lexicon) {
-        if ($k =~ /^payment_means_(.*)$/) {
-            $means{$1} = $v;
-        }
-    }
-    return \%means;
+    return { map { $_ => $lh->maketext("payment_means_$_") } @MEANS };
 }
 
 1;

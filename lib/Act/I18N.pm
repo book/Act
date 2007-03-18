@@ -16,14 +16,24 @@ unless ($^C) {
     });
 }
 
-sub lexicon
+sub init
 {
     my $self = shift;
-
-    no strict 'refs';
-    my $pkg = ref $self;
-    return \%{"$pkg\::Lexicon"};
+    $self->SUPER::init();
+    $self->fail_with('failure_handler');
 }
+
+sub failure_handler
+{
+    my ($self, $key, $params) = @_;
+
+    if ($Request{language} ne $Config->general_default_language) {
+        my $lh = Act::I18N->get_handle($Config->general_default_language);
+        return $lh->maketext($key, $params);
+    }
+    return 'TRANSLATEME';
+}
+
 1;
 
 __END__
@@ -46,12 +56,6 @@ Act::I18N - internationalization class
   
   # Get a translated string
   my $xlated = $lh->maketext('(a string to translate)');
-  
-  # Iterate over available strings
-  my $lexicon = $lh->lexicon();
-  while (my ($id, $string) = each %$lexicon) {
-    ...
-  }
 
 =head1 DESCRIPTION
 
