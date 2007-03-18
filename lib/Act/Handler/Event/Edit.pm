@@ -123,8 +123,7 @@ sub handler {
     $template->variables(
         dates => \@dates, defined $event ? ( %$event ) : ( %$fields ),
         rooms => { %{ $Config->rooms },
-                   venue => Act::Util::get_translation( 'rooms', 'name', 'venue' ),
-                   out   => Act::Util::get_translation( 'rooms', 'name', 'out' ),
+                   map { $_ => localize("room_$_") } qw(venue out),
                  },
     );
     $template->process('event/add');

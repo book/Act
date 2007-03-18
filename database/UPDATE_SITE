@@ -3,3 +3,4 @@
 DELETE FROM translations WHERE tbl = 'countries';
 DELETE FROM translations WHERE tbl = 'payment';
 DELETE FROM translations WHERE tbl = 'users';
+DELETE FROM translations WHERE tbl = 'rooms';

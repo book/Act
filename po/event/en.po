@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: room_out
+msgid "room_out"
+msgstr "Outside"
+
+#: room_venue
+msgid "room_venue"
+msgstr "Venue"
