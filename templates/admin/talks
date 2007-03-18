@@ -7,6 +7,7 @@
   <pt>Palestras &amp; eventos</pt>
   <de>TRANSLATEME</de>
   <hu>TRANSLATEME</hu>
+  <nl>Presentaties</nl>
  </t>
 </h2>
 <ul>
@@ -19,6 +20,7 @@
      <pt>Importar de iCal</pt>
      <de>aus iCal importieren</de>
      <hu>iCal importálás</hu>
+     <nl>iCal import</nl>
     </t>
    </a>
  </li>
@@ -31,6 +33,7 @@
      <pt>Eventos</pt>
      <de>Events</de>
      <hu>Események</hu>
+     <nl>Evenementen</nl>
     </t>
    </a>
  </li>
@@ -43,6 +46,7 @@
      <pt>Submeter um novo evento</pt>
      <de>Event anmelden</de>
      <hu>Új esemény beküldése</hu>
+     <nl>Een evenement voorleggen</nl>
     </t>
    </a>
  </li>

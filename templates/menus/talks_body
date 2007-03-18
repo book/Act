@@ -8,6 +8,7 @@
      <pt>Programa</pt>
      <de>Programm</de>
      <hu>Idõbeosztás</hu>
+     <nl>Programma</nl>
     </t>
    </a>
    [% END %]
@@ -20,6 +21,7 @@
      <pt>Exportar para iCal</pt>
      <de>als iCal exportieren</de>
      <hu>iCal exportálás</hu>
+     <nl>iCal export</nl>
     </t>
    </a>
    [% END %]
@@ -34,6 +36,7 @@
      <pt>Importar de iCal</pt>
      <de>aus iCal importieren</de>
      <hu>iCal importálás</hu>
+     <nl>iCal import</nl>
     </t>
    </a>
    [% END %]
@@ -48,6 +51,7 @@
      <pt>Propôr apresentação</pt>
      <de>Vortrag einreichen</de>
      <hu>Elõadásra jelentkezés</hu>
+     <nl>Een presentatie voorleggen</nl>
     </t>
    </a>
    [% END %]

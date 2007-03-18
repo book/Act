@@ -1,13 +1,13 @@
 <!-- money menu -->
 [% IF global.request.user.is_treasurer %]
    [% WRAPPER menus/section %]
-   <t><en>Treasurer</en><fr>Trésorier</fr><it>Tesoriere</it><pt>Tesoureiro</pt><de>Kassier</de><hu>Pénztár</hu></t>
+   <t><en>Treasurer</en><fr>Trésorier</fr><it>Tesoriere</it><pt>Tesoureiro</pt><de>Kassier</de><hu>Pénztár</hu><nl>Penningmeester</nl></t>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t></a>
+   <a href="[% make_uri('payments') %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu><nl>Betalingen</nl></t></a>
    [% END %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('csv/payments')
-   %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu></t> (CSV)</a>
+   %]"><t><fr>Paiements</fr><en>Payments</en><it>Pagamenti</it><pt>Pagamentos</pt><de>Zahlungen</de><hu>Fizetések</hu><nl>Betalingen</nl></t> (CSV)</a>
    [% END %]
 [% END %]

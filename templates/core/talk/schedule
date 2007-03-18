@@ -9,24 +9,26 @@
  <pt>O programa ainda está em construção.</pt>
  <de>Das Programm ist noch in Arbeit.</de>
  <hu>A program még nincs meghatározva.</hu>
+ <nl>Het programmarooster is nog in ontwerp.</nl>
 </t>
 [% ELSE %]
 [% IF todo.size %]
 <p>
  <t>
-  <fr>Les date et lieu de ces présentations n'ont pas encore été décidés.</fr>
+  <fr>Les dates et lieu de ces présentations n'ont pas encore été décidés.</fr>
   <en>The time and place of the following talks haven't been decided yet.</en>
   <pt>TRANSLATEME</pt>
   <it>Le date e i luoghi dei seguenti interventi non sono ancora stati decisi.</it>
   <de>TRANSLATEME</de>
   <hu>A következõ elõadások helye és ideje még nem lett eldöntve.</hu>
+  <nl>De datums en plaatsen voor deze presentaties werden nog niet vastgelegd.</nl>
  </t>
 </p>
 <table>
  <tr>
-  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de><hu>Elõadó</hu></t></th>
-  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de><hu>Elõadás címe</hu></t></th>
-  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu></t></th>
+  <th><t><en>Speaker</en><fr>Présentateur</fr><pt>Orador</pt><it>Oratore</it><de>Vortragende/r</de><hu>Elõadó</hu><nl>Spreker</nl></t></th>
+  <th><t><en>Talk title</en><fr>Présentation</fr><pt>Título</pt><it>Intervento</it><de>Titel</de><hu>Elõadás címe</hu><nl>Titel</nl></t></th>
+  <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu><nl>Duur</nl></t></th>
  </tr>
  [% FOREACH t IN todo %]
  <tr>
@@ -36,7 +38,7 @@
   <td>[% talk_confirmed_link(t) %]
       [% talk_modify_link(t) %]
   </td>
-  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
+  <td>[% t.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu><nl>minuten</nl></t>
   </td>
  </tr>
  [% END %]
@@ -51,6 +53,7 @@
  <pt>As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores.</pt>
  <de>Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt.</de>
  <hu>A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette.</hu>
+ <nl>De presentaties in het <b>vet</b> werden nog niet bevestigd door hun auteurs.</nl>
 </t>
 </p>
 [% FOREACH d IN table.keys.sort %]
@@ -60,7 +63,7 @@
 <table border="0">
  <tr class="header">
   <th>
-   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Zeit</de><hu>Idõ</hu></t>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Zeit</de><hu>Idõ</hu><nl>Uur</nl></t>
   </th>
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
@@ -70,6 +73,7 @@
        <it>Stanza [% global.config.rooms.$r %]</it>
        <de>Raum: [% global.config.rooms.$r %]</de>
        <hu>Helyszín: [% global.config.rooms.$r %]</hu>
+       <nl>Zaal [% global.config.rooms.$r %]</nl>
        </t></th>
   [% END %]
  </tr>

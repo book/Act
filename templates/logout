@@ -6,6 +6,7 @@
        pt => 'Sair'
        de => 'Logout',
        hu => 'Kijelentkezés',
+       nl => 'Afmelden'
 }
 %]
 <center>
@@ -30,6 +31,9 @@
  <hu>
    A kijelentkezés megtörtént, a böngészõ süti törlésre került.
  </hu>
+ <nl>
+   U werd afgemeld en de cookie werd verwijderd van Uw browser.
+ </nl>
 </t>
 </font>
 

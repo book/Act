@@ -3,7 +3,7 @@
 <form method="POST" action="[% global.request.r.uri %]">
 <table>
  <tr>
-   <td><t><en>Name</en><fr>Nom</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><hu>TRANSLATEME</hu><pt>TRANSLATEME</pt></t></td>
+   <td><t><en>Name</en><fr>Nom</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><hu>TRANSLATEME</hu><pt>TRANSLATEME</pt><nl>Naam</nl></t></td>
    [% FOREACH r = right_list %]
    <td>[% r %]</td>
    [% END %]
@@ -30,7 +30,7 @@
 </table>
 
 <input type="submit" name="ok"
-   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de><hu>Elk√ºld</hu></t>" />
+   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de><hu>Elk¸ld</hu><nl>Verzenden</nl></t>" />
 
 </form>
 
@@ -41,9 +41,10 @@
   <fr>Les droits existants sont&nbsp;:</fr>
   <en>The recognised rights are:</en>
   <it>I permessi possibili sono:</it>
-  <pt>Os direitos dispon√≠veis s√£o:</pt>
+  <pt>Os direitos disponÌveis s„o:</pt>
   <de>Rechte sind:</de>
-  <hu>A rendelkez√©sre √°ll√≥ jogok:</hu>
+  <hu>A rendelkezÈsre ·llÛ jogok:</hu>
+  <nl>De bestaande rechten zijn:</nl>
  </t>
 </p>
 <ul>
@@ -51,36 +52,40 @@
   <t><fr>Organisateur</fr>
      <en>Organiser</en>
      <it>Organizzatore</it>
-     <pt>Organiza√ß√£o</pt>
+     <pt>OrganizaÁ„o</pt>
      <de>Organisator</de>
-     <hu>Szervez√µ</hu>
+     <hu>Szervezı</hu>
+     <nl>Organisator</nl>
   </t>
  </li>
  <li><tt>orga</tt> -
-  <t><fr>Organisateur (gestion des pr√©sentations)</fr>
+  <t><fr>Organisateur (gestion des prÈsentations)</fr>
      <en>Organiser (talks management)</en>
      <it>Organizzatore (gestione interventi)</it>
-     <pt>Organiza√ß√£o (gest√£o de apresenta√ß√µes)</pt>
-     <de>Organisator (Vortr√§ge verwalten)</de>
-     <hu>Szervez√µ (el√µad√°s kezel√µ)</hu>
+     <pt>OrganizaÁ„o (gest„o de apresentaÁıes)</pt>
+     <de>Organisator (Vortr‰ge verwalten)</de>
+     <hu>Szervezı (elıad·s kezelı)</hu>
+     <nl>Organisator (presentaties management)</nl>
   </t>
  </li>
  <li><tt>treasurer</tt> -
-  <t><fr>Tr√©sorier (gestion des paiements)</fr>
+  <t><fr>TrÈsorier (gestion des paiements)</fr>
      <en>Treasurer (payment management)</en>
      <it>Tesoriere (gestione pagamenti)</it>
-     <pt>Tesoureiro (gest√£o de pagamentos)</pt>
+     <pt>Tesoureiro (gest„o de pagamentos)</pt>
      <de>Kassier (Zahlungsmanagement)</de>
-     <hu>P√©nzt√°ros (fizet√©s kezel√µ)</hu>
+     <hu>PÈnzt·ros (fizetÈs kezelı)</hu>
+     <nl>Penningmeester (Betalingsmanagement)</nl>
   </t>
  </li>
  <li><tt>admin</tt> -
   <t><fr>Administrateur (gestion des droits)</fr>
      <en>Administrator (rights management)</en>
      <it>Amministratore (gestione permessi)</it>
-     <pt>Administrador (gest√£o de permiss√µes)</pt>
+     <pt>Administrador (gest„o de permissıes)</pt>
      <de>Administrator (Rechtemanagement)</de>
-     <hu>Adminisztr√°tor (jogosults√°g kezel√µ)</en>
+     <hu>Adminisztr·tor (jogosults·g kezelı)</en>
+     <nl>Administrator (rechtenmanagement)</nl>
   </t>
  </li>
 </ul>

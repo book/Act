@@ -7,6 +7,7 @@
   <pt>Utilizadores</pt>
   <de>UserInnen</de>
   <hu>Felhasználók</hu>
+  <nl>Gebruikers</nl>
  </t>
 </h2>
 <ul>
@@ -19,6 +20,7 @@
   <pt>Exportar CSV</pt>
   <de>CSV exportieren</de>
   <hu>CSV exportálás</hu>
+  <nl>CSV export</nl>
  </t>
 </a>
  </li>
@@ -31,6 +33,7 @@
   <pt>Registar um novo utilizador</pt>
   <de>TRANSLATEME</de>
   <hu>TRANSLATEME</hu>
+  <nl>Een nieuwe gebruiker registreren</nl>
  </t>
 </a>
  </li>

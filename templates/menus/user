@@ -4,25 +4,25 @@
    <a href="[% make_uri_info('user', global.request.user.user_id) %]">[% global.request.user.login %]</a>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en><it>Uscita</it><pt>Sair</pt><de>Logout</de><hu>Kijelentkezés</hu></t></a>
+   <a href="[% make_uri('logout') %]"><t><fr>Déconnexion</fr><en>Logout</en><it>Uscita</it><pt>Sair</pt><de>Logout</de><hu>Kijelentkezés</hu><nl>Afmelden</nl></t></a>
    [% END %]
    [% UNLESS global.request.user.participation %]
      [% WRAPPER menus/item %]
-     <a href="[% make_uri('register') %]"><t><fr>S'inscrire</fr><en>Register</en><it>Iscrizione</it><pt>Registar</pt><de>Anmelden</de><hu>Regisztráció</hu></t></a>
+     <a href="[% make_uri('register') %]"><t><fr>S'inscrire</fr><en>Register</en><it>Iscrizione</it><pt>Registar</pt><de>Anmelden</de><hu>Regisztráció</hu><nl>Aanmelden</nl></t></a>
      [% END %]
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en><it>Modifica profilo</it><pt>Modificar perfil</pt><de>Profil bearbeiten</de><hu>Adatok</hu></t></a>
+   <a href="[% make_uri('main') %]"><t><fr>Modifier profil</fr><en>Edit profile</en><it>Modifica profilo</it><pt>Modificar perfil</pt><de>Profil bearbeiten</de><hu>Adatok</hu><nl>Profiel wijzigen</nl></t></a>
    [% END %]
 [% ELSE %]
    [% WRAPPER menus/section %]
-   <t><fr>Inscription</fr><en>Registration</en><it>Iscrizione</it><pt>Inscrição</pt><de>Anmeldung</de><hu>Regisztráció</hu></t>
+   <t><fr>Inscription</fr><en>Registration</en><it>Iscrizione</it><pt>Inscrição</pt><de>Anmeldung</de><hu>Regisztráció</hu><nl>Aanmelding</nl></t>
    [% END %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('main') %]">Login</a>
    [% END %]
    [% WRAPPER menus/item %]
-   <a href="[% make_uri('register') %]"><t><fr>Nouvel utilisateur</fr><en>New user</en><it>Nuovo utente</it><pt>Novo utilizador</pt><de>Neue/r User/in</de><hu>Új felhasználó</hu></t></a>
+   <a href="[% make_uri('register') %]"><t><fr>Nouvel utilisateur</fr><en>New user</en><it>Nuovo utente</it><pt>Novo utilizador</pt><de>Neue/r User/in</de><hu>Új felhasználó</hu><nl>Nieuwe gebruiker</nl></t></a>
    [% END %]
 [% END %]
 [% FOREACH lang = global.languages %]
@@ -32,6 +32,7 @@
             CASE 'en'; "Click here for an English version of this site";
             CASE 'fr'; "Cliquer ici pour une version française de ce site";
             CASE 'hu'; "Ide kattintva az oldal magyar verziója érhetõ el";
+            CASE 'nl'; "Klik hier voor een nederlandstalige versie van deze site";
         END %]">&#x2192;&nbsp;[% lang.name %]</a>
    [% END %]</span>
 [% END %]

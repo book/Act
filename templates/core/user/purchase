@@ -25,12 +25,15 @@
    <hu>
     [% global.conference.name %] jegy.
    </hu>
+   <nl>
+    Toegangskaart voor [% global.conference.name %].
+   </nl>
   </t>
  </td>
 </tr>
 <tr>
    <td align="right">
-      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de><hu>Ár</hu></t>:
+      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de><hu>Ár</hu><nl>Prijs</nl></t>:
    </td>
    <td>&nbsp;</td>
    <td>
@@ -43,7 +46,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de><hu>Azonnali megvétel</hu></t>" />
+      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de><hu>Azonnali megvétel</hu><nl>Kopen</nl></t>" />
    </td>
 </tr>
 </table>
@@ -94,6 +97,12 @@
    hozzá semmilyen formában és módon ezekhez a fizetési információkhoz.</b>
    Csak a pénz érkezik meg a folyamat végén... <tt>;-)</tt>
   </hu>
+  <nl>
+   We merken op dat alles wat Uw bankrekening en kredietkaart betreft
+   door de bank behandeld wordt. <b>Op geen enkel moment hebben wij
+   toegang tot Uw bankgegevens.</b> Wij beperken ons tot het ontvangen
+   van het geld. <tt>;-)</tt>
+  </nl>
  </t>
 </p>
 
