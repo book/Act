@@ -7,6 +7,7 @@ use Apache::Request;
 use DBI;
 
 use Act::Config;
+use Act::I18N;
 use Act::User;
 use Act::Util;
 

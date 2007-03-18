@@ -2,7 +2,6 @@
 
 use strict;
 use Test::More;
-use DBI;
 use Act::Config;
 use Act::Country;
 
