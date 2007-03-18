@@ -1,23 +1,31 @@
 package Act::Country;
 use strict;
 use Act::Config;
-use Act::Util;
+use Act::I18N;
 
 sub CountryNames
 {
-   my $c = Act::Util::get_translations('countries', 'iso');
-   return
+    my $lh = Act::I18N->get_handle($Request{language});
+    my %names;
+    my $lexicon = $lh->lexicon();
+    while (my ($k, $v) = each %$lexicon) {
+        if ($k =~ /^country_(.*)$/) {
+            $names{$1} = $v;
+        }
+    }
+    return
      [
       sort { $a->{name} cmp $b->{name} }
-      map {{ iso => $_, name => $c->{$_} }}
-      keys %$c
+      map {{ iso => $_, name => $names{$_} }}
+      keys %names
      ];
 }
 
 sub CountryName
 {
    my $code = shift;
-   return Act::Util::get_translation('countries', 'iso', $code) || $code;
+   my $lh = Act::I18N->get_handle($Request{language});
+   return $lh->maketext("country_$code") || $code;
 }
 
 sub TopTen

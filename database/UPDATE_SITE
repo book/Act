@@ -2,3 +2,4 @@
 
 DELETE FROM translations WHERE tbl = 'prices';
 DROP TABLE prices;
+DELETE FROM translations WHERE tbl = 'countries';

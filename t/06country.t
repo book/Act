@@ -6,13 +6,6 @@ use DBI;
 use Act::Config;
 use Act::Country;
 
-$Request{dbh} = DBI->connect(
-    $Config->database_dsn,
-    $Config->database_user,
-    $Config->database_passwd,
-);
-$Config->set(default_language => 'en');
-
 # get list of currently needed languages
 my %languages;
 for my $conf (keys %{$Config->conferences}) {
@@ -29,16 +22,17 @@ while (<DATA>) {
     my ($name, $code) = split /;/;
     $expected{lc $code} = $name;
 }
-
 # countries from our database
 for my $language (@languages) {
     $Request{language} = $language;
+
     my $c = Act::Country::CountryNames;
     isa_ok($c, 'ARRAY');
     for my $p (@$c) {
         isa_ok($p, 'HASH');
-        like( $p->{iso}, qr/^[a-z]{2}$/, "$p->{name} iso" );
-        ok($p->{name}, "$p->{name} $language");
+        like( $p->{iso}, qr/^[a-z]{2}$/, "$p->{name} iso $p->{iso}" );
+        ok($p->{name}, "$p->{iso} $p->{name} $language");
+        is(Act::Country::CountryName($p->{iso}), $p->{name}, "$p->{iso} $p->{name} $language CountryName");
         if ($p->{iso} &&!$seen{$p->{iso}}++) {
             ok(exists $expected{$p->{iso}}, "$p->{iso} is in iso-3166");
         }
