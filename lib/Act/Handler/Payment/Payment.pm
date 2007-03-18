@@ -20,7 +20,7 @@ sub handler
             );
             unless ($user->has_paid) {
                 # payment means and prices
-                my $means = Act::Util::get_translations('payment', 'name');
+                my $means = Act::Payment::get_means();
                 delete $means->{ONLINE};
                 my $prices = Act::Payment::get_prices;
 

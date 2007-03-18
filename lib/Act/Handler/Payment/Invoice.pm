@@ -60,7 +60,7 @@ sub handler
     }
 
     # process the template
-    $order->{means} = Act::Util::get_translation('payment', 'name', $order->means);
+    $order->{means} = localize('payment_means_' . $order->means);
     $template->variables(
         order   => $order,
         invoice => $invoice,

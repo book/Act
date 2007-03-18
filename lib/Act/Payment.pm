@@ -1,6 +1,7 @@
 package Act::Payment;
 use strict;
 use Act::Config;
+use Act::I18N;
 use Act::Util;
 
 # load appropriate payment plugin
@@ -44,6 +45,19 @@ sub get_prices
         };
     }
     return \@prices;
+}
+
+sub get_means
+{
+    my $lh = Act::I18N->get_handle($Request{language});
+    my %means;
+    my $lexicon = $lh->lexicon();
+    while (my ($k, $v) = each %$lexicon) {
+        if ($k =~ /^payment_means_(.*)$/) {
+            $means{$1} = $v;
+        }
+    }
+    return \%means;
 }
 
 1;
