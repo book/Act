@@ -34,6 +34,11 @@ Act::I18N - internationalization class
 
 =head1 SYNOPSIS
 
+  # In a handler, get a translated string
+  use Act::Util;
+  my $xlated = localize('string');
+  
+  ### low-level access
   use Act::I18N;
   
   # Get a localization handle

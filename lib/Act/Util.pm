@@ -13,7 +13,7 @@ use Act::Config;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_uri_info self_uri );
+@EXPORT = qw(make_uri make_uri_info self_uri localize);
 
 # utf8 to latin1 converter
 my $utf8_latin1 = Text::Iconv->new('UTF-8', 'ISO-8859-1');
@@ -189,6 +189,11 @@ sub date_format
     return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
 
+# translate a string
+sub localize
+{
+    return $Request{loc}->maketext($_[0]);
+}
 1;
 
 __END__
@@ -225,6 +230,10 @@ with an optional query string built from I<%params>.
 
 Generates a password. Returns a two-element list with the password in
 clear-text and encrypted forms.
+
+=item localize
+
+Translates a string according to the current request language.
 
 =back
 
