@@ -9,7 +9,9 @@ use Act::Config;
 
 unless ($^C) {
     Locale::Maketext::Lexicon->import({
-        '*' => [ Gettext => catfile($Config->home, 'po', '*.[pm]o') ],
+        '*' => [ Gettext => catfile($Config->home, 'po', '*.[pm]o'),
+                 Gettext => catfile($Config->home, 'po', '*', '*.[pm]o'),
+               ],
         _auto   => 0,
         _decode => 0,
         _style  => 'gettext',
