@@ -980,3 +980,35 @@ msgstr "Zambia"
 msgid "country_zw"
 msgstr "Zimbabue"
 
+#: payment_means_CHQ
+msgid "payment_means_CHQ"
+msgstr "Cheque"
+
+#: payment_means_CASH
+msgid "payment_means_CASH"
+msgstr "Cash"
+
+#: payment_means_ONLINE
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+#: room_out
+msgid "room_out"
+msgstr "Outside"
+
+#: room_venue
+msgid "room_venue"
+msgstr "Venue"
+
+#: civility_1
+msgid "civility_1"
+msgstr "Mr."
+
+#: civility_2
+msgid "civility_2"
+msgstr "Mrs."
+
+#: civility_3
+msgid "civility_3"
+msgstr "Ms."
+
