@@ -11,7 +11,7 @@ use Template::Multilingual::Parser;
 
 use Act::Config;
 
-use constant LANGUAGES     => qw(de en fr hu it pt);
+use constant LANGUAGES     => qw(de en fr hu it pt nl);
 use constant TEMPLATE_DIRS => qw(static templates);
 
 # global template parser object
