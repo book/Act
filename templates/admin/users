@@ -6,7 +6,7 @@
   <it>Utenti</it>
   <pt>Utilizadores</pt>
   <de>UserInnen</de>
-  <hu>FelhasznÃ¡lÃ³k</hu>
+  <hu>Felhasználók</hu>
  </t>
 </h2>
 <ul>
@@ -18,7 +18,7 @@
   <it>Esporta CSV</it>
   <pt>Exportar CSV</pt>
   <de>CSV exportieren</de>
-  <hu>CSV exportÃ¡lÃ¡s</hu>
+  <hu>CSV exportálás</hu>
  </t>
 </a>
  </li>
