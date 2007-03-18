@@ -2,9 +2,9 @@ package Act::Template;
 
 use strict;
 use Carp;
-use Template::Multilingual::Parser;
 
 use Act::Config;
+use Act::Template::Parser;
 use Act::Util;
 
 use base qw(Template);
@@ -12,6 +12,9 @@ use base qw(Template);
 use constant TEMPLATE_DIRS => qw(static templates);
 
 my %templates;
+my %filters = (
+    loc => sub { localize($_[0]) },
+);
 
 sub new
 {
@@ -23,6 +26,9 @@ sub new
     return $templates{$class}{$conf} if exists $templates{$class}{$conf};
 
     # otherwise create one
+    $opts{FILTERS} ||= {};
+    @{$opts{FILTERS}}{keys %filters} = values %filters;
+
     my $self = $class->SUPER::new(%opts);
     $templates{$class}{$conf} = $self;
     return $self;
@@ -33,7 +39,7 @@ sub _init
 
     # default options
     $options->{LANGUAGE_VAR} = 'global.request.language';
-    $options->{PARSER} = Template::Multilingual::Parser->new($options);
+    $options->{PARSER} = Act::Template::Parser->new($options);
     $options->{PLUGIN_BASE} = 'Act::Plugin';
     unless ($options->{INCLUDE_PATH}) {
         my @path;
