@@ -26,7 +26,7 @@ sub handler
                            means  => 'ONLINE'
                           );
             # send email notification
-            _notify($order);
+            _notify($order, $plugin);
         }
     }
     $plugin->create_response($verified, $order);
@@ -34,7 +34,7 @@ sub handler
 
 sub _notify
 {
-    my $order = shift;
+    my ($order, $plugin) = @_;
 
     # remember, we aren't dispatched by Act::Dispatcher,
     # so load appropriate conference configuration
@@ -54,7 +54,7 @@ sub _notify
     my %args = (
         from    => $Config->email_sender_address,
         to      => $Request{user}->email,
-        bcc     => [ $Config->payment_notify_bcc ],
+        bcc     => [ split /\s*,\s*/, $plugin->_type_config('notify_bcc') ],
         xheaders => { 'X-Act' => "payment confirmation $Request{conference} " . $order->order_id },
         %output,
     );

@@ -12,11 +12,6 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'de', 'Scheck' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'de', 'Barzahlung' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'de', 'Online' );
 
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'de', 'Normal' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'de', 'Ermässigt' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'de', 'Business' );
-
 
 /** ENGLISH */
 /* civility */
@@ -32,12 +27,6 @@ INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'en', 'Venue' );
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'en', 'Cheque' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'en', 'Cash' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'en', 'Online' );
-
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'en', 'Regular price' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'en', 'Reduced price' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'en', 'Business price' );
-INSERT INTO translations VALUES ('prices', 'name', 'EARLYBIRD','en', 'Early bird' );
 
 
 /** FRENCH */
@@ -55,11 +44,6 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'fr', 'Chèque' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'fr', 'Espèces' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'fr', 'En ligne' );
 
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'fr', 'Tarif normal' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'fr', 'Tarif réduit' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'fr', 'Tarif sociétés' );
-
 
 /** PORTUGUESE */
 /* civility */
@@ -76,11 +60,6 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'pt', 'Cheque' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'pt', 'Dinheiro' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'pt', 'Online' );
 
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'pt', 'normal' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'pt', 'reduzido' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'pt', 'profissional' );
-
 /** HUNGARIAN **/
 /* civility */
 INSERT INTO translations VALUES('users', 'civility', 1, 'hu', 'Mr.');
@@ -96,11 +75,6 @@ INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'hu', 'Csekk' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'hu', 'Kézpénz' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'hu', 'Online' );
 
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'hu', 'Belépo díj' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'hu', 'Csökkentett belépo díj' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'hu', 'Vállalati belépo díj' );
-
 /** ITALIAN **/
 /* civility */
 INSERT INTO translations VALUES('users', 'civility', 1, 'it', 'Sig.');
@@ -115,11 +89,6 @@ INSERT INTO translations VALUES ('rooms', 'name', 'venue', 'it', 'Aree comuni' )
 INSERT INTO translations VALUES ('payment', 'name', 'CHQ',    'it', 'Assegno' );
 INSERT INTO translations VALUES ('payment', 'name', 'CASH',   'it', 'Contanti' );
 INSERT INTO translations VALUES ('payment', 'name', 'ONLINE', 'it', 'On-line' );
-
-/* price types */
-INSERT INTO translations VALUES ('prices', 'name', 'NORMAL',   'it', 'intero' );
-INSERT INTO translations VALUES ('prices', 'name', 'REDUCED',  'it', 'ridotto' );
-INSERT INTO translations VALUES ('prices', 'name', 'BUSINESS', 'it', 'per aziende' );
 
 /*****************************************************************************************/
 /* ISO-3166 country codes (http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt) */

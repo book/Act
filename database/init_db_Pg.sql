@@ -148,16 +148,6 @@ CREATE TABLE tracks
 );
 CREATE INDEX tracks_idx ON tracks ( track_id, conf_id );
 
-/* prices */
-DROP   TABLE prices CASCADE;
-CREATE TABLE prices
-(
-    price_id   serial    NOT NULL    PRIMARY KEY,
-    conf_id    text      NOT NULL,
-    amount     integer   NOT NULL,
-    currency   text      NOT NULL
-);
-
 /* orders */
 DROP   TABLE orders CASCADE;
 CREATE TABLE orders
