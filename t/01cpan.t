@@ -16,6 +16,8 @@ my @modules = (
                  'Digest::MD5',
                  'Email::Valid',
                  'HTML::Entities',
+                 'Locale::Maketext',
+                 'Locale::Maketext::Lexicon',
                  'MIME::Lite',
                  'Net::SMTP',
                  'Template',
