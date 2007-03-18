@@ -1,5 +1,3 @@
 -- Stuff to do when upgrading the production server
 
-DELETE FROM translations WHERE tbl = 'prices';
-DROP TABLE prices;
 DELETE FROM translations WHERE tbl = 'countries';
