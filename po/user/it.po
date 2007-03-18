@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: civility_1
+msgid "civility_1"
+msgstr "Sig."
+
+#: civility_2
+msgid "civility_2"
+msgstr "Sig.na"
+
+#: civility_3
+msgid "civility_3"
+msgstr "Sig.ra"
