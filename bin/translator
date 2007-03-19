@@ -1,0 +1,129 @@
+#!/bin/env perl
+use strict;
+use warnings;
+
+# useful modules
+use Locale::Maketext::Lexicon::Gettext;
+use File::Spec::Functions;
+use File::Slurp;
+use Term::ReadKey;
+
+my $podir = catfile( $ENV{ACTHOME} || '.', 'po' );
+
+my $lang = shift;
+
+# load both lexicons and revisions
+my $ref_lex = read_po('en');
+my $ref_rev = read_rev('en');
+my $ext_lex = read_po($lang);
+my $ext_rev = read_rev($lang);
+
+# various interactive actions
+my %action = (
+    a => sub {
+        my $id = shift;
+        $ext_rev->{$id} = $ref_rev->{$id};
+    },
+    e => sub {
+        my $id = shift;
+        $ext_lex->{$id} = get_new_text();
+        $ext_rev->{$id} = $ref_rev->{$id};
+    },
+    i => sub { },
+    x => sub { exit; },
+);
+
+# find the outdated ids
+my @todo
+    = sort grep { print "$_\n"; ( $ext_rev->{$_} ||= 0 ) < $ref_rev->{$_} }
+    grep {!/^__|^$/} keys %$ref_lex;
+
+# process the ids interactively
+my $answer = 'a';
+for my $id (@todo) {
+    print "$id seems outdated (en\@$ref_rev->{$id}, $lang\@$ext_rev->{$id})\n",
+          "- en: $ref_lex->{$id}\n", "- $lang: $ext_lex->{$id}\n";
+    $answer = get_choice($answer);
+    last if $answer eq 'q';
+
+    # execute the action
+    $action{$answer}->($id);
+}
+
+write_po( $lang, $ext_lex );
+write_rev( $lang, $ext_rev );
+
+exit;
+
+#
+# USEFUL SUBS
+#
+sub read_po {
+    my $lang = shift;
+    my $file = catfile( $podir, "$lang.po" );
+    return Locale::Maketext::Lexicon::Gettext->parse( read_file $file);
+}
+
+sub write_po {
+    my ( $lang, $lex ) = @_;
+    my $file = catfile( $podir, "$lang.po" );
+
+    open my $fh, '>', $file or die "Can't open $file: $!";
+
+    for my $id ( sort keys %$lex ) {
+        next if $id =~ /^__/;
+
+        # msgid
+        print $fh "#: $id\n" if $id;
+        print $fh qq(msgid "$id"\n);
+
+        # msgstr
+        ( my $str = $lex->{$id} ) =~ s/"/\\"/g;
+        if ( $str =~ /\n/ ) {
+            $str = join "\n", "", map {qq("$_\\n")} split /\n/, $str;
+        }
+        else { $str = qq("$str"); }
+        print $fh qq(msgstr $str\n\n);
+    }
+
+    close $fh;
+}
+
+sub read_rev {
+    my $lang = shift;
+    my $file = catfile( $podir, "$lang.rev" );
+
+    return {} if ! -e $file;
+    return { map { chomp; split /\@/ } read_file $file };
+}
+
+sub write_rev {
+    my ( $lang, $rev ) = @_;
+    my $file = catfile( $podir, "$lang.rev" );
+
+    write_file( $file,
+        sort map {"$_\@$rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
+}
+
+sub get_choice {
+    my $default = shift;
+    ( my $replies = "aeiqx" ) =~ s/$default/uc( $default )/e;
+    my $key = '';
+    print "Accept, Edit, Ignore, Quit, eXit? [$replies]: ";
+    ReadMode 4;    # Turn off controls keys
+    while ( $key !~ /^[aeiqx\n]+$/i ) {
+        1 while not defined( $key = ReadKey(0) );
+    }
+    ReadMode 0;    # Reset tty mode before exiting
+    print "$key\n";
+    $key = $default if $key eq "\n";
+    return lc $key;
+}
+
+sub get_new_text {
+
+}
+
+__END__
+
+Usage: translator <lang>
