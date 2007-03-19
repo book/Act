@@ -52,6 +52,7 @@ my @todo = sort grep { ( $ext_rev->{$_} ||= 0 ) < ( $ref_rev->{$_} ||= 1 ) }
 # process the ids interactively
 my $answer = 'a';
 for my $id (@todo) {
+    $ext_lex->{$id} = '' if ! defined $ext_lex->{$id};
     print
         "$id seems outdated (en\@$ref_rev->{$id}, $lang\@$ext_rev->{$id})\n",
         "- en: $ref_lex->{$id}\n", "- $lang: $ext_lex->{$id}\n";
