@@ -1,6 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'User information', fr => 'Informations utilisateur', it => "dati dell'utente", pt => 'Informação do utilizador',de=>'Userinformationen', hu=>'Felhasználói adatok' },
-%]
+[% WRAPPER ui title = loc("User information") %]
 [% PROCESS common %]
 
 <div align="center">
@@ -14,15 +12,13 @@
 
 [% IF global.request.user.is_staff %]
 <tr>
- <td align="right"><t><en>Login</en><fr>Identifiant</fr><pt>Login</pt><it>Identificativo</it><de>User-ID</de><hu>Felhasználónév</hu></t></td>
+ <td align="right">{{Login}}</td>
  <td>&nbsp;</td>
  <td align="left">[% login %]</td>
 </tr>
 [% END %]
 <tr>
-   <td align="right">
-      <t><en>Name</en><fr>Nom</fr><it>Nome</it><pt>Nome</pt><de>Name</de><hu>Név</hu></t>
-   </td>
+   <td align="right">{{Name}}</td>
    <td>&nbsp;</td>
    <td align="left">
       [%- IF pseudonymous %]
@@ -37,24 +33,20 @@
 </tr>
 [%- IF town %]
 <tr>
-   <td align="right"><t><en>City</en><fr>Ville</fr><pt>Cidade</pt><it>Città</it><de>Stadt</de><hu>Település</hu></t></td>
+   <td align="right">{{City}}</td>
    <td>&nbsp;</td>
    <td align="left">[% town %]</td>
 </tr>
 [% END %]
 <tr>
-   <td align="right">
-      <t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt><de>Land</de><hu>Ország</hu></t>
-   </td>
+   <td align="right">{{Country}}</td>
    <td>&nbsp;</td>
    <td align="left">
       [% country %]
    </td>
 [%- IF pm_group %]
 </tr><tr>
-   <td align="right">
-      <t><en>Perl mongers group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it><de>Monger Gruppe</de><hu>Perl csoport</hu></t>
-   </td>
+   <td align="right">{{Perl mongers group}}</td>
    <td>&nbsp;</td>
    <td align="left">
       [% IF pm_group_url %]<a href="[% pm_group_url %]">[% pm_group %]</a>
@@ -63,9 +55,7 @@
 [% END %]
 [% IF company %]
    </tr><tr>
-      <td align="right">
-         <t><en>Company</en><fr>Société</fr><it>Azienda</it><pt>Empresa</pt><de>Firma</de><hu>Cég</hu></t>
-      </td>
+      <td align="right">{{Company}}</td>
       <td>&nbsp;</td>
       <td align="left">
          [% "<a href=\"$company_url\">" IF company_url %][% company %][% '</a>' IF company_url %]
@@ -83,9 +73,7 @@
 [% END %]
 [%- IF web_page %]
    </tr><tr>
-      <td align="right">
-         <t><en>Web page</en><fr>Page Web</fr><pt>Página Web</pt><it>Pagina web</it><de>Website</de><hu>Weblap</hu></t>
-      </td>
+      <td align="right">{{Web page}}</td>
       <td>&nbsp;</td>
       <td align="left">
          <tt><a href="[% web_page %]">[% web_page %]</a></tt>
@@ -123,15 +111,7 @@
 [% END %]
 [%- IF gpg_key_id %]
    </tr><tr>
-      <td align="right">
-       <t><en>GPG key ID</en>
-          <fr>clé publique GPG</fr>
-          <pt>chave publica GPG</pt>
-          <it>chiave pubblica GPG</it>
-          <de>GPG public key</de>
-          <hu>GPG publikus kulcsd</hu>
-       </t>
-      </td>
+      <td align="right">{{GPG key ID}}</td>
       <td>&nbsp;</td>
       <td align="left">
          <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">[% gpg_key_id %]</a>
@@ -148,7 +128,7 @@
       [%- IF photo_name %]
          <img src="/[% global.config.general_dir_photos %]/[% photo_name %]" border="0" alt="Photo">
       [%- ELSE %]
-         <t><en>No Photo</en><fr>Pas de photo</fr><pt>Sem foto</pt><it>Nessuna foto</it><de>Kein Foto</de><hu>nincs fotó</hu></t>
+         {{No Photo}}
       [% END %]
    </td></tr></table>
 
@@ -165,15 +145,15 @@
       <td align="right" valign="top">
     [% IF global.request.user.is_orga %]
 	  [% IF talks.size == 1 %]
-	     <t><en>Talk</en> <fr>Présentation</fr><pt>Apresentação</pt><it>Intervento</it><de>Vortrag</de><hu>Elõadása:</hu></t>
+	     {{Talk}}
 	  [% ELSE %]
-	     <t><en>Talks</en> <fr>Présentations</fr><it>Interventi</it><pt>Apresentações</pt><de>Vorträge</de><hu>Elõadásai:</hu></t>
+	     {{Talks}}
 	  [% END %]
     [% ELSE %]
 	  [% IF talks.size == 1 %]
-	     <t><en>Accepted Talk</en><pt>Apresentação aceite</pt> <fr>Présentation acceptée</fr><it>Intervento accettato</it><de>Angenommener Vortrag</de><hu>Elfogadott elõadása:</hu></t>
+	     {{Accepted Talk}}
 	  [% ELSE %]
-	     <t><en>Accepted Talks</en><pt>Apresentações aceites</pt> <fr>Présentations acceptées</fr><it>Interventi accettati</it><de>Angenommene Vorträge</de><hu>Elfogadott elõadásai:</hu></t>
+	     {{Accepted Talks}}
       [% END %]
       </td>
     [% END %]
@@ -184,7 +164,7 @@
            [% FOREACH t = talks %]
 	    <li>[% talk_link(t) %]
             ([% IF t.duration ; t.duration %]
-            <t><fr>minutes</fr><pt>minutos</pt><en>minutes</en><it>minuti</it><de>Minuten</de><hu>perc</hu></t>[% ELSE %]<t><fr>Communication éclair</fr><pt>Apresentações relâmpago</pt><en>Lightning talk</en><de>Lightning talk</de><it>Intervento lampo</it><hu>Villámelõadás</hu></t>[% END %])
+            {{minutes}}[% ELSE %]{{Lightning talk}}[% END %])
            [% talk_modify_link(t) %]</li>
              [% END %]
           </ul>
@@ -211,14 +191,7 @@
 [% END %]
 [% IF conferences.size %]
 <tr>
- <td align="right" valign="top"><t>
-  <pt>Outras conferências geridas com o Act:</pt>
-  <fr>Autres conférences Act&nbsp;:</fr>
-  <en>Other Act conferences:</en>
-  <it>Altre conferenze gestite con Act:</it>
-  <de>Andere Act Konferenzen:</de>
-  <hu>További Perl konferenciák:</hu>
- </t></td>
+ <td align="right" valign="top">{{Other Act conferences:}}</td>
  <td>&nbsp;</td>
 <td align="left">
 <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>

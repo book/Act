@@ -4,22 +4,152 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: payment_means_CHQ
 msgid "payment_means_CHQ"
 msgstr "Csekk"
 
-#: payment_means_CASH
 msgid "payment_means_CASH"
 msgstr "Kézpénz"
 
-#: payment_means_ONLINE
 msgid "payment_means_ONLINE"
 msgstr "Online"
 
-#: room_out
 msgid "room_out"
 msgstr "Szabadtér"
 
-#: room_venue
 msgid "room_venue"
 msgstr "Terem"
+
+msgid "User information"
+msgstr "Felhasználói adatok"
+
+msgid "Login"
+msgstr "Felhasználónév"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "City"
+msgstr "Település"
+
+msgid "Country"
+msgstr "Ország"
+
+msgid "Perl mongers group"
+msgstr "Perl csoport"
+
+msgid "Company"
+msgstr "Cég"
+
+msgid "Web page"
+msgstr "Weblap"
+
+msgid "GPG key ID"
+msgstr "GPG publikus kulcsd"
+
+msgid "No Photo"
+msgstr "nincs fotó"
+
+msgid "Talk"
+msgstr "Elõadása"
+
+msgid "Talks"
+msgstr "Elõadásai"
+
+msgid "Accepted Talk"
+msgstr "Elfogadott elõadása"
+
+msgid "Accepted Talks"
+msgstr "Elfogadott elõadásai"
+
+msgid "minutes"
+msgstr "perc"
+
+msgid "Lightning talk"
+msgstr "Villámelõadás"
+
+msgid "Other Act conferences:"
+msgstr "További Perl konferenciák:"
+
+msgid "Main private page"
+msgstr "Személyes oldal"
+
+msgid "to %1."
+msgstr "%1"
+
+msgid "This is your personal page."
+msgstr ""
+"Ez a személyes felhasználói oldal. Innen kiindulva lehet karbantartani a\n"
+"felvitt adatokat, például a konferenciára történõ jelentkezést.\n"
+
+msgid "to Act-enabled conferences."
+msgstr "a Perl konferenciákhoz."
+
+msgid "You have purchased your conference ticket:"
+msgstr "A következõ konferencia jegyek lett megvásárolva:"
+
+msgid "Order number"
+msgstr "Rendelési szám"
+
+msgid "Payment date"
+msgstr "Vásárlás ideje"
+
+msgid "Amount paid"
+msgstr "Fizetett összeg"
+
+msgid "Download %1your invoice</a>."
+msgstr "%1Számla letöltése</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Még nem került sor konferencia jegy vásárlásra."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Kérjük vásároljon konferencia jegyet."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Kérjük a fizetési rendszer elindítása után vásároljon konferencia jegyet."
+
+msgid "You did not %1register for this conference</a>."
+msgstr "Erre a konferenciára %1még nem regisztrált</a>. Kérjük regisztráljon!"
+
+msgid "You can:"
+msgstr "Lehetõségek:"
+
+msgid "purchase your conference ticket"
+msgstr "jegyvásárlás"
+
+msgid "register for this conference"
+msgstr "regisztráció erre a konferenciára"
+
+msgid "update your information"
+msgstr "személyes adatok frissítése"
+
+msgid "manage your photo"
+msgstr "fotó kezelése"
+
+msgid "change your password"
+msgstr "jelszóváltoztatás"
+
+msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgstr "saját elõadások (az elfogadott elõadások <b>ki vannak emelve</b>)"
+
+msgid "submit a talk"
+msgstr "elõadás beküldése"
+
+msgid "log out"
+msgstr "kijelentkezés"
+
+msgid "unregister from %1"
+msgstr "leiratkozás: %1"
+
+msgid "Other Act conferences:"
+msgstr "További Perl konferenciák:"
+
+msgid "(You were there)"
+msgstr "(Részt vett rajta)"
+
+msgid "(You are there)"
+msgstr "(Éppen részt vesz rajta)"
+
+msgid "(You will be there)"
+msgstr "(Részt fog venni rajta)"
+

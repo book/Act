@@ -4,35 +4,161 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: payment_means_CHQ
 msgid "payment_means_CHQ"
 msgstr "Assegno"
 
-#: payment_means_CASH
 msgid "payment_means_CASH"
 msgstr "Contanti"
 
-#: payment_means_ONLINE
 msgid "payment_means_ONLINE"
 msgstr "On-line"
 
-#: room_out
 msgid "room_out"
 msgstr "Fuori"
 
-#: room_venue
 msgid "room_venue"
 msgstr "Aree comuni"
 
-#: civility_1
 msgid "civility_1"
 msgstr "Sig."
 
-#: civility_2
 msgid "civility_2"
 msgstr "Sig.na"
 
-#: civility_3
 msgid "civility_3"
 msgstr "Sig.ra"
+
+msgid "User information"
+msgstr "Dati dell'utente"
+
+msgid "Login"
+msgstr "Identificativo"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "City"
+msgstr "Città"
+
+msgid "Country"
+msgstr "Nazione"
+
+msgid "Perl mongers group"
+msgstr "Gruppo di mongers"
+
+msgid "Company"
+msgstr "Azienda"
+
+msgid "Web page"
+msgstr "Pagina web"
+
+msgid "GPG key ID"
+msgstr "chiave pubblica GPG"
+
+msgid "No Photo"
+msgstr "Nessuna foto"
+
+msgid "Talk"
+msgstr "Intervento"
+
+msgid "Talks"
+msgstr "Interventi"
+
+msgid "Accepted Talk"
+msgstr "Intervento accettato"
+
+msgid "Accepted Talks"
+msgstr "Interventi accettati"
+
+msgid "minutes"
+msgstr "minuti"
+
+msgid "Lightning talk"
+msgstr "Intervento lampo"
+
+msgid "Other Act conferences:"
+msgstr "Altre conferenze gestite con Act:"
+
+msgid "Main private page"
+msgstr "Pagina personale"
+
+msgid "to %1."
+msgstr "a %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Questa è la vostra pagina personale. Da qui potete gestire tutto\n"
+"ciò che riguarda la vostra partecipazione\n"
+
+msgid "to Act-enabled conferences."
+msgstr "alle conferenze gestito con Act."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Avete acquistato il biglietto:"
+
+msgid "Order number"
+msgstr "Vostro ordine"
+
+msgid "Payment date"
+msgstr "Data del pagamento"
+
+msgid "Amount paid"
+msgstr "Totale pagato"
+
+msgid "Download %1your invoice</a>."
+msgstr "%1Scarica la fattura</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Non avete ancora acquistato il vostro biglietto."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Potreste farlo con il nostro sistema di pagamento on-line."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato."
+
+msgid "You did not %1register for this conference</a>."
+msgstr "Non siete %1iscritti a questa canferenza</a>. Vi preghiamo di iscrivervi se prevedete di partecipare o proporre un intervernto."
+
+msgid "You can:"
+msgstr "Potete:"
+
+msgid "purchase your conference ticket"
+msgstr "acquistare il bigletto"
+
+msgid "register for this conference"
+msgstr "Iscrivervi a questa conferenza"
+
+msgid "update your information"
+msgstr "aggiornare i vostri dati"
+
+msgid "manage your photo"
+msgstr "cambiare la vostra foto"
+
+msgid "change your password"
+msgstr "cambiare la vostra password"
+
+msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgstr "vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)"
+
+msgid "submit a talk"
+msgstr "proporre un intervento"
+
+msgid "log out"
+msgstr "uscire dal sistema"
+
+msgid "unregister from %1"
+msgstr "annullare la vostra iscrizione a %1"
+
+msgid "Other Act conferences:"
+msgstr "Altre conferenze gestite con Act:"
+
+msgid "(You were there)"
+msgstr "(Avete partecipato)"
+
+msgid "(You are there)"
+msgstr "(Partecipate)"
+
+msgid "(You will be there)"
+msgstr "(Parteciperete)"
 

@@ -1,188 +1,73 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = { en => 'Main private page', fr => 'Page personnelle', it => 'Pagina personale',
-             pt => 'Página pessoal', de => 'Private Seite', hu => 'Személyes oldal'},
-%]
+[% WRAPPER ui title = loc("Main private page") %]
 <p>
- <t>
-  <pt>Esta é a sua página pessoal. A partir daqui pode gerir toda a sua participação</pt>
-  <en>This is your personal page.
-      From here you can manage everything regarding your participation</en>
-  <fr>Ceci est votre page personnelle.
-      D'ici vous pouvez gérer tout ce qui concerne votre participation</fr>
-  <it>Questa è la vostra pagina personale. Da qui potete gestire tutto
-      ciò che riguarda la vostra partecipazione</it>
-  <de>Das ist Ihre persönliche Seite. Von hier aus können Sie alle Aspekte Ihrer Teilnahme verwalten.</de>
-  <hu>Ez a személyes felhasználói oldal. Innen kiindulva lehet karbantartani a
-      felvitt adatokat, például a konferenciára történõ jelentkezést.</hu>
- </t>
+ {{This is your personal page.}}
  [% IF global.request.conference %]
- <t>
-  <pt>na [% global.conference.name %].</pt>
-  <en>to [% global.conference.name %].</en>
-  <fr>à [% global.conference.name %].</fr>
-  <it>a [% global.conference.name %].</it>
-  <de>[% global.conference.name %]</de>
-  <hu>[% global.conference.name %]</hu>
- </t>
+ [% loc("to %1.", global.conference.name) %]
  [% ELSE %]
- <t>
-  <en>to Act-enabled conferences.</en>
-  <pt>nas conferências geridas pelo Act.</pt>
-  <fr>aux conférences gérées par Act.</fr>
-  <it>alle conferenze gestito con Act.</it>
-  <de>mit Act betriebende Konferenzen</de>
-  <hu>a Perl konferenciákhoz.</hu>
- </t>
+ {{to Act-enabled conferences.}}
  [% END %]
 </p>
 
 [% IF global.request.conference %]
  [% IF global.request.user.has_registered %]
   [% IF global.request.user.has_paid %] <p>
-  <t>
-   <en>You have purchased your conference ticket:</en>
-   <pt>Acabou de comprar o seu bilhete para a conferência:</pt>
-   <fr>Vous avez acheté votre billet pour la conférence :</fr>
-   <it>Avete acquistato il biglietto:</it>
-   <de>Sie haben Ihre Teilnahme bezahlt:</de>
-   <hu>A következõ konferencia jegyek lett megvásárolva:</hu>
-  </t>
+  {{You have purchased your conference ticket:}}
  </p>
  <p>
   <blockquote>
-    <t><fr>Numéro d'inscription </fr><en>Order number</en><de>Ihre Bestellnummer</de><it>Vostro ordine</it><pt>Número da compra</pt><hu>Rendelési szám</hu></t>: <strong>[% order.order_id %]</strong><br />
-    <t><fr>Date de règlement </fr><en>Payment date</en><de>Zahlungsdatum</de><it>Data del pagamento</it><pt>Data de pagamento</pt><hu>Vásárlás ideje</hu></t>: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
-    <t><fr>Montant réglé </fr><en>Amount paid</en><de>Betrag</de><it>Totale pagato</it><pt>Valor pago</pt><hu>Fizetett összeg</hu></t>: <strong>[% order.amount %] [% order.currency %]</strong>
+    {{Order number}}: <strong>[% order.order_id %]</strong><br />
+    {{Payment date}}: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
+    {{Amount paid}}: <strong>[% order.amount %] [% order.currency %]</strong>
   </blockquote/>
  </p>
  [% IF global.config.payment_invoices %]
- <p>
-  <t>
-   <fr>Téléchargez <a   href="[% make_uri_info('invoice', order.order_id) %]">votre reçu</a>.</fr>
-   <en>Download <a      href="[% make_uri_info('invoice', order.order_id) %]">your invoice</a>.</en>
-   <it><a               href="[% make_uri_info('invoice', order.order_id) %]">Scarica la fattura</a>.</it>
-   <de><a               href="[% make_uri_info('invoice', order.order_id) %]">Rechnung herunterladen</a>.</de>
-   <pt>Descarregar a <a href="[% make_uri_info('invoice', order.order_id) %]">factura</a>.</pt>
-   <hu><a href="[% make_uri_info('invoice', order.order_id) %]">Számla letöltése</a>.</hu>
-  </t>
+ [% uri = make_uri_info('invoice', order.order_id) %]
+ <p>[% loc("Download %1your invoice</a>.", "<a href=\"${uri}\">") %]
  </p>
  [% END %]
   [% ELSE %]
  <p>
-  <t>
-   <en>You have not bought your conference ticket yet.</en>
-   <pt>Ainda não comprou o seu bilhete.</pt>
-   <fr>Vous n'avez pas encore acheté votre billet pour la conférence.</fr>
-   <it>Non avete ancora acquistato il vostro biglietto.</it>
-   <de>Sie haben nicht nicht bezahlt.</de>
-   <hu>Még nem került sor konferencia jegy vásárlásra.</hu>
-  </t>
+  {{You have not bought your conference ticket yet.}}
   [% IF global.config.payment_open %]
-   <t>
-    <pt>Considere fazê-lo usando o nosso sistema de pagamento on-line.</pt>
-    <en>Please consider doing so using our online payment system.</en>
-    <fr>Merci de penser à le faire en utilisant notre système
-        de vente en ligne.</fr>
-    <it>Potreste farlo con il nostro sistema di pagamento on-line.</it>
-    <de>Bitte verwenden Sie dazu unser online Zahlungssystem.</de>
-    <hu>Kérjük vásároljon konferencia jegyet.</hu>
-   </t>
+   {{Please consider doing so using our online payment system.}}
    [% ELSE %]
-   <t>
-    <pt>Considere fazê-lo usando o nosso sistema de pagamento on-line, assim que
-	estiver disponível.</pt>
-    <en>Please consider doing so once our online payment system is ready.</en>
-    <fr>Merci de penser à le faire dès que le système de vente en ligne
-   sera opérationnel.</fr>
-    <it>Potreste farlo con il nostro sistema di pagamento on-line, appena lo avremo attivato.</it>
-    <de>Bitte verwenden Sie dazu unser online Zahlungssystem, sobald es bereit steht.</de>
-    <hu>Kérjük a fizetési rendszer elindítása után vásároljon konferencia jegyet.</hu>
-   </t>
+   {{Please consider doing so once our online payment system is ready.}}
   [% END %]
  </p>
  [% END %]
  [% ELSE %]
-  <t>
-   <pt>Não se <a href="[% make_uri('register') %]">registou para esta conferência</a>. Faça-o se planeia assistir a realizar uma apresentação.</pt>
-   <en>You did not <a href="[% make_uri('register') %]">register for this conference</a>. Please do so if you plan to attend or give a presentation there.</en>
-   <fr>Vous n'êtes pas <a href="[% make_uri('register') %]">inscrit à cette conférence</a>. Merci de le faire si vous comptez y assister ou y faire une présentation.</fr>
-   <it>Non siete <a href="[% make_uri('register') %]">iscritti a questa canferenza</a>. Vi preghiamo di iscrivervi se prevedete di partecipare o proporre un intervernto.</it>
-   <de>
-   Sie sind für diese Konferenz nicht angemeldet. <a href="[% make_uri('register') %]">Melden Sie sich an</a>, wenn sie teilnehmen wollen.
-   </de>
-   <hu>Erre a konferenciára <a href="[% make_uri('register') %]">még nem regisztrált</a>. Kérjük regisztráljon!</hu>
-  </t>
+  [% uri = make_uri('register');
+     col("You did not %1register for this conference</a>.", "<a href=\"${uri}\">") %]
  [% END %]
 [% ELSE %]
 <!-- no conference at all -->
 [% END %]
 
-<p><b><t><fr>Vous pouvez&nbsp;:</fr><en>You can:</en><it>Potete:</it><pt>Pode:</pt><de>Sie können</de><hu>Lehetõségek:</hu></t></b></p>
+<p><b>{{You can:}}</b></p>
    <ul>
    [% IF global.request.user.has_registered %]
     [% IF global.request.conference
        AND global.config.payment_open
        AND NOT global.request.user.has_paid %]
-    <li><a href="[% make_uri('purchase') %]"><t>
-          <fr>acheter votre billet pour la conférence</fr>
-          <en>purchase your conference ticket</en>
-          <pt>comprar o seu bilhete para a conferência</pt>
-          <it>acquistare il bigletto</it>
-          <de>Ihre Teilnahme bezahlen</de>
-          <hu>jegyvásárlás</hu>
-	  </t></a><br />
+    <li><a href="[% make_uri('purchase') %]">{{purchase your conference ticket}}</a><br />
     </li>
     [% END %]
    [% ELSE %]
-    <li><t>
-       <pt><a href="[% make_uri('register') %]">registou para esta conferência</a></pt>
-       <en><a href="[% make_uri('register') %]">register for this conference</a></en>
-       <fr>Vous <a href="[% make_uri('register') %]">inscrire à cette conférence</a></fr>
-       <it><a href="[% make_uri('register') %]">Iscrivervi a questa conferenza</a></it>
-       <de>Sich <a href="[% make_uri('register') %]">für diese Konferenz anmelden</de>
-       <hu><a href="[% make_uri('register') %]">regisztráció erre a konferenciára</a></hu>
-        </t><br />
+    <li><a href="[% make_uri('register') %]{{register for this conference}}<a><br />
     </li>
    [% END %]
-    <li><a href="[% make_uri('change') %]"><t>
-          <fr>mettre à jour les informations vous concernant</fr>
-          <en>update your information</en>
-          <pt>actualizar a sua informação</pt>
-          <it>aggiornare i vostri dati</it>
-		  <de>Ihre Informationen ändern</de>
-          <hu>személyes adatok frissítése</hu>
-	  </t></a><br />
+    <li><a href="[% make_uri('change') %]">{{update your information}}</a><br />
     </li>
-    <li><a href="[% make_uri('photo') %]"><t>
-          <fr>modifier votre photo</fr>
-          <en>manage your photo</en>
-          <pt>alterar a sua foto</pt>
-          <it>cambiare la vostra foto</it>
-          <de>Ihr Foto verwalten</de>
-          <hu>fotó kezelése</hu>
-	  </t></a><br />
+    <li><a href="[% make_uri('photo') %]">{{manage your photo}}</a><br />
     </li>
 [% BLOCK commentaire %]
-    <li><a href="[% make_uri('updatepw') %]"><t>
-          <fr>modifier votre mot de passe</fr>
-          <en>change your password</en>
-          <de>Ihr Passwort ändern</de>
-          <it>cambiare la vostra password</it>
-          <pt>TRANSLATEME</pt>
-          <hu>jelszóváltoztatás</hu>
-      </t></a>
+    <li><a href="[% make_uri('updatepw') %]">{{change your password}}</a>
     </li>
 [% END %]
     [% IF global.request.conference
        AND talks.size %]
-        <li><t><en>see your talks (accepted talks are shown in <b>bold</b> type)</en>
-        <fr>voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;</fr>
-        <pt>ver as suas apresentações (as apresentações aceites são mostradas a <b>negrito</b>)</pt>
-        <it>vedere i vostri interventi (gli interventi accettati sono mostrati in <b>grassetto</b>)</it>
-        <de>Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)</de>
-        <hu>saját elõadások (az elfogadott elõadások <b>ki vannak emelve</b>)</hu>
-	</t>:
+        <li>{{see your talks (accepted talks are shown in <b>bold</b> type)}}:
           <br />
           <ul>
            [% FOR t = talks %]
@@ -193,61 +78,26 @@
       [% END %]
     [% IF global.config.talks_submissions_open
        AND global.request.user.has_registered %]
-      <li><a href="[% make_uri('newtalk') %]"><t>
-            <fr>soumettre une présentation</fr>
-            <pt>submeter uma apresentação</pt>
-            <en>submit a talk</en>
-            <it>proporre un intervento</it>
-            <de>Einen Vortrag einreichen</de>
-            <hu>elõadás beküldése</hu>
-	    </t></a><br />
+      <li><a href="[% make_uri('newtalk') %]">{{submit a talk}}</a><br />
       </li>
     [% END %]
-   <li><a href="[% make_uri('logout') %]"><t><en>log out</en><pt>sair</pt><fr>vous déconnecter</fr><it>uscire dal sistema</it><de>ausloggen</de><hu>kijelentkezés</hu></t></a></li>
+   <li><a href="[% make_uri('logout') %]">{{log out}}</a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]"><t><en>unregister from [% global.conference.name %]</en><pt>cancelar registo na [% global.conference.name %]</pt><fr>vous désinscrire de [% global.conference.name %]</fr><it>annullare la vostra iscrizione a [% global.conference.name %]</it><de>sich von der Konferenz [% global.conference.name %] abmelden</de><hu>leiratkozás: [% global.conference.name %]</hu></t></a></li>
+   <li><a href="[% make_uri('unregister') %]">[% col("unregister from %1", global.conference.name) %]</a></li>
    [% END %]
    </ul>
 
 [% IF conferences.size %]
-<p><b><t>
- <pt>Outras conferências geridas com o Act:</pt>
- <fr>Autres conférences Act&nbsp;:</fr>
- <en>Other Act conferences:</en>
- <it>Altre conferenze gestite con Act:</it>
- <de>Andere Act Konferenzen:</de>
- <hu>További Perl konferenciák:</hu>
-</t></b></p>
+<p><b>{{Other Act conferences:}}</b></p>
 <ul>
 [% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
 [% SWITCH c.participation %]
  [% CASE 'past' %]
- <t>
-   <en>(You were there)</en>
-   <fr>(Vous y étiez)</fr>
-   <pt>(Esteve aqui)</pt>
-   <it>(Avete partecipato)</it>
-   <de>(Sie waren dort)</de>
-   <hu>(Részt vett rajta)</hu>
- </t>
+ {{(You were there)}}
  [% CASE 'now' %]
- <t>
-   <en>(You are there)</en>
-   <fr>(Vous y êtes)</fr>
-   <pt>(Está aqui)</pt>
-   <it>(Partecipate)</it>
-   <de>(Sie sind hier)</de>
-   <hu>(Éppen részt vesz rajta)</hu>
- </t>
+ {{(You are there)}}
  [% CASE 'future' %]
- <t>
-   <en>(You will be there)</en>
-   <fr>(Vous y serez)</fr>
-   <pt>(Irá estar aqui)</pt>
-   <it>(Parteciperete)</it>
-   <de>(Sie werden dort sein)</de>
-   <hu>(Részt fog venni rajta)</hu>
- </t>
+ {{(You will be there)}}
 [% END %]
 </li>[% END %]
 </ul>
