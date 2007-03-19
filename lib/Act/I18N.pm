@@ -27,11 +27,14 @@ sub init
 
 sub failure_handler
 {
-    my ($self, $key, $params) = @_;
+    my ($self, $key, @params) = @_;
 
-    if ($Request{language} ne $Config->general_default_language) {
+    # prevent inifinite recursion in case string isn't found in
+    # default language lexicon
+    my $default_pkg = 'Act::I18N::' . $Config->general_default_language;
+    if (ref($self) ne $default_pkg) {
         my $lh = Act::I18N->get_handle($Config->general_default_language);
-        return $lh->maketext($key, $params);
+        return $lh->maketext($key, @params);
     }
     return 'TRANSLATEME';
 }
