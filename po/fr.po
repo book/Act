@@ -49,8 +49,14 @@ msgstr "Groupe de mongueurs"
 msgid "Company"
 msgstr "Société"
 
+msgid "Email"
+msgstr "Email"
+
 msgid "Web page"
 msgstr "Page Web"
+
+msgid "IM"
+msgstr "IM"
 
 msgid "GPG key ID"
 msgstr "clé publique GPG"
@@ -75,6 +81,9 @@ msgstr "minutes"
 
 msgid "Lightning talk"
 msgstr "Communication éclair"
+
+msgid "Bio"
+msgstr "Bio"
 
 msgid "Other Act conferences:"
 msgstr "Autres conférences Act&nbsp;:"

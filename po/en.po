@@ -49,8 +49,14 @@ msgstr "Perl mongers group"
 msgid "Company"
 msgstr "Company"
 
+msgid "Email"
+msgstr "Email"
+
 msgid "Web page"
 msgstr "Web page"
+
+msgid "IM"
+msgstr "IM"
 
 msgid "GPG key ID"
 msgstr "GPG key ID"
@@ -75,6 +81,9 @@ msgstr "minutes"
 
 msgid "Lightning talk"
 msgstr "Lightning talk"
+
+msgid "Bio"
+msgstr "Bio"
 
 msgid "Other Act conferences:"
 msgstr "Other Act conferences:"

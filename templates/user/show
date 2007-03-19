@@ -63,9 +63,7 @@
 [% END %]
 [%- IF not email_hide or global.request.user.is_orga %]
    </tr><tr>
-      <td align="right">
-         Email
-      </td>
+      <td align="right">{{Email}}</td>
       <td>&nbsp;</td>
       <td align="left">
          <tt><a href="mailto:[% email %]">[% email %]</a></tt>
@@ -101,9 +99,7 @@
 [% END %]
 [%- IF im %]
    </tr><tr>
-      <td align="right">
-         IM
-      </td>
+      <td align="right">{{IM}}</td>
       <td>&nbsp;</td>
       <td align="left">
          [% im %]
@@ -175,9 +171,7 @@
 
 [%- IF bio.keys.size %]
    <tr>
-      <td align="right" valign="top">
-         Bio
-      </td>
+      <td align="right" valign="top">{{Bio}}</td>
       <td>&nbsp;</td>
       <td align="left">
        [% FOREACH lang = bio.keys %]
