@@ -141,9 +141,6 @@ msgstr "kijelentkezés"
 msgid "unregister from %1"
 msgstr "leiratkozás: %1"
 
-msgid "Other Act conferences:"
-msgstr "További Perl konferenciák:"
-
 msgid "(You were there)"
 msgstr "(Részt vett rajta)"
 

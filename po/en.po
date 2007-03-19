@@ -150,9 +150,6 @@ msgstr "log out"
 msgid "unregister from %1"
 msgstr "unregister from %1"
 
-msgid "Other Act conferences:"
-msgstr "Other Act conferences:"
-
 msgid "(You were there)"
 msgstr "(You were there)"
 

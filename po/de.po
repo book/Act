@@ -145,9 +145,6 @@ msgstr "ausloggen"
 msgid "unregister from %1"
 msgstr "sich von der Konferenz %1 abmelden"
 
-msgid "Other Act conferences:"
-msgstr "Andere Act Konferenzen:"
-
 msgid "(You were there)"
 msgstr "(Sie waren dort)"
 

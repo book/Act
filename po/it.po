@@ -150,9 +150,6 @@ msgstr "uscire dal sistema"
 msgid "unregister from %1"
 msgstr "annullare la vostra iscrizione a %1"
 
-msgid "Other Act conferences:"
-msgstr "Altre conferenze gestite con Act:"
-
 msgid "(You were there)"
 msgstr "(Avete partecipato)"
 

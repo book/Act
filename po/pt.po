@@ -150,9 +150,6 @@ msgstr "sair"
 msgid "unregister from %1"
 msgstr "cancelar registo na %1"
 
-msgid "Other Act conferences:"
-msgstr "Outras conferências geridas com o Act:"
-
 msgid "(You were there)"
 msgstr "(Esteve aqui)"
 

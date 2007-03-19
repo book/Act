@@ -154,9 +154,6 @@ msgstr "vous déconnecter"
 msgid "unregister from %1"
 msgstr "vous désinscrire de %1"
 
-msgid "Other Act conferences:"
-msgstr "Autres conférences Act&nbsp;:"
-
 msgid "(You were there)"
 msgstr "(Vous y étiez)"
 
