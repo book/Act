@@ -28,6 +28,21 @@ if ( $conf{rev} ) {
     write_rev( $lang, $rev );
     exit;
 }
+# the case for 'en'
+if ( $lang eq 'en' ) {
+    my $ref_lex = read_po( 'en'  => catfile( $posvn, 'en.po.svn-base' ) );
+    my $ref_rev = read_rev( 'en' => catfile( $posvn, 'en.rev.svn-base ' ) );
+    my $new_lex = read_po( 'en'  => catfile( $podir, 'en.po' ) );
+    my $new_rev = read_rev( 'en' => catfile( $podir, 'en.rev' ) );
+
+    # find modified ids
+    $new_rev->{$_} = ( $ref_rev->{$_} || 0 ) + 1
+        for grep { ( $new_lex->{$_} ||= '' ) ne ( $ref_lex->{$_} ||= '' ) }
+        grep { !/^__|^$/ } keys %$new_lex;
+
+    write_rev( $lang, $new_rev );
+    exit;
+}
 
 # load both lexicons and revisions
 my $ref_lex = read_po( 'en'   => catfile( $podir, 'en.po' ) );
