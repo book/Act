@@ -4,3 +4,110 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "You must enter your email"
+msgstr "Gelieve Uw E-mail adres in te geven"
+
+msgid "Your email address looks bogus."
+msgstr "Het E-mail adres is ongeldig."
+
+msgid "Sorry, this conference is over."
+msgstr "Sorry, deze conferentie is beëindigd."
+
+msgid "Please create your user below."
+msgstr "U kan hieronder Uw gebruiker aanmaken."
+
+msgid "Identifier %1 is already in use. Please choose another."
+msgstr "De gebruiker %1 bestaat reeds. U gelieve een andere te kiezen."
+
+msgid "The address %1 is already registered."
+msgstr "Het adres %1 werd reeds geregistreerd."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Uw gebruiker moet minstens 3 alfanumerieke karakters bevatten (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Gelieve Uw voornaam in te geven"
+
+msgid "You must enter your last name"
+msgstr "Gelieve Uw naam in te geven"
+
+msgid "You must enter a country from the list"
+msgstr "Gelieve een land uit de lijst te selecteren"
+
+msgid "Accounts with similar information already exist."
+msgstr "Andere bestaande gebruikers zouden reeds jou kunnen zijn."
+
+msgid "A valid T-shirt size is required."
+msgstr "Gelieve een geldige T-shirt maat te geven."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Gebruik de bovenstaande links om na te zien of U reeds een rekening heeft.\n"
+"In dat geval kan U eenvoudig <a href=\"%1\">inloggen</a> met deze bestaande rekening.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Alvorens aan te melden moet U een rekening aanmaken. <b>Indien U reeds\n"
+"over een rekening beschikt voor een andere Act conferentie kan U via deze\n"
+"rekening <a href=\"%1\">aanmelden</a></b>.\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"De verzamelde persoonlijke gegevens worden gebruikt voor de samenstelling\n"
+"van een <a href=\"%1\">deelnemerslijst</a>. Deze zijn nuttig om \n"
+"na de conferentie de contactgegevens van de deelnemers terug te vinden of om op voorhand\n"
+"de aanwezige goeroes te kennen.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Eenmaal Uw rekening aangemaakt is, kan U via ons beveiligd betalingsplatform\n"
+"Uw toegangskaart aanschaffen. We merken op dat alles wat Uw bankrekening en\n"
+"kredietkaart betreft door de bank behandeld wordt.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Op geen enkel moment hebben wij toegang tot Uw bankgegevens.</b>\n"
+"Wij beperken ons tot het ontvangen van het geld. <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "U kan hieronder Uw gebruiker aanmaken."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Gebruik de bovenstaande links om na te zien of de gebruiker die U wenst\n"
+"aan te maken reeds bestaat.\n"
+"In dat geval kan U eenvoudig het gepaste vakje aankruisen en dit formulier\n"
+"verzenden.\n"
+
+msgid "Register"
+msgstr "Verzenden"
+
+msgid "edit"
+msgstr "wijzigen"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Aanmelden"
+
+msgid "Password"
+msgstr "Paswoord"
+
+msgid "Submit"
+msgstr "Invoeren"
+
+msgid "Forgot your password?"
+msgstr "Paswoord vergeten ? Klik <a href=\"%1\">hier</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Deze site gebruikt cookies voor het identificeren van gebruikers. \n"
+"Mogelijk moeten deze geactiveerd worden in uw browser voor het domein <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Afmelden"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "U werd afgemeld en de cookie werd verwijderd van Uw browser."
+

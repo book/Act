@@ -159,3 +159,117 @@ msgstr "(Está aqui)"
 msgid "(You will be there)"
 msgstr "(Irá estar aqui)"
 
+msgid "You must enter your email"
+msgstr "Deve introduzir um endereço de e-mail"
+
+msgid "Your email address looks bogus."
+msgstr "O seu endereço de e-mail parece errado."
+
+msgid "Registration"
+msgstr "Inscrição"
+
+msgid "Please create your user below."
+msgstr "Por favor, crie o seu utilizador."
+
+msgid "Identifier %1 is already in use. Please choose another."
+msgstr "O identificador %1 já está a ser usado. Por favor, escolha outro."
+
+msgid "The address %1 is already registered."
+msgstr "O endereço %1 já está registado."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "O seu identificador deve conter pelo menos 3 caracteres, e apenas caracteres alfanuméricos (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "O seu nome é obrigatório"
+
+msgid "You must enter your last name"
+msgstr "O seu nome é obrigatório"
+
+msgid "You must enter a country from the list"
+msgstr "Deve escolher um país da lista"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Para registar, deve primeiro criar um utilizador neste site.\n"
+"<b>Se já se registou e tem um utilizador de qualquer outra conferência\n"
+"baseada no Act, não precisa de se registar de novo, simplemente\n"
+"<a href=\"%1\">entre</a> com o seu utilizador.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"A informação pessoal que será recolhida será usada para cirar um sistema de\n"
+"<a href=\"%1\">pesquisa online</a> de todos os assistentes.\n"
+"Isto será muito útil depois da conferência quando quiser entrar em contacto\n"
+"com alguém que conheceu. Mesmo antes, pode ser útil para saber que gurus\n"
+"irão comparecer.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Uma vez criado um utilizador, será possível usar a nossa plataforma\n"
+"de pagamento seguro para comprar o bilhete para a conferência. Note que\n"
+"todo o processo de gestão da sua conta bancária e do número do\n"
+"cartão será realizada pelo banco.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Nós não teremos acesso a nenhuma\n"
+"informação do seu crédito durante nenhuma altura do processo de pagamento.</b>\n"
+"Simplesmente teremos o dinheiro no fim. <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "Por favor, crie o seu utilizador."
+
+msgid "Register"
+msgstr "Inscrever"
+
+msgid "Registered!"
+msgstr "Inscrito!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Parabêns, <b>%1</b>, acabou de se registar.\n"
+"O seu código de acesso é <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Primeiro Nome"
+
+msgid "Last Name"
+msgstr "Apelido"
+
+msgid "T-Shirt"
+msgstr "T-Shirt"
+
+msgid "Join!"
+msgstr "Inscrever!"
+
+msgid "edit"
+msgstr "modificar"
+
+msgid "min"
+msgstr "min."
+
+msgid "Log in"
+msgstr "Entrar"
+
+msgid "Password"
+msgstr "Código Secreto"
+
+msgid "Submit"
+msgstr "Validar"
+
+msgid "Forgot your password?"
+msgstr "Esqueceu-se do seu código secreto? Siga <a href=\"%1\">esta ligação</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Este site usa <em>cookies</em> para a autenticação dos\n"
+"utilizadores. É prováel que tenha de indicar ao seu browser\n"
+"para aceitar <em>cookies</em> do dom&iacute;io <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Acabou de sair do sistema, e a sua informação foi apagada do browser."
+

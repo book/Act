@@ -150,3 +150,104 @@ msgstr "(Éppen részt vesz rajta)"
 msgid "(You will be there)"
 msgstr "(Részt fog venni rajta)"
 
+msgid "You must enter your email"
+msgstr "Az email cím megadása kötelezõ."
+
+msgid "Your email address looks bogus."
+msgstr "Az email cím hibásnak tûnik."
+
+msgid "Registration"
+msgstr "Regisztráció"
+
+msgid "Please create your user below."
+msgstr "A felhasználó létrehozásához az alábbi adatokat kell megadni."
+
+msgid "Identifier %1 is already in use. Please choose another."
+msgstr "%1 azonosító már foglalt."
+
+msgid "The address %1 is already registered."
+msgstr "%1 email cím már foglalt."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Az azonosítónak legalább 3 betûbõl kell állnia és csak alfanumerikus karaktereket tartalmazhat (<tt>[a-zA-Z0-9_]</tt>)."
+
+msgid "You must enter your first name"
+msgstr "A keresztnév megadása kötelezõ."
+
+msgid "You must enter your last name"
+msgstr "A vezetéknév megadása kötelezõ."
+
+msgid "You must enter a country from the list"
+msgstr "Az országot a listából kell választani."
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"A regisztrációhoz elõször egy felhasználót kell létrehozni az oldalon.\n"
+"<b>Egy korábbi "Act" (Perl) konferencián történõ részvétel esetén a régi\n"
+"felhasználó ismét használható, ehhez egyszerûen csak <a href=\"%1\">be kell lépni</a> vele.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Figyelem! A megadott személyes adatok egy <a href=\"%1\">online\n"
+"<i>ki-kicsodához</i></a> lesznek felhasználva, melyben minden résztvevõ szerepel. Ez\n"
+"a lehetõség jellemzõen a konferencia után válik hasznossá, mikor a konferencia résztvevõk\n"
+"fel szeretnék venni egymással a kapcsolatot (vagy elõzetesen, hiszen lekérdezhetõ, hogy\n"
+"milyen guruk fognak megjelenni).\n"
+
+msgid "Please create the user below."
+msgstr "A felhasználó létrehozásához az alábbi adatokat kell megadni."
+
+msgid "Register"
+msgstr "Csatlakozom"
+
+msgid "Registered!"
+msgstr "Sikeres regisztráció"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Gratulálunk <b>%1</b>, a regisztráció sikeresen lezajlott.\n"
+"A jelszó: <b>%2</b>. A következõ lépés a személyes\n"
+"adatok beállítása lehet.\n"
+
+msgid "First Name"
+msgstr "Keresztnév"
+
+msgid "Last Name"
+msgstr "Vezetéknév"
+
+msgid "T-Shirt"
+msgstr "Póló"
+
+msgid "Join!"
+msgstr "Csatlakozom!"
+
+msgid "edit"
+msgstr "szerkeszt"
+
+msgid "min"
+msgstr "min."
+
+msgid "Log in"
+msgstr "Bejelentkezés"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Submit"
+msgstr "Elküld"
+
+msgid "Forgot your password?"
+msgstr "<a href=\"%1\">Elfelejtett jelszó</a>"
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Ez az oldalt böngészõ sütiket használ a felhasználók bejelentkezésének\n"
+"nyilvántartásához. Ha a sütik kezelése a böngészõben tiltott (alapértelmezett\n"
+"esetben NEM tiltott), engedélyezni kell a következõ domaint: <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "A kijelentkezés megtörtént, a böngészõ süti törlésre került."
+

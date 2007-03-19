@@ -159,3 +159,132 @@ msgstr "(Partecipate)"
 msgid "(You will be there)"
 msgstr "(Parteciperete)"
 
+msgid "You must enter your email"
+msgstr "L'indirizzo e-mail è obbligatorio"
+
+msgid "Your email address looks bogus."
+msgstr "L'indirizzo e-mail non sembra valido."
+
+msgid "Registration"
+msgstr "Iscrizione"
+
+msgid "Sorry, this conference is over."
+msgstr "Questa conferenza è finita."
+
+msgid "Please create your user below."
+msgstr "Create il vostro account."
+
+msgid "Identifier %1 is already in use. Please choose another."
+msgstr "L'identificativo %1 è già usato. Vi preghiamo di sceglierne un altro."
+
+msgid "The address %1 is already registered."
+msgstr "L'indirizzo %1 è già iscritto."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "L'identificativo deve essere composto da almeno 3 caratteri alfanumerici (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Il cognome è obbligatorio"
+
+msgid "You must enter your last name"
+msgstr "Il nome è obbligatorio"
+
+msgid "You must enter a country from the list"
+msgstr "Dovete scegliere una nazione dall'elenco"
+
+msgid "Accounts with similar information already exist."
+msgstr "Ci sono altri utenti che potrebbero essere voi."
+
+msgid "A valid T-shirt size is required."
+msgstr "Serve una taglia per la maglietta."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Usate i link qui sopra per controllare se siete uno di quelli. Nel caso,\n"
+"<a href=\"%1\">entrate</a> con il vostro account esistente.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Per iscriversi, dovete prima creare un account su questo sito. <b>Se\n"
+"avete già creato un account per un'altra conferenza gestita con questo\n"
+"sistema, potete <a href=\"%1\">accedere</a> usando quello.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"I dati personali qui raccolti saranno usati per creare un\n"
+"<a href=\"%1\">elenco dei partecipanti</a>. Questo\n"
+"sarà utile dopo la conferenza, se vorrete contattare qualcuno dei\n"
+"partecipanti. O anche prima, se volete sapere chi ci sarà.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Una volta creato l'account, potrete usare il nostro sistema di\n"
+"pagamento sicuro on-line per acquistare il biglietto. Notate che tutti\n"
+"i dettagli relativi al vostro conto in banca e carta di credito sono\n"
+"gestiti direttamente dalla banca.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>In nessun momento noi avremo\n"
+"accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una\n"
+"volta terminata la transazione <tt>;-)</tt>.\n"
+
+msgid "Please create the user below."
+msgstr "Create il nuovo account."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr "Usate i link qui sopra per controllare se siete uno di quelli."
+
+msgid "Register"
+msgstr "Iscrivi"
+
+msgid "Registered!"
+msgstr "Iscritto!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Bene, <b>%1</b>, avete creato il vostro account. La vostra\n"
+"password è <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Nome"
+
+msgid "Last Name"
+msgstr "Cognome"
+
+msgid "T-Shirt"
+msgstr "Maglietta"
+
+msgid "Join!"
+msgstr "Iscrivimi"
+
+msgid "edit"
+msgstr "modifica"
+
+msgid "min"
+msgstr "min."
+
+msgid "Log in"
+msgstr "Login"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "Forgot your password?"
+msgstr "Password dimenticata? Segui <a href=\"%1\">questo link</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Questo sito usa dei <em>cookie</em> per gestire l'autenticazione\n"
+"degli utenti. Potreste aver bisogno di configurare il vostro browser\n"
+"per accettare <m>cookie</em> dal dominio <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Uscita dal sistema"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Siete usciti dal sistema, e il <em>cookie</em> è stato eliminato."
+

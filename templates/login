@@ -1,14 +1,4 @@
-[% WRAPPER ui
-   title = {
-       en => 'Login',
-       fr => 'Connexion',
-       it => 'Login',
-       pt => 'Entrar'
-       de => 'Login',
-       hu => 'Bejelentkezés',
-       nl => 'Aanmelden'
-}
-%]
+[% WRAPPER ui title = loc("Log in") %]
 <center>
 
 <form method="POST" action="[% action %]">
@@ -18,9 +8,7 @@
 <table border="0" cellpadding="0" cellspacing="10">
 
 <tr>
-   <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de><hu>Azonosító</hu><nl>Gebruiker</nl></t>
-   </td>
+   <td align="right">{{Login}}</td>
    <td>&nbsp;</td>
    <td>
       <input type="text" name="credential_0" size="25" maxlength="60" />
@@ -28,7 +16,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de><hu>Jelszó</hu><nl>Paswoord</nl></t>
+      {{Password}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -37,7 +25,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de><hu>Elküld</hu><nl></nl>Invoeren</t>" />
+      <input type="submit" name="join" value="{{Submit}}" />
    </td>
 </tr>
 </table>
@@ -45,70 +33,11 @@
 
 </form>
 
-<p>
- <t>
-  <en>
-    Forgot your password? Click <a href="[% make_uri('resetpw') %]">here</a>.
-  </en>
-  <fr>
-    Mot de passe oublié ? Cliquez <a href="[% make_uri('resetpw') %]">ici</a>.
-  </fr>
-  <it>
-    Password dimenticata? Segui <a href="[% make_uri('resetpw') %]">questo link</a>.
-  </it>
-  <pt>
-    Esqueceu-se do seu código secreto? Siga
-    <a href="[% make_uri('resetpw') %]">esta ligação</a>.
-  </pt>
-  <de>
-    Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
-  </de>
-  <hu>
-    <a href="[% make_uri('resetpw') %]">Elfelejtett jelszó</a>
-  </hu>
-  <nl>
-    Paswoord vergeten ? Klik <a href="[% make_uri('resetpw') %]">hier</a>.
-  </nl>
- </t>
-</p>
+<p>[% loc('Forgot your password?', make_uri('resetpw')) %]</p>
 
 <p>
 <font size="-1">
-<t>
- <en>
-   This site uses cookies to authenticate logged in users. You might need
-   to instruct your browser to accept cookies from the domain <b>[% domain %]</b>.
- </en>
- <fr>
-   Ce site utilise des cookies pour identifier les utilisateurs. Il peut
-   être nécessaire de les activer dans votre navigateur pour le domaine
-   <b>[% domain %]</b>.
- </fr>
- <it>
-   Questo sito usa dei <em>cookie</em> per gestire l'autenticazione
-   degli utenti. Potreste aver bisogno di configurare il vostro browser
-   per accettare <m>cookie</em> dal dominio <b>[% domain %]</b>.
- </it>
- <pt>
-   Este site usa <em>cookies</em> para a autenticação dos
-   utilizadores. É prováel que tenha de indicar ao seu browser
-   para aceitar <em>cookies</em> do dom&iacute;io <b>[% domain %]</b>.
- </pt>
- <de>
-   Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen
-   Sie Ihren Browser so ein, dass er Cookies von der Domain <b>[% domain %]</b>
-   akzeptiert.
- </de>
- <hu>
-   Ez az oldalt böngészõ sütiket használ a felhasználók bejelentkezésének
-   nyilvántartásához. Ha a sütik kezelése a böngészõben tiltott (alapértelmezett
-   esetben NEM tiltott), engedélyezni kell a következõ domaint: <b>[% domain %]</b>.
- </hu>
- <fr>
-   Deze site gebruikt cookies voor het identificeren van gebruikers. 
-   Mogelijk moeten deze geactiveerd worden in uw browser voor het domein <b>[% domain %]</b>.
- </fr>
-</t>
+ [% loc('This site uses cookies to authenticate logged in users.', domain) %]
 </font>
 </p>
 

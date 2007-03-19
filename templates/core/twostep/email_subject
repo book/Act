@@ -1,1 +1,1 @@
-[% global.conference.name %] - <t><en>confirmation</en><fr>confirmation</en></t>
+[% loc("%1 - confirmation", global.conference.name) %]

@@ -168,3 +168,158 @@ msgstr "(You are there)"
 msgid "(You will be there)"
 msgstr "(You will be there)"
 
+msgid "Confirmation required"
+msgstr "Confirmation required"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"This operation requires a confirmation. Please enter your email address,\n"
+"you will receive an email with a confirmation link.\n"
+
+msgid "You must enter your email"
+msgstr "You must enter your email"
+
+msgid "Your email address looks bogus."
+msgstr "Your email address looks bogus."
+
+msgid "An email has been sent to %1. Click on the link in the email to"
+msgstr ""
+"An email has been sent to <b>%1</b>. Click on the link in the email to\n"
+"finish this operation.\n"
+
+msgid "Confirmation email sent"
+msgstr "Confirmation email sent"
+
+msgid "In order to complete your operation on \"%1\", please click on the following link:"
+msgstr "In order to complete your operation on \"%1\", please click on the following link:"
+
+msgid "%1 - confirmation"
+msgstr "%1 - confirmation"
+
+msgid "Registration"
+msgstr "Registration"
+
+msgid "Sorry, this conference is over."
+msgstr "Sorry, this conference is over."
+
+msgid "Please create your user below."
+msgstr "Please create your user below."
+
+msgid "Identifier %1 is already in use. Please choose another."
+msgstr "Identifier %1 is already in use. Please choose another."
+
+msgid "The address %1 is already registered."
+msgstr "The address %1 is already registered."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Your identifier must contain at least 3 characters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "You must enter your first name"
+
+msgid "You must enter your last name"
+msgstr "You must enter your last name"
+
+msgid "You must enter a country from the list"
+msgstr "You must enter a country from the list"
+
+msgid "Accounts with similar information already exist."
+msgstr "Accounts with similar information already exist."
+
+msgid "A valid T-shirt size is required."
+msgstr "A valid T-shirt size is required."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Use the links above to check if you are one of those. If so, simply\n"
+"<a href=\"%1\">log in</a> using your existing account.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+To register, you first need to create an account on the site.\n"
+<b>If you already have an account from any previous Act conference,\n"
+you do not need to register again, simply\n"
+<a href=\"%1\">log in</a> using your account.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"The personal data that will be gathered here will be used to create"
+"an <a href=\"%1\">online <i>who's who</i></a> of all the attendees.\n"
+"This will be very useful after the conference, when you'll want to get\n"
+"in touch with someone you met during the conference. Or even before,\n"
+"if you want to know which gurus will be there.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Once you have an account, you'll be able to use our secure payment\n"
+"platform to buy your ticket for the conference. Please note that\n"
+"everything regarding your bank account and credit card number\n"
+"is handled by the bank.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>We do not have access to your credit\n"
+"information at any time during the payment process.</b> We just\n"
+"get the money in the end. <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "Please create the user below."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Use the links above to check if any of those users is the one you want to\n"
+"create. If so, simply check the corresponding radio button, and\n"
+"submit this form.\n"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Registered!"
+msgstr "Registered!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Congratulations, <b>%1</b>, you are now registered.\n"
+"Your password is <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "First Name"
+
+msgid "Last Name"
+msgstr "Last Name"
+
+msgid "T-Shirt"
+msgstr "T-Shirt"
+
+msgid "Join!"
+msgstr "Join!"
+
+msgid "edit"
+msgstr "edit"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Log in"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Forgot your password?"
+msgstr "Forgot your password? Click <a href=\"%1\">here</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"This site uses cookies to authenticate logged in users. You might need\n"
+"to instruct your browser to accept cookies from the domain <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "You have been logged out and the cookie deleted from your browser."
+

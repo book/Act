@@ -1,12 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'Confirmation email sent',
-             fr => 'Email de confirmation envoyé',
-             pt => 'TRANSLATEME',
-             it => 'TRANSLATEME',
-             de => 'TRANSLATEME',
-             hu => 'TRANSLATEME',
-           },
-%]
+[% WRAPPER ui title = loc("Confirmation email sent") %]
 
 [% PROCESS core/twostep/ok %]
 
