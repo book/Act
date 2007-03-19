@@ -10,26 +10,30 @@ use Term::ReadKey;
 use Getopt::Long;
 
 my %conf = (
-    acthome => catfile( $ENV{ACTHOME} || '.', 'po' ),
+    acthome => catfile( $ENV{ACTHOME} || '.' ),
 );
 GetOptions( \%conf, 'rev=i', 'acthome=s' ) or die usage();
 
+my $podir = catfile( $conf{acthome}, 'po' );
+my $posvn = catfile( $conf{acthome}, 'po', '.svn', 'text-base' );
+
 my $lang = shift;
 
-# special case
-if( $conf{rev} ) {
-    my $lex = read_po( $lang );
-    my $rev = read_rev( $lang );
+# special cases
+# --rev <rev> option
+if ( $conf{rev} ) {
+    my $lex = read_po( $lang  => catfile( $podir, "$lang.po" ) );
+    my $rev = read_rev( $lang => catfile( $podir, "$lang.rev" ) );
     $rev->{$_} = $conf{rev} for keys %$lex;
     write_rev( $lang, $rev );
     exit;
 }
 
 # load both lexicons and revisions
-my $ref_lex = read_po('en');
-my $ref_rev = read_rev('en');
-my $ext_lex = read_po($lang);
-my $ext_rev = read_rev($lang);
+my $ref_lex = read_po( 'en'   => catfile( $podir, 'en.po' ) );
+my $ref_rev = read_rev( 'en'  => catfile( $podir, 'en.rev' ) );
+my $ext_lex = read_po( $lang  => catfile( $podir, "$lang.po" ) );
+my $ext_rev = read_rev( $lang => catfile( $podir, "$lang.rev" ) );
 
 # various interactive actions
 my %action = (
@@ -73,8 +77,7 @@ exit;
 # USEFUL SUBS
 #
 sub read_po {
-    my $lang = shift;
-    my $file = catfile( $conf{acthome}, "$lang.po" );
+    my ( $lang, $file ) = @_;
 
     return {} if ! -e $file;
     return Locale::Maketext::Lexicon::Gettext->parse( read_file $file);
@@ -82,7 +85,7 @@ sub read_po {
 
 sub write_po {
     my ( $lang, $lex ) = @_;
-    my $file = catfile( $conf{acthome}, "$lang.po" );
+    my $file = catfile( $podir, "$lang.po" );
 
     open my $fh, '>', $file or die "Can't open $file: $!";
 
@@ -105,8 +108,7 @@ sub write_po {
 }
 
 sub read_rev {
-    my $lang = shift;
-    my $file = catfile( $conf{acthome}, "$lang.rev" );
+    my ( $lang, $file ) = @_;
 
     return {} if !-e $file;
     return { map { chomp; split / \@ / } read_file $file };
@@ -114,7 +116,7 @@ sub read_rev {
 
 sub write_rev {
     my ( $lang, $rev ) = @_;
-    my $file = catfile( $conf{acthome}, "$lang.rev" );
+    my $file = catfile( $podir, "$lang.rev" );
 
     write_file( $file,
         sort map {"$_ \@ $rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
