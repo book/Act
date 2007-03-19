@@ -7,10 +7,22 @@ use Locale::Maketext::Lexicon::Gettext;
 use File::Spec::Functions;
 use File::Slurp;
 use Term::ReadKey;
+use Getopt::Long;
+
+my %conf;
+GetOptions( \%conf, 'rev=i' ) or die usage();
 
 my $podir = catfile( $ENV{ACTHOME} || '.', 'po' );
-
 my $lang = shift;
+
+# special case
+if( $conf{rev} ) {
+    my $lex = read_po( $lang );
+    my $rev = read_rev( $lang );
+    $rev->{$_} = $conf{rev} for keys %$lex;
+    write_rev( $lang, $rev );
+    exit;
+}
 
 # load both lexicons and revisions
 my $ref_lex = read_po('en');
@@ -34,7 +46,7 @@ my %action = (
 );
 
 # find the outdated ids
-my @todo = sort grep { ( $ext_rev->{$_} ||= 0 ) < $ref_rev->{$_} }
+my @todo = sort grep { ( $ext_rev->{$_} ||= 0 ) < ( $ref_rev->{$_} ||= 1 ) }
     grep { !/^__|^$/ } keys %$ref_lex;
 
 # process the ids interactively
@@ -94,7 +106,7 @@ sub read_rev {
     my $file = catfile( $podir, "$lang.rev" );
 
     return {} if !-e $file;
-    return { map { chomp; split /\@/ } read_file $file };
+    return { map { chomp; split / \@ / } read_file $file };
 }
 
 sub write_rev {
@@ -102,7 +114,7 @@ sub write_rev {
     my $file = catfile( $podir, "$lang.rev" );
 
     write_file( $file,
-        sort map {"$_\@$rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
+        sort map {"$_ \@ $rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
 }
 
 sub get_choice {
@@ -124,6 +136,9 @@ sub get_new_text {
 
 }
 
-__END__
+sub usage {
+    return << 'USAGE';
+Usage: translator [ --rev <rev> ] <lang>
+USAGE
+}
 
-Usage: translator <lang>
