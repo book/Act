@@ -9,10 +9,11 @@ use File::Slurp;
 use Term::ReadKey;
 use Getopt::Long;
 
-my %conf;
-GetOptions( \%conf, 'rev=i' ) or die usage();
+my %conf = (
+    acthome => catfile( $ENV{ACTHOME} || '.', 'po' ),
+);
+GetOptions( \%conf, 'rev=i', 'acthome=s' ) or die usage();
 
-my $podir = catfile( $ENV{ACTHOME} || '.', 'po' );
 my $lang = shift;
 
 # special case
@@ -73,13 +74,13 @@ exit;
 #
 sub read_po {
     my $lang = shift;
-    my $file = catfile( $podir, "$lang.po" );
+    my $file = catfile( $conf{acthome}, "$lang.po" );
     return Locale::Maketext::Lexicon::Gettext->parse( read_file $file);
 }
 
 sub write_po {
     my ( $lang, $lex ) = @_;
-    my $file = catfile( $podir, "$lang.po" );
+    my $file = catfile( $conf{acthome}, "$lang.po" );
 
     open my $fh, '>', $file or die "Can't open $file: $!";
 
@@ -104,7 +105,7 @@ sub write_po {
 
 sub read_rev {
     my $lang = shift;
-    my $file = catfile( $podir, "$lang.rev" );
+    my $file = catfile( $conf{acthome}, "$lang.rev" );
 
     return {} if !-e $file;
     return { map { chomp; split / \@ / } read_file $file };
@@ -112,7 +113,7 @@ sub read_rev {
 
 sub write_rev {
     my ( $lang, $rev ) = @_;
-    my $file = catfile( $podir, "$lang.rev" );
+    my $file = catfile( $conf{acthome}, "$lang.rev" );
 
     write_file( $file,
         sort map {"$_ \@ $rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
