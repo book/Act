@@ -265,3 +265,57 @@ msgstr "Logout"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht."
 
+msgid "Act conferences"
+msgstr "Act Konferenzen"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Rechtemanagement"
+
+msgid "Events"
+msgstr "Events"
+
+msgid "Submit a new event"
+msgstr "Event anmelden"
+
+msgid "Schedule"
+msgstr "Programm"
+
+msgid "iCal export"
+msgstr "als iCal exportieren"
+
+msgid "iCal import"
+msgstr "aus iCal importieren"
+
+msgid "Submit a talk proposal"
+msgstr "Vortrag einreichen"
+
+msgid "Presentations"
+msgstr "Vorträge"
+
+msgid "Treasurer"
+msgstr "Kassier"
+
+msgid "Payments"
+msgstr "Zahlungen"
+
+msgid "Edit profile"
+msgstr "Profil bearbeiten"
+
+msgid "New user"
+msgstr "Neue/r User/in"
+
+msgid "Users"
+msgstr "UserInnen"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "CSV export"
+msgstr "CSV exportieren"
+

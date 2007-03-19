@@ -323,3 +323,63 @@ msgstr "Logout"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "You have been logged out and the cookie deleted from your browser."
 
+msgid "Act conferences"
+msgstr "Act conferences"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Rights management"
+
+msgid "Events"
+msgstr "Events"
+
+msgid "Submit a new event"
+msgstr "Submit a new event"
+
+msgid "Schedule"
+msgstr "Schedule"
+
+msgid "iCal export"
+msgstr "iCal export"
+
+msgid "iCal import"
+msgstr "iCal import"
+
+msgid "Submit a talk proposal"
+msgstr "Submit a talk proposal"
+
+msgid "Presentations"
+msgstr "Presentations"
+
+msgid "Treasurer"
+msgstr "Treasurer"
+
+msgid "Payments"
+msgstr "Payments"
+
+msgid "Edit profile"
+msgstr "Edit profile"
+
+msgid "New user"
+msgstr "New user"
+
+msgid "Click here for an English version of this site"
+msgstr "Click here for an English version of this site"
+
+msgid "Users"
+msgstr "Users"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Statistics"
+msgstr "Statistics"
+
+msgid "CSV export"
+msgstr "CSV export"
+
+msgid "Register a new user"
+msgstr "Register a new user"
+

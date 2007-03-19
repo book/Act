@@ -329,3 +329,63 @@ msgstr "Déconnexion"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Vous êtes déconnecté et le cookie a été supprimé."
 
+msgid "Act conferences"
+msgstr "Conférences Act"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Gestion des droits"
+
+msgid "Events"
+msgstr "Événements"
+
+msgid "Submit a new event"
+msgstr "Soumettre un événement"
+
+msgid "Schedule"
+msgstr "Horaires"
+
+msgid "iCal export"
+msgstr "Export iCal"
+
+msgid "iCal import"
+msgstr "Import iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Soumettre une présentation"
+
+msgid "Presentations"
+msgstr "Présentations"
+
+msgid "Treasurer"
+msgstr "Trésorier"
+
+msgid "Payments"
+msgstr "Paiements"
+
+msgid "Edit profile"
+msgstr "Modifier profil"
+
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+msgid "Click here for an English version of this site"
+msgstr "Cliquer ici pour une version française de ce site"
+
+msgid "Users"
+msgstr "Utilisateurs"
+
+msgid "Search"
+msgstr "Recherche"
+
+msgid "Statistics"
+msgstr "Statistiques"
+
+msgid "CSV export"
+msgstr "Export CSV"
+
+msgid "Register a new user"
+msgstr "Enregister un nouvel utilisateur"
+

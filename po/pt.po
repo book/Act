@@ -273,3 +273,57 @@ msgstr "Sair"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Acabou de sair do sistema, e a sua informação foi apagada do browser."
 
+msgid "Act conferences"
+msgstr "Conferências Act"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Gestão de permissões"
+
+msgid "Events"
+msgstr "Eventos"
+
+msgid "Submit a new event"
+msgstr "Submeter um novo evento"
+
+msgid "Schedule"
+msgstr "Programa"
+
+msgid "iCal export"
+msgstr "Exportar para iCal"
+
+msgid "iCal import"
+msgstr "Importar de iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Propôr apresentação"
+
+msgid "Presentations"
+msgstr "Apresentações"
+
+msgid "Treasurer"
+msgstr "Tesoureiro"
+
+msgid "Payments"
+msgstr "Pagamentos"
+
+msgid "Edit profile"
+msgstr "Modificar perfil"
+
+msgid "New user"
+msgstr "Novo utilizador"
+
+msgid "Users"
+msgstr "Utilizadores"
+
+msgid "Search"
+msgstr "Procurar"
+
+msgid "Statistics"
+msgstr "Estatísticas"
+
+msgid "CSV export"
+msgstr "Exportar CSV"
+

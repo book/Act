@@ -251,3 +251,60 @@ msgstr "Kijelentkezés"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "A kijelentkezés megtörtént, a böngészõ süti törlésre került."
 
+msgid "Act conferences"
+msgstr "További konferenciák"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Jogosultság beállítások"
+
+msgid "Events"
+msgstr "Események"
+
+msgid "Submit a new event"
+msgstr "Új esemény beküldése"
+
+msgid "Schedule"
+msgstr "Idõbeosztás"
+
+msgid "iCal export"
+msgstr "iCal exportálás"
+
+msgid "iCal import"
+msgstr "iCal importálás"
+
+msgid "Submit a talk proposal"
+msgstr "Elõadásra jelentkezés"
+
+msgid "Presentations"
+msgstr "Elõadások"
+
+msgid "Treasurer"
+msgstr "Pénztár"
+
+msgid "Payments"
+msgstr "Fizetések"
+
+msgid "Edit profile"
+msgstr "Adatok"
+
+msgid "New user"
+msgstr "Új felhasználó"
+
+msgid "Click here for an English version of this site"
+msgstr "Ide kattintva az oldal magyar verziója érhetõ el"
+
+msgid "Users"
+msgstr "Felhasználók"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Statistics"
+msgstr "Statisztika"
+
+msgid "CSV export"
+msgstr "CSV exportálás"
+

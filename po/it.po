@@ -283,8 +283,65 @@ msgstr ""
 "per accettare <m>cookie</em> dal dominio <b>%1</b>.\n"
 
 msgid "Logout"
-msgstr "Uscita dal sistema"
+msgstr "Uscita"
 
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Siete usciti dal sistema, e il <em>cookie</em> è stato eliminato."
+
+msgid "Act conferences"
+msgstr "Conferenze Act"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Gestione dei permessi"
+
+msgid "Events"
+msgstr "Eventi"
+
+msgid "Submit a new event"
+msgstr "Aggiungi un evento"
+
+msgid "Schedule"
+msgstr "Programma"
+
+msgid "iCal export"
+msgstr "Esporta per iCal"
+
+msgid "iCal import"
+msgstr "Importa da iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Invia una proposta di intervento"
+
+msgid "Presentations"
+msgstr "Interventi"
+
+msgid "Treasurer"
+msgstr "Tesoriere"
+
+msgid "Payments"
+msgstr "Pagamenti"
+
+msgid "Edit profile"
+msgstr "Modifica profilo"
+
+msgid "New user"
+msgstr "Nuovo utente"
+
+msgid "Users"
+msgstr "Utenti"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Statistics"
+msgstr "Statistiche"
+
+msgid "CSV export"
+msgstr "Esporta CSV"
+
+msgid "Register a new user"
+msgstr "Registrare un nuovo utente"
 

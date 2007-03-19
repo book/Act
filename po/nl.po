@@ -111,3 +111,63 @@ msgstr "Afmelden"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "U werd afgemeld en de cookie werd verwijderd van Uw browser."
 
+msgid "Act conferences"
+msgstr "Act conferenties"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Rechtenmanagement"
+
+msgid "Events"
+msgstr "Gebeurtenissen"
+
+msgid "Submit a new event"
+msgstr "Een nieuwe gebeurtenis voorleggen"
+
+msgid "Schedule"
+msgstr "Programma"
+
+msgid "iCal export"
+msgstr "iCal export"
+
+msgid "iCal import"
+msgstr "iCal import"
+
+msgid "Submit a talk proposal"
+msgstr "Een presentatie voorleggen"
+
+msgid "Presentations"
+msgstr "Presentaties"
+
+msgid "Treasurer"
+msgstr "Penningmeester"
+
+msgid "Payments"
+msgstr "Betalingen"
+
+msgid "Edit profile"
+msgstr "Profiel wijzigen"
+
+msgid "New user"
+msgstr "Nieuwe gebruiker"
+
+msgid "Click here for an English version of this site"
+msgstr "Klik hier voor een nederlandstalige versie van deze site"
+
+msgid "Users"
+msgstr "Gebruikers"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Statistics"
+msgstr "Statistieken"
+
+msgid "CSV export"
+msgstr "CSV export"
+
+msgid "Register a new user"
+msgstr "Een nieuwe gebruik registreren"
+
