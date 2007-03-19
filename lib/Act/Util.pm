@@ -147,7 +147,7 @@ sub date_format
 # translate a string
 sub localize
 {
-    return $Request{loc}->maketext($_[0]);
+    return $Request{loc}->maketext(@_);
 }
 1;
 
