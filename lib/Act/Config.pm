@@ -61,6 +61,13 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%Y %m %d',
             fmt_time           => '%H:%M',
           },
+    nl => { name               => 'Nederlands',
+            fmt_datetime_full  => '%A %e %B %Y %H:%M',
+            fmt_datetime_short => '%d-%m-%y %H:%M',
+            fmt_date_full      => '%A %e %B %Y',
+            fmt_date_short     => '%d-%m-%y',
+            fmt_time           => '%H:%M',
+          },
 );
 
 # load configurations
