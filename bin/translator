@@ -75,6 +75,8 @@ exit;
 sub read_po {
     my $lang = shift;
     my $file = catfile( $conf{acthome}, "$lang.po" );
+
+    return {} if ! -e $file;
     return Locale::Maketext::Lexicon::Gettext->parse( read_file $file);
 }
 
@@ -88,13 +90,12 @@ sub write_po {
         next if $id =~ /^__/;
 
         # msgid
-        print $fh "#: $id\n" if $id;
         print $fh qq(msgid "$id"\n);
 
         # msgstr
         ( my $str = $lex->{$id} ) =~ s/"/\\"/g;
         if ( $str =~ /\n/ ) {
-            $str = join "\n", "", map {qq("$_\\n")} split /\n/, $str;
+            $str = join "\n", '""', map {qq("$_\\n")} split /\n/, $str;
         }
         else { $str = qq("$str"); }
         print $fh qq(msgstr $str\n\n);
