@@ -64,6 +64,11 @@ my @templates = (
                     { nolang => 'C' },
                   ],
     },
+    { # loc()
+      in  => '[% loc("country_gb") %]',
+      out => 'Royaume-Uni',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
     { # localization filter
       in  => '[% "country_gb" | loc %]',
       out => 'Royaume-Uni',
