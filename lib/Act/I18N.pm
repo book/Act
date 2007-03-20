@@ -31,7 +31,7 @@ sub failure_handler
 
     # look up in the default_language lexicon, then in the English lexicon,
     # avoiding infinite recursion
-    (my $lang = ref($self)) =~ s/^.*:://;
+    my $lang = $self->language_tag();
     if ($lang ne 'en') {
         for my $fallback ($Config->general_default_language, 'en') {
             if ($lang ne $fallback) {
