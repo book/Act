@@ -4,7 +4,7 @@ use Act::Config;
 use Act::I18N;
 use Act::Util;
 
-my @MEANS = qw(CHQ CASH ONLINE);
+my @MEANS = qw(CHQ CASH ONLINE XFER);
 
 # load appropriate payment plugin
 sub load_plugin

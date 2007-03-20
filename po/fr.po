@@ -13,6 +13,9 @@ msgstr "Espèces"
 msgid "payment_means_ONLINE"
 msgstr "En ligne"
 
+msgid "payment_means_XFER"
+msgstr "Transfert"
+
 msgid "room_out"
 msgstr "Extérieur"
 

@@ -13,6 +13,9 @@ msgstr "Cash"
 msgid "payment_means_ONLINE"
 msgstr "Online"
 
+msgid "payment_means_XFER"
+msgstr "Transfer"
+
 msgid "room_out"
 msgstr "Outside"
 
