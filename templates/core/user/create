@@ -19,7 +19,7 @@
   }
 %]
 
-[% IF duplicates %]
+[% IF duplicates.size %]
 <form method="POST" action="[% global.request.r.uri %]">
 <p>
  [% FOREACH u IN duplicates %]
