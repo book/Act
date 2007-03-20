@@ -29,12 +29,15 @@ sub failure_handler
 {
     my ($self, $key, @params) = @_;
 
-    # prevent inifinite recursion in case string isn't found in
-    # default language lexicon
-    my $default_pkg = 'Act::I18N::' . $Config->general_default_language;
-    if (ref($self) ne $default_pkg) {
-        my $lh = Act::I18N->get_handle($Config->general_default_language);
-        return $lh->maketext($key, @params);
+    # look up in the default_language lexicon, then in the English lexicon,
+    # avoiding infinite recursion
+    (my $lang = ref($self)) =~ s/^.*:://;
+    if ($lang ne 'en') {
+        for my $fallback ($Config->general_default_language, 'en') {
+            if ($lang ne $fallback) {
+                return Act::I18N->get_handle($fallback)->maketext($key, @params);
+            }
+        }
     }
     return 'TRANSLATEME';
 }
