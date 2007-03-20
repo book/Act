@@ -52,7 +52,7 @@
     </li>
     [% END %]
    [% ELSE %]
-    <li><a href="[% make_uri('register') %]{{register for this conference}}<a><br />
+    <li><a href="[% make_uri('register') %]">{{register for this conference}}</a><br />
     </li>
    [% END %]
     <li><a href="[% make_uri('change') %]">{{update your information}}</a><br />
