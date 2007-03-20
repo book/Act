@@ -140,17 +140,9 @@
    <tr>
       <td align="right" valign="top">
     [% IF global.request.user.is_orga %]
-	  [% IF talks.size == 1 %]
-	     {{Talk}}
-	  [% ELSE %]
-	     {{Talks}}
-	  [% END %]
+      [% loc('Talk', talks.size) %]
     [% ELSE %]
-	  [% IF talks.size == 1 %]
-	     {{Accepted Talk}}
-	  [% ELSE %]
-	     {{Accepted Talks}}
-      [% END %]
+      [% loc('Accepted Talk', talks.size) %]
       </td>
     [% END %]
       <td>&nbsp;</td>
