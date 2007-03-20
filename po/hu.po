@@ -96,8 +96,8 @@ msgstr "Vásárlás ideje"
 msgid "Amount paid"
 msgstr "Fizetett összeg"
 
-msgid "Download %1your invoice</a>."
-msgstr "%1Számla letöltése</a>."
+msgid "Download your invoice"
+msgstr "<a href=\"%1\">Számla letöltése</a>."
 
 msgid "You have not bought your conference ticket yet."
 msgstr "Még nem került sor konferencia jegy vásárlásra."
@@ -108,8 +108,10 @@ msgstr "Kérjük vásároljon konferencia jegyet."
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "Kérjük a fizetési rendszer elindítása után vásároljon konferencia jegyet."
 
-msgid "You did not %1register for this conference</a>."
-msgstr "Erre a konferenciára %1még nem regisztrált</a>. Kérjük regisztráljon!"
+msgid "You did not register for this conference"
+msgstr ""
+"Erre a konferenciára <a href=\"%1\">még nem regisztrált</a>.\n"
+"Kérjük regisztráljon!\n"
 
 msgid "You can:"
 msgstr "Lehetõségek:"

@@ -117,8 +117,8 @@ msgstr "Payment date"
 msgid "Amount paid"
 msgstr "Amount paid"
 
-msgid "Download %1your invoice</a>."
-msgstr "Download %1your invoice</a>."
+msgid "Download your invoice"
+msgstr "Download <a href=\"%1\">your invoice</a>."
 
 msgid "You have not bought your conference ticket yet."
 msgstr "You have not bought your conference ticket yet."
@@ -129,8 +129,10 @@ msgstr "Please consider doing so using our online payment system."
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "Please consider doing so once our online payment system is ready."
 
-msgid "You did not %1register for this conference</a>."
-msgstr "You did not %1register for this conference</a>. Please do so if you plan to attend or give a presentation there."
+msgid "You did not register for this conference"
+msgstr ""
+"You did not <a href=\"%1\">register for this conference</a>.\n"
+"Please do so if you plan to attend or give a presentation there.\n"
 
 msgid "You can:"
 msgstr "You can:"

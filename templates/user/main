@@ -22,8 +22,7 @@
   </blockquote/>
  </p>
  [% IF global.config.payment_invoices %]
- [% uri = make_uri_info('invoice', order.order_id) %]
- <p>[% loc("Download %1your invoice</a>.", "<a href=\"${uri}\">") %]
+ <p>[% loc("Download your invoice", make_uri_info('invoice', order.order_id)) %]
  </p>
  [% END %]
   [% ELSE %]
@@ -37,8 +36,7 @@
  </p>
  [% END %]
  [% ELSE %]
-  [% uri = make_uri('register');
-     col("You did not %1register for this conference</a>.", "<a href=\"${uri}\">") %]
+  [% col("You did not register for this conference", make_uri('register')) %]
  [% END %]
 [% ELSE %]
 <!-- no conference at all -->
