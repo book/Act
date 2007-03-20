@@ -59,10 +59,10 @@ msgid "No Photo"
 msgstr "Sem foto"
 
 msgid "Talk"
-msgstr "%quant(%1,Apresentação,Apresentações)"
+msgstr "%numerate(%1,Apresentação,Apresentações)"
 
 msgid "Accepted Talk"
-msgstr "%quant(%1,Apresentação aceite,Apresentações aceites)"
+msgstr "%numerate(%1,Apresentação aceite,Apresentações aceites)"
 
 msgid "minutes"
 msgstr "minutos"

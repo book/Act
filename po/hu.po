@@ -50,10 +50,10 @@ msgid "No Photo"
 msgstr "nincs fotó"
 
 msgid "Talk"
-msgstr "%quant(%1,Elõadása,Elõadásai)"
+msgstr "%numerate(%1,Elõadása,Elõadásai)"
 
 msgid "Accepted Talk"
-msgstr "Elfogadott %quant(%1,elõadása,elõadásai)"
+msgstr "Elfogadott %numerate(%1,elõadása,elõadásai)"
 
 msgid "minutes"
 msgstr "perc"

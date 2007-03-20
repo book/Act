@@ -68,10 +68,10 @@ msgid "No Photo"
 msgstr "Pas de photo"
 
 msgid "Talk"
-msgstr "%quant(%1,Présentation)"
+msgstr "%numerate(%1,Présentation)"
 
 msgid "Accepted Talk"
-msgstr "%quant(%1,Présentation acceptée,Présentations acceptées)"
+msgstr "%numerate(%1,Présentation acceptée,Présentations acceptées)"
 
 msgid "minutes"
 msgstr "minutes"
