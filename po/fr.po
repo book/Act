@@ -94,7 +94,7 @@ msgstr "Autres conférences Act&nbsp;:"
 msgid "Main private page"
 msgstr "Page personnelle"
 
-msgid "to %1."
+msgid "to <this conference>"
 msgstr "à %1."
 
 msgid "This is your personal page."
@@ -165,7 +165,7 @@ msgstr "soumettre une présentation"
 msgid "log out"
 msgstr "vous déconnecter"
 
-msgid "unregister from %1"
+msgid "unregister from <this conference>"
 msgstr "vous désinscrire de %1"
 
 msgid "(You were there)"
@@ -191,7 +191,7 @@ msgstr "L'adresse email est obligatoire"
 msgid "Your email address looks bogus."
 msgstr "Adresse email&nbsp;: syntaxe incorrecte."
 
-msgid "An email has been sent to %1. Click on the link in the email to"
+msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
 "Un email a été envoyé à <b>%1</b>. Cliquez sur le lien contenu dans cet\n"
 "email pour terminer l'opération en cours.\n"
@@ -199,10 +199,10 @@ msgstr ""
 msgid "Confirmation email sent"
 msgstr "Email de confirmation envoyé"
 
-msgid "In order to complete your operation on \"%1\", please click on the following link:"
+msgid "In order to complete your operation"
 msgstr "Pour terminer l'opération sur \"%1\", veuillez cliquer sur le lien suivant :"
 
-msgid "%1 - confirmation"
+msgid "<conf_id> confirmation"
 msgstr "%1 - confirmation"
 
 msgid "Registration"
@@ -214,10 +214,10 @@ msgstr "Désolé, cette conférence est terminée."
 msgid "Please create your user below."
 msgstr "Vous pouvez créer votre utilisateur ci-dessous."
 
-msgid "Identifier %1 is already in use. Please choose another."
+msgid "Identifier is already in use. Please choose another."
 msgstr "L'identifiant %1 est déjà utilisé. Veuillez en choisir un autre."
 
-msgid "The address %1 is already registered."
+msgid "The address is already registered."
 msgstr "L'adresse %1 est déjà enregistrée."
 
 msgid "Your identifier must contain at least 3 characters"

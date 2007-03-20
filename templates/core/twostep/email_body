@@ -1,2 +1,2 @@
-[% loc('In order to complete your operation on "%1", please click on the following link:', global.conference.name) %]
+[% loc('In order to complete your operation', global.conference.name) %]
 [% link %]

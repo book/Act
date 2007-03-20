@@ -3,7 +3,7 @@
 <p>
  {{This is your personal page.}}
  [% IF global.request.conference %]
- [% loc("to %1.", global.conference.name) %]
+ [% loc("to <this conference>", global.conference.name) %]
  [% ELSE %]
  {{to Act-enabled conferences.}}
  [% END %]
@@ -81,7 +81,7 @@
     [% END %]
    <li><a href="[% make_uri('logout') %]">{{log out}}</a></li>
    [% IF can_unregister %]
-   <li><a href="[% make_uri('unregister') %]">[% col("unregister from %1", global.conference.name) %]</a></li>
+   <li><a href="[% make_uri('unregister') %]">[% col("unregister from <this conference>", global.conference.name) %]</a></li>
    [% END %]
    </ul>
 

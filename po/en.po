@@ -94,7 +94,7 @@ msgstr "Other Act conferences:"
 msgid "Main private page"
 msgstr "Main private page"
 
-msgid "to %1."
+msgid "to <this conference>"
 msgstr "to %1."
 
 msgid "This is your personal page."
@@ -161,7 +161,7 @@ msgstr "submit a talk"
 msgid "log out"
 msgstr "log out"
 
-msgid "unregister from %1"
+msgid "unregister from <this conference>"
 msgstr "unregister from %1"
 
 msgid "(You were there)"
@@ -187,7 +187,7 @@ msgstr "You must enter your email"
 msgid "Your email address looks bogus."
 msgstr "Your email address looks bogus."
 
-msgid "An email has been sent to %1. Click on the link in the email to"
+msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
 "An email has been sent to <b>%1</b>. Click on the link in the email to\n"
 "finish this operation.\n"
@@ -195,10 +195,10 @@ msgstr ""
 msgid "Confirmation email sent"
 msgstr "Confirmation email sent"
 
-msgid "In order to complete your operation on \"%1\", please click on the following link:"
+msgid "In order to complete your operation"
 msgstr "In order to complete your operation on \"%1\", please click on the following link:"
 
-msgid "%1 - confirmation"
+msgid "<conf_id> confirmation"
 msgstr "%1 - confirmation"
 
 msgid "Registration"
@@ -210,10 +210,10 @@ msgstr "Sorry, this conference is over."
 msgid "Please create your user below."
 msgstr "Please create your user below."
 
-msgid "Identifier %1 is already in use. Please choose another."
+msgid "Identifier is already in use. Please choose another."
 msgstr "Identifier %1 is already in use. Please choose another."
 
-msgid "The address %1 is already registered."
+msgid "The address is already registered."
 msgstr "The address %1 is already registered."
 
 msgid "Your identifier must contain at least 3 characters"

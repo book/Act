@@ -82,7 +82,7 @@ msgstr "Altre conferenze gestite con Act:"
 msgid "Main private page"
 msgstr "Pagina personale"
 
-msgid "to %1."
+msgid "to <this conference>"
 msgstr "a %1."
 
 msgid "This is your personal page."
@@ -149,7 +149,7 @@ msgstr "proporre un intervento"
 msgid "log out"
 msgstr "uscire dal sistema"
 
-msgid "unregister from %1"
+msgid "unregister from <this conference>"
 msgstr "annullare la vostra iscrizione a %1"
 
 msgid "(You were there)"
@@ -176,10 +176,10 @@ msgstr "Questa conferenza è finita."
 msgid "Please create your user below."
 msgstr "Create il vostro account."
 
-msgid "Identifier %1 is already in use. Please choose another."
+msgid "Identifier is already in use. Please choose another."
 msgstr "L'identificativo %1 è già usato. Vi preghiamo di sceglierne un altro."
 
-msgid "The address %1 is already registered."
+msgid "The address is already registered."
 msgstr "L'indirizzo %1 è già iscritto."
 
 msgid "Your identifier must contain at least 3 characters"

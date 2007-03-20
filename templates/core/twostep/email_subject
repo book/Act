@@ -1,1 +1,1 @@
-[% loc("%1 - confirmation", global.conference.name) %]
+[% loc("<conf_id> confirmation", global.conference.name) %]

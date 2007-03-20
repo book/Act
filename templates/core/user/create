@@ -6,8 +6,8 @@
 
 [% PROCESS error
    msgs = {
-     ERR_IDENTIFIER_EXISTS => loc("Identifier %1 is already in use. Please choose another.", login),
-     ERR_EMAIL_EXISTS      => loc("The address %1 is already registered.", email),
+     ERR_IDENTIFIER_EXISTS => loc("Identifier is already in use. Please choose another.", login),
+     ERR_EMAIL_EXISTS      => loc("The address is already registered.", email),
      ERR_IDENTIFIER        => loc("Your identifier must contain at least 3 characters"),
      ERR_FIRST_NAME        => loc("You must enter your first name"),
      ERR_LAST_NAME         => loc("You must enter your last name"),

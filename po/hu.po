@@ -73,7 +73,7 @@ msgstr "További Perl konferenciák:"
 msgid "Main private page"
 msgstr "Személyes oldal"
 
-msgid "to %1."
+msgid "to <this conference>"
 msgstr "%1"
 
 msgid "This is your personal page."
@@ -140,7 +140,7 @@ msgstr "elõadás beküldése"
 msgid "log out"
 msgstr "kijelentkezés"
 
-msgid "unregister from %1"
+msgid "unregister from <this conference>"
 msgstr "leiratkozás: %1"
 
 msgid "(You were there)"
@@ -164,10 +164,10 @@ msgstr "Regisztráció"
 msgid "Please create your user below."
 msgstr "A felhasználó létrehozásához az alábbi adatokat kell megadni."
 
-msgid "Identifier %1 is already in use. Please choose another."
+msgid "Identifier is already in use. Please choose another."
 msgstr "%1 azonosító már foglalt."
 
-msgid "The address %1 is already registered."
+msgid "The address is already registered."
 msgstr "%1 email cím már foglalt."
 
 msgid "Your identifier must contain at least 3 characters"

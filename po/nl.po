@@ -16,10 +16,10 @@ msgstr "Sorry, deze conferentie is beëindigd."
 msgid "Please create your user below."
 msgstr "U kan hieronder Uw gebruiker aanmaken."
 
-msgid "Identifier %1 is already in use. Please choose another."
+msgid "Identifier is already in use. Please choose another."
 msgstr "De gebruiker %1 bestaat reeds. U gelieve een andere te kiezen."
 
-msgid "The address %1 is already registered."
+msgid "The address is already registered."
 msgstr "Het adres %1 werd reeds geregistreerd."
 
 msgid "Your identifier must contain at least 3 characters"
