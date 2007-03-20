@@ -304,3 +304,72 @@ msgstr "Statisztika"
 msgid "CSV export"
 msgstr "CSV exportálás"
 
+msgid "The schedule is not ready to be seen."
+msgstr "A program még nincs meghatározva."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "A következõ elõadások helye és ideje még nem lett eldöntve."
+
+msgid "Speaker"
+msgstr "Elõadó"
+
+msgid "Talk title"
+msgstr "Elõadás címe"
+
+msgid "Duration"
+msgstr "Hossza"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette."
+
+msgid "Time"
+msgstr "Idõ"
+
+msgid "Room <room name>"
+msgstr "Helyszín: %1"
+
+msgid "Ticket for <conference name>."
+msgstr "%1 jegy."
+
+msgid "Price"
+msgstr "Ár"
+
+msgid "Buy now!"
+msgstr "Azonnali megvétel"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Fontos tudni, hogy a bankszámlaszámot, a bankkártya számát és magát a\n"
+"tranzakciót a bank fogja kezelni. <b>Az oldal üzemeltetõi nem férnek\n"
+"hozzá semmilyen formában és módon ezekhez a fizetési információkhoz.</b>\n"
+"Csak a pénz érkezik meg a folyamat végén... <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "Online fizetés"
+
+msgid "Join"
+msgstr "Csatlakozom"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"A %1 konferenciára történõ jelentkezéshez\n"
+"az alábbi gomb megnyomása szükséges.\n"
+
+msgid "The recognised rights are:"
+msgstr "A rendelkezésre álló jogok:"
+
+msgid "Organizer"
+msgstr "Szervezõ"
+
+msgid "Organizer (talks management)"
+msgstr "Szervezõ (elõadás kezelõ)"
+
+msgid "Treasurer (payment management)"
+msgstr "Pénztáros (fizetés kezelõ)"
+
+msgid "User rights"
+msgstr "Felhasználó jogok"
+
+msgid "Amount"
+msgstr "Összeg"
+

@@ -323,3 +323,70 @@ msgstr "Estatísticas"
 msgid "CSV export"
 msgstr "Exportar CSV"
 
+msgid "The schedule is not ready to be seen."
+msgstr "O programa ainda está em construção."
+
+msgid "Speaker"
+msgstr "Orador"
+
+msgid "Talk title"
+msgstr "Título"
+
+msgid "Duration"
+msgstr "Duração"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores."
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "Room <room name>"
+msgstr "Sala %1"
+
+msgid "Ticket for <conference name>."
+msgstr "Bilhete para %1."
+
+msgid "Price"
+msgstr "Preço"
+
+msgid "Buy now!"
+msgstr "Comprar"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Por favor, repare que toda a gestão da sua conta bancária e do número do seu\n"
+"cartão é feita pelo banco. <b>Nós não temos acesso à sua informação de\n"
+"crédito em qualquer altura do processo de pagamento.</b> Só iremos receber o\n"
+"dinheiro no fim. <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "Pagamento on-line"
+
+msgid "Join"
+msgstr "Inscrever-me na"
+
+msgid "To register to the <name> conference"
+msgstr "Para se inscrever na %1 prima o botão abaixo."
+
+msgid "The recognised rights are:"
+msgstr "Os direitos disponíveis são:"
+
+msgid "Organizer"
+msgstr "Organização"
+
+msgid "Organizer (talks management)"
+msgstr "Organização (gestão de apresentações)"
+
+msgid "Treasurer (payment management)"
+msgstr "Tesoureiro (gestão de pagamentos)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrador (gestão de permissões)"
+
+msgid "User rights"
+msgstr "Permissões do utilizador"
+
+msgid "Amount"
+msgstr "Valor"
+

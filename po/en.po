@@ -382,3 +382,74 @@ msgstr "CSV export"
 msgid "Register a new user"
 msgstr "Register a new user"
 
+msgid "The schedule is not ready to be seen."
+msgstr "The schedule is not ready to be seen."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "The time and place of the following talks haven't been decided yet."
+
+msgid "Speaker"
+msgstr "Speaker"
+
+msgid "Talk title"
+msgstr "Talk title"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Talks in <b>bold type</b> have been confirmed by their respective speakers."
+
+msgid "Time"
+msgstr "Time"
+
+msgid "Room <room name>"
+msgstr "Room %1"
+
+msgid "Ticket for <conference name>."
+msgstr "Ticket for %1."
+
+msgid "Price"
+msgstr "Price"
+
+msgid "Buy now!"
+msgstr "Buy now!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Please note that everything regarding your bank account and credit card number\n"
+"is handled by the bank. <b>We do not have access to your credit information at\n"
+"any time during the payment process.</b> We just get the money in the end. <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "Online payment"
+
+msgid "Join"
+msgstr "Join"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"To register to the %1 conference,\n"
+"simply push the button below.\n"
+
+msgid "The recognised rights are:"
+msgstr "The recognised rights are:"
+
+msgid "Organizer"
+msgstr "Organizer"
+
+msgid "Organizer (talks management)"
+msgstr "Organizer (talks management)"
+
+msgid "Treasurer (payment management)"
+msgstr "Treasurer (payment management)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (rights management)"
+
+msgid "User rights"
+msgstr "User rights"
+
+msgid "Amount"
+msgstr "Amount"
+

@@ -1,7 +1,5 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = { en => 'User rights', fr => 'Droits des utilisateurs', it => 'Permessi degli utenti' , pt => 'Permissões do utilizador',de=>'Userrechte', hu=>'Felhasználó jogok'},
-%]
+[% WRAPPER ui title = 'User rights' %]
 
 [% PROCESS core/user/rights %]
 

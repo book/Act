@@ -6,34 +6,12 @@
 
 <tr>
  <td colspan="3">
-  <t>
-   <en>
-    Ticket for [% global.conference.name %].
-   </en>
-   <fr>
-    Ticket d'entrée à la conférence [% global.conference.name %].
-   </fr>
-   <it>
-    Bigiletto per [% global.conference.name %].
-   </it>
-   <pt>
-    Bilhete para [% global.conference.name %].
-   </pt>
-   <de>
-   Teilnahme an [% global.conference.name %].
-   </de>
-   <hu>
-    [% global.conference.name %] jegy.
-   </hu>
-   <nl>
-    Toegangskaart voor [% global.conference.name %].
-   </nl>
-  </t>
+  [% loc('Ticket for <conference name>.', global.conference.name) %]
  </td>
 </tr>
 <tr>
    <td align="right">
-      <t><en>Price</en><fr>Tarif </fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de><hu>Ár</hu><nl>Prijs</nl></t>:
+      {{Price}}:
    </td>
    <td>&nbsp;</td>
    <td>
@@ -46,7 +24,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="purchase" value="<t><pt>Comprar</pt><fr>J'achète</fr><en>Buy now!</en><it>Acquista</it><de>Jetzt bezahlen</de><hu>Azonnali megvétel</hu><nl>Kopen</nl></t>" />
+      <input type="submit" name="purchase" value="{{Buy now!}}" />
    </td>
 </tr>
 </table>
@@ -56,54 +34,7 @@
 </center>
 
 <p>
- <t>
-  <en>
-   Please note that
-   everything regarding your bank account and credit card number
-   is handled by the bank. <b>We do not have access to your credit
-   information at any time during the payment process.</b> We just
-   get the money in the end. <tt>;-)</tt>
-  </en>
-  <pt>
-   Por favor, repare que
-   toda a gestão da sua conta bancária e do número do seu cartão é
-   feita pelo banco. <b>Nós não temos acesso à sua informação de
-   crédito em qualquer altura do processo de pagamento.</b> Só
-   iremos receber o dinheiro no fim. <tt>;-)</tt>
-  </pt>
-  <fr>
-   Veuillez noter que tout ce qui concerne
-   votre compte en banque et votre numéro de carte bleue est géré
-   par la banque. <b>Nous n'avons à aucun moment accès aux informations
-   bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent
-   à la fin. <tt>;-)</tt>
-  </fr>
-  <it>
-   Notate che tutti
-   i dettagli relativi al vostro conto in banca e carta di credito sono
-   gestiti direttamente dalla banca: <b>in nessun momento noi avremo
-   accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una
-   volta terminata la transazione <tt>;-)</tt>.
-  </it>
-  <de>
-   Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,
-   direkt von unserer Bank betreut wird. <b>Wir haben keinen Zugriff auf Ihre
-   Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen
-   lediglich das Geld...
-  </de>
-  <hu>
-   Fontos tudni, hogy a bankszámlaszámot, a bankkártya számát és magát a
-   tranzakciót a bank fogja kezelni. <b>Az oldal üzemeltetõi nem férnek
-   hozzá semmilyen formában és módon ezekhez a fizetési információkhoz.</b>
-   Csak a pénz érkezik meg a folyamat végén... <tt>;-)</tt>
-  </hu>
-  <nl>
-   We merken op dat alles wat Uw bankrekening en kredietkaart betreft
-   door de bank behandeld wordt. <b>Op geen enkel moment hebben wij
-   toegang tot Uw bankgegevens.</b> Wij beperken ons tot het ontvangen
-   van het geld. <tt>;-)</tt>
-  </nl>
- </t>
+ {{Please note that everything regarding your bank account and credit card number}}
 </p>
 
 [% file = "core/bank/${global.config.payment_type}" ; PROCESS $file %]

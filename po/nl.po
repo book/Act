@@ -171,3 +171,81 @@ msgstr "CSV export"
 msgid "Register a new user"
 msgstr "Een nieuwe gebruik registreren"
 
+msgid "The schedule is not ready to be seen."
+msgstr "Het programmarooster is nog in ontwerp."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "De datums en plaatsen voor deze presentaties werden nog niet vastgelegd."
+
+msgid "Speaker"
+msgstr "Spreker"
+
+msgid "Talk title"
+msgstr "Titel"
+
+msgid "Duration"
+msgstr "Duur"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "De presentaties in het <b>vet</b> werden nog niet bevestigd door hun auteurs."
+
+msgid "Time"
+msgstr "Uur"
+
+msgid "Room <room name>"
+msgstr "Zaal %1"
+
+msgid "Ticket for <conference name>."
+msgstr "Toegangskaart voor %1."
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "Buy now!"
+msgstr "Kopen"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"We merken op dat alles wat Uw bankrekening en kredietkaart betreft\n"
+"door de bank behandeld wordt. <b>Op geen enkel moment hebben wij\n"
+"toegang tot Uw bankgegevens.</b> Wij beperken ons tot het ontvangen\n"
+"van het geld. <tt>;-)</tt>\n"
+
+msgid "Join"
+msgstr "Aanmelden"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Druk op de onderstaande knop om U in te schrijven\n"
+"voor de conferentie %1\n"
+
+msgid "The recognised rights are:"
+msgstr "De bestaande rechten zijn:"
+
+msgid "Organizer"
+msgstr "Organisator"
+
+msgid "Organizer (talks management)"
+msgstr "Organisator (presentaties management)"
+
+msgid "Treasurer (payment management)"
+msgstr "Penningmeester (Betalingsmanagement)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (rechtenmanagement)"
+
+msgid "The recognised rights are:"
+msgstr "De bestaande rechten zijn:"
+
+msgid "Organizer"
+msgstr "Organisator"
+
+msgid "Organizer (talks management)"
+msgstr "Organisator (presentaties management)"
+
+msgid "Treasurer (payment management)"
+msgstr "Penningmeester (Betalingsmanagement)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (rechtenmanagement)"
+

@@ -388,3 +388,75 @@ msgstr "Export CSV"
 msgid "Register a new user"
 msgstr "Enregister un nouvel utilisateur"
 
+msgid "The schedule is not ready to be seen."
+msgstr "Les horaires ne sont pas encore finalisés."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Les dates et lieu de ces présentations n'ont pas encore été décidés."
+
+msgid "Speaker"
+msgstr "Présentateur"
+
+msgid "Talk title"
+msgstr "Présentation"
+
+msgid "Duration"
+msgstr "Durée"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Les présentations en <b>gras</b> ont été confirmées par leurs auteurs."
+
+msgid "Time"
+msgstr "Heure"
+
+msgid "Room <room name>"
+msgstr "Salle %1"
+
+msgid "Ticket for <conference name>."
+msgstr "Ticket d'entrée à la conférence %1."
+
+msgid "Price"
+msgstr "Tarif "
+
+msgid "Buy now!"
+msgstr "J'achète"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Veuillez noter que tout ce qui concerne votre compte en banque et votre numéro\n"
+"de carte bleue est géré par la banque. <b>Nous n'avons à aucun moment accès aux\n"
+"informations bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
+"à la fin. <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "Paiement en ligne"
+
+msgid "Join"
+msgstr "Inscription à"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Pour vous inscrire à la conférence %1,\n"
+"cliquez sur le bouton ci-dessous.\n"
+
+msgid "The recognised rights are:"
+msgstr "Les droits existants sont&nbsp;:"
+
+msgid "Organizer"
+msgstr "Organisateur"
+
+msgid "Organizer (talks management)"
+msgstr "Organisateur (gestion des présentations)"
+
+msgid "Treasurer (payment management)"
+msgstr "Trésorier (gestion des paiements)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrateur (gestion des droits)"
+
+msgid "User rights"
+msgstr "Droits des utilisateurs"
+
+msgid "Amount"
+msgstr "Montant"
+

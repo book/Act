@@ -1,6 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idõbeosztás'}
-%]
+[% WRAPPER ui title = loc('Schedule') %]
 
 <!-- The schedule table -->
 [% PROCESS core/talk/schedule %]
