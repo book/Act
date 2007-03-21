@@ -1,168 +1,34 @@
-[% WRAPPER ui
-   title = {
-     en => "${global.conference.name} Statistics"
-     fr => "Statistiques pour ${global.conference.name}"
-     it => "Statistiche per ${global.conference.name}"
-     pt => "Estatísticas da ${global.conference.name}"
-     de => "Statistiken für ${global.conference.name}"
-     hu => "${global.conference.name} statisztika"
-   }
-%]
+[% WRAPPER ui title = loc('<conf name> Statistics', global.conference.name) %]
 
 <p>
- <t>
-  <en>
-   There are [% stats.users %] registered people
-   coming from [% stats.countries.size %] countr[% stats.countries.size > 1 ? "ies" : "y" %]
-   and [% stats.pm.size %] monger group[% "s" IF stats.pm.size > 1 %].
-   There are [% stats.committed %] committed users,
-   that is to say, people that either paid their
-   conference ticket or will give a talk.
-  </en>
-  <pt>
-   Existem [% stats.users %] pessoas registadas, de
-   [% stats.countries.size %] país[% stats.countries.size > 1 ? "es" : "" %]
-   e [% stats.pm.size %] grupo[% "s" IF stats.pm.size > 1 %] de monges.
-   Existem [% stats.committed %] utilizador[% "es" IF stats.committed > 1 %]
-   que já pagaram ou irão realizar uma apresentação.
-  </pt>
-  <fr>
-   La conférence compte [% stats.users %] inscrit[% "s" IF stats.users > 1 %],
-   venus de [% stats.countries.size %] pays
-   et de [% stats.pm.size %] groupe[% "s" IF stats.pm.size > 1 %] de mongueurs.
-   Il y a [% stats.committed %] personnes qui se
-   sont engagées, soit en payant leur place, soit
-   parce qu'elles donneront une conférence.
-  </fr>
-  <it>
-   Ci sono [% stats.users %] persone iscritte provenienti da
-   [% stats.countries.size %] nazion[% stats.countries.size > 1 ? "i" : "e" %]
-   e [% stats.pm.size %] grupp[% stats.pm.size > 1 ? "i" : "o" %] di mongers.
-   Ci sono [% stats.committed %] utenti confermati, ovvero che hanno pagato
-   il biglietto o che terranno un intervento.
-  </it>
-  <de>
-  Es gibt [% stats.users %] Anmeldungen aus [% stats.countries.size %]
-  [% stats.countries.size > 1 ? "Ländern" : "Land" %] und
-  [% stats.pm.size %] Monger Gruppe[% "n" IF stats.pm.size > 1 %]. Es gibt
-  [% stats.committed %] fixe Anmeldungen, also Leute, die entweder vortragen
-  oder ihren Beitrag bezahlt haben.
-  </de>
-  <hu>
-   [% stats.users %] regisztrált
-   [% stats.countries.size %] országból
-   és [% stats.pm.size %] Perl csoportból vesz részt a rendezvényen.
-   [% stats.committed %] felhasználó van, aki elõad, vagy fizetett
-   a konferencián történõ részvételért.
-  </hu>
- </t>
+ [% loc('There are n registered people', stats.users, stats.countries.size, stats.pm.size, stats.committed) %]
 </p>
 
 <p>
- <t>
-  <en>
-   You can have a look at <a href="[% make_uri('stats') %]">country / mongers</a>
-   or <a href="[% make_uri('stats', 'show', 'cities') %]">cities</a> statistics.
-  </en>
-  <pt>
-   Pode ver estatísticas de <a href="[% make_uri('stats') %]">países / monges</a>
-   ou de <a href="[% make_uri('stats', 'show', 'cities') %]">cidades</a>.
-  </pt>
-  <fr>
-   Vous pouvez jeter un &oelig;il aux statistiques par
-   <a href="[% make_uri('stats') %]">pays / groupe de mongueurs</a> ou par
-   <a href="[% make_uri('stats', 'show', 'cities') %]">villes</a>.
-  </fr>
-  <it>
-   Potete vedere le statistiche per <a href="[% make_uri('stats') %]">nazione / gruppo</a>
-   o per <a href="[% make_uri('stats', 'show', 'cities') %]">città</a>.
-  </it>
-  <de>
-	Hier gibt es <a href="[% make_uri('stats') %]">Land / Monger-</a> und
-	<a href="[% make_uri('stats', 'show', 'cities') %]">Stadt-Statistiken</a>.
-  </de>
-  <hu>
-   További statisztika tekinthetõ meg az <a href="[% make_uri('stats') %]">ország / csoport</a>
-   és a <a href="[% make_uri('stats', 'show', 'cities') %]">városok</a> tekintetében.
-  </hu>
- </t>
+ [% loc("You can have a look at country / mongers or cities statistics.", make_uri('stats'), make_uri('stats', 'show', 'cities')) %]
 </p>
 <p>
- <t>
-  <en>The number of committed users is listed between parentheses
-  in the following tables.</en>
-  <pt>O número de utilizadores que irão assistir está listado
-	entre parêntesis nas seguintes tabelas.</pt>
-  <fr>Les nombres entre parenthèses dans les tableaux qui suivent
-  indiquent le nombre d'inscrits engagés.</fr>
-  <it>Il numero degli utenti confermati è mostrato tra parentesi nelle
-  tabelle che seguono.</it>
-  <de>
-  Die Nummer der fixangemeldeten TeilnehmerInnen steht in Klammern.
-  </de>
-  <hu>A kiemelt felhasználók (fizetett/elõad) a következõ táblázatban
-  zárójelek között szerepelnek.</hu>
- </t>
+ {{The number of committed users is listed between parentheses}}
 </p>
 <p>
- <t>
-  <en>Click on the various links to find the corresponding users!</en>
-  <fr>Cliquez sur les liens pour obtenir la liste des utilisateurs
-      correspondants&nbsp;!</fr>
-  <pt>Clique nas ligações seguintes para saber mais sobre os utilizadores respectivos.</pt>
-  <it>Seguite i vari link per trovare gli utenti corrispondenti.</it>
-  <de>Klicken Sie auf die jeweiligen Links, um die entsprechenden UserInnen zu finden!</de>
-  <hu>Az egyes felhasználók listájának megtekintéséhez a linkre kell kattintani.</hu>
- </t>
+ {{Click on the various links to find the corresponding users!}}
 </p>
 
 [% SWITCH global.request.args.show %]
 [% CASE [ 'cities', 'towns' ] %]
 <p>
- <t>
-  <en>
-   Note: the country total is not always equal to the city total.
-   Or the cities are sometimes not in the relevant country.
-   Blame the users!
-  </en>
-  <pt>
-   Note: o total de países nem sempre é igual ao total de cidades.
-   Ou, por vezes, as cidades não estão no país correcto. É culpa
-   dos utilizadores!
-  </pt>
-  <fr>
-   Note&nbsp;: le total pour chaque pays est parfois différent du total
-   des villes associées. Ou même une ville ne correspond pas au pays
-   indiqué. C'est la faute des utilisateurs&nbsp;!
-  </fr>
-  <it>
-   Nota: il totale per nazione non corrisponde alla somma dei totali
-   delle città relative. O una città non compare nella nazione
-   giusta. Tutta colpa degli utenti!</it>
-  <hu>
-   Megjegyzés: a hibás felvitelnek köszönhetõen az ország összessítés
-   nem mindig egyenlõ a települések összegével, a települések nem mindig
-   a helyes országban vannak.
-  </hu>
- </t>
+ {{Note: the country total is not always equal to the city total.}}
 </p>
 <center>
 [% count = 0 %]
 [% cols = 3 %]
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th colspan="[% cols %]"><t><en>Cities</en><fr>Villes</fr><pt>Cidades</pt><it>Città</it><de>Stadt</de></t></th>
+  <th colspan="[% cols %]">{{Cities}}</th>
  </tr>
   <!-- cities within countries -->
   [% IF stats.towns.size == 0 %]
-  <td><t>
-    <en>No city information entered</en>
-    <pt>Nenhuma cidade encontrada</pt>
-    <fr>Aucune ville n'a été renseignée</fr>
-    <it>Nessuna informazione sulle città</it>
-    <de>Keine Stadtinformation eingegeben</de>
-    <hu>Nincs település megadva</hu>
-  </t></td>
+  <td>{{No city information entered}}</td>
   [% END %]
   [% FOREACH c = stats.countries %]
   [% UNLESS count %]<tr>[% END %]
@@ -185,9 +51,8 @@
 <center>
 <table border="1" cellspacing="0" cellpadding="4">
  <tr>
-  <th><t><en>Countries</en><fr>Pays</fr><it>Nazioni</it><pt>Países</pt><de>Land</de><hu>Országok</hu></t></th>
-  <th><t><en>Monger groups</en><fr>Groupes de mongueurs</fr><it>Gruppi di mongers</it><de>Monger Gruppe</de>
-	<pt>Grupos de monges</pt><hu>Perl csoportok</hu></t></th>
+  <th>{{Countries}}</th>
+  <th>{{Monger groups}}</th>
  </tr>
  <tr>
   <!-- Countries -->

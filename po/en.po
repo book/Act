@@ -64,8 +64,8 @@ msgstr "IM"
 msgid "GPG key ID"
 msgstr "GPG key ID"
 
-msgid "No Photo"
-msgstr "No Photo"
+msgid "No photo"
+msgstr "No photo"
 
 msgid "Talk"
 msgstr "%numerate(%1,Talk)"
@@ -146,7 +146,7 @@ msgstr "manage your photo"
 msgid "change your password"
 msgstr "change your password"
 
-msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "see your talks (accepted talks are shown in <b>bold</b> type)"
 
 msgid "submit a talk"
@@ -452,4 +452,214 @@ msgstr "User rights"
 
 msgid "Amount"
 msgstr "Amount"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "You cannot be pseudonymous with a blank nickname"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "The Perl monger group must end with <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "The Perl monger group URL must start with http://"
+
+msgid "The company URL must start with http://"
+msgstr "The company URL must start with http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "Your web site URL must start with http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Your perlmonks id must be a number"
+
+msgid "Number of family members attending must be a number"
+msgstr "Number of family members attending must be a number"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Not a valid GPG key ID: 8 hexadecimal digits expected"
+
+msgid "Civility"
+msgstr "Civility"
+
+msgid "Nickname"
+msgstr "Nickname"
+
+msgid "Stay pseudonymous"
+msgstr "Stay pseudonymous"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "Hide email"
+msgstr "Hide email"
+
+msgid "Coming with"
+msgstr "Coming with"
+
+msgid "6 or more"
+msgstr "6 or more"
+
+msgid "people (who will not attend the conference)"
+msgstr "people (who will not attend the conference)"
+
+msgid "T-shirt size"
+msgstr "T-shirt size"
+
+msgid "Full address"
+msgstr "Full address"
+
+msgid "Timezone"
+msgstr "Timezone"
+
+msgid "Monger group"
+msgstr "Monger group"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>City.pm</em>, city name in English, please)"
+
+msgid "Monger group URL"
+msgstr "Monger group URL"
+
+msgid "VAT Number"
+msgstr "VAT Number"
+
+msgid "Company URL"
+msgstr "Company URL"
+
+msgid "GPG public key ID"
+msgstr "GPG public key ID"
+
+msgid "(please fill at least this one)"
+msgstr "(please fill at least this one)"
+
+msgid "Update info"
+msgstr "Update info"
+
+msgid "Your information"
+msgstr "Your information"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"This is a simulation. Under real circumstances, submitting\n"
+"this form would take you to the bank's web site where you\n"
+"would enter you credit card information.<br /><br />\n"
+"Click submit to simulate payment.\n"
+
+msgid "Pay"
+msgstr "Pay"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Committed users are listed in <b>bold</b> font (they have\n"
+"bought their ticket, or will give a talk).\n"
+
+msgid "Search for users"
+msgstr "Search for users"
+
+msgid "Search form"
+msgstr "Search form"
+
+msgid "Any"
+msgstr "Any"
+
+msgid "Your photo"
+msgstr "Your photo"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"This photo will probably end up on the conference <i>who's who</i>,\n"
+"so that people can actually recognize you when they want to find\n"
+"out who they had a nice chat with, back when they met you at the conference.<br />\n"
+"Think about that when uploading it!\n"
+
+msgid "Delete Photo"
+msgstr "Delete Photo"
+
+msgid "Update Photo"
+msgstr "Update Photo"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Someone, possibly you, has requested that your password be reset.\n"
+"Your new password is: %1\n"
+
+msgid "New password"
+msgstr "Reset password"
+
+msgid "Reset Password"
+msgstr "Reset Password"
+
+msgid "Your password has been reset and emailed to you."
+msgstr "Your password has been reset and emailed to you."
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Specify either your <B>login</B>, or your <B>email address</B>.\n"
+"A new password will be created and emailed to you.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "No user was found with this login or email address"
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "Specify a login, or an email address, but not both"
+
+msgid "Generate password"
+msgstr "Reset password"
+
+msgid "<conf name> Statistics"
+msgstr "%1 Statistics"
+
+msgid "There are n registered people"
+msgstr ""
+"There are %1 registered people\n"
+"coming from %quant(%2,country,countries)\n"
+"and %quant(%3,monger group).\n"
+"There are %4 committed users,\n"
+"that is to say, people that either paid their\n"
+"conference ticket or will give a talk.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"You can have a look at country / mongers or cities statistics.\n"
+"You can have a look at <a href=\"%1\">country / mongers</a>\n"
+"or <a href=\"%2\">cities</a> statistics.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"The number of committed users is listed between parentheses\n"
+"in the following tables.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Click on the various links to find the corresponding users!"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Note: the country total is not always equal to the city total.\n"
+"Or the cities are sometimes not in the relevant country.\n"
+"Blame the users!\n"
+
+msgid "Cities"
+msgstr "Cities"
+
+msgid "No city information entered"
+msgstr "No city information entered"
+
+msgid "Countries"
+msgstr "Countries"
+
+msgid "Monger groups"
+msgstr "Monger groups"
+
+msgid "Un-Registration"
+msgstr "Un-Registration"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"To unregister from %1,\n"
+"simply push the button below.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Unregister from %1"
 

@@ -234,18 +234,3 @@ msgstr "Penningmeester (Betalingsmanagement)"
 msgid "Administrator (rights management)"
 msgstr "Administrator (rechtenmanagement)"
 
-msgid "The recognised rights are:"
-msgstr "De bestaande rechten zijn:"
-
-msgid "Organizer"
-msgstr "Organisator"
-
-msgid "Organizer (talks management)"
-msgstr "Organisator (presentaties management)"
-
-msgid "Treasurer (payment management)"
-msgstr "Penningmeester (Betalingsmanagement)"
-
-msgid "Administrator (rights management)"
-msgstr "Administrator (rechtenmanagement)"
-

@@ -55,7 +55,7 @@ msgstr "Página Web"
 msgid "GPG key ID"
 msgstr "chave publica GPG"
 
-msgid "No Photo"
+msgid "No photo"
 msgstr "Sem foto"
 
 msgid "Talk"
@@ -134,7 +134,7 @@ msgstr "alterar a sua foto"
 msgid "change your password"
 msgstr "TRANSLATEME"
 
-msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "ver as suas apresentações (as apresentações aceites são mostradas a <b>negrito</b>)"
 
 msgid "submit a talk"
@@ -389,4 +389,209 @@ msgstr "Permissões do utilizador"
 
 msgid "Amount"
 msgstr "Valor"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Para ser pseudo-anónimo deve indicar o seu nick"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "O grupo de monges Perl deve acabar com <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "O URL do grupo de monges Perl deve começar por <tt>http://</tt>"
+
+msgid "The company URL must start with http://"
+msgstr "O URL da sua empresa deve começar por <tt>http://</tt"
+
+msgid "Your web site URL must start with http://"
+msgstr "O URL da sua página web deve começar por <tt>http://</tt"
+
+msgid "Your perlmonks id must be a number"
+msgstr "O seu identificador do perlmonks deve ser um númer"
+
+msgid "Number of family members attending must be a number"
+msgstr "O número de acompanhantes deve ser um númer"
+
+msgid "Civility"
+msgstr "Título"
+
+msgid "Nickname"
+msgstr "Nick"
+
+msgid "Stay pseudonymous"
+msgstr "Mostrar apenas o nick"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Hide email"
+msgstr "Esconder o e-mail"
+
+msgid "Coming with"
+msgstr "Vem com"
+
+msgid "6 or more"
+msgstr "6 ou mais"
+
+msgid "people (who will not attend the conference)"
+msgstr "acompanhantes, que não irão participar na conferência"
+
+msgid "T-shirt size"
+msgstr "Tamanho de T-shirt"
+
+msgid "Full address"
+msgstr "Endereço completo"
+
+msgid "Timezone"
+msgstr "Fuso horário"
+
+msgid "Monger group"
+msgstr "Grupo de monges"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Cidade.pm</em> com o nome da cidade em Inglês, obrigado)"
+
+msgid "Monger group URL"
+msgstr "URL do grupo de monges"
+
+msgid "VAT Number"
+msgstr "Número de Identificação Fiscal"
+
+msgid "Company URL"
+msgstr "URL da empresa"
+
+msgid "GPG public key ID"
+msgstr "Chave pública GPG"
+
+msgid "(please fill at least this one)"
+msgstr "(por favor preencha pelo menos este)"
+
+msgid "Update info"
+msgstr "Enviar"
+
+msgid "Your information"
+msgstr "A sua informação"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Esta é uma simulação. Em circunstâncias reais, a submissão\n"
+"deste formulário irá levá-lo ao site do banco onde irá introduzir\n"
+"informação sobre o seu cartão de crédito.<br/><br/>\n"
+"Clique no botão para simular o pagamento.\n"
+
+msgid "Pay"
+msgstr "Pagar"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Os utilizadores registados estão listados a <b>negrito</b> (aqueles\n"
+"que compraram os seus bilhetes, ou irão realizar uma apresentação).\n"
+
+msgid "Search for users"
+msgstr "Procurar utilizadores"
+
+msgid "Search form"
+msgstr "Formulário de pesquisa"
+
+msgid "Any"
+msgstr "Todas"
+
+msgid "Your photo"
+msgstr "A sua foto"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Esta foto irá acabar, provavelmente, no <i>quem é quem</i> da conferência,\n"
+"de forma a que as pessoas o possam reconhecer, e encontrar aqueles com quem tiveram\n"
+"uma conversa agradável, depois de o conhecer na conferência.<br/>\n"
+"Pense nisso anes de enviar a fotografia!\n"
+
+msgid "Delete Photo"
+msgstr "Apagar a foto"
+
+msgid "Update Photo"
+msgstr "Enviar a foto"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Alguém pediu para alterar o seu código de acesso. O seu novo\n"
+"código é: %1\n"
+
+msgid "New password"
+msgstr "Mudar o código de acesso"
+
+msgid "Reset Password"
+msgstr "Gerar novo código de acess"
+
+msgid "Your password has been reset and emailed to you."
+msgstr "O seu código de acesso foi alterado e enviado por mail para si."
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Especifique o seu <b>login</b>, ou o seu <b>endereço de email</b>.\n"
+"O seu novo código de acesso será enviado por email para si.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Não foi encontrado nenhum utilizador com esse login ou endereço de e-mail."
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "Especifique o login ou o endereço de e-mail, nunca os dois."
+
+msgid "Generate password"
+msgstr "Gerar novo código de acesso"
+
+msgid "<conf name> Statistics"
+msgstr "Estatísticas da %1"
+
+msgid "There are n registered people"
+msgstr ""
+"Existem %1 pessoas registadas, de\n"
+"%quant(%2,país,paises)\n"
+"e %quant(%3,grupo) de monges.\n"
+"Existem %quant(%4,utilizador,utilizadores)\n"
+"que já pagaram ou irão realizar uma apresentação.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Pode ver estatísticas de <a href=\"%1\">países / monges</a>\n"
+"ou de <a href=\"%2\">cidades</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"O número de utilizadores que irão assistir está listado\n"
+"entre parêntesis nas seguintes tabelas.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Clique nas ligações seguintes para saber mais sobre os utilizadores respectivos."
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Note: o total de países nem sempre é igual ao total de cidades.\n"
+"Ou, por vezes, as cidades não estão no país correcto. É culpa\n"
+"dos utilizadores!\n"
+
+msgid "Cities"
+msgstr "Cidades"
+
+msgid "No city information entered"
+msgstr "Nenhuma cidade encontrada"
+
+msgid "Countries"
+msgstr "Países"
+
+msgid "Monger groups"
+msgstr "Grupos de monges"
+
+msgid "Un-Registration"
+msgstr "Cancelamento de Registo"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Para cancelar o registo na conferência %1\n"
+"use o botão abaixo.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Cancelar registo na %1"
 

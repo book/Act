@@ -1,122 +1,22 @@
-[% WRAPPER ui
-   title = { en => 'Your information', fr => 'Vos informations', it => 'I vostri dati' , pt => 'A sua informação', de => 'Ihre Informationen', hu => 'Felhasználói adatok'},
-%]
+[% WRAPPER ui title = loc('Your information') %]
 <center>
 
 [% PROCESS error
    msgs = {
-     ERR_FIRST_NAME => {
-       en => "You must enter your first name",
-       fr => "Le prénom est obligatoire",
-       it => "Il nome è obbligatorio",
-       pt => "O seu nome é obrigatório",
-       de => "Bitte Vorname eingeben",
-       hu => "A keresztnév megadása kötelezõ.",
-     },
-     ERR_LAST_NAME => {
-       en => "You must enter your last name",
-       fr => "Le nom est obligatoire",
-       it => "Il cognome è obbligatorio",
-       pt => "O seu nome é obrigatório",
-       de => "Bitte Nachname eingeben",
-       hu => "A vezetéknév megadása kötelezõ.",
-     },
-     ERR_EMAIL => {
-       en => "You must enter your email address",
-       fr => "L'adresse email est obligatoire",
-       it => "L'indirizzo e-mail è obbligatorio",
-       pt => "Deve indicar um endereço de e-mail válido",
-       de => "Bitte E-Mail Adresse eingeben",
-       hu => "Az email cím megadása kötelezõ.",
-     },
-     ERR_EMAIL_SYNTAX => {
-       en => "Not a valid email address",
-       fr => "Adresse email : syntaxe incorrecte",
-       it => "L'indirizzo e-mail non sembra valido.",
-       pt => "O endereço de e-mail não parece válido.",
-       de => "Keine gültige E-Mail Adresse",
-       hu => "Az email cím hibásnak tûnik.",
-     },
-     ERR_COUNTRY => {
-         en => "You must enter a country from the list",
-         fr => "Un pays est obligatoire",
-         it => "Dovete scegliere una nazione dall'elenco",
-         pt => "Deve escolher um país da lista",
-         de => "Bitte ein Land aus der Liste auswählen",
-         hu => "Az országot a listából kell választani.",
-     },
-     ERR_NICK => {
-       en => "You cannot be pseudonymous with a blank nickname",
-       fr => "Vous ne pouvez pas être anonyme avec un pseudo vide",
-       it => "Per mostrare solo lo pseudonimo dovete almeno indicarlo",
-       pt => "Para ser pseudo-anónimo deve indicar o seu nick",
-       de => "Bitte einen Nickname eingeben",
-       hu => "Üres becenevet nem lehet megadni.",
-     },
-     ERR_PMGROUP => {
-       en => "The Perl monger group must end with <tt>.pm</tt>",
-       fr => "Le groupe de mongueurs doit se terminer par <tt>.pm</tt>",
-       it => "Il nome del gruppo di mongers deve finire per <tt>.pm</tt>",
-       pt => "O grupo de monges Perl deve acabar com <tt>.pm</tt>",
-       de => "Die Perl Monger Gruppe muss mit <tt>.pm</tt> enden",
-       hu => "A Perl csoport nevének <tt>.pm</tt>-re kell végzõdnie",
-     },
-     ERR_PM_URL => {
-       en => "The Perl monger group URL must start with http://",
-       fr => "URL du groupe de mongueurs&nbsp;: syntaxe incorrecte",
-       it => "La URL del gruppo di mongers deve cominciare per <tt>http://</tt>"
-       pt => "O URL do grupo de monges Perl deve começar por <tt>http://</tt>",
-       de => "Die URL der Perl Monger Gruppe muss mit <tt>http://</tt> beginnen",
-       hu => "A Perl csoport URL-jének http://-rel kell kezdõdnie",
-     },
-     ERR_COMPANY_URL => {
-       en => "The company URL must start with http://",
-       fr => "URL de la société&nbsp;: syntaxe incorrecte",
-       it => "La URL dell'azienda deve cominciare per <tt>http://</tt>"
-       pt => "O URL da sua empresa deve começar por <tt>http://</tt>"
-       de => "Die URL der Frima muss mit <tt>http://</tt> beginnen",
-       hu => "A cég URL-jének http://-vel kell kezdõdnie",
-     },
-     ERR_WEBPAGE => {
-       en => "Your web site URL must start with http://",
-       fr => "Page Web&nbsp;: syntaxe incorrecte",
-       it => "La URL della vostra pagina deve cominciare per <tt>http://</tt>"
-       pt => "O URL da sua página web deve começar por <tt>http://</tt>"
-       de => "Die URL Ihrer Website muss mit <tt>http://</tt> beginnen",
-       hu => "A személyes honlap URL-jének http://-vel kell kezdõdnie",
-     },
-     ERR_MONKID => {
-       en => "Your perlmonks id must be a number",
-       fr => "Votre id perlmonks doit être un nombre",
-       it => "Il vostro id su perlmonks deve essere un numero"
-       pt => "O seu identificador do perlmonks deve ser um número"
-       de => "Die Perlmonks ID muss eine Nummer sein"
-       hu => "A perlmonks azonosítónak számnak kell lennie",
-     },
-     ERR_NBFAMILY = {
-       en => "Number of family members attending must be a number",
-       fr => "Le nombre de personnes vous accompagnant doit être un nombre",
-       it => "Il numero di accompagnatori deve essere un numero",
-       pt => "O número de acompanhantes deve ser um número"
-       de => "Nummer der Familienmitglieder muss eine Nummer sein"
-       hu => "A résztvevõ családtagok számának számnak kell lennie",
-     },
-     ERR_TSHIRT => {
-       en => "Not a valid T-shirt size",
-       fr => "Taille de T-shirt incorrecte",
-       it => "La taglia della maglietta non è valida"
-       pt => "Tamanho de T-shirt inválido",
-       de => "Keine gültige T-Shirt Grösse",
-       hu => "Érvénytelen pólóméret",
-     },
-     ERR_GPG_KEY_ID => {
-       en => "Not a valid GPG key ID: 8 hexadecimal digits expected",
-       fr => "Clé GPG invalide : 8 chiffres hexadécimaux attendus",
-       it => 'TRANSLATEME',
-       pt => 'TRANSLATEME',
-       de => 'TRANSLATEME',
-       hu => 'TRANSLATEME',
-     },
+     ERR_FIRST_NAME         => loc("You must enter your first name"),
+     ERR_LAST_NAME          => loc("You must enter your last name"),
+     ERR_EMAIL              => loc("You must enter your email"),
+     ERR_COUNTRY            => loc("You must enter a country from the list"),
+     ERR_EMAIL_SYNTAX       => loc("Your email address looks bogus."),
+     ERR_NICK               => loc("You cannot be pseudonymous with a blank nickname"),
+     ERR_PMGROUP            => loc("The Perl monger group must end with <tt>.pm</tt>"),
+     ERR_PM_URL             => loc("The Perl monger group URL must start with http://"),
+     ERR_COMPANY_URL        => loc("The company URL must start with http://"),
+     ERR_WEBPAGE            => loc("Your web site URL must start with http://"),
+     ERR_MONKID             => loc("Your perlmonks id must be a number"),
+     ERR_NBFAMILY           => loc("Number of family members attending must be a number"),
+     ERR_TSHIRT             => loc("A valid T-shirt size is required."),
+     ERR_GPG_KEY_ID         => loc("Not a valid GPG key ID: 8 hexadecimal digits expected"),
   }
 %]
 
@@ -127,7 +27,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Civility</en><fr>Civilité</fr><it>Titolo</it><pt>Título</pt><de>Anrede</de><hu>Titulus</hu></t>
+      {{Civility}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -138,7 +38,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>First Name</en><fr>Prénom</fr><it>Nome</it><pt>Nome</pt><de>Vorname</de><hu>Keresztnév</hu></t>
+      {{First Name}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -147,7 +47,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Last Name</en><fr>Nom</fr><it>Cognome</it><pt>Apelido</pt><de>Nachname</de><hu>Vezetéknév</hu></t>
+      {{Last Name}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -156,7 +56,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Nickname</en><fr>Pseudo</fr><it>Pseudonimo</it><pt>Nick</pt><de>Nickname</de><hu>Becenév</hu></t>
+      {{Nickname}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -165,17 +65,17 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Stay pseudonymous</en><fr>Rester anonyme</fr><it>Mostra solo lo pseudonimo</it><pt>Mostrar apenas o nick</pt><de>Echten Namen verstecken</de><hu>Névtelen szeretnék maradni</hu></t>
+      {{Stay pseudonymous}}
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> <t><en>Yes</en><pt>Sim</pt><fr>Oui</fr><it>Sì</it><de>Ja</de><hu>Igen</hu></t>
-      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> <t><en>No</en><fr>Non</fr><pt>Não</pt><it>No</it><de>Nein</de><hu>Nem</hu></t>
+      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> {{Yes}}
+      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> {{No}}
    </td>
 </tr>
 <tr>
    <td align="right">
-      Email
+      {{Email}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -184,17 +84,17 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Hide email</en><fr>Email caché</fr><pt>Esconder o e-mail</pt><it>Nascondi l'indirizzo e-mail</it><de>Email verstecken</de><hu>Email cím elrejtése</hu></t>
+      {{Hide email}}
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> <t><en>Yes</en><pt>Sim</pt><fr>Oui</fr><it>Sì</it><de>Yes</de><hu>Igen</hu></t>
-      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> <t><en>No</en><fr>Non</fr><pt>Não</pt><it>No</it><de>Nein</de><hu>Nem</hu></t>
+      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> {{Yes}}
+      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> {{No}}
    </td>
 </tr>
 <tr>
    <td align="right">
-    <t><en>Coming with</en><fr>Je viens avec</fr><it>Sarò accompagnato da</it><pt>Vem com</pt><de>Ich komme mit</de><hu>Családtagok száma</hu></t>
+    {{Coming with}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -203,21 +103,14 @@
          [% FOREACH c = [ 1..5 ] %]
          <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
          [% END %]
-         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]><t><en>6 or more</en><pt>6 ou mais</pt><fr>6 ou plus</fr><it>6 o più</it><de>6 oder mehr</de><hu>6 vagy több</hu></t></option>
+         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]>{{6 or more}}</option>
       </select>
-      <t>
-      <en>people (who will not attend the conference)</en>
-      <fr>personne(s) (qui n'assisteront pas à la conférence)</fr>
-      <it>persone, che non parteciperanno alla conferenza</it>
-      <pt>acompanhantes, que não irão participar na conferência</pt>
-      <de>Personen, die die Konfernz nicht besuchen werden</de>
-      <hu>fõ (a konferencián nem vesznek részt)</hu>
-      </t>
+      {{people (who will not attend the conference)}}
    </td>
 </tr>
 <tr>
    <td align="right">
-    <t><en>T-shirt size</en><fr>Taille du T-shirt</fr><it>Taglia per la maglietta</it><pt>Tamanho de T-shirt</pt><de>T-Shirt Grösse</de><hu>Póló méret</hu></t>
+    {{T-shirt size}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -231,7 +124,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Town</en><fr>Ville</fr><pt>Cidade</pt><it>Città</it><de>Stadt</de><hu>Település</hu></t>
+      {{City}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -240,7 +133,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Country</en><fr>Pays</fr><pt>País</pt><it>Nazione</it><de>Land</de><hu>Ország</hu></t>
+      {{Country}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -253,7 +146,7 @@
 </tr>
 <tr>
    <td align="right" valign="top">
-      <t><en>Full address</en><pt>Endereço completo</pt><fr>Adresse complète</fr><it>Indirizzo completo</it><de>Komplette Adresse</de><hu>Teljes cím</hu></t>
+      {{Full address}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -262,7 +155,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Timezone</en><fr>Fuseau horaire</fr><pt>Fuso horário</pt><it>Fuso orario</it><de>Zeitzone</de><hu>Idõzóna</hu></t>
+      {{Timezone}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -278,7 +171,7 @@
       [%- IF web_page %]
          <a href="[% web_page %]" >
       [% END %]
-      <t><en>Web page</en><fr>Page web</fr><pt>Página web</pt><it>Pagina web</it><de>Website</de><hu>Weblap</hu></t>
+      {{Web page}}
       [%- IF web_page %]
          </a>
       [% END %]
@@ -293,7 +186,7 @@
       [%- IF pm_group_url %]
          <a href="[% pm_group_url %]" >
       [% END %]
-      <t><en>Monger group</en><fr>Groupe de Mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it><de>Perl Monger Gruppe</de><hu>Perl csoport</hu></t>
+      {{Monger group}}
       [%- IF pm_group_url %]
          </a>
       [% END %]
@@ -301,13 +194,7 @@
    <td>&nbsp;</td>
    <td valign="top">
       <input type="text" name="pm_group"  value="[% pm_group %]" size="40" maxlength="120" /><br />
-      <t><en>(city.pm, city name in English, please)</en>
-         <fr>(ville.pm avec le nom de ville en anglais, merci)</fr>
-         <pt>(cidade.pm com o nome da cidade em Inglês, obrigado)</pt>
-         <it>(<em>città.pm</em>, con il nome della città in Inglese, grazie)</it>
-         <de>(<em>stadt.pm</em>, Stadtname in Englisch, bittedanke!)</de>
-         <hu>(<em>varos.pm</em>, a város neve ne tartalmazzon ékezetet, ha nem magyar, akkor az angol neve megadandó!)</hu>
-	 </t>
+      {{(<em>City.pm</em>, city name in English, please)}}
    </td>
 </tr>
 <tr>
@@ -315,7 +202,7 @@
       [%- IF pm_group_url %]
          <a href="[% pm_group_url %]" >
       [% END %]
-      <t><en>Monger group URL</en><pt>URL do grupo de monges</pt><fr>URL du groupe de mongueurs</fr><it>URL del gruppo</it><de>URL der Monger Gruppe</de><hu>Perl csoport weblapja</hu></t>
+      {{Monger group URL}}
       [%- IF pm_group_url %]
          </a>
       [% END %]
@@ -330,7 +217,7 @@
       [%- IF company_url %]
          <a href="[% company_url %]" >
       [% END %]
-      <t><en>Company</en><fr>Société</fr><pt>Empresa</pt><it>Azienda</it><de>Firma</de><hu>Cégnév</hu></t>
+      {{Company}}
       [%- IF company_url %]
          </a>
       [% END %]
@@ -342,7 +229,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>VAT Number</en><fr>Numéro de TVA</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de><hu>Adószám</hu></t>
+      {{VAT Number}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -354,7 +241,7 @@
       [%- IF company_url %]
          <a href="[% company_url %]" >
       [% END %]
-      <t><en>Company URL</en><pt>URL da empresa</pt><fr>URL de la société</fr><it>URL dell'azienda</it><de>URL der Firma</de><hu>Cég weblapja</hu></t>
+      {{Company URL}}
       [%- IF company_url %]
          </a>
       [% END %]
@@ -369,7 +256,7 @@
       [%- IF gpg_key_id %]
          <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">
       [% END %]
-      <t><en>GPG public key ID</en><fr>Clé publique GPG</fr><pt>Chave pública GPG</pt><it>Chiave pubblica GPG</it><de>PGP public key</de><hu>GPG publikus kulcs</hu></t>
+      {{GPG public key ID}}
       [%- IF gpg_key_id %]
          </a>
       [% END %]
@@ -411,7 +298,7 @@
 </tr>
 <tr>
    <td align="right">
-      IM (AIM, ICQ, MSN, etc)
+      {{IM}}
    </td>
    <td>&nbsp;</td>
    <td>
@@ -420,20 +307,14 @@
 </tr>
 <tr>
    <td align="right" valign="top">
-      Bio
+      {{Bio}}
    </td>
    <td>&nbsp;</td>
    <td>
       [% FOREACH lang = global.config.languages.keys %]
       [% global.config.languages.$lang.name|ucfirst %]
       [% IF lang == 'en' %]
-      <t><en>(please fill at least this one)</en>
-         <fr>(merci de compléter au moins celle-ci)</fr>
-         <pt>(por favor preencha pelo menos este)</pt>
-         <it>(scrivete almeno questa)</it>
-         <de>(bitte zumindest dieses Feld ausfüllen)</de>
-         <hu>(legalább egyet kérünk töltsön ki)</hu>
-      </t>
+      {{(please fill at least this one)}}
       [% END %]<br />
       <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang | form_unescape %]</textarea>
       <br />
@@ -442,7 +323,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Update info</en><pt>Enviar</pt><fr>Envoyer</fr><it>Invia</it><de>Speichern</de><hu>Mentés</hu></t>" />
+      <input type="submit" name="join" value="{{Update info}}" />
    </td>
 </tr>
 </table>

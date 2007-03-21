@@ -55,7 +55,7 @@ msgstr "Website"
 msgid "GPG key ID"
 msgstr "GPG key-ID"
 
-msgid "No Photo"
+msgid "No photo"
 msgstr "Kein Foto"
 
 msgid "Talk"
@@ -132,7 +132,7 @@ msgstr "Ihr Foto verwalten"
 msgid "change your password"
 msgstr "Ihr Passwort ändern"
 
-msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)"
 
 msgid "submit a talk"
@@ -383,4 +383,194 @@ msgstr "Userrechte"
 
 msgid "Amount"
 msgstr "Betrag"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Bitte einen Nickname eingeben"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Die Perl Monger Gruppe muss mit <tt>.pm</tt> enden"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "Die URL der Perl Monger Gruppe muss mit <tt>http://</tt> beginnen"
+
+msgid "The company URL must start with http://"
+msgstr "Die URL der Frima muss mit <tt>http://</tt> beginnen"
+
+msgid "Your web site URL must start with http://"
+msgstr "Die URL Ihrer Website muss mit <tt>http://</tt> beginnen"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Die Perlmonks ID muss eine Nummer sei"
+
+msgid "Number of family members attending must be a number"
+msgstr "Nummer der Familienmitglieder muss eine Nummer sei"
+
+msgid "Civility"
+msgstr "Anrede"
+
+msgid "Nickname"
+msgstr "Nickname"
+
+msgid "Stay pseudonymous"
+msgstr "Echten Namen verstecken"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Hide email"
+msgstr "Email verstecken"
+
+msgid "Coming with"
+msgstr "Ich komme mit"
+
+msgid "6 or more"
+msgstr "6 oder mehr"
+
+msgid "people (who will not attend the conference)"
+msgstr "Personen, die die Konfernz nicht besuchen werden"
+
+msgid "T-shirt size"
+msgstr "T-Shirt Grösse"
+
+msgid "Full address"
+msgstr "Komplette Adresse"
+
+msgid "Timezone"
+msgstr "Zeitzone"
+
+msgid "Monger group"
+msgstr "Perl Monger Gruppe"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Stadt.pm</em>, Stadtname in Englisch, bittedanke!)"
+
+msgid "Monger group URL"
+msgstr "URL der Monger Gruppe"
+
+msgid "VAT Number"
+msgstr "MwSt-Nummer"
+
+msgid "Company URL"
+msgstr "URL der Firma"
+
+msgid "GPG public key ID"
+msgstr "PGP public key"
+
+msgid "(please fill at least this one)"
+msgstr "(bitte zumindest dieses Feld ausfüllen)"
+
+msgid "Update info"
+msgstr "Speichern"
+
+msgid "Your information"
+msgstr "Ihre Informationen"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Das ist nur eine Simulation. Wenn dieses Formular abgeschickt wird,\n"
+"würden Sie zur Webseite der Bank weitergeleitet werden, wo Sie dann\n"
+"Ihre Kreditkarteninformationen eingeben könnten.<br /><br />\n"
+"Klicken Sie unten, um den Zahlungsvorgang zu simulieren.\n"
+
+msgid "Pay"
+msgstr "Zahlen"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder\n"
+"einen Vortrag halten werden), sind in <b>fett</b> aufgelistet.\n"
+
+msgid "Search for users"
+msgstr "User suchen"
+
+msgid "Search form"
+msgstr "Suchformular"
+
+msgid "Your photo"
+msgstr "Ihr Foto"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Diese Foto wird in der Liste der KonferenzteilnehmerInnen angezeigt.\n"
+"Andere Teilnehmende können so nach der Konfernent rausfinden, mit wem\n"
+"sie so nett geplaudert etc haben...\n"
+
+msgid "Delete Photo"
+msgstr "Foto löschen"
+
+msgid "Update Photo"
+msgstr "Foto ändern"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Jemand, wahrscheinlich Sie, haben verlangt, dass Ihr Passwort\n"
+"zurueckgesetzt wird. Das neue Passwort ist: %1\n"
+
+msgid "New password"
+msgstr "Neues Passwort"
+
+msgid "Reset Password"
+msgstr "Passwort zurücksetzten"
+
+msgid "Your password has been reset and emailed to you."
+msgstr "Das neue Passwort wird per E-Mail an Sie geschickt."
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Geben Sie bitte entweder Ihre <b>User-ID</b> oder Ihre <b>E-Mail Adresse</b> an.\n"
+"Ein neues Passwort wird dann an Sie geschickt.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Kein User mit dieser User-ID oder E-Mail Adress"
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "Bitte entweder User-ID oder E-Mail Adresse angeben (nicht beides)"
+
+msgid "Generate password"
+msgstr "Passwort zurücksetzten"
+
+msgid "<conf name> Statistics"
+msgstr "Statistiken für %1"
+
+msgid "There are n registered people"
+msgstr ""
+"Es gibt %1 Anmeldungen aus %quant(%2,Land,Ländern) und\n"
+"%quant(%3,Monger Gruppe,Monger Gruppen). Es gibt\n"
+"%4 fixe Anmeldungen, also Leute, die entweder vortragen\n"
+"oder ihren Beitrag bezahlt haben.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Hier gibt es <a href=\"%1\">Land / Monger-</a> und\n"
+"<a href=\"%2\">Stadt-Statistiken</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr "Die Nummer der fixangemeldeten TeilnehmerInnen steht in Klammern."
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Klicken Sie auf die jeweiligen Links, um die entsprechenden UserInnen zu finden!"
+
+msgid "Cities"
+msgstr "Stadt"
+
+msgid "No city information entered"
+msgstr "Keine Stadtinformation eingegeben"
+
+msgid "Countries"
+msgstr "Land"
+
+msgid "Monger groups"
+msgstr "Monger Gruppe"
+
+msgid "Un-Registration"
+msgstr "Abmelden"
+
+msgid "To unregister from <conference>,"
+msgstr "Um sich von der Konferenz %1 abzumelden, bitte unten klicken."
+
+msgid "Unregister from <conference>"
+msgstr "Abmelden von %1"
 

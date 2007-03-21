@@ -124,7 +124,7 @@
       [%- IF photo_name %]
          <img src="/[% global.config.general_dir_photos %]/[% photo_name %]" border="0" alt="Photo">
       [%- ELSE %]
-         {{No Photo}}
+         {{No photo}}
       [% END %]
    </td></tr></table>
 

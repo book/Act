@@ -1,6 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'Your photo', fr => 'Votre photo', it => 'La vostra foto', pt => 'A sua foto',de=>'Ihr Foto', hu=>'Fotó' },
-%]
+[% WRAPPER ui title = loc("Your photo") %]
 <center>
 <form method="POST" enctype="multipart/form-data">
 
@@ -11,7 +9,7 @@
       [%- IF global.request.user.photo_name %]
          <img src="[% photo_uri %]" border="0">
       [%- ELSE %]
-         <t><fr>Pas de photo</fr><pt>Sem foto</pt><en>No photo</en><it>Nessuna foto</it><de>Kein Foto</de><hu>Nincs fotó</hu></t>
+         {{No photo}}
       [% END %]<br />
    </td>
 </tr>
@@ -20,43 +18,7 @@
 <table border="0" cellpadding="0" cellspacing="10" width="100%">
 <tr>
    <td colspan="2" align="left">
-    <t>
-     <fr>
-      Cette photo finira probablement dans l'annuaire de la conférence&nbsp;:
-      ainsi, quand quelqu'un essayera de savoir avec qui il a eu
-      cette charmante discussion durant la conférence, cette personne pourra vous
-      reconnaître facilement.<br />
-      Souvenez-vous en téléchargeant votre photo !
-     </fr>
-     <pt>
-      Esta foto irá acabar, provavelmente, no <i>quem é quem</i> da conferência,
-      de forma a que as pessoas o possam reconhecer, e encontrar aqueles com quem tiveram
-      uma conversa agradável, depois de o conhecer na conferência.<br/>
-      Pense nisso anes de enviar a fotografia!
-     </pt>
-     <en>
-      This photo will probably end up on the conference <i>who's who</i>,
-      so that people can actually recognize you when they want to find
-      out who they had a nice chat with, back when they met you at the conference.<br />
-      Think about that when uploading it!
-     </en>
-     <it>
-      Questa foto comparirà nell'elenco partecipanti, per far sì che
-      gli altri possano riconoscervi quando cercheranno di scoprire con chi
-      hanno fatto quella bella chiacchierata durante la conferenza.
-      <br />Tenetene conto quando la scegliete!</it>
-    <de>
-    Diese Foto wird in der Liste der KonferenzteilnehmerInnen angezeigt.
-    Andere Teilnehmende können so nach der Konfernent rausfinden, mit wem
-    sie so nett geplaudert etc haben...
-    </de>
-     <hu>
-      Ez a fénykép a konferencia <i>Ki-kicsodájában</i> fog kikötni,
-      a célja pedig, hogy az egymást keresõ résztvevõk felismerjék ez alapján,
-      hogy kivel beszélgettek egy jót. Ez további kapcsolatépítésnek lehet az
-      alapja. A fényképet ennek fényében lehet feltölteni.
-     </hu>
-    </t>
+    {{This photo will probably end up on the conference who's who,}}
     <tt>;-)</tt>
    </td>
 </tr>
@@ -68,11 +30,11 @@
 <tr>
    <td align="left">
       [%- IF global.request.user.photo_name %]
-         <input type="submit" name="delete" value="<t><fr>Effacer photo</fr><en>Delete Photo</en><it>Elimina foto</it><pt>Apagar a foto</pt><de>Foto löschen</de><hu>Fénykép törlése</hu></t>" />
+         <input type="submit" name="delete" value="{{Delete Photo}}" />
       [% END %]
    </td>
    <td align="right">
-      <input type="submit" name="update" value="<t><fr>Modifier photo</fr><en>Update Photo</en><it>Aggiorna foto</it><pt>Enviar a foto</pt><de>Foto ändern</de><hu>Fénykép mentése</hu></t>" />
+      <input type="submit" name="update" value="{{Update Photo}}" />
    </td>
 </tr>
 </table>

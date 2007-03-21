@@ -46,7 +46,7 @@ msgstr "Weblap"
 msgid "GPG key ID"
 msgstr "GPG publikus kulcsd"
 
-msgid "No Photo"
+msgid "No photo"
 msgstr "nincs fotó"
 
 msgid "Talk"
@@ -125,7 +125,7 @@ msgstr "fotó kezelése"
 msgid "change your password"
 msgstr "jelszóváltoztatás"
 
-msgid "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "saját elõadások (az elfogadott elõadások <b>ki vannak emelve</b>)"
 
 msgid "submit a talk"
@@ -372,4 +372,204 @@ msgstr "Felhasználó jogok"
 
 msgid "Amount"
 msgstr "Összeg"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Üres becenevet nem lehet megadni."
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "A Perl csoport nevének <tt>.pm</tt>-re kell végzõdnie"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "A Perl csoport URL-jének http://-rel kell kezdõdnie"
+
+msgid "The company URL must start with http://"
+msgstr "A cég URL-jének http://-vel kell kezdõdnie"
+
+msgid "Your web site URL must start with http://"
+msgstr "A személyes honlap URL-jének http://-vel kell kezdõdnie"
+
+msgid "Your perlmonks id must be a number"
+msgstr "A perlmonks azonosítónak számnak kell lennie"
+
+msgid "Number of family members attending must be a number"
+msgstr "A résztvevõ családtagok számának számnak kell lennie"
+
+msgid "Civility"
+msgstr "Titulus"
+
+msgid "Nickname"
+msgstr "Becenév"
+
+msgid "Stay pseudonymous"
+msgstr "Névtelen szeretnék maradni"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Hide email"
+msgstr "Email cím elrejtése"
+
+msgid "Coming with"
+msgstr "Családtagok száma"
+
+msgid "6 or more"
+msgstr "6 vagy több"
+
+msgid "people (who will not attend the conference)"
+msgstr "fõ (a konferencián nem vesznek részt)"
+
+msgid "T-shirt size"
+msgstr "Póló méret"
+
+msgid "Full address"
+msgstr "Teljes cím"
+
+msgid "Timezone"
+msgstr "Idõzóna"
+
+msgid "Monger group"
+msgstr "Perl csoport"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Varos.pm</em>, a város neve ne tartalmazzon ékezetet, ha nem magyar, akkor az angol neve megadandó!)"
+
+msgid "Monger group URL"
+msgstr "Perl csoport weblapja"
+
+msgid "VAT Number"
+msgstr "Adószám"
+
+msgid "Company URL"
+msgstr "Cég weblapja"
+
+msgid "GPG public key ID"
+msgstr "GPG publikus kulcs"
+
+msgid "(please fill at least this one)"
+msgstr "(legalább egyet kérünk töltsön ki)"
+
+msgid "Update info"
+msgstr "Mentés"
+
+msgid "Your information"
+msgstr "Felhasználói adatok"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Ez egy szimuláció. Normál körülmények között ennak a kérdõívnek\n"
+"az elküldése a bank weblapjára vinne, ahol meg kéne adni\n"
+"a bankkártya informcáiókat.<<br /><br />\n"
+"A szimulált fizetéshez az Elküld gombra kell kattintani.\n"
+
+msgid "Pay"
+msgstr "Elküld"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""A <b>kiemelt</b> felhasználók elõadást fognak tartani"
+
+msgid "Search for users"
+msgstr "Résztvevõk"
+
+msgid "Search form"
+msgstr "Keresés"
+
+msgid "Any"
+msgstr "bármely"
+
+msgid "Your photo"
+msgstr "Fotó"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Ez a fénykép a konferencia <i>Ki-kicsodájában</i> fog kikötni,\n"
+"a célja pedig, hogy az egymást keresõ résztvevõk felismerjék ez alapján,\n"
+"hogy kivel beszélgettek egy jót. Ez további kapcsolatépítésnek lehet az\n"
+"alapja. A fényképet ennek fényében lehet feltölteni.\n"
+
+msgid "Delete Photo"
+msgstr "Fénykép törlése"
+
+msgid "Update Photo"
+msgstr "Fénykép mentése"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Valaki új jelszó készítését kezdeményezte oldalunkon.\n"
+"Az új jelszó: %1\n"
+
+msgid "New password"
+msgstr "Új jelszó"
+
+msgid "Reset Password"
+msgstr "Elfelejtett jelszó"
+
+msgid "Your password has been reset and emailed to you."
+msgstr "Az új jelszó emailben elküldésre került."
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Az <B>azonosító</B> vagy az <B>email cím</B> megadása szükséges.\n"
+"A beküldés után új jelszó jön létre, majd kerül emailben elküldésre.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Nincs ilyen azonosítójú, email címû felhasználó"
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "Egy azonosító vagy email cím megadása szükséges, de egyszerre mindkettõt nem lehet megadni."
+
+msgid "Generate password"
+msgstr "Új jelszó létrehozása"
+
+msgid "<conf name> Statistics"
+msgstr "%1 statisztik"
+
+msgid "There are n registered people"
+msgstr ""
+"%1 regisztrált\n"
+"%2 országból\n"
+"és %3 Perl csoportból vesz részt a rendezvényen.\n"
+"%4 felhasználó van, aki elõad, vagy fizetett\n"
+"a konferencián történõ részvételért.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"További statisztika tekinthetõ meg az <a href=\"%1\">ország / csoport</a>\n"
+"és a <a href=\"%2\">városok</a> tekintetében.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"A kiemelt felhasználók (fizetett/elõad) a következõ táblázatban\n"
+"zárójelek között szerepelnek.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Az egyes felhasználók listájának megtekintéséhez a linkre kell kattintani."
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Megjegyzés: a hibás felvitelnek köszönhetõen az ország összessítés\n"
+"nem mindig egyenlõ a települések összegével, a települések nem mindig\n"
+"a helyes országban vannak.\n"
+
+msgid "No city information entered"
+msgstr "Nincs település megadva"
+
+msgid "Countries"
+msgstr "Országok"
+
+msgid "Monger groups"
+msgstr "Perl csoportok"
+
+msgid "Un-Registration"
+msgstr "Leiratkozás"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"A %1 konferenciáról történõ leiratkozáshoz\n"
+"az alábbi gombot kell megnyomni.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Leiratkozom: %1"
 
