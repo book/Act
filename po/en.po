@@ -622,7 +622,6 @@ msgstr ""
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"You can have a look at country / mongers or cities statistics.\n"
 "You can have a look at <a href=\"%1\">country / mongers</a>\n"
 "or <a href=\"%2\">cities</a> statistics.\n"
 
