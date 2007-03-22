@@ -662,3 +662,92 @@ msgstr ""
 msgid "Unregister from <conference>"
 msgstr "Unregister from %1"
 
+msgid "Submit/Edit a non-talk event"
+msgstr "Submit/Edit a non-talk event"
+
+msgid "You must enter a title for the event"
+msgstr "You must enter a title for the event"
+
+msgid "You must enter a short description for the event"
+msgstr "You must enter a short description for the event"
+
+msgid "Please choose a duration"
+msgstr "Please choose a duration"
+
+msgid "The supplied date is invalid"
+msgstr "The supplied date is invalid"
+
+msgid "The supplied time is invalid"
+msgstr "The supplied time is invalid"
+
+msgid "The date/time is out of range"
+msgstr "The date/time is out of range"
+
+msgid "Event URL is not a valid URL"
+msgstr "Event URL is not a valid URL"
+
+msgid "Incorrect room submitted"
+msgstr "Incorrect room submitted"
+
+msgid "View"
+msgstr "View"
+
+msgid "Delete this event"
+msgstr "Delete this event"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Room"
+msgstr "Room"
+
+msgid "Abstract"
+msgstr "Abstract"
+
+msgid "(plain text)"
+msgstr "(plain text)"
+
+msgid "External URL"
+msgstr "External URL"
+
+msgid "Submit this event"
+msgstr "Submit this event"
+
+msgid "Event submitted"
+msgstr "Event submitted"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Thanks, the event has been recorded as\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "List of events"
+
+msgid "No event was submitted yet."
+msgstr "No event was submitted yet."
+
+msgid "Event title"
+msgstr "Event title"
+
+msgid "Event removed"
+msgstr "Event removed"
+
+msgid "The event has been removed."
+msgstr "The event <b>%1</b> has been removed."
+
+msgid "Date:"
+msgstr "Date:"
+
+msgid "Not scheduled yet."
+msgstr "Not scheduled yet."
+
+msgid "Duration:"
+msgstr "Duration:"
+
+msgid "You can find more information on the following site:"
+msgstr "You can find more information on the following site:"
+

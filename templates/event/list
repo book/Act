@@ -1,34 +1,17 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = {
-     en => 'List of events'
-     fr => 'Liste des événements'
-     it => 'Elenco degli eventi'
-     pt => 'Lista de eventos'
-     de => 'Events'
-     hu => 'Események listája'
-     nl => 'Lijst van gebeurtenissen'
-},
-%]
+[% WRAPPER ui title = "List of events") %]
 <div align="center">
 <p>
  [% IF events.size == 0 %]
- <t><fr>Aucun événement n'a encore été ajouté.</fr>
-    <en>No event was submitted yet.</en>
-    <pt>Nenhuma evento proposta.</pt>
-    <it>Nessun evento proposto.</it>
-    <de>Es wurde noch kein Event eingereicht.</de>
-    <hu>Nincs még esemény beküldve.</hu>
-    <nl>Er werden nog geen gebeurtenissen opgeslagen.</nl>
- </t>
+ {{No event was submitted yet.}}
  [% END %]
 </p>
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>Event title</en><fr>Présentation</fr><pt>Título</pt><it>Evento</it><de>Titel</de><hu>Esemény címe</hu><nl>Presentatie</nl></t></th>
- <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu><nl>Duur</nl></t></th>
+ <th>{{Event title}}</th>
+ <th>{{Duration}}</th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
- <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it><de>Datum</de><hu>Dátuma</hu><nl>Datum</nl></t></th>
+ <th>{{Date}}</th>
  [% END %]
 </tr>
 [% FOREACH e = events %]
@@ -36,7 +19,7 @@
     <td>[% event_link(e) %] [% event_modify_link(e) %]
     </td>
     <td nowrap="nowrap">
-         [% e.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><hu>perc</hu><nl>minuten</nl></t>
+         [% e.duration %] {{minutes}}
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
     <td align="center" nowrap="nowrap">[% IF e.datetime; date_format(e.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>

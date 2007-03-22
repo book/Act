@@ -1,39 +1,7 @@
-[% WRAPPER ui
-   title = {
-       en => 'Event removed',
-       fr => 'Événement supprimé',
-       it => 'Evento eliminato',
-       pt => 'Evento TRANSLATEME'
-       de => 'Event TRANSLATEME'
-       hu => 'Esemény törölve'
-       nl => 'Gebeurtenis verwijderd'
-   }
-%]
+[% WRAPPER ui title = loc("Event removed") %]
 
 <p>
- <t>
-  <en>
-   The event <b>[% title %] has been removed.
-  </en>
-  <fr>
-   L'événement <b>[% title %]</b> a été supprimé.
-  </fr>
-  <it>
-   Grazie, l'evento <b>[% title %]</b> è stato eliminato.
-  </it>
-  <pt>
-   Obrigado, o evento <b>[% title %]</b> foi TRANSLATEME.
-  </pt>
-  <de>
-  Danke, der Event <b>[% title %]</b> wurde TRANSLATEME.
-  </de>
-  <hu>
-   <b>[% title %]</b> esemény törlésre került.
-  </hu>
-  <nl>
-   De gebeurtenis <b>[% title %]</b> werd verwijderd.
-  </nl>
- </t>
+ [% loc('The event has been removed.', title) %]
 </p>
 
 [% END %]

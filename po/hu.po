@@ -573,3 +573,65 @@ msgstr ""
 msgid "Unregister from <conference>"
 msgstr "Leiratkozom: %1"
 
+msgid "Submit/Edit a non-talk event"
+msgstr "Nem elõadás esemény hozzáadása, szerkesztése"
+
+msgid "You must enter a title for the event"
+msgstr "A cím megadása kötelezõ"
+
+msgid "You must enter a short description for the event"
+msgstr "Az esemény rövid leírásának megadása kötelezõ"
+
+msgid "Please choose a duration"
+msgstr "Az esemény hosszát meg kell adni"
+
+msgid "The supplied date is invalid"
+msgstr "A megadott dátum érvénytelen"
+
+msgid "The supplied time is invalid"
+msgstr "A megadott idõpont érvénytelen"
+
+msgid "The date/time is out of range"
+msgstr "A dátum/idõ rossz tartományba esik"
+
+msgid "Event URL is not a valid URL"
+msgstr "Az esemény URL-je érvénytelen"
+
+msgid "Incorrect room submitted"
+msgstr "Érvénytelen helyszín"
+
+msgid "Event submitted"
+msgstr "Esemény beküldve"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Köszönjük, az esemény <b><a href=\"%1\">%2</a></b>\n"
+"néven mentésre került.\n"
+
+msgid "List of events"
+msgstr "Események listája"
+
+msgid "No event was submitted yet."
+msgstr "Nincs még esemény beküldve."
+
+msgid "Event title"
+msgstr "Esemény címe"
+
+msgid "Event removed"
+msgstr "Esemény törölve"
+
+msgid "The event has been removed."
+msgstr "<b>%1</b> esemény törlésre került."
+
+msgid "Date:"
+msgstr "Dátum:"
+
+msgid "Not scheduled yet."
+msgstr "Még nincs besorolva."
+
+msgid "Duration:"
+msgstr "Hossz:"
+
+msgid "You can find more information on the following site:"
+msgstr "A következõ oldalon további információk állnak rendelkezésre:"
+

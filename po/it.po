@@ -620,3 +620,92 @@ msgstr ""
 msgid "Unregister from <conference>"
 msgstr "Annulla l'iscrizione a %1"
 
+msgid "Submit/Edit a non-talk event"
+msgstr "Aggiunta/Modifica di un evento"
+
+msgid "You must enter a title for the event"
+msgstr "Il titolo è obbligatorio"
+
+msgid "You must enter a short description for the event"
+msgstr "Una breve descrizione è obbligatoria"
+
+msgid "Please choose a duration"
+msgstr "Dovete indicare una durata"
+
+msgid "The supplied date is invalid"
+msgstr "La data indicata non è valida"
+
+msgid "The supplied time is invalid"
+msgstr "L'ora indicata non è valida"
+
+msgid "The date/time is out of range"
+msgstr "La data o l'ora sono fuori dai limiti"
+
+msgid "Event URL is not a valid URL"
+msgstr "La URL indicata non è valida"
+
+msgid "Incorrect room submitted"
+msgstr "La stanza indicata non è valida"
+
+msgid "View"
+msgstr "Mostra"
+
+msgid "Delete this event"
+msgstr "Elimina questo evento"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Room"
+msgstr "Stanza"
+
+msgid "Abstract"
+msgstr "Descrizione"
+
+msgid "(plain text)"
+msgstr "(testo semplice)"
+
+msgid "External URL"
+msgstr "URL esterna"
+
+msgid "Submit this event"
+msgstr "Invia"
+
+msgid "Event submitted"
+msgstr "Evento inviato"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Grazie, l'evento è stato registrato come\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Elenco degli eventi"
+
+msgid "No event was submitted yet."
+msgstr "Nessun evento proposto."
+
+msgid "Event title"
+msgstr "Evento"
+
+msgid "Event removed"
+msgstr "Evento eliminato"
+
+msgid "The event has been removed."
+msgstr "Grazie, l'evento <b>%1</b> è stato eliminato."
+
+msgid "Date:"
+msgstr "Data:"
+
+msgid "Not scheduled yet."
+msgstr "Non ancora pianificato"
+
+msgid "Duration:"
+msgstr "Durata:"
+
+msgid "You can find more information on the following site:"
+msgstr "Potete trovare ulteriori informazioni sul sito:"
+

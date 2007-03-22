@@ -234,3 +234,92 @@ msgstr "Penningmeester (Betalingsmanagement)"
 msgid "Administrator (rights management)"
 msgstr "Administrator (rechtenmanagement)"
 
+msgid "Submit/Edit a non-talk event"
+msgstr "Voorstellen/wijzigen van een gebeurtenis"
+
+msgid "You must enter a title for the event"
+msgstr "Gelieve een titel in te geven"
+
+msgid "You must enter a short description for the event"
+msgstr "Gelieve een korte beschrijving in te geven"
+
+msgid "Please choose a duration"
+msgstr "Gelieve de duur te kiezen"
+
+msgid "The supplied date is invalid"
+msgstr "De ingegeven datum is ongeldig"
+
+msgid "The supplied time is invalid"
+msgstr "Het ingegeven uur is ongeldig"
+
+msgid "The date/time is out of range"
+msgstr "De combinatie datum/uur ligt buiten de grenzen"
+
+msgid "Event URL is not a valid URL"
+msgstr "De ingegeven URL is ongeldig"
+
+msgid "Incorrect room submitted"
+msgstr "De zaal is ongeldig"
+
+msgid "View"
+msgstr "Zie"
+
+msgid "Delete this event"
+msgstr "Deze gebeurtenis verwijderen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Room"
+msgstr "Zaal"
+
+msgid "Abstract"
+msgstr "Beschrijving"
+
+msgid "(plain text)"
+msgstr "(gewone tekst)"
+
+msgid "External URL"
+msgstr "Externe URL"
+
+msgid "Submit this event"
+msgstr "Verzenden"
+
+msgid "Event submitted"
+msgstr "Gebeurtenis opgeslagen"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Dank U, de gebeurtenis werd opgeslagen als\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Lijst van gebeurtenissen"
+
+msgid "No event was submitted yet."
+msgstr "Er werden nog geen gebeurtenissen opgeslagen."
+
+msgid "Event title"
+msgstr "Presentatie"
+
+msgid "Event removed"
+msgstr "Gebeurtenis verwijderd"
+
+msgid "The event has been removed."
+msgstr "De gebeurtenis <b>%1</b> werd verwijderd."
+
+msgid "Date:"
+msgstr "Datum:"
+
+msgid "Not scheduled yet."
+msgstr "Werd nog niet gepland"
+
+msgid "Duration:"
+msgstr "Duur:"
+
+msgid "You can find more information on the following site:"
+msgstr "Meer informatie vindt U op de site:"
+
