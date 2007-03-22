@@ -751,3 +751,146 @@ msgstr "Duration:"
 msgid "You can find more information on the following site:"
 msgstr "You can find more information on the following site:"
 
+msgid "Wiki - editing <node>"
+msgstr "Wiki - editing %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Someone has committed changes to this node since you began editing.\n"
+"You will need to manually merge your changes into the new version.\n"
+
+msgid "Current node contents:"
+msgstr "Current node contents:"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Your proposed revision:"
+msgstr "Your proposed revision:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 History"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Modified on"
+msgstr "Modified on"
+
+msgid "By"
+msgstr "By"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "version"
+
+msgid "saved on"
+msgstr "saved on"
+
+msgid "Last modified:"
+msgstr "Last modified:"
+
+msgid "by"
+msgstr "by"
+
+msgid "new page"
+msgstr "new page"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Revert to this version"
+msgstr "Revert to this version"
+
+msgid "Edit this page"
+msgstr "Edit this page"
+
+msgid "Recent changes"
+msgstr "Recent changes"
+
+msgid "History"
+msgstr "History"
+
+msgid "Wiki help"
+msgstr "Wiki help"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Character formatting</h2>\n"
+"<ul>\n"
+"<li>An item wrapped in three single quotes is <b>strong</b>.</li>\n"
+"<li>An item wrapped in two single quotes is <i>emphasized</i>.</li>\n"
+"<li>Any word with multiple CapitalLetters (e. g., StudlyCaps) will become a link.</li>\n"
+"</ul>\n"
+"<h2>Paragraph formatting</h2>\n"
+"<ul>\n"
+"<li>Four or more hyphen characters at the start of a line create a horizontal line.</li>\n"
+"<li>Newlines turn into the appropriate tags.</li>\n"
+"<li>Headers are matching equals signs around the header text -- the more signs, the lesser the header.</li>\n"
+"</ul>\n"
+"<h2>Lists</h2>\n"
+"<ul>\n"
+"<li>Lists are indented text, by one tab or four spaces by default.</li>\n"
+"<li>In unordered lists, where each item has its own bullet point, each item needs a leading asterisk and space.</li>\n"
+"<li>Ordered lists consist of items marked with combination of one or more alphanumeric characters followed by a period and an optional space.</li>\n"
+"<li>Lists can be nested.</li>\n"
+"</ul>\n"
+"<h2>Code</h2>\n"
+"<ul>\n"
+"<li>Any indented text without either marking is code, handled literally. You can nest lists.</li>\n"
+"</ul>\n"
+"<h2>Example</h2>\n"
+"\n"
+"The following is valid Wiki formatting, with an extended link as marked.\n"
+"<pre>\n"
+"\n"
+"        = my interesting text =\n"
+"\n"
+"        NormalLink\n"
+"        [AnExtendedLink|let the Sun shine]\n"
+"        [user:id]\n"
+"        [talk:id]\n"
+"\n"
+"        == my interesting lists ==\n"
+"\n"
+"            * unordered one\n"
+"            * unordered two\n"
+"\n"
+"            1. ordered one\n"
+"            2. ordered two\n"
+"                        a. nested one\n"
+"                        b. nested two\n"
+"\n"
+"            code one\n"
+"            code two\n"
+"\n"
+"        The first line of a normal paragraph.\n"
+"        The second line of a normal paragraph.  Whee.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Recent changes"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Changes in last"
+msgstr "Changes in last"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,day)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,week)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,month)"
+

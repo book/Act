@@ -1,16 +1,9 @@
-[% WRAPPER ui
-   title = { en => "Wiki - $node History",
-             fr => "Wiki - Historique $node",
-             it => 'TRANSLATEME',
-             pt => "TRANSLATEME",
-             de => 'TRANSLATEME',
-             hu => 'TRANSLATEME' },
-%]
+[% WRAPPER ui title = loc('Wiki - <node> History', node) %]
 [%- PROCESS common -%]
 <table>
- <tr><th><t><fr>Version</fr><en>Version</en></t></th>
-     <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
-     <th><t><fr>Par</fr><en>By</en></t></th>
+ <tr><th>{{Version}}</th>
+     <th>{{Modified on}}</th>
+     <th>{{By}}</th>
  </tr>
  [% FOREACH v IN versions %]
  <tr>

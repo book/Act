@@ -764,3 +764,93 @@ msgstr "Durée&nbsp;:"
 msgid "You can find more information on the following site:"
 msgstr "Vous pouvez trouver plus d'information sur le site suivant&nbsp;:"
 
+msgid "Wiki - editing <node>"
+msgstr "Wiki - modification de %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Un autre utilisateur a effectué des changements après que vous ayez\n"
+"commencé vos modifications. Vous devrez fusionner manuellement vos\n"
+"modifications avec la nouvelle version.\n"
+
+msgid "Current node contents:"
+msgstr "Contenu actuel de la page&nbsp;:"
+
+msgid "Help"
+msgstr "Aide"
+
+msgid "Preview"
+msgstr "Aperçu"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Your proposed revision:"
+msgstr "Vos modifications&nbsp;:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - Historique %1"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Modified on"
+msgstr "Modifié le"
+
+msgid "By"
+msgstr "Par"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - $node"
+
+msgid "version"
+msgstr "version"
+
+msgid "saved on"
+msgstr "du"
+
+msgid "Last modified:"
+msgstr "Dernière modification&nbsp;:"
+
+msgid "by"
+msgstr "par"
+
+msgid "new page"
+msgstr "nouvelle page"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Revert to this version"
+msgstr "Revenir à cette version"
+
+msgid "Edit this page"
+msgstr "Modifier cette page"
+
+msgid "Recent changes"
+msgstr "Modifications récentes"
+
+msgid "History"
+msgstr "Historique"
+
+msgid "Wiki help"
+msgstr "Aide Wiki"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Modifications récentes"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Changes in last"
+msgstr "Modifications depuis"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,jour)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,semaine)"
+
+msgid "<n> month(s)"
+msgstr "%1 mois"
+

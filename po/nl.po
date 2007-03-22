@@ -323,3 +323,36 @@ msgstr "Duur:"
 msgid "You can find more information on the following site:"
 msgstr "Meer informatie vindt U op de site:"
 
+msgid "Wiki - <node>"
+msgstr "Wiki - $node"
+
+msgid "version"
+msgstr "versie"
+
+msgid "saved on"
+msgstr "van"
+
+msgid "Last modified:"
+msgstr "Laatste wijzigingen:"
+
+msgid "new page"
+msgstr "nieuwe pagina"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Recente wijzigingen"
+
+msgid "Changes in last"
+msgstr "Wijzigingen sinds"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,dag,dagen)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,week,weken)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,maand,maanden)"
+
