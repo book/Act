@@ -1,96 +1,32 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = {
-     en => 'List of talks'
-     fr => 'Liste des présentations'
-     it => 'Elenco degli interventi'
-     pt => 'Lista de apresentações'
-     de => 'Liste der Vortr&auml;ge'
-     hu => 'Elõadások listája'
-},
-%]
+[% WRAPPER ui title = loc("List of talks") %]
 <div align="center">
 <p>
  [% IF talks_total == 0 %]
- <t><fr>Aucune présentation n'a encore été proposée.</fr>
-    <en>No talk was submitted yet.</en>
-    <pt>Nenhuma apresentação proposta.</pt>
-    <it>Nessun intervento proposto.</it>
-    <de>Es wurde noch kein Vortrag eingereicht.</de>
-    <hu>Nincs még elõadás beküldve.</hu>
- </t>
+ {{No talk was submitted yet.}}
  [% ELSE %]
- <t>
-  <fr>Présentations soumises&nbsp;: [% talks_total %]<br />
-      Présentations acceptées&nbsp;: [% talks_accepted %]</fr>
-  <en>Submitted talks: [% talks_total %]<br />
-      Accepted talks: [% talks_accepted %]</en>
-  <it>Interventi proposti: [% talks_total %]<br />
-      Interventi accettati: [% talks_accepted %]</it>
-  <pt>Apresentações propostas: [% talks_total %]<br />
-      Apresentações aceites: [% talks_accepted %]</pt>
-  <de>Eingereichte Vortr&auml;ge: [% talks_total %]<br />
-      Angenommene Vortr&auml;ge: [% talks_accepted %]</de>
-  <hu>Beküldött elõadások: [% talks_total %]<br />
-      Elfogadott elõadások: [% talks_accepted %]<br />
-      <strong>Az elfogadott elõadások nem feltétlenül véglegesek!</strong></hu>
- </t>
+ {{Submitted talks:}} [% talks_total %]<br />
+ {{Accepted talks:}} [% talks_accepted %]
  [% END %]
 </p>
 [% IF global.request.user.is_orga || global.request.user.has_talk %]
 <p>
- <t>
-  <en>
-   Accepted talks are shown in <b>bold</b> type.
-  </en>
-  <fr>
-   Les présentations acceptées sont affichées en caractères <b>gras</b>.
-  </fr>
-  <it>
-   Gli interventi accettati sono mostrati in <b>grassetto</b>.
-  </it>
-  <pt>As apresentações aceites são mostradas a <b>negrito</b>.</pt>
-    <de>Angenommene Vortr&auml;ge werden in <b>fett</b> angezeigt.</de>
-  <hu>
-   Az elfogadott elõadásokat <b>kiemeltük</b>.
-  </hu>
-</t>
+ {{Accepted talks are shown in bold type.}}
 </p>
 [% END %]
 [% IF global.request.user.is_orga %]
 <p>
- <t>
-  <fr>Durée totale des présentations acceptées&nbsp;:</fr>
-  <en>Total duration of accepted talks:</en>
-  <it>Durata totale degli interventi accettati:</it>
-  <pt>Duração total das apresentações aceites:</pt>
-  <de>L&auml;nge der angenommenen Vortr&auml;ge:</de>
-  <hu>Az elfogadott elõadások összideje:</hu>
- </t>
- [% talks_duration div 60 %] <t><fr>heures</fr><pt>horas</pt><en>hours</en><it>ore</it><de>Stunden</de><hu>óra</hu></t>
- [% talks_duration % 60 %] <t><fr>minutes</fr><en>minutes</en><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
+ {{Total duration of accepted talks:}}
+ [% talks_duration div 60 %] {{hours}}
+ [% talks_duration % 60 %] {{minutes}}
  <br />
- <t>
-  <fr>Communications éclair acceptées&nbsp;:</fr>
-  <en>Accepted lightning talks:</en>
-  <it>Interventi lampo accettati:</it>
-  <pt>Apresentações relâmpago aceites:</pt>
-  <de>Angenommene Lightning Talks:</de>
-  <hu>Elfogadott villámelõadások:</hu>
- </t>
+ {{Accepted lightning talks:}}
  [% talks_lightning %]
 </p>
 [% END %]
 </div>
 [% IF tracks.size != 0 %]
-  <h2><t>
-      <en>Tracks</en>
-      <fr>Thèmes</fr>
-      <it>Tracce</it>
-      <de>TRANSLATEME</de>
-      <pt>TRANSLATEME</pt>
-      <hu>TRANSLATEME</hu>
-      </t>
+  <h2>{{Tracks}}
   </h2>
   <ul>
   [% FOREACH tr = tracks %]
@@ -109,13 +45,7 @@
      <p>[% tr.description %]</p>
      [% PROCESS talk/talk_list talks = tr.talks %]
   [% ELSIF tr.talks.size != 0 %]
-     <h2><t><en>No track</en>
-            <fr>Sans thème</fr>
-            <it>Fuori traccia</it>
-            <de>TRANSLATEME</de>
-            <pt>TRANSLATEME</pt>
-            <hu>TRANSLATEME</hu>
-     </t></h2>
+     <h2>{{No track}}</h2>
      [% PROCESS talk/talk_list talks = tr.talks %]
   [% END %]
   [% END %]
@@ -124,7 +54,7 @@
 [% END %]
 [% IF global.request.user.is_orga %]
 <br />
-<input type="submit" name="ok" value="<t><en>Update</en><pt>Modificar</pt><fr>Modifier</fr><it>Aggiorna</it><de>Speichern</de><hu>Frissít</hu></t>" />
+<input type="submit" name="ok" value="{{Update}}" />
 </form>
 [% END %]
 [% END %]

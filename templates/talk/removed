@@ -1,35 +1,7 @@
-[% WRAPPER ui
-   title = {
-       en => 'Talk removed',
-       fr => 'Présentation supprimée',
-       it => 'Intervento rimosso',
-       pt => 'Apresentação TRANSLATEME'
-       de => 'Vortrag TRANSLATEME'
-       hu => 'Elõadás törölve'
-   }
-%]
+[% WRAPPER ui title = loc("Talk removed") %]
 
 <p>
- <t>
-  <en>
-   The Talk <b>[% title %]</b> has been removed.
-  </en>
-  <fr>
-   La présentation <b>[% title %]</b> a été supprimée.
-  </fr>
-  <it>
-   Grazie, l'intervento <b>[% title %]</b> è stato eliminato.
-  </it>
-  <pt>
-   Obrigado, o apresentação <b>[% title %]</b> foi TRANSLATEME.
-  </pt>
-  <de>
-  Danke, der Vortrag <b>[% title %]</b> wurde TRANSLATEME.
-  </de>
-  <hu>
-   Az elõadás törlésre került: <b>[% title %]</b>.
-  </hu>
- </t>
+ [% loc('The Talk <title> has been removed.', title) %]
 </p>
 
 [% END %]

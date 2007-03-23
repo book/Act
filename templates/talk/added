@@ -1,41 +1,7 @@
-[% WRAPPER ui
-   title = {
-    en => 'Talk submitted'
-    fr => 'Présentation soumise'
-    it => 'Intervento inviato'
-    pt => 'Apresentação inserida'
-    de => 'Vortrag eingereicht'
-    hu => 'Elõadás beküldve'
-},
-%]
+[% WRAPPER ui title = loc("Talk submitted") %]
 
 <p>
- <t>
-  <en>
-   Thanks, your talk submission has been recorded
-   as <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
-  </en>
-  <fr>
-   Merci, votre soumission de présentation est enregistrée
-   en tant que <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
-  </fr>
-  <it>
-   Grazie, la vostra proposta è stata registrata come
-   <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
-  </it>
-  <pt>
-   Obrigado, a sua proposta foi registada como
-   <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
-  </pt>
-  <de>
-  Danke, Ihr Vortrag wurde gespeichert als
-  <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>.
-  </de>
-  <hu>
-   Köszönjük, az elõadás <b><a href="[% make_uri_info('talk', talk_id ) %]">[% title %]</a></b>
-   néven mentésre került.
-  </hu>
- </t>
+ [% loc("Thanks, your talk submission has been recorded as", make_uri_info('talk', talk_id), title %]
 </p>
 
 [% END %]

@@ -988,3 +988,163 @@ msgstr "Address"
 msgid "I confirm"
 msgstr "I confirm"
 
+msgid "Submit/Edit a talk"
+msgstr "Submit/Edit a talk"
+
+msgid "You must specify a user"
+msgstr "You must specify a user"
+
+msgid "You must enter a title for the talk"
+msgstr "You must enter a title for the talk"
+
+msgid "You must provide an abstract"
+msgstr "You must provide an abstract"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "Abstract URL is not a valid URL"
+
+msgid "Talk URL is not a valid URL"
+msgstr "Talk URL is not a valid URL"
+
+msgid "Delete this talk"
+msgstr "Delete this talk"
+
+msgid "Track"
+msgstr "Track"
+
+msgid "Abstract URL"
+msgstr "Abstract URL"
+
+msgid "Talk URL"
+msgstr "Talk URL"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Standard durations for %1 are:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"If the proposed durations do not quite fit your talk, please\n"
+"use the comment field to indicate the preferred duration.\n"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"The comment field is used for communicating information about\n"
+"this talk to the organisers.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "accepted"
+
+msgid "confirmed"
+msgstr "confirmed"
+
+msgid "Accepted"
+msgstr "Accepted"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Submit this talk"
+msgstr "Submit this talk"
+
+msgid "Talk submitted"
+msgstr "Talk submitted"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Thanks, your talk submission has been recorded as <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "iCal Import"
+
+msgid "The following talks have been updated:"
+msgstr "The following talks have been updated:"
+
+msgid "Old time"
+msgstr "Old time"
+
+msgid "New time"
+msgstr "New time"
+
+msgid "title"
+msgstr "title"
+
+msgid "Upload an iCal file"
+msgstr "Upload an iCal file"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "List of talks"
+msgstr "List of talks"
+
+msgid "No talk was submitted yet."
+msgstr "No talk was submitted yet."
+
+msgid "Submitted talks:"
+msgstr "Submitted talks:"
+
+msgid "Accepted talks:"
+msgstr "Accepted talks:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Accepted talks are shown in <b>bold type</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Total duration of accepted talks:"
+
+msgid "hours"
+msgstr "hours"
+
+msgid "Accepted lightning talks:"
+msgstr "Accepted lightning talks:"
+
+msgid "Tracks"
+msgstr "Tracks"
+
+msgid "No track"
+msgstr "No track"
+
+msgid "lightning"
+msgstr "lightning"
+
+msgid "from"
+msgstr "from"
+
+msgid "Comment:"
+msgstr "Comment:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "You can find more information on the speaker's site:"
+
+msgid "Abstract:"
+msgstr "Abstract:"
+
+msgid "Talk:"
+msgstr "Talk:"
+
+msgid "Talk removed"
+msgstr "Talk removed"
+
+msgid "The Talk <title> has been removed."
+msgstr "The Talk <b>%1</b> has been removed."
+
+msgid "Talk inserted"
+msgstr "Talk inserted"
+
+msgid "Talk updated"
+msgstr "Talk updated"
+
+msgid "Submitted by:"
+msgstr "Submitted by:"
+
+msgid "The following fields have been updated:"
+msgstr "The following fields have been updated:"
+
+msgid "By:"
+msgstr "By:"
+

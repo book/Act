@@ -737,3 +737,148 @@ msgstr "Adresse"
 msgid "I confirm"
 msgstr "Bestätigen"
 
+msgid "Submit/Edit a talk"
+msgstr "Vortrag eingeben/bearbeiten"
+
+msgid "You must specify a user"
+msgstr "Es muss eine UserIn angegeben werden"
+
+msgid "You must enter a title for the talk"
+msgstr "Titel des Vortrages fehlt"
+
+msgid "You must provide an abstract"
+msgstr "Kurzbeschreibung fehlt"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "Die URL weiter Infos ist nicht gültig"
+
+msgid "Talk URL is not a valid URL"
+msgstr "Die URL Slides ist nicht gültig"
+
+msgid "Abstract URL"
+msgstr "URL weitere Infos"
+
+msgid "Talk URL"
+msgstr "URL Slides etc"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Standardlängen sind:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Wenn die vorgeschlagenen Zeiten nicht passen, bitte im\n"
+"Kommentarfeld die gewünschte Dauer eingeben.\n"
+
+msgid "Comments"
+msgstr "Kommentare"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Das Kommentarfeld kann verwendet werden, um weitere Informationen\n"
+"o.ä. an die Organisatoren weiterzuleiten.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "angenommen"
+
+msgid "confirmed"
+msgstr "bestätigt"
+
+msgid "Accepted"
+msgstr "angenommen"
+
+msgid "Pending"
+msgstr "in Bearbeitung"
+
+msgid "Submit this talk"
+msgstr "Vortrag einreichen"
+
+msgid "Talk submitted"
+msgstr "Vortrag eingereicht"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Danke, Ihr Vortrag wurde gespeichert als <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "Aus iCal importieren"
+
+msgid "The following talks have been updated:"
+msgstr "Die folgenden Vorträge wurden upgedated:"
+
+msgid "Old time"
+msgstr "Alter Termin"
+
+msgid "New time"
+msgstr "Neuer Termin"
+
+msgid "title"
+msgstr "Titel"
+
+msgid "Upload an iCal file"
+msgstr "iCal file raufladen"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "List of talks"
+msgstr "Liste der Vorträge"
+
+msgid "No talk was submitted yet."
+msgstr "Es wurde noch kein Vortrag eingereicht."
+
+msgid "Submitted talks:"
+msgstr "Eingereichte Vorträge:"
+
+msgid "Accepted talks:"
+msgstr "Angenommene Vorträge:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Angenommene Vorträge werden in <b>fett</b> angezeigt."
+
+msgid "Total duration of accepted talks:"
+msgstr "Länge der angenommenen Vorträge:"
+
+msgid "hours"
+msgstr "Stunden"
+
+msgid "Accepted lightning talks:"
+msgstr "Angenommene Lightning Talks:"
+
+msgid "lightning"
+msgstr "lightning talk"
+
+msgid "from"
+msgstr "aus"
+
+msgid "Comment:"
+msgstr "Kommentar:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Mehr Informationen gibts auf der Seite des/der Vortragenden:"
+
+msgid "Abstract:"
+msgstr "Weitere Infos:"
+
+msgid "Talk:"
+msgstr "Vortrag (Slides etc):"
+
+msgid "The Talk <title> has been removed."
+msgstr "Danke, der Vortrag <b>%1</b> wurde TRANSLATEME."
+
+msgid "Talk inserted"
+msgstr "Vortrag eingegeben"
+
+msgid "Talk updated"
+msgstr "Vortrag geändert"
+
+msgid "Submitted by:"
+msgstr "Eingegeben von:"
+
+msgid "The following fields have been updated:"
+msgstr "Folgende Felder wurden geändert:"
+
+msgid "By:"
+msgstr "Vortragende:"
+

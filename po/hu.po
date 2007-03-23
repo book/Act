@@ -635,3 +635,136 @@ msgstr "Hossz:"
 msgid "You can find more information on the following site:"
 msgstr "A következõ oldalon további információk állnak rendelkezésre:"
 
+msgid "(plain text)"
+msgstr "(egyszerû szöveg)"
+
+msgid "Submit/Edit a talk"
+msgstr "Esemény beküldése, szerkesztése"
+
+msgid "You must specify a user"
+msgstr "Egy felhasználót meg kell adni"
+
+msgid "You must enter a title for the talk"
+msgstr "Az elõadásnak címet kell adni"
+
+msgid "You must provide an abstract"
+msgstr "Az absztraktot ki kell tölteni"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "Az absztrakt URL-je érvénytelen"
+
+msgid "Talk URL is not a valid URL"
+msgstr "Az elõadás URL-je érvénytelen"
+
+msgid "Delete this talk"
+msgstr "Elõadás törlése"
+
+msgid "Abstract URL"
+msgstr "Absztrakt URL-je"
+
+msgid "Talk URL"
+msgstr "Elõadás URL-je"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Választható elõadás hosszok:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Ha a választható idõtartamok nem megfelelõek az elõadás számára,\n"
+"az a megjegyzés mezõben jelezhetõ (a kívánt idõpont leírásával).\n"
+
+msgid "Comments"
+msgstr "Megjegyzések"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"A megjegyzés mezõ a szervezõkkel való elõadással kapcsolatos\n"
+"kommunikációra szolgál.\n"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "accepted"
+msgstr "elfogadott"
+
+msgid "confirmed"
+msgstr "megerõsített"
+
+msgid "Accepted"
+msgstr "elfogadott"
+
+msgid "Pending"
+msgstr "függõben"
+
+msgid "Submit this talk"
+msgstr "Elõadás beküldése"
+
+msgid "Talk submitted"
+msgstr "Elõadás beküldve"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Köszönjük, az elõadás <b><a href=\"%1\">%2</a></b> néven mentésre került."
+
+msgid "List of talks"
+msgstr "Elõadások listája"
+
+msgid "No talk was submitted yet."
+msgstr "Nincs még elõadás beküldve."
+
+msgid "Submitted talks:"
+msgstr "Beküldött elõadások:"
+
+msgid "Accepted talks:"
+msgstr "Elfogadott elõadások:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Az elfogadott elõadásokat <b>kiemeltük</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Az elfogadott elõadások összideje:"
+
+msgid "hours"
+msgstr "óra"
+
+msgid "Accepted lightning talks:"
+msgstr "Elfogadott villámelõadások:"
+
+msgid "lightning"
+msgstr "villámelõadás"
+
+msgid "from"
+msgstr "csoportja"
+
+msgid "Comment:"
+msgstr "Megjegyzés:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "További információk az elõadó weblapján:"
+
+msgid "Abstract:"
+msgstr "Absztrakt:"
+
+msgid "Talk:"
+msgstr "Elõadás:"
+
+msgid "Talk removed"
+msgstr "Elõadás törölve"
+
+msgid "The Talk <title> has been removed."
+msgstr "Az elõadás törlésre került: <b>%1</b>."
+
+msgid "Talk inserted"
+msgstr "Az elõadás hozzáadásra került"
+
+msgid "Talk updated"
+msgstr "Az elõadás módosítva"
+
+msgid "Submitted by:"
+msgstr "Beküldte:"
+
+msgid "The following fields have been updated:"
+msgstr "A következõ mezõk lett módosítva:"
+
+msgid "By:"
+msgstr "Módosító:"
+

@@ -798,3 +798,164 @@ msgstr "Indirizzo"
 msgid "I confirm"
 msgstr "Confermo"
 
+msgid "Submit/Edit a talk"
+msgstr "Inviare/Modificare un intervento"
+
+msgid "You must specify a user"
+msgstr "Dovete indicare un utente"
+
+msgid "You must enter a title for the talk"
+msgstr "Il titolo è obbligatorio"
+
+msgid "You must provide an abstract"
+msgstr "L'abstract è obbligatorio"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "La URL indicata per l'abstract non è valida"
+
+msgid "Talk URL is not a valid URL"
+msgstr "La URL indicata per l'intervento non è valida"
+
+msgid "Delete this talk"
+msgstr "Elimina questo intervento"
+
+msgid "Track"
+msgstr "Traccia"
+
+msgid "Abstract URL"
+msgstr "URL dell'abstract"
+
+msgid "Talk URL"
+msgstr "URL dell'intervento"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Le durate previste per %1 sono:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Se nessuna delle durate proposte si addice al vostro\n"
+"intervento, indicate la durata che vorreste nel campo dei\n"
+"commenti.\n"
+
+msgid "Comments"
+msgstr "Commenti"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Il campo dei commenti serve per fornire informazioni\n"
+"aggiuntive sull'intervento agli organizzatori.\n"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "accepted"
+msgstr "Accettato"
+
+msgid "confirmed"
+msgstr "confermato"
+
+msgid "Accepted"
+msgstr "Accettato"
+
+msgid "Pending"
+msgstr "In attesa"
+
+msgid "Submit this talk"
+msgstr "Invia"
+
+msgid "Talk submitted"
+msgstr "Intervento inviato"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Grazie, la vostra proposta è stata registrata come <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "Importa da iCal"
+
+msgid "The following talks have been updated:"
+msgstr "Sono stati modificati gli interventi seguenti:"
+
+msgid "Old time"
+msgstr "Vecchio orario"
+
+msgid "New time"
+msgstr "Nuovo orario"
+
+msgid "title"
+msgstr "titolo"
+
+msgid "Upload an iCal file"
+msgstr "Invia un file iCal"
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "List of talks"
+msgstr "Elenco degli interventi"
+
+msgid "No talk was submitted yet."
+msgstr "Nessun intervento proposto."
+
+msgid "Submitted talks:"
+msgstr "Interventi proposti:"
+
+msgid "Accepted talks:"
+msgstr "Interventi accettati:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Gli interventi accettati sono mostrati in <b>grassetto</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Durata totale degli interventi accettati:"
+
+msgid "hours"
+msgstr "ore"
+
+msgid "Accepted lightning talks:"
+msgstr "Interventi lampo accettati:"
+
+msgid "Tracks"
+msgstr "Tracce"
+
+msgid "No track"
+msgstr "Fuori traccia"
+
+msgid "lightning"
+msgstr "lampo"
+
+msgid "from"
+msgstr "da"
+
+msgid "Comment:"
+msgstr "Commenti:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Potete trovare ulteriori informazioni su questo intervento sul sito:"
+
+msgid "Abstract:"
+msgstr "Abstract:"
+
+msgid "Talk:"
+msgstr "Intervento:"
+
+msgid "Talk removed"
+msgstr "Intervento rimosso"
+
+msgid "The Talk <title> has been removed."
+msgstr "Grazie, l'intervento <b>%1</b> è stato eliminato."
+
+msgid "Talk inserted"
+msgstr "Intervento aggiunto"
+
+msgid "Talk updated"
+msgstr "Intervento modificato"
+
+msgid "Submitted by:"
+msgstr "Inviato da:"
+
+msgid "The following fields have been updated:"
+msgstr "Sono stati modificati i campi seguenti:"
+
+msgid "By:"
+msgstr "Oratore:"
+
