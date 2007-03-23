@@ -356,3 +356,66 @@ msgstr "%quant(%1,week,weken)"
 msgid "<n> month(s)"
 msgstr "%quant(%1,maand,maanden)"
 
+msgid "Administrative tasks"
+msgstr "Administratieve taken"
+
+msgid "Talks & events"
+msgstr "Presentaties"
+
+msgid "Credit card payment"
+msgstr "Betaling via kredietkaart"
+
+msgid "speaker"
+msgstr "spreker"
+
+msgid "Invoice #"
+msgstr "Facture nr"
+
+msgid "Dated"
+msgstr "Datum"
+
+msgid "Printed on"
+msgstr "Afgedrukt op"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Quantity"
+msgstr "Aantal"
+
+msgid "Unit Price"
+msgstr "Eenheidsprijs"
+
+msgid "<conf> registration"
+msgstr "%1 Aanmelden"
+
+msgid "Your order number:"
+msgstr "Uw bestelnummer:"
+
+msgid "Total due"
+msgstr "Totaal te betalen"
+
+msgid "Invoice"
+msgstr "Faktuur"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "U kan deze pagina afdrukken: enkel de faktuur hieronder zal afgedrukt worden."
+
+msgid "Printer friendly version"
+msgstr "Afdrukvriendelijke versie"
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Klik hier</a> om deze informatie te wijzigen of te vervolledigen."
+
+msgid "Establishing your invoice requires your address."
+msgstr "Uw adres is vereist om een faktuur op te stellen."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Gelieve de fakturatiegegevens te controleren."
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "I confirm"
+msgstr "Ik bevestig"
+

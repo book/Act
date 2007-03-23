@@ -1,25 +1,25 @@
 [% PROCESS common %]
 [% WRAPPER ui
    title = {
-     en => 'Billing'
-     fr => 'Facturation'
-     it => 'Fatturazione'
-     pt => 'Factuação'
-     de => 'Abrechnung'
-     nl => 'Afrekening'
+     <en>Billing</en>
+     <fr>Facturation</fr>
+     <it>Fatturazione</it>
+     <pt>Factuação</pt>
+     <de>Abrechnung</de>
+     <nl>Afrekening</nl>
 },
 %]
 <div align="center">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de><nl>Gebruiker</nl></t></th>
+ <th>{{User}}</th>
  <th>Status</th>
- <th><t><en>Payment date</en><fr>Date du règlement</fr><it>Data del pagamento</it><pt>Data de pagamento</pt><de>Zahlungsdatum</de><nl>Betalingsdatum</nl></t></th>
- <th><t><en>Payment means</en><fr>Moyen de paiement</fr><it>Metodo di pagamento</it><pt>Modalidade de pagamento</pt><de>Zahlungsart</de><nl>betalingsmethode</nl></t></th>
- <th><t><en>Price</en><fr>Tarif</fr><it>Prezzo</it><pt>Preço</pt><de>Preis</de><nl>Prijs</nl></t></th>
+ <th>{{Payment date}}</th>
+ <th>{{Payment means}}</th>
+ <th>{{Price}}</th>
 </tr>
 [% total = { } %]
-[% speaker = BLOCK %]<t><en>speaker</en><fr>présentateur</fr><pt>orador</pt><it>oratore</it><de>Vortragende/r</de><nl>spreker</nl></t>[% END %]
+[% speaker = BLOCK %]{{speaker}}[% END %]
 [% BLOCK user_status;
      lines = [];
      FOREACH r = user.rights.keys;
@@ -55,7 +55,7 @@
   </tr>
 [% END %]
   <tr>
-     <td><strong>Total</strong>
+     <td><strong>{{Total}}</strong>
      <td>&nbsp;</td>
      <td>&nbsp;</td>
      <td>&nbsp;</td>

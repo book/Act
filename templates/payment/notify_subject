@@ -1,1 +1,1 @@
-[% global.conference.name %] - <t><en>Payment confirmation</en><fr>Confirmation de règlement</fr><de>Zahlungsbestätigung</de><it>Conferma di pagamento</it><pt>Confirmação de pagamento</pt></t>
+[% global.conference.name %] - {{Payment confirmation}}

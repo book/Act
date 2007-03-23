@@ -854,3 +854,99 @@ msgstr "%quant(%1,semaine)"
 msgid "<n> month(s)"
 msgstr "%1 mois"
 
+msgid "Administrative tasks"
+msgstr "Tâches administratives"
+
+msgid "Talks & events"
+msgstr "Présentations &amp; événements"
+
+msgid "Credit card payment"
+msgstr "Paiement par carte bancaire"
+
+msgid "Payment"
+msgstr "Saisie d'un règlement"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "Payment means"
+msgstr "Moyen de paiement"
+
+msgid "Update"
+msgstr "Valider"
+
+msgid "speaker"
+msgstr "présentateur"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Payment confirmation"
+msgstr "Confirmation de règlement"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"Votre paiement en ligne de l'inscription à %1 est enregistré.\n"
+"\n"
+"Numéro d'inscription : %2\n"
+"Date de règlement : %3 GMT\n"
+"Montant réglé : %4 %5\n"
+"\n"
+"Votre numéro d'inscription est %2.\n"
+"N'oubliez pas de vous munir de ce numéro lors de votre venue à la conférence.\n"
+"\n"
+"Merci de votre participation à %1 !\n"
+
+msgid "Invoice #"
+msgstr "Facture N°"
+
+msgid "Dated"
+msgstr "En date du"
+
+msgid "Printed on"
+msgstr "Editée le"
+
+msgid "Description"
+msgstr "Désignation"
+
+msgid "Quantity"
+msgstr "Quantité"
+
+msgid "Unit Price"
+msgstr "Prix unitaire"
+
+msgid "<conf> registration"
+msgstr "Inscription à %1"
+
+msgid "Your order number:"
+msgstr "Votre commande n°&nbsp;:"
+
+msgid "Total due"
+msgstr "Total à payer"
+
+msgid "Invoice"
+msgstr "Facture"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr ""
+"Vous pouvez imprimer cette page&nbsp;: seule la facture ci-dessous\n"
+"sera imprimée.\n"
+
+msgid "Printer friendly version"
+msgstr "Version imprimable"
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Cliquer ici</a> pour modifier ou compléter ces informations."
+
+msgid "Establishing your invoice requires your address."
+msgstr "Votre adresse est indispensable pour l'émission d'une facture."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Merci de vérifier l'exactitude des informations de facturation."
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "I confirm"
+msgstr "Je confirme"
+

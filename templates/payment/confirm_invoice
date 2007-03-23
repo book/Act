@@ -1,32 +1,16 @@
-[% WRAPPER ui
-   title = { en => 'Invoice', fr => 'Facture', it => 'Fattura', pt => 'Factura', nl => 'Faktuur' }
-%]
+[% WRAPPER ui title = loc('Invoice') %]
 [% PROCESS common %]
 
 [% BLOCK update_link %]
 <p>
-  <t>
-   <fr><a href="[% make_uri('change') %]">Cliquer ici</a> pour modifier ou compléter ces informations.</fr>
-   <en><a href="[% make_uri('change') %]">Click here</a> to modify or update this information.</en>
-   <de><a href="[% make_uri('change') %]">Hier klicken</a> um diese Informationen zu ändern.</de>
-   <pt><a href="[% make_uri('change') %]">Clique aqui</a> para modificar ou actualizar esta informação.</pt>
-   <it><a href="[% make_uri('change') %]">Modifica o aggiorna queste informazioni.</a></it>
-   <nl><a href="[% make_uri('change') %]">Klik hier</a> om deze informatie te wijzigen of te vervolledigen.</nl>
-  </t>
+  [% loc("Click here to modify or update this information.", make_uri('change') %]
 </p>
 [% END %]
 
 <div align="center">
 [% UNLESS global.request.user.address %]
 <p>
- <t>
-  <fr>Votre adresse est indispensable pour l'émission d'une facture.</fr>
-  <en>Establishing your invoice requires your address.</en>
-  <de>Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben.</de>
-  <pt>A criação da sua factura precisa do seu endereço postal.</pt>
-  <it>Per preparare la fattura è necessario il vostro indirizzo.</it>
-  <nl>Uw adres is vereist om een faktuur op te stellen.</nl>
- </t>
+ {{Establishing your invoice requires your address.}}
 </p>
 [% PROCESS update_link %]
 
@@ -34,14 +18,7 @@
 <form method="POST" action="[% make_uri('invoice') %]">
 <input type="hidden" name="order_id" value="[% order_id %]">
 <p>
- <t>
-  <fr>Merci de vérifier l'exactitude des informations de facturation.</fr>
-  <en>Please make sure the billing information is correct.</en>
-  <de>Bitte überprüfen Sie, on die Rechnungsdaten stimmen.</de>
-  <pt>Por favor, verifique se a sua informação está correcta.</pt>
-  <it>Per favore controllate che i dati di fatturazione siano corretti.</it>
-  <nl>Gelieve de fakturatiegegevens te controleren.</nl>
- </t>
+ {{Please make sure the billing information is correct.}}
 </p>
 
 [% PROCESS update_link %]
@@ -54,7 +31,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Name</en><fr>Nom</fr><it>Nome</it><pt>Nome</pt><de>Name</de><nl>Naam</nl></t>
+      {{Name}}
    </td>
    <td>&nbsp;</td>
    <td align="left">
@@ -63,13 +40,13 @@
    </td>
 </tr>
 <tr>
-   <td align="right" valign="top"><t><en>Address</en><fr>Adresse</fr><pt>Endereço</pt><it>Indirizzo</it><de>Adresse</de><nl>Adres</nl></t></td>
+   <td align="right" valign="top">{{Address}}</td>
    <td>&nbsp;</td>
    <td align="left">[% global.request.user.address | html_line_break %]</td>
 </tr>
 <tr>
   <td align="right">
-     <t><en>Company</en><fr>Société</fr><it>Azienda</it><pt>Empresa</pt><de>Firma</de><nl>Firma</nl></t>
+     {{Company}}
   </td>
   <td>&nbsp;</td>
   <td align="left">
@@ -78,7 +55,7 @@
 </tr>
 <tr>
   <td align="right">
-     <t><en>VAT Number</en><fr>Numéro de TVA</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de><nl>BTW-nummer</nl></t>
+     {{VAT Number}}
   </td>
   <td>&nbsp;</td>
   <td align="left">
@@ -88,7 +65,7 @@
 </table>
 </td></tr></table>
 </td></tr></table>
-<input type="submit" name="ok" value="<t><fr>Je confirme</fr><en>I confirm</en><de>Bestätigen</de><pt>TRANSLATEME</pt><it>Confermo</it><nl>Ik bevestig</nl></t>" />
+<input type="submit" name="ok" value="{{I confirm}}" />
 </form>
 [% END %]
 </div>

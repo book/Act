@@ -675,3 +675,86 @@ msgstr "Duração:"
 msgid "You can find more information on the following site:"
 msgstr "Pode encontrar mais informação no seguinte endereço:"
 
+msgid "Talks & events"
+msgstr "Apresentações &amp; eventos"
+
+msgid "Credit card payment"
+msgstr "Pagamento com cartão de crédito"
+
+msgid "Payment"
+msgstr "Pagamento"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "Payment means"
+msgstr "Modalidade de pagamento"
+
+msgid "Update"
+msgstr "Validar"
+
+msgid "speaker"
+msgstr "orador"
+
+msgid "Payment confirmation"
+msgstr "Confirmação de pagamento"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"O seu pagamento on-line para o registo na %1\n"
+"foi aprovado.\n"
+"\n"
+"Número da compra: %2\n"
+"Data de pagamento: %3 GMT\n"
+"Valor pago: %4 %5\n"
+"\n"
+"O seu número de compra é %2.\n"
+"Não se esqueça de o ter quando vier para a conferência.\n"
+"\n"
+"Obrigado por se juntar à %1!\n"
+
+msgid "Invoice #"
+msgstr "Factura nº"
+
+msgid "Dated"
+msgstr "Datada de"
+
+msgid "Printed on"
+msgstr "Alterada a"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Quantity"
+msgstr "Quantidade"
+
+msgid "Unit Price"
+msgstr "Preço unitário"
+
+msgid "<conf> registration"
+msgstr "Inscrição em %1"
+
+msgid "Your order number:"
+msgstr "Compra:"
+
+msgid "Total due"
+msgstr "Total a pagar"
+
+msgid "Invoice"
+msgstr "Factura"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Pode imprimirr esta página; apenas a factura será impressa."
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Clique aqui</a> para modificar ou actualizar esta informação."
+
+msgid "Establishing your invoice requires your address."
+msgstr "A criação da sua factura precisa do seu endereço postal."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Por favor, verifique se a sua informação está correcta."
+
+msgid "Address"
+msgstr "Endereço"
+

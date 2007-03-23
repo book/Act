@@ -709,3 +709,92 @@ msgstr "Durata:"
 msgid "You can find more information on the following site:"
 msgstr "Potete trovare ulteriori informazioni sul sito:"
 
+msgid "Talks & events"
+msgstr "Interventi &amp; eventi"
+
+msgid "Credit card payment"
+msgstr "Pagamento con carta di credito"
+
+msgid "Payment"
+msgstr "Pagamento"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "Payment means"
+msgstr "Metodo di pagamento"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+msgid "speaker"
+msgstr "oratore"
+
+msgid "Payment confirmation"
+msgstr "Conferma di pagamento"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"Il pagamento per la Vostra registrazione a %1\n"
+"è stato approvato.\n"
+"\n"
+"Il numero del Vostro ordine è %2\n"
+"Data del pagamento: %3 GMT\n"
+"Totale pagato: %4 %5\n"
+"\n"
+"RicordateVi di presentare il numero del Vostro ordine ([% order.order_id\n"
+"%]) all'arrivo alla conferenza.\n"
+"\n"
+"Grazie per aver scelto di partecipare a %1!\n"
+
+msgid "Invoice #"
+msgstr "Fattura n."
+
+msgid "Dated"
+msgstr "del"
+
+msgid "Printed on"
+msgstr "Stampata il"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Quantity"
+msgstr "Quantità"
+
+msgid "Unit Price"
+msgstr "Prezzo unitario"
+
+msgid "<conf> registration"
+msgstr "Iscrizione a %1"
+
+msgid "Your order number:"
+msgstr "Vostro ordine:"
+
+msgid "Total due"
+msgstr "Totale fattura"
+
+msgid "Invoice"
+msgstr "Fattura"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Potete stampare questa pagina: solo la fattura sarà stampata."
+
+msgid "Printer friendly version"
+msgstr "Versione stampabile"
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Modifica o aggiorna queste informazioni.</a>"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Per preparare la fattura è necessario il vostro indirizzo."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Per favore controllate che i dati di fatturazione siano corretti."
+
+msgid "Address"
+msgstr "Indirizzo"
+
+msgid "I confirm"
+msgstr "Confermo"
+

@@ -651,3 +651,89 @@ msgstr "Dauer:"
 msgid "You can find more information on the following site:"
 msgstr "Mehr Informationen:"
 
+msgid "Credit card payment"
+msgstr "Zahlung mit Kreditkarte"
+
+msgid "Payment"
+msgstr "Bezahlung"
+
+msgid "User"
+msgstr "UserIn"
+
+msgid "Payment means"
+msgstr "Zahlungsart"
+
+msgid "Update"
+msgstr "Speichern"
+
+msgid "speaker"
+msgstr "Vortragende/r"
+
+msgid "Payment confirmation"
+msgstr "Zahlungsbestätigung"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"Ihre Online-Zahlung für Ihre Registrierung bei der Veranstaltung\n"
+"\"%1\" wurde bestätigt.\n"
+"\n"
+"Ihre Bestellnummer: %2\n"
+"Zahlungsdatum: %3 GMT\n"
+"Betrag: %4 %5\n"
+"\n"
+"Ihre Bestellnummer ist %2. Bitte notieren Sie diese\n"
+"Nummer und bringen Sie zur Veranstaltung mit.\n"
+"\n"
+"Danke für Ihre Teilnahme!\n"
+
+msgid "Invoice #"
+msgstr "Rechnung Nr."
+
+msgid "Dated"
+msgstr "Datum"
+
+msgid "Printed on"
+msgstr "Ausgestellt am"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Quantity"
+msgstr "Anzahl"
+
+msgid "Unit Price"
+msgstr "Stückpreis"
+
+msgid "<conf> registration"
+msgstr "%1 Anmelden"
+
+msgid "Your order number:"
+msgstr "Ihre Bestellnummer:"
+
+msgid "Total due"
+msgstr "Zu zahlende Summe"
+
+msgid "Invoice"
+msgstr "Rechnung"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt."
+
+msgid "Printer friendly version"
+msgstr "Drucker-freundliche Version"
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Hier klicken</a> um diese Informationen zu ändern."
+
+msgid "Establishing your invoice requires your address."
+msgstr "Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Bitte überprüfen Sie, on die Rechnungsdaten stimmen."
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "I confirm"
+msgstr "Bestätigen"
+
