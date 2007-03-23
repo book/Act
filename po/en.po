@@ -364,9 +364,6 @@ msgstr "Edit profile"
 msgid "New user"
 msgstr "New user"
 
-msgid "Click here for an English version of this site"
-msgstr "Click here for an English version of this site"
-
 msgid "Users"
 msgstr "Users"
 

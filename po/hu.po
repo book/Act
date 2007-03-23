@@ -289,9 +289,6 @@ msgstr "Adatok"
 msgid "New user"
 msgstr "Új felhasználó"
 
-msgid "Click here for an English version of this site"
-msgstr "Ide kattintva az oldal magyar verziója érhetõ el"
-
 msgid "Users"
 msgstr "Felhasználók"
 

@@ -370,9 +370,6 @@ msgstr "Modifier profil"
 msgid "New user"
 msgstr "Nouvel utilisateur"
 
-msgid "Click here for an English version of this site"
-msgstr "Cliquer ici pour une version française de ce site"
-
 msgid "Users"
 msgstr "Utilisateurs"
 

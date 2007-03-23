@@ -153,9 +153,6 @@ msgstr "Profiel wijzigen"
 msgid "New user"
 msgstr "Nieuwe gebruiker"
 
-msgid "Click here for an English version of this site"
-msgstr "Klik hier voor een nederlandstalige versie van deze site"
-
 msgid "Users"
 msgstr "Gebruikers"
 

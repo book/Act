@@ -146,7 +146,6 @@ sub process
     $self->variables(
       global        => \%global,
       loc           => \&Act::Util::localize,
-      loc_ex        => \&Act::Util::localize_ex,
     );
 
     # process and output

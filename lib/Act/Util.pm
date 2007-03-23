@@ -10,7 +10,6 @@ use Text::Iconv ();
 use URI::Escape ();
 
 use Act::Config;
-use Act::I18N;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
@@ -149,12 +148,6 @@ sub date_format
 sub localize
 {
     return $Request{loc}->maketext(@_);
-}
-# extended version for special cases
-sub localize_ex
-{
-    my $lang = shift;
-    return Act::I18N->get_handle($lang)->maketext(@_);
 }
 1;
 
