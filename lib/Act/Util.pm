@@ -6,7 +6,7 @@ use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
-use Text::Iconv ();
+use Encode qw(encode);
 use URI::Escape ();
 
 use Act::Config;
@@ -14,9 +14,6 @@ use Act::Config;
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
 @EXPORT = qw(make_uri make_uri_info self_uri localize);
-
-# utf8 to latin1 converter
-my $utf8_latin1 = Text::Iconv->new('UTF-8', 'ISO-8859-1');
 
 # password generation data
 my %grams = (
@@ -141,7 +138,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
+    return encode('ISO-8859-1', $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
 
 # translate a string
