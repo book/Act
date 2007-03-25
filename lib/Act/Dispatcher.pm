@@ -84,7 +84,7 @@ sub trans_handler
     $Request{path_info}  = join '/', @c;
     $Config = Act::Config::get_config($Request{conference});
 
-    # default pages à la mod_dir
+    # default pages a la mod_dir
     if (!@c && $r->uri =~ m!/$!) {
         $r->uri(Act::Util::make_uri(DEFAULT_PAGE));
         $Request{path_info} = DEFAULT_PAGE;

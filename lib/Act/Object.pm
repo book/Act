@@ -202,7 +202,7 @@ sub get_items {
         # ignore search attributes we do not know
         delete $args{$_} unless exists $req{$_};
         # remove empty search attributes
-        delete $args{$_} unless $args{$_}; # FIXME devrait être ...unless defined $args{$_}
+        delete $args{$_} unless $args{$_}; # FIXME should be ...unless defined $args{$_}
     }
 
     # SQL options for the derived class
