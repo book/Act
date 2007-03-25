@@ -1,5 +1,5 @@
 [% PROCESS common %]
-[% WRAPPER ui title = 'User rights' %]
+[% WRAPPER ui title = loc('User rights') %]
 
 [% PROCESS core/user/rights %]
 
