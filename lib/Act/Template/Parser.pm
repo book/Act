@@ -20,8 +20,8 @@ sub parse
 {
     my ($self, $text) = @_;
 
-    # {{string}} => [% "string" | loc %]
-    $text =~ s/\{\{\s*(.*?)\s*\}\}/$self->{_start} "$1" | loc $self->{_end}/g;
+    # {{string}} => [% loc("string") %]
+    $text =~ s/\{\{\s*(.*?)\s*\}\}/$self->{_start} loc("$1") $self->{_end}/g;
     return $self->SUPER::parse($text);
 }
 1;

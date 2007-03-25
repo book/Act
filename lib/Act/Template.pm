@@ -12,9 +12,6 @@ use base qw(Template);
 use constant TEMPLATE_DIRS => qw(static templates);
 
 my %templates;
-my %filters = (
-    loc => sub { localize($_[0]) },
-);
 
 sub new
 {
@@ -26,9 +23,6 @@ sub new
     return $templates{$class}{$conf} if exists $templates{$class}{$conf};
 
     # otherwise create one
-    $opts{FILTERS} ||= {};
-    @{$opts{FILTERS}}{keys %filters} = values %filters;
-
     my $self = $class->SUPER::new(%opts);
     $templates{$class}{$conf} = $self;
     return $self;
