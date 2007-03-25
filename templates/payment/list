@@ -1,14 +1,5 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = {
-     <en>Billing</en>
-     <fr>Facturation</fr>
-     <it>Fatturazione</it>
-     <pt>Factuação</pt>
-     <de>Abrechnung</de>
-     <nl>Afrekening</nl>
-},
-%]
+[% WRAPPER ui title = loc("Billing") %]
 <div align="center">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>

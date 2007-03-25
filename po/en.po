@@ -1148,3 +1148,6 @@ msgstr "By:"
 msgid "Remember me on this computer"
 msgstr "Remember me on this computer"
 
+msgid "Billing"
+msgstr "Billing"
+

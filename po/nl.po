@@ -416,3 +416,6 @@ msgstr "Adres"
 msgid "I confirm"
 msgstr "Ik bevestig"
 
+msgid "Billing"
+msgstr "Afrekening"
+
