@@ -25,15 +25,15 @@ sub _init
     $self->SUPER::_init($options);
 }
 
-sub encode
+sub escape
 {
-    # recursively encode HTML entities
+    # recursively escape HTML entities
     my $self = shift;
     if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
-        $self->encode($_) for @{$_[0]};
+        $self->escape($_) for @{$_[0]};
     }
     elsif ($_[0] && UNIVERSAL::isa($_[0],'HASH')) {
-        $self->encode($_[0]{$_}) for keys %{$_[0]};
+        $self->escape($_[0]{$_}) for keys %{$_[0]};
     }
     elsif (ref $_[0] eq 'CODE') {
         return;
@@ -48,7 +48,7 @@ sub variables_raw
     my $self = shift;
     {
         no warnings 'redefine';
-        local *encode = sub { $_[1] };
+        local *escape = sub { $_[1] };
         $self->SUPER::variables(@_);
     }
 }
