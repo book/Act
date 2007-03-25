@@ -28,7 +28,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      [% order.amount %] [% order.currency %]
+      [% order.amount %] [% order.currency %]
    </td>
 </tr>
 <tr>
