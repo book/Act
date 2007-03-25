@@ -32,7 +32,7 @@ sub access_handler ($$)
 }
 sub authen_cred ($$\@)
 {
-    my ($self, $r, $login, $sent_pw) = @_;
+    my ($self, $r, $login, $sent_pw, $remember_me) = @_;
 
     # error message prefix
     my $prefix = join ' ', map { "[$_]" }
@@ -54,6 +54,7 @@ sub authen_cred ($$\@)
     # search for this user in our database
     my $user = Act::User->new( login => lc $login );
     $user or do { $r->log_error("$prefix Unknown user"); return undef; };
+
     # compare passwords
     my $digest = Digest::MD5->new;
     $digest->add(lc $sent_pw);
@@ -63,6 +64,8 @@ sub authen_cred ($$\@)
     # user is authenticated - create a session
     my $sid = Act::Util::create_session($user);
 
+    # remember remember me
+    $r->pnotes(remember_me => $remember_me);
     return $sid;
 }
 
@@ -81,6 +84,22 @@ sub authen_ses_key ($$$)
     _update_language();
 
     return ($user->{login});
+}
+
+sub send_cookie
+{
+    my ($self, $ses_key, $cookie_args) = @_;
+    my $r = Apache->request();
+
+    # add expiration date if "remember me" was checked
+    # unless an expiration is already set (logout)
+    if (   !($cookie_args && exists $cookie_args->{expires})
+        && $r->pnotes('remember_me') )
+    {
+        $cookie_args ||= {};
+        $cookie_args->{expires} = '+6M';
+    }
+    $self->SUPER::send_cookie($ses_key, $cookie_args);
 }
 
 sub _update_language

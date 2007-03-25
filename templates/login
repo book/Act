@@ -24,6 +24,13 @@
    </td>
 </tr>
 <tr>
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td>
+      <font size="-1"><input type="checkbox" name="credential_2" />{{Remember me on this computer}}</font>
+   </td>
+</tr>
+<tr>
    <td colspan="3" align="right">
       <input type="submit" name="join" value="{{Submit}}" />
    </td>

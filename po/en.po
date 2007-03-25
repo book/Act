@@ -1145,3 +1145,6 @@ msgstr "The following fields have been updated:"
 msgid "By:"
 msgstr "By:"
 
+msgid "Remember me on this computer"
+msgstr "Remember me on this computer"
+

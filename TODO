@@ -162,11 +162,6 @@ UNPRIORITIZED TODO LIST
 * Change Password Mechanism
   There should be a way to change passwords.
 
-* Save Cookies
-  It should be possible for the user to click a 'remember me' checkbox when
-  logging in, so that the cookie will be retained.  I do not like having to log
-  in each time I reopen my browser.  
-
 * User Identification
   The login page asks for "User Identification", and this is not really clear.
   It's difficult to say what is the "user identification" needed. Maybe the
