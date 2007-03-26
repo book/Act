@@ -1,10 +1,37 @@
 Changes in Act
 
-2007/02/08 r1125 remove conf/ and templates/core/bank/
+2007/03/18 r1181 move price translations to act.ini
+                 currency is global, not per price
+                 remove table "prices", no longer used
+                 move notify_bcc from [payment] to [payment_type_XXX]
+                 allow notify_bcc to be a comma separated list
+
+2007/03/14 r1176 EARLYBIRD price type, English only
+           r1175 add support for user:id in talk abstracts and wiki
+           r1173 handle multiple monger groups per user in statistics
+           r1172 top ten countries of already registered users
+
+2007/03/06 r1161 treasurer payment input form now handles currency
+
+2007/03/04 r1156 Duplicate user error changed to make a bit more sense
+                 hide private emails
+           r1154 New rights management interface
+           r1153 two-step handler support
+                 turn the new user form into a two-step handler
+           r1152 display correct currency in purchase form
+           r1151 users: store gpg_key_id instead of gpg_pub_key
+
+2007/02/09 r1130 remove conf/ and templates/core/bank/
+                 remove templates/core/bank
+                 remove references to YEF, TPF, etc
+
+2007/02/08 r1124 various wiki enhancements
 
 2007/02/06 r1104 integrated wiki
 
 2007/02/05 r1093 bin/mergeusers: tool to merge duplicate users
+
+2007/02/02 r1071 move the bank account special information in core/bank
 
 2007/02/01 r1061 forbid registration after the end of the conference
 
