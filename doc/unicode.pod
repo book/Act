@@ -1,0 +1,59 @@
+=head1 Unicode migration
+
+All files are in UTF-8. But really most files are pure ASCII:
+
+ASCII: core templates, almost all source and test files living in
+F<bin/>, F<lib/> and F<t/>.
+
+UTF-8: localized strings in F<po/>, localized conference templates,
+conferences' F<act.ini>, a couple of source files which C<use utf8;>'.
+
+The databases are in UTF-8.
+
+All output (web, mail) is in UTF-8.
+
+=head1 Database migration
+
+This involves dropping the databases and recreating them as UTF8 databases.
+You might need to adjust the paths to the various utilities (pg_dump, createdb,
+dropdb, wiki-toolkit-setupdb), and possibly add authentication options
+(user / password), according to your local setup.
+
+
+Dump the main database, recreate it as a UTF8 database, then restore contents:
+
+  % pg_dump -x -Fp -a -E ISO-8859-1 --disable-triggers -f act.sql act
+  % dropdb act
+  % createdb --encoding=UTF8 act
+  % psql act < database/init_db_Pg.sql
+  % psql act < act.sql
+
+The wiki database is similar, uses the sql init script installed by Wiki::Toolkit:
+
+  % pg_dump -x -Fp -a -E ISO-8859-1 --disable-triggers -f actwiki.sql actwiki
+  % dropdb actwiki
+  % createdb --encoding=UTF8 actwiki
+  % wiki-toolkit-setupdb --type postgres --name actwiki --user act --pass xyzzy
+  % psql actwiki < actwiki.sql
+
+(you can skip the first and last steps if you don't care about your local wiki content)
+
+The test database doesn't need any restoring:
+
+  % dropdb acttest
+  % createdb --encoding=UTF8 acttest
+  % psql acttest < database/init_db_Pg.sql
+
+=head1 Conference template conversion
+
+The conference templates, static pages and .ini files must be converted to utf8.
+Use the bin/tt2utf8 to convert them in place in one shot, e.g.:
+
+  eric@yuma:~/pm/act% bin/tt2utf8 -n actdocs/
+
+-n means dry-run, remove -it to actually convert.
+
+=head1 Notes
+
+svn commit emails are currently emitted in latin1. They will be switched
+to utf8 as soon as the unicode changes have been merged to the stable branch.

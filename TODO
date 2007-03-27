@@ -8,8 +8,6 @@ UNPRIORITIZED TODO LIST
   and add a payment (and use the code for finding duplicate users)
   (useful for on site registration during the conference)
 
-* convert the whole application to UTF8
-
 * replace Act::Form by Data::FormValidator
 
 * list and document all the templates in the application

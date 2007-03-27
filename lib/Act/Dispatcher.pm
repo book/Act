@@ -5,6 +5,7 @@ use Apache::Constants qw(:common);
 use Apache::Cookie ();
 use Apache::Request;
 use DBI;
+use Encode qw(decode_utf8);
 
 use Act::Config;
 use Act::I18N;
@@ -110,7 +111,7 @@ sub _dispatch
     my ($r, $handler) = @_;
 
     # per-request initialization
-    $Request{args} = { map { scalar $_ => $r->param($_) } $r->param };
+    $Request{args} = { map { scalar $_ => decode_utf8($r->param($_)) } $r->param };
     _set_language();
 
     # redirect language change requests

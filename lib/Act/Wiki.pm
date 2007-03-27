@@ -3,7 +3,6 @@ package Act::Wiki;
 use strict;
 use Wiki::Toolkit;
 use Wiki::Toolkit::Formatter::Default;
-use Encode;
 use DateTime::Format::Pg;
 
 use Act::Config;
@@ -13,7 +12,8 @@ use Act::Wiki::Store;
 sub new
 {
     return Wiki::Toolkit->new(
-        store     => Act::Wiki::Store->new(map { $_ => $Config->get("wiki_$_") }
+        store     => Act::Wiki::Store->new(charset => 'UTF-8',
+                                           map { $_ => $Config->get("wiki_$_") }
                                            qw(dbname dbuser dbpass)),
         formatter => Act::Wiki::Formatter->new(),
     );
@@ -23,7 +23,7 @@ sub format_node
     my ($wiki, $template, $content) = @_;
 
     my %metadata;
-    my $cooked = encode("ISO-8859-1", $wiki->format($content, \%metadata));
+    my $cooked = $wiki->format($content, \%metadata);
     if ($metadata{chunks}) {
         $cooked = '[% PROCESS common %][% TAGS {% %} %]' . $cooked;
         my $output;

@@ -67,9 +67,10 @@ for (1..NBPASS) {
     like($crypted, qr/^\S+$/);
 }
 # date_format
+use utf8;
 $Request{language} = 'fr';
 my $dt = DateTime->new(year => 2007, month => 2, day => 15);
-is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format');
+is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 fÃ©vrier 2007 00h00', 'date_format');
 
 
 __END__

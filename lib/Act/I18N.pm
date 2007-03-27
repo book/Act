@@ -13,7 +13,7 @@ unless ($^C) {
                  Gettext => catfile($Config->home, 'po', '*', '*.[pm]o'),
                ],
         _auto   => 0,
-        _decode => 0,
+        _decode => 1,
         _style  => 'gettext',
     });
 }

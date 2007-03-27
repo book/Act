@@ -3,8 +3,9 @@
 use strict;
 package Act::Email;
 
-use MIME::Lite ();
+use Encode ();
 use Net::SMTP;
+
 use Act::Config;
 
 # send an email
@@ -16,10 +17,9 @@ use Act::Config;
 # optional args (default values are shown):
 #     cc           => <addresses>
 #     bcc          => <addresses>
-#     encoding     => 'ISO-8859-1',
 #     content_type => 'text/plain',
 #     precedence   => 'bulk',
-#     xheader      => <headers>,
+#     xheaders     => <headers>,
 # );
 #
 # <address>   'foo@example.com' or { name => 'Foo Bar', email => 'foo@example.com' }
@@ -28,7 +28,6 @@ use Act::Config;
 # <headers>    <header> or [ <headers>, <header>, ... ]
 
 my %defaults = (
-     encoding     => 'ISO-8859-1',
      content_type => 'text/plain',
      precedence   => 'bulk',
 );
@@ -61,18 +60,19 @@ sub send
         $args{to}      = { name => 'Testeur fou', email => $Config->email_test };
         delete $args{$_} for qw(cc bcc);
     }
-    # create message
+    # build the message headers
     chomp $args{subject};
-    my $msg = MIME::Lite->new (
-        From            => $from->{name}
-                         ? "$from->{name} <$from->{email}>"
-                         : $from->{email},
-        Subject         => $args{subject},
-        'Precedence:'   => $args{precedence},
-        Type            => qq($args{content_type}; charset="$args{encoding}"),
-        Datestamp       => 0,
-        Data            => $args{body},
+    my @headers = (
+        From                        => _encode_header($from->{name} ? "$from->{name} <$from->{email}>" : $from->{email}),
+        Subject                     => _encode_header($args{subject}),
+        Precedence                  => $args{precedence},
+        'Content-Disposition'       => 'inline',
+        'Content-Transfer-Encoding' => 'binary',
+        'Content-Type'              => qq($args{content_type}; charset="UTF-8"),
+        'MIME-Version'              => '1.0',
+        'X-Mailer'                  => __PACKAGE__,
     );
+    # create SMTP object
     my %opts;
     $opts{Port} = $Config->email_smtp_port
         if $Config->email_smtp_port;
@@ -96,9 +96,8 @@ sub send
         $recip = [ $recip ] if ref($recip) ne "ARRAY";
         for my $r (@$recip) {
             $r = { email => $r } unless ref($r);
-            $msg->add($header => $r->{name} ? "$r->{name} <$r->{email}>"
-                                            : "<$r->{email}>"
-                     )
+            push @headers, ($header => _encode_header($r->{name} ? "$r->{name} <$r->{email}>"
+                                                                 : "<$r->{email}>"))
                 if $header;
             $smtp->to($r->{email});
         }
@@ -107,18 +106,32 @@ sub send
     # x-headers
     if (my $xh = $args{xheaders}) {
         $xh = [ $xh ] unless ref($xh) eq 'ARRAY';
-        $msg->add(%$_) for @$xh;
+        push @headers, %$_ for @$xh;
     }
+    # headers as string
+    my $headers = "";
+    while (my ($key, $value) = splice(@headers, 0, 2)) {
+        $headers .= "$key: $value\n";
+    }
+    $headers .= "\n";
 
     # send it!
        $smtp->data()
-    && $smtp->datasend($msg->as_string())
+    && $smtp->datasend( $headers )
+    && $smtp->datasend( Encode::encode_utf8($args{body}) )
     && $smtp->dataend()
     && $smtp->quit()
     && return;
 
     warn $smtp->message;
 }
+
+# RFC 2047 Q-encoding
+sub _encode_header
+{
+    return Encode::encode('MIME-Q', $_[0]);
+}
+
 1;
 __END__
 

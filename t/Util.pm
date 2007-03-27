@@ -9,7 +9,9 @@ $Request{dbh} = DBI->connect(
     $Config->database_test_dsn,
     $Config->database_test_user,
     $Config->database_test_passwd,
-    { AutoCommit => 0 }
+    { AutoCommit => 0,
+      pg_enable_utf8 => 1,
+    }
 ) or die "can't connect to database: " . $DBI::errstr;
 
 # clean up before

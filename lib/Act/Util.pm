@@ -6,7 +6,6 @@ use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
-use Encode qw(encode);
 use URI::Escape ();
 
 use Act::Config;
@@ -34,6 +33,7 @@ sub db_connect
         { AutoCommit => 0,
           PrintError => 0,
           RaiseError => 1,
+          pg_enable_utf8 => 1,
         }
     ) or die "can't connect to database: " . $DBI::errstr;
 }
@@ -138,7 +138,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return encode('ISO-8859-1', $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
+    return $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"});
 }
 
 # translate a string

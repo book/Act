@@ -18,7 +18,6 @@ my @modules = (
                  'HTML::Entities',
                  'Locale::Maketext',
                  'Locale::Maketext::Lexicon',
-                 'MIME::Lite',
                  'Template',
                  'Template::Multilingual::Parser',
                  'Test::MockObject',

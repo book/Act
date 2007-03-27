@@ -1,3 +1,4 @@
+use utf8;
 use strict;
 package Act::Config;
 
@@ -12,7 +13,7 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
 
 # language-specific constants
 %Languages = (
-    fr => { name               => 'français',
+    fr => { name               => 'franÃ§ais',
             fmt_datetime_full  => '%A %e %B %Y %Hh%M',
             fmt_datetime_short => '%d/%m/%y %Hh%M',
             fmt_date_full      => '%A %e %B %Y',
@@ -33,14 +34,14 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%m/%d/%y',
             fmt_time           => '%H:%M',
           },
-    es => { name               => 'Español',
+    es => { name               => 'EspaÃ±ol',
             fmt_datetime_full  => '%e %B %Y %Hh%M',
             fmt_datetime_short => '%d/%m/%Y %Hh%M',
             fmt_date_full      => '%A %e %B %Y',
             fmt_date_short     => '%d/%m/%Y',
             fmt_time           => '%Hh%M',
           },
-    pt => { name               => 'Português',
+    pt => { name               => 'PortuguÃªs',
             fmt_datetime_full  => '%A, %e de %B de %Y, %H:%M',
             fmt_datetime_short => '%y/%m/%d %H:%M',
             fmt_date_full      => '%A, %e de %B de %Y',
@@ -176,8 +177,11 @@ sub _load_config
     for my $file qw(act local) {
         my $path = "$dir/conf/$file.ini";
         if (-e $path) {
-            $Timestamps{$path} = (stat _)[9];
-            $cfg->file($path);
+            open my $fh, '<:encoding(UTF-8)', $path
+                or die "can't open $path: $!\n";
+            $cfg->file($fh);
+            $Timestamps{$path} = (stat $fh)[9];
+            close $fh;
         }
     }
 }

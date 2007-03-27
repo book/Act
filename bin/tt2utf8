@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+#
+# convert templates in-place from latin1 to utf8
+
+use strict;
+
+use Encode qw(from_to);
+use File::Find;
+use File::Spec::Functions;
+use Getopt::Std;
+
+my %opts;
+getopts('n', \%opts) or usage();
+
+# files / directories to process
+my @files = @ARGV;
+@files > 0 or usage();
+@files = _expand_files(@files);
+
+$/ = undef;
+$|++;
+for my $file (@files) {
+    print "$file\n";
+    open my $fh, '<', $file
+        or die "can't open $file for reading: $!\n";
+    my $data = <$fh>;
+    close $fh;
+
+    from_to($data, "iso-8859-1", "utf8");
+
+    unless ($opts{n}) {
+        open $fh, '>', $file
+            or die "can't open $file for writing: $!\n";
+        print $fh $data;
+        close $fh;
+    }
+}
+
+sub _expand_files
+{
+    my @files = @_;
+    my @newfiles;
+
+    for my $file (@files) {
+        if (-d $file) {          # expand directory
+            find(sub {
+                      if (-f) {
+                        local $_ = $File::Find::name;
+                        !/\.svn/ && push @newfiles, $File::Find::name;
+                      }
+                 },
+                $file
+            );
+        }
+        elsif (-e $file) {
+            push @newfiles, $file;
+        }
+    }
+    return @newfiles;
+}
+sub usage
+{
+    die <<EOF;
+Usage: $0 [-n] FILES\n";
+
+FILES  list of files to convert. Directories are expanded recursively.
+
+Options:
+-n    dry run
+EOF
+}
