@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: country_ad
@@ -54,7 +54,7 @@ msgstr "Amerikanisch-Samoa"
 
 #: country_at
 msgid "country_at"
-msgstr "Österreich"
+msgstr "Ã–sterreich"
 
 #: country_au
 msgid "country_au"
@@ -66,7 +66,7 @@ msgstr "Aruba"
 
 #: country_ax
 msgid "country_ax"
-msgstr "Åland"
+msgstr "Ã…land"
 
 #: country_az
 msgid "country_az"
@@ -142,7 +142,7 @@ msgstr "Botswana"
 
 #: country_by
 msgid "country_by"
-msgstr "Weißrußland"
+msgstr "WeiÃŸruÃŸland"
 
 #: country_bz
 msgid "country_bz"
@@ -174,7 +174,7 @@ msgstr "Schweiz"
 
 #: country_ci
 msgid "country_ci"
-msgstr "Elfenbeinküste"
+msgstr "ElfenbeinkÃ¼ste"
 
 #: country_ck
 msgid "country_ck"
@@ -230,7 +230,7 @@ msgstr "Djibouti"
 
 #: country_dk
 msgid "country_dk"
-msgstr "Dänemark"
+msgstr "DÃ¤nemark"
 
 #: country_dm
 msgid "country_dm"
@@ -254,7 +254,7 @@ msgstr "Estland"
 
 #: country_eg
 msgid "country_eg"
-msgstr "Ägypten"
+msgstr "Ã„gypten"
 
 #: country_eh
 msgid "country_eh"
@@ -270,7 +270,7 @@ msgstr "Spanien"
 
 #: country_et
 msgid "country_et"
-msgstr "Äthiopien"
+msgstr "Ã„thiopien"
 
 #: country_fi
 msgid "country_fi"
@@ -286,11 +286,11 @@ msgstr "Falklandinseln"
 
 #: country_fm
 msgid "country_fm"
-msgstr "Föderierte Staaten von Mikronesien"
+msgstr "FÃ¶derierte Staaten von Mikronesien"
 
 #: country_fo
 msgid "country_fo"
-msgstr "Färöer"
+msgstr "FÃ¤rÃ¶er"
 
 #: country_fr
 msgid "country_fr"
@@ -302,7 +302,7 @@ msgstr "Gabun"
 
 #: country_gb
 msgid "country_gb"
-msgstr "Vereinigtes Königreich"
+msgstr "Vereinigtes KÃ¶nigreich"
 
 #: country_gd
 msgid "country_gd"
@@ -314,7 +314,7 @@ msgstr "Georgien"
 
 #: country_gf
 msgid "country_gf"
-msgstr "Französisch-Guayana"
+msgstr "FranzÃ¶sisch-Guayana"
 
 #: country_gg
 msgid "country_gg"
@@ -330,7 +330,7 @@ msgstr "Gibraltar"
 
 #: country_gl
 msgid "country_gl"
-msgstr "Grönland"
+msgstr "GrÃ¶nland"
 
 #: country_gm
 msgid "country_gm"
@@ -346,7 +346,7 @@ msgstr "Guadeloupe"
 
 #: country_gq
 msgid "country_gq"
-msgstr "Äquatorial-Guinea"
+msgstr "Ã„quatorial-Guinea"
 
 #: country_gr
 msgid "country_gr"
@@ -354,7 +354,7 @@ msgstr "Griechenland"
 
 #: country_gs
 msgid "country_gs"
-msgstr "Südgeorgien und Südliche Sandwichinseln"
+msgstr "SÃ¼dgeorgien und SÃ¼dliche Sandwichinseln"
 
 #: country_gt
 msgid "country_gt"
@@ -482,7 +482,7 @@ msgstr "Nordkorea"
 
 #: country_kr
 msgid "country_kr"
-msgstr "Südkorea"
+msgstr "SÃ¼dkorea"
 
 #: country_kw
 msgid "country_kw"
@@ -586,7 +586,7 @@ msgstr "Macao"
 
 #: country_mp
 msgid "country_mp"
-msgstr "Nördliche Marianen"
+msgstr "NÃ¶rdliche Marianen"
 
 #: country_mq
 msgid "country_mq"
@@ -626,7 +626,7 @@ msgstr "Malaya"
 
 #: country_mz
 msgid "country_mz"
-msgstr "Moçambique"
+msgstr "MoÃ§ambique"
 
 #: country_na
 msgid "country_na"
@@ -690,7 +690,7 @@ msgstr "Peru"
 
 #: country_pf
 msgid "country_pf"
-msgstr "Französisch-Polynesien"
+msgstr "FranzÃ¶sisch-Polynesien"
 
 #: country_pg
 msgid "country_pg"
@@ -722,7 +722,7 @@ msgstr "Puerto Rico"
 
 #: country_ps
 msgid "country_ps"
-msgstr "Palästina"
+msgstr "PalÃ¤stina"
 
 #: country_pt
 msgid "country_pt"
@@ -742,11 +742,11 @@ msgstr "Qatar"
 
 #: country_re
 msgid "country_re"
-msgstr "Réunion"
+msgstr "RÃ©union"
 
 #: country_ro
 msgid "country_ro"
-msgstr "Rumänien"
+msgstr "RumÃ¤nien"
 
 #: country_rs
 msgid "country_rs"
@@ -754,7 +754,7 @@ msgstr "Serbien"
 
 #: country_ru
 msgid "country_ru"
-msgstr "Rußland"
+msgstr "RuÃŸland"
 
 #: country_rw
 msgid "country_rw"
@@ -846,7 +846,7 @@ msgstr "Tschad"
 
 #: country_tf
 msgid "country_tf"
-msgstr "Französische Gebiete im südlichen Indischen Ozean"
+msgstr "FranzÃ¶sische Gebiete im sÃ¼dlichen Indischen Ozean"
 
 #: country_tg
 msgid "country_tg"
@@ -882,7 +882,7 @@ msgstr "Tonga"
 
 #: country_tr
 msgid "country_tr"
-msgstr "Türkei"
+msgstr "TÃ¼rkei"
 
 #: country_tt
 msgid "country_tt"
@@ -910,7 +910,7 @@ msgstr "Uganda"
 
 #: country_um
 msgid "country_um"
-msgstr "Kleinere amerikanische Überseeinseln"
+msgstr "Kleinere amerikanische Ãœberseeinseln"
 
 #: country_us
 msgid "country_us"
@@ -970,7 +970,7 @@ msgstr "Mayotte"
 
 #: country_za
 msgid "country_za"
-msgstr "Republik Südarfika"
+msgstr "Republik SÃ¼darfika"
 
 #: country_zm
 msgid "country_zm"
