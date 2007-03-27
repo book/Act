@@ -1,4 +1,4 @@
-[% WRAPPER ui title = loc('Online Payment') %]
+[% WRAPPER ui title = loc('Online payment') %]
 <center>
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
