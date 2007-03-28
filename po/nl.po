@@ -321,7 +321,7 @@ msgid "You can find more information on the following site:"
 msgstr "Meer informatie vindt U op de site:"
 
 msgid "Wiki - <node>"
-msgstr "Wiki - $node"
+msgstr "Wiki - %1"
 
 msgid "version"
 msgstr "versie"

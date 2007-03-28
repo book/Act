@@ -798,7 +798,7 @@ msgid "By"
 msgstr "Par"
 
 msgid "Wiki - <node>"
-msgstr "Wiki - $node"
+msgstr "Wiki - %1"
 
 msgid "version"
 msgstr "version"
