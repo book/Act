@@ -1,5 +1,13 @@
 [% WRAPPER ui title = loc("Your photo") %]
 <center>
+[% IF error;
+     WRAPPER error_ui;
+       loc("Image couldn't be read. Please upload your picture in one of the following formats:");
+       formats.join(', ');
+     END;
+   END
+%]
+
 <form method="POST" enctype="multipart/form-data">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>

@@ -71,6 +71,12 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
           },
 );
 
+# image formats
+our %Image_formats = (
+    png     => '.png',
+    jpeg    => '.jpg',
+);
+
 # load configurations
 load_configs() unless $^C;
 

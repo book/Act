@@ -15,6 +15,7 @@ my @modules = (
                  'DBI',
                  'Digest::MD5',
                  'Email::Valid',
+                 'Imager',
                  'HTML::Entities',
                  'Locale::Maketext',
                  'Locale::Maketext::Lexicon',
