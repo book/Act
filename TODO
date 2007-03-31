@@ -54,9 +54,6 @@ UNPRIORITIZED TODO LIST
   which requires contacting users and asking which of their many logins
   to keep
 
-* problem with empty fields: they are not updated
-  see: stay pseudonymous, remove company
-
 * B<current rights:> orga, treasurer, admin, staff, invited (no rights attached).
   
   better organisation: users, talks, orders, rights (i.e. attached to the

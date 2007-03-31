@@ -47,8 +47,10 @@ sub validate
     # check constraints
     if ($self->{profile}{constraints}) {
         while (my ($field, $type) = each %{$self->{profile}{constraints}}) {
-            next if not exists $self->{fields}{$field}; # useless check
-            next if $self->{invalid}{$field}; # already in error
+            next if !defined($self->{fields}{$field})   # skip undefined
+                 or $self->{invalid}{$field}            # already in error
+                 or $self->{fields}{$field} eq ''       # empty
+                 ;
             my $code;
             if (ref($type) eq 'CODE') {
                 $code = $type;
@@ -82,7 +84,7 @@ sub _required_fields
     for my $field (@$fields) {
         $self->_set_field($field, $input->{$field});
         $self->{invalid}{$field} = 'required'
-            unless exists $self->{fields}{$field};
+            unless exists $self->{fields}{$field} && $self->{fields}{$field} ne '';
     }
 }
 sub _optional_fields
@@ -108,7 +110,7 @@ sub _set_field
         }
         
     }
-    $self->{fields}{$field} = $value if defined $value and $value ne '';
+    $self->{fields}{$field} = $value if defined $value;
 }
 
 1;
