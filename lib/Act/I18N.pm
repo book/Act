@@ -42,6 +42,26 @@ sub failure_handler
     return 'TRANSLATEME';
 }
 
+#### language specific behavior
+
+package Act::I18N::fr;
+
+# zero is singular in French
+sub numerate
+{
+    my ($handle, $num, @forms) = @_;
+    my $s = ($num < 2);
+    
+    return '' unless @forms;
+    if (@forms == 1) {
+        # only the headword form specified
+        return $s ? $forms[0] : ($forms[0] . 's'); # very cheap hack.
+    }
+    # sing and plural were specified
+    return $s ? $forms[0] : $forms[1];
+}
+
+
 1;
 
 __END__

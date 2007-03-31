@@ -14,10 +14,16 @@ package Act::I18N::xx;
 use base 'Act::I18N';
 our %Lexicon = ( 'baz' => 'xxfoo' );
 
-# set up some test lexicons
 package Act::I18N::yy;
 use base 'Act::I18N';
 our %Lexicon = ( 'bar' => 'yyfoo' );
+
+package Act::I18N::fr;
+use base 'Act::I18N';
+our %Lexicon = ( 'jour' => '[quant,_1,jour]',
+                 'bail' => '[quant,_1,bail,baux]',
+                 'flux' => '[quant,_1,flux,flux]',
+               );
 
 package main;
 my @tests = (
@@ -33,7 +39,18 @@ my @tests = (
  [ 'en',     'en',    'foo', 'enfoo' ],
  [ 'en',     'en',    'qux', 'TRANSLATEME' ],
 );
-plan tests => 1 + 2 * scalar(@tests);
+my @tests_fr = (
+ [ 'jour', 0, '0 jour',  'fr - 0 is singular' ],
+ [ 'jour', 1, '1 jour',  'fr - 1 is singular' ],
+ [ 'jour', 2, '2 jours', 'fr - 2 is plural'   ],
+ [ 'flux', 0, '0 flux',  'fr - 0 is singular' ],
+ [ 'flux', 1, '1 flux',  'fr - 1 is singular' ],
+ [ 'flux', 2, '2 flux',  'fr - 2 is plural'   ],
+ [ 'bail', 0, '0 bail',  'fr - 0 is singular' ],
+ [ 'bail', 1, '1 bail',  'fr - 1 is singular' ],
+ [ 'bail', 2, '2 baux',  'fr - 2 is plural'   ],
+);
+plan tests => 1 + 2 * @tests + @tests_fr;
 
 require_ok('Act::I18N');
 
@@ -45,6 +62,12 @@ for my $t (@tests) {
     my $lh = Act::I18N->get_handle($lang);
     ok($lh, "get_handle $lang");
     is($lh->maketext($id), $expected);
+}
+# language-specific tests
+my $lh = Act::I18N->get_handle('fr');
+for my $t (@tests_fr) {
+    my ($key, $num, $expected, $desc) = @$t;
+    is( $lh->maketext($key, $num), $expected, $desc );
 }
 
 __END__
