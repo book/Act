@@ -260,7 +260,7 @@ msgid "country_gp"
 msgstr "Guadeloupe"
 
 msgid "country_gq"
-msgstr "Egyenlítoi-Guinea"
+msgstr "Egyenlítői-Guinea"
 
 msgid "country_gr"
 msgstr "Görögország"
