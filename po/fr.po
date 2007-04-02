@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "payment_means_CHQ"
-msgstr "Chèque"
+msgstr "ChÃ¨que"
 
 msgid "payment_means_CASH"
-msgstr "Espèces"
+msgstr "EspÃ¨ces"
 
 msgid "payment_means_ONLINE"
 msgstr "En ligne"
@@ -17,7 +17,7 @@ msgid "payment_means_XFER"
 msgstr "Transfert"
 
 msgid "room_out"
-msgstr "Extérieur"
+msgstr "ExtÃ©rieur"
 
 msgid "room_venue"
 msgstr "Sur place"
@@ -50,7 +50,7 @@ msgid "Perl mongers group"
 msgstr "Groupe de mongueurs"
 
 msgid "Company"
-msgstr "Société"
+msgstr "SociÃ©tÃ©"
 
 msgid "Email"
 msgstr "Email"
@@ -62,87 +62,87 @@ msgid "IM"
 msgstr "IM"
 
 msgid "GPG key ID"
-msgstr "clé publique GPG"
+msgstr "clÃ© publique GPG"
 
 msgid "No photo"
 msgstr "Pas de photo"
 
 msgid "Talk"
-msgstr "%numerate(%1,Présentation)"
+msgstr "%numerate(%1,PrÃ©sentation)"
 
 msgid "Accepted Talk"
-msgstr "%numerate(%1,Présentation acceptée,Présentations acceptées)"
+msgstr "%numerate(%1,PrÃ©sentation acceptÃ©e,PrÃ©sentations acceptÃ©es)"
 
 msgid "minutes"
 msgstr "minutes"
 
 msgid "Lightning talk"
-msgstr "Communication éclair"
+msgstr "Communication Ã©clair"
 
 msgid "Bio"
 msgstr "Bio"
 
 msgid "Other Act conferences:"
-msgstr "Autres conférences Act&nbsp;:"
+msgstr "Autres confÃ©rences Act&nbsp;:"
 
 msgid "Main private page"
 msgstr "Page personnelle"
 
 msgid "to <this conference>"
-msgstr "à %1."
+msgstr "Ã  %1."
 
 msgid "This is your personal page."
 msgstr ""
 "Ceci est votre page personnelle.\n"
-"D'ici vous pouvez gérer tout ce qui concerne votre participation\n"
+"D'ici vous pouvez gÃ©rer tout ce qui concerne votre participation\n"
 
 msgid "to Act-enabled conferences."
-msgstr "aux conférences gérées par Act."
+msgstr "aux confÃ©rences gÃ©rÃ©es par Act."
 
 msgid "You have purchased your conference ticket:"
-msgstr "Vous avez acheté votre billet pour la conférence :"
+msgstr "Vous avez achetÃ© votre billet pour la confÃ©rence :"
 
 msgid "Order number"
-msgstr "Numéro d'inscription "
+msgstr "NumÃ©ro d'inscription "
 
 msgid "Payment date"
-msgstr "Date de règlement "
+msgstr "Date de rÃ¨glement "
 
 msgid "Amount paid"
-msgstr "Montant réglé "
+msgstr "Montant rÃ©glÃ© "
 
 msgid "Download your invoice"
-msgstr "Téléchargez <a href=\"%1\">votre reçu</a>."
+msgstr "TÃ©lÃ©chargez <a href=\"%1\">votre reÃ§u</a>."
 
 msgid "You have not bought your conference ticket yet."
-msgstr "Vous n'avez pas encore acheté votre billet pour la conférence."
+msgstr "Vous n'avez pas encore achetÃ© votre billet pour la confÃ©rence."
 
 msgid "Please consider doing so using our online payment system."
 msgstr ""
-"Merci de penser à le faire en utilisant notre système\n"
+"Merci de penser Ã  le faire en utilisant notre systÃ¨me\n"
 "de vente en ligne.\n"
 
 msgid "Please consider doing so once our online payment system is ready."
 msgstr ""
-"Merci de penser à le faire dès que le système de vente en ligne\n"
-"sera opérationnel.\n"
+"Merci de penser Ã  le faire dÃ¨s que le systÃ¨me de vente en ligne\n"
+"sera opÃ©rationnel.\n"
 
 msgid "You did not register for this conference"
 msgstr ""
-"Vous n'êtes pas <a href=\"%1\">inscrit à cette conférence</a>.\n"
-"Merci de le faire si vous comptez y assister ou y faire une présentation.\n"
+"Vous n'Ãªtes pas <a href=\"%1\">inscrit Ã  cette confÃ©rence</a>.\n"
+"Merci de le faire si vous comptez y assister ou y faire une prÃ©sentation.\n"
 
 msgid "You can:"
 msgstr "Vous pouvez&nbsp;:"
 
 msgid "purchase your conference ticket"
-msgstr "acheter votre billet pour la conférence"
+msgstr "acheter votre billet pour la confÃ©rence"
 
 msgid "register for this conference"
-msgstr "Vous inscrire à cette conférence"
+msgstr "Vous inscrire Ã  cette confÃ©rence"
 
 msgid "update your information"
-msgstr "mettre à jour les informations vous concernant"
+msgstr "mettre Ã  jour les informations vous concernant"
 
 msgid "manage your photo"
 msgstr "modifier votre photo"
@@ -151,22 +151,22 @@ msgid "change your password"
 msgstr "modifier votre mot de passe"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "voir vos présentations (les présentations acceptées sont affichées en caractères <b>gras</b>)&nbsp;"
+msgstr "voir vos prÃ©sentations (les prÃ©sentations acceptÃ©es sont affichÃ©es en caractÃ¨res <b>gras</b>)&nbsp;"
 
 msgid "submit a talk"
-msgstr "soumettre une présentation"
+msgstr "soumettre une prÃ©sentation"
 
 msgid "log out"
-msgstr "vous déconnecter"
+msgstr "vous dÃ©connecter"
 
 msgid "unregister from <this conference>"
-msgstr "vous désinscrire de %1"
+msgstr "vous dÃ©sinscrire de %1"
 
 msgid "(You were there)"
-msgstr "(Vous y étiez)"
+msgstr "(Vous y Ã©tiez)"
 
 msgid "(You are there)"
-msgstr "(Vous y êtes)"
+msgstr "(Vous y Ãªtes)"
 
 msgid "(You will be there)"
 msgstr "(Vous y serez)"
@@ -176,7 +176,7 @@ msgstr "Confirmation requise"
 
 msgid "This operation requires a confirmation. Please enter your email address,"
 msgstr ""
-"Cette opération nécessite une confirmation. Merci de fournir votre adresse\n"
+"Cette opÃ©ration nÃ©cessite une confirmation. Merci de fournir votre adresse\n"
 "email, vous recevrez un email contenant un lien de confirmation.\n"
 
 msgid "You must enter your email"
@@ -187,14 +187,14 @@ msgstr "Adresse email&nbsp;: syntaxe incorrecte."
 
 msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
-"Un email a été envoyé à <b>%1</b>. Cliquez sur le lien contenu dans cet\n"
-"email pour terminer l'opération en cours.\n"
+"Un email a Ã©tÃ© envoyÃ© Ã  <b>%1</b>. Cliquez sur le lien contenu dans cet\n"
+"email pour terminer l'opÃ©ration en cours.\n"
 
 msgid "Confirmation email sent"
-msgstr "Email de confirmation envoyé"
+msgstr "Email de confirmation envoyÃ©"
 
 msgid "In order to complete your operation"
-msgstr "Pour terminer l'opération sur \"%1\", veuillez cliquer sur le lien suivant :"
+msgstr "Pour terminer l'opÃ©ration sur \"%1\", veuillez cliquer sur le lien suivant :"
 
 msgid "<conf_id> confirmation"
 msgstr "%1 - confirmation"
@@ -203,22 +203,22 @@ msgid "Registration"
 msgstr "Inscription"
 
 msgid "Sorry, this conference is over."
-msgstr "Désolé, cette conférence est terminée."
+msgstr "DÃ©solÃ©, cette confÃ©rence est terminÃ©e."
 
 msgid "Please create your user below."
-msgstr "Vous pouvez créer votre utilisateur ci-dessous."
+msgstr "Vous pouvez crÃ©er votre utilisateur ci-dessous."
 
 msgid "Identifier is already in use. Please choose another."
-msgstr "L'identifiant %1 est déjà utilisé. Veuillez en choisir un autre."
+msgstr "L'identifiant %1 est dÃ©jÃ  utilisÃ©. Veuillez en choisir un autre."
 
 msgid "The address is already registered."
-msgstr "L'adresse %1 est déjà enregistrée."
+msgstr "L'adresse %1 est dÃ©jÃ  enregistrÃ©e."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Votre identifiant doit contenir au moins 3 caractères alphanumériques (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Votre identifiant doit contenir au moins 3 caractÃ¨res alphanumÃ©riques (<tt>[a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
-msgstr "Le prénom est obligatoire"
+msgstr "Le prÃ©nom est obligatoire"
 
 msgid "You must enter your last name"
 msgstr "Le nom est obligatoire"
@@ -227,52 +227,52 @@ msgid "You must enter a country from the list"
 msgstr "Un pays est obligatoire"
 
 msgid "Accounts with similar information already exist."
-msgstr "D'autres utilisateurs existant pourraient déjà être vous."
+msgstr "D'autres utilisateurs existant pourraient dÃ©jÃ  Ãªtre vous."
 
 msgid "A valid T-shirt size is required."
 msgstr "Une taille de T-shirt valide est requise."
 
 msgid "Use the links above to check if you are one of those."
 msgstr ""
-"Utilisez les liens ci-dessus pour vérifier si vous avez déjà un compte.\n"
+"Utilisez les liens ci-dessus pour vÃ©rifier si vous avez dÃ©jÃ  un compte.\n"
 "Si oui vous pouvez simplement vous <a href=\"%1\">identifier</a> avec votre compte existant.\n"
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-"Pour vous inscrire, vous devez d'abord vous créer un compte sur le site.\n"
-"<b>Si vous possédez déjà un compte pour une conférence Act précédente,\n"
+"Pour vous inscrire, vous devez d'abord vous crÃ©er un compte sur le site.\n"
+"<b>Si vous possÃ©dez dÃ©jÃ  un compte pour une confÃ©rence Act prÃ©cÃ©dente,\n"
 "vous pouvez simplement vous <a href=\"%1\">identifier</a> avec ce compte.</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"Les données personnelles qui sont récupérées ici seront utilisées\n"
-"pour créer un <a href=\"%1\">trombinoscope en ligne</a>\n"
-"des participants. Ceci sera bien utile après\n"
-"la conférence, si vous cherchez à contacter quelqu'un que vous avez\n"
-"rencontré pendant celle-ci. Ou même avant, pour savoir quels\n"
+"Les donnÃ©es personnelles qui sont rÃ©cupÃ©rÃ©es ici seront utilisÃ©es\n"
+"pour crÃ©er un <a href=\"%1\">trombinoscope en ligne</a>\n"
+"des participants. Ceci sera bien utile aprÃ¨s\n"
+"la confÃ©rence, si vous cherchez Ã  contacter quelqu'un que vous avez\n"
+"rencontrÃ© pendant celle-ci. Ou mÃªme avant, pour savoir quels\n"
 "gourous comptent venir.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
 "Une fois que vous avez un compte, vous pourrez utiliser notre\n"
-"plate-forme de paiement sécurisé pour acheter votre billet\n"
-"d'entrée à la conférence. Veuillez noter que tout ce qui concerne\n"
-"votre compte en banque et votre numéro de carte bleue est géré\n"
+"plate-forme de paiement sÃ©curisÃ© pour acheter votre billet\n"
+"d'entrÃ©e Ã  la confÃ©rence. Veuillez noter que tout ce qui concerne\n"
+"votre compte en banque et votre numÃ©ro de carte bleue est gÃ©rÃ©\n"
 "par la banque.\n"
 
 msgid "We do not have access to your credit card information"
 msgstr ""
-"<b>Nous n'avons à aucun moment accès aux informations\n"
-"bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
-"à la fin. <tt>;-)</tt>\n"
+"<b>Nous n'avons Ã  aucun moment accÃ¨s aux informations\n"
+"bancaires vous concernant.</b> Nous ne faisons que rÃ©cupÃ©rer l'argent\n"
+"Ã  la fin. <tt>;-)</tt>\n"
 
 msgid "Please create the user below."
-msgstr "Vous pouvez créer votre utilisateur ci-dessous."
+msgstr "Vous pouvez crÃ©er votre utilisateur ci-dessous."
 
 msgid "Use the links above to check if any of those users is the one you want to"
 msgstr ""
-"Utilisez les liens ci-dessus pour vérifier si l'utilisateur que vous\n"
-"voulez créer n'existe pas déjà.\n"
+"Utilisez les liens ci-dessus pour vÃ©rifier si l'utilisateur que vous\n"
+"voulez crÃ©er n'existe pas dÃ©jÃ .\n"
 "Si oui vous pouvez simplement cocher la bonne case et valider ce\n"
 "formulaire.\n"
 
@@ -284,11 +284,11 @@ msgstr "Inscrit !"
 
 msgid "Congratulations, you are now registered"
 msgstr ""
-"Bravo, <b>%1</b>, vous êtes maintenant inscrit. Votre\n"
+"Bravo, <b>%1</b>, vous Ãªtes maintenant inscrit. Votre\n"
 "mot de passe est <b>%2</b> .\n"
 
 msgid "First Name"
-msgstr "Prénom"
+msgstr "PrÃ©nom"
 
 msgid "Last Name"
 msgstr "Nom"
@@ -315,21 +315,21 @@ msgid "Submit"
 msgstr "Valider"
 
 msgid "Forgot your password?"
-msgstr "Mot de passe oublié ? Cliquez <a href=\"%1\">ici</a>."
+msgstr "Mot de passe oubliÃ© ? Cliquez <a href=\"%1\">ici</a>."
 
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
 "Ce site utilise des cookies pour identifier les utilisateurs. Il peut\n"
-"être nécessaire de les activer dans votre navigateur pour le domaine <b>%1</b>.\n"
+"Ãªtre nÃ©cessaire de les activer dans votre navigateur pour le domaine <b>%1</b>.\n"
 
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr "DÃ©connexion"
 
 msgid "You have been logged out and the cookie deleted from your browser."
-msgstr "Vous êtes déconnecté et le cookie a été supprimé."
+msgstr "Vous Ãªtes dÃ©connectÃ© et le cookie a Ã©tÃ© supprimÃ©."
 
 msgid "Act conferences"
-msgstr "Conférences Act"
+msgstr "ConfÃ©rences Act"
 
 msgid "Admin"
 msgstr "Admin"
@@ -338,10 +338,10 @@ msgid "Rights management"
 msgstr "Gestion des droits"
 
 msgid "Events"
-msgstr "Événements"
+msgstr "Ã‰vÃ©nements"
 
 msgid "Submit a new event"
-msgstr "Soumettre un événement"
+msgstr "Soumettre un Ã©vÃ©nement"
 
 msgid "Schedule"
 msgstr "Horaires"
@@ -353,13 +353,13 @@ msgid "iCal import"
 msgstr "Import iCal"
 
 msgid "Submit a talk proposal"
-msgstr "Soumettre une présentation"
+msgstr "Soumettre une prÃ©sentation"
 
 msgid "Presentations"
-msgstr "Présentations"
+msgstr "PrÃ©sentations"
 
 msgid "Treasurer"
-msgstr "Trésorier"
+msgstr "TrÃ©sorier"
 
 msgid "Payments"
 msgstr "Paiements"
@@ -386,22 +386,22 @@ msgid "Register a new user"
 msgstr "Enregister un nouvel utilisateur"
 
 msgid "The schedule is not ready to be seen."
-msgstr "Les horaires ne sont pas encore finalisés."
+msgstr "Les horaires ne sont pas encore finalisÃ©s."
 
 msgid "The time and place of the following talks haven't been decided yet."
-msgstr "Les dates et lieu de ces présentations n'ont pas encore été décidés."
+msgstr "Les dates et lieu de ces prÃ©sentations n'ont pas encore Ã©tÃ© dÃ©cidÃ©s."
 
 msgid "Speaker"
-msgstr "Présentateur"
+msgstr "PrÃ©sentateur"
 
 msgid "Talk title"
-msgstr "Présentation"
+msgstr "PrÃ©sentation"
 
 msgid "Duration"
-msgstr "Durée"
+msgstr "DurÃ©e"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "Les présentations en <b>gras</b> ont été confirmées par leurs auteurs."
+msgstr "Les prÃ©sentations en <b>gras</b> ont Ã©tÃ© confirmÃ©es par leurs auteurs."
 
 msgid "Time"
 msgstr "Heure"
@@ -410,30 +410,30 @@ msgid "Room <room name>"
 msgstr "Salle %1"
 
 msgid "Ticket for <conference name>."
-msgstr "Ticket d'entrée à la conférence %1."
+msgstr "Ticket d'entrÃ©e Ã  la confÃ©rence %1."
 
 msgid "Price"
 msgstr "Tarif "
 
 msgid "Buy now!"
-msgstr "J'achète"
+msgstr "J'achÃ¨te"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"Veuillez noter que tout ce qui concerne votre compte en banque et votre numéro\n"
-"de carte bleue est géré par la banque. <b>Nous n'avons à aucun moment accès aux\n"
-"informations bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
-"à la fin. <tt>;-)</tt>\n"
+"Veuillez noter que tout ce qui concerne votre compte en banque et votre numÃ©ro\n"
+"de carte bleue est gÃ©rÃ© par la banque. <b>Nous n'avons Ã  aucun moment accÃ¨s aux\n"
+"informations bancaires vous concernant.</b> Nous ne faisons que rÃ©cupÃ©rer l'argent\n"
+"Ã  la fin. <tt>;-)</tt>\n"
 
 msgid "Online payment"
 msgstr "Paiement en ligne"
 
 msgid "Join"
-msgstr "Inscription à"
+msgstr "Inscription Ã "
 
 msgid "To register to the <name> conference"
 msgstr ""
-"Pour vous inscrire à la conférence %1,\n"
+"Pour vous inscrire Ã  la confÃ©rence %1,\n"
 "cliquez sur le bouton ci-dessous.\n"
 
 msgid "The recognised rights are:"
@@ -443,10 +443,10 @@ msgid "Organizer"
 msgstr "Organisateur"
 
 msgid "Organizer (talks management)"
-msgstr "Organisateur (gestion des présentations)"
+msgstr "Organisateur (gestion des prÃ©sentations)"
 
 msgid "Treasurer (payment management)"
-msgstr "Trésorier (gestion des paiements)"
+msgstr "TrÃ©sorier (gestion des paiements)"
 
 msgid "Administrator (rights management)"
 msgstr "Administrateur (gestion des droits)"
@@ -458,7 +458,7 @@ msgid "Amount"
 msgstr "Montant"
 
 msgid "You cannot be pseudonymous with a blank nickname"
-msgstr "Vous ne pouvez pas être anonyme avec un pseudo vide"
+msgstr "Vous ne pouvez pas Ãªtre anonyme avec un pseudo vide"
 
 msgid "The Perl monger group must end with <tt>.pm</tt>"
 msgstr "Le groupe de mongueurs doit se terminer par <tt>.pm</tt>"
@@ -467,22 +467,22 @@ msgid "The Perl monger group URL must start with http://"
 msgstr "URL du groupe de mongueurs&nbsp;: syntaxe incorrecte"
 
 msgid "The company URL must start with http://"
-msgstr "URL de la société&nbsp;: syntaxe incorrecte"
+msgstr "URL de la sociÃ©tÃ©&nbsp;: syntaxe incorrecte"
 
 msgid "Your web site URL must start with http://"
 msgstr "Page Web&nbsp;: syntaxe incorrecte"
 
 msgid "Your perlmonks id must be a number"
-msgstr "Votre id perlmonks doit être un nombre"
+msgstr "Votre id perlmonks doit Ãªtre un nombre"
 
 msgid "Number of family members attending must be a number"
-msgstr "Le nombre de personnes vous accompagnant doit être un nombre"
+msgstr "Le nombre de personnes vous accompagnant doit Ãªtre un nombre"
 
 msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
-msgstr "Clé GPG invalide : 8 chiffres hexadécimaux attendus"
+msgstr "ClÃ© GPG invalide : 8 chiffres hexadÃ©cimaux attendus"
 
 msgid "Civility"
-msgstr "Civilité"
+msgstr "CivilitÃ©"
 
 msgid "Nickname"
 msgstr "Pseudo"
@@ -497,7 +497,7 @@ msgid "No"
 msgstr "Non"
 
 msgid "Hide email"
-msgstr "Email caché"
+msgstr "Email cachÃ©"
 
 msgid "Coming with"
 msgstr "Je viens avec"
@@ -506,13 +506,13 @@ msgid "6 or more"
 msgstr "6 ou plus"
 
 msgid "people (who will not attend the conference)"
-msgstr "personne(s) (qui n'assisteront pas à la conférence)"
+msgstr "personne(s) (qui n'assisteront pas Ã  la confÃ©rence)"
 
 msgid "T-shirt size"
 msgstr "Taille du T-shirt"
 
 msgid "Full address"
-msgstr "Adresse complète"
+msgstr "Adresse complÃ¨te"
 
 msgid "Timezone"
 msgstr "Fuseau horaire"
@@ -527,16 +527,16 @@ msgid "Monger group URL"
 msgstr "URL du groupe de mongueurs"
 
 msgid "VAT Number"
-msgstr "Numéro de TVA"
+msgstr "NumÃ©ro de TVA"
 
 msgid "Company URL"
-msgstr "URL de la société"
+msgstr "URL de la sociÃ©tÃ©"
 
 msgid "GPG public key ID"
-msgstr "Clé publique GPG"
+msgstr "ClÃ© publique GPG"
 
 msgid "(please fill at least this one)"
-msgstr "(merci de compléter au moins celle-ci)"
+msgstr "(merci de complÃ©ter au moins celle-ci)"
 
 msgid "Update info"
 msgstr "Envoyer"
@@ -546,10 +546,10 @@ msgstr "Vos informations"
 
 msgid "This is a simulation. Under real circumstances, submitting"
 msgstr ""
-"Ceci est une simulation. En utilisation réelle, la\n"
+"Ceci est une simulation. En utilisation rÃ©elle, la\n"
 "soumission de ce formulaire vous conduirait au site web\n"
-"de la banque où vous seriez invités à saisir votre\n"
-"numéro de carte bancaire.<br /><br />\n"
+"de la banque oÃ¹ vous seriez invitÃ©s Ã  saisir votre\n"
+"numÃ©ro de carte bancaire.<br /><br />\n"
 "Cliquez sur le bouton pour simuler un paiement.\n"
 
 msgid "Pay"
@@ -557,9 +557,9 @@ msgstr "Payer"
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
-"Les utilisateurs dont l'inscription est confirmée sont affichés\n"
-"en <b>gras</b> (ils ont payé leur billet ou feront une\n"
-"présentation à la conférence).\n"
+"Les utilisateurs dont l'inscription est confirmÃ©e sont affichÃ©s\n"
+"en <b>gras</b> (ils ont payÃ© leur billet ou feront une\n"
+"prÃ©sentation Ã  la confÃ©rence).\n"
 
 msgid "Search for users"
 msgstr "Recherche d'utilisateurs"
@@ -575,11 +575,11 @@ msgstr "Votre photo"
 
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
-"Cette photo finira probablement dans l'annuaire de la conférence&nbsp;:\n"
+"Cette photo finira probablement dans l'annuaire de la confÃ©rence&nbsp;:\n"
 "ainsi, quand quelqu'un essayera de savoir avec qui il a eu\n"
-"cette charmante discussion durant la conférence, cette personne pourra vous\n"
-"reconnaître facilement.<br />\n"
-"Souvenez-vous en téléchargeant votre photo !\n"
+"cette charmante discussion durant la confÃ©rence, cette personne pourra vous\n"
+"reconnaÃ®tre facilement.<br />\n"
+"Souvenez-vous en tÃ©lÃ©chargeant votre photo !\n"
 
 msgid "Delete Photo"
 msgstr "Effacer photo"
@@ -589,7 +589,7 @@ msgstr "Modifier photo"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Quelqu'un, peut-être vous, a demandé à changer votre mot de passe.\n"
+"Quelqu'un, peut-Ãªtre vous, a demandÃ© Ã  changer votre mot de passe.\n"
 "Votre nouveau mot de passe est : %1\n"
 
 msgid "New password"
@@ -599,18 +599,18 @@ msgid "Reset Password"
 msgstr "Changer de mot de passe"
 
 msgid "Your password has been reset and emailed to you."
-msgstr "Un nouveau mot de passe a été généré, et vous a été envoyé par email."
+msgstr "Un nouveau mot de passe a Ã©tÃ© gÃ©nÃ©rÃ©, et vous a Ã©tÃ© envoyÃ© par email."
 
 msgid "Specify either your login, or your email address."
 msgstr ""
-"Spécifiez votre <b>identifiant</b> ou votre <b>adresse email</b>.\n"
-"Un nouveau mot de passe sera généré et vous sera envoyé par email.\n"
+"SpÃ©cifiez votre <b>identifiant</b> ou votre <b>adresse email</b>.\n"
+"Un nouveau mot de passe sera gÃ©nÃ©rÃ© et vous sera envoyÃ© par email.\n"
 
 msgid "No user was found with this login or email address"
 msgstr "Aucun utilisateur avec cet identifiant ou adresse email."
 
 msgid "Specify a login, or an email address, but not both"
-msgstr "Spécifier soit un identifiant, soit une adresse email."
+msgstr "SpÃ©cifier soit un identifiant, soit une adresse email."
 
 msgid "Generate password"
 msgstr "Nouveau mot de passe"
@@ -620,23 +620,23 @@ msgstr "Statistiques pour %1"
 
 msgid "There are n registered people"
 msgstr ""
-"La conférence compte %quant(%1,inscrit),\n"
+"La confÃ©rence compte %quant(%1,inscrit),\n"
 "venus de %2 pays\n"
 "et de %quant(%3,groupe) de mongueurs.\n"
 "Il y a %quant(%4,personne) qui se\n"
-"sont engagées, soit en payant leur place, soit\n"
-"parce qu'elles donneront une conférence.\n"
+"sont engagÃ©es, soit en payant leur place, soit\n"
+"parce qu'elles donneront une confÃ©rence.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"Vous pouvez jeter un &oelig;il aux statistiques par\n"
+"Vous pouvez jeter un Å“il aux statistiques par\n"
 "<a href=\"%1\">pays / groupe de mongueurs</a> ou par\n"
 "<a href=\"%2\">villes</a>.\n"
 
 msgid "The number of committed users is listed between parentheses"
 msgstr ""
-"Les nombres entre parenthèses dans les tableaux qui suivent\n"
-"indiquent le nombre d'inscrits engagés.\n"
+"Les nombres entre parenthÃ¨ses dans les tableaux qui suivent\n"
+"indiquent le nombre d'inscrits engagÃ©s.\n"
 
 msgid "Click on the various links to find the corresponding users!"
 msgstr ""
@@ -645,15 +645,15 @@ msgstr ""
 
 msgid "Note: the country total is not always equal to the city total."
 msgstr ""
-"Note&nbsp;: le total pour chaque pays est parfois différent du total\n"
-"des villes associées. Ou même une ville ne correspond pas au pays\n"
-"indiqué. C'est la faute des utilisateurs&nbsp;!\n"
+"Note&nbsp;: le total pour chaque pays est parfois diffÃ©rent du total\n"
+"des villes associÃ©es. Ou mÃªme une ville ne correspond pas au pays\n"
+"indiquÃ©. C'est la faute des utilisateurs&nbsp;!\n"
 
 msgid "Cities"
 msgstr "Villes"
 
 msgid "No city information entered"
-msgstr "Aucune ville n'a été renseignée"
+msgstr "Aucune ville n'a Ã©tÃ© renseignÃ©e"
 
 msgid "Countries"
 msgstr "Pays"
@@ -662,18 +662,18 @@ msgid "Monger groups"
 msgstr "Groupes de mongueurs"
 
 msgid "Un-Registration"
-msgstr "Désinscription"
+msgstr "DÃ©sinscription"
 
 msgid "To unregister from <conference>,"
 msgstr ""
-"Pour vous désinscrire de la conférence %1,\n"
+"Pour vous dÃ©sinscrire de la confÃ©rence %1,\n"
 "poussez simplement sur le bouton ci-dessous.\n"
 
 msgid "Unregister from <conference>"
-msgstr "Désinscription de %1"
+msgstr "DÃ©sinscription de %1"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Soumettre/Modifier un évenement"
+msgstr "Soumettre/Modifier un Ã©venement"
 
 msgid "You must enter a title for the event"
 msgstr "Le titre est obligatoire"
@@ -682,7 +682,7 @@ msgid "You must enter a short description for the event"
 msgstr "Une courte description est obligatoire"
 
 msgid "Please choose a duration"
-msgstr "Vous devez choisir une durée"
+msgstr "Vous devez choisir une durÃ©e"
 
 msgid "The supplied date is invalid"
 msgstr "La date fournie est invalide"
@@ -694,7 +694,7 @@ msgid "The date/time is out of range"
 msgstr "Date/heure hors limites"
 
 msgid "Event URL is not a valid URL"
-msgstr "L'URL de l'événement n'est pas une URL valide"
+msgstr "L'URL de l'Ã©vÃ©nement n'est pas une URL valide"
 
 msgid "Incorrect room submitted"
 msgstr "Salle incorrecte"
@@ -703,7 +703,7 @@ msgid "View"
 msgstr "Voir"
 
 msgid "Delete this event"
-msgstr "Supprimer cet événement"
+msgstr "Supprimer cet Ã©vÃ©nement"
 
 msgid "Title"
 msgstr "Titre"
@@ -727,36 +727,36 @@ msgid "Submit this event"
 msgstr "Soumettre"
 
 msgid "Event submitted"
-msgstr "Événement ajouté"
+msgstr "Ã‰vÃ©nement ajoutÃ©"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Merci, l'évenement est enregistré en tant que\n"
+"Merci, l'Ã©venement est enregistrÃ© en tant que\n"
 "<b><a href=\"%1\">%2</a></b>.\n"
 
 msgid "List of events"
-msgstr "Liste des événements"
+msgstr "Liste des Ã©vÃ©nements"
 
 msgid "No event was submitted yet."
-msgstr "Aucun événement n'a encore été ajouté."
+msgstr "Aucun Ã©vÃ©nement n'a encore Ã©tÃ© ajoutÃ©."
 
 msgid "Event title"
-msgstr "Présentation"
+msgstr "PrÃ©sentation"
 
 msgid "Event removed"
-msgstr "Événement supprimé"
+msgstr "Ã‰vÃ©nement supprimÃ©"
 
 msgid "The event has been removed."
-msgstr "L'événement <b>%1</b> a été supprimé."
+msgstr "L'Ã©vÃ©nement <b>%1</b> a Ã©tÃ© supprimÃ©."
 
 msgid "Date:"
 msgstr "Date&nbsp;:"
 
 msgid "Not scheduled yet."
-msgstr "Pas encore planifié"
+msgstr "Pas encore planifiÃ©"
 
 msgid "Duration:"
-msgstr "Durée&nbsp;:"
+msgstr "DurÃ©e&nbsp;:"
 
 msgid "You can find more information on the following site:"
 msgstr "Vous pouvez trouver plus d'information sur le site suivant&nbsp;:"
@@ -766,8 +766,8 @@ msgstr "Wiki - modification de %1"
 
 msgid "Someone has committed changes to this node since you began editing."
 msgstr ""
-"Un autre utilisateur a effectué des changements après que vous ayez\n"
-"commencé vos modifications. Vous devrez fusionner manuellement vos\n"
+"Un autre utilisateur a effectuÃ© des changements aprÃ¨s que vous ayez\n"
+"commencÃ© vos modifications. Vous devrez fusionner manuellement vos\n"
 "modifications avec la nouvelle version.\n"
 
 msgid "Current node contents:"
@@ -777,7 +777,7 @@ msgid "Help"
 msgstr "Aide"
 
 msgid "Preview"
-msgstr "Aperçu"
+msgstr "AperÃ§u"
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -792,7 +792,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "Modified on"
-msgstr "Modifié le"
+msgstr "ModifiÃ© le"
 
 msgid "By"
 msgstr "Par"
@@ -807,7 +807,7 @@ msgid "saved on"
 msgstr "du"
 
 msgid "Last modified:"
-msgstr "Dernière modification&nbsp;:"
+msgstr "DerniÃ¨re modification&nbsp;:"
 
 msgid "by"
 msgstr "par"
@@ -819,13 +819,13 @@ msgid "Home"
 msgstr "Accueil"
 
 msgid "Revert to this version"
-msgstr "Revenir à cette version"
+msgstr "Revenir Ã  cette version"
 
 msgid "Edit this page"
 msgstr "Modifier cette page"
 
 msgid "Recent changes"
-msgstr "Modifications récentes"
+msgstr "Modifications rÃ©centes"
 
 msgid "History"
 msgstr "Historique"
@@ -834,7 +834,7 @@ msgid "Wiki help"
 msgstr "Aide Wiki"
 
 msgid "Wiki - Recent changes"
-msgstr "Wiki - Modifications récentes"
+msgstr "Wiki - Modifications rÃ©centes"
 
 msgid "Page"
 msgstr "Page"
@@ -852,16 +852,16 @@ msgid "<n> month(s)"
 msgstr "%1 mois"
 
 msgid "Administrative tasks"
-msgstr "Tâches administratives"
+msgstr "TÃ¢ches administratives"
 
 msgid "Talks & events"
-msgstr "Présentations &amp; événements"
+msgstr "PrÃ©sentations &amp; Ã©vÃ©nements"
 
 msgid "Credit card payment"
 msgstr "Paiement par carte bancaire"
 
 msgid "Payment"
-msgstr "Saisie d'un règlement"
+msgstr "Saisie d'un rÃ¨glement"
 
 msgid "User"
 msgstr "Utilisateur"
@@ -873,53 +873,53 @@ msgid "Update"
 msgstr "Valider"
 
 msgid "speaker"
-msgstr "présentateur"
+msgstr "prÃ©sentateur"
 
 msgid "Total"
 msgstr "Total"
 
 msgid "Payment confirmation"
-msgstr "Confirmation de règlement"
+msgstr "Confirmation de rÃ¨glement"
 
 msgid "Your online payment for your <conf> registration has been approved."
 msgstr ""
-"Votre paiement en ligne de l'inscription à %1 est enregistré.\n"
+"Votre paiement en ligne de l'inscription Ã  %1 est enregistrÃ©.\n"
 "\n"
-"Numéro d'inscription : %2\n"
-"Date de règlement : %3 GMT\n"
-"Montant réglé : %4 %5\n"
+"NumÃ©ro d'inscription : %2\n"
+"Date de rÃ¨glement : %3 GMT\n"
+"Montant rÃ©glÃ© : %4 %5\n"
 "\n"
-"Votre numéro d'inscription est %2.\n"
-"N'oubliez pas de vous munir de ce numéro lors de votre venue à la conférence.\n"
+"Votre numÃ©ro d'inscription est %2.\n"
+"N'oubliez pas de vous munir de ce numÃ©ro lors de votre venue Ã  la confÃ©rence.\n"
 "\n"
-"Merci de votre participation à %1 !\n"
+"Merci de votre participation Ã  %1 !\n"
 
 msgid "Invoice #"
-msgstr "Facture N°"
+msgstr "Facture NÂ°"
 
 msgid "Dated"
 msgstr "En date du"
 
 msgid "Printed on"
-msgstr "Editée le"
+msgstr "EditÃ©e le"
 
 msgid "Description"
-msgstr "Désignation"
+msgstr "DÃ©signation"
 
 msgid "Quantity"
-msgstr "Quantité"
+msgstr "QuantitÃ©"
 
 msgid "Unit Price"
 msgstr "Prix unitaire"
 
 msgid "<conf> registration"
-msgstr "Inscription à %1"
+msgstr "Inscription Ã  %1"
 
 msgid "Your order number:"
-msgstr "Votre commande n°&nbsp;:"
+msgstr "Votre commande nÂ°&nbsp;:"
 
 msgid "Total due"
-msgstr "Total à payer"
+msgstr "Total Ã  payer"
 
 msgid "Invoice"
 msgstr "Facture"
@@ -927,19 +927,19 @@ msgstr "Facture"
 msgid "You can print this page: only the invoice below will be printed."
 msgstr ""
 "Vous pouvez imprimer cette page&nbsp;: seule la facture ci-dessous\n"
-"sera imprimée.\n"
+"sera imprimÃ©e.\n"
 
 msgid "Printer friendly version"
 msgstr "Version imprimable"
 
 msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Cliquer ici</a> pour modifier ou compléter ces informations."
+msgstr "<a href=\"%1\">Cliquer ici</a> pour modifier ou complÃ©ter ces informations."
 
 msgid "Establishing your invoice requires your address."
-msgstr "Votre adresse est indispensable pour l'émission d'une facture."
+msgstr "Votre adresse est indispensable pour l'Ã©mission d'une facture."
 
 msgid "Please make sure the billing information is correct."
-msgstr "Merci de vérifier l'exactitude des informations de facturation."
+msgstr "Merci de vÃ©rifier l'exactitude des informations de facturation."
 
 msgid "Address"
 msgstr "Adresse"
@@ -948,7 +948,7 @@ msgid "I confirm"
 msgstr "Je confirme"
 
 msgid "Submit/Edit a talk"
-msgstr "Soumettre/Modifier une présentation"
+msgstr "Soumettre/Modifier une prÃ©sentation"
 
 msgid "You must specify a user"
 msgstr "L'utilisateur est obligatoire"
@@ -957,33 +957,33 @@ msgid "You must enter a title for the talk"
 msgstr "Le titre est obligatoire"
 
 msgid "You must provide an abstract"
-msgstr "Le résumé est obligatoire"
+msgstr "Le rÃ©sumÃ© est obligatoire"
 
 msgid "Abstract URL is not a valid URL"
-msgstr "L'URL du résumé n'est pas une URL valide"
+msgstr "L'URL du rÃ©sumÃ© n'est pas une URL valide"
 
 msgid "Talk URL is not a valid URL"
-msgstr "L'URL de la présentation n'est pas une URL valide"
+msgstr "L'URL de la prÃ©sentation n'est pas une URL valide"
 
 msgid "Delete this talk"
-msgstr "Supprimer cette présentation"
+msgstr "Supprimer cette prÃ©sentation"
 
 msgid "Track"
-msgstr "Thème"
+msgstr "ThÃ¨me"
 
 msgid "Abstract URL"
-msgstr "URL résumé"
+msgstr "URL rÃ©sumÃ©"
 
 msgid "Talk URL"
-msgstr "URL présentation"
+msgstr "URL prÃ©sentation"
 
 msgid "Standard durations for <confname> are:"
-msgstr "Les durées standards pour %1 sont&nbsp;:"
+msgstr "Les durÃ©es standards pour %1 sont&nbsp;:"
 
 msgid "If the proposed durations do not quite fit your talk, please"
 msgstr ""
-"Si les durées proposées ne conviennent pas, utiliser le champ\n"
-"commentaire pour indiquer la durée préférée.\n"
+"Si les durÃ©es proposÃ©es ne conviennent pas, utiliser le champ\n"
+"commentaire pour indiquer la durÃ©e prÃ©fÃ©rÃ©e.\n"
 
 msgid "Comments"
 msgstr "Commentaires"
@@ -991,19 +991,19 @@ msgstr "Commentaires"
 msgid "The comment field is used for communicating information about"
 msgstr ""
 "Le champ commentaire permet de passer de l'information au\n"
-"sujet de cette présentation aux organisateurs.\n"
+"sujet de cette prÃ©sentation aux organisateurs.\n"
 
 msgid "Status"
-msgstr "État"
+msgstr "Ã‰tat"
 
 msgid "accepted"
-msgstr "accepté"
+msgstr "acceptÃ©"
 
 msgid "confirmed"
-msgstr "confirmé"
+msgstr "confirmÃ©"
 
 msgid "Accepted"
-msgstr "Accepté"
+msgstr "AcceptÃ©"
 
 msgid "Pending"
 msgstr "En attente"
@@ -1012,16 +1012,16 @@ msgid "Submit this talk"
 msgstr "Soumettre"
 
 msgid "Talk submitted"
-msgstr "Présentation soumise"
+msgstr "PrÃ©sentation soumise"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Merci, votre soumission de présentation est enregistrée en tant que <b><a href=\"%1\">%2</a></b>."
+msgstr "Merci, votre soumission de prÃ©sentation est enregistrÃ©e en tant que <b><a href=\"%1\">%2</a></b>."
 
 msgid "iCal Import"
 msgstr "Import iCal"
 
 msgid "The following talks have been updated:"
-msgstr "Les présentations suivantes ont été modifiées&nbsp;:"
+msgstr "Les prÃ©sentations suivantes ont Ã©tÃ© modifiÃ©es&nbsp;:"
 
 msgid "Old time"
 msgstr "Ancien horaire"
@@ -1039,37 +1039,37 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "List of talks"
-msgstr "Liste des présentations"
+msgstr "Liste des prÃ©sentations"
 
 msgid "No talk was submitted yet."
-msgstr "Aucune présentation n'a encore été proposée."
+msgstr "Aucune prÃ©sentation n'a encore Ã©tÃ© proposÃ©e."
 
 msgid "Submitted talks:"
-msgstr "Présentations soumises&nbsp;:"
+msgstr "PrÃ©sentations soumises&nbsp;:"
 
 msgid "Accepted talks:"
-msgstr "Présentations acceptées&nbsp;:"
+msgstr "PrÃ©sentations acceptÃ©es&nbsp;:"
 
 msgid "Accepted talks are shown in bold type."
-msgstr "Les présentations acceptées sont affichées en caractères <b>gras</b>."
+msgstr "Les prÃ©sentations acceptÃ©es sont affichÃ©es en caractÃ¨res <b>gras</b>."
 
 msgid "Total duration of accepted talks:"
-msgstr "Durée totale des présentations acceptées&nbsp;:"
+msgstr "DurÃ©e totale des prÃ©sentations acceptÃ©es&nbsp;:"
 
 msgid "hours"
 msgstr "heures"
 
 msgid "Accepted lightning talks:"
-msgstr "Communications éclair acceptées&nbsp;:"
+msgstr "Communications Ã©clair acceptÃ©es&nbsp;:"
 
 msgid "Tracks"
-msgstr "Thèmes"
+msgstr "ThÃ¨mes"
 
 msgid "No track"
-msgstr "Sans thème"
+msgstr "Sans thÃ¨me"
 
 msgid "lightning"
-msgstr "éclair"
+msgstr "Ã©clair"
 
 msgid "from"
 msgstr "de"
@@ -1078,31 +1078,31 @@ msgid "Comment:"
 msgstr "Commentaire&nbsp;:"
 
 msgid "You can find more information on the speaker's site:"
-msgstr "Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:"
+msgstr "Vous pouvez trouver plus d'information sur le site du prÃ©sentateur&nbsp;:"
 
 msgid "Abstract:"
-msgstr "Résumé&nbsp;:"
+msgstr "RÃ©sumÃ©&nbsp;:"
 
 msgid "Talk:"
-msgstr "Présentation&nbsp;:"
+msgstr "PrÃ©sentation&nbsp;:"
 
 msgid "Talk removed"
-msgstr "Présentation supprimée"
+msgstr "PrÃ©sentation supprimÃ©e"
 
 msgid "The Talk <title> has been removed."
-msgstr "La présentation <b>%1</b> a été supprimée."
+msgstr "La prÃ©sentation <b>%1</b> a Ã©tÃ© supprimÃ©e."
 
 msgid "Talk inserted"
-msgstr "Présentation ajoutée"
+msgstr "PrÃ©sentation ajoutÃ©e"
 
 msgid "Talk updated"
-msgstr "Présentation modifiée"
+msgstr "PrÃ©sentation modifiÃ©e"
 
 msgid "Submitted by:"
 msgstr "Soumis par&nbsp;:"
 
 msgid "The following fields have been updated:"
-msgstr "Les champs suivant on été modifiés&nbsp;:"
+msgstr "Les champs suivant on Ã©tÃ© modifiÃ©s&nbsp;:"
 
 msgid "By:"
 msgstr "Par&nbsp;:"

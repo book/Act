@@ -35,6 +35,8 @@ sub _init
     $options->{LANGUAGE_VAR} = 'global.request.language';
     $options->{PARSER} = Act::Template::Parser->new($options);
     $options->{PLUGIN_BASE} = 'Act::Plugin';
+    $options->{UNICODE} = 1;
+    $options->{ENCODING} = 'UTF-8';
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs

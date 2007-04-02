@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "You must enter your email"
@@ -11,7 +11,7 @@ msgid "Your email address looks bogus."
 msgstr "Het E-mail adres is ongeldig."
 
 msgid "Sorry, this conference is over."
-msgstr "Sorry, deze conferentie is beëindigd."
+msgstr "Sorry, deze conferentie is beÃ«indigd."
 
 msgid "Please create your user below."
 msgstr "U kan hieronder Uw gebruiker aanmaken."

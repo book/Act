@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: country_ad
@@ -66,7 +66,7 @@ msgstr "Aruba"
 
 #: country_ax
 msgid "country_ax"
-msgstr "Isole Åland"
+msgstr "Isole Ã…land"
 
 #: country_az
 msgid "country_az"
@@ -102,7 +102,7 @@ msgstr "Bahrein"
 
 #: country_bi
 msgid "country_bi"
-msgstr "Burúndi"
+msgstr "BurÃºndi"
 
 #: country_bj
 msgid "country_bj"
@@ -686,7 +686,7 @@ msgstr "Panama"
 
 #: country_pe
 msgid "country_pe"
-msgstr "Perù"
+msgstr "PerÃ¹"
 
 #: country_pf
 msgid "country_pf"
@@ -822,7 +822,7 @@ msgstr "Suriname"
 
 #: country_st
 msgid "country_st"
-msgstr "São Tomé e Príncipe"
+msgstr "SÃ£o TomÃ© e PrÃ­ncipe"
 
 #: country_sv
 msgid "country_sv"

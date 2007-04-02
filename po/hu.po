@@ -1,44 +1,44 @@
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "payment_means_CHQ"
 msgstr "Csekk"
 
 msgid "payment_means_CASH"
-msgstr "Kézpénz"
+msgstr "KÃ©zpÃ©nz"
 
 msgid "payment_means_ONLINE"
 msgstr "Online"
 
 msgid "room_out"
-msgstr "Szabadtér"
+msgstr "SzabadtÃ©r"
 
 msgid "room_venue"
 msgstr "Terem"
 
 msgid "User information"
-msgstr "Felhasználói adatok"
+msgstr "FelhasznÃ¡lÃ³i adatok"
 
 msgid "Login"
-msgstr "Felhasználónév"
+msgstr "FelhasznÃ¡lÃ³nÃ©v"
 
 msgid "Name"
-msgstr "Név"
+msgstr "NÃ©v"
 
 msgid "City"
-msgstr "Település"
+msgstr "TelepÃ¼lÃ©s"
 
 msgid "Country"
-msgstr "Ország"
+msgstr "OrszÃ¡g"
 
 msgid "Perl mongers group"
 msgstr "Perl csoport"
 
 msgid "Company"
-msgstr "Cég"
+msgstr "CÃ©g"
 
 msgid "Web page"
 msgstr "Weblap"
@@ -47,172 +47,172 @@ msgid "GPG key ID"
 msgstr "GPG publikus kulcsd"
 
 msgid "No photo"
-msgstr "nincs fotó"
+msgstr "nincs fotÃ³"
 
 msgid "Talk"
-msgstr "%numerate(%1,Elõadása,Elõadásai)"
+msgstr "%numerate(%1,ElÃµadÃ¡sa,ElÃµadÃ¡sai)"
 
 msgid "Accepted Talk"
-msgstr "Elfogadott %numerate(%1,elõadása,elõadásai)"
+msgstr "Elfogadott %numerate(%1,elÃµadÃ¡sa,elÃµadÃ¡sai)"
 
 msgid "minutes"
 msgstr "perc"
 
 msgid "Lightning talk"
-msgstr "Villámelõadás"
+msgstr "VillÃ¡melÃµadÃ¡s"
 
 msgid "Other Act conferences:"
-msgstr "További Perl konferenciák:"
+msgstr "TovÃ¡bbi Perl konferenciÃ¡k:"
 
 msgid "Main private page"
-msgstr "Személyes oldal"
+msgstr "SzemÃ©lyes oldal"
 
 msgid "to <this conference>"
 msgstr "%1"
 
 msgid "This is your personal page."
 msgstr ""
-"Ez a személyes felhasználói oldal. Innen kiindulva lehet karbantartani a\n"
-"felvitt adatokat, például a konferenciára történõ jelentkezést.\n"
+"Ez a szemÃ©lyes felhasznÃ¡lÃ³i oldal. Innen kiindulva lehet karbantartani a\n"
+"felvitt adatokat, pÃ©ldÃ¡ul a konferenciÃ¡ra tÃ¶rtÃ©nÃµ jelentkezÃ©st.\n"
 
 msgid "to Act-enabled conferences."
-msgstr "a Perl konferenciákhoz."
+msgstr "a Perl konferenciÃ¡khoz."
 
 msgid "You have purchased your conference ticket:"
-msgstr "A következõ konferencia jegyek lett megvásárolva:"
+msgstr "A kÃ¶vetkezÃµ konferencia jegyek lett megvÃ¡sÃ¡rolva:"
 
 msgid "Order number"
-msgstr "Rendelési szám"
+msgstr "RendelÃ©si szÃ¡m"
 
 msgid "Payment date"
-msgstr "Vásárlás ideje"
+msgstr "VÃ¡sÃ¡rlÃ¡s ideje"
 
 msgid "Amount paid"
-msgstr "Fizetett összeg"
+msgstr "Fizetett Ã¶sszeg"
 
 msgid "Download your invoice"
-msgstr "<a href=\"%1\">Számla letöltése</a>."
+msgstr "<a href=\"%1\">SzÃ¡mla letÃ¶ltÃ©se</a>."
 
 msgid "You have not bought your conference ticket yet."
-msgstr "Még nem került sor konferencia jegy vásárlásra."
+msgstr "MÃ©g nem kerÃ¼lt sor konferencia jegy vÃ¡sÃ¡rlÃ¡sra."
 
 msgid "Please consider doing so using our online payment system."
-msgstr "Kérjük vásároljon konferencia jegyet."
+msgstr "KÃ©rjÃ¼k vÃ¡sÃ¡roljon konferencia jegyet."
 
 msgid "Please consider doing so once our online payment system is ready."
-msgstr "Kérjük a fizetési rendszer elindítása után vásároljon konferencia jegyet."
+msgstr "KÃ©rjÃ¼k a fizetÃ©si rendszer elindÃ­tÃ¡sa utÃ¡n vÃ¡sÃ¡roljon konferencia jegyet."
 
 msgid "You did not register for this conference"
 msgstr ""
-"Erre a konferenciára <a href=\"%1\">még nem regisztrált</a>.\n"
-"Kérjük regisztráljon!\n"
+"Erre a konferenciÃ¡ra <a href=\"%1\">mÃ©g nem regisztrÃ¡lt</a>.\n"
+"KÃ©rjÃ¼k regisztrÃ¡ljon!\n"
 
 msgid "You can:"
-msgstr "Lehetõségek:"
+msgstr "LehetÃµsÃ©gek:"
 
 msgid "purchase your conference ticket"
-msgstr "jegyvásárlás"
+msgstr "jegyvÃ¡sÃ¡rlÃ¡s"
 
 msgid "register for this conference"
-msgstr "regisztráció erre a konferenciára"
+msgstr "regisztrÃ¡ciÃ³ erre a konferenciÃ¡ra"
 
 msgid "update your information"
-msgstr "személyes adatok frissítése"
+msgstr "szemÃ©lyes adatok frissÃ­tÃ©se"
 
 msgid "manage your photo"
-msgstr "fotó kezelése"
+msgstr "fotÃ³ kezelÃ©se"
 
 msgid "change your password"
-msgstr "jelszóváltoztatás"
+msgstr "jelszÃ³vÃ¡ltoztatÃ¡s"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "saját elõadások (az elfogadott elõadások <b>ki vannak emelve</b>)"
+msgstr "sajÃ¡t elÃµadÃ¡sok (az elfogadott elÃµadÃ¡sok <b>ki vannak emelve</b>)"
 
 msgid "submit a talk"
-msgstr "elõadás beküldése"
+msgstr "elÃµadÃ¡s bekÃ¼ldÃ©se"
 
 msgid "log out"
-msgstr "kijelentkezés"
+msgstr "kijelentkezÃ©s"
 
 msgid "unregister from <this conference>"
-msgstr "leiratkozás: %1"
+msgstr "leiratkozÃ¡s: %1"
 
 msgid "(You were there)"
-msgstr "(Részt vett rajta)"
+msgstr "(RÃ©szt vett rajta)"
 
 msgid "(You are there)"
-msgstr "(Éppen részt vesz rajta)"
+msgstr "(Ã‰ppen rÃ©szt vesz rajta)"
 
 msgid "(You will be there)"
-msgstr "(Részt fog venni rajta)"
+msgstr "(RÃ©szt fog venni rajta)"
 
 msgid "You must enter your email"
-msgstr "Az email cím megadása kötelezõ."
+msgstr "Az email cÃ­m megadÃ¡sa kÃ¶telezÃµ."
 
 msgid "Your email address looks bogus."
-msgstr "Az email cím hibásnak tûnik."
+msgstr "Az email cÃ­m hibÃ¡snak tÃ»nik."
 
 msgid "Registration"
-msgstr "Regisztráció"
+msgstr "RegisztrÃ¡ciÃ³"
 
 msgid "Please create your user below."
-msgstr "A felhasználó létrehozásához az alábbi adatokat kell megadni."
+msgstr "A felhasznÃ¡lÃ³ lÃ©trehozÃ¡sÃ¡hoz az alÃ¡bbi adatokat kell megadni."
 
 msgid "Identifier is already in use. Please choose another."
-msgstr "%1 azonosító már foglalt."
+msgstr "%1 azonosÃ­tÃ³ mÃ¡r foglalt."
 
 msgid "The address is already registered."
-msgstr "%1 email cím már foglalt."
+msgstr "%1 email cÃ­m mÃ¡r foglalt."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Az azonosítónak legalább 3 betûbõl kell állnia és csak alfanumerikus karaktereket tartalmazhat (<tt>[a-zA-Z0-9_]</tt>)."
+msgstr "Az azonosÃ­tÃ³nak legalÃ¡bb 3 betÃ»bÃµl kell Ã¡llnia Ã©s csak alfanumerikus karaktereket tartalmazhat (<tt>[a-zA-Z0-9_]</tt>)."
 
 msgid "You must enter your first name"
-msgstr "A keresztnév megadása kötelezõ."
+msgstr "A keresztnÃ©v megadÃ¡sa kÃ¶telezÃµ."
 
 msgid "You must enter your last name"
-msgstr "A vezetéknév megadása kötelezõ."
+msgstr "A vezetÃ©knÃ©v megadÃ¡sa kÃ¶telezÃµ."
 
 msgid "You must enter a country from the list"
-msgstr "Az országot a listából kell választani."
+msgstr "Az orszÃ¡got a listÃ¡bÃ³l kell vÃ¡lasztani."
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-"A regisztrációhoz elõször egy felhasználót kell létrehozni az oldalon.\n"
-"<b>Egy korábbi "Act" (Perl) konferencián történõ részvétel esetén a régi\n"
-"felhasználó ismét használható, ehhez egyszerûen csak <a href=\"%1\">be kell lépni</a> vele.</b>\n"
+"A regisztrÃ¡ciÃ³hoz elÃµszÃ¶r egy felhasznÃ¡lÃ³t kell lÃ©trehozni az oldalon.\n"
+"<b>Egy korÃ¡bbi "Act" (Perl) konferenciÃ¡n tÃ¶rtÃ©nÃµ rÃ©szvÃ©tel esetÃ©n a rÃ©gi\n"
+"felhasznÃ¡lÃ³ ismÃ©t hasznÃ¡lhatÃ³, ehhez egyszerÃ»en csak <a href=\"%1\">be kell lÃ©pni</a> vele.</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"Figyelem! A megadott személyes adatok egy <a href=\"%1\">online\n"
-"<i>ki-kicsodához</i></a> lesznek felhasználva, melyben minden résztvevõ szerepel. Ez\n"
-"a lehetõség jellemzõen a konferencia után válik hasznossá, mikor a konferencia résztvevõk\n"
-"fel szeretnék venni egymással a kapcsolatot (vagy elõzetesen, hiszen lekérdezhetõ, hogy\n"
+"Figyelem! A megadott szemÃ©lyes adatok egy <a href=\"%1\">online\n"
+"<i>ki-kicsodÃ¡hoz</i></a> lesznek felhasznÃ¡lva, melyben minden rÃ©sztvevÃµ szerepel. Ez\n"
+"a lehetÃµsÃ©g jellemzÃµen a konferencia utÃ¡n vÃ¡lik hasznossÃ¡, mikor a konferencia rÃ©sztvevÃµk\n"
+"fel szeretnÃ©k venni egymÃ¡ssal a kapcsolatot (vagy elÃµzetesen, hiszen lekÃ©rdezhetÃµ, hogy\n"
 "milyen guruk fognak megjelenni).\n"
 
 msgid "Please create the user below."
-msgstr "A felhasználó létrehozásához az alábbi adatokat kell megadni."
+msgstr "A felhasznÃ¡lÃ³ lÃ©trehozÃ¡sÃ¡hoz az alÃ¡bbi adatokat kell megadni."
 
 msgid "Register"
 msgstr "Csatlakozom"
 
 msgid "Registered!"
-msgstr "Sikeres regisztráció"
+msgstr "Sikeres regisztrÃ¡ciÃ³"
 
 msgid "Congratulations, you are now registered"
 msgstr ""
-"Gratulálunk <b>%1</b>, a regisztráció sikeresen lezajlott.\n"
-"A jelszó: <b>%2</b>. A következõ lépés a személyes\n"
-"adatok beállítása lehet.\n"
+"GratulÃ¡lunk <b>%1</b>, a regisztrÃ¡ciÃ³ sikeresen lezajlott.\n"
+"A jelszÃ³: <b>%2</b>. A kÃ¶vetkezÃµ lÃ©pÃ©s a szemÃ©lyes\n"
+"adatok beÃ¡llÃ­tÃ¡sa lehet.\n"
 
 msgid "First Name"
-msgstr "Keresztnév"
+msgstr "KeresztnÃ©v"
 
 msgid "Last Name"
-msgstr "Vezetéknév"
+msgstr "VezetÃ©knÃ©v"
 
 msgid "T-Shirt"
-msgstr "Póló"
+msgstr "PÃ³lÃ³"
 
 msgid "Join!"
 msgstr "Csatlakozom!"
@@ -224,181 +224,181 @@ msgid "min"
 msgstr "min."
 
 msgid "Log in"
-msgstr "Bejelentkezés"
+msgstr "BejelentkezÃ©s"
 
 msgid "Password"
-msgstr "Jelszó"
+msgstr "JelszÃ³"
 
 msgid "Submit"
-msgstr "Elküld"
+msgstr "ElkÃ¼ld"
 
 msgid "Forgot your password?"
-msgstr "<a href=\"%1\">Elfelejtett jelszó</a>"
+msgstr "<a href=\"%1\">Elfelejtett jelszÃ³</a>"
 
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
-"Ez az oldalt böngészõ sütiket használ a felhasználók bejelentkezésének\n"
-"nyilvántartásához. Ha a sütik kezelése a böngészõben tiltott (alapértelmezett\n"
-"esetben NEM tiltott), engedélyezni kell a következõ domaint: <b>%1</b>.\n"
+"Ez az oldalt bÃ¶ngÃ©szÃµ sÃ¼tiket hasznÃ¡l a felhasznÃ¡lÃ³k bejelentkezÃ©sÃ©nek\n"
+"nyilvÃ¡ntartÃ¡sÃ¡hoz. Ha a sÃ¼tik kezelÃ©se a bÃ¶ngÃ©szÃµben tiltott (alapÃ©rtelmezett\n"
+"esetben NEM tiltott), engedÃ©lyezni kell a kÃ¶vetkezÃµ domaint: <b>%1</b>.\n"
 
 msgid "Logout"
-msgstr "Kijelentkezés"
+msgstr "KijelentkezÃ©s"
 
 msgid "You have been logged out and the cookie deleted from your browser."
-msgstr "A kijelentkezés megtörtént, a böngészõ süti törlésre került."
+msgstr "A kijelentkezÃ©s megtÃ¶rtÃ©nt, a bÃ¶ngÃ©szÃµ sÃ¼ti tÃ¶rlÃ©sre kerÃ¼lt."
 
 msgid "Act conferences"
-msgstr "További konferenciák"
+msgstr "TovÃ¡bbi konferenciÃ¡k"
 
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Rights management"
-msgstr "Jogosultság beállítások"
+msgstr "JogosultsÃ¡g beÃ¡llÃ­tÃ¡sok"
 
 msgid "Events"
-msgstr "Események"
+msgstr "EsemÃ©nyek"
 
 msgid "Submit a new event"
-msgstr "Új esemény beküldése"
+msgstr "Ãšj esemÃ©ny bekÃ¼ldÃ©se"
 
 msgid "Schedule"
-msgstr "Idõbeosztás"
+msgstr "IdÃµbeosztÃ¡s"
 
 msgid "iCal export"
-msgstr "iCal exportálás"
+msgstr "iCal exportÃ¡lÃ¡s"
 
 msgid "iCal import"
-msgstr "iCal importálás"
+msgstr "iCal importÃ¡lÃ¡s"
 
 msgid "Submit a talk proposal"
-msgstr "Elõadásra jelentkezés"
+msgstr "ElÃµadÃ¡sra jelentkezÃ©s"
 
 msgid "Presentations"
-msgstr "Elõadások"
+msgstr "ElÃµadÃ¡sok"
 
 msgid "Treasurer"
-msgstr "Pénztár"
+msgstr "PÃ©nztÃ¡r"
 
 msgid "Payments"
-msgstr "Fizetések"
+msgstr "FizetÃ©sek"
 
 msgid "Edit profile"
 msgstr "Adatok"
 
 msgid "New user"
-msgstr "Új felhasználó"
+msgstr "Ãšj felhasznÃ¡lÃ³"
 
 msgid "Users"
-msgstr "Felhasználók"
+msgstr "FelhasznÃ¡lÃ³k"
 
 msgid "Search"
-msgstr "Keresés"
+msgstr "KeresÃ©s"
 
 msgid "Statistics"
 msgstr "Statisztika"
 
 msgid "CSV export"
-msgstr "CSV exportálás"
+msgstr "CSV exportÃ¡lÃ¡s"
 
 msgid "The schedule is not ready to be seen."
-msgstr "A program még nincs meghatározva."
+msgstr "A program mÃ©g nincs meghatÃ¡rozva."
 
 msgid "The time and place of the following talks haven't been decided yet."
-msgstr "A következõ elõadások helye és ideje még nem lett eldöntve."
+msgstr "A kÃ¶vetkezÃµ elÃµadÃ¡sok helye Ã©s ideje mÃ©g nem lett eldÃ¶ntve."
 
 msgid "Speaker"
-msgstr "Elõadó"
+msgstr "ElÃµadÃ³"
 
 msgid "Talk title"
-msgstr "Elõadás címe"
+msgstr "ElÃµadÃ¡s cÃ­me"
 
 msgid "Duration"
 msgstr "Hossza"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette."
+msgstr "A <b>kiemelt</b> elÃµadÃ¡sok megtartÃ¡sÃ¡t az elÃµadÃ³ megerÃµsÃ­tette."
 
 msgid "Time"
-msgstr "Idõ"
+msgstr "IdÃµ"
 
 msgid "Room <room name>"
-msgstr "Helyszín: %1"
+msgstr "HelyszÃ­n: %1"
 
 msgid "Ticket for <conference name>."
 msgstr "%1 jegy."
 
 msgid "Price"
-msgstr "Ár"
+msgstr "Ãr"
 
 msgid "Buy now!"
-msgstr "Azonnali megvétel"
+msgstr "Azonnali megvÃ©tel"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"Fontos tudni, hogy a bankszámlaszámot, a bankkártya számát és magát a\n"
-"tranzakciót a bank fogja kezelni. <b>Az oldal üzemeltetõi nem férnek\n"
-"hozzá semmilyen formában és módon ezekhez a fizetési információkhoz.</b>\n"
-"Csak a pénz érkezik meg a folyamat végén... <tt>;-)</tt>\n"
+"Fontos tudni, hogy a bankszÃ¡mlaszÃ¡mot, a bankkÃ¡rtya szÃ¡mÃ¡t Ã©s magÃ¡t a\n"
+"tranzakciÃ³t a bank fogja kezelni. <b>Az oldal Ã¼zemeltetÃµi nem fÃ©rnek\n"
+"hozzÃ¡ semmilyen formÃ¡ban Ã©s mÃ³don ezekhez a fizetÃ©si informÃ¡ciÃ³khoz.</b>\n"
+"Csak a pÃ©nz Ã©rkezik meg a folyamat vÃ©gÃ©n... <tt>;-)</tt>\n"
 
 msgid "Online payment"
-msgstr "Online fizetés"
+msgstr "Online fizetÃ©s"
 
 msgid "Join"
 msgstr "Csatlakozom"
 
 msgid "To register to the <name> conference"
 msgstr ""
-"A %1 konferenciára történõ jelentkezéshez\n"
-"az alábbi gomb megnyomása szükséges.\n"
+"A %1 konferenciÃ¡ra tÃ¶rtÃ©nÃµ jelentkezÃ©shez\n"
+"az alÃ¡bbi gomb megnyomÃ¡sa szÃ¼ksÃ©ges.\n"
 
 msgid "The recognised rights are:"
-msgstr "A rendelkezésre álló jogok:"
+msgstr "A rendelkezÃ©sre Ã¡llÃ³ jogok:"
 
 msgid "Organizer"
-msgstr "Szervezõ"
+msgstr "SzervezÃµ"
 
 msgid "Organizer (talks management)"
-msgstr "Szervezõ (elõadás kezelõ)"
+msgstr "SzervezÃµ (elÃµadÃ¡s kezelÃµ)"
 
 msgid "Treasurer (payment management)"
-msgstr "Pénztáros (fizetés kezelõ)"
+msgstr "PÃ©nztÃ¡ros (fizetÃ©s kezelÃµ)"
 
 msgid "User rights"
-msgstr "Felhasználó jogok"
+msgstr "FelhasznÃ¡lÃ³ jogok"
 
 msgid "Amount"
-msgstr "Összeg"
+msgstr "Ã–sszeg"
 
 msgid "You cannot be pseudonymous with a blank nickname"
-msgstr "Üres becenevet nem lehet megadni."
+msgstr "Ãœres becenevet nem lehet megadni."
 
 msgid "The Perl monger group must end with <tt>.pm</tt>"
-msgstr "A Perl csoport nevének <tt>.pm</tt>-re kell végzõdnie"
+msgstr "A Perl csoport nevÃ©nek <tt>.pm</tt>-re kell vÃ©gzÃµdnie"
 
 msgid "The Perl monger group URL must start with http://"
-msgstr "A Perl csoport URL-jének http://-rel kell kezdõdnie"
+msgstr "A Perl csoport URL-jÃ©nek http://-rel kell kezdÃµdnie"
 
 msgid "The company URL must start with http://"
-msgstr "A cég URL-jének http://-vel kell kezdõdnie"
+msgstr "A cÃ©g URL-jÃ©nek http://-vel kell kezdÃµdnie"
 
 msgid "Your web site URL must start with http://"
-msgstr "A személyes honlap URL-jének http://-vel kell kezdõdnie"
+msgstr "A szemÃ©lyes honlap URL-jÃ©nek http://-vel kell kezdÃµdnie"
 
 msgid "Your perlmonks id must be a number"
-msgstr "A perlmonks azonosítónak számnak kell lennie"
+msgstr "A perlmonks azonosÃ­tÃ³nak szÃ¡mnak kell lennie"
 
 msgid "Number of family members attending must be a number"
-msgstr "A résztvevõ családtagok számának számnak kell lennie"
+msgstr "A rÃ©sztvevÃµ csalÃ¡dtagok szÃ¡mÃ¡nak szÃ¡mnak kell lennie"
 
 msgid "Civility"
 msgstr "Titulus"
 
 msgid "Nickname"
-msgstr "Becenév"
+msgstr "BecenÃ©v"
 
 msgid "Stay pseudonymous"
-msgstr "Névtelen szeretnék maradni"
+msgstr "NÃ©vtelen szeretnÃ©k maradni"
 
 msgid "Yes"
 msgstr "Igen"
@@ -407,361 +407,361 @@ msgid "No"
 msgstr "Nem"
 
 msgid "Hide email"
-msgstr "Email cím elrejtése"
+msgstr "Email cÃ­m elrejtÃ©se"
 
 msgid "Coming with"
-msgstr "Családtagok száma"
+msgstr "CsalÃ¡dtagok szÃ¡ma"
 
 msgid "6 or more"
-msgstr "6 vagy több"
+msgstr "6 vagy tÃ¶bb"
 
 msgid "people (who will not attend the conference)"
-msgstr "fõ (a konferencián nem vesznek részt)"
+msgstr "fÃµ (a konferenciÃ¡n nem vesznek rÃ©szt)"
 
 msgid "T-shirt size"
-msgstr "Póló méret"
+msgstr "PÃ³lÃ³ mÃ©ret"
 
 msgid "Full address"
-msgstr "Teljes cím"
+msgstr "Teljes cÃ­m"
 
 msgid "Timezone"
-msgstr "Idõzóna"
+msgstr "IdÃµzÃ³na"
 
 msgid "Monger group"
 msgstr "Perl csoport"
 
 msgid "(<em>City.pm</em>, city name in English, please)"
-msgstr "(<em>Varos.pm</em>, a város neve ne tartalmazzon ékezetet, ha nem magyar, akkor az angol neve megadandó!)"
+msgstr "(<em>Varos.pm</em>, a vÃ¡ros neve ne tartalmazzon Ã©kezetet, ha nem magyar, akkor az angol neve megadandÃ³!)"
 
 msgid "Monger group URL"
 msgstr "Perl csoport weblapja"
 
 msgid "VAT Number"
-msgstr "Adószám"
+msgstr "AdÃ³szÃ¡m"
 
 msgid "Company URL"
-msgstr "Cég weblapja"
+msgstr "CÃ©g weblapja"
 
 msgid "GPG public key ID"
 msgstr "GPG publikus kulcs"
 
 msgid "(please fill at least this one)"
-msgstr "(legalább egyet kérünk töltsön ki)"
+msgstr "(legalÃ¡bb egyet kÃ©rÃ¼nk tÃ¶ltsÃ¶n ki)"
 
 msgid "Update info"
-msgstr "Mentés"
+msgstr "MentÃ©s"
 
 msgid "Your information"
-msgstr "Felhasználói adatok"
+msgstr "FelhasznÃ¡lÃ³i adatok"
 
 msgid "This is a simulation. Under real circumstances, submitting"
 msgstr ""
-"Ez egy szimuláció. Normál körülmények között ennak a kérdõívnek\n"
-"az elküldése a bank weblapjára vinne, ahol meg kéne adni\n"
-"a bankkártya informcáiókat.<<br /><br />\n"
-"A szimulált fizetéshez az Elküld gombra kell kattintani.\n"
+"Ez egy szimulÃ¡ciÃ³. NormÃ¡l kÃ¶rÃ¼lmÃ©nyek kÃ¶zÃ¶tt ennak a kÃ©rdÃµÃ­vnek\n"
+"az elkÃ¼ldÃ©se a bank weblapjÃ¡ra vinne, ahol meg kÃ©ne adni\n"
+"a bankkÃ¡rtya informcÃ¡iÃ³kat.<<br /><br />\n"
+"A szimulÃ¡lt fizetÃ©shez az ElkÃ¼ld gombra kell kattintani.\n"
 
 msgid "Pay"
-msgstr "Elküld"
+msgstr "ElkÃ¼ld"
 
 msgid "Committed users are listed in <b>bold</b> type"
-msgstr ""A <b>kiemelt</b> felhasználók elõadást fognak tartani"
+msgstr ""A <b>kiemelt</b> felhasznÃ¡lÃ³k elÃµadÃ¡st fognak tartani"
 
 msgid "Search for users"
-msgstr "Résztvevõk"
+msgstr "RÃ©sztvevÃµk"
 
 msgid "Search form"
-msgstr "Keresés"
+msgstr "KeresÃ©s"
 
 msgid "Any"
-msgstr "bármely"
+msgstr "bÃ¡rmely"
 
 msgid "Your photo"
-msgstr "Fotó"
+msgstr "FotÃ³"
 
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
-"Ez a fénykép a konferencia <i>Ki-kicsodájában</i> fog kikötni,\n"
-"a célja pedig, hogy az egymást keresõ résztvevõk felismerjék ez alapján,\n"
-"hogy kivel beszélgettek egy jót. Ez további kapcsolatépítésnek lehet az\n"
-"alapja. A fényképet ennek fényében lehet feltölteni.\n"
+"Ez a fÃ©nykÃ©p a konferencia <i>Ki-kicsodÃ¡jÃ¡ban</i> fog kikÃ¶tni,\n"
+"a cÃ©lja pedig, hogy az egymÃ¡st keresÃµ rÃ©sztvevÃµk felismerjÃ©k ez alapjÃ¡n,\n"
+"hogy kivel beszÃ©lgettek egy jÃ³t. Ez tovÃ¡bbi kapcsolatÃ©pÃ­tÃ©snek lehet az\n"
+"alapja. A fÃ©nykÃ©pet ennek fÃ©nyÃ©ben lehet feltÃ¶lteni.\n"
 
 msgid "Delete Photo"
-msgstr "Fénykép törlése"
+msgstr "FÃ©nykÃ©p tÃ¶rlÃ©se"
 
 msgid "Update Photo"
-msgstr "Fénykép mentése"
+msgstr "FÃ©nykÃ©p mentÃ©se"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Valaki új jelszó készítését kezdeményezte oldalunkon.\n"
-"Az új jelszó: %1\n"
+"Valaki Ãºj jelszÃ³ kÃ©szÃ­tÃ©sÃ©t kezdemÃ©nyezte oldalunkon.\n"
+"Az Ãºj jelszÃ³: %1\n"
 
 msgid "New password"
-msgstr "Új jelszó"
+msgstr "Ãšj jelszÃ³"
 
 msgid "Reset Password"
-msgstr "Elfelejtett jelszó"
+msgstr "Elfelejtett jelszÃ³"
 
 msgid "Your password has been reset and emailed to you."
-msgstr "Az új jelszó emailben elküldésre került."
+msgstr "Az Ãºj jelszÃ³ emailben elkÃ¼ldÃ©sre kerÃ¼lt."
 
 msgid "Specify either your login, or your email address."
 msgstr ""
-"Az <B>azonosító</B> vagy az <B>email cím</B> megadása szükséges.\n"
-"A beküldés után új jelszó jön létre, majd kerül emailben elküldésre.\n"
+"Az <B>azonosÃ­tÃ³</B> vagy az <B>email cÃ­m</B> megadÃ¡sa szÃ¼ksÃ©ges.\n"
+"A bekÃ¼ldÃ©s utÃ¡n Ãºj jelszÃ³ jÃ¶n lÃ©tre, majd kerÃ¼l emailben elkÃ¼ldÃ©sre.\n"
 
 msgid "No user was found with this login or email address"
-msgstr "Nincs ilyen azonosítójú, email címû felhasználó"
+msgstr "Nincs ilyen azonosÃ­tÃ³jÃº, email cÃ­mÃ» felhasznÃ¡lÃ³"
 
 msgid "Specify a login, or an email address, but not both"
-msgstr "Egy azonosító vagy email cím megadása szükséges, de egyszerre mindkettõt nem lehet megadni."
+msgstr "Egy azonosÃ­tÃ³ vagy email cÃ­m megadÃ¡sa szÃ¼ksÃ©ges, de egyszerre mindkettÃµt nem lehet megadni."
 
 msgid "Generate password"
-msgstr "Új jelszó létrehozása"
+msgstr "Ãšj jelszÃ³ lÃ©trehozÃ¡sa"
 
 msgid "<conf name> Statistics"
 msgstr "%1 statisztik"
 
 msgid "There are n registered people"
 msgstr ""
-"%1 regisztrált\n"
-"%2 országból\n"
-"és %3 Perl csoportból vesz részt a rendezvényen.\n"
-"%4 felhasználó van, aki elõad, vagy fizetett\n"
-"a konferencián történõ részvételért.\n"
+"%1 regisztrÃ¡lt\n"
+"%2 orszÃ¡gbÃ³l\n"
+"Ã©s %3 Perl csoportbÃ³l vesz rÃ©szt a rendezvÃ©nyen.\n"
+"%4 felhasznÃ¡lÃ³ van, aki elÃµad, vagy fizetett\n"
+"a konferenciÃ¡n tÃ¶rtÃ©nÃµ rÃ©szvÃ©telÃ©rt.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"További statisztika tekinthetõ meg az <a href=\"%1\">ország / csoport</a>\n"
-"és a <a href=\"%2\">városok</a> tekintetében.\n"
+"TovÃ¡bbi statisztika tekinthetÃµ meg az <a href=\"%1\">orszÃ¡g / csoport</a>\n"
+"Ã©s a <a href=\"%2\">vÃ¡rosok</a> tekintetÃ©ben.\n"
 
 msgid "The number of committed users is listed between parentheses"
 msgstr ""
-"A kiemelt felhasználók (fizetett/elõad) a következõ táblázatban\n"
-"zárójelek között szerepelnek.\n"
+"A kiemelt felhasznÃ¡lÃ³k (fizetett/elÃµad) a kÃ¶vetkezÃµ tÃ¡blÃ¡zatban\n"
+"zÃ¡rÃ³jelek kÃ¶zÃ¶tt szerepelnek.\n"
 
 msgid "Click on the various links to find the corresponding users!"
-msgstr "Az egyes felhasználók listájának megtekintéséhez a linkre kell kattintani."
+msgstr "Az egyes felhasznÃ¡lÃ³k listÃ¡jÃ¡nak megtekintÃ©sÃ©hez a linkre kell kattintani."
 
 msgid "Note: the country total is not always equal to the city total."
 msgstr ""
-"Megjegyzés: a hibás felvitelnek köszönhetõen az ország összessítés\n"
-"nem mindig egyenlõ a települések összegével, a települések nem mindig\n"
-"a helyes országban vannak.\n"
+"MegjegyzÃ©s: a hibÃ¡s felvitelnek kÃ¶szÃ¶nhetÃµen az orszÃ¡g Ã¶sszessÃ­tÃ©s\n"
+"nem mindig egyenlÃµ a telepÃ¼lÃ©sek Ã¶sszegÃ©vel, a telepÃ¼lÃ©sek nem mindig\n"
+"a helyes orszÃ¡gban vannak.\n"
 
 msgid "No city information entered"
-msgstr "Nincs település megadva"
+msgstr "Nincs telepÃ¼lÃ©s megadva"
 
 msgid "Countries"
-msgstr "Országok"
+msgstr "OrszÃ¡gok"
 
 msgid "Monger groups"
 msgstr "Perl csoportok"
 
 msgid "Un-Registration"
-msgstr "Leiratkozás"
+msgstr "LeiratkozÃ¡s"
 
 msgid "To unregister from <conference>,"
 msgstr ""
-"A %1 konferenciáról történõ leiratkozáshoz\n"
-"az alábbi gombot kell megnyomni.\n"
+"A %1 konferenciÃ¡rÃ³l tÃ¶rtÃ©nÃµ leiratkozÃ¡shoz\n"
+"az alÃ¡bbi gombot kell megnyomni.\n"
 
 msgid "Unregister from <conference>"
 msgstr "Leiratkozom: %1"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Nem elõadás esemény hozzáadása, szerkesztése"
+msgstr "Nem elÃµadÃ¡s esemÃ©ny hozzÃ¡adÃ¡sa, szerkesztÃ©se"
 
 msgid "You must enter a title for the event"
-msgstr "A cím megadása kötelezõ"
+msgstr "A cÃ­m megadÃ¡sa kÃ¶telezÃµ"
 
 msgid "You must enter a short description for the event"
-msgstr "Az esemény rövid leírásának megadása kötelezõ"
+msgstr "Az esemÃ©ny rÃ¶vid leÃ­rÃ¡sÃ¡nak megadÃ¡sa kÃ¶telezÃµ"
 
 msgid "Please choose a duration"
-msgstr "Az esemény hosszát meg kell adni"
+msgstr "Az esemÃ©ny hosszÃ¡t meg kell adni"
 
 msgid "The supplied date is invalid"
-msgstr "A megadott dátum érvénytelen"
+msgstr "A megadott dÃ¡tum Ã©rvÃ©nytelen"
 
 msgid "The supplied time is invalid"
-msgstr "A megadott idõpont érvénytelen"
+msgstr "A megadott idÃµpont Ã©rvÃ©nytelen"
 
 msgid "The date/time is out of range"
-msgstr "A dátum/idõ rossz tartományba esik"
+msgstr "A dÃ¡tum/idÃµ rossz tartomÃ¡nyba esik"
 
 msgid "Event URL is not a valid URL"
-msgstr "Az esemény URL-je érvénytelen"
+msgstr "Az esemÃ©ny URL-je Ã©rvÃ©nytelen"
 
 msgid "Incorrect room submitted"
-msgstr "Érvénytelen helyszín"
+msgstr "Ã‰rvÃ©nytelen helyszÃ­n"
 
 msgid "Event submitted"
-msgstr "Esemény beküldve"
+msgstr "EsemÃ©ny bekÃ¼ldve"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Köszönjük, az esemény <b><a href=\"%1\">%2</a></b>\n"
-"néven mentésre került.\n"
+"KÃ¶szÃ¶njÃ¼k, az esemÃ©ny <b><a href=\"%1\">%2</a></b>\n"
+"nÃ©ven mentÃ©sre kerÃ¼lt.\n"
 
 msgid "List of events"
-msgstr "Események listája"
+msgstr "EsemÃ©nyek listÃ¡ja"
 
 msgid "No event was submitted yet."
-msgstr "Nincs még esemény beküldve."
+msgstr "Nincs mÃ©g esemÃ©ny bekÃ¼ldve."
 
 msgid "Event title"
-msgstr "Esemény címe"
+msgstr "EsemÃ©ny cÃ­me"
 
 msgid "Event removed"
-msgstr "Esemény törölve"
+msgstr "EsemÃ©ny tÃ¶rÃ¶lve"
 
 msgid "The event has been removed."
-msgstr "<b>%1</b> esemény törlésre került."
+msgstr "<b>%1</b> esemÃ©ny tÃ¶rlÃ©sre kerÃ¼lt."
 
 msgid "Date:"
-msgstr "Dátum:"
+msgstr "DÃ¡tum:"
 
 msgid "Not scheduled yet."
-msgstr "Még nincs besorolva."
+msgstr "MÃ©g nincs besorolva."
 
 msgid "Duration:"
 msgstr "Hossz:"
 
 msgid "You can find more information on the following site:"
-msgstr "A következõ oldalon további információk állnak rendelkezésre:"
+msgstr "A kÃ¶vetkezÃµ oldalon tovÃ¡bbi informÃ¡ciÃ³k Ã¡llnak rendelkezÃ©sre:"
 
 msgid "(plain text)"
-msgstr "(egyszerû szöveg)"
+msgstr "(egyszerÃ» szÃ¶veg)"
 
 msgid "Submit/Edit a talk"
-msgstr "Esemény beküldése, szerkesztése"
+msgstr "EsemÃ©ny bekÃ¼ldÃ©se, szerkesztÃ©se"
 
 msgid "You must specify a user"
-msgstr "Egy felhasználót meg kell adni"
+msgstr "Egy felhasznÃ¡lÃ³t meg kell adni"
 
 msgid "You must enter a title for the talk"
-msgstr "Az elõadásnak címet kell adni"
+msgstr "Az elÃµadÃ¡snak cÃ­met kell adni"
 
 msgid "You must provide an abstract"
-msgstr "Az absztraktot ki kell tölteni"
+msgstr "Az absztraktot ki kell tÃ¶lteni"
 
 msgid "Abstract URL is not a valid URL"
-msgstr "Az absztrakt URL-je érvénytelen"
+msgstr "Az absztrakt URL-je Ã©rvÃ©nytelen"
 
 msgid "Talk URL is not a valid URL"
-msgstr "Az elõadás URL-je érvénytelen"
+msgstr "Az elÃµadÃ¡s URL-je Ã©rvÃ©nytelen"
 
 msgid "Delete this talk"
-msgstr "Elõadás törlése"
+msgstr "ElÃµadÃ¡s tÃ¶rlÃ©se"
 
 msgid "Abstract URL"
 msgstr "Absztrakt URL-je"
 
 msgid "Talk URL"
-msgstr "Elõadás URL-je"
+msgstr "ElÃµadÃ¡s URL-je"
 
 msgid "Standard durations for <confname> are:"
-msgstr "Választható elõadás hosszok:"
+msgstr "VÃ¡laszthatÃ³ elÃµadÃ¡s hosszok:"
 
 msgid "If the proposed durations do not quite fit your talk, please"
 msgstr ""
-"Ha a választható idõtartamok nem megfelelõek az elõadás számára,\n"
-"az a megjegyzés mezõben jelezhetõ (a kívánt idõpont leírásával).\n"
+"Ha a vÃ¡laszthatÃ³ idÃµtartamok nem megfelelÃµek az elÃµadÃ¡s szÃ¡mÃ¡ra,\n"
+"az a megjegyzÃ©s mezÃµben jelezhetÃµ (a kÃ­vÃ¡nt idÃµpont leÃ­rÃ¡sÃ¡val).\n"
 
 msgid "Comments"
-msgstr "Megjegyzések"
+msgstr "MegjegyzÃ©sek"
 
 msgid "The comment field is used for communicating information about"
 msgstr ""
-"A megjegyzés mezõ a szervezõkkel való elõadással kapcsolatos\n"
-"kommunikációra szolgál.\n"
+"A megjegyzÃ©s mezÃµ a szervezÃµkkel valÃ³ elÃµadÃ¡ssal kapcsolatos\n"
+"kommunikÃ¡ciÃ³ra szolgÃ¡l.\n"
 
 msgid "Status"
-msgstr "Állapot"
+msgstr "Ãllapot"
 
 msgid "accepted"
 msgstr "elfogadott"
 
 msgid "confirmed"
-msgstr "megerõsített"
+msgstr "megerÃµsÃ­tett"
 
 msgid "Accepted"
 msgstr "elfogadott"
 
 msgid "Pending"
-msgstr "függõben"
+msgstr "fÃ¼ggÃµben"
 
 msgid "Submit this talk"
-msgstr "Elõadás beküldése"
+msgstr "ElÃµadÃ¡s bekÃ¼ldÃ©se"
 
 msgid "Talk submitted"
-msgstr "Elõadás beküldve"
+msgstr "ElÃµadÃ¡s bekÃ¼ldve"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Köszönjük, az elõadás <b><a href=\"%1\">%2</a></b> néven mentésre került."
+msgstr "KÃ¶szÃ¶njÃ¼k, az elÃµadÃ¡s <b><a href=\"%1\">%2</a></b> nÃ©ven mentÃ©sre kerÃ¼lt."
 
 msgid "List of talks"
-msgstr "Elõadások listája"
+msgstr "ElÃµadÃ¡sok listÃ¡ja"
 
 msgid "No talk was submitted yet."
-msgstr "Nincs még elõadás beküldve."
+msgstr "Nincs mÃ©g elÃµadÃ¡s bekÃ¼ldve."
 
 msgid "Submitted talks:"
-msgstr "Beküldött elõadások:"
+msgstr "BekÃ¼ldÃ¶tt elÃµadÃ¡sok:"
 
 msgid "Accepted talks:"
-msgstr "Elfogadott elõadások:"
+msgstr "Elfogadott elÃµadÃ¡sok:"
 
 msgid "Accepted talks are shown in bold type."
-msgstr "Az elfogadott elõadásokat <b>kiemeltük</b>."
+msgstr "Az elfogadott elÃµadÃ¡sokat <b>kiemeltÃ¼k</b>."
 
 msgid "Total duration of accepted talks:"
-msgstr "Az elfogadott elõadások összideje:"
+msgstr "Az elfogadott elÃµadÃ¡sok Ã¶sszideje:"
 
 msgid "hours"
-msgstr "óra"
+msgstr "Ã³ra"
 
 msgid "Accepted lightning talks:"
-msgstr "Elfogadott villámelõadások:"
+msgstr "Elfogadott villÃ¡melÃµadÃ¡sok:"
 
 msgid "lightning"
-msgstr "villámelõadás"
+msgstr "villÃ¡melÃµadÃ¡s"
 
 msgid "from"
 msgstr "csoportja"
 
 msgid "Comment:"
-msgstr "Megjegyzés:"
+msgstr "MegjegyzÃ©s:"
 
 msgid "You can find more information on the speaker's site:"
-msgstr "További információk az elõadó weblapján:"
+msgstr "TovÃ¡bbi informÃ¡ciÃ³k az elÃµadÃ³ weblapjÃ¡n:"
 
 msgid "Abstract:"
 msgstr "Absztrakt:"
 
 msgid "Talk:"
-msgstr "Elõadás:"
+msgstr "ElÃµadÃ¡s:"
 
 msgid "Talk removed"
-msgstr "Elõadás törölve"
+msgstr "ElÃµadÃ¡s tÃ¶rÃ¶lve"
 
 msgid "The Talk <title> has been removed."
-msgstr "Az elõadás törlésre került: <b>%1</b>."
+msgstr "Az elÃµadÃ¡s tÃ¶rlÃ©sre kerÃ¼lt: <b>%1</b>."
 
 msgid "Talk inserted"
-msgstr "Az elõadás hozzáadásra került"
+msgstr "Az elÃµadÃ¡s hozzÃ¡adÃ¡sra kerÃ¼lt"
 
 msgid "Talk updated"
-msgstr "Az elõadás módosítva"
+msgstr "Az elÃµadÃ¡s mÃ³dosÃ­tva"
 
 msgid "Submitted by:"
-msgstr "Beküldte:"
+msgstr "BekÃ¼ldte:"
 
 msgid "The following fields have been updated:"
-msgstr "A következõ mezõk lett módosítva:"
+msgstr "A kÃ¶vetkezÃµ mezÃµk lett mÃ³dosÃ­tva:"
 
 msgid "By:"
-msgstr "Módosító:"
+msgstr "MÃ³dosÃ­tÃ³:"
 

@@ -2,7 +2,6 @@ package Act::Handler::WikiEdit;
 
 use strict;
 use Apache::Constants qw(NOT_FOUND FORBIDDEN);
-use Encode;
 
 use Act::Config;
 use Act::Template::HTML;
@@ -38,7 +37,7 @@ sub wiki_edit
     my %data = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node));
     $template->variables(
         node     => $node,
-        content  => encode("ISO-8859-1", $data{content}),
+        content  => $data{content},
         checksum => $data{checksum},
     );
     $template->process('wiki/edit');
@@ -87,7 +86,7 @@ sub wiki_commit
             conflict    => 1,
             node        => $node,
             new_content => $Request{args}{content},
-            content     => encode("ISO-8859-1", $data{content}),
+            content     => $data{content},
             checksum    => $data{checksum},
         );
         $template->process('wiki/edit');

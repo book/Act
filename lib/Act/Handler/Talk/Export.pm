@@ -4,7 +4,6 @@ use strict;
 use DateTime;
 use DateTime::Format::Pg;
 use DateTime::Format::ICal;
-use Encode qw(from_to);
 
 use Act::Config;
 use Act::Talk;
@@ -35,7 +34,7 @@ sub handler
         push @talks, {
             dtstart => DateTime::Format::ICal->format_datetime($dtstart),
             dtend   => DateTime::Format::ICal->format_datetime($dtend),
-            title   => join('-', $t->id, from_to($t->title, 'ISO-8859-1', 'UTF-8')),
+            title   => join('-', $t->id, $t->title),
             uid     => sprintf('%04x', $t->id) . substr(UID,4),
         };
     }
@@ -49,7 +48,7 @@ sub handler
         cid      => CID,
         calname  => $Config->name->{$Request{language}},
     );
-    $Request{r}->send_http_header('text/calendar');
+    $Request{r}->send_http_header('text/calendar; charset=UTF-8');
     $template->process('talk/ical');
 }
 

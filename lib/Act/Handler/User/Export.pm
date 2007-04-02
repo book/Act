@@ -26,7 +26,7 @@ sub handler
 
     # generate CSV report
     my $csv = Text::xSV->new( header => [ @UROWS, @PROWS ] );
-    $Request{r}->send_http_header('text/csv');
+    $Request{r}->send_http_header('text/csv; charset=UTF-8');
     $Request{r}->print($csv->format_header());
 
     for my $u (@$users) {

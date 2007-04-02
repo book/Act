@@ -59,10 +59,8 @@ sub process
 
     # set Content-Type and send HTTP headers if not already done
     my $r = $Request{r};
-    if ($r && ref($r) && $r->isa('Apache') && !$r->header_out('Content-type')) {
-        $r->content_type('text/html; charset=iso-8859-1')
-            unless $r->content_type;
-        $r->send_http_header();
+    if ($r && ref($r) && $r->isa('Apache')) {
+        $r->send_http_header('text/html; charset=UTF-8');
     }
     return $self->SUPER::process(@_);
 }
