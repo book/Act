@@ -1,0 +1,94 @@
+#!/usr/bin/env perl
+use strict;
+
+use File::Spec::Functions;
+use Getopt::Std;
+use Imager;
+
+use Act::Config;
+use Act::User;
+use Act::Util;
+
+my %opts;
+getopts('n', \%opts) or die "usage: $0 [-n]\n";
+
+Act::Util::db_connect;
+my $img = Imager->new();
+
+my ($wmax, $hmax) = split /\D+/, $Config->general_max_imgsize;
+print "Max image size: $wmax x $hmax\n";
+
+# loop on users with a photo
+my $dir = catfile($Config->home, 'wwwdocs', $Config->general_dir_photos);
+
+my ($ok, $nok, $resized);
+for my $user ( @{ Act::User->get_items() } ) {
+    next unless $user->photo_name;
+
+    printf "%-10s  ", $user->photo_name;
+
+    my $pathname = catfile($dir, $user->photo_name);
+
+    $img->read(file => $pathname) or do {
+        print $img->errstr, "\n";
+        print "  unlink $pathname\n";
+        unlink($pathname) unless $opts{n};
+        print "  update user set photo_name = NULL\n";
+        $user->update(photo_name => undef) unless $opts{n};
+        ++$nok;
+        next;
+    };
+    my $format = $img->tags(name => 'i_format');
+    my ($w, $h) = map $img->$_, qw(getwidth getheight);
+    printf "%5d x %5d %s\n", $w, $h, $format;
+    unless ($Act::Config::Image_formats{$format}) {
+        print "  unknown format: $format\n";
+        print "  update user set photo_name = NULL\n";
+        $user->update(photo_name => undef) unless $opts{n};
+        next;
+    }
+
+    my $newfile = $user->user_id . $Act::Config::Image_formats{$format};
+    my $newpath = catfile($dir, $newfile);
+    my $update;
+    if ($w > $wmax || $h > $hmax) {
+        # image needs resizing
+        if ($w / $h > $wmax / $hmax) {
+            $h = int($wmax * ($h / $w));
+            $w = $wmax;
+        }
+        else {
+            $w = int($hmax * ($w / $h));
+            $h = $hmax;
+        }
+        ++$resized;
+        print "  resized to $w x $h\n";
+        $img = $img->scale(xpixels => $w, ypixels => $h) unless $opts{n};
+        ++$update;
+    }
+    elsif ($newpath ne $pathname) {
+        ++$update;
+    }
+    if ($update) {
+        # remove old file
+        if ($newpath ne $pathname) {
+            print "  unlink $pathname\n";
+            unlink($pathname) unless $opts{n};
+        }
+
+        # save new image
+        print "  saved to $newfile\n";
+        unless ($opts{n}) {
+            $img->write(file => $newpath, type => $format)
+                or die $img->errstr;
+        }
+        if ($newfile ne $user->photo_name) {
+            print "  update user set photo_name = $newfile\n";
+            $user->update(photo_name => $newfile) unless $opts{n};
+        }
+    }
+    else { ++$ok }
+}
+print "ok: $ok\n",
+      "nok: $nok\n",
+      "resized: $resized\n";

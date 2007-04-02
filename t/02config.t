@@ -5,6 +5,7 @@ use Test::More qw(no_plan);
 my @simple = qw(
     general_cookie_name
     general_dir_photos
+    general_max_imgsize
     general_searchlimit
     database_name
     database_dsn

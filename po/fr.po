@@ -573,6 +573,9 @@ msgstr "Tous"
 msgid "Your photo"
 msgstr "Votre photo"
 
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "L'image n'a pu être lue. Veuillez fournir une photo dans l'un des formats suivants&nbsp;:"
+
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
 "Cette photo finira probablement dans l'annuaire de la conférence&nbsp;:\n"

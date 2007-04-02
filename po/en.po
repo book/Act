@@ -564,6 +564,9 @@ msgstr "Any"
 msgid "Your photo"
 msgstr "Your photo"
 
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Image couldn't be read. Please upload your picture in one of the following formats:"
+
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
 "This photo will probably end up on the conference <i>who's who</i>,\n"
