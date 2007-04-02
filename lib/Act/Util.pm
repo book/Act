@@ -6,6 +6,7 @@ use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
+use Unicode::Normalize ();
 use URI::Escape ();
 
 use Act::Config;
@@ -146,6 +147,16 @@ sub localize
 {
     return $Request{loc}->maketext(@_);
 }
+
+# normalize a string for sorting
+sub normalize
+{
+    my $string = shift;
+    $string = Unicode::Normalize::NFD($string);
+    $string =~ s/\p{InCombiningDiacriticalMarks}//g;
+    $string = lc $string;
+    return $string;
+}
 1;
 
 __END__
@@ -186,6 +197,11 @@ clear-text and encrypted forms.
 =item localize
 
 Translates a string according to the current request language.
+
+=item normalize
+
+Normalizes a string for sorting: removes diacritical marks and converts
+to lowercase.
 
 =back
 

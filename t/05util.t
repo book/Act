@@ -4,7 +4,7 @@ use strict;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 16 + 5 * NBPASS;
+use Test::More tests => 70 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -71,6 +71,24 @@ use utf8;
 $Request{language} = 'fr';
 my $dt = DateTime->new(year => 2007, month => 2, day => 15);
 is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format');
+
+# normalize
+use charnames ();
+
+@t = (  a => [ qw(à á â ã ä å À Á Â Ã Ä Å) ],
+        c => [ qw(ç Ç) ],
+        e => [ qw(è é ê ë È É Ê Ë) ],
+        i => [ qw(ì í î ï Ì Í Î Ï) ],
+        n => [ qw(ñ Ñ) ],
+        o => [ qw(ò ó ô õ ö Ò Ó Ô Õ Ö) ],
+        u => [ qw(ù ú û ü Ù Ú Û Ü) ],
+        y => [ qw(ý ÿ Ý Ÿ) ],
+     );
+while (my ($n, $dlist) = splice(@t, 0, 2)) {
+    for my $chr (@$dlist) {
+        is (Act::Util::normalize($chr), $n, charnames::viacode(ord($chr)));
+    }
+}
 
 
 __END__
