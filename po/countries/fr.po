@@ -158,7 +158,7 @@ msgid "country_cv"
 msgstr "Cap Vert"
 
 msgid "country_cx"
-msgstr "Ile Christmas"
+msgstr "Île Christmas"
 
 msgid "country_cy"
 msgstr "Chypre"
@@ -368,7 +368,7 @@ msgid "country_kw"
 msgstr "Kowait"
 
 msgid "country_ky"
-msgstr "Iles Cayman"
+msgstr "Îles Cayman"
 
 msgid "country_kz"
 msgstr "Kazakhstan"
@@ -422,7 +422,7 @@ msgid "country_mg"
 msgstr "Madagascar"
 
 msgid "country_mh"
-msgstr "Iles Marshall"
+msgstr "Îles Marshall"
 
 msgid "country_mk"
 msgstr "Macédoine"
@@ -575,7 +575,7 @@ msgid "country_sa"
 msgstr "Arabie Saoudite"
 
 msgid "country_sb"
-msgstr "Iles Salomon"
+msgstr "Îles Salomon"
 
 msgid "country_sc"
 msgstr "Seychelles"
@@ -629,7 +629,7 @@ msgid "country_sz"
 msgstr "Swaziland"
 
 msgid "country_tc"
-msgstr "Iles Turks et Caicos"
+msgstr "Îles Turks et Caicos"
 
 msgid "country_td"
 msgstr "Tchad"
@@ -686,7 +686,7 @@ msgid "country_um"
 msgstr "Îles Mineures Éloignées des États-Unis"
 
 msgid "country_us"
-msgstr "Etats-Unis"
+msgstr "États-Unis"
 
 msgid "country_uy"
 msgstr "Uruguay"
