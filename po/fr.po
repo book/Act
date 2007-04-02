@@ -1107,3 +1107,6 @@ msgstr "Les champs suivant on été modifiés&nbsp;:"
 msgid "By:"
 msgstr "Par&nbsp;:"
 
+msgid "Remember me on this computer"
+msgstr "Se souvenir du de passe"
+
