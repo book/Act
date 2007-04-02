@@ -28,6 +28,7 @@ sub handler
     # process the login form template
     my $template = Act::Template::HTML->new();
     $template->variables(
+        error       => ($r->subprocess_env->{REDIRECT_AuthCookieReason} eq 'bad_credentials'),
         destination => $uri,
         action      => join('/', '', $Request{conference}, 'LOGIN'),
         domain      => join('.', (split /\./, $r->server->server_hostname)[-2, -1]),

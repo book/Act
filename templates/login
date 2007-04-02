@@ -4,6 +4,12 @@
 <form method="POST" action="[% action %]">
 <input type="hidden" name="destination" value="[% destination %]">
 
+[% IF error;
+     WRAPPER error_ui;
+       loc('Incorrect login or password');
+     END;
+   END
+%]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 

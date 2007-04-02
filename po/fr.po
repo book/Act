@@ -322,6 +322,9 @@ msgstr ""
 "Ce site utilise des cookies pour identifier les utilisateurs. Il peut\n"
 "être nécessaire de les activer dans votre navigateur pour le domaine <b>%1</b>.\n"
 
+msgid "Incorrect login or password"
+msgstr "Identifiant ou mot de passe incorrect"
+
 msgid "Logout"
 msgstr "Déconnexion"
 

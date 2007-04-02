@@ -316,6 +316,9 @@ msgstr ""
 "This site uses cookies to authenticate logged in users. You might need\n"
 "to instruct your browser to accept cookies from the domain <b>%1</b>.\n"
 
+msgid "Incorrect login or password"
+msgstr "Incorrect login or password"
+
 msgid "Logout"
 msgstr "Logout"
 
