@@ -1117,7 +1117,7 @@ msgid "By:"
 msgstr "Par&nbsp;:"
 
 msgid "Remember me on this computer"
-msgstr "Se souvenir du de passe"
+msgstr "Se souvenir du mot de passe"
 
 msgid "Billing"
 msgstr "Facturation"
