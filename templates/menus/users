@@ -7,6 +7,7 @@
  <pt>Utilizadores</pt>
  <de>UserInnen</de>
  <hu>Felhasználók</hu>
+ <nl>Gebruikers</nl>
 </t>
 [% END %]
 [% WRAPPER menus/item %]
@@ -18,6 +19,7 @@
   <pt>Procurar</pt>
   <de>Suchen</de>
   <hu>Keresés</hu>
+  <nl>Zoeken</nl>
  </t>
 </a>
 [% END %]
@@ -30,6 +32,7 @@
   <pt>Estatísticas</pt>
   <de>Statistik</de>
   <hu>Statisztika</hu>
+  <nl>Statistieken</nl>
  </t>
 </a>
 [% END %]
@@ -43,6 +46,7 @@
   <pt>Exportar CSV</pt>
   <de>CSV exportieren</de>
   <hu>CSV exportálás</hu>
+  <nl>CSV export</nl>
  </t>
 </a>
 [% END %]
@@ -55,6 +59,7 @@
   <pt>TRANSLATEME</pt>
   <de>TRANSLATEME</de>
   <hu>TRANSLATEME</hu>
+  <nl>Een nieuwe gebruik registreren</nl>
  </t>
 </a>
 [% END %]

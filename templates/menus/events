@@ -8,6 +8,7 @@
      <pt>Eventos</pt>
      <de>Events</de>
      <hu>Események</hu>
+     <nl>Gebeurtenissen</nl>
     </t>
    </a>
    [% END %]
@@ -20,6 +21,7 @@
      <pt>Submeter um novo evento</pt>
      <de>Event anmelden</de>
      <hu>Új esemény beküldése</hu>
+     <nl>Een nieuwe gebeurtenis voorleggen</nl>
     </t>
    </a>
    [% END %]

@@ -1,6 +1,7 @@
 [% WRAPPER ui
    title = { en => 'Wiki - Recent changes',
              fr => 'Wiki - Modifications récentes',
+             nl => 'Wiki - Recente wijzigingen',
              it => 'TRANSLATEME',
              pt => "TRANSLATEME",
              de => 'TRANSLATEME',
@@ -9,8 +10,8 @@
 [%- PROCESS common -%]
 <table>
  <tr><th><t><fr>Page</fr><en>Page</en></t></th>
-     <th><t><fr>Modifié le</fr><en>Modified on</en></t></th>
-     <th><t><fr>Par</fr><en>By</en></t></th>
+     <th><t><fr>Modifié le</fr><en>Modified on</en><nl>Gewijzigd op </nl></t></th>
+     <th><t><fr>Par</fr><en>By</en><nl>Door</nl></t></th>
  </tr>
  [% FOREACH node IN nodes %]
  <tr>
@@ -24,16 +25,16 @@
 <input type="hidden" name="action" value="recent" />
 <a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr></t></a>
 |
-<t><en>Changes in last</en><fr>Modifications depuis</fr></t>
+<t><en>Changes in last</en><fr>Modifications depuis</fr><nl>Wijzigingen sinds</nl></t>
 <select name="period" size="1" onChange="submit();">
  [% periods = [
-      [ "1days",   { en => '1 day',    fr => '1 jour'     } ],
-      [ "2days",   { en => '2 days',   fr => '2 jours'    } ],
-      [ "3days",   { en => '3 days',   fr => '3 jours'    } ],
-      [ "1weeks",  { en => '1 week',   fr => '1 semaine'  } ],
-      [ "2weeks",  { en => '2 weeks',  fr => '2 semaines' } ],
-      [ "1months", { en => '1 month',  fr => '1 mois'     } ],
-      [ "2months", { en => '2 months', fr => '2 mois'     } ],
+      [ "1days",   { en => '1 day',    fr => '1 jour'     , nl => '1 dag'} ],
+      [ "2days",   { en => '2 days',   fr => '2 jours'    , nl => '2 dagen'} ],
+      [ "3days",   { en => '3 days',   fr => '3 jours'    , nl => '3 dagen'} ],
+      [ "1weeks",  { en => '1 week',   fr => '1 semaine'  , nl => '1 week'} ],
+      [ "2weeks",  { en => '2 weeks',  fr => '2 semaines' , nl => '2 weken'} ],
+      [ "1months", { en => '1 month',  fr => '1 mois'     , nl => '1 maand'} ],
+      [ "2months", { en => '2 months', fr => '2 mois'     , nl => '2 maanden'} ],
     ];
     FOREACH p IN periods %]
  <option value="[% p.0 %]"[% ' selected="selected"' IF period == p.0 %]>[% p.1.${global.request.language} %]</option>

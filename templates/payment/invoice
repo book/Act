@@ -9,15 +9,15 @@
         <td colspan="2">
           <table border="0">
             <tr>
-              <td><b><t><en>Invoice #</en><fr>Facture N°</fr><it>Fattura n.</it><pt>Factura nº</pt><de>Rechnung Nr.</de></t></b></td>
+              <td><b><t><en>Invoice #</en><fr>Facture N°</fr><it>Fattura n.</it><pt>Factura nº</pt><de>Rechnung Nr.</de><nl>Facture nr</nl></t></b></td>
               <td>[% invoice.invoice_no %]</td>
             </tr>
             <tr>
-              <td><b><t><en>Dated </en><fr>En date du</fr><it>del</it><pt>Datada de</pt><de>Datum</de></t></b></td>
+              <td><b><t><en>Dated </en><fr>En date du</fr><it>del</it><pt>Datada de</pt><de>Datum</de><nl>Datum</nl></t></b></td>
               <td>[% date_format(invoice.datetime, 'date_full') %]</td>
             </tr>
             <tr>
-              <td><b><t><en>Printed on</en><fr>Editée le</fr><it>Stampata il</it><pt>Alterada a</pt><de>Ausgestellt am</de></t></b></td>
+              <td><b><t><en>Printed on</en><fr>Editée le</fr><it>Stampata il</it><pt>Alterada a</pt><de>Ausgestellt am</de><nl>Afgedrukt op</nl></t></b></td>
               <td>[% date_format(today, 'date_full') %]</td>
             </tr>
           </table>
@@ -35,7 +35,7 @@
           [% invoice.address | html_line_break %]
           [% IF invoice.vat %]
             <br />
-            <t><en>VAT Number</en><fr>Numéro de TVA&nbsp;</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de></t>:
+            <t><en>VAT Number</en><fr>Numéro de TVA&nbsp;</fr><pt>Número de Identificação Fiscal</pt><it>Partita IVA</it><de>MwSt-Nummer</de><nl>BTW nummer</nl></t>:
           [% invoice.vat; END %]
         </td>
       </tr>
@@ -46,10 +46,10 @@
         <td colspan="2">
           <table border="1" width="100%">
             <tr>
-              <th><t><en>Description</en><fr>Désignation</fr><it>Descrizione</it><pt>Descrição</pt><de>Beschreibung</de></t></th>
-              <th><t><en>Quantity</en><fr>Quantité</fr><it>Quantità</it><pt>Quantidade</pt><de>Anzahl</de></t></th>
-              <th><t><en>Unit Price</en><fr>Prix unitaire</fr><it>Prezzo unitario</it><pt>Preço unitário</pt><de>Stückpreis</de></t></th>
-              <th><t><en>Total</en><fr>Total</fr><it>Totale</it><pt>Total</pt><de>Summe</de></t></th>
+              <th><t><en>Description</en><fr>Désignation</fr><it>Descrizione</it><pt>Descrição</pt><de>Beschreibung</de><nl>Beschrijving</nl></t></th>
+              <th><t><en>Quantity</en><fr>Quantité</fr><it>Quantità</it><pt>Quantidade</pt><de>Anzahl</de><nl>Aantal</nl></t></th>
+              <th><t><en>Unit Price</en><fr>Prix unitaire</fr><it>Prezzo unitario</it><pt>Preço unitário</pt><de>Stückpreis</de><nl>Eenheidsprijs</nl></t></th>
+              <th><t><en>Total</en><fr>Total</fr><it>Totale</it><pt>Total</pt><de>Summe</de><nl>Totaal</nl></t></th>
             </tr>
             <tr>
               <td align="left">
@@ -59,6 +59,7 @@
                 <pt>Inscrição em [% global.conference.name %]<br />Compra:</pt>
                 <it>Iscrizione a [% global.conference.name %]<br />Vostro ordine:</it>
                 <de>[% global.conference.name %] Anmelden<br />Ihre Bestellnummer:</de>
+                <nl>[% global.conference.name %] Aanmelden<br />Uw bestelnummer:</nl>
                </t>
 
                [%# info about the payment: order #, payment date and payment means
@@ -72,7 +73,7 @@
               <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
             </tr>
             <tr>
-              <td colspan="3" align="right"><t><en>Total due</en><fr>Total à payer</fr><it>Totale fattura</it><pt>Total a pagar</pt><de>Zu zahlende Summe</de></t></td>
+              <td colspan="3" align="right"><t><en>Total due</en><fr>Total à payer</fr><it>Totale fattura</it><pt>Total a pagar</pt><de>Zu zahlende Summe</de><nl>Totaal te betalen</nl></t></td>
               <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
             </tr>
           </table>
@@ -86,7 +87,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="[% global.request.language %]" xml:lang="[% global.request.language %]">
 <head>
-<title><t><en>Invoice</en><fr>Facture</fr><it>Fattura</it><pt>Factura</pt><de>Rechnung</de></t></title>
+<title><t><en>Invoice</en><fr>Facture</fr><it>Fattura</it><pt>Factura</pt><de>Rechnung</de><nl>Faktuur</nl></t></title>
 </head>
 <body bgcolor="#FFFFFF" text="#000000">
 [% PROCESS invoice_body %]
@@ -95,7 +96,7 @@
 
 
 [% ELSE;
-   WRAPPER ui title = { en => 'Invoice', fr => 'Facture', it => 'Fattura', pt => 'Factura', de => 'Rechnung' }
+   WRAPPER ui title = { en => 'Invoice', fr => 'Facture', it => 'Fattura', pt => 'Factura', de => 'Rechnung', nl => 'Faktuur' }
 %]
 
 [%# Remove the following <div>...</div> if you use the printer_friendly version mechanism %]
@@ -108,13 +109,14 @@ sera imprimée.</fr>
 <it>Potete stampare questa pagina: solo la fattura sarà stampata.</it>
 <pt>Pode imprimirr esta página; apenas a factura será impressa.</pt>
 <de>Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt.</de>
+<nl>U kan deze pagina afdrukken: enkel de faktuur hieronder zal afgedrukt worden.</nl>
 </t></p>
 </div>
 
 [% PROCESS invoice_body %]
 
 <div align="center">
-<p><a href="[% printer_uri %]" target="_new"><t><fr>Version imprimable</fr><en>Printer friendly version</en><de>Drucker-freundliche Version</de><it>Versione stampabile</it><pt>TRANSLATEME</pt></t></a></p>
+<p><a href="[% printer_uri %]" target="_new"><t><fr>Version imprimable</fr><en>Printer friendly version</en><de>Drucker-freundliche Version</de><it>Versione stampabile</it><pt>TRANSLATEME</pt><nl>Afdrukvriendelijke versie</nl></t></a></p>
 </div>
 
 [% END; END %]

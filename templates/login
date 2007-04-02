@@ -6,6 +6,7 @@
        pt => 'Entrar'
        de => 'Login',
        hu => 'Bejelentkezés',
+       nl => 'Aanmelden'
 }
 %]
 <center>
@@ -18,7 +19,7 @@
 
 <tr>
    <td align="right">
-      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de><hu>Azonosító</hu></t>
+      <t><en>Identifier</en><fr>Identifiant</fr><it>Identificativo</it><pt>Identificador</pt><de>User-ID</de><hu>Azonosító</hu><nl>Gebruiker</nl></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -27,7 +28,7 @@
 </tr>
 <tr>
    <td align="right">
-      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de><hu>Jelszó</hu></t>
+      <t><en>Password</en><fr>Mot de passe</fr><it>Password</it><pt>Código Secreto</pt><de>Passwort</de><hu>Jelszó</hu><nl>Paswoord</nl></t>
    </td>
    <td>&nbsp;</td>
    <td>
@@ -36,7 +37,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de><hu>Elküld</hu></t>" />
+      <input type="submit" name="join" value="<t><en>Submit</en><fr>Valider</fr><it>Invia</it><pt>Validar</pt><de>Abschicken</de><hu>Elküld</hu><nl></nl>Invoeren</t>" />
    </td>
 </tr>
 </table>
@@ -65,6 +66,9 @@
   <hu>
     <a href="[% make_uri('resetpw') %]">Elfelejtett jelszó</a>
   </hu>
+  <nl>
+    Paswoord vergeten ? Klik <a href="[% make_uri('resetpw') %]">hier</a>.
+  </nl>
  </t>
 </p>
 
@@ -100,6 +104,10 @@
    nyilvántartásához. Ha a sütik kezelése a böngészõben tiltott (alapértelmezett
    esetben NEM tiltott), engedélyezni kell a következõ domaint: <b>[% domain %]</b>.
  </hu>
+ <fr>
+   Deze site gebruikt cookies voor het identificeren van gebruikers. 
+   Mogelijk moeten deze geactiveerd worden in uw browser voor het domein <b>[% domain %]</b>.
+ </fr>
 </t>
 </font>
 </p>

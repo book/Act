@@ -7,6 +7,7 @@
      pt => 'Lista de eventos'
      de => 'Events'
      hu => 'Események listája'
+     nl => 'Lijst van gebeurtenissen'
 },
 %]
 <div align="center">
@@ -18,15 +19,16 @@
     <it>Nessun evento proposto.</it>
     <de>Es wurde noch kein Event eingereicht.</de>
     <hu>Nincs még esemény beküldve.</hu>
+    <nl>Er werden nog geen gebeurtenissen opgeslagen.</nl>
  </t>
  [% END %]
 </p>
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th><t><en>Event title</en><fr>Présentation</fr><pt>Título</pt><it>Evento</it><de>Titel</de><hu>Esemény címe</hu></t></th>
- <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu></t></th>
+ <th><t><en>Event title</en><fr>Présentation</fr><pt>Título</pt><it>Evento</it><de>Titel</de><hu>Esemény címe</hu><nl>Presentatie</nl></t></th>
+ <th><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><hu>Hossza</hu><nl>Duur</nl></t></th>
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
- <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it><de>Datum</de><hu>Dátuma</hu></t></th>
+ <th><t><en>Date</en><pt>Data</pt><fr>Date</fr><it>Data</it><de>Datum</de><hu>Dátuma</hu><nl>Datum</nl></t></th>
  [% END %]
 </tr>
 [% FOREACH e = events %]
@@ -34,7 +36,7 @@
     <td>[% event_link(e) %] [% event_modify_link(e) %]
     </td>
     <td nowrap="nowrap">
-         [% e.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><hu>perc</hu></t>
+         [% e.duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><hu>perc</hu><nl>minuten</nl></t>
     </td>
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
     <td align="center" nowrap="nowrap">[% IF e.datetime; date_format(e.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>

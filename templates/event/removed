@@ -6,6 +6,7 @@
        pt => 'Evento TRANSLATEME'
        de => 'Event TRANSLATEME'
        hu => 'Esemény törölve'
+       nl => 'Gebeurtenis verwijderd'
    }
 %]
 
@@ -29,6 +30,9 @@
   <hu>
    <b>[% title %]</b> esemény törlésre került.
   </hu>
+  <nl>
+   De gebeurtenis <b>[% title %]</b> werd verwijderd.
+  </nl>
  </t>
 </p>
 

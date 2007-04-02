@@ -6,6 +6,7 @@
        pt => 'Evento submetido',
        de => 'Event angemeldet',
        hu => 'Esemény beküldve',
+       nl => 'Gebeurtenis opgeslagen'
    }
 %]
 
@@ -35,6 +36,10 @@
    Köszönjük, az esemény <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>
    néven mentésre került.
   </hu>
+  <nl>
+   Dank U, de gebeurtenis werd opgeslagen als
+   <b><a href="[% make_uri_info('event', event_id ) %]">[% title %]</a></b>.
+  </nl>
  </t>
 </p>
 

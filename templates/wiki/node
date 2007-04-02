@@ -4,7 +4,9 @@
              it => "Wiki - $node",
              pt => "Wiki - $node",
              de => "Wiki - $node",
-             hu => "Wiki - $node" },
+             hu => "Wiki - $node",
+             nl => "Wiki - $node",
+             },
 %]
 [% PROCESS common %]
 
@@ -15,24 +17,24 @@
 <p>
  [% IF version OR data.last_modified;
     IF version %]
-  <t><en>version</en><fr>version</fr></t> [% version %]
-  <t><en>saved on</en><fr>du</fr></t>
+  <t><en>version</en><fr>version</fr><nl>versie</nl></t> [% version %]
+  <t><en>saved on</en><fr>du</fr><nl>van</nl></t>
     [% ELSE %]
-  <t><en>Last modified</en><fr>Dernière modification </fr></t>:
+  <t><en>Last modified</en><fr>Dernière modification </fr><nl>Laatste wijzigingen</nl></t>:
     [% END %]
   [% date_format(data.last_modified, 'datetime_short') %]
   <t><en>by</en><fr>par</fr></t>
   [% user_info( author ) %]
  [% ELSE %]
-  <t><en>new page</en><fr>nouvelle page</fr></t>
+  <t><en>new page</en><fr>nouvelle page</fr><nl>nieuwe pagina</nl></t>
  [% END %]
 </p>
 <p>
-<a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr></t></a>
+<a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr><nl>Home</nl></t></a>
 |
 [% IF version %]
    [% IF global.request.user.is_orga %]
-    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en></t></a>
+    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en><nl></nl></t></a>
     |
    [% END %]
 [% ELSE %]

@@ -6,6 +6,7 @@
      pt => 'Submissão/Modificação de um evento'
      de => 'Eingeben/Bearbeiten eines Events (kein Vortrag)'
      hu => 'Nem elõadás esemény hozzáadása, szerkesztése'
+     nl => 'Voorstellen/wijzigen van een gebeurtenis'
 }
 %]
 
@@ -20,6 +21,7 @@
          pt => "Deve introduzir um título para o evento"
          de => "Sie müssen einen Titel eingeben"
          hu => "A cím megadása kötelezõ"
+         nl => "Gelieve een titel in te geven"
      },
      ERR_ABSTRACT => {
          en => "You must enter a short description for the event"
@@ -28,6 +30,7 @@
          pt => "A descrição do evento é obrigatória"
          de => "Sie müssen eine Kurzbeschreibung eingeben"
          hu => "Az esemény rövid leírásának megadása kötelezõ"
+         nl => "Gelieve een korte beschrijving in te geven"
      },
      ERR_DURATION => {
          en => "Please choose a duration"
@@ -36,6 +39,7 @@
          pt => "Deve indicar a duração"
          de => "Bitte wählen Sie eine Dauer aus"
          hu => "Az esemény hosszát meg kell adni"
+         nl => "Gelieve de duur te kiezen"
      },
      ERR_DATE => {
          en => "The supplied date is invalid"
@@ -44,6 +48,7 @@
          pt => "A data indicada não é válida"
          de => "Das angegebene Datum ist ungültig"
          hu => "A megadott dátum érvénytelen"
+         nl => "De ingegeven datum is ongeldig"
      },
      ERR_TIME => {
          en => "The supplied time is invalid"
@@ -52,6 +57,7 @@
          pt => "A hora indicada não é válida"
          de => "Die angegebene Zeit ist ungültig"
          hu => "A megadott idõpont érvénytelen"
+         nl => "Het ingegeven uur is ongeldig"
      },
      ERR_DATERANGE => {
          en => "The date/time is out of range"
@@ -60,6 +66,7 @@
          pt => "A data ou hora estão fora dos limites"
          de => "Das Datum bzw die Uhrzeit is ausserhalb des gültigen Zeitraums"
          hu => "A dátum/idõ rossz tartományba esik"
+         nl => "De combinatie datum/uur ligt buiten de grenzen"
      },
      ERR_URL_ABSTRACT => {
          en => "Event URL is not a valid URL",
@@ -68,6 +75,7 @@
          pt => "O URL indicado não é válido"
          de => "Die URL ist nicht gültig"
          hu => "Az esemény URL-je érvénytelen"
+         nl => "De ingegeven URL is ongeldig"
      },
      ERR_ROOM => {
          en => "Incorrect room submitted",
@@ -76,6 +84,7 @@
          pt => "A sala indicada não é válida"
          de => "Falscher Veranstaltungsraum"
          hu => "Érvénytelen helyszín"
+         nl => "De zaal is ongeldig"
      },
   }
 %]
@@ -85,7 +94,7 @@
 [% IF event_id %]
 <input type="hidden" name="event_id" value="[% event_id %]" />
 <p>
- <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt></t>
+ <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><nl>Zie</nl></t>
  <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
 </p><p>
 <input type="checkbox" name="delete" />
@@ -94,20 +103,21 @@
    <it>Elimina questo evento</it>
    <pt>TRANSLATEME</pt>
    <de>TRANSLATEME</de>
+   <nl>Deze gebeurtenis verwijderen</nl>
 </t>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 <tr>
-  <td align="right"><t><en>Title</en><fr>Titre</fr><it>Titolo</it><pt>Título</pt><de>Titel</de></t></td>
+  <td align="right"><t><en>Title</en><fr>Titre</fr><it>Titolo</it><pt>Título</pt><de>Titel</de><nl>Titel</nl></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Date</en><fr>Date</fr><it>Data</it><pt>Data</pt><de>Datum</de></t></td>
+  <td align="right"><t><en>Date</en><fr>Date</fr><it>Data</it><pt>Data</pt><de>Datum</de><nl>Datum</nl></t></td>
   <td>&nbsp;</td>
   <td>
    <select name="date">
@@ -116,9 +126,9 @@
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
     </select>
-   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Uhrzeit</de></t>
+   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Uhrzeit</de><nl>Uur</nl></t>
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   <t><en>Room</en><fr>Salle</fr><it>Stanza</it><pt>Sala</pt><de>Veranstaltungsraum</de></t>
+   <t><en>Room</en><fr>Salle</fr><it>Stanza</it><pt>Sala</pt><de>Veranstaltungsraum</de><nl>Zaal</nl></t>
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
@@ -134,6 +144,7 @@
      <it>Descrizione<br />(testo semplice)</it>
      <pt>Descrição<br />(texto puro)</pt>
      <de>Kurzbeschreibung<br />(nur Text)</de>
+     <nl>Beschrijving<br />(gewone tekst)</nl>
   </t></td>
   <td>&nbsp;</td>
   <td>
@@ -141,23 +152,23 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>External URL</en><fr>URL externe</fr><it>URL esterna</it><pt>URL externo</pt><de>Externe URL</de></t></td>
+  <td align="right"><t><en>External URL</en><fr>URL externe</fr><it>URL esterna</it><pt>URL externo</pt><de>Externe URL</de><nl>Externe URL</nl></t></td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de></t></td>
+  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><nl>Duur</nl></t></td>
   <td>&nbsp;</td>
   <td>
     <input name="duration" value="[% duration %]" size="3" />
-    <t><fr>minutes</fr><en>minutes</en><it>minuti</it><pt>minutos</pt><de>Minuten</de></t>
+    <t><fr>minutes</fr><en>minutes</en><it>minuti</it><pt>minutos</pt><de>Minuten</de><nl>minuten</nl></t>
   </td>
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr><it>Invia</it><pt>Submeter</pt><de>Event anmelden</de></t>" />
+      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr><it>Invia</it><pt>Submeter</pt><de>Event anmelden</de><nl>Verzenden</nl></t>" />
    </td>
 </tr>
 </table>
