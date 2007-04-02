@@ -4,979 +4,735 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: country_ad
 msgid "country_ad"
 msgstr "Andorra"
 
-#: country_ae
 msgid "country_ae"
 msgstr "Vereinigte Arabische Emirate"
 
-#: country_af
 msgid "country_af"
 msgstr "Afghanistan"
 
-#: country_ag
 msgid "country_ag"
 msgstr "Antigua, Barbuda"
 
-#: country_ai
 msgid "country_ai"
 msgstr "Anguilla"
 
-#: country_al
 msgid "country_al"
 msgstr "Albanien"
 
-#: country_am
 msgid "country_am"
 msgstr "Armenien"
 
-#: country_an
 msgid "country_an"
 msgstr "Niederlande"
 
-#: country_ao
 msgid "country_ao"
 msgstr "Angola"
 
-#: country_aq
 msgid "country_aq"
 msgstr "Antarktis"
 
-#: country_ar
 msgid "country_ar"
 msgstr "Argentinien"
 
-#: country_as
 msgid "country_as"
 msgstr "Amerikanisch-Samoa"
 
-#: country_at
 msgid "country_at"
 msgstr "Österreich"
 
-#: country_au
 msgid "country_au"
 msgstr "Australien"
 
-#: country_aw
 msgid "country_aw"
 msgstr "Aruba"
 
-#: country_ax
 msgid "country_ax"
 msgstr "Åland"
 
-#: country_az
 msgid "country_az"
 msgstr "Aserbaidschan"
 
-#: country_ba
 msgid "country_ba"
 msgstr "Bosnien-Herzegowina"
 
-#: country_bb
 msgid "country_bb"
 msgstr "Barbados"
 
-#: country_bd
 msgid "country_bd"
 msgstr "Bangladesh"
 
-#: country_be
 msgid "country_be"
 msgstr "Belgien"
 
-#: country_bf
 msgid "country_bf"
 msgstr "Burkina Faso"
 
-#: country_bg
 msgid "country_bg"
 msgstr "Bulgarien"
 
-#: country_bh
 msgid "country_bh"
 msgstr "Bahrain"
 
-#: country_bi
 msgid "country_bi"
 msgstr "Burundi"
 
-#: country_bj
 msgid "country_bj"
 msgstr "Benin"
 
-#: country_bm
 msgid "country_bm"
 msgstr "Bermuda"
 
-#: country_bn
 msgid "country_bn"
 msgstr "Brunei Darussalam"
 
-#: country_bo
 msgid "country_bo"
 msgstr "Bolivien"
 
-#: country_br
 msgid "country_br"
 msgstr "Brasilien"
 
-#: country_bs
 msgid "country_bs"
 msgstr "Bahamas"
 
-#: country_bt
 msgid "country_bt"
 msgstr "Bhutan"
 
-#: country_bv
 msgid "country_bv"
 msgstr "Bouvetinsel"
 
-#: country_bw
 msgid "country_bw"
 msgstr "Botswana"
 
-#: country_by
 msgid "country_by"
 msgstr "Weißrußland"
 
-#: country_bz
 msgid "country_bz"
 msgstr "Belize"
 
-#: country_ca
 msgid "country_ca"
 msgstr "Kanada"
 
-#: country_cc
 msgid "country_cc"
 msgstr "Kokosinseln"
 
-#: country_cd
 msgid "country_cd"
 msgstr "Demokratische Republik Kongo"
 
-#: country_cf
 msgid "country_cf"
 msgstr "Zentralafrikanische Republik"
 
-#: country_cg
 msgid "country_cg"
 msgstr "Kongo"
 
-#: country_ch
 msgid "country_ch"
 msgstr "Schweiz"
 
-#: country_ci
 msgid "country_ci"
 msgstr "Elfenbeinküste"
 
-#: country_ck
 msgid "country_ck"
 msgstr "Cook-Inseln"
 
-#: country_cl
 msgid "country_cl"
 msgstr "Chile"
 
-#: country_cm
 msgid "country_cm"
 msgstr "Kamerun"
 
-#: country_cn
 msgid "country_cn"
 msgstr "China"
 
-#: country_co
 msgid "country_co"
 msgstr "Kolumbien"
 
-#: country_cr
 msgid "country_cr"
 msgstr "Costa Rica"
 
-#: country_cu
 msgid "country_cu"
 msgstr "Kuba"
 
-#: country_cv
 msgid "country_cv"
 msgstr "Kapverdische Inseln"
 
-#: country_cx
 msgid "country_cx"
 msgstr "Weihnachtsinsel"
 
-#: country_cy
 msgid "country_cy"
 msgstr "Zypern"
 
-#: country_cz
 msgid "country_cz"
 msgstr "Tschechische Republik"
 
-#: country_de
 msgid "country_de"
 msgstr "Deutschland"
 
-#: country_dj
 msgid "country_dj"
 msgstr "Djibouti"
 
-#: country_dk
 msgid "country_dk"
 msgstr "Dänemark"
 
-#: country_dm
 msgid "country_dm"
 msgstr "Dominica"
 
-#: country_do
 msgid "country_do"
 msgstr "Dominikanische Republik"
 
-#: country_dz
 msgid "country_dz"
 msgstr "Algerien"
 
-#: country_ec
 msgid "country_ec"
 msgstr "Ekuador"
 
-#: country_ee
 msgid "country_ee"
 msgstr "Estland"
 
-#: country_eg
 msgid "country_eg"
 msgstr "Ägypten"
 
-#: country_eh
 msgid "country_eh"
 msgstr "Westsahara"
 
-#: country_er
 msgid "country_er"
 msgstr "Eritrea"
 
-#: country_es
 msgid "country_es"
 msgstr "Spanien"
 
-#: country_et
 msgid "country_et"
 msgstr "Äthiopien"
 
-#: country_fi
 msgid "country_fi"
 msgstr "Finnland"
 
-#: country_fj
 msgid "country_fj"
 msgstr "Fidschi-Inseln"
 
-#: country_fk
 msgid "country_fk"
 msgstr "Falklandinseln"
 
-#: country_fm
 msgid "country_fm"
 msgstr "Föderierte Staaten von Mikronesien"
 
-#: country_fo
 msgid "country_fo"
 msgstr "Färöer"
 
-#: country_fr
 msgid "country_fr"
 msgstr "Frankreich"
 
-#: country_ga
 msgid "country_ga"
 msgstr "Gabun"
 
-#: country_gb
 msgid "country_gb"
 msgstr "Vereinigtes Königreich"
 
-#: country_gd
 msgid "country_gd"
 msgstr "Grenada"
 
-#: country_ge
 msgid "country_ge"
 msgstr "Georgien"
 
-#: country_gf
 msgid "country_gf"
 msgstr "Französisch-Guayana"
 
-#: country_gg
 msgid "country_gg"
 msgstr "Guernsey"
 
-#: country_gh
 msgid "country_gh"
 msgstr "Ghana"
 
-#: country_gi
 msgid "country_gi"
 msgstr "Gibraltar"
 
-#: country_gl
 msgid "country_gl"
 msgstr "Grönland"
 
-#: country_gm
 msgid "country_gm"
 msgstr "Gambia"
 
-#: country_gn
 msgid "country_gn"
 msgstr "Guinea"
 
-#: country_gp
 msgid "country_gp"
 msgstr "Guadeloupe"
 
-#: country_gq
 msgid "country_gq"
 msgstr "Äquatorial-Guinea"
 
-#: country_gr
 msgid "country_gr"
 msgstr "Griechenland"
 
-#: country_gs
 msgid "country_gs"
 msgstr "Südgeorgien und Südliche Sandwichinseln"
 
-#: country_gt
 msgid "country_gt"
 msgstr "Guatemala"
 
-#: country_gu
 msgid "country_gu"
 msgstr "Guam"
 
-#: country_gw
 msgid "country_gw"
 msgstr "Guinea-Bissau"
 
-#: country_gy
 msgid "country_gy"
 msgstr "Guyana"
 
-#: country_hk
 msgid "country_hk"
 msgstr "Hongkong"
 
-#: country_hm
 msgid "country_hm"
 msgstr "Heard und McDonaldinseln"
 
-#: country_hn
 msgid "country_hn"
 msgstr "Honduras"
 
-#: country_hr
 msgid "country_hr"
 msgstr "Kroatien"
 
-#: country_ht
 msgid "country_ht"
 msgstr "Haiti"
 
-#: country_hu
 msgid "country_hu"
 msgstr "Ungarn"
 
-#: country_id
 msgid "country_id"
 msgstr "Indonesien"
 
-#: country_ie
 msgid "country_ie"
 msgstr "Irland"
 
-#: country_il
 msgid "country_il"
 msgstr "Israel"
 
-#: country_im
 msgid "country_im"
 msgstr "Insel Man"
 
-#: country_in
 msgid "country_in"
 msgstr "Indien"
 
-#: country_io
 msgid "country_io"
 msgstr "Britisches Territorium im Indischen Ozean"
 
-#: country_iq
 msgid "country_iq"
 msgstr "Irak"
 
-#: country_ir
 msgid "country_ir"
 msgstr "Iran"
 
-#: country_is
 msgid "country_is"
 msgstr "Island"
 
-#: country_it
 msgid "country_it"
 msgstr "Italien"
 
-#: country_je
 msgid "country_je"
 msgstr "Jersey"
 
-#: country_jm
 msgid "country_jm"
 msgstr "Jamaika"
 
-#: country_jo
 msgid "country_jo"
 msgstr "Jordanien"
 
-#: country_jp
 msgid "country_jp"
 msgstr "Japan"
 
-#: country_ke
 msgid "country_ke"
 msgstr "Kenya"
 
-#: country_kg
 msgid "country_kg"
 msgstr "Kirgisien"
 
-#: country_kh
 msgid "country_kh"
 msgstr "Kamdodscha"
 
-#: country_ki
 msgid "country_ki"
 msgstr "Kiribati"
 
-#: country_km
 msgid "country_km"
 msgstr "Komoren"
 
-#: country_kn
 msgid "country_kn"
 msgstr "Saint Christopher und Nevis"
 
-#: country_kp
 msgid "country_kp"
 msgstr "Nordkorea"
 
-#: country_kr
 msgid "country_kr"
 msgstr "Südkorea"
 
-#: country_kw
 msgid "country_kw"
 msgstr "Kuwait"
 
-#: country_ky
 msgid "country_ky"
 msgstr "Cayman-Inseln"
 
-#: country_kz
 msgid "country_kz"
 msgstr "Kasachstan"
 
-#: country_la
 msgid "country_la"
 msgstr "Laos"
 
-#: country_lb
 msgid "country_lb"
 msgstr "Libanon"
 
-#: country_lc
 msgid "country_lc"
 msgstr "St. Lucia"
 
-#: country_li
 msgid "country_li"
 msgstr "Liechtenstein"
 
-#: country_lk
 msgid "country_lk"
 msgstr "Sri Lanka"
 
-#: country_lr
 msgid "country_lr"
 msgstr "Liberia"
 
-#: country_ls
 msgid "country_ls"
 msgstr "Lesotho"
 
-#: country_lt
 msgid "country_lt"
 msgstr "Litauen"
 
-#: country_lu
 msgid "country_lu"
 msgstr "Luxenbourg"
 
-#: country_lv
 msgid "country_lv"
 msgstr "Lettland"
 
-#: country_ly
 msgid "country_ly"
 msgstr "Libyen"
 
-#: country_ma
 msgid "country_ma"
 msgstr "Marokko"
 
-#: country_mc
 msgid "country_mc"
 msgstr "Monaco"
 
-#: country_md
 msgid "country_md"
 msgstr "Moldawien"
 
-#: country_me
 msgid "country_me"
 msgstr "Montenegro"
 
-#: country_mg
 msgid "country_mg"
 msgstr "Madagaskar"
 
-#: country_mh
 msgid "country_mh"
 msgstr "Marshall-Inselm"
 
-#: country_mk
 msgid "country_mk"
 msgstr "Mazedonien"
 
-#: country_ml
 msgid "country_ml"
 msgstr "Mali"
 
-#: country_mm
 msgid "country_mm"
 msgstr "Myanmar"
 
-#: country_mn
 msgid "country_mn"
 msgstr "Mongolei"
 
-#: country_mo
 msgid "country_mo"
 msgstr "Macao"
 
-#: country_mp
 msgid "country_mp"
 msgstr "Nördliche Marianen"
 
-#: country_mq
 msgid "country_mq"
 msgstr "Martinique"
 
-#: country_mr
 msgid "country_mr"
 msgstr "Mauretanien"
 
-#: country_ms
 msgid "country_ms"
 msgstr "Montserrat"
 
-#: country_mt
 msgid "country_mt"
 msgstr "Malta"
 
-#: country_mu
 msgid "country_mu"
 msgstr "Mauritius"
 
-#: country_mv
 msgid "country_mv"
 msgstr "Malediven"
 
-#: country_mw
 msgid "country_mw"
 msgstr "Malawi"
 
-#: country_mx
 msgid "country_mx"
 msgstr "Mexiko"
 
-#: country_my
 msgid "country_my"
 msgstr "Malaya"
 
-#: country_mz
 msgid "country_mz"
 msgstr "Moçambique"
 
-#: country_na
 msgid "country_na"
 msgstr "Namibia"
 
-#: country_nc
 msgid "country_nc"
 msgstr "Neukaledonien"
 
-#: country_ne
 msgid "country_ne"
 msgstr "Niger"
 
-#: country_nf
 msgid "country_nf"
 msgstr "Norfolkinsel"
 
-#: country_ng
 msgid "country_ng"
 msgstr "Nigeria"
 
-#: country_ni
 msgid "country_ni"
 msgstr "Nikaragua"
 
-#: country_nl
 msgid "country_nl"
 msgstr "Niederlande"
 
-#: country_no
 msgid "country_no"
 msgstr "Norwegen"
 
-#: country_np
 msgid "country_np"
 msgstr "Nepal"
 
-#: country_nr
 msgid "country_nr"
 msgstr "Nauru"
 
-#: country_nu
 msgid "country_nu"
 msgstr "Niue"
 
-#: country_nz
 msgid "country_nz"
 msgstr "Neuseeland"
 
-#: country_om
 msgid "country_om"
 msgstr "Oman"
 
-#: country_pa
 msgid "country_pa"
 msgstr "Panama"
 
-#: country_pe
 msgid "country_pe"
 msgstr "Peru"
 
-#: country_pf
 msgid "country_pf"
 msgstr "Französisch-Polynesien"
 
-#: country_pg
 msgid "country_pg"
 msgstr "Papua-Neuguinea"
 
-#: country_ph
 msgid "country_ph"
 msgstr "Philippinen"
 
-#: country_pk
 msgid "country_pk"
 msgstr "Pakistan"
 
-#: country_pl
 msgid "country_pl"
 msgstr "Polen"
 
-#: country_pm
 msgid "country_pm"
 msgstr "St. Pierre und Miquelon"
 
-#: country_pn
 msgid "country_pn"
 msgstr "Pitcairninseln"
 
-#: country_pr
 msgid "country_pr"
 msgstr "Puerto Rico"
 
-#: country_ps
 msgid "country_ps"
 msgstr "Palästina"
 
-#: country_pt
 msgid "country_pt"
 msgstr "Portugal"
 
-#: country_pw
 msgid "country_pw"
 msgstr "Palau"
 
-#: country_py
 msgid "country_py"
 msgstr "Paraguay"
 
-#: country_qa
 msgid "country_qa"
 msgstr "Qatar"
 
-#: country_re
 msgid "country_re"
 msgstr "Réunion"
 
-#: country_ro
 msgid "country_ro"
 msgstr "Rumänien"
 
-#: country_rs
 msgid "country_rs"
 msgstr "Serbien"
 
-#: country_ru
 msgid "country_ru"
 msgstr "Rußland"
 
-#: country_rw
 msgid "country_rw"
 msgstr "Ruanda"
 
-#: country_sa
 msgid "country_sa"
 msgstr "Saudi-Arabien"
 
-#: country_sb
 msgid "country_sb"
 msgstr "Solomonen"
 
-#: country_sc
 msgid "country_sc"
 msgstr "Seychellen"
 
-#: country_sd
 msgid "country_sd"
 msgstr "Sudan"
 
-#: country_se
 msgid "country_se"
 msgstr "Schweden"
 
-#: country_sg
 msgid "country_sg"
 msgstr "Singapur"
 
-#: country_sh
 msgid "country_sh"
 msgstr "St. Helena"
 
-#: country_si
 msgid "country_si"
 msgstr "Slovenien"
 
-#: country_sj
 msgid "country_sj"
 msgstr "Svalbard und Jan Mayen"
 
-#: country_sk
 msgid "country_sk"
 msgstr "Slowakei"
 
-#: country_sl
 msgid "country_sl"
 msgstr "Sierra Leone"
 
-#: country_sm
 msgid "country_sm"
 msgstr "San Marino"
 
-#: country_sn
 msgid "country_sn"
 msgstr "Senegal"
 
-#: country_so
 msgid "country_so"
 msgstr "Somalia"
 
-#: country_sr
 msgid "country_sr"
 msgstr "Surinam"
 
-#: country_st
 msgid "country_st"
 msgstr "Sao Tome und Principe"
 
-#: country_sv
 msgid "country_sv"
 msgstr "El Salvador"
 
-#: country_sy
 msgid "country_sy"
 msgstr "Syrien"
 
-#: country_sz
 msgid "country_sz"
 msgstr "Swasiland"
 
-#: country_tc
 msgid "country_tc"
 msgstr "Turks und Caicos Inseln"
 
-#: country_td
 msgid "country_td"
 msgstr "Tschad"
 
-#: country_tf
 msgid "country_tf"
 msgstr "Französische Gebiete im südlichen Indischen Ozean"
 
-#: country_tg
 msgid "country_tg"
 msgstr "Togo"
 
-#: country_th
 msgid "country_th"
 msgstr "Thailand"
 
-#: country_tj
 msgid "country_tj"
 msgstr "Tadschikistan"
 
-#: country_tk
 msgid "country_tk"
 msgstr "Tokelau"
 
-#: country_tl
 msgid "country_tl"
 msgstr "Timor-Leste"
 
-#: country_tm
 msgid "country_tm"
 msgstr "Turkmenistan"
 
-#: country_tn
 msgid "country_tn"
 msgstr "Tunesien"
 
-#: country_to
 msgid "country_to"
 msgstr "Tonga"
 
-#: country_tr
 msgid "country_tr"
 msgstr "Türkei"
 
-#: country_tt
 msgid "country_tt"
 msgstr "Trinidad und Tobago"
 
-#: country_tv
 msgid "country_tv"
 msgstr "Tuvalu"
 
-#: country_tw
 msgid "country_tw"
 msgstr "Taiwan"
 
-#: country_tz
 msgid "country_tz"
 msgstr "Tansania"
 
-#: country_ua
 msgid "country_ua"
 msgstr "Ukraine"
 
-#: country_ug
 msgid "country_ug"
 msgstr "Uganda"
 
-#: country_um
 msgid "country_um"
 msgstr "Kleinere amerikanische Überseeinseln"
 
-#: country_us
 msgid "country_us"
 msgstr "Vereinigte Staaten von Amerika"
 
-#: country_uy
 msgid "country_uy"
 msgstr "Uruguay"
 
-#: country_uz
 msgid "country_uz"
 msgstr "Usbekistan"
 
-#: country_va
 msgid "country_va"
 msgstr "Vatikan"
 
-#: country_vc
 msgid "country_vc"
 msgstr "Saint Vincent und die Grenadinen"
 
-#: country_ve
 msgid "country_ve"
 msgstr "Venezuela"
 
-#: country_vg
 msgid "country_vg"
 msgstr "Britische Jungferninseln"
 
-#: country_vi
 msgid "country_vi"
 msgstr "Amerikanische Jungferninseln"
 
-#: country_vn
 msgid "country_vn"
 msgstr "Vietnam"
 
-#: country_vu
 msgid "country_vu"
 msgstr "Vanatu"
 
-#: country_wf
 msgid "country_wf"
 msgstr "Wallis und Futuna"
 
-#: country_ws
 msgid "country_ws"
 msgstr "Samoa"
 
-#: country_ye
 msgid "country_ye"
 msgstr "Jemen"
 
-#: country_yt
 msgid "country_yt"
 msgstr "Mayotte"
 
-#: country_za
 msgid "country_za"
 msgstr "Republik Südarfika"
 
-#: country_zm
 msgid "country_zm"
 msgstr "Sambia"
 
-#: country_zw
 msgid "country_zw"
 msgstr "Simbabwe"
 
