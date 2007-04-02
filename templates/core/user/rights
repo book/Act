@@ -3,7 +3,7 @@
 <form method="POST" action="[% global.request.r.uri %]">
 <table>
  <tr>
-   <td><t><en>Name</en><fr>Nom</fr><de>TRANSLATEME</de><it>TRANSLATEME</it><hu>TRANSLATEME</hu><pt>TRANSLATEME</pt><nl>Naam</nl></t></td>
+   <td>{{Name}}</td>
    [% FOREACH r = right_list %]
    <td>[% r %]</td>
    [% END %]
@@ -29,63 +29,26 @@
 
 </table>
 
-<input type="submit" name="ok"
-   value="<t><fr>Valider</fr><pt>Submeter</pt><en>Submit</en><it>Invia</it><de>Abschicken</de><hu>Elküld</hu><nl>Verzenden</nl></t>" />
+<input type="submit" name="ok" value="{{Submit}}" />
 
 </form>
 
 </div>
 
 <p>
- <t>
-  <fr>Les droits existants sont&nbsp;:</fr>
-  <en>The recognised rights are:</en>
-  <it>I permessi possibili sono:</it>
-  <pt>Os direitos disponíveis são:</pt>
-  <de>Rechte sind:</de>
-  <hu>A rendelkezésre álló jogok:</hu>
-  <nl>De bestaande rechten zijn:</nl>
- </t>
+ {{The recognised rights are:}}
 </p>
 <ul>
  <li><tt>staff</tt> -
-  <t><fr>Organisateur</fr>
-     <en>Organiser</en>
-     <it>Organizzatore</it>
-     <pt>Organização</pt>
-     <de>Organisator</de>
-     <hu>Szervezõ</hu>
-     <nl>Organisator</nl>
-  </t>
+  {{Organizer}}
  </li>
  <li><tt>orga</tt> -
-  <t><fr>Organisateur (gestion des présentations)</fr>
-     <en>Organiser (talks management)</en>
-     <it>Organizzatore (gestione interventi)</it>
-     <pt>Organização (gestão de apresentações)</pt>
-     <de>Organisator (Vorträge verwalten)</de>
-     <hu>Szervezõ (elõadás kezelõ)</hu>
-     <nl>Organisator (presentaties management)</nl>
-  </t>
+  {{Organizer (talks management)}}
  </li>
  <li><tt>treasurer</tt> -
-  <t><fr>Trésorier (gestion des paiements)</fr>
-     <en>Treasurer (payment management)</en>
-     <it>Tesoriere (gestione pagamenti)</it>
-     <pt>Tesoureiro (gestão de pagamentos)</pt>
-     <de>Kassier (Zahlungsmanagement)</de>
-     <hu>Pénztáros (fizetés kezelõ)</hu>
-     <nl>Penningmeester (Betalingsmanagement)</nl>
-  </t>
+  {{Treasurer (payment management)}}
  </li>
  <li><tt>admin</tt> -
-  <t><fr>Administrateur (gestion des droits)</fr>
-     <en>Administrator (rights management)</en>
-     <it>Amministratore (gestione permessi)</it>
-     <pt>Administrador (gestão de permissões)</pt>
-     <de>Administrator (Rechtemanagement)</de>
-     <hu>Adminisztrátor (jogosultság kezelõ)</en>
-     <nl>Administrator (rechtenmanagement)</nl>
-  </t>
+  {{Administrator (rights management)}}
  </li>
 </ul>

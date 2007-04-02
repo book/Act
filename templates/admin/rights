@@ -1,19 +1,11 @@
 [% IF global.request.user.is_admin %]
 <h2>
-   <t><fr>Admin</fr><en>Admin</en><it>Admin</it><pt>Admin</pt><de>Admin</de><hu>Admin</hu><nl>Admin</nl></t>
+   {{Admin}}
 </h2>
 <ul>
  <li>
    <a href="[% make_uri('rights') %]">
-    <t>
-     <fr>Gestion des droits</fr>
-     <en>Rights management</en>
-     <it>Gestione dei permessi</it>
-     <pt>Gestão de permissões</pt>
-     <de>Rechtemanagement</de>
-     <hu>Jogosultság beállítások</hu>
-     <nl>Administratie van de rechten</nl>
-    </t>
+    {{Rights management}}
    </a>
  </li>
 </ul>

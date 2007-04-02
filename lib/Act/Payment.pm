@@ -1,7 +1,10 @@
 package Act::Payment;
 use strict;
 use Act::Config;
+use Act::I18N;
 use Act::Util;
+
+my @MEANS = qw(CHQ CASH ONLINE XFER);
 
 # load appropriate payment plugin
 sub load_plugin
@@ -44,6 +47,12 @@ sub get_prices
         };
     }
     return \@prices;
+}
+
+sub get_means
+{
+    my $lh = Act::I18N->get_handle($Request{language});
+    return { map { $_ => $lh->maketext("payment_means_$_") } @MEANS };
 }
 
 1;

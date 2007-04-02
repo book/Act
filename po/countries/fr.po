@@ -1,0 +1,982 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: country_ad
+msgid "country_ad"
+msgstr "Andorre"
+
+#: country_ae
+msgid "country_ae"
+msgstr "Emirats Arabes Unis"
+
+#: country_af
+msgid "country_af"
+msgstr "Afghanistan"
+
+#: country_ag
+msgid "country_ag"
+msgstr "Antigua et Barbuda"
+
+#: country_ai
+msgid "country_ai"
+msgstr "Anguilla"
+
+#: country_al
+msgid "country_al"
+msgstr "Albanie"
+
+#: country_am
+msgid "country_am"
+msgstr "Arménie"
+
+#: country_an
+msgid "country_an"
+msgstr "Antilles Néerlandaises"
+
+#: country_ao
+msgid "country_ao"
+msgstr "Angola"
+
+#: country_aq
+msgid "country_aq"
+msgstr "Antarctique"
+
+#: country_ar
+msgid "country_ar"
+msgstr "Argentine"
+
+#: country_as
+msgid "country_as"
+msgstr "Samoa américaines"
+
+#: country_at
+msgid "country_at"
+msgstr "Autriche"
+
+#: country_au
+msgid "country_au"
+msgstr "Australie"
+
+#: country_aw
+msgid "country_aw"
+msgstr "Aruba"
+
+#: country_ax
+msgid "country_ax"
+msgstr "Îles d'Åland"
+
+#: country_az
+msgid "country_az"
+msgstr "Azerbaïdjan"
+
+#: country_ba
+msgid "country_ba"
+msgstr "Bosnie - Herzégovine"
+
+#: country_bb
+msgid "country_bb"
+msgstr "Barbade"
+
+#: country_bd
+msgid "country_bd"
+msgstr "Bengladesh"
+
+#: country_be
+msgid "country_be"
+msgstr "Belgique"
+
+#: country_bf
+msgid "country_bf"
+msgstr "Burkina Faso"
+
+#: country_bg
+msgid "country_bg"
+msgstr "Bulgarie"
+
+#: country_bh
+msgid "country_bh"
+msgstr "Bahrein"
+
+#: country_bi
+msgid "country_bi"
+msgstr "Burundi"
+
+#: country_bj
+msgid "country_bj"
+msgstr "Bénin"
+
+#: country_bm
+msgid "country_bm"
+msgstr "Bermudes"
+
+#: country_bn
+msgid "country_bn"
+msgstr "Brunei Darussalam"
+
+#: country_bo
+msgid "country_bo"
+msgstr "Bolivie"
+
+#: country_br
+msgid "country_br"
+msgstr "Brésil"
+
+#: country_bs
+msgid "country_bs"
+msgstr "Bahamas"
+
+#: country_bt
+msgid "country_bt"
+msgstr "Bhoutan"
+
+#: country_bv
+msgid "country_bv"
+msgstr "Île Bouvet"
+
+#: country_bw
+msgid "country_bw"
+msgstr "Botswana"
+
+#: country_by
+msgid "country_by"
+msgstr "Belarus"
+
+#: country_bz
+msgid "country_bz"
+msgstr "Belize"
+
+#: country_ca
+msgid "country_ca"
+msgstr "Canada"
+
+#: country_cc
+msgid "country_cc"
+msgstr "Îles Cocos (Keeling)"
+
+#: country_cd
+msgid "country_cd"
+msgstr "République démocratique du Congo"
+
+#: country_cf
+msgid "country_cf"
+msgstr "République Centrafricaine"
+
+#: country_cg
+msgid "country_cg"
+msgstr "Congo"
+
+#: country_ch
+msgid "country_ch"
+msgstr "Suisse"
+
+#: country_ci
+msgid "country_ci"
+msgstr "Côte d'Ivoire"
+
+#: country_ck
+msgid "country_ck"
+msgstr "Îles Cook"
+
+#: country_cl
+msgid "country_cl"
+msgstr "Chili"
+
+#: country_cm
+msgid "country_cm"
+msgstr "Cameroun"
+
+#: country_cn
+msgid "country_cn"
+msgstr "Chine"
+
+#: country_co
+msgid "country_co"
+msgstr "Colombie"
+
+#: country_cr
+msgid "country_cr"
+msgstr "Costa Rica"
+
+#: country_cu
+msgid "country_cu"
+msgstr "Cuba"
+
+#: country_cv
+msgid "country_cv"
+msgstr "Cap Vert"
+
+#: country_cx
+msgid "country_cx"
+msgstr "Ile Christmas"
+
+#: country_cy
+msgid "country_cy"
+msgstr "Chypre"
+
+#: country_cz
+msgid "country_cz"
+msgstr "République Tchèque"
+
+#: country_de
+msgid "country_de"
+msgstr "Allemagne"
+
+#: country_dj
+msgid "country_dj"
+msgstr "Djibouti"
+
+#: country_dk
+msgid "country_dk"
+msgstr "Danemark"
+
+#: country_dm
+msgid "country_dm"
+msgstr "Dominique"
+
+#: country_do
+msgid "country_do"
+msgstr "République Dominicaine"
+
+#: country_dz
+msgid "country_dz"
+msgstr "Algérie"
+
+#: country_ec
+msgid "country_ec"
+msgstr "Equateur"
+
+#: country_ee
+msgid "country_ee"
+msgstr "Estonie"
+
+#: country_eg
+msgid "country_eg"
+msgstr "Egypte"
+
+#: country_eh
+msgid "country_eh"
+msgstr "Sahara Occidental"
+
+#: country_er
+msgid "country_er"
+msgstr "Erythrée"
+
+#: country_es
+msgid "country_es"
+msgstr "Espagne"
+
+#: country_et
+msgid "country_et"
+msgstr "Ethiopie"
+
+#: country_fi
+msgid "country_fi"
+msgstr "Finlande"
+
+#: country_fj
+msgid "country_fj"
+msgstr "Fidji"
+
+#: country_fk
+msgid "country_fk"
+msgstr "Îles Falkland"
+
+#: country_fm
+msgid "country_fm"
+msgstr "États fédérés de Micronésie"
+
+#: country_fo
+msgid "country_fo"
+msgstr "Îles Féroé"
+
+#: country_fr
+msgid "country_fr"
+msgstr "France"
+
+#: country_ga
+msgid "country_ga"
+msgstr "Gabon"
+
+#: country_gb
+msgid "country_gb"
+msgstr "Royaume-Uni"
+
+#: country_gd
+msgid "country_gd"
+msgstr "Grenade"
+
+#: country_ge
+msgid "country_ge"
+msgstr "Géorgie"
+
+#: country_gf
+msgid "country_gf"
+msgstr "Guyane française"
+
+#: country_gg
+msgid "country_gg"
+msgstr "Guernesey"
+
+#: country_gh
+msgid "country_gh"
+msgstr "Ghana"
+
+#: country_gi
+msgid "country_gi"
+msgstr "Gibraltar"
+
+#: country_gl
+msgid "country_gl"
+msgstr "Groenland"
+
+#: country_gm
+msgid "country_gm"
+msgstr "Gambie"
+
+#: country_gn
+msgid "country_gn"
+msgstr "Guinée"
+
+#: country_gp
+msgid "country_gp"
+msgstr "Guadeloupe"
+
+#: country_gq
+msgid "country_gq"
+msgstr "Guinée Equatoriale"
+
+#: country_gr
+msgid "country_gr"
+msgstr "Grèce"
+
+#: country_gs
+msgid "country_gs"
+msgstr "Géorgie du Sud et les Îles Sandwich du Sud"
+
+#: country_gt
+msgid "country_gt"
+msgstr "Guatemala"
+
+#: country_gu
+msgid "country_gu"
+msgstr "Guam"
+
+#: country_gw
+msgid "country_gw"
+msgstr "Guinée-Bissau"
+
+#: country_gy
+msgid "country_gy"
+msgstr "Guyana"
+
+#: country_hk
+msgid "country_hk"
+msgstr "Hong Kong"
+
+#: country_hm
+msgid "country_hm"
+msgstr "Île Heard et Îles McDonald"
+
+#: country_hn
+msgid "country_hn"
+msgstr "Honduras"
+
+#: country_hr
+msgid "country_hr"
+msgstr "Croatie"
+
+#: country_ht
+msgid "country_ht"
+msgstr "Haïti"
+
+#: country_hu
+msgid "country_hu"
+msgstr "Hongrie"
+
+#: country_id
+msgid "country_id"
+msgstr "Indonésie"
+
+#: country_ie
+msgid "country_ie"
+msgstr "Irlande"
+
+#: country_il
+msgid "country_il"
+msgstr "Israël"
+
+#: country_im
+msgid "country_im"
+msgstr "Île de Man"
+
+#: country_in
+msgid "country_in"
+msgstr "Inde"
+
+#: country_io
+msgid "country_io"
+msgstr "Territoire Britannique de l'océan Indien"
+
+#: country_iq
+msgid "country_iq"
+msgstr "Irak"
+
+#: country_ir
+msgid "country_ir"
+msgstr "Iran"
+
+#: country_is
+msgid "country_is"
+msgstr "Islande"
+
+#: country_it
+msgid "country_it"
+msgstr "Italie"
+
+#: country_je
+msgid "country_je"
+msgstr "Jersey"
+
+#: country_jm
+msgid "country_jm"
+msgstr "Jamaïque"
+
+#: country_jo
+msgid "country_jo"
+msgstr "Jordanie"
+
+#: country_jp
+msgid "country_jp"
+msgstr "Japon"
+
+#: country_ke
+msgid "country_ke"
+msgstr "Kenya"
+
+#: country_kg
+msgid "country_kg"
+msgstr "Kirgizstan"
+
+#: country_kh
+msgid "country_kh"
+msgstr "République Khmère"
+
+#: country_ki
+msgid "country_ki"
+msgstr "Kiribati"
+
+#: country_km
+msgid "country_km"
+msgstr "Comores"
+
+#: country_kn
+msgid "country_kn"
+msgstr "Saint Kitts et Nevis"
+
+#: country_kp
+msgid "country_kp"
+msgstr "Corée du Nord"
+
+#: country_kr
+msgid "country_kr"
+msgstr "Corée du Sud"
+
+#: country_kw
+msgid "country_kw"
+msgstr "Kowait"
+
+#: country_ky
+msgid "country_ky"
+msgstr "Iles Cayman"
+
+#: country_kz
+msgid "country_kz"
+msgstr "Kazakhstan"
+
+#: country_la
+msgid "country_la"
+msgstr "Laos"
+
+#: country_lb
+msgid "country_lb"
+msgstr "Liban"
+
+#: country_lc
+msgid "country_lc"
+msgstr "Sainte-Lucie"
+
+#: country_li
+msgid "country_li"
+msgstr "Liechtenstein"
+
+#: country_lk
+msgid "country_lk"
+msgstr "Sri Lanka"
+
+#: country_lr
+msgid "country_lr"
+msgstr "Liberia"
+
+#: country_ls
+msgid "country_ls"
+msgstr "Lesotho"
+
+#: country_lt
+msgid "country_lt"
+msgstr "Lithuanie"
+
+#: country_lu
+msgid "country_lu"
+msgstr "Luxembourg"
+
+#: country_lv
+msgid "country_lv"
+msgstr "Lettonie"
+
+#: country_ly
+msgid "country_ly"
+msgstr "Libye"
+
+#: country_ma
+msgid "country_ma"
+msgstr "Maroc"
+
+#: country_mc
+msgid "country_mc"
+msgstr "Monaco"
+
+#: country_md
+msgid "country_md"
+msgstr "Moldavie"
+
+#: country_me
+msgid "country_me"
+msgstr "Montenegro"
+
+#: country_mg
+msgid "country_mg"
+msgstr "Madagascar"
+
+#: country_mh
+msgid "country_mh"
+msgstr "Iles Marshall"
+
+#: country_mk
+msgid "country_mk"
+msgstr "Macédoine"
+
+#: country_ml
+msgid "country_ml"
+msgstr "Mali"
+
+#: country_mm
+msgid "country_mm"
+msgstr "Myanmar"
+
+#: country_mn
+msgid "country_mn"
+msgstr "Mongolie"
+
+#: country_mo
+msgid "country_mo"
+msgstr "Macao"
+
+#: country_mp
+msgid "country_mp"
+msgstr "Îles Mariannees du Nord"
+
+#: country_mq
+msgid "country_mq"
+msgstr "Martinique"
+
+#: country_mr
+msgid "country_mr"
+msgstr "Mauritanie"
+
+#: country_ms
+msgid "country_ms"
+msgstr "Montserrat"
+
+#: country_mt
+msgid "country_mt"
+msgstr "Malte"
+
+#: country_mu
+msgid "country_mu"
+msgstr "Maurice"
+
+#: country_mv
+msgid "country_mv"
+msgstr "Maldives"
+
+#: country_mw
+msgid "country_mw"
+msgstr "Malawi"
+
+#: country_mx
+msgid "country_mx"
+msgstr "Mexique"
+
+#: country_my
+msgid "country_my"
+msgstr "Malaisie"
+
+#: country_mz
+msgid "country_mz"
+msgstr "Mozambique"
+
+#: country_na
+msgid "country_na"
+msgstr "Namibie"
+
+#: country_nc
+msgid "country_nc"
+msgstr "Nouvelle-Calédonie"
+
+#: country_ne
+msgid "country_ne"
+msgstr "Niger"
+
+#: country_nf
+msgid "country_nf"
+msgstr "Île Norfolk"
+
+#: country_ng
+msgid "country_ng"
+msgstr "Nigeria"
+
+#: country_ni
+msgid "country_ni"
+msgstr "Nicaragua"
+
+#: country_nl
+msgid "country_nl"
+msgstr "Pays-Bas"
+
+#: country_no
+msgid "country_no"
+msgstr "Norvège"
+
+#: country_np
+msgid "country_np"
+msgstr "Népal"
+
+#: country_nr
+msgid "country_nr"
+msgstr "Nauru"
+
+#: country_nu
+msgid "country_nu"
+msgstr "Niué"
+
+#: country_nz
+msgid "country_nz"
+msgstr "Nouvelle Zélande"
+
+#: country_om
+msgid "country_om"
+msgstr "Oman"
+
+#: country_pa
+msgid "country_pa"
+msgstr "Panama"
+
+#: country_pe
+msgid "country_pe"
+msgstr "Pérou"
+
+#: country_pf
+msgid "country_pf"
+msgstr "Polynésie française"
+
+#: country_pg
+msgid "country_pg"
+msgstr "Papouasie Nouvelle Guinée"
+
+#: country_ph
+msgid "country_ph"
+msgstr "Philippines"
+
+#: country_pk
+msgid "country_pk"
+msgstr "Pakistan"
+
+#: country_pl
+msgid "country_pl"
+msgstr "Pologne"
+
+#: country_pm
+msgid "country_pm"
+msgstr "Saint-Pierre-et-Miquelon"
+
+#: country_pn
+msgid "country_pn"
+msgstr "Pitcairn"
+
+#: country_pr
+msgid "country_pr"
+msgstr "Porto Rico"
+
+#: country_ps
+msgid "country_ps"
+msgstr "Territoire palestinien occupé"
+
+#: country_pt
+msgid "country_pt"
+msgstr "Portugal"
+
+#: country_pw
+msgid "country_pw"
+msgstr "Palau"
+
+#: country_py
+msgid "country_py"
+msgstr "Paraguay"
+
+#: country_qa
+msgid "country_qa"
+msgstr "Qatar"
+
+#: country_re
+msgid "country_re"
+msgstr "Réunion"
+
+#: country_ro
+msgid "country_ro"
+msgstr "Roumanie"
+
+#: country_rs
+msgid "country_rs"
+msgstr "Serbie"
+
+#: country_ru
+msgid "country_ru"
+msgstr "Russie"
+
+#: country_rw
+msgid "country_rw"
+msgstr "Rwanda"
+
+#: country_sa
+msgid "country_sa"
+msgstr "Arabie Saoudite"
+
+#: country_sb
+msgid "country_sb"
+msgstr "Iles Salomon"
+
+#: country_sc
+msgid "country_sc"
+msgstr "Seychelles"
+
+#: country_sd
+msgid "country_sd"
+msgstr "Soudan"
+
+#: country_se
+msgid "country_se"
+msgstr "Suède"
+
+#: country_sg
+msgid "country_sg"
+msgstr "Singapour"
+
+#: country_sh
+msgid "country_sh"
+msgstr "Sainte-Hélène"
+
+#: country_si
+msgid "country_si"
+msgstr "Slovénie"
+
+#: country_sj
+msgid "country_sj"
+msgstr "Svalbard et Île Jan Mayen"
+
+#: country_sk
+msgid "country_sk"
+msgstr "République Slovaque"
+
+#: country_sl
+msgid "country_sl"
+msgstr "Sierra Leone"
+
+#: country_sm
+msgid "country_sm"
+msgstr "Saint Marin"
+
+#: country_sn
+msgid "country_sn"
+msgstr "Sénégal"
+
+#: country_so
+msgid "country_so"
+msgstr "Somalie"
+
+#: country_sr
+msgid "country_sr"
+msgstr "Surinam"
+
+#: country_st
+msgid "country_st"
+msgstr "Sao Tomé et Principe"
+
+#: country_sv
+msgid "country_sv"
+msgstr "El Salvador"
+
+#: country_sy
+msgid "country_sy"
+msgstr "Syrie"
+
+#: country_sz
+msgid "country_sz"
+msgstr "Swaziland"
+
+#: country_tc
+msgid "country_tc"
+msgstr "Iles Turks et Caicos"
+
+#: country_td
+msgid "country_td"
+msgstr "Tchad"
+
+#: country_tf
+msgid "country_tf"
+msgstr "Terres australes françaises"
+
+#: country_tg
+msgid "country_tg"
+msgstr "Togo"
+
+#: country_th
+msgid "country_th"
+msgstr "Thaïlande"
+
+#: country_tj
+msgid "country_tj"
+msgstr "Tadjikistan"
+
+#: country_tk
+msgid "country_tk"
+msgstr "Tokelau"
+
+#: country_tl
+msgid "country_tl"
+msgstr "Timor-Leste"
+
+#: country_tm
+msgid "country_tm"
+msgstr "Turkménistan"
+
+#: country_tn
+msgid "country_tn"
+msgstr "Tunisie"
+
+#: country_to
+msgid "country_to"
+msgstr "Tonga"
+
+#: country_tr
+msgid "country_tr"
+msgstr "Turquie"
+
+#: country_tt
+msgid "country_tt"
+msgstr "Trinidad et Tobago"
+
+#: country_tv
+msgid "country_tv"
+msgstr "Tuvalu"
+
+#: country_tw
+msgid "country_tw"
+msgstr "Taïwan"
+
+#: country_tz
+msgid "country_tz"
+msgstr "Tanzanie"
+
+#: country_ua
+msgid "country_ua"
+msgstr "Ukraine"
+
+#: country_ug
+msgid "country_ug"
+msgstr "Ouganda"
+
+#: country_um
+msgid "country_um"
+msgstr "Îles Mineures Éloignées des États-Unis"
+
+#: country_us
+msgid "country_us"
+msgstr "Etats-Unis"
+
+#: country_uy
+msgid "country_uy"
+msgstr "Uruguay"
+
+#: country_uz
+msgid "country_uz"
+msgstr "Ouzbékistan"
+
+#: country_va
+msgid "country_va"
+msgstr "Vatican"
+
+#: country_vc
+msgid "country_vc"
+msgstr "Saint Vincent"
+
+#: country_ve
+msgid "country_ve"
+msgstr "Venezuela"
+
+#: country_vg
+msgid "country_vg"
+msgstr "Îles Vierges Britanniques"
+
+#: country_vi
+msgid "country_vi"
+msgstr "Îles Vierges américaines"
+
+#: country_vn
+msgid "country_vn"
+msgstr "Viet Nam"
+
+#: country_vu
+msgid "country_vu"
+msgstr "Vanuatu"
+
+#: country_wf
+msgid "country_wf"
+msgstr "Wallis et Futuna"
+
+#: country_ws
+msgid "country_ws"
+msgstr "Samoa"
+
+#: country_ye
+msgid "country_ye"
+msgstr "Yémen"
+
+#: country_yt
+msgid "country_yt"
+msgstr "Mayotte"
+
+#: country_za
+msgid "country_za"
+msgstr "Afrique du Sud"
+
+#: country_zm
+msgid "country_zm"
+msgstr "Zambie"
+
+#: country_zw
+msgid "country_zw"
+msgstr "Zimbabwe"
+

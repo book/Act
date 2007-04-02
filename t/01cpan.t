@@ -16,13 +16,14 @@ my @modules = (
                  'Digest::MD5',
                  'Email::Valid',
                  'HTML::Entities',
+                 'Locale::Maketext',
+                 'Locale::Maketext::Lexicon',
                  'MIME::Lite',
                  'Net::SMTP',
                  'Template',
                  'Template::Multilingual::Parser',
                  'Text::Diff',
                  'Test::MockObject',
-                 'Text::Iconv',
                  'Text::xSV',
                  'URI',
                  'URI::Escape',
@@ -30,7 +31,7 @@ my @modules = (
               );
 use Test::More;
 plan tests => 1 + scalar(@modules);
-cmp_ok($], 'ge', 5.006001, 'perl >= 5.6.1');
+cmp_ok($], 'ge', 5.008001, 'perl >= 5.8.1');
 for my $m (@modules) {
     require_ok($m);
 }

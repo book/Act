@@ -1,98 +1,19 @@
-[% WRAPPER ui
-   title = {
-     en => 'Submit/Edit a talk',
-     fr => 'Soumettre/Modifier une présentation',
-     it => 'Inviare/Modificare un intervento',
-     pt => 'Submeter/Editar uma apresentação'
-     de => 'Vortrag eingeben/bearbeiten',
-     hu => 'Esemény beküldése, szerkesztése'
-   }
-%]
+[% WRAPPER ui title = loc("Submit/Edit a talk") %]
 
 <center>
 
 [% PROCESS error
    msgs = {
-     ERR_USER => {
-         en => "You must specify a user"
-         fr => "L'utilisateur est obligatoire"
-         it => "Dovete indicare un utente"
-         pt => "Deve especificar um utilizador"
-         de => "Es muss eine UserIn angegeben werden"
-         hu => "Egy felhasználót meg kell adni"
-     },
-     ERR_TITLE => {
-         en => "You must enter a title for the talk"
-         fr => "Le titre est obligatoire"
-         it => "Il titolo è obbligatorio"
-         pt => "O título da apresentação é obrigatório"
-         de => "Titel des Vortrages fehlt"
-         hu => "Az elõadásnak címet kell adni"
-     },
-     ERR_ABSTRACT => {
-         en => "You must provide an abstract"
-         fr => "Le résumé est obligatoire"
-         it => "L'abstract è obbligatorio"
-         pt => "Deve introduzir um resumo da apresentação"
-         de => "Kurzbeschreibung fehlt"
-         hu => "Az absztraktot ki kell tölteni"
-     },
-     ERR_DATE => {
-         en => "The supplied date is invalid"
-         fr => "La date fournie est invalide"
-         it => "La data indicata non è valida"
-         pt => "A data indicada não é válida"
-         de => "Das Datum ist ungültig"
-         hu => "A megadott dátum érvénytelen"
-     },
-     ERR_TIME => {
-         en => "The supplied time is invalid"
-         fr => "L'heure fournie est invalide"
-         it => "L'ora indicata non è valida"
-         pt => "A hora indicada não é válida"
-         de => "Die Uhrzeit ist ungültig"
-         hu => "A megadott idõpont érvénytelen"
-     },
-     ERR_DATERANGE => {
-         en => "The date/time is out of range"
-         fr => "Date/heure hors limites"
-         it => "La data o l'ora sono fuori dai limiti"
-         pt => "A data ou hora indicadas estão fora dos limites"
-         de => "Das Datum bzw die Uhrzeit ist ausserhalb des gültigen Bereichs"
-         hu => "A dátum/idõ rossz tartományba esik"
-     },
-     ERR_DURATION => {
-         en => "Please choose a duration",
-         fr => "Vous devez choisir une durée"
-         it => "Dovete indicare una durata"
-         pt => "Deve escolher uma duração"
-         de => "Bitte eine Dauer angeben"
-         hu => "Az esemény hosszát ki kell választani"
-     },
-     ERR_URL_ABSTRACT => {
-         en => "Abstract URL is not a valid URL",
-         fr => "L'URL du résumé n'est pas une URL valide"
-         it => "La URL indicata per l'abstract non è valida"
-         pt => "O URL indicado para o resumo não é válido"
-         de => "Die URL weiter Infos ist nicht gültig"
-         hu => "Az absztrakt URL-je érvénytelen"
-     },
-     ERR_URL_TALK => {
-         en => "Talk URL is not a valid URL"
-         fr => "L'URL de la présentation n'est pas une URL valide"
-         it => "La URL indicata per l'intervento non è valida"
-         pt => "O URL indicado para a apresentação não é válida"
-         de => "Die URL Slides ist nicht gültig"
-         hu => "Az elõadás URL-je érvénytelen"
-     },
-     ERR_ROOM => {
-         en => "Incorrect room submitted",
-         fr => "Salle incorrecte",
-         it => "La stanza indicata non è valida"
-         pt => "A sala indicada não é válida"
-         de => "Falsche Raumnummer"
-         hu => "Érvénytelen helyszín"
-     },
+     ERR_USER           => loc("You must specify a user"),
+     ERR_TITLE          => loc("You must enter a title for the talk"),
+     ERR_ABSTRACT       => loc("You must provide an abstract"),
+     ERR_DATE           => loc("The supplied date is invalid"),
+     ERR_TIME           => loc("The supplied time is invalid"),
+     ERR_DATERANGE      => loc("The date/time is out of range"),
+     ERR_DURATION       => loc("Please choose a duration"),
+     ERR_URL_ABSTRACT   => loc("Abstract URL is not a valid URL"),
+     ERR_URL_TALK       => loc("Talk URL is not a valid URL"),
+     ERR_ROOM           => loc("Incorrect room submitted"),
   }
 %]
 
@@ -101,24 +22,18 @@
 [% IF talk_id %]
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
 <p>
- <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><de>Zeige: </de><hu>Megtekint: </hu></t>
+ {{View}}
  <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
 </p><p>
 <input type="checkbox" name="delete" />
-<t><en>Delete this talk</en>
-   <fr>Supprimer cette présentation</fr>
-   <it>Elimina questo intervento</it>
-   <pt>TRANSLATEME</pt>
-   <de>TRANSLATEME</de>
-   <hu>Elõadás törlése</hu>
-</t>
+{{Delete this talk}}
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 [% IF global.request.user.is_orga %]
 <tr>
-  <td align="right"><t><en>User</en><fr>Utilisateur</fr><it>Utente</it><pt>Utilizador</pt><de>UserIn</de><hu>Felhasználó</hu></t></td>
+  <td align="right">{{User}}</td>
   <td>&nbsp;</td>
   <td>
     <select name="user_id">
@@ -132,7 +47,7 @@
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Date</en><fr>Date</fr><pt>Data</pt><it>Data</it><de>Datum</de><hu>Dátum</hu></t></td>
+  <td align="right">{{Date}}</td>
   <td>&nbsp;</td>
   <td>
    <select name="date">
@@ -141,9 +56,9 @@
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
     </select>
-   <t><en>Time</en><fr>Heure</fr><pt>Hora</pt><it>Ora</it><de>Uhrzeit</de><hu>Idõpont</hu></t>
+   {{Time}}
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   <t><en>Room</en><fr>Salle</fr><pt>Sala</pt><it>Stanza</it><de>Raum</de><hu>Helyszín</hu></t>
+   {{Room}}
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
@@ -154,7 +69,7 @@
 </tr>
 [% END %]
 <tr>
-  <td align="right"><t><en>Title</en><fr>Titre</fr><pt>Título</pt><it>Titolo</it><de>Titel</de><hu>Cím</hu></t></td>
+  <td align="right">{{Title}}</td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
@@ -163,13 +78,7 @@
 [% IF global.request.user.is_orga && tracks.size != 0 %]
 <tr>
   <td align="right" valign="top">
-  <t><en>Track</en>
-     <fr>Thème</fr>
-     <it>Traccia</it>
-     <de>TRANSLATEME</de>
-     <pt>TRANSLATEME</pt>
-     <hu>TRANSLATEME</hu>
-  </t></td>
+  {{Track}}</td>
   <td></td>
   <td>
    <select name="track_id">
@@ -184,140 +93,90 @@
 [% END %]
 <tr>
   <td align="right" valign="top">
-  <t><en>Abstract<br />(plain text)</en>
-     <fr>Résumé<br />(texte brut)</fr>
-     <pt>Resumo<br />(texto puro)</pt>
-     <it>Abstract<br />(testo semplice)</it>
-     <de>Kurzbeschreibung<br />(nur Text)</de>
-     <hu>Absztrakt<br />(egyszerû szöveg)</hu>
-  </t></td>
+  {{Abstract}}<br />{{(plain text)}}</td>
   <td>&nbsp;</td>
   <td>
     <textarea name="abstract" cols="50" rows="10">[% abstract | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Abstract URL</en><fr>URL résumé</fr><pt>URL do resumo</pt><it>URL dell'abstract</it><de>URL weitere Infos</de><hu>Absztrakt URL-je</hu></t></td>
+  <td align="right">{{Abstract URL}}</td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Talk URL</en><pt>URL da apresentação</pt><fr>URL présentation</fr><it>URL dell'intervento</it><de>URL Slides etc</de><hu>Elõadás URL-je</hu></t></td>
+  <td align="right">{{Talk URL}}</td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><pt>Duração</pt><it>Durata</it><de>Dauer</de><hu>Hossz</hu></t></td>
+  <td align="right" valign="top">{{Duration}}</td>
   <td>&nbsp;</td>
   <td>
   [% IF global.request.user.is_orga %]
-    <t>
-     <en>Standard durations for [% global.conference.name %] are:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</en>
-     <pt>As durações standard para a [% global.conference.name %] são:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutos.</pt>
-     <fr>Les durées standards pour [% global.conference.name %] sont&nbsp;:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutes.</fr>
-     <it>Le durate previste per [% global.conference.name %] sono:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minuti.</it>
-     <pt>As durações standard para a [% global.conference.name %] são:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> minutos.</pt>
-     <de>Standardlängen sind: <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> Minuten.
-     </de>
-     <hu>Választható elõadás hosszok:
-     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> perc.</hu>
-    </t><br />
+    [% loc("Standard durations for <confname> are:", global.conference.name) %]
+    <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> {{minutes}}
+    <br />
     <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="3" />
     <input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] />
-    <t><fr>Communication éclair</fr><en>Lightning talk</en><it>Intervento lampo</it><pt>Apresentação relâmpago</pt><de>Lightning talk</de><hu>Villám elõadás</hu></t>
+    {{Lightning talk}}
   [% ELSE %]
     [% IF talk_id %]
       [% IF duration == 'lightning' %]
-        <t><en>Lightning talk</en><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><it>Intervento lampo</it><de>Lightning talk</de><hu>Villám elõadás</hu></t>
+        {{Lightning talk}}
       [% ELSE %]
-        [% duration %] <t><en>minutes</en><fr>minutes</fr><pt>minutos</pt><it>minuti</it><de>Minuten</de><hu>perc</hu></t>
+        [% duration %] {{minutes}}
       [% END %]
     [% ELSE %]
       <select name="duration">
        <option value=""[% ' selected="selected"' UNLESS duration %]></option>
        <option value="lightning"[% ' selected="selected"' IF lightning %] />
-          <t><fr>Communication éclair</fr><pt>Apresentação relâmpago</pt><en>Lightning talk</en><it>Intervento lampo</it><de>Lightning talk</de><hu>Villám elõadás</hu></t>
+          {{Lightning talk}}
        </option>
        [% FOREACH d = global.config.talks_durations.keys.nsort %]
-       <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] <t><en>minutes</en><pt>minutos</pt><fr>minutes</fr><it>minuti</it><de>Minuten</de><hu>perc</hu></t></option>
+       <option value="[% d %]"[% ' selected="selected"' IF d == duration %]>[% d %] {{minutes}}</option>
        [% END %]
-       <t>
-       <fr>Si les durées proposées ne conviennent pas, utiliser le champ
-       commentaire pour indiquer la durée préférée.</fr>
-       <en>If the proposed durations do not quite fit your talk, please
-       use the comment field to indicate the preferred duration.</en>
-       <pt>Se as durações propostas não se adequam à sua apresentação,
-       use o campo de comentários para indicar a duração desejada.</pt>
-       <it>Se nessuna delle durate proposte si addice al vostro
-       intervento, indicate la durata che vorreste nel campo dei
-       commenti.</it>
-       <pt>Se as durações propostas não se adequam à sua apresentação,
-       use o campo de comentários para indicar a duração desejada.</pt>
-       <de>Wenn die vorgeschlagenen Zeiten nicht passen, bitte im
-       Kommentarfeld die gewünschte Dauer eingeben.</de>
-       <hu>Ha a választható idõtartamok nem megfelelõek az elõadás számára,
-       az a megjegyzés mezõben jelezhetõ (a kívánt idõpont leírásával).</hu>
-       </t>
+       {{If the proposed durations do not quite fit your talk, please}}
      [% END %]
    [% END %]
     </select>
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Comments</en><fr>Commentaires</fr><it>Commenti</it><pt>Comentário</pt><de>Kommentare</de><hu>Megjegyzések</hu></t></td>
+  <td align="right" valign="top">{{Comments}}</td>
   <td>&nbsp;</td>
   <td>
-    <t>
-    <en>The comment field is used for communicating information about
-    this talk to the organisers.</en>
-    <pt>O campo de comentários é usado para comunicar informação extra
-    sobre esta apresentação aos organizadores.</pt>
-    <fr>Le champ commentaire permet de passer de l'information au
-    sujet de cette présentation aux organisateurs.</fr>
-    <it>Il campo dei commenti serve per fornire informazioni
-    aggiuntive sull'intervento agli organizzatori.</it>
-    <pt>O campo de comentários é usado para comunicar informação extra
-    sobre esta apresentação aos organizadores.</pt>
-    <de>Das Kommentarfeld kann verwendet werden, um weitere Informationen
-    o.ä. an die Organisatoren weiterzuleiten.</de>
-    <hu>A megjegyzés mezõ a szervezõkkel való elõadással kapcsolatos
-    kommunikációra szolgál.</hu>
-    </t><br />
+    {{The comment field is used for communicating information about}}<br />
     <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Status</en><fr>État</fr><pt>Estado</pt><it>Stato</it><de>Status</de><hu>Állapot</hu></t></td>
+  <td align="right" valign="top">{{Status}}</td>
   <td>&nbsp;</td>
   <td>
     [% IF global.request.user.is_orga %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
-    <t><en>accepted</en><fr>accepté</fr><pt>aceite</pt><it>Accettato</it><de>angenommen</de><hu>elfogadott</hu></t><br />
+    {{accepted}}<br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-    <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de><hu>megerõsített</hu></t><br />
+    {{confirmed}}<br />
     [% ELSE %]
       [% IF accepted %]
-        <t><en>Accepted</en><fr>Accepté</fr><pt>Aceite</pt><it>Accettato</it><de>angenommen</de><hu>elfogadott</hu></t><br />
+        {{Accepted}}<br />
         <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
-        <t><en>confirmed</en><fr>confirmé</fr><pt>confirmada</pt><it>confermato</it><de>bestätigt</de><hu>megerõsített</hu></t><br />
+        {{confirmed}}<br />
       [% ELSE %]
-        <t><en>Pending</en><fr>En attente</fr><it>In attesa</it><pt>Pendente</pt><de>in Bearbeitung</de><hu>függõben</hu></t>
+        {{Pending}}
       [% END %]
     [% END %]
    </td>
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="<t><en>Submit this talk</en><pt>Submeter</pt><fr>Soumettre</fr><it>Invia</it><de>Vortrag einreichen</de><hu>Elõadás beküldése</hu></t>" />
+      <input type="submit" name="submit" value="{{Submit this talk}}" />
    </td>
 </tr>
 </table>

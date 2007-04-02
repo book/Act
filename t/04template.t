@@ -2,6 +2,7 @@
 
 use strict;
 use Act::Config;
+use Act::I18N;
 
 my @templates = (
     { in  => 'foo',
@@ -63,8 +64,45 @@ my @templates = (
                     { nolang => 'C' },
                   ],
     },
+    { # loc()
+      in  => '[% loc("country_gb") %]',
+      out => 'Royaume-Uni',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
+    { # {{ }}
+      in  => '{{country_gb}}',
+      out => 'Royaume-Uni',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
+    { # trailing spaces
+      in  => '{{ country_gb }}',
+      out => 'Royaume-Uni',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
+    { # no trailing spaces
+      in  => '{{country_gb}}',
+      out => 'Royaume-Uni',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
+    { # in English
+      lang => 'en',
+      in  => '{{country_gb}}',
+      out => 'United Kingdom',
+      sections => [ { nolang => '[% loc("country_gb") %]' } ],
+    },
+    { # mixed with text
+      in  => 'foo {{country_gb}} bar',
+      out => 'foo Royaume-Uni bar',
+      sections => [ { nolang => 'foo [% loc("country_gb") %] bar' } ],
+    },
+    { # mix localization techniques
+      in  => '{{country_gb}}<t><fr>foo</fr></t>',
+      out => 'Royaume-Unifoo',
+      sections => [ { nolang => '[% loc("country_gb") %]' },
+                    {   lang => { fr => 'foo' } },
+                  ],
+    },
 );
-my $quote = { q => '"' };
 my @html_templates = (
     { in  => 'foo',
       out => 'foo',
@@ -153,6 +191,9 @@ sub _ttest
         $template->$method(%{$t->{var}});
     }
     %Request = ( language => $t->{lang} || 'fr' );
+    $Request{loc} = Act::I18N->get_handle($Request{language});
+    $Config->set(general_default_language => $Request{language});
+
     my $output;
     ok($template->process(\$t->{in}, \$output));
     is($output, $t->{out});

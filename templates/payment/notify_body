@@ -1,56 +1,8 @@
 [% global.request.user.first_name %] [% global.request.user.last_name %]
 
-<t><en>Your online payment for your [% global.conference.name %] registration has been approved.
-
-Your order number: [% order.order_id %]
-Payment date: [% date_format(order.datetime, 'datetime_full') %] GMT
-Amount paid: [% order.amount %] [% order.currency %]
-
-Your order number is [% order.order_id %].
-Be sure to bring it along with you when you come to the conference.
-
-Thanks for joining [% global.conference.name %]!
-</en><fr>Votre paiement en ligne de l'inscription à [% global.conference.name %] est enregistré.
-
-Numéro d'inscription : [% order.order_id %]
-Date de règlement : [% date_format(order.datetime, 'datetime_full') %] GMT
-Montant réglé : [% order.amount %] [% order.currency %]
-
-Votre numéro d'inscription est [% order.order_id %].
-N'oubliez pas de vous munir de ce numéro lors de votre venue à la conférence.
-
-Merci de votre participation à [% global.conference.name %] !</fr>
-<de>Ihre Online-Zahlung für Ihre Registrierung bei der Veranstaltung
-"[% global.conference.name %]" wurde bestätigt.
-
-Ihre Bestellnummer: [% order.order_id %]
-Zahlungsdatum: [% date_format(order.datetime, 'datetime_full') %] GMT
-Betrag: [% order.amount %] [% order.currency %]
-
-Ihre Bestellnummer ist [% order.order_id %]. Bitte notieren Sie diese
-Nummer und bringen Sie zur Veranstaltung mit.
-
-Danke für Ihre Teilnahme!</de>
-<it>Il pagamento per la Vostra registrazione a [% global.conference.name %]
- è stato approvato.
-
-Il numero del Vostro ordine è [% order.order_id %]
-Data del pagamento: [% date_format(order.datetime, 'datetime_full') %] GMT
-Totale pagato: [% order.amount %] [% order.currency %]
-
-RicordateVi di presentare il numero del Vostro ordine ([% order.order_id
-%]) all'arrivo alla conferenza.
-
-Grazie per aver scelto di partecipare a [% global.conference.name %]!</it>
-<pt>O seu pagamento on-line para o registo na [% global.conference.name %]
-foi aprovado.
-
-Número da compra: [% order.order_id %]
-Data de pagamento: [% date_format(order.datetime, 'datetime_full') %] GMT
-Valor pago: [% order.amount %] [% order.currency %]
-
-O seu número de compra é [% order.order_id %].
-Não se esqueça de o ter quando vier para a conferência.
-
-Obrigado por se juntar à [% global.conference.name %]!</pt>
-</t>
+[% loc("Your online payment for your <conf> registration has been approved.",
+        global.conference.name,
+        order.order_id,
+        date_format(order.datetime, 'datetime_full'),
+        order.amount,
+        order.currency ) %]

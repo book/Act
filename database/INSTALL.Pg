@@ -42,10 +42,6 @@ database names and credentials.
     dbuser = act
     dbpass = xyzzy
 
-Populate some tables with data required for Act's operation.
-
-    $ psql -U act act < database/fill_db.sql
-
 To exercise database tests, repeat the above operations to create a
 database named 'acttest':
 
@@ -53,7 +49,6 @@ database named 'acttest':
     $ createdb acttest
     $ ^D
     $ psql -U act acttest < database/init_db_Pg.sql
-    $ psql -U act acttest < database/fill_db.sql
 
 From the package's top level directory, run the test suite to verify
 that the software is able to connect to the database.

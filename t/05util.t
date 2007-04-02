@@ -1,9 +1,10 @@
 #!perl -w
 
 use strict;
+use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 15 + 5 * NBPASS;
+use Test::More tests => 16 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -11,7 +12,7 @@ BEGIN { use_ok('Act::Util') }
 # create a fake request object
 my $uri;
 $Request{r} = Test::MockObject->new;
-$Request{r}->mock( uri => sub { return $uri } );
+$Request{r}->mock(uri => sub { return $uri } );
 
 # create a fake config object
 $Config = Test::MockObject->new;
@@ -65,6 +66,10 @@ for (1..NBPASS) {
     like($clear,   qr/^[a-z]+$/);
     like($crypted, qr/^\S+$/);
 }
+# date_format
+$Request{language} = 'fr';
+my $dt = DateTime->new(year => 2007, month => 2, day => 15);
+is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format');
 
 
 __END__

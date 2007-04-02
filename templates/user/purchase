@@ -1,6 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'Online payment', fr => 'Paiement en ligne', it => 'Pagamento on-line', pt => 'Pagamento on-line',de=>'Online bezahlen', hu=>'Online fizetés' },
-%]
+[% WRAPPER ui title = 'Online payment' %]
 
 [% PROCESS core/user/purchase %]
 

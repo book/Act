@@ -1,40 +1,8 @@
-[% WRAPPER ui
-   title = {
-       en => 'Logout',
-       fr => 'Déconnexion',
-       it => 'Uscita dal sistema',
-       pt => 'Sair'
-       de => 'Logout',
-       hu => 'Kijelentkezés',
-       nl => 'Afmelden'
-}
-%]
+[% WRAPPER ui title = loc('Logout') %]
 <center>
 
 <p>
-<t>
- <en>
-   You have been logged out and the cookie deleted from you browser.
- </en>
- <fr>
-   Vous êtes déconnecté et le cookie a été supprimé.
- </fr>
- <it>
-  Siete usciti dal sistema, e il <em>cookie</em> è stato eliminato.
- </it>
- <pt>
-   Acabou de sair do sistema, e a sua informação foi apagada do browser.
- </pt>
- <de>
-   Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht.
- </de>
- <hu>
-   A kijelentkezés megtörtént, a böngészõ süti törlésre került.
- </hu>
- <nl>
-   U werd afgemeld en de cookie werd verwijderd van Uw browser.
- </nl>
-</t>
+{{You have been logged out and the cookie deleted from your browser.}}
 </font>
 
 </center>

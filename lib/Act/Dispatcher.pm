@@ -7,6 +7,7 @@ use Apache::Request;
 use DBI;
 
 use Act::Config;
+use Act::I18N;
 use Act::User;
 use Act::Util;
 
@@ -182,6 +183,9 @@ sub _set_language
 
     # remember it for this request
     $Request{language} = $language;
+
+    # fetch localization handle
+    $Request{loc} = Act::I18N->get_handle($Request{language});
 
     # send the cookie if needed
     if ($sendcookie) {

@@ -1,66 +1,26 @@
 <!-- users menu -->
 [% WRAPPER menus/section %]
-<t>
- <fr>Utilisateurs</fr>
- <en>Users</en>
- <it>Utenti</it>
- <pt>Utilizadores</pt>
- <de>UserInnen</de>
- <hu>Felhasználók</hu>
- <nl>Gebruikers</nl>
-</t>
+{{Users}}
 [% END %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('search') %]">
- <t>
-  <fr>Recherche</fr>
-  <en>Search</en>
-  <it>Cerca</it>
-  <pt>Procurar</pt>
-  <de>Suchen</de>
-  <hu>Keresés</hu>
-  <nl>Zoeken</nl>
- </t>
+ {{Search}}
 </a>
 [% END %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('stats') %]">
- <t>
-  <fr>Statistiques</fr>
-  <en>Statistics</en>
-  <it>Statistiche</it>
-  <pt>Estatísticas</pt>
-  <de>Statistik</de>
-  <hu>Statisztika</hu>
-  <nl>Statistieken</nl>
- </t>
+ {{Statistics}}
 </a>
 [% END %]
 [% IF global.request.user.is_orga %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('export') %]">
- <t>
-  <fr>Export CSV</fr>
-  <en>CSV export</en>
-  <it>Esporta CSV</it>
-  <pt>Exportar CSV</pt>
-  <de>CSV exportieren</de>
-  <hu>CSV exportálás</hu>
-  <nl>CSV export</nl>
- </t>
+ {{CSV export}}
 </a>
 [% END %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('create') %]">
- <t>
-  <fr>Enregister un nouvel utilisateur</fr>
-  <en>Register a new user</en>
-  <it>Registrare un nuovo utente</it>
-  <pt>TRANSLATEME</pt>
-  <de>TRANSLATEME</de>
-  <hu>TRANSLATEME</hu>
-  <nl>Een nieuwe gebruik registreren</nl>
- </t>
+ {{Register a new user}}
 </a>
 [% END %]
 [% END %]

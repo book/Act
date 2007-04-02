@@ -1,10 +1,1 @@
-<p>
- <t>
-   <en>An email has been sent to [% email %]. Click on the link in the email to
-       finish this operation.
-   </en>
-   <fr>Un email a été envoyé à [% email %]. Cliquez sur le lien contenu dans cet
-       email pour terminer l'opération en cours.
-   </fr>
- </t>
-</p>
+<p>[% loc("An email has been sent to <email>. Click on the link in the email to", email) %]</p>

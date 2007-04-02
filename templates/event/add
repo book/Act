@@ -1,91 +1,17 @@
-[% WRAPPER ui
-   title = {
-     en => 'Submit/Edit a non-talk event'
-     fr => 'Soumettre/Modifier un évenement'
-     it => 'Aggiunta/Modifica di un evento'
-     pt => 'Submissão/Modificação de um evento'
-     de => 'Eingeben/Bearbeiten eines Events (kein Vortrag)'
-     hu => 'Nem elõadás esemény hozzáadása, szerkesztése'
-     nl => 'Voorstellen/wijzigen van een gebeurtenis'
-}
-%]
+[% WRAPPER ui title = loc("Submit/Edit a non-talk event") %]
 
 <center>
 
 [% PROCESS error
    msgs = {
-     ERR_TITLE => {
-         en => "You must enter a title for the event"
-         fr => "La désignation est obligatoire"
-         it => "Il titolo è obbligatorio"
-         pt => "Deve introduzir um título para o evento"
-         de => "Sie müssen einen Titel eingeben"
-         hu => "A cím megadása kötelezõ"
-         nl => "Gelieve een titel in te geven"
-     },
-     ERR_ABSTRACT => {
-         en => "You must enter a short description for the event"
-         fr => "Une courte description est obligatoire"
-         it => "Una breve descrizione è obbligatoria"
-         pt => "A descrição do evento é obrigatória"
-         de => "Sie müssen eine Kurzbeschreibung eingeben"
-         hu => "Az esemény rövid leírásának megadása kötelezõ"
-         nl => "Gelieve een korte beschrijving in te geven"
-     },
-     ERR_DURATION => {
-         en => "Please choose a duration"
-         fr => "Vous devez choisir une durée"
-         it => "Dovete indicare una durata"
-         pt => "Deve indicar a duração"
-         de => "Bitte wählen Sie eine Dauer aus"
-         hu => "Az esemény hosszát meg kell adni"
-         nl => "Gelieve de duur te kiezen"
-     },
-     ERR_DATE => {
-         en => "The supplied date is invalid"
-         fr => "La date fournie est invalide"
-         it => "La data indicata non è valida"
-         pt => "A data indicada não é válida"
-         de => "Das angegebene Datum ist ungültig"
-         hu => "A megadott dátum érvénytelen"
-         nl => "De ingegeven datum is ongeldig"
-     },
-     ERR_TIME => {
-         en => "The supplied time is invalid"
-         fr => "L'heure fournie est invalide"
-         it => "L'ora indicata non è valida"
-         pt => "A hora indicada não é válida"
-         de => "Die angegebene Zeit ist ungültig"
-         hu => "A megadott idõpont érvénytelen"
-         nl => "Het ingegeven uur is ongeldig"
-     },
-     ERR_DATERANGE => {
-         en => "The date/time is out of range"
-         fr => "Date/heure hors limites"
-         it => "La data o l'ora sono fuori dai limiti"
-         pt => "A data ou hora estão fora dos limites"
-         de => "Das Datum bzw die Uhrzeit is ausserhalb des gültigen Zeitraums"
-         hu => "A dátum/idõ rossz tartományba esik"
-         nl => "De combinatie datum/uur ligt buiten de grenzen"
-     },
-     ERR_URL_ABSTRACT => {
-         en => "Event URL is not a valid URL",
-         fr => "L'URL de l'événement n'est pas une URL valide"
-         it => "La URL indicata non è valida"
-         pt => "O URL indicado não é válido"
-         de => "Die URL ist nicht gültig"
-         hu => "Az esemény URL-je érvénytelen"
-         nl => "De ingegeven URL is ongeldig"
-     },
-     ERR_ROOM => {
-         en => "Incorrect room submitted",
-         fr => "Salle incorrecte",
-         it => "La stanza indicata non è valida"
-         pt => "A sala indicada não é válida"
-         de => "Falscher Veranstaltungsraum"
-         hu => "Érvénytelen helyszín"
-         nl => "De zaal is ongeldig"
-     },
+     ERR_TITLE          => loc("You must enter a title for the event"),
+     ERR_ABSTRACT       => loc("You must enter a short description for the event"),
+     ERR_DURATION       => loc("Please choose a duration"),
+     ERR_DATE           => loc("The supplied date is invalid"),
+     ERR_TIME           => loc("The supplied time is invalid"),
+     ERR_DATERANGE      => loc("The date/time is out of range"),
+     ERR_URL_ABSTRACT   => loc("Event URL is not a valid URL"),
+     ERR_ROOM           => loc("Incorrect room submitted"),
   }
 %]
 
@@ -94,30 +20,24 @@
 [% IF event_id %]
 <input type="hidden" name="event_id" value="[% event_id %]" />
 <p>
- <t><en>View</en><fr>Voir</fr><it>Mostra</it><pt>Ver</pt><nl>Zie</nl></t>
+ {{View}}
  <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
 </p><p>
 <input type="checkbox" name="delete" />
-<t><en>Delete this event</en>
-   <fr>Supprimer cet événement</fr>
-   <it>Elimina questo evento</it>
-   <pt>TRANSLATEME</pt>
-   <de>TRANSLATEME</de>
-   <nl>Deze gebeurtenis verwijderen</nl>
-</t>
+{{Delete this event}}
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 <tr>
-  <td align="right"><t><en>Title</en><fr>Titre</fr><it>Titolo</it><pt>Título</pt><de>Titel</de><nl>Titel</nl></t></td>
+  <td align="right">{{Title}}</td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>Date</en><fr>Date</fr><it>Data</it><pt>Data</pt><de>Datum</de><nl>Datum</nl></t></td>
+  <td align="right">{{Date}}</td>
   <td>&nbsp;</td>
   <td>
    <select name="date">
@@ -126,9 +46,9 @@
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
    [% END %]
     </select>
-   <t><en>Time</en><fr>Heure</fr><it>Ora</it><pt>Hora</pt><de>Uhrzeit</de><nl>Uur</nl></t>
+   {{Time}}
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   <t><en>Room</en><fr>Salle</fr><it>Stanza</it><pt>Sala</pt><de>Veranstaltungsraum</de><nl>Zaal</nl></t>
+   {{Room}}
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
@@ -139,36 +59,31 @@
 </tr>
 <tr>
   <td align="right" valign="top">
-  <t><en>Abstract<br />(plain text)</en>
-     <fr>Description<br />(texte brut)</fr>
-     <it>Descrizione<br />(testo semplice)</it>
-     <pt>Descrição<br />(texto puro)</pt>
-     <de>Kurzbeschreibung<br />(nur Text)</de>
-     <nl>Beschrijving<br />(gewone tekst)</nl>
-  </t></td>
+  {{Abstract}}<br />{{(plain text)}}
+  </td>
   <td>&nbsp;</td>
   <td>
     <textarea name="abstract" cols="50" rows="10">[% abstract | form_unescape %]</textarea>
   </td>
 </tr>
 <tr>
-  <td align="right"><t><en>External URL</en><fr>URL externe</fr><it>URL esterna</it><pt>URL externo</pt><de>Externe URL</de><nl>Externe URL</nl></t></td>
+  <td align="right">{{External URL}}</td>
   <td>&nbsp;</td>
   <td>
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top"><t><en>Duration</en><fr>Durée</fr><it>Durata</it><pt>Duração</pt><de>Dauer</de><nl>Duur</nl></t></td>
+  <td align="right" valign="top">{{Duration}}</td>
   <td>&nbsp;</td>
   <td>
     <input name="duration" value="[% duration %]" size="3" />
-    <t><fr>minutes</fr><en>minutes</en><it>minuti</it><pt>minutos</pt><de>Minuten</de><nl>minuten</nl></t>
+    {{minutes}}
   </td>
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="<t><en>Submit this event</en><fr>Soumettre</fr><it>Invia</it><pt>Submeter</pt><de>Event anmelden</de><nl>Verzenden</nl></t>" />
+      <input type="submit" name="submit" value="{{Submit this event}}" />
    </td>
 </tr>
 </table>

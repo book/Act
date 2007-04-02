@@ -1,6 +1,4 @@
-[% WRAPPER ui
-   title = { en => 'Registration', fr => 'Inscription', pt => "Inscrição", it => 'Iscrizione',de =>'Anmelden', hu => 'Regisztráció' },
-%]
+[% WRAPPER ui title = loc('Registration') %]
 
 [% PROCESS core/user/register %]
 

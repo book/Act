@@ -1,35 +1,3 @@
-[% WRAPPER ui
-   title = { en => 'Registered!', fr => 'Inscrit !', it => "Iscritto!", pt => 'Inscrito!', de => 'Angemeldet!', hu => 'Sikeres regisztráció' },
-%]
-
-<p>
- <t>
-  <en>
-   Congratulations, <b>[% login %]</b>, you are now registered.
-   Your password is <b>[% clear_passwd %]</b> .
-  </en>
-  <pt>
-   Parabêns, <b>[% login %]</b>, acabou de se registar.
-   O seu código de acesso é <b>[% clear_passwd %]</b> .
-  </pt>
-  <fr>
-   Bravo, <b>[% login %]</b>, vous êtes maintenant inscrit. Votre
-   mot de passe est <b>[% clear_passwd %]</b> .
-  </fr>
-  <it>
-   Bene, <b>[% login %]</b>, avete creato il vostro account. La vostra
-   password è <b>[% clear_passwd %]</b> .
-  </it>
-  <de>
-   Herzlich Wilkommen, <b>[% login %]</b>, Sie sind hiermit angemeldet.
-   Ihr Passwort ist: <b>[% clear_passwd %]</b> .
-  </de>
-  <hu>
-   Gratulálunk <b>[% login %]</b>, a regisztráció sikeresen lezajlott.
-   A jelszó: <b>[% clear_passwd %]</b>. A következõ lépés a személyes
-   adatok beállítása lehet.
-  </hu>
- </t>
-</p>
-
+[% WRAPPER ui title = loc("Registered!") %]
+<p>[% loc('Congratulations, you are now registered', login, clear_passwd) %]</p>
 [% END %]

@@ -1,21 +1,6 @@
-[% WRAPPER ui
-   title = { en => 'Confirmation required',
-             fr => 'Confirmation requise',
-             pt => 'TRANSLATEME',
-             it => 'TRANSLATEME',
-             de => 'TRANSLATEME',
-             hu => 'TRANSLATEME',
-           },
-%]
+[% WRAPPER ui title = loc("Confirmation required") %]
 
-<p><t>
- <en>This operation requires a confirmation. Please enter your email address,
-     you will receive an email with a confirmation link.
- </en>
- <fr>Cette opération nécessite une confirmation. Merci de fournir votre adresse
-     email, vous recevrez un email contenant un lien de confirmation.
- </fr>
-</t></p>
+<p>{{This operation requires a confirmation. Please enter your email address,}}</p>
 
 [% PROCESS core/twostep/form %]
 

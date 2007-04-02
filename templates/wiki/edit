@@ -1,36 +1,30 @@
-[% WRAPPER ui
-   title = { en => "Wiki - editing $node",
-             fr => "Wiki - modification de $node",
-             it => 'TRANSLATEME', pt => 'TRANSLATEME', de => 'TRANSLATEME', hu => 'TRANSLATEME',
-           },
-%]
+[% WRAPPER ui title = loc('Wiki - editing <node>', node) %]
 
 [% IF preview %]
 [% preview_content %]
 <hr />
 [% ELSIF conflict %]
   <div class="warning_text">
-  Someone has committed changes to this node since you began editing.
-  You will need to manually merge your changes into the new version.
+  {{Someone has committed changes to this node since you began editing.}}
   </div>
 
-  <h2>Current node contents:</h2>
+  <h2>{{Current node contents:}}</h2>
 [% END %]
 
 <form method="POST" action="[% global.request.r.uri %]">
   <textarea name="content" rows="25" cols="80">[% content %]</textarea>
   <br />
-  <a href="[% make_uri('wiki', 'action', 'help') %]"><t><fr>Aide</fr><en>Help</en></t></a>
+  <a href="[% make_uri('wiki', 'action', 'help') %]">{{Help}}</a>
   |
   <input type="hidden" name="action" value="commit" />
   <input type="hidden" name="node" value="[% node %]" />
   <input type="hidden" name="checksum" value="[% checksum %]" />
-  <input type="submit" name="preview" value="<t><fr>Aperçu</fr><en>Preview</en></t>" />
-  <input type="submit" name="save" value="<t><fr>Enregistrer</fr><en>Save</en></t>" />
+  <input type="submit" name="preview" value="{{Preview}}" />
+  <input type="submit" name="save" value="{{Save}}" />
 </form>
 
 [% IF conflict %]
-  <h2>Your proposed revision:</h2>
+  <h2>{{Your proposed revision:}}</h2>
   <pre>
     [% new_content %]
   </pre>

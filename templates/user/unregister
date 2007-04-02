@@ -1,40 +1,7 @@
-[% WRAPPER ui
-   title = {
-       en => 'Un-Registration'
-       fr => 'Désinscription'
-       pt => 'Cancelamento de Registo'
-       it => 'Annullamento dell\'iscrizione'
-       de => 'Abmelden'
-       hu => 'Leiratkozás'
-},
-%]
+[% WRAPPER ui  title = loc('Un-Registration') %]
 
 <p>
- <t>
-  <en>
-   To unregister from the [% global.conference.name %] conference,
-   simply push the button below.
-  </en>
-  <it>
-   Per annullare la vostra iscrizione a [% global.conference.name %],
-   premete il pulsante qui sotto.
-  </it>
-  <pt>
-   Para cancelar o registo na conferência [% global.conference.name %]
-   use o botão abaixo.
-  </pt>
-  <fr>
-   Pour vous désinscrire de la conférence [% global.conference.name %],
-   poussez simplement sur le bouton ci-dessous.
-  </fr>
-  <de>
-  Um sich von der Konferenz [% global.conference.name %] abzumelden, bitte unten klicken.
-  </de>
-  <hu>
-   A [% global.conference.name %] konferenciáról történõ leiratkozáshoz
-   az alábbi gombot kell megnyomni.
-  </hu>
- </t>
+ [% loc('To unregister from <conference>,', global.conference.name) %]
 </p>
 
 <center>
@@ -46,7 +13,7 @@
 
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="leave" value="<t><en>Unregister from</en><pt>Cancelar registo na</pt><it>Annulla l'iscrizione a</it><fr>Désinscription de</fr><de>Abmelden von</de><hu>Leiratkozom: </hu></t> [% global.conference.name %]" />
+      <input type="submit" name="leave" value="[% loc('Unregister from <conference>', global.conference.name) %]" />
    </td>
 </tr>
 </table>

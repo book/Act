@@ -6,17 +6,14 @@ use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
-use Text::Iconv ();
+use Encode qw(encode);
 use URI::Escape ();
 
 use Act::Config;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_uri_info self_uri );
-
-# utf8 to latin1 converter
-my $utf8_latin1 = Text::Iconv->new('UTF-8', 'ISO-8859-1');
+@EXPORT = qw(make_uri make_uri_info self_uri localize);
 
 # password generation data
 my %grams = (
@@ -134,51 +131,6 @@ sub login
     Apache::AuthCookie->send_cookie($sid);
 }
 
-# get all texts for a specific table/column/language
-sub get_translations
-{
-    my ($tbl, $col) = @_;
-
-    my $sql = 'SELECT id, text, lang FROM translations WHERE '
-            . join(' AND ', map "$_=?", qw(tbl col));
-    my $sth = $Request{dbh}->prepare_cached($sql);
-    $sth->execute($tbl, $col);
-    my %alltexts;
-    while (my ($id, $text, $lang) = $sth->fetchrow_array()) {
-        $alltexts{$id}{$lang} = $text;
-    }
-    $sth->finish;
-
-    my %texts;
-    while (my ($id, $t) = each %alltexts) {
-        $texts{$id} = $t->{$Request{language}} || $t->{$Config->general_default_language};
-    }
-    return \%texts;
-}
-    
-# get one translation
-sub get_translation
-{
-    my ($tbl, $col, $id) = @_;
-
-    # retreive text in current language
-    my $lang = $Request{language};
-    my $sql = 'SELECT text FROM translations WHERE '
-            . join(' AND ', map "$_=?", qw(tbl col id lang));
-    my $sth = $Request{dbh}->prepare_cached($sql);
-    $sth->execute($tbl, $col, $id, $lang);
-    my ($text) = $sth->fetchrow_array();
-    $sth->finish;
-
-    # if that failed, try the default language
-    if (!$text && $lang ne $Config->general_default_language) {
-        $sth->execute($tbl, $col, $id, $Config->general_default_language);
-        ($text) = $sth->fetchrow_array();
-        $sth->finish;
-    }
-    return $text;
-}
-
 # datetime formatting suitable for display
 sub date_format
 {
@@ -186,9 +138,14 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return $utf8_latin1->convert($dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
+    return encode('ISO-8859-1', $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"}));
 }
 
+# translate a string
+sub localize
+{
+    return $Request{loc}->maketext(@_);
+}
 1;
 
 __END__
@@ -225,6 +182,10 @@ with an optional query string built from I<%params>.
 
 Generates a password. Returns a two-element list with the password in
 clear-text and encrypted forms.
+
+=item localize
+
+Translates a string according to the current request language.
 
 =back
 

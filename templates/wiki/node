@@ -1,13 +1,4 @@
-[% WRAPPER ui
-   title = { en => "Wiki - $node",
-             fr => "Wiki - $node",
-             it => "Wiki - $node",
-             pt => "Wiki - $node",
-             de => "Wiki - $node",
-             hu => "Wiki - $node",
-             nl => "Wiki - $node",
-             },
-%]
+[% WRAPPER ui title = loc('Wiki - <node>', node) %]
 [% PROCESS common %]
 
 [% content %]
@@ -17,33 +8,33 @@
 <p>
  [% IF version OR data.last_modified;
     IF version %]
-  <t><en>version</en><fr>version</fr><nl>versie</nl></t> [% version %]
-  <t><en>saved on</en><fr>du</fr><nl>van</nl></t>
+  {{version}} [% version %]
+  {{saved on}}
     [% ELSE %]
-  <t><en>Last modified</en><fr>Dernière modification </fr><nl>Laatste wijzigingen</nl></t>:
+  {{Last modified:}}
     [% END %]
   [% date_format(data.last_modified, 'datetime_short') %]
-  <t><en>by</en><fr>par</fr></t>
+  {{by}}
   [% user_info( author ) %]
  [% ELSE %]
-  <t><en>new page</en><fr>nouvelle page</fr><nl>nieuwe pagina</nl></t>
+  {{new page}}
  [% END %]
 </p>
 <p>
-<a href="[% make_uri('wiki') %]"><t><en>Home</en><fr>Accueil</fr><nl>Home</nl></t></a>
+<a href="[% make_uri('wiki') %]">{{Home}}</a>
 |
 [% IF version %]
    [% IF global.request.user.is_orga %]
-    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]"><t><fr>Revenir à cette version</fr><en>Revert to this version</en><nl></nl></t></a>
+    <a href="[% make_uri('wikiedit', 'action', 'revert', 'node', node, 'version', version) %]">{{Revert to this version}}</a>
     |
    [% END %]
 [% ELSE %]
-  <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]"><t><fr>Modifier cette page</fr><en>Edit this page</en></t></a>
+  <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]">{{Edit this page}}</a>
   |
 [% END %]
-<a href="[% make_uri('wiki', 'action', 'recent') %]"><t><fr>Modifications récentes</fr><en>Recent changes</en></t></a>
+<a href="[% make_uri('wiki', 'action', 'recent') %]">{{Recent changes}}</a>
 |
-<a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]"><t><fr>Historique</fr><en>History</en></t></a>
+<a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]">{{History}}</a>
 </p>
 
 [% END %]

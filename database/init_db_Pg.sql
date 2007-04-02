@@ -10,7 +10,7 @@ CREATE TABLE users
     session_id  text,
 
     /* personal information */
-    civility     integer,   /* handled in translations */
+    civility     integer,
     first_name   text,
     last_name    text,
     nick_name    text,
@@ -193,18 +193,6 @@ CREATE TABLE invoices
     FOREIGN KEY( order_id  ) REFERENCES orders( order_id )
 );
 CREATE UNIQUE INDEX invoices_idx ON invoices ( order_id );
-
-/* multilingual entries */
-DROP   TABLE translations;
-CREATE TABLE translations
-(
-    tbl      text NOT NULL,
-    col      text NOT NULL,           
-    id       text NOT NULL,
-    lang     text NOT NULL,
-    text     text NOT NULL
-);
-CREATE UNIQUE INDEX translations_idx ON translations ( tbl, col, id, lang );
 
 /* conference news */
 DROP   TABLE news;

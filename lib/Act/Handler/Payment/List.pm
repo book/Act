@@ -25,6 +25,7 @@ sub handler
             status   => 'paid',
         );
         if ($orders{$u->user_id}) {
+            $orders{$u->user_id}{means} = localize('payment_means_' . $orders{$u->user_id}{means});
             if (my $i = Act::Invoice->new(order_id => $orders{$u->user_id}->order_id)) {
                 $invoice_uri{$u->user_id} = make_uri_info('invoice', $i->order_id);
             }

@@ -1,0 +1,418 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "You must enter your email"
+msgstr "Gelieve Uw E-mail adres in te geven"
+
+msgid "Your email address looks bogus."
+msgstr "Het E-mail adres is ongeldig."
+
+msgid "Sorry, this conference is over."
+msgstr "Sorry, deze conferentie is beëindigd."
+
+msgid "Please create your user below."
+msgstr "U kan hieronder Uw gebruiker aanmaken."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "De gebruiker %1 bestaat reeds. U gelieve een andere te kiezen."
+
+msgid "The address is already registered."
+msgstr "Het adres %1 werd reeds geregistreerd."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Uw gebruiker moet minstens 3 alfanumerieke karakters bevatten (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Gelieve Uw voornaam in te geven"
+
+msgid "You must enter your last name"
+msgstr "Gelieve Uw naam in te geven"
+
+msgid "You must enter a country from the list"
+msgstr "Gelieve een land uit de lijst te selecteren"
+
+msgid "Accounts with similar information already exist."
+msgstr "Andere bestaande gebruikers zouden reeds jou kunnen zijn."
+
+msgid "A valid T-shirt size is required."
+msgstr "Gelieve een geldige T-shirt maat te geven."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Gebruik de bovenstaande links om na te zien of U reeds een rekening heeft.\n"
+"In dat geval kan U eenvoudig <a href=\"%1\">inloggen</a> met deze bestaande rekening.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Alvorens aan te melden moet U een rekening aanmaken. <b>Indien U reeds\n"
+"over een rekening beschikt voor een andere Act conferentie kan U via deze\n"
+"rekening <a href=\"%1\">aanmelden</a></b>.\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"De verzamelde persoonlijke gegevens worden gebruikt voor de samenstelling\n"
+"van een <a href=\"%1\">deelnemerslijst</a>. Deze zijn nuttig om \n"
+"na de conferentie de contactgegevens van de deelnemers terug te vinden of om op voorhand\n"
+"de aanwezige goeroes te kennen.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Eenmaal Uw rekening aangemaakt is, kan U via ons beveiligd betalingsplatform\n"
+"Uw toegangskaart aanschaffen. We merken op dat alles wat Uw bankrekening en\n"
+"kredietkaart betreft door de bank behandeld wordt.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Op geen enkel moment hebben wij toegang tot Uw bankgegevens.</b>\n"
+"Wij beperken ons tot het ontvangen van het geld. <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "U kan hieronder Uw gebruiker aanmaken."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Gebruik de bovenstaande links om na te zien of de gebruiker die U wenst\n"
+"aan te maken reeds bestaat.\n"
+"In dat geval kan U eenvoudig het gepaste vakje aankruisen en dit formulier\n"
+"verzenden.\n"
+
+msgid "Register"
+msgstr "Verzenden"
+
+msgid "edit"
+msgstr "wijzigen"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Aanmelden"
+
+msgid "Password"
+msgstr "Paswoord"
+
+msgid "Submit"
+msgstr "Invoeren"
+
+msgid "Forgot your password?"
+msgstr "Paswoord vergeten ? Klik <a href=\"%1\">hier</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Deze site gebruikt cookies voor het identificeren van gebruikers. \n"
+"Mogelijk moeten deze geactiveerd worden in uw browser voor het domein <b>%1</b>.\n"
+
+msgid "Logout"
+msgstr "Afmelden"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "U werd afgemeld en de cookie werd verwijderd van Uw browser."
+
+msgid "Act conferences"
+msgstr "Act conferenties"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Rechtenmanagement"
+
+msgid "Events"
+msgstr "Gebeurtenissen"
+
+msgid "Submit a new event"
+msgstr "Een nieuwe gebeurtenis voorleggen"
+
+msgid "Schedule"
+msgstr "Programma"
+
+msgid "iCal export"
+msgstr "iCal export"
+
+msgid "iCal import"
+msgstr "iCal import"
+
+msgid "Submit a talk proposal"
+msgstr "Een presentatie voorleggen"
+
+msgid "Presentations"
+msgstr "Presentaties"
+
+msgid "Treasurer"
+msgstr "Penningmeester"
+
+msgid "Payments"
+msgstr "Betalingen"
+
+msgid "Edit profile"
+msgstr "Profiel wijzigen"
+
+msgid "New user"
+msgstr "Nieuwe gebruiker"
+
+msgid "Users"
+msgstr "Gebruikers"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Statistics"
+msgstr "Statistieken"
+
+msgid "CSV export"
+msgstr "CSV export"
+
+msgid "Register a new user"
+msgstr "Een nieuwe gebruik registreren"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Het programmarooster is nog in ontwerp."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "De datums en plaatsen voor deze presentaties werden nog niet vastgelegd."
+
+msgid "Speaker"
+msgstr "Spreker"
+
+msgid "Talk title"
+msgstr "Titel"
+
+msgid "Duration"
+msgstr "Duur"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "De presentaties in het <b>vet</b> werden nog niet bevestigd door hun auteurs."
+
+msgid "Time"
+msgstr "Uur"
+
+msgid "Room <room name>"
+msgstr "Zaal %1"
+
+msgid "Ticket for <conference name>."
+msgstr "Toegangskaart voor %1."
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "Buy now!"
+msgstr "Kopen"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"We merken op dat alles wat Uw bankrekening en kredietkaart betreft\n"
+"door de bank behandeld wordt. <b>Op geen enkel moment hebben wij\n"
+"toegang tot Uw bankgegevens.</b> Wij beperken ons tot het ontvangen\n"
+"van het geld. <tt>;-)</tt>\n"
+
+msgid "Join"
+msgstr "Aanmelden"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Druk op de onderstaande knop om U in te schrijven\n"
+"voor de conferentie %1\n"
+
+msgid "The recognised rights are:"
+msgstr "De bestaande rechten zijn:"
+
+msgid "Organizer"
+msgstr "Organisator"
+
+msgid "Organizer (talks management)"
+msgstr "Organisator (presentaties management)"
+
+msgid "Treasurer (payment management)"
+msgstr "Penningmeester (Betalingsmanagement)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (rechtenmanagement)"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Voorstellen/wijzigen van een gebeurtenis"
+
+msgid "You must enter a title for the event"
+msgstr "Gelieve een titel in te geven"
+
+msgid "You must enter a short description for the event"
+msgstr "Gelieve een korte beschrijving in te geven"
+
+msgid "Please choose a duration"
+msgstr "Gelieve de duur te kiezen"
+
+msgid "The supplied date is invalid"
+msgstr "De ingegeven datum is ongeldig"
+
+msgid "The supplied time is invalid"
+msgstr "Het ingegeven uur is ongeldig"
+
+msgid "The date/time is out of range"
+msgstr "De combinatie datum/uur ligt buiten de grenzen"
+
+msgid "Event URL is not a valid URL"
+msgstr "De ingegeven URL is ongeldig"
+
+msgid "Incorrect room submitted"
+msgstr "De zaal is ongeldig"
+
+msgid "View"
+msgstr "Zie"
+
+msgid "Delete this event"
+msgstr "Deze gebeurtenis verwijderen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Room"
+msgstr "Zaal"
+
+msgid "Abstract"
+msgstr "Beschrijving"
+
+msgid "(plain text)"
+msgstr "(gewone tekst)"
+
+msgid "External URL"
+msgstr "Externe URL"
+
+msgid "Submit this event"
+msgstr "Verzenden"
+
+msgid "Event submitted"
+msgstr "Gebeurtenis opgeslagen"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Dank U, de gebeurtenis werd opgeslagen als\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Lijst van gebeurtenissen"
+
+msgid "No event was submitted yet."
+msgstr "Er werden nog geen gebeurtenissen opgeslagen."
+
+msgid "Event title"
+msgstr "Presentatie"
+
+msgid "Event removed"
+msgstr "Gebeurtenis verwijderd"
+
+msgid "The event has been removed."
+msgstr "De gebeurtenis <b>%1</b> werd verwijderd."
+
+msgid "Date:"
+msgstr "Datum:"
+
+msgid "Not scheduled yet."
+msgstr "Werd nog niet gepland"
+
+msgid "Duration:"
+msgstr "Duur:"
+
+msgid "You can find more information on the following site:"
+msgstr "Meer informatie vindt U op de site:"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - $node"
+
+msgid "version"
+msgstr "versie"
+
+msgid "saved on"
+msgstr "van"
+
+msgid "Last modified:"
+msgstr "Laatste wijzigingen:"
+
+msgid "new page"
+msgstr "nieuwe pagina"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Recente wijzigingen"
+
+msgid "Changes in last"
+msgstr "Wijzigingen sinds"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,dag,dagen)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,week,weken)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,maand,maanden)"
+
+msgid "Administrative tasks"
+msgstr "Administratieve taken"
+
+msgid "Talks & events"
+msgstr "Presentaties"
+
+msgid "Credit card payment"
+msgstr "Betaling via kredietkaart"
+
+msgid "speaker"
+msgstr "spreker"
+
+msgid "Invoice #"
+msgstr "Facture nr"
+
+msgid "Dated"
+msgstr "Datum"
+
+msgid "Printed on"
+msgstr "Afgedrukt op"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Quantity"
+msgstr "Aantal"
+
+msgid "Unit Price"
+msgstr "Eenheidsprijs"
+
+msgid "<conf> registration"
+msgstr "%1 Aanmelden"
+
+msgid "Your order number:"
+msgstr "Uw bestelnummer:"
+
+msgid "Total due"
+msgstr "Totaal te betalen"
+
+msgid "Invoice"
+msgstr "Faktuur"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "U kan deze pagina afdrukken: enkel de faktuur hieronder zal afgedrukt worden."
+
+msgid "Printer friendly version"
+msgstr "Afdrukvriendelijke versie"
+
+msgid "Click here to modify or update this information."
+msgstr "<a href=\"%1\">Klik hier</a> om deze informatie te wijzigen of te vervolledigen."
+
+msgid "Establishing your invoice requires your address."
+msgstr "Uw adres is vereist om een faktuur op te stellen."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Gelieve de fakturatiegegevens te controleren."
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "I confirm"
+msgstr "Ik bevestig"
+

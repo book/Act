@@ -4,15 +4,12 @@ use strict;
 use DateTime;
 use DateTime::Format::Pg;
 use DateTime::Format::ICal;
-use Text::Iconv;
+use Encode qw(from_to);
 
 use Act::Config;
 use Act::Talk;
 use Act::Template;
 use Act::Handler::Talk::Schedule;
-
-# latin1 to utf8 converter
-my $to_utf8 = Text::Iconv->new('ISO-8859-1', 'UTF-8');
 
 use constant CID => '532E0386-A523-11D8-A904-000393DB4634';
 use constant UID => "5F451677-A523-11D8-928A-000393DB4634";
@@ -38,7 +35,7 @@ sub handler
         push @talks, {
             dtstart => DateTime::Format::ICal->format_datetime($dtstart),
             dtend   => DateTime::Format::ICal->format_datetime($dtend),
-            title   => join('-', $t->id, $to_utf8->convert($t->title)),
+            title   => join('-', $t->id, from_to($t->title, 'ISO-8859-1', 'UTF-8')),
             uid     => sprintf('%04x', $t->id) . substr(UID,4),
         };
     }

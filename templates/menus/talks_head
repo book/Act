@@ -1,13 +1,5 @@
 [% WRAPPER menus/section %]
 <a href="[% make_uri('talks') %]">
- <t>
-  <fr>Présentations</fr>
-  <en>Presentations</en>
-  <it>Interventi</it>
-  <pt>Apresentações</pt>
-  <de>Vorträge</de>
-  <hu>Elõadások</hu>
-  <nl>Presentaties</nl>
- </t>
+ {{Presentations}}
 </a>
 [% END %]

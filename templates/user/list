@@ -1,41 +1,15 @@
 [% PROCESS common %]
-<p><t>
-  <en>
-   Committed users are listed in <strong>bold</strong> font (they have
-   bought their ticket, or will give a talk).
-  </en>
-  <pt>
-   Os utilizadores registados estão listados a <strong>negrito</strong> (aqueles
-   que compraram os seus bilhetes, ou irão realizar uma apresentação).
-  </pt>
-  <fr>
-   Les utilisateurs dont l'inscription est confirmée sont affichés
-   en <strong>gras</strong> (ils ont payé leur billet ou feront une
-   présentation à la conférence).
-  </fr>
-  <it>
-   Gli utenti che hanno confermato la partecipazione (ovvero, che
-   hanno pagato il biglietto o terranno un intervento) sono mostrati in
-   <strong>grassetto</strong>
-   </it>
-   <de>
-    Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder
-    einen Vortrag halten werden), sind in <b>fett</b> aufgelistet.
-   </de>
-  <hu>
-   A <b>kiemelt</b> felhasználók elõadást fognak tartani.
-  </hu>
-</t></p>
+<p>{{Committed users are listed in <b>bold</b> type}}</p>
 
 [% IF users.size %]
 <table id="user-list">
 <tr>
- <th><t><en>Name</en><fr>Nom</fr><pt>Nome</pt><it>Nome</it><de>Name</de><hu>Név</hu></t></th>
- <th><t><en>City</en><fr>Ville</fr><it>Città</it><pt>Cidade</pt><de>Stadt</de><hu>Település</hu></t></th>
- <th><t><en>Country</en><fr>Pays</fr><it>Nazione</it><pt>País</pt><de>Land</de><hu>Ország</hu></t></th>
- <th><t><en>Monger group</en><fr>Groupe de mongueurs</fr><pt>Grupo de monges</pt><it>Gruppo di mongers</it><de>Monger Gruppe</de><hu>Perl csoport</hu></t></th>
+ <th>{{Name}}</th>
+ <th>{{City}}</th>
+ <th>{{Country}}</th>
+ <th>{{Monger group}}</th>
  [% IF global.request.user.is_orga %]
- <th><t><en>email address</en><fr>Adresse email</fr><it>Indirizzo e-mail</it><pt>endereço de e-mail</pt><de>E-Mail Adresse</de><hu>Email cím</hu></t></th>
+ <th>{{Email}}</th>
  [% END %]
 </tr>
 [% FOREACH u=users %]
