@@ -2,24 +2,6 @@
 
 $ENV{GATEWAY_INTERFACE} =~ /^CGI-Perl/ or die "GATEWAY_INTERFACE not Perl!";
 
-# mod_perl modules
-use Apache::Constants  qw(:common);
-
-# CPAN modules
-use Apache::AuthCookie ();
-use Apache::Cookie     ();
-use Apache::Request    ();
-use AppConfig          ();
-use DateTime           ();
-use DBI                ();
-use Digest::MD5        ();
-use Email::Valid       ();
-use HTML::Entities     ();
-use MIME::Lite         ();
-use Net::SMTP          ();
-use Template           ();
-use URI::Escape        ();
-
 # Act handlers
 use Act::Auth;
 use Act::Dispatcher;
