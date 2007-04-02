@@ -1,0 +1,51 @@
+[% IF global.request.user.is_orga %]
+<h2>
+ <t>
+  <fr>Présentations &amp; événements</fr>
+  <en>Talks &amp; events</en>
+  <it>Interventi &amp; eventi</it>
+  <pt>TRANSLATEME</pt>
+  <de>TRANSLATEME</de>
+  <hu>TRANSLATEME</hu>
+ </t>
+</h2>
+<ul>
+ <li>
+   <a href="[% make_uri('ical_import') %]">
+    <t>
+     <fr>Import iCal</fr>
+     <en>iCal import</en>
+     <it>Importa da iCal</it>
+     <pt>Importar de iCal</pt>
+     <de>aus iCal importieren</de>
+     <hu>iCal importálás</hu>
+    </t>
+   </a>
+ </li>
+ <li>
+   <a href="[% make_uri('events') %]">
+    <t>
+     <fr>Événements</fr>
+     <en>Events</en>
+     <it>Eventi</it>
+     <pt>Eventos</pt>
+     <de>Events</de>
+     <hu>Események</hu>
+    </t>
+   </a>
+ </li>
+ <li>
+   <a href="[% make_uri('newevent') %]">
+    <t>
+     <fr>Soumettre un événement</fr>
+     <en>Submit a new event</en>
+     <it>Aggiungi un evento</it>
+     <pt>Submeter um novo evento</pt>
+     <de>Event anmelden</de>
+     <hu>Új esemény beküldése</hu>
+    </t>
+   </a>
+ </li>
+</ul>
+[% END %]
+
