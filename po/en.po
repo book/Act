@@ -31,6 +31,9 @@ msgstr "Mrs."
 msgid "civility_3"
 msgstr "Ms."
 
+msgid "civility_4"
+msgstr "Dr."
+
 msgid "User information"
 msgstr "User information"
 

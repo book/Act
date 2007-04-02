@@ -31,8 +31,8 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      [% FOREACH c = civilities.keys.sort %]
-      <input type="radio" name="civility" value="[% c %]"[% " checked" IF civility==c %] /> [% civilities.$c %]
+      [% FOREACH c = [1 .. civilities] %]
+      <input type="radio" name="civility" value="[% c %]"[% " checked" IF civility==c %] /> [% loc("civility_$c") %]
       [% END %]
    </td>
 </tr>

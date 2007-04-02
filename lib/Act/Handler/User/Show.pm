@@ -43,7 +43,6 @@ sub handler
     $template->variables(
         %$user,
         country  => Act::Country::CountryName( $user->country ),
-        civility => ($user->civility ? localize('civility_' . $user->civility ) : ''),
         talks => [
             grep { $_->accepted
                   || $Request{user}

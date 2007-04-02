@@ -115,7 +115,7 @@ sub handler
     }
     # display form
     $template->variables(
-        civilities => { map { $_ => localize("civility_$_") } 1..3 },
+        civilities => $Act::Config::Nb_civilities,
         countries  => Act::Country::CountryNames(),
         timezones  => [ DateTime::TimeZone::all_names() ],
         %$fields

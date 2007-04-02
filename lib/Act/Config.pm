@@ -77,6 +77,9 @@ our %Image_formats = (
     jpeg    => '.jpg',
 );
 
+# civilities
+our $Nb_civilities = 4;
+
 # load configurations
 load_configs() unless $^C;
 

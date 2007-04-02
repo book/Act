@@ -31,6 +31,9 @@ msgstr "Mme."
 msgid "civility_3"
 msgstr "Mlle."
 
+msgid "civility_4"
+msgstr "D<sup>r</sup>"
+
 msgid "User information"
 msgstr "Informations utilisateur"
 
