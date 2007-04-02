@@ -70,13 +70,13 @@ sub variables
     @_ == 1 and return $self->{vars}{$_[0]};
     while (my ($key, $value) = splice(@_, 0, 2)) {
         next unless defined $value;
-        $self->encode($value);
+        $self->escape($value);
         $self->{vars}{$key} = $value;
     }
 }
 
-sub encode
-{} # no default encoding
+sub escape
+{} # no default escaping
 
 sub process
 {

@@ -69,7 +69,7 @@ my @templates = (
       out => 'Royaume-Uni',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],
     },
-    { # {{ }}
+    { # {{ }}
       in  => '{{country_gb}}',
       out => 'Royaume-Uni',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],

@@ -959,3 +959,6 @@ msgstr "Sono stati modificati i campi seguenti:"
 msgid "By:"
 msgstr "Oratore:"
 
+msgid "Billing"
+msgstr "Fatturazione"
+

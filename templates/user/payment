@@ -1,4 +1,4 @@
-[% WRAPPER ui title = 'Online Payment' %]
+[% WRAPPER ui title = loc('Online payment') %]
 <center>
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
@@ -28,7 +28,7 @@
    </td>
    <td>&nbsp;</td>
    <td>
-      [% order.amount %] [% order.currency %]
+      [% order.amount %] [% order.currency %]
    </td>
 </tr>
 <tr>

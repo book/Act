@@ -3,6 +3,7 @@ use strict;
 
 use Act::Config;
 use Act::Email;
+use Act::I18N;
 use Act::Payment;
 use Act::Template;
 use Act::User;
@@ -42,6 +43,7 @@ sub _notify
     $Config = Act::Config::get_config($Request{conference} = $order->conf_id);
     $Request{user} = Act::User->new(user_id => $order->user_id);
     $Request{language} = $Request{user}->language || $Config->general_default_language;
+    $Request{loc} = Act::I18N->get_handle($Request{language});
     my $template = Act::Template->new; # context-dependent, can't be global
 
     # generate subject and body from templates

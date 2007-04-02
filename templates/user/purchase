@@ -1,4 +1,4 @@
-[% WRAPPER ui title = 'Online payment' %]
+[% WRAPPER ui title = loc("Online payment") %]
 
 [% PROCESS core/user/purchase %]
 

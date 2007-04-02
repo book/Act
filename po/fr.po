@@ -1110,3 +1110,6 @@ msgstr "Par&nbsp;:"
 msgid "Remember me on this computer"
 msgstr "Se souvenir du de passe"
 
+msgid "Billing"
+msgstr "Facturation"
+

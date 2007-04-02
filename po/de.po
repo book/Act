@@ -882,3 +882,6 @@ msgstr "Folgende Felder wurden geändert:"
 msgid "By:"
 msgstr "Vortragende:"
 
+msgid "Billing"
+msgstr "Abrechnung"
+

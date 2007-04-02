@@ -903,3 +903,6 @@ msgstr "Os seguintes campos foram modificados:"
 msgid "By:"
 msgstr "Por:"
 
+msgid "Billing"
+msgstr "Factuação"
+

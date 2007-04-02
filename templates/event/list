@@ -1,5 +1,5 @@
 [% PROCESS common %]
-[% WRAPPER ui title = "List of events") %]
+[% WRAPPER ui title = loc("List of events") %]
 <div align="center">
 <p>
  [% IF events.size == 0 %]
