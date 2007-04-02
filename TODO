@@ -150,3 +150,49 @@ UNPRIORITIZED TODO LIST
 * should the tshirt size be 'per conference'? (but copied from the
   info stored in the users base)
 
+* Special Needs Support in a Flexible Way
+  Registration should be able to accept information for many different things
+  like the need of special meals, t-shirts size, special needs for
+  accommodation and the like.  Registration for a specific event shouldn't
+  include information which is irrelevant to that event.
+
+* Closing Date
+  It should be possible to close registrations before the event start date.
+
+* Change Password Mechanism
+  There should be a way to change passwords.
+
+* Save Cookies
+  It should be possible for the user to click a 'remember me' checkbox when
+  logging in, so that the cookie will be retained.  I do not like having to log
+  in each time I reopen my browser.  
+
+* User Identification
+  The login page asks for "User Identification", and this is not really clear.
+  It's difficult to say what is the "user identification" needed. Maybe the
+  text could be a bit more specific.
+
+* Tracking Suspicious Users
+  There should be a way to track down, mark out and pay attention on
+  /suspicious/ users, in special those that doesn't register properly or aren't
+  known or findable. Those registrations cause a lot of trouble, making
+  organizers to waste time and resources with room reservations, special meals
+  and other resources for people that will never show up.
+
+* Admin Statistics
+  Admins and organizers should be able to have some statistics and accounting
+  for his/her personal use. Simple things like "how many people will be present
+  to the event?" or "how many of those people have special needs - special
+  meals, special accommodations?" or "how many people are staying on the hotel
+  we booked and how many aren't?" should do the trick.
+
+* Optional SSL Protected Admin Login
+  There should be an optional SSL protected login option, at least for admins,
+  allowing them to login to the website without being evasedropped.
+
+* Provide RSS Feeds to inform people interested on the projects.
+
+* Make it clear how to register for an event.
+
+* Ensure users get clear and meaningful error messages when they get wrong
+  passwords or aren't registered in the system.

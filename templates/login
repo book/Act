@@ -56,13 +56,14 @@
     Password dimenticata? Segui <a href="[% make_uri('resetpw') %]">questo link</a>.
   </it>
   <pt>
-    Esqueceu-se do seu código secreto? Siga <a href="[% make_uri('resetpw') %]">esta ligação</a>.
+    Esqueceu-se do seu código secreto? Siga
+    <a href="[% make_uri('resetpw') %]">esta ligação</a>.
   </pt>
   <de>
-  Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
+    Passwort vergessen? <a href="[% make_uri('resetpw') %]">Hier</a> klicken.
   </de>
   <hu>
-  <a href="[% make_uri('resetpw') %]">Elfelejtett jelszó</a>
+    <a href="[% make_uri('resetpw') %]">Elfelejtett jelszó</a>
   </hu>
  </t>
 </p>
@@ -85,12 +86,14 @@
    per accettare <m>cookie</em> dal dominio <b>[% domain %]</b>.
  </it>
  <pt>
-   Este site usa <em>cookies</em> para a autenticação dos utilizadores. É provável
-   que tenha de indicar ao seu browser para aceitar <em>cookies</em> do
-   domínio <b>[% domain %]</b>.
+   Este site usa <em>cookies</em> para a autenticação dos
+   utilizadores. É prováel que tenha de indicar ao seu browser
+   para aceitar <em>cookies</em> do dom&iacute;io <b>[% domain %]</b>.
  </pt>
  <de>
- Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen Sie Ihren Browser so ein, dass er Cookies von der Domain <b>[% domain %]</b> akzeptiert.
+   Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen
+   Sie Ihren Browser so ein, dass er Cookies von der Domain <b>[% domain %]</b>
+   akzeptiert.
  </de>
  <hu>
    Ez az oldalt böngészõ sütiket használ a felhasználók bejelentkezésének

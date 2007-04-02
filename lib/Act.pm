@@ -15,7 +15,7 @@ Act - A conference toolkit
 Act is a tool designed to relieve conference organisers from the burden
 of creating, setting up and managing their conference's website.
 
-Act defines a set off handlers for the various operations needed to
+Act defines a set of handlers for the various operations needed to
 organise a successful conference:
 
 =over 4
