@@ -1,7 +1,7 @@
 [% WRAPPER ui title = loc("Talk submitted") %]
 
 <p>
- [% loc("Thanks, your talk submission has been recorded as", make_uri_info('talk', talk_id), title %]
+ [% loc("Thanks, your talk submission has been recorded as", make_uri_info('talk', talk_id), title) %]
 </p>
 
 [% END %]

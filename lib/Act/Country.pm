@@ -2,6 +2,7 @@ package Act::Country;
 use strict;
 use Act::Config;
 use Act::I18N;
+use Act::Util;
 
 # http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1-semic.txt
 my @COUNTRY_CODES = qw(
@@ -33,12 +34,15 @@ my @COUNTRY_CODES = qw(
   zm zw
 );
 
+my %Cache;
+
 sub CountryNames
 {
     my $lh = Act::I18N->get_handle($Request{language});
-    return
+    return $Cache{$Request{language}} ||=
      [
-      sort { $a->{name} cmp $b->{name} }
+      sort { $a->{normalized} cmp $b->{normalized} }
+      map {{ %$_, normalized => Act::Util::normalize($_->{name}) }}
       map {{ iso => $_, name => $lh->maketext("country_$_") }}
       @COUNTRY_CODES
      ];

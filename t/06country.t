@@ -25,14 +25,20 @@ my @languages = sort keys %languages;
 
 plan tests => @languages * (1 + 4 * @$codes);
 
+# This is broken w/ Test::Harness in current perls:
+# binmode STDOUT, ':utf8';
+# hence the encode_utf8() call
+use Encode qw(encode_utf8);
+
 for my $language (@languages) {
     $Request{language} = $language;
     my $c = Act::Country::CountryNames;
     isa_ok($c, 'ARRAY');
     for my $p (@$c) {
         isa_ok($p, 'HASH');
-        like( $p->{iso}, qr/^[a-z]{2}$/, "$p->{name} iso $p->{iso}" );
-        ok($p->{name} && $p->{name} ne "country_$p->{iso}", "$p->{iso} $p->{name} $language");
-        is(Act::Country::CountryName($p->{iso}), $p->{name}, "$p->{iso} $p->{name} $language CountryName");
+        my $ename = encode_utf8($p->{name});
+        like( $p->{iso}, qr/^[a-z]{2}$/, "$ename iso $p->{iso}" );
+        ok($p->{name} && $p->{name} ne "country_$p->{iso}", "$p->{iso} $ename $language");
+        is(Act::Country::CountryName($p->{iso}), $p->{name}, "$p->{iso} $ename $language CountryName");
     }
 }
