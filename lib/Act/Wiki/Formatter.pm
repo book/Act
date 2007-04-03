@@ -67,7 +67,7 @@ sub _make_link
         }
     }
     else {
-        $link = URI::Escape::uri_escape($link);
+        $link = URI::Escape::uri_escape_utf8($link);
         $prefix = $opts->{prefix} if defined $opts->{prefix}
     }
     return qq|<a href="$prefix$link">$title</a>|;
