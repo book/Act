@@ -833,6 +833,9 @@ msgstr "Revenir à cette version"
 msgid "Edit this page"
 msgstr "Modifier cette page"
 
+msgid "Delete this page"
+msgstr "Supprimer cette page"
+
 msgid "Recent changes"
 msgstr "Modifications récentes"
 

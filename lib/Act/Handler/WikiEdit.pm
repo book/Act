@@ -12,6 +12,7 @@ my %actions = (
     commit  => \&wiki_commit,
     edit    => \&wiki_edit,
     revert  => \&wiki_revert,
+    delete  => \&wiki_delete,
 );
 
 sub handler
@@ -122,6 +123,25 @@ sub wiki_revert
 
     # display the node again
     Act::Wiki::display_node($wiki, $template, $node);
+}
+sub wiki_delete
+{
+    my ($wiki, $template) = @_;
+
+    unless ($Request{user}->is_orga) {
+        $Request{status} = FORBIDDEN;
+        return;
+    }
+    my $node = $Request{args}{node};
+    unless ($node) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
+    # delete node
+    $wiki->delete_node(name => Act::Wiki::make_node_name($node));
+
+    # display home page
+    Act::Wiki::display_node($wiki, $template, 'HomePage');
 }
 1;
 __END__
