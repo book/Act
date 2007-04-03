@@ -1,10 +1,11 @@
 #!perl -w
 
 use strict;
+use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 70 + 5 * NBPASS;
+use Test::More tests => 71 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -25,6 +26,7 @@ my @t = (
   undef,  'foo',  {},           '/foo',
   '2004', 'foo',  { id => 42 }, '/2004/foo?id=42',
   '2004', 'x/y',  { id => 42 }, '/2004/x/y?id=42',
+  '2004', 'foo',  { id => 'césâr' }, '/2004/foo?id=c%C3%A9s%C3%A2r',
   '2004', 'foo',  { q => 'x', r => ' y' }, '/2004/foo?q=x&r=%20y',
 );
 while (my ($conf, $action, $args, $expected) = splice(@t, 0, 4)) {

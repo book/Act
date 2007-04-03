@@ -75,7 +75,7 @@ sub _build_uri
     if (%params) {
         $uri .= '?'
              . join '&',
-               map "$_=" . URI::Escape::uri_escape($params{$_}),
+               map "$_=" . URI::Escape::uri_escape_utf8($params{$_}),
                sort keys %params;
     }
     return $uri;

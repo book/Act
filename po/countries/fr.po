@@ -8,7 +8,7 @@ msgid "country_ad"
 msgstr "Andorre"
 
 msgid "country_ae"
-msgstr "Emirats Arabes Unis"
+msgstr "Émirats Arabes Unis"
 
 msgid "country_af"
 msgstr "Afghanistan"
@@ -185,25 +185,25 @@ msgid "country_dz"
 msgstr "Algérie"
 
 msgid "country_ec"
-msgstr "Equateur"
+msgstr "Équateur"
 
 msgid "country_ee"
 msgstr "Estonie"
 
 msgid "country_eg"
-msgstr "Egypte"
+msgstr "Égypte"
 
 msgid "country_eh"
 msgstr "Sahara Occidental"
 
 msgid "country_er"
-msgstr "Erythrée"
+msgstr "Érythrée"
 
 msgid "country_es"
 msgstr "Espagne"
 
 msgid "country_et"
-msgstr "Ethiopie"
+msgstr "Éthiopie"
 
 msgid "country_fi"
 msgstr "Finlande"
@@ -617,7 +617,7 @@ msgid "country_sr"
 msgstr "Surinam"
 
 msgid "country_st"
-msgstr "Sao Tomé et Principe"
+msgstr "São Tomé-et-Principe"
 
 msgid "country_sv"
 msgstr "El Salvador"
@@ -710,7 +710,7 @@ msgid "country_vi"
 msgstr "Îles Vierges américaines"
 
 msgid "country_vn"
-msgstr "Viet Nam"
+msgstr "Viêt Nam"
 
 msgid "country_vu"
 msgstr "Vanuatu"
