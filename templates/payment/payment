@@ -1,9 +1,5 @@
 [% PROCESS common %]
-[% WRAPPER ui
-   title = {
-     {{Payment}}
-},
-%]
+[% WRAPPER ui title = loc('Payment') %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 <input type="hidden" name="user_id" value="[% user.user_id %]" />

@@ -110,7 +110,7 @@
       <td align="right">{{GPG key ID}}</td>
       <td>&nbsp;</td>
       <td align="left">
-         <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">[% gpg_key_id %]</a>
+         <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">0x[% gpg_key_id %]</a>
       </td>
 [% END %]
    </tr>
