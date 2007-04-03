@@ -31,10 +31,6 @@
 [% ELSE %]
   <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]">{{Edit this page}}</a>
   |
-  [% IF global.request.user.is_orga %]
-  <a href="[% make_uri('wikiedit', 'action', 'delete', 'node', node) %]">{{Delete this page}}</a>
-  |
-  [% END %]
 [% END %]
 <a href="[% make_uri('wiki', 'action', 'recent') %]">{{Recent changes}}</a>
 |

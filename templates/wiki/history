@@ -1,5 +1,6 @@
 [% WRAPPER ui title = loc('Wiki - <node> History', node) %]
 [%- PROCESS common -%]
+[% IF versions.size %]
 <table>
  <tr><th>{{Version}}</th>
      <th>{{Modified on}}</th>
@@ -18,5 +19,10 @@
  </tr>
  [% END %]
 </table>
+[% IF global.request.user.is_orga %]
+  <hr />
+  <a href="[% make_uri('wikiedit', 'action', 'delete', 'node', node) %]">{{Delete this page}}</a>
+[% END %]
 
+[% END %]
 [% END %]
