@@ -83,14 +83,6 @@ UNPRIORITIZED TODO LIST
   => by default, sort the user search results by registration date, not
      by user_id
 
-* rights management
-  + show rights in table format, users as lines, rights as columns,
-    with checkboxes to grant rights, and a listbox to add a new user.
-    - pro: everything is controlled through a single form (granting
-      and removing rights), better per user vision.
-    - against: the list of rights must be supplied
-      (at worse: select distinct right_id from rights should do it)
-
 * photo gallery? Links with Flickr? tags? links with talks? author?
 
 * usefulness of global rights?
