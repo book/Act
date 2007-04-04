@@ -3,7 +3,7 @@
 
 [% BLOCK update_link %]
 <p>
-  [% loc("Click here to modify or update this information.", make_uri('change') %]
+  [% loc("Click here to modify or update this information.", make_uri('change')) %]
 </p>
 [% END %]
 
