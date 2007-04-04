@@ -980,7 +980,7 @@ msgid "Printer friendly version"
 msgstr "Printer friendly version"
 
 msgid "Click here to modify or update this information."
-msgstr "Click here to modify or update this information."
+msgstr "Click <a href=\"%1\">here</a> to modify or update this information."
 
 msgid "Establishing your invoice requires your address."
 msgstr "Establishing your invoice requires your address."
