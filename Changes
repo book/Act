@@ -1,5 +1,10 @@
 Changes in Act
 
+2007/04/02 r1284 user photo normalization to jpg/png, 320x200
+           r1281 Convert the application to use Unicode everywhere
+           r1279 'remember me' check box in login
+           r1278 move all core translations to .po files
+
 2007/03/18 r1181 move price translations to act.ini
                  currency is global, not per price
                  remove table "prices", no longer used

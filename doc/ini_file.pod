@@ -14,46 +14,83 @@ conference.
 =head2 Conference configuration
 
     [general]
-    uri         = 2004                 # optional URI alias
-    languages   = fr en                # languages supported
+    # this conference's base URI
+    # no leading or trailing slash
+    uri = foo2004
+    
+    # full production URI
+    full_uri = http://conferences.mongueurs.net/foo2004/
+    
+    # supported languages, and the default language
+    languages   = fr en                
     default_language = fr
-    searchlimit = 20                   # max number of users returned
+    
+    # name of the conference in each supported language
+    name_en = The foo2004 conference
+    name_fr = L'atelier Perl foo2004
+ 
+    # default country and timezone for new users
+    default_country  = fr
     timezone  = Europe/Paris
-
+    
     [email]
     sender_address = your@address.com
-
+    
     [talks]
-    submissions_open = 0               # can talks be proposed
-    submissions_notify_address  = interventions@mongueurs.net
-    submissions_notify_language = fr
-    edition_open  = 1                  # let users edit talks
-    show_schedule = 1
-    show_all  = 0                      # show accepted talks (or all)
-    durations = 20 40 120              # default talk durations
-
-    # dates of the conference (schedule)
+    # conference dates
     start_date = 2004-06-05 18:00:00
     end_date   = 2004-06-07 18:00:00
-
+    
+    # default talk durations
+    durations = 20 40 120
+    
+    # can talks be submitted?
+    submissions_open = 0
+    
+    # submission notification emails settings
+    submissions_notify_address  = interventions@mongueurs.net
+    submissions_notify_language = fr
+    
+    # can users edit talks?
+    edition_open  = 1
+    
+    # is the schedule publically visible?
+    show_schedule = 1
+    
+    # show accepted talks, or all
+    show_all  = 0
+    
     [rooms]
-    rooms = r1 r2          # list of rooms (must match /r\d+/
-    r1 = LMET              # room names
+    # list of rooms (must match /r\d+/)
+    rooms = r1 r2
+    
+    # room names
+    r1 = LMET
     r2 = O'Reilly
-
+    
     [payment]
     open        = 0
-    prices      = 2        # how many different registration prices
     
+    # which online payment system? (Fake/YEF/TPF)
+    type        = YEF
+    
+    # currency. Valid values depends on the payment type
+    currency    = EUR
+    
+    # how many different registration prices
+    prices      = 2        
+    
+    # Details on each price. name_ can be provided
+    # in each supported language, or at least in
+    # the default language
     [price1]
-    type        = NORMAL
+    name_en     = Regular price
+    name_fr     = Tarif normal
     amount      = 25
-    currency    = EUR
-
+    
     [price2]
-    type        = REDUCED
+    name_en     = Reduced price
     amount      = 15
-    currency    = EUR
 
 =head2 Infrastructure configuration
 
@@ -67,18 +104,14 @@ Conference organisers can skip this section.
     pg_dump     = /home/pgsql/bin/pg_dump     # dumping tool
     dump_file   = /home/act/actdb             # where to dump the db
     dump_needs_password = 1
-
+    
     [general]
     conferences = fpw2004 fpw2005            # conferences handled by Act
     cookie_name = act
     dir_photos  = photos                     # where photos are stored
-
+    
     [email]
     smtp_server = localhost
     smtp_port   = 0
     test        = 0
-
-    [payment]
-    type        = CyberMut
-
-
+    

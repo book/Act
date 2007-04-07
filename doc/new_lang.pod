@@ -6,10 +6,10 @@ languages will be supported. This usually includes at least
 English and your own language.
 
 If your language is not yet supported by Act, don't panic.
-That just means you'll have to help us translate all the templates,
-and translations.
+That just means you'll have to help us translate all the localized
+strings used by Act.
 
-=head2 Translating templates
+=head2 Translating conference templates
 
 Multilingual templates are set up directly in the HTML, with the help
 of the special tag C<E<lt>tE<gt> ... E<lt>/tE<gt>>.
@@ -31,51 +31,31 @@ Here's a very simple example:
 You'll also have to add the languages you need to all your specific
 static pages.
 
-=head2 The 'translations' table
+=head2 Translating Act
 
-There is one database table that holds a number of hard-coded translations.
-These include:
+The following sections apply to adding a new language to Act iself.
 
-=over 4
+=head3 Act strings
 
-=item civility
+All localized strings used by Act are stored in F<po/*.po> files, one
+file per language. A F<.po> file is a simple text file which contains
+a list of strings. Each string has an identifier (C<msgid>),
+and the localized string itself (C<msgstr>). Here's an example
+from the French lexicon F<fr.po>:
 
-In English, these are:
+  msgid "City"
+  msgstr "Ville"
 
-    1        Mr.
-    2        Mrs.
-    3        Ms.
+Usually the identifier is the English version of the string.
 
-=item ISO-3166 country codes
+F<.po> files are in UTF-8 encoding.
 
-See L<http://www.ics.uci.edu/pub/websoft/wwwstat/country-codes.txt>
+Most strings are used by HTML templates. In those strings,
+any embedded occurences of the characters C<E<gt>>, C<E<lt>> and C<&>
+must be replaced by the corresponding HTML entity
+(C<&gt;>, C<&lt;> and C<&amp;>).
 
-You'll need to translate B<all> of them.
-
-=item A few hard-coded "room" names
-
-In English, these are:
-
-    out      Outside
-    venue    Venue
-
-=item The payment means
-
-    CHQ      Cheque
-    CASH     Cash
-    ONLINE   Online
-
-=back
-
-You can extract the English list from F<database/fill_db.sql> with
-the following one-liner:
-
-    perl -ne'$p=$1eq"ENGLISH"if/\/\*\* (\w+)/;print if$p' database/fill_db.sql
-
-Then you'll just have to translate it. Unless otherwise specified,
-you do not need to translate the country names.
-
-=head2 Act::Util
+=head3 Act::Util
 
 The Act::Util module contains some information about how dates are
 handled in each supported language. The structure needs to be updated
@@ -90,6 +70,11 @@ Here's the structure for English:
             fmt_date_short     => '%m/%d/%y',
             fmt_time           => '%H:%M',
           },
+
+The C<name> value is the name of the language, in that language.
+The date and time formats use C<strftime()> compatible specifiers,
+see L<http://search.cpan.org/perldoc?DateTime#strftime_Specifiers>
+for a complete list.
 
 =cut
 

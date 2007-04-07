@@ -1,8 +1,2 @@
 -- Stuff to do when upgrading the production server
 
-r1261: add max_imgsize to act.ini
-       cpan install Imager
-
-r1260: i18n/unicode changes:
-    migrate databases / conf templates per doc/unicode.pod
-    cpan install Locale::Maketext, Locale::Maketext::Lexicon
