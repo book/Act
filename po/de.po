@@ -327,6 +327,12 @@ msgstr "Titel"
 msgid "Duration"
 msgstr "Dauer"
 
+msgid "abstract (link)"
+msgstr "Weitere Infos"
+
+msgid "talk (link)"
+msgstr "Vortrag (Slides etc)"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt."
 

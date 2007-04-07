@@ -406,6 +406,12 @@ msgstr "Présentation"
 msgid "Duration"
 msgstr "Durée"
 
+msgid "abstract (link)"
+msgstr "Résumé"
+
+msgid "talk (link)"
+msgstr "Présentation"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Les présentations en <b>gras</b> ont été confirmées par leurs auteurs."
 

@@ -356,6 +356,12 @@ msgstr "Intervento"
 msgid "Duration"
 msgstr "Durata"
 
+msgid "abstract (link)"
+msgstr "Abstract"
+
+msgid "talk (link)"
+msgstr "Intervento"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Gli interventi in <b>grassetto</b> sono stati confermati dai rispettivi oratori."
 

@@ -400,6 +400,12 @@ msgstr "Talk title"
 msgid "Duration"
 msgstr "Duration"
 
+msgid "abstract (link)"
+msgstr "Abstract"
+
+msgid "talk (link)"
+msgstr "Talk"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Talks in <b>bold type</b> have been confirmed by their respective speakers."
 
