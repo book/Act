@@ -3,12 +3,17 @@
 This document describes the architecture of Act's online payment subsystem.
 This system defers the actual purchasing to a third party, usually a bank.
 We allow for pluggable backends to target various online payment solutions.
-Currently implemented backends are YEF, used by the YAPC::Europe Foundation,
-Fake, which emulates a purchase for testing purposes.
 
-Here at YEF payments for various conferences are all handled by the same
-account. This led to add hooks in the system to allow integration with
-foreign code bases, for such purposes as accounting, reporting, etc.
+Currently implemented backends are YEF, used by the YAPC::Europe Foundation,
+and TPF, used by The Perl Foundation. Online payment funds end up in the
+selected foundation's bank account. The foundation then forwards them back to the
+organizers. Using either backend requires prior agreement between the organizers
+and the relevant foundation.
+
+YEF currently accepts payments in euros. TPF currently accepts payments in
+US dollars.
+
+There's also a Fake backend which simulates a purchase for testing purposes.
 
 The system is configured from each conference's C<conf/act.ini> configuration
 file.
@@ -18,8 +23,7 @@ file.
   type        = YEF
 
 Set C<open> to 1 to enable, or to 0 to disable, the online payment system.
-C<type> can be set to any valid backend. Current valid backends are
-C<YEF> and C<Fake>.
+C<type> should be set to the appropriate backend: C<YEF>, C<TPF> or C<Fake>.
 
 Let's now walk through the steps involved in a purchase.
 
@@ -34,7 +38,7 @@ if she's registered and hasn't yet paid.
 
 Clicking the C<purchase> button invokes C<Act::Handler::User::Purchase>.
 This fetches the prices from the database table and displays the
-purchase form via C<templates/user/purchase>. This template can be overriden
+purchase form via F<templates/user/purchase>. This template can be overriden
 and customized on a per-conference basis.
 
 =item *
