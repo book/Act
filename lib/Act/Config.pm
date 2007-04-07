@@ -80,6 +80,9 @@ our %Image_formats = (
 # civilities
 our $Nb_civilities = 4;
 
+# rights
+our @Right_ids = qw( admin orga staff treasurer );
+
 # load configurations
 load_configs() unless $^C;
 

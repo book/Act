@@ -1,5 +1,6 @@
 use strict;
 use Act::Util;
+use DateTime::Locale;
 use Test::More qw(no_plan);
 
 my @simple = qw(
@@ -38,6 +39,12 @@ my @conf_simple = qw(
 
 BEGIN { use_ok('Act::Config') }
 ok($Config, "configuration loaded");
+
+## Act::Config globals
+for my $lang (sort keys %Languages) {
+    my $loc = DateTime::Locale->load($lang);
+    ok($loc, "locale $lang");
+}
 
 ## global config
 _test_config($Config, 'global');

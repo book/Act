@@ -54,7 +54,7 @@ UNPRIORITIZED TODO LIST
   which requires contacting users and asking which of their many logins
   to keep
 
-* B<current rights:> orga, treasurer, admin, staff, invited (no rights attached).
+* B<current rights:> orga, treasurer, admin, staff.
   
   better organisation: users, talks, orders, rights (i.e. attached to the
   various things that Act can manage)
@@ -74,10 +74,6 @@ UNPRIORITIZED TODO LIST
   manage talks acceptation, edition, schedule
   
   orders: orders management (= current 'treasurer' right)
-
-* 'staff' and 'invited' are not rights giving access to special function
-  within Act, but rather "tags" on some users, relative to a specific
-  conference
 
 * most tables should be sortable by clicking on column headers.
   => by default, sort the user search results by registration date, not

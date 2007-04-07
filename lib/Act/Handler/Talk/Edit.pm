@@ -8,12 +8,12 @@ use Text::Diff ();
 use Act::Config;
 use Act::Email;
 use Act::Form;
+use Act::Talk;
 use Act::Template;
 use Act::Template::HTML;
-use Act::Talk;
-use Act::User;
 use Act::Track;
-
+use Act::User;
+use Act::Util;
 
 # form
 my $form = Act::Form->new(
@@ -45,23 +45,32 @@ sub handler {
 
     # get the talk
     my $talk;
-    $talk = Act::Talk->new(
-        talk_id   => $Request{args}{talk_id},
-        conf_id   => $Request{conference},
-    ) if exists $Request{args}{talk_id};
-
-    # can this user edit/create this talk?
-    unless ($Config->talks_submissions_open or $Config->talks_edition_open
-        or $Request{user}->is_orga )
-    {
-        $Request{status} = NOT_FOUND;
-        return;
+    if (exists $Request{args}{talk_id}) {
+        $talk = Act::Talk->new(
+            talk_id   => $Request{args}{talk_id},
+            conf_id   => $Request{conference},
+        );
+        unless ($talk) {
+            # cannot edit non-existent talk
+            $Request{status} = NOT_FOUND;
+            return;
+        }
     }
-    # cannot edit non-existent talks
-    if( exists $Request{args}{talk_id} and not defined $talk ) {
-        $Request{status} = NOT_FOUND;
-        return;
+    # orgas can submit/edit talks anytime
+    # regular users can submit new talks when submissions_open
+    # and edit existing talks when edition_open or submission_open
+    #
+    unless ($Request{user}->is_orga) {
+        unless ( ($talk && ($Config->talks_edition_open || $Config->talks_submissions_open))
+                || $Config->talks_submissions_open )
+        {
+            $Request{status} = NOT_FOUND;
+            return;
+        }
     }
+    # not registered!
+    return Act::Util::redirect(make_uri('register'))
+      unless $Request{user}->has_registered;
 
     if ($Request{args}{submit}) {
         # form has been submitted
@@ -87,8 +96,8 @@ sub handler {
                 }
             }
             # is the date in range?
-            unless ( not exists $fields->{date}   
-                  or not exists $fields->{time}
+            unless ( ! $fields->{date}   
+                  or ! $fields->{time}
                   or exists $form->{invalid}{date}
                   or exists $form->{invalid}{time} ) {
                 $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");

@@ -86,7 +86,7 @@ sub handler
         rights => \%rights,
         right  => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} }
                     values %right ],
-        right_list => [ sort keys %rights ],
+        right_list => \@Act::Config::Right_ids,
         users  => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
                     grep { ! exists $right{$_->user_id} }
                     @{Act::User->get_users( conf_id => $Request{conference} )}

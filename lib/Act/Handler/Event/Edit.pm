@@ -16,7 +16,7 @@ my $form = Act::Form->new(
   required => [qw( title abstract )],
   optional => [qw( url_abstract duration date time room delete )],
   constraints => {
-     duration     => sub { $_[0] =~ /^\d+$/ },
+     duration     => 'numeric',
      url_abstract => 'url',
      date         => 'date',
      time         => 'time',
@@ -32,8 +32,7 @@ sub handler {
     }
     my $template = Act::Template::HTML->new();
     my $fields;
-    my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date)
-;
+    my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
     my $edate = DateTime::Format::Pg->parse_timestamp($Config->talks_end_date);
     my @dates = ($sdate->clone->truncate(to => 'day' ));
     push @dates, $_
@@ -60,9 +59,12 @@ sub handler {
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
+        # apply default values
+        $fields->{duration} ||= 0;
+
         # is the date in range?
-        unless ( not exists $fields->{date}
-              or not exists $fields->{time}
+        unless ( ! $fields->{date}
+              or ! $fields->{time}
               or exists $form->{invalid}{date}
               or exists $form->{invalid}{time} ) {
             $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");

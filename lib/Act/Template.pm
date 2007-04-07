@@ -11,6 +11,12 @@ use base qw(Template);
 
 use constant TEMPLATE_DIRS => qw(static templates);
 
+my %Functions = (
+    make_uri      => \&Act::Util::make_uri,
+    make_uri_info => \&Act::Util::make_uri_info,
+    date_format   => \&Act::Util::date_format,
+);
+
 my %templates;
 
 sub new
@@ -101,11 +107,16 @@ sub process
            grep { $_ ne $Request{language} }
            sort keys %{$Config->languages}
          ];
-        $self->variables(
-          make_uri      => \&Act::Util::make_uri,
-          make_uri_info => \&Act::Util::make_uri_info,
-          date_format   => \&Act::Util::date_format,
-        );
+        # install some useful functions from Act::Util,
+        # escape the returned strings
+        while (my ($name, $code) = each %Functions) {
+            $self->variables(
+                $name => sub { my $result = $code->(@_);
+                               $self->escape($result);
+                               return $result;
+                             }
+            );
+        }
         if ($Request{conference} && $Request{dbh}) {
             $global{conference} = {
                 name => $Config->name->{$Request{language}},
