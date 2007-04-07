@@ -16,7 +16,7 @@ my $form = Act::Form->new(
   required => [qw( title abstract )],
   optional => [qw( url_abstract duration date time room delete )],
   constraints => {
-     duration     => sub { $_[0] =~ /^\d+$/ },
+     duration     => 'numeric',
      url_abstract => 'url',
      date         => 'date',
      time         => 'time',
