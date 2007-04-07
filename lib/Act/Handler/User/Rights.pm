@@ -72,6 +72,10 @@ sub handler
                 }
             }
         }
+        # reset this user's rights cache, so that
+        # any change to her rights are applied immediately
+        delete $Request{user}{rights};
+
         $Request{dbh}->commit;
 
         # clean up the hash
