@@ -96,8 +96,8 @@ sub handler {
                 }
             }
             # is the date in range?
-            unless ( not exists $fields->{date}   
-                  or not exists $fields->{time}
+            unless ( ! $fields->{date}   
+                  or ! $fields->{time}
                   or exists $form->{invalid}{date}
                   or exists $form->{invalid}{time} ) {
                 $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
