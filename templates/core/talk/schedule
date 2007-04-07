@@ -19,8 +19,13 @@
   <td><a href="[% make_uri_info('user', t.user.user_id) %]">
    [% user_info(t.user) %]
   </a></td>
-  <td>[% talk_confirmed_link(t) %]
-      [% talk_modify_link(t) %]
+  <td>[% IF t.type == 'Act::Event' %]
+         [% event_link(t) %]
+         [% event_modify_link(t) %]
+      [% ELSE %]
+         [% talk_confirmed_link(t) %]
+         [% talk_modify_link(t) %]
+      [% END %]
   </td>
   <td>[% t.duration %] {{minutes}}
   </td>
