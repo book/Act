@@ -1,60 +1,143 @@
 #!/usr/bin/perl
 use strict;
-use DBI;
 use Getopt::Std qw(getopts);
-use Text::xSV;
 
 use Act::Config;
 use Act::Email;
 use Act::Util;
 
+my @Row_names = qw(order_id user_id conf_id datetime first_name last_name email amount currency means);
+
+my %Formats = (
+    c => {
+          content_type => 'text/csv',
+          begin => sub {
+                         my $output = shift;
+                         require Text::xSV;
+                         my $csv = Text::xSV->new;
+                         $$output = $csv->format_row(@Row_names);
+                         return $csv;
+                       },
+          row   => sub {
+                         my ($csv, $row, $output) = @_;
+                         $$output .= $csv->format_row(@$row);
+                       },
+          end   => sub {
+                         my ($csv, $output) = @_;
+                         return $$output;
+                       },
+         },
+    t => {
+          content_type => 'text/plain',
+          begin => sub {
+                         require Text::TabularDisplay;
+                         return Text::TabularDisplay->new(@Row_names);
+                       },
+          row   => sub {
+                         my ($table, $row) = @_;
+                         $table->add(@$row);
+                       },
+          end   => sub {
+                         my ($table, $unused, $total) = @_;
+                         if ($total) {
+                            $table->add((' ') x @Row_names);
+                            for my $conf_id (sort keys %$total) {
+                                $table->add(undef, undef, $conf_id, undef, undef, undef, undef,
+                                            $total->{$conf_id}{total}, $total->{$conf_id}{currency},
+                                            undef);
+                            }
+                         }
+                         return $table->render();
+                       },
+         },
+);
+
 # command line arguments
 my %opts;
-getopts('t:', \%opts);
-my $recipient = shift or usage();
-my @confs = @ARGV or usage();
+getopts('hnf:m:t', \%opts);
+
+$opts{h} and usage();
+
+$opts{f} ||= 't';
+my $format = $Formats{$opts{f}} or usage("Unknown format: $opts{f}");
+$opts{t} && $opts{f} eq 'c' and usage("-t (total) not available for CSV format");
+
+my @confs      = grep /^\w+$/, @ARGV or usage("must provide at least one conf_id");
+my @recipients = grep /@/,     @ARGV;
+@recipients || $opts{n} or usage('must provide at least one recipient');
+
+if ($opts{n}) {
+    print "Format:      $format->{content_type}\n";
+    print "Conferences: @confs\n";
+    print "Recipients:  @recipients\n" if @recipients;
+    print "Means:       $opts{m}\n"    if $opts{m};
+    print "\n";
+}
 
 # connect to database
 Act::Util::db_connect();
 
-# CSV file
-my $csv = Text::xSV->new;
+# extract relevant records
 my $sql =
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
   . ' WHERE o.user_id = u.user_id AND o.status = ?';
-$sql .= ' AND o.means = ?' if $opts{t};
+$sql .= ' AND o.means = ?' if $opts{m};
 $sql .= ' AND o.conf_id IN (' . join(',', map '?', @confs) . ') ORDER BY o.datetime';
 my $sth = $Request{dbh}->prepare($sql);
-if ($opts{t}) {
-    $sth->execute('paid', $opts{t}, @confs);
+if ($opts{m}) {
+    $sth->execute('paid', $opts{m}, @confs);
 }
 else {
     $sth->execute('paid', @confs);
 }
-my $body = $csv->format_row(qw(order_id user_id conf_id datetime first_name last_name email amount currency means));
+
+# create report
+my $output;
+my %total;    # total per conf
+my $fh = $format->{begin}->(\$output);
+
 while (my @row = $sth->fetchrow_array) {
-    $body .= $csv->format_row(@row);
+    $format->{row}->($fh, \@row, \$output);
+    if ($opts{t}) {
+        my ($conf_id, $amount, $currency) = @row[2,7,8];
+        $total{$conf_id}{currency} = $currency;
+        $total{$conf_id}{total} += $amount;
+    }
 }
+my $report = $format->{end}->($fh, \$output, $opts{t} ? \%total : undef);
 
-# send email
-Act::Email::send(
-    content_type => 'text/csv',
-    from     => { name => 'Act', email => 'echo@mongueurs.net' },
-    to       => $recipient,
-    subject  => "Act payment report",
-    xheaders => { 'X-Act' => 'payment report' },
-    body     => $body,
-);
-
+# display or send report
+if ($opts{n}) {
+    # display report
+    binmode STDOUT, ":utf8";
+    print "$report\n";
+}
+else {
+    # send email
+    Act::Email::send(
+        content_type => $format->{content_type},
+        from     => { name => 'Act', email => 'echo@mongueurs.net' },
+        to       => \@recipients,
+        subject  => "Act payment report",
+        xheaders => { 'X-Act' => 'payment report' },
+        body     => $report,
+    );
+}
 sub usage
 {
+    my $error = shift;
+    print "\nError: $error\n\n" if $error;
     die <<EOF;
-Usage: $0 [-t type] email conf_id [conf_id...]
+Usage: $0 [-f format] [-m means] [-n] email | conf_id [email | conf_id...]
 Options:
-    -t type      only report on transactions of type 'type',
-                 where type if one of CASH, CHQ, ONLINE.
- 
+    -f format    report format:
+                     c = CSV
+                     t = tabular text (default)
+    -m means     only report on transactions of means 'means',
+                 where means is one of CASH, CHQ, ONLINE, XFER.
+    -n           dry run: print report to STDOUT, no email
+    -t           include a Total line (only for text format
 
 EOF
 }
