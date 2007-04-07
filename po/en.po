@@ -819,6 +819,9 @@ msgstr "Revert to this version"
 msgid "Edit this page"
 msgstr "Edit this page"
 
+msgid "Delete this page"
+msgstr "Delete this page"
+
 msgid "Recent changes"
 msgstr "Recent changes"
 
