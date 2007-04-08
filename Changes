@@ -1,5 +1,8 @@
 Changes in Act
 
+2007/04/07 r1312 paymentreport enhancements
+           r1311 wiki "delete page" feature
+
 2007/04/02 r1284 user photo normalization to jpg/png, 320x200
            r1281 Convert the application to use Unicode everywhere
            r1279 'remember me' check box in login
@@ -38,7 +41,24 @@ Changes in Act
 
 2007/02/02 r1071 move the bank account special information in core/bank
 
-2007/02/01 r1061 forbid registration after the end of the conference
+2007/02/01 r1062 add the datetime of registration to the users CSV file
+           r1061 forbid registration after the end of the conference
 
 2007/01/31 r1041 log the datetime and ip of registration when a user registers
                  to a conference
+
+2007/01/29 r1014 add canonical url (general_full_uri) for proper inter-conference links
+
+2007/01/26 r1002 released under GPL/Artistic licenses
+           r999  bin/paymentreport: filter online payments with new -t option
+
+2006/10/26 r986  let speakers comment their own talks
+
+2006/10/13 r985  newly created users are automatically logged in
+
+2007/10/08 r979  new External payment plugin for TPF
+
+2006/08/16 r972  split the payment plugin logic in two:
+                  a payment type is an instance of a plugin
+
+2006/07/04 r967  bin/svnupdate: svn update of production conference repositories
