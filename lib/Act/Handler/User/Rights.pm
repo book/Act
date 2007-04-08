@@ -16,9 +16,6 @@ sub handler
         return;
     }
 
-    # FIXME fixed list of rights
-    my %rights = ( map { ( $_ => 1 ) } qw( orga treasurer admin ) );
-
     # retrieve all existing rights
     my $sth = $Request{dbh}->prepare_cached(
         'SELECT right_id, user_id FROM rights WHERE conf_id=? ORDER BY right_id, user_id');
@@ -47,7 +44,7 @@ sub handler
         }
 
         # for all existing rights
-        for my $right_id (keys %rights) {
+        for my $right_id (@Act::Config::Right_ids) {
 
             # for all users who already have rights
             for my $user_id ( keys %right ) {
@@ -87,7 +84,6 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        rights => \%rights,
         right  => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} }
                     values %right ],
         right_list => \@Act::Config::Right_ids,
