@@ -1,6 +1,9 @@
 #!perl -w
 
 use strict;
+use utf8;
+use Test::MockObject;
+
 use Act::Config;
 use Act::I18N;
 
@@ -144,6 +147,18 @@ my @html_templates = (
       out => "bar foo baz",
       sections => [ { nolang => "bar\n  [% v %]  \nbaz" } ],
     },
+    { conf => 'zz2007',
+      web  => 1,
+      in   => "[% make_uri('foo', 'q', '1', 'r', '2') %]",
+      out  => '/zz2007/foo?q=1&amp;r=2',
+      sections => [ { nolang => "[% make_uri('foo', 'q', '1', 'r', '2') %]" } ],
+    },
+    { conf => 'zz2007',
+      web  => 1,
+      in   => '[% make_uri("foo", "q", "césâr") %]',
+      out  => '/zz2007/foo?q=c%C3%A9s%C3%A2r',
+      sections => [ { nolang => '[% make_uri("foo", "q", "césâr") %]' } ],
+    },
 );
 use Test::More;
 plan tests => 3 * (@templates + @html_templates) + 13;
@@ -193,6 +208,21 @@ sub _ttest
     %Request = ( language => $t->{lang} || 'fr' );
     $Request{loc} = Act::I18N->get_handle($Request{language});
     $Config->set(general_default_language => $Request{language});
+    $Config->set(languages => {});
+
+    $Request{conference} = $t->{conf};
+    $Config->set(uri => $t->{conf});
+
+    if ($t->{web}) {
+        $Request{r} = Test::MockObject->new;
+        $Request{r}->set_true(qw(send_http_header))
+                   ->set_always(method => 'GET')
+                   ->set_isa('Apache');
+        $Request{args} = {};
+    }
+    else {
+        $Request{r} = undef;
+    }
 
     my $output;
     ok($template->process(\$t->{in}, \$output));
