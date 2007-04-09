@@ -125,17 +125,16 @@ Act::Template::HTML is a subclass of Act::Template which adds the following feat
 Decide the name of your conference. We'll use act-2004 as an example.
 
     $ACTHOME/
-        act-2004/
+        actdocs/
+          act-2004/
             conf/             # local configuration
             static/           # "static" multilingual .html pages
-            templates/        # TT templates
+            templates/        # local templates or global overrides
         wwwdocs/              # static files
             photos/           # user photos (general_dir_photos conf item)
             act-2004/
-                conf/         # local configuration items
+                css/
                 images/
-                static/       # "static" multilingual .html pages
-                templates/    # local templates or global overrides
 
 Several forms used by Act used the WRAPPER "ui" for adding the local
 look&feel. The name "ui" is therefore the standard template for redefining
