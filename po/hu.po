@@ -316,6 +316,12 @@ msgstr "Elõadás címe"
 msgid "Duration"
 msgstr "Hossza"
 
+msgid "abstract (link)"
+msgstr "Absztrakt"
+
+msgid "talk (link)"
+msgstr "Elõadás"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette."
 

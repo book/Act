@@ -22,11 +22,11 @@
         [% talk_modify_link(t) %]
         [% IF t.url_abstract || t.url_talk %]<br />[[% END %]
         [% IF t.url_abstract %]
-        <a href="[% t.url_abstract %]">{{Abstract}}</a>
+        <a href="[% t.url_abstract %]">{{abstract (link)}}</a>
         [% END %]
         [% IF t.url_talk %]
           [% IF t.url_abstract %]-[% END %]
-        <a href="[% t.url_talk %]">{{Talk}}</a>
+        <a href="[% t.url_talk %]">{{talk (link)}}</a>
         [% END %]
         [% IF t.url_abstract || t.url_talk %]][% END %]
     </td>

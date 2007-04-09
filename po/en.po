@@ -238,10 +238,10 @@ msgstr ""
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-To register, you first need to create an account on the site.\n"
-<b>If you already have an account from any previous Act conference,\n"
-you do not need to register again, simply\n"
-<a href=\"%1\">log in</a> using your account.</b>\n"
+"To register, you first need to create an account on the site.\n"
+"<b>If you already have an account from any previous Act conference,\n"
+"you do not need to register again, simply\n"
+"<a href=\"%1\">log in</a> using your account.</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
@@ -399,6 +399,12 @@ msgstr "Talk title"
 
 msgid "Duration"
 msgstr "Duration"
+
+msgid "abstract (link)"
+msgstr "Abstract"
+
+msgid "talk (link)"
+msgstr "Talk"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Talks in <b>bold type</b> have been confirmed by their respective speakers."

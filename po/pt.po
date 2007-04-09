@@ -335,6 +335,12 @@ msgstr "Título"
 msgid "Duration"
 msgstr "Duração"
 
+msgid "abstract (link)"
+msgstr "Resumo"
+
+msgid "talk (link)"
+msgstr "Apresentação"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "As apresentações em <b>negrito</b> já foram confirmadas pelos respectivos autores."
 
