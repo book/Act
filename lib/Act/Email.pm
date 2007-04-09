@@ -60,6 +60,17 @@ sub send
         $args{to}      = { name => 'Testeur fou', email => $Config->email_test };
         delete $args{$_} for qw(cc bcc);
     }
+    # encode message body
+    my ($charset, $tencoding);
+    if ($args{body} =~ /^\p{InBasicLatin}+$/) {
+        $charset = 'US-ASCII';
+        $tencoding = '7bit';
+    }
+    else {
+        $charset = 'UTF-8';
+        $tencoding = '8bit';
+    }
+
     # build the message headers
     chomp $args{subject};
     my @headers = (
@@ -67,8 +78,8 @@ sub send
         Subject                     => _encode_header($args{subject}),
         Precedence                  => $args{precedence},
         'Content-Disposition'       => 'inline',
-        'Content-Transfer-Encoding' => 'binary',
-        'Content-Type'              => qq($args{content_type}; charset="UTF-8"),
+        'Content-Transfer-Encoding' => $tencoding,
+        'Content-Type'              => qq($args{content_type}; charset="$charset"),
         'MIME-Version'              => '1.0',
         'X-Mailer'                  => __PACKAGE__,
     );
