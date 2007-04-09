@@ -7,6 +7,7 @@ use vars qw(@ISA @EXPORT $Config %Request %Languages);
 @EXPORT = qw($Config %Request %Languages );
 
 use AppConfig qw(:expand :argcount);
+use File::Spec::Functions qw(catfile);
 
 # our configs
 my ($GlobalConfig, %ConfConfigs, %Timestamps);
@@ -103,7 +104,7 @@ sub load_configs
     for my $conf (keys %{$GlobalConfig->conferences}) {
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
-        _load_config($ConfConfigs{$conf}, "$home/actdocs/$conf");
+        _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
         _make_hash($ConfConfigs{$conf}, languages => $ConfConfigs{$conf}->general_languages);
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
@@ -136,6 +137,9 @@ sub load_configs
     # install uri to conf mapping
     $GlobalConfig->set(uris => \%uris);
     $ConfConfigs{$_}->set(uris => \%uris) for keys %{$GlobalConfig->conferences};
+
+    # apply optional site policy
+    _apply_site_policy();
 
     # default current config (for non-web stuff that doesn't call get_config)
     $Config = $GlobalConfig;
@@ -187,7 +191,7 @@ sub _load_config
 {
     my ($cfg, $dir) = @_;
     for my $file qw(act local) {
-        my $path = "$dir/conf/$file.ini";
+        my $path = catfile($dir, 'conf', "$file.ini");
         if (-e $path) {
             open my $fh, '<:encoding(UTF-8)', $path
                 or die "can't open $path: $!\n";
@@ -197,7 +201,6 @@ sub _load_config
         }
     }
 }
-
 sub _make_hash
 {
     my ($cfg, %h) = @_;
@@ -205,6 +208,27 @@ sub _make_hash
         $cfg->set($key => { map { $_ => 1 } split /\s+/, $value });
     }
 }
+sub _apply_site_policy
+{
+    # read optional site policy configuration file
+    my $file = catfile($GlobalConfig->home, 'conf', 'site.ini');
+    -e $file or return;
+    my $cfg = AppConfig->new({ CREATE => 1,
+                               GLOBAL => { ARGCOUNT => ARGCOUNT_ONE }
+                            });
+    $cfg->file($file);
+
+    # apply policy
+    my %vars = $cfg->varlist('^');
+    for my $var (keys %vars) {
+        my ($conf, $varname) = split '_', $var, 2;
+        if (exists $ConfConfigs{$conf}) {
+            my $value = $cfg->get($var);
+            $ConfConfigs{$conf}->set($varname => $value);
+        }
+    }
+}
+
 1;
 __END__
 
