@@ -765,13 +765,13 @@ msgid "The event has been removed."
 msgstr "L'événement <b>%1</b> a été supprimé."
 
 msgid "Date:"
-msgstr "Date&nbsp;:"
+msgstr "Date :"
 
 msgid "Not scheduled yet."
 msgstr "Pas encore planifié"
 
 msgid "Duration:"
-msgstr "Durée&nbsp;:"
+msgstr "Durée :"
 
 msgid "You can find more information on the following site:"
 msgstr "Vous pouvez trouver plus d'information sur le site suivant&nbsp;:"
@@ -1099,10 +1099,10 @@ msgid "You can find more information on the speaker's site:"
 msgstr "Vous pouvez trouver plus d'information sur le site du présentateur&nbsp;:"
 
 msgid "Abstract:"
-msgstr "Résumé&nbsp;:"
+msgstr "Résumé :"
 
 msgid "Talk:"
-msgstr "Présentation&nbsp;:"
+msgstr "Présentation :"
 
 msgid "Talk removed"
 msgstr "Présentation supprimée"
@@ -1117,13 +1117,13 @@ msgid "Talk updated"
 msgstr "Présentation modifiée"
 
 msgid "Submitted by:"
-msgstr "Soumis par&nbsp;:"
+msgstr "Soumis par :"
 
 msgid "The following fields have been updated:"
-msgstr "Les champs suivant on été modifiés&nbsp;:"
+msgstr "Les champs suivant on été modifiés :"
 
 msgid "By:"
-msgstr "Par&nbsp;:"
+msgstr "Par :"
 
 msgid "Remember me on this computer"
 msgstr "Se souvenir du mot de passe"
