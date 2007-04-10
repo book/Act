@@ -139,12 +139,8 @@
 [% IF talks.size %]
    <tr>
       <td align="right" valign="top">
-    [% IF global.request.user.is_orga %]
       [% loc('Talk', talks.size) %]
-    [% ELSE %]
-      [% loc('Accepted Talk', talks.size) %]
       </td>
-    [% END %]
       <td>&nbsp;</td>
       <td align="left">
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
