@@ -22,7 +22,7 @@
 {{Lightning talk}}
 [% ELSE -%]
 {{Date:}} [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]{{Not scheduled yet.}}[% END %]
-{{Duration:}} [% talk.duration %]{{minutes}}
+{{Duration:}} [% talk.duration %] {{minutes}}
 [%- END -%]
 
 [% IF talk.url_abstract -%]
