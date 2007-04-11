@@ -77,7 +77,6 @@ Here an example of what you can do:
 
 =item F<actdocs/templates/ui>
 
-    [% title = title.${global.request.language} %]
     <html>
     <head>
     <link rel="stylesheet" type="text/css" href="/myconf/css/style.css" />
