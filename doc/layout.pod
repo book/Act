@@ -90,13 +90,13 @@ Here an example of what you can do:
 
 =item F<actdocs/index.html>
 
-    [% WRAPPER ui
-       title = {
+    [% title = {
           fr => 'Ma conférence'
           en => 'My conference'
           de => 'Mein Konferenz'
           pt => '...'
-       }
+       };
+       WRAPPER ui title = title.${global.request.language}
     %]
     <t>
      <en>Welcome!</en>
