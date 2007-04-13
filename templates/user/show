@@ -144,6 +144,12 @@
       <td>&nbsp;</td>
       <td align="left">
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>
+         [% accepted = 0;
+            FOREACH t = talks; IF t.accepted; accepted = 1; LAST; END; END;
+            IF accepted %]
+            <font size="-1">{{Accepted talks are shown in bold type.}}</font>
+            <br />
+         [% END %]
           <ul>
            [% FOREACH t = talks %]
 	    <li>[% talk_link(t) %]
