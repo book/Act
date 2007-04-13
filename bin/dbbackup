@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# dbbackup: backup the act database
+# dbbackup: backup the act databases
 #
 # to restore:
 #  % psql act < database/init_db_Pg.sql
@@ -23,29 +23,48 @@ $|++;
 # -n implies -v
 $opts{v} = 1 if $opts{n};
 
-# build pg_dump command line
-my @cmd = (
+dbdump(
+       dumpfile => $Config->database_dump_file,
+       name     => $Config->database_name,
+       user     => $Config->database_user,
+       passwd   => $Config->database_passwd,
+       );
+
+dbdump(
+       dumpfile => $Config->wiki_dump_file,
+       name     => $Config->wiki_dbname,
+       user     => $Config->wiki_dbuser,
+       passwd   => $Config->wiki_dbpass,
+       );
+
+sub dbdump
+{
+    my %args = @_;
+
+    # build pg_dump command line
+    my @cmd = (
             $Config->database_pg_dump,
             '-x',
             '-Fc',
             '-a',
-            -U => $Config->database_user,
-            -f => $Config->database_dump_file,
-            $Config->database_name,
+            -U => $args{user},
+            -f => $args{dumpfile},
+            $args{name},
           );
 
-print join(' ', @cmd), "\n" if $opts{v};   # verbose
-exit(0)                     if $opts{n};   # dry run
+    print join(' ', @cmd), "\n" if $opts{v};   # verbose
+    return                      if $opts{n};   # dry run
 
-# spawn it
-my $e = Expect->spawn(@cmd)
-    or die "Cannot spawn: $!\n";
+    # spawn it
+    my $e = Expect->spawn(@cmd)
+        or die "Cannot spawn: $!\n";
 
-# wait for password prompt, but not forever
-if ($Config->database_dump_needs_password) {
-    $e->expect(TIMEOUT, 'Password: ')
-        or die "Timeout waiting for password prompt\n";
-    $e->send($Config->database_passwd, "\n");
+    # wait for password prompt, but not forever
+    if ($Config->database_dump_needs_password) {
+        $e->expect(TIMEOUT, 'Password: ')
+            or die "Timeout waiting for password prompt\n";
+        $e->send($args{passwd}, "\n");
+    }
+    # let it be
+    $e->expect(undef);
 }
-# let it be
-$e->expect(undef);
