@@ -46,7 +46,6 @@ sub dbdump
             $Config->database_pg_dump,
             '-x',
             '-Fc',
-            '-a',
             -U => $args{user},
             -f => $args{dumpfile},
             $args{name},
