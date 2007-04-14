@@ -1,19 +1,19 @@
 [% WRAPPER ui title = loc("iCal Import") %]
 <center>
-[% IF talks %]
+[% IF timeslots %]
   <p>
    {{The following talks have been updated:}}
   </p>
   <table border="1" cellspacing="0" cellpadding="0">
   <tr>
-    <th>talk_id</th>
+    <th>id</th>
     <th>{{Old time}}</th>
     <th>{{New time}}</th>
     <th>{{title}}</th>
   </tr>
-  [% FOREACH t=talks %]
+  [% FOREACH t=timeslots %]
     <tr>
-    <td>[% t.talk_id %]</td>
+    <td>[% t.type %]-[% t.id %]</td>
     <td>[% IF t.dt1; date_format(t.dt1,'datetime_short'); ELSE; '&nbsp;'; END %]</td>
     <td>[% date_format(t.dt2,'datetime_short') %]</td>
     <td>[% t.title %]</td>

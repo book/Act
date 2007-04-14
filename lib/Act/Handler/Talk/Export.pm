@@ -1,50 +1,64 @@
 package Act::Handler::Talk::Export;
 use strict;
 
+use Apache::Constants qw(FORBIDDEN);
 use DateTime;
 use DateTime::Format::Pg;
 use DateTime::Format::ICal;
 
 use Act::Config;
-use Act::Talk;
 use Act::Template;
-use Act::Handler::Talk::Schedule;
+use Act::TimeSlot;
 
 use constant CID => '532E0386-A523-11D8-A904-000393DB4634';
 use constant UID => "5F451677-A523-11D8-928A-000393DB4634";
 
 sub handler
 {
-    # get the table information
-    my ($talks) = Act::Handler::Talk::Schedule::compute_schedule();
-    # keep only the Act::TimeSlot objects
-    $talks = [ map { grep { ref eq 'Act::TimeSlot' } @$_ }
-               map { @$_ } values %$talks ];
+    # access control
+    unless ($Request{user} && $Request{user}->is_orga || $Config->talks_show_schedule) {
+        $Request{status} = FORBIDDEN;
+        return;
+    }
+    # get all talks/events
+    my $timeslots = Act::TimeSlot->get_items( conf_id => $Request{conference} );
 
-    # current timestamp
-    my $now = DateTime->now;
-    $now->set_time_zone($Config->general_timezone);
-
-    # generate iCal events for each talk
-    my @talks;
-    for my $t (@$talks) {
-        my $dtstart = $t->datetime;
+    # generate iCal events
+    my %defaults = (
+        datetime => DateTime::Format::Pg->parse_timestamp($Config->talks_start_date),
+        duration => (sort { $a <=> $b } keys %{$Config->talks_durations})[0],
+    );
+    my @events;
+    for my $ts (@$timeslots) {
+        next unless ($Request{user} && $Request{user}->is_orga)
+                 || (   ($ts->type ne 'Act::Talk' || $ts->{accepted})
+                     && $ts->datetime && $ts->duration && $ts->room
+                    );
+        # set defaults
+        $ts->{$_} ||= $defaults{$_} for keys %defaults;
+        # compute end time
+        my $dtstart = $ts->datetime;
         my $dtend = $dtstart->clone;
-        $dtend->add(minutes => $t->duration);
-        push @talks, {
+        $dtend->add(minutes => $ts->duration);
+        # title is used to identify this event
+        # (see Act::Handler::Talk::Import)
+        (my $type = $ts->type) =~ s/^Act:://;
+        push @events, {
             dtstart => DateTime::Format::ICal->format_datetime($dtstart),
             dtend   => DateTime::Format::ICal->format_datetime($dtend),
-            title   => join('-', $t->id, $t->title),
-            uid     => sprintf('%04x', $t->id) . substr(UID,4),
+            title   => join('-', lc($type), $ts->id, $ts->title),
+            uid     => sprintf('%04x', $ts->id) . substr(UID,4),
         };
     }
+    # current timestamp
+    my $now = DateTime->now;
+    $now->set_time_zone('UTC');
 
     # process the template
     my $template = Act::Template->new(PRE_CHOMP => 1);
     $template->variables(
-        talks    => \@talks,
+        events   => \@events,
         now      => DateTime::Format::ICal->format_datetime($now),
-        timezone => $Config->general_timezone,
         cid      => CID,
         calname  => $Config->name->{$Request{language}},
     );
@@ -57,7 +71,7 @@ __END__
 
 =head1 NAME
 
-Act::Handler::Talk::Export - export talk schedule to iCalendar format (RFC2445) .ics files.
+Act::Handler::Talk::Export - export talk/event schedule to iCalendar format (RFC2445) .ics files.
 
 =head1 DESCRIPTION
 

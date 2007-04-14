@@ -7,6 +7,7 @@ use DateTime::Format::Pg;
 use DateTime::Format::ICal;
 
 use Act::Config;
+use Act::Event;
 use Act::Talk;
 use Act::Template::HTML;
 
@@ -23,47 +24,56 @@ sub handler
         && defined(my $fh = $Request{r}->upload()->fh()))
     {
         # process uploaded ics data
-        my (%talk, @talks);
+        my (%timeslot, @timeslots);
         while (my $line = <$fh>) {
             $line =~ s/\n+$//;
             $line =~ s/\r+$//;
             if ($line eq 'BEGIN:VEVENT') {
-                %talk = ();
+                %timeslot = ();
             }
             elsif ($line =~ /^DTSTART.*:([\dT]+)$/) {
-                $talk{dtstart} = $1;
+                $timeslot{dtstart} = $1;
             }
             elsif ($line =~ /^DTEND.*:([\dT]+)$/) {
-                $talk{dtend} = $1;
+                $timeslot{dtend} = $1;
             }
-            elsif ($line =~ /^SUMMARY:(\d+)-/) {
-                $talk{talk_id} = $1;
+            elsif ($line =~ /^SUMMARY:(\w+)-(\d+)-/) {
+                $timeslot{type} = $1;
+                if ($1 eq 'talk') {
+                    $timeslot{id_name} = 'talk_id';
+                    $timeslot{id} = $2;
+                    $timeslot{type} = 'Act::Talk';
+                }
+                elsif ($1 eq 'event') {
+                    $timeslot{id_name} = 'event_id';
+                    $timeslot{id} = $2;
+                    $timeslot{type} = 'Act::Event';
+                }
             }
-            elsif ($line eq 'END:VEVENT') {
-                # process talk
-                my $t = Act::Talk->new(talk_id => $talk{talk_id});
-                if ($t && !$t->lightning) {
-                    my $dt2 = DateTime::Format::ICal->parse_datetime($talk{dtstart});
-                    my $dt1;
-                    $dt1 = DateTime::Format::Pg->parse_timestamp($t->datetime)
-                        if $t->datetime;
+            elsif ($line eq 'END:VEVENT' && $timeslot{type}) {
+                # process event
+                my $class = $timeslot{type} or next;
+                my $e = $class->new($timeslot{id_name} => $timeslot{id});
+                if ($e && ($timeslot{type} ne 'talk' || !$e->lightning)) {
+                    my $dt1 = $e->datetime;
+                    my $dt2 = DateTime::Format::ICal->parse_datetime($timeslot{dtstart});
                     # update talk with new datetime
                     if (!$dt1 || DateTime->compare($dt1, $dt2)) {
                         $dt1 = DateTime::Format::Pg->format_datetime($dt1) if $dt1;
                         $dt2 = DateTime::Format::Pg->format_datetime($dt2);
-                        $t->update(datetime => $dt2);
-                        push @talks, { 
-                            %talk,
+                        $e->update(datetime => $dt2);
+                        push @timeslots, { 
+                            %timeslot,
                             dt1   => $dt1,
                             dt2   => $dt2,
-                            title => $t->title,
+                            title => $e->title,
                         };
                     }
                 }
             }
         }
         close $fh;
-        $template->variables(talks => \@talks) if @talks;
+        $template->variables(timeslots => \@timeslots) if @timeslots;
     }
     # display results
     $template->process('talk/import');
