@@ -233,14 +233,22 @@ sub notify
         my (@diff, $adiff);
         if ($tbefore) {
             # simple fields
-            @diff = grep { $_ ne 'abstract' and $tbefore->$_ ne $talk->$_ } keys %$talk;
+            my %exclude = map { $_ => 1 } qw(abstract datetime);
+            @diff = grep { !$exclude{$_} and $tbefore->$_ ne $talk->$_ } keys %$talk;
+
             # abstract
             my ($a1, $a2) = ($tbefore->abstract, $talk->abstract);
             if ($a1 ne $a2) {
                 substr($_, length($_), 1) ne "\n" and $_ .= "\n" for ($a1, $a2);
                 $adiff = Text::Diff::diff(\$a1, \$a2);
             }
+            # dates
+            push @diff, 'datetime'
+                if   $tbefore->datetime && !$talk->datetime
+                 || !$tbefore->datetime &&  $talk->datetime
+                 || DateTime->compare($tbefore->datetime, $talk->datetime);
         }
+        return unless @diff || $adiff;
 
         # determine which language to send the notification in
         local $Request{language} = $Config->talks_submissions_notify_language
