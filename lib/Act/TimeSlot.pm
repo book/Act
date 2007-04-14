@@ -6,7 +6,7 @@ use Act::User;
 sub get_items {
     my ( undef, %args ) = @_;
 
-    # supprime les champs inutiles
+    # remove useless fields
     !/^(id|conf_id|datetime|room)$/ && delete $args{$_} for keys %args;
     my %args_talk  = ( %args, accepted => 1, lightning => 0 );
     my %args_event = %args;
@@ -43,14 +43,14 @@ __END__
 
 =head1 NAME
 
-Act::TimeSlice - A class representing items to be shown on the schedule
+Act::TimeSlot - A class representing items to be shown on the schedule
 
 =head1 DESCRIPTION
 
-Act::TimeSlice objects represent both talks (Act::Talk) and non-talk events
+Act::TimeSlot objects represent both talks (Act::Talk) and non-talk events
 (Act::Event) to be shown on the conference schedule.
 
-Only Act::Talk and Act::Event objects are stored in the database. Act::TimeSlice
+Only Act::Talk and Act::Event objects are stored in the database. Act::TimeSlot
 is an abstraction over both Act::Talk and Act::Event to simplify the schedule
 related actions.
 

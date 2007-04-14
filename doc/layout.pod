@@ -4,11 +4,11 @@ An Act-enabled conference web site uses two subdirectories:
 
 =over 4
 
-=item F<actdocs>
+=item F<actdocs/>
 
 contains templates and other files used by the framework.
 
-=item F<wwwdocs>
+=item F<wwwdocs/>
 
 contains all the files that will be statically served
 (i.e. sent to the client without any processing: files, CSS, etc.)
@@ -31,10 +31,6 @@ payment, pre-registration, etc), languages enabled, etc.
 
 The files are: F<act.ini> and F<local.ini>.
 
-=item * F<database/>
-
-stuff regarding the database, should be empty (or even not exist at all)
-
 =item * F<static/>
 
 what we call "static" pages: multilingual templates for all
@@ -53,7 +49,7 @@ and all the other templates you'll need for the conference
 =back
 
 In fact, you can already start to create some files for your Act
-website, you'll only need the static and template subdirectories.
+website, you'll only need the F<static> and F<templates> subdirectories.
 
 Links to the so-called "static" pages are created with the macro
 
@@ -61,7 +57,7 @@ Links to the so-called "static" pages are created with the macro
 
 The parameter being the file path relative to F<actdocs/static>.
 
-Please note that at least one template is required: F<actdocs/templates/ui>
+Please note that at least one template is required: F<actdocs/templates/ui>.
 This file contains a TT2 wrapper that will be used by the framework
 to create full pages from the bits of HTML it generates.
 
