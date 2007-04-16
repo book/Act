@@ -40,11 +40,12 @@ sub display_node
     my %data = $wiki->retrieve_node(name => make_node_name($node), version => $version);
     $data{last_modified} = DateTime::Format::Pg->parse_datetime($data{last_modified})
         if $data{last_modified};
+    undef $version if $version && $data{version} != $version;
 
     $template->variables_raw(content => format_node($wiki, $template, $data{content}));
     $template->variables(node    => $node,
                          data    => \%data,
-                         version => $data{version},
+                         version => $version,
                          author  => Act::User->new( user_id => $data{metadata}{user_id}[0]),
     );
     $template->process('wiki/node');
