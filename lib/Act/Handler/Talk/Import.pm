@@ -53,7 +53,7 @@ sub handler
             elsif ($line eq 'END:VEVENT' && $timeslot{type}) {
                 # process event
                 my $class = $timeslot{type} or next;
-                my $e = $class->new($timeslot{id_name} => $timeslot{id});
+                my $e = $class->new($timeslot{id_name} => $timeslot{id}, conf_id => $Request{conference});
                 if ($e && ($timeslot{type} ne 'talk' || !$e->lightning)) {
                     my $dt1 = $e->datetime;
                     my $dt2 = DateTime::Format::ICal->parse_datetime($timeslot{dtstart});
