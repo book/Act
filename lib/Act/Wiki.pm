@@ -44,7 +44,7 @@ sub display_node
     $template->variables_raw(content => format_node($wiki, $template, $data{content}));
     $template->variables(node    => $node,
                          data    => \%data,
-                         version => $version,
+                         version => $data{version},
                          author  => Act::User->new( user_id => $data{metadata}{user_id}[0]),
     );
     $template->process('wiki/node');
