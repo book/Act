@@ -137,7 +137,7 @@ Options:
     -m means     only report on transactions of means 'means',
                  where means is one of CASH, CHQ, ONLINE, XFER.
     -n           dry run: print report to STDOUT, no email
-    -t           include a Total line (only for text format
+    -t           include a Total line (only for text format)
 
 EOF
 }
