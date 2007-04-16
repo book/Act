@@ -1,3 +1,4 @@
+[%- MACRO datetime(t) IF t.datetime; date_format(t.datetime, 'datetime_full'); ELSE %]{{Not scheduled yet.}}[% END %]
 [%- SWITCH op %]
 [%- CASE 'insert' %]{{Talk inserted}}
 [%- CASE 'update' %]{{Talk updated}}
@@ -10,8 +11,8 @@
 {{The following fields have been updated:}}
 [% IF diff;
    FOREACH d=diff %]
--[% d %]: [% tbefore.$d %]
-+[% d %]: [% talk.$d %]
+-[% d %]: [% IF d == 'datetime'; datetime(tbefore); ELSE; tbefore.$d; END %]
++[% d %]: [% IF d == 'datetime'; datetime(talk); ELSE; talk.$d; END %]
 [% END; END; IF adiff %]
 {{Abstract:}}
 [% adiff %]
@@ -21,7 +22,7 @@
 [% IF talk.lightning -%]
 {{Lightning talk}}
 [% ELSE -%]
-{{Date:}} [% IF datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]{{Not scheduled yet.}}[% END %]
+{{Date:}} [% datetime(talk) %]
 {{Duration:}} [% talk.duration %] {{minutes}}
 [%- END -%]
 

@@ -19,7 +19,7 @@ my @modules = (
                  'HTML::Entities',
                  'Locale::Maketext',
                  'Locale::Maketext::Lexicon',
-                 'Template',
+                 'Template|2.15',
                  'Template::Multilingual::Parser',
                  'Test::MockObject',
                  'Text::Diff',
@@ -30,9 +30,15 @@ my @modules = (
                  'Wiki::Toolkit',
               );
 use Test::More;
-plan tests => 1 + scalar(@modules);
+plan tests => 1 + 2 * @modules;
 cmp_ok($], 'ge', 5.008001, 'perl >= 5.8.1');
 for my $m (@modules) {
-    require_ok($m);
+    my ($name, $minversion) = split /\|/, $m;
+    require_ok($name);
+    SKIP: {
+        skip "no minimum version required", 1 unless $minversion;
+        my $version = eval '$' . $name . '::VERSION';
+        cmp_ok($version, '>=', $minversion, "$name $version >= $minversion");
+    };
 }
 __END__
