@@ -1,22 +1,28 @@
+[%- PROCESS common -%]
 [% WRAPPER ui title = loc("iCal Import") %]
 <center>
 [% IF timeslots %]
   <p>
    {{The following talks have been updated:}}
   </p>
-  <table border="1" cellspacing="0" cellpadding="0">
+  <table border="1" cellspacing="0" cellpadding="4">
   <tr>
-    <th>id</th>
+    <th>{{title}}</th>
     <th>{{Old time}}</th>
     <th>{{New time}}</th>
-    <th>{{title}}</th>
   </tr>
   [% FOREACH t=timeslots %]
     <tr>
-    <td>[% t.type %]-[% t.id %]</td>
+    <td>[% IF t.type == 'Act::Event' %]
+         [% event_link(t) %]
+         [% event_modify_link(t) %]
+      [% ELSE %]
+         [% talk_link(t) %]
+         [% talk_modify_link(t) %]
+      [% END %]
+    </td>
     <td>[% IF t.dt1; date_format(t.dt1,'datetime_short'); ELSE; '&nbsp;'; END %]</td>
     <td>[% date_format(t.dt2,'datetime_short') %]</td>
-    <td>[% t.title %]</td>
   </tr>
   [% END %]
   </table><br />
