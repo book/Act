@@ -38,7 +38,6 @@ sub handler
                 $timeslot{dtend} = $1;
             }
             elsif ($line =~ /^SUMMARY:(\w+)-(\d+)-/) {
-                $timeslot{type} = $1;
                 if ($1 eq 'talk') {
                     $timeslot{id_name} = 'talk_id';
                     $timeslot{id} = $2;
@@ -52,8 +51,7 @@ sub handler
             }
             elsif ($line eq 'END:VEVENT' && $timeslot{type}) {
                 # process event
-                my $class = $timeslot{type} or next;
-                my $e = $class->new($timeslot{id_name} => $timeslot{id});
+                my $e = $timeslot{type}->new($timeslot{id_name} => $timeslot{id}, conf_id => $Request{conference});
                 if ($e && ($timeslot{type} ne 'talk' || !$e->lightning)) {
                     my $dt1 = $e->datetime;
                     my $dt2 = DateTime::Format::ICal->parse_datetime($timeslot{dtstart});
@@ -63,10 +61,10 @@ sub handler
                         $dt2 = DateTime::Format::Pg->format_datetime($dt2);
                         $e->update(datetime => $dt2);
                         push @timeslots, { 
+                            %$e,
                             %timeslot,
                             dt1   => $dt1,
                             dt2   => $dt2,
-                            title => $e->title,
                         };
                     }
                 }
