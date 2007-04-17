@@ -37,7 +37,18 @@ our %sql_mapping = (
 );
 our %sql_opts = ( 'order by' => 'user_id' );
 
-*get_users = \&Act::Object::get_items;
+*get_users = \&get_items;
+
+sub get_items {
+    my ($class, %args) = @_;
+    
+    if( $args{name} ) {
+        $args{name} = quotemeta( $args{name} );
+        $args{name} =~ s/\\\*/.*/g;
+    }
+
+    return Act::Object::get_items( $class, %args );
+}
 
 sub rights {
     my $self = shift;
