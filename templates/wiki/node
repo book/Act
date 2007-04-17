@@ -33,8 +33,10 @@
   |
 [% END %]
 <a href="[% make_uri('wiki', 'action', 'recent') %]">{{Recent changes}}</a>
+[% IF data.version %]
 |
 <a href="[% make_uri('wiki', 'action', 'history', 'node', node) %]">{{History}}</a>
+[% END %]
 </p>
 
 [% END %]

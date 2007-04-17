@@ -78,7 +78,7 @@ sub wiki_commit
        ))
     {
         # display the node again
-        Act::Wiki::display_node($wiki, $template, $node);
+        Act::Util::redirect(make_uri('wiki', node => $node));
     }
     else {
         # conflict
