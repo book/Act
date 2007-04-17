@@ -7,6 +7,8 @@ use DateTime::Format::Pg;
 use DateTime::Format::ICal;
 
 use Act::Config;
+use Act::Event;
+use Act::Talk;
 use Act::Template;
 use Act::TimeSlot;
 
@@ -21,8 +23,16 @@ sub handler
         return;
     }
     # get all talks/events
-    my $timeslots = Act::TimeSlot->get_items( conf_id => $Request{conference} );
-
+    my $timeslots = [
+        map {
+            $_->{type} = ref;
+            $_->{id}   = $_->{talk_id} || $_->{event_id};
+            bless $_, 'Act::TimeSlot';
+        }
+        @{ Act::Event->get_events(conf_id => $Request{conference}) },
+        grep !$_->{lightning},
+        @{ Act::Talk->get_talks(conf_id => $Request{conference}) }
+    ];
     # generate iCal events
     my %defaults = (
         datetime => DateTime::Format::Pg->parse_timestamp($Config->talks_start_date),
