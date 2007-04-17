@@ -58,7 +58,7 @@
    [% IF loop.first %]
      <td align="center" valign="top" class="header">[% col %]</td>
    [% ELSE %]
-     <td valign="top" [% IF col.height > 1 %]rowspan="[% col.height %]"[% END %] [% IF col.room %]class="[% col.room %]"[% IF col.room.match('^(?:out|venue)$') %] colspan="[% maxwidth.$d %]"[% END %][% END %]>
+     <td valign="top" [% IF col.height AND col.height > 1 %]rowspan="[% col.height %]"[% END %] [% IF col.room %]class="[% col.room %]"[% IF col.room.match('^(?:out|venue)$') %] colspan="[% maxwidth.$d %]"[% END %][% END %]>
        [% timeslot(col) %]
      </td>
    [% END %]
