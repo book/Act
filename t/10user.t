@@ -1,4 +1,4 @@
-use Test::More tests => 50;
+use Test::More tests => 51;
 use strict;
 use Act::User;
 use t::Util;   # load the test database
@@ -52,6 +52,10 @@ is_deeply( Act::User->get_users( name => 'last' ), [ $user ], "Found a user by n
 # fecth a pseudonymous user by nick_name
 $user = Act::User->new( login => 'test2' );
 is_deeply( Act::User->get_users( name => 'baz' ), [ $user ], "Found a pseudonymous user" );
+
+# use a * in the search field
+$user = Act::User->new( login => 'test2' );
+is_deeply( Act::User->get_users( name => 'b*' ), [ $user ], "Found a user with a glob" );
 
 # update a user
 $user = Act::User->new( login => 'test' );
