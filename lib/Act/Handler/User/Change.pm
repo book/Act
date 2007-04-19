@@ -18,7 +18,6 @@ my @form_params = (
   required => [qw(first_name last_name email country)],
   filters => {
      email      => sub { lc shift },
-     pm_group   => sub { ucfirst lc shift },
      gpg_key_id => sub { uc shift },
   },
   constraints => {
