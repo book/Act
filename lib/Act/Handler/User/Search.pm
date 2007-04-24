@@ -41,13 +41,16 @@ sub handler {
     my %by_iso = map { $_->{iso} => $_->{name} } @$countries;
 
     # fetch the monger groups
-       $SQL = 'SELECT DISTINCT u.pm_group FROM users u, participations p'
-            . ' WHERE u.user_id=p.user_id AND p.conf_id=? AND u.pm_group IS NOT NULL'
-            . ' ORDER BY u.pm_group';
+    $SQL = 'SELECT DISTINCT u.pm_group FROM users u, participations p'
+         . ' WHERE u.user_id=p.user_id AND p.conf_id=? AND u.pm_group IS NOT NULL';
     $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
     %seen = ();
-    $pm_groups = [ grep !$seen{$_}++, map ucfirst($_->[0]), @{$sth->fetchall_arrayref()} ];
+    $pm_groups = [ sort
+                   grep !$seen{lc $_}++,
+                   map { split /\s*[^\w. ]\s*/, $_->[0] }
+                   @{$sth->fetchall_arrayref()}
+                 ];
     $sth->finish;
 
     # process the search template
