@@ -1,5 +1,6 @@
 [% PROCESS menus/user %]
 [% PROCESS menus/users %]
+[% PROCESS menus/wiki %]
 [% PROCESS menus/talks %]
 [% PROCESS menus/events %]
 [% PROCESS menus/treasurer %]
