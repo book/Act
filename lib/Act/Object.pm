@@ -4,6 +4,8 @@ use Act::Config;
 use Carp;
 use DateTime::Format::Pg;
 
+use constant DEBUG => !$^C && $Config->database_debug;
+
 my %normalize = (
     pg => {
         #  4 => integer
@@ -57,10 +59,13 @@ sub create {
                           join(",", keys %args), join(",", ( "?" ) x keys %args);
         my $sth = $Request{dbh}->prepare_cached( $SQL );
         _normalize( \%args, 'pg', $data_type );
+        _sql_debug($SQL, values %args) if DEBUG;
         $sth->execute( values %args );
 
         # retrieve inserted row's id
-        $sth = $Request{dbh}->prepare_cached("SELECT currval(?)");
+        $SQL = "SELECT currval(?)";
+        $sth = $Request{dbh}->prepare_cached($SQL);
+        _sql_debug($SQL, $seq) if DEBUG;
         $sth->execute($seq);
         ($id) = $sth->fetchrow_array;
         $sth->finish();
@@ -89,6 +94,7 @@ sub update {
                 . " WHERE $pkey=?";
         my $sth = $Request{dbh}->prepare_cached( $SQL );
         _normalize( \%args, 'pg', $data_type );
+        _sql_debug($SQL, values %args, $self->{$pkey}) if DEBUG;
         $sth->execute(values %args, $self->{$pkey});
         $Request{dbh}->commit;
     };
@@ -134,6 +140,7 @@ sub delete {
     eval {
         my $SQL = "DELETE FROM $table WHERE $pkey=?";
         my $sth = $Request{dbh}->prepare_cached( $SQL );
+        _sql_debug($SQL, $self->{$pkey}) if DEBUG;
         $sth->execute( $self->{$pkey});
         $Request{dbh}->commit;
     };
@@ -151,7 +158,9 @@ sub init {
 
     # get the standard fields (from the table)
     my $table = ${"${class}::table"};
-    my $sth   = $Request{dbh}->prepare("SELECT * from $table limit 0;");
+    my $SQL   = "SELECT * from $table limit 0";
+    my $sth   = $Request{dbh}->prepare($SQL);
+    _sql_debug($SQL) if DEBUG;
     $sth->execute;
     my $fields = ${"${class}::fields"} = $sth->{NAME};
     $sth->finish;
@@ -234,10 +243,12 @@ sub get_items {
     my $items = [ ];
     eval {
         my $sth = $Request{dbh}->prepare_cached( $SQL );
-        $sth->execute(
+        my @params = (
             map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
             map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
         );
+        _sql_debug($SQL, @params) if DEBUG;
+        $sth->execute(@params);
 
         my $item;
         push @$items, bless $item, $class
@@ -251,6 +262,13 @@ sub get_items {
         die $@;
     }
     return $items;
+}
+
+sub _sql_debug
+{
+    my ($sql, @params) = @_;
+    (my $str = $sql) =~ s/\?/$Request{dbh}->quote(shift @params)/ge;
+    warn "$str\n";
 }
 
 1;
