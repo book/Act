@@ -178,8 +178,9 @@ sub _init_config
          }
     );
     $cfg->set(home => $home);
+    # optional settings
     $cfg->set($_ => undef)
-        for qw(talks_show_all payment_notify_address);
+        for qw(talks_show_all talks_notify_accept payment_notify_address);
     return $cfg;
 }
 sub _get

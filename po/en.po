@@ -1169,3 +1169,8 @@ msgstr "Remember me on this computer"
 msgid "Billing"
 msgstr "Billing"
 
+msgid "The following submission has been accepted"
+msgstr ""
+"The following submission has been accepted. Please click\n"
+"on the link below to confirm your presentation.\n"
+

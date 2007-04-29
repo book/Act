@@ -1,0 +1,1 @@
+[% global.conference.name %] - [% talk.title %]

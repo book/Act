@@ -14,6 +14,7 @@ use Act::Template::HTML;
 use Act::Track;
 use Act::User;
 use Act::Util;
+use Act::Handler::Talk::Util;
 
 # form
 my $form = Act::Form->new(
@@ -163,8 +164,11 @@ sub handler {
                     my $tbefore = $talk->clone;
                     $talk->update( %$fields );
 
-                    # optional email notification
+                    # optional email notifications
                     notify('update', $tbefore, $talk);
+                    if (!$tbefore->accepted && $talk->accepted) {
+                        Act::Handler::Talk::Util::notify_accept($talk);
+                    }
                 }
             }
             # insert new talk
