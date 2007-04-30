@@ -4,6 +4,7 @@ use strict;
 use Act::Config;
 use Act::Email;
 use Act::I18N;
+use Act::Order;
 use Act::Payment;
 use Act::Template;
 use Act::User;
