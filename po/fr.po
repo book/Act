@@ -1136,3 +1136,39 @@ msgstr ""
 "La proposition suivante a été acceptée. Veuillez cliquer\n"
 "sur le lien ci-dessous pour confirmer votre présentation.\n"
 
+msgid "News"
+msgstr "Actualités"
+
+msgid "News Administration"
+msgstr "Administration actualités"
+
+msgid "Published"
+msgstr "Publié"
+
+msgid "Create a new item"
+msgstr "Créer un nouvel item"
+
+msgid "Edit a news item"
+msgstr "Edit a news item"
+
+msgid "You must enter a title"
+msgstr "Vous devez fournir un titre"
+
+msgid "You must enter some text"
+msgstr "Vous devez fournir un texte"
+
+msgid "Delete this item"
+msgstr "Supprimer cet item"
+
+msgid "Text"
+msgstr "Texte"
+
+msgid "Submit this item"
+msgstr "Valider cet item"
+
+msgid "No news yet!"
+msgstr "Aucune actualité"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Utiliser du HTML pour formater le texte. Les sauts de ligne seront transformés en marques de paragraphes"
+

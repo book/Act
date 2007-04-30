@@ -1174,3 +1174,39 @@ msgstr ""
 "The following submission has been accepted. Please click\n"
 "on the link below to confirm your presentation.\n"
 
+msgid "News"
+msgstr "News"
+
+msgid "News Administration"
+msgstr "News Administration"
+
+msgid "Published"
+msgstr "Published"
+
+msgid "Create a new item"
+msgstr "Create a new item"
+
+msgid "Edit a news item"
+msgstr "Edit a news item"
+
+msgid "You must enter a title"
+msgstr "You must enter a title"
+
+msgid "You must enter some text"
+msgstr "You must enter some text"
+
+msgid "Delete this item"
+msgstr "Delete this item"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Submit this item"
+msgstr "Submit this item"
+
+msgid "No news yet!"
+msgstr "No news yet!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Use HTML to format text. Text between newlines will be turned into paragraphs"
+

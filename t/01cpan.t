@@ -28,6 +28,7 @@ my @modules = (
                  'URI',
                  'URI::Escape',
                  'Wiki::Toolkit',
+                 'XML::Atom',
               );
 use Test::More;
 plan tests => 1 + 2 * @modules;

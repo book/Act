@@ -198,12 +198,15 @@ CREATE UNIQUE INDEX invoices_idx ON invoices ( order_id );
 DROP   TABLE news;
 CREATE TABLE news
 (
-    conf_id  text,
-    lang     text,
-    date     date,
-    text     text
+    news_id     SERIAL NOT NULL  PRIMARY KEY,
+    conf_id     text   NOT NULL,
+    lang        text   NOT NULL,
+    datetime    timestamp without time zone NOT NULL,
+    user_id     integer NOT NULL,
+    title       text    NOT NULL,
+    text        text    NOT NULL,
+    published   boolean DEFAULT false NOT NULL
 );
-CREATE INDEX news_idx ON news ( conf_id, lang );
 
 /* perl mongers groups */
 DROP   TABLE pm_groups CASCADE;

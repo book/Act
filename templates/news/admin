@@ -1,0 +1,21 @@
+[% PROCESS common %]
+[% WRAPPER ui title = loc("News Administration") %]
+
+<form method="POST" action="[% global.request.r.uri %]">
+[% IF news.size %]
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+ <th>{{Date}}</th>
+ <th>{{Title}}</th>
+</tr>
+[% FOREACH n = news %]
+  <tr>
+    <td>[% date_format(n.datetime, 'datetime_short') %]</td>
+    <td><a href="[% make_uri('newsedit', 'news_id', n.news_id) %]">[% n.title %]</a></td>
+  </tr>
+[% END %]
+</table>
+[% END %]
+<input type="submit" name="add" value="{{Create a new item}}" />
+</form>
+[% END %]

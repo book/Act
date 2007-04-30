@@ -6,6 +6,9 @@
 <!-- Document Metadata -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Language" content="[% global.request.language %]" />
+<!-- Atom news feed -->
+<link rel="alternate" type="application/atom+xml" title="[% global.conference.name %]"
+      href="[% global.request.base_url %][% make_uri( 'news.xml', 'language', global.request.language ) %]" />
 [%- IF title -%]<title>[% title  %]</title>[%- END -%]
 
 <!-- CSS Stylesheets -->

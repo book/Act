@@ -1,2 +1,14 @@
 -- Stuff to do when upgrading the production server
 
+DROP   TABLE news;
+CREATE TABLE news
+(
+    news_id     SERIAL NOT NULL  PRIMARY KEY,
+    conf_id     text   NOT NULL,
+    lang        text   NOT NULL,
+    datetime    timestamp without time zone NOT NULL,
+    user_id     integer NOT NULL,
+    title       text    NOT NULL,
+    text        text    NOT NULL,
+    published   boolean DEFAULT false NOT NULL
+);
