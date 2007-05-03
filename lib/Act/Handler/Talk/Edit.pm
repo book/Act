@@ -20,7 +20,7 @@ use Act::Handler::Talk::Util;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id)],
+                  accepted confirmed date time room delete track_id level)],
   filters  => {
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
@@ -31,6 +31,9 @@ my $form = Act::Form->new(
      date         => 'date',
      time         => 'time',
      room         => sub { exists $Config->rooms->{$_[0]} },
+     level        => sub { !$Config->talks_levels
+                           || ($_[0] =~ /^\d+$/ && $_[0] >= 1 && $_[0] <= $Config->talks_levels)
+                     },
   }
 );
 
@@ -199,6 +202,7 @@ sub handler {
             $form->{invalid}{time}         && push @errors, 'ERR_TIME';
             $form->{invalid}{period}       && push @errors, 'ERR_DATERANGE';
             $form->{invalid}{room}         && push @errors, 'ERR_ROOM';
+            $form->{invalid}{level}        && push @errors, 'ERR_LEVEL';
         }
         $template->variables(errors => \@errors);
     }
@@ -216,6 +220,8 @@ sub handler {
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
         rooms => $Config->rooms,
+        levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
+                    1 .. $Config->talks_levels ],
         tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
     ) if $Request{user}->is_orga;
     $template->process('talk/add');

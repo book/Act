@@ -180,7 +180,7 @@ sub _init_config
     $cfg->set(home => $home);
     # optional settings
     $cfg->set($_ => undef)
-        for qw(talks_show_all talks_notify_accept
+        for qw(talks_show_all talks_notify_accept talks_levels
                database_debug
                payment_notify_address);
     return $cfg;

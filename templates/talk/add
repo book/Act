@@ -14,6 +14,7 @@
      ERR_URL_ABSTRACT   => loc("Abstract URL is not a valid URL"),
      ERR_URL_TALK       => loc("Talk URL is not a valid URL"),
      ERR_ROOM           => loc("Incorrect room submitted"),
+     ERR_LEVEL          => loc("Please choose a target audience"),
   }
 %]
 
@@ -146,6 +147,17 @@
     </select>
   </td>
 </tr>
+[% IF global.config.talks_levels %]
+<tr>
+  <td align="right" valign="top">{{Target audience}}</td>
+  <td>&nbsp;</td>
+  <td><select name="level">
+       [% FOREACH levelname = levels %]
+         <option value="[% loop.count %]"[% ' selected="selected"' IF level == loop.count %]>[% levelname %]</option>
+       [% END %]
+  </td>
+</tr>
+[% END %]
 <tr>
   <td align="right" valign="top">{{Comments}}</td>
   <td>&nbsp;</td>

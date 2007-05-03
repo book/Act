@@ -12,3 +12,5 @@ CREATE TABLE news
     text        text    NOT NULL,
     published   boolean DEFAULT false NOT NULL
 );
+
+ALTER TABLE talks ADD COLUMN level integer DEFAULT 1;
