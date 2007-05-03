@@ -1,1 +1,1 @@
-[% make_uri('wiki') %] 
+<a href="[% make_uri('wiki') %]">Wiki</a>
