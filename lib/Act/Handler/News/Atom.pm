@@ -13,6 +13,12 @@ use Act::User;
 
 sub handler
 {
+    # retrieve language from path info
+    if ($Request{path_info} =~ /^(\w+)\.xml$/
+        && exists $Config->languages->{$1})
+    {
+        $Request{language} = $1;
+    }
     # fetch this conference's published news items
     my $news = Act::News->get_items(
                         conf_id   => $Request{conference},
@@ -21,16 +27,17 @@ sub handler
                );
 
     # generate Atom feed
+    my $url = $Config->general_full_uri . "atom/$Request{language}.xml";
     my $feed = XML::Atom::Feed->new;
     $feed->title($Config->name->{$Request{language}});
-    $feed->id($Config->general_full_uri . $Request{language});
+    $feed->id($url);
     $feed->language($Request{language});
     $feed->updated(rfc3339(@$news ? $news->[0]->datetime : DateTime->now));
 
     my $link = XML::Atom::Link->new;
     $link->type('application/atom+xml');
     $link->rel('self');
-    $link->href($Config->general_full_uri . "news.xml?language=$Request{language}");
+    $link->href($url);
     $feed->add_link($link);
 
     $link = XML::Atom::Link->new;

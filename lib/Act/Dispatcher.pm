@@ -30,7 +30,7 @@ my %dispatch = (
     schedule => { handler => 'Act::Handler::Talk::Schedule' },
     wiki     => { handler => 'Act::Handler::Wiki' },
     news     => { handler => 'Act::Handler::News::List' },
-    'news.xml'      => { handler => 'Act::Handler::News::Atom' },
+    atom     => { handler => 'Act::Handler::News::Atom' },
     'timetable.ics' => { handler => 'Act::Handler::Talk::Export' },
 
     # protected handlers
