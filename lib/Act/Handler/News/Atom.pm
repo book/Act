@@ -34,17 +34,15 @@ sub handler
     $feed->language($Request{language});
     $feed->updated(rfc3339(@$news ? $news->[0]->datetime : DateTime->now));
 
-    my $link = XML::Atom::Link->new;
-    $link->type('application/atom+xml');
-    $link->rel('self');
-    $link->href($url);
-    $feed->add_link($link);
+    add_link($feed,
+             type => 'application/atom+xml',
+             rel  => 'self',
+             href => $url);
 
-    $link = XML::Atom::Link->new;
-    $link->type('text/html');
-    $link->rel('alternate');
-    $link->href($Config->general_full_uri . "news?language=$Request{language}");
-    $feed->add_link($link);
+    add_link($feed,
+             type => 'text/html',
+             rel  => 'alternate',
+             href => $Config->general_full_uri . "news?language=$Request{language}");
 
     my %authors;
     for my $item (@$news) {
@@ -62,19 +60,29 @@ sub handler
         $entry->updated(rfc3339($item->datetime));
         $entry->content($item->content);
 
-        $link = XML::Atom::Link->new;
-        $link->type('text/html');
-        $link->rel('alternate');
-        $link->href($Config->general_full_uri . "news?language=$Request{language}");
-        $entry->add_link($link);
+        add_link($entry,
+                 type => 'text/html',
+                 rel  => 'alternate',
+                 href => $Config->general_full_uri . "news?language=$Request{language}");
 
         $feed->add_entry($entry);
     }
     $Request{r}->send_http_header('application/atom+xml; charset=UTF-8');
     $Request{r}->print($feed->as_xml);
 }
+
 sub rfc3339 { shift->iso8601 . 'Z' }
 
+sub add_link
+{
+    my ($thing, @args) = @_;
+
+    my $link = XML::Atom::Link->new;
+    while (my ($method, $value) = splice(@args,0,2)) {
+        $link->$method($value);
+    }
+    $thing->add_link($link);
+}
 1;
 __END__
 
