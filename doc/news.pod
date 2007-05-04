@@ -25,7 +25,7 @@ News items are available as an Atom feed. The feed's URL is
 You can make this feed available by including the following line in the
 E<lt>headE<gt> section of your pages, for example in your C<ui> template:
 
-  <link rel="alternate" type="application/atom+xml" title="My Atom Feed" href="http://domain/conf_id/news.xml" />
+  <link rel="alternate" type="application/atom+xml" title="[% global.conference.name %]" href="http://domain/conf_id/news.xml" />
 
 Replace C<domain> with your site's domain name, and C<conf_id> with your conference name.
 
