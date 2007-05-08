@@ -98,8 +98,7 @@ for my $conf (keys %{$Config->conferences}) {
 }
 # uri <=> conf mapping
 while (my ($uri, $conf) = each %{$Config->uris}) {
-    like($uri, qr(^[^/]+$), "uri $uri");
-    ok(exists $Config->conferences->{$conf}, "$uri points to existing conf $conf");
+    is($uri, $conf, "$uri points to existing conf $conf");
 }
 # payment types
 for my $type (sort keys %payment_types) {

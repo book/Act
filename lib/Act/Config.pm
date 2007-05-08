@@ -128,7 +128,7 @@ sub load_configs
         $ConfConfigs{$conf}->languages->{$_} = $Languages{$_}
             for keys %{$ConfConfigs{$conf}->languages};
         # conf <=> uri mapping
-        my $uri = $ConfConfigs{$conf}->general_uri || $conf;
+        my $uri = $conf;
         $uris{$uri} = $conf;
         $ConfConfigs{$conf}->set(uri => $uri);
         # general_conferences isn't overridable
