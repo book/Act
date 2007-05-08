@@ -5,6 +5,7 @@ use Act::Config;
 use Act::Template::HTML;
 use Act::Talk;
 use Act::Track;
+use Act::Handler::Talk::Util;
 
 sub handler
 {
@@ -31,6 +32,7 @@ sub handler
             }
             elsif (!$t->accepted && $Request{args}{$t->talk_id}) {
                 $t->update(accepted => 1 );
+                Act::Handler::Talk::Util::notify_accept($t);
             }
         }
     }

@@ -1,0 +1,13 @@
+[% user.first_name %] [% user.last_name %],
+
+{{The following submission has been accepted}}
+
+[% talk.title %]
+[% global.request.base_url %][% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]
+
+[% IF talk.lightning -%]
+{{Lightning talk}}
+[%- ELSE -%]
+{{Date:}} [% IF talk.datetime; date_format(talk.datetime, 'datetime_full'); ELSE %]{{Not scheduled yet.}}[% END %]
+{{Duration:}} [% talk.duration %] {{minutes}}
+[%- END -%]

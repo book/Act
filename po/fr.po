@@ -1131,3 +1131,8 @@ msgstr "Se souvenir du mot de passe"
 msgid "Billing"
 msgstr "Facturation"
 
+msgid "The following submission has been accepted"
+msgstr ""
+"La proposition suivante a été acceptée. Veuillez cliquer\n"
+"sur le lien ci-dessous pour confirmer votre présentation.\n"
+

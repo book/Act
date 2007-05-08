@@ -50,6 +50,9 @@ conference.
     # submission notification emails settings
     submissions_notify_address  = interventions@mongueurs.net
     submissions_notify_language = fr
+
+    # email the speaker when the talk is accepted
+    notify_accept = 1
     
     # can users edit talks?
     edition_open  = 1
