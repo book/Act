@@ -14,11 +14,8 @@ conference.
 =head2 Conference configuration
 
     [general]
-    # this conference's base URI
-    # no leading or trailing slash
-    uri = foo2004
-    
-    # full production URI
+    # this conference's full production URI
+    # with trailing slash
     full_uri = http://conferences.mongueurs.net/foo2004/
     
     # supported languages, and the default language
