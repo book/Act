@@ -48,7 +48,7 @@ sub variables_raw
     my $self = shift;
     {
         no warnings 'redefine';
-        local *escape = sub { $_[1] };
+        local *escape = sub { };
         $self->SUPER::variables(@_);
     }
 }
