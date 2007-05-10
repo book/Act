@@ -4,7 +4,7 @@ use strict;
 use Act::Config;
 use Act::Util;
 
-my $AGE = 24 * 60 * 60;     # 24 hours, in seconds
+my $AGE = 48 * 60 * 60;     # 48 hours, in seconds
 
 # connect to database
 Act::Util::db_connect();
