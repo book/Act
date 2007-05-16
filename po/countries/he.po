@@ -1,0 +1,738 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "אנדורה"
+
+msgid "country_ae"
+msgstr "איחוד הנסיכויות הערביות"
+
+msgid "country_af"
+msgstr "אפגניסטן"
+
+msgid "country_ag"
+msgstr "אנטיגה-ברבודה"
+
+msgid "country_ai"
+msgstr "אנגווילה"
+
+msgid "country_al"
+msgstr "אלבניה"
+
+msgid "country_am"
+msgstr "ארמניה"
+
+msgid "country_an"
+msgstr "אנטילים הולנדיים"
+
+msgid "country_ao"
+msgstr "אנגולה"
+
+msgid "country_aq"
+msgstr "אנטארקטיקה"
+
+msgid "country_ar"
+msgstr "ארגנטינה"
+
+msgid "country_as"
+msgstr "סמואה"
+
+msgid "country_at"
+msgstr "אוסטריה"
+
+msgid "country_au"
+msgstr "אוסטרליה"
+
+msgid "country_aw"
+msgstr "ארובה"
+
+msgid "country_ax"
+msgstr "איי אולנד"
+
+msgid "country_az"
+msgstr "אזרביג'אן"
+
+msgid "country_ba"
+msgstr "בוסניה-הרצגובינה"
+
+msgid "country_bb"
+msgstr "ברבדוס"
+
+msgid "country_bd"
+msgstr "בנגלדש"
+
+msgid "country_be"
+msgstr "בלגיה"
+
+msgid "country_bf"
+msgstr "בורקינה פאסו"
+
+msgid "country_bg"
+msgstr "בולגריה"
+
+msgid "country_bh"
+msgstr "בחריין"
+
+msgid "country_bi"
+msgstr "בורונדי"
+
+msgid "country_bj"
+msgstr "בנין"
+
+msgid "country_bm"
+msgstr "ברמודה"
+
+msgid "country_bn"
+msgstr "ברוני דארוסאלאם"
+
+msgid "country_bo"
+msgstr "בוליביה"
+
+msgid "country_br"
+msgstr "ברזיל"
+
+msgid "country_bs"
+msgstr "בהאמה"
+
+msgid "country_bt"
+msgstr "בהוטן"
+
+msgid "country_bv"
+msgstr "אי בובט"
+
+msgid "country_bw"
+msgstr "בוטסואנה"
+
+msgid "country_by"
+msgstr "בלרוס"
+
+msgid "country_bz"
+msgstr "בליז"
+
+msgid "country_ca"
+msgstr "קנדה"
+
+msgid "country_cc"
+msgstr "איי קוקוס"
+
+msgid "country_cd"
+msgstr "הרפובליקה הדמוקרטית  קונגו"
+
+msgid "country_cf"
+msgstr "הרפובליקה המרכז-אפריקאית"
+
+msgid "country_cg"
+msgstr "רפובליקת קונגו"
+
+msgid "country_ch"
+msgstr "שוויץ"
+
+msgid "country_ci"
+msgstr "חוף השנהב"
+
+msgid "country_ck"
+msgstr "איי קוק"
+
+msgid "country_cl"
+msgstr "צ'ילה"
+
+msgid "country_cm"
+msgstr "קמרון"
+
+msgid "country_cn"
+msgstr "סין"
+
+msgid "country_co"
+msgstr "קולומביה"
+
+msgid "country_cr"
+msgstr "קוסטה ריקה"
+
+msgid "country_cu"
+msgstr "קובה"
+
+msgid "country_cv"
+msgstr "קייפ ורדה"
+
+msgid "country_cx"
+msgstr "אי קריסמס"
+
+msgid "country_cy"
+msgstr "קפריסין"
+
+msgid "country_cz"
+msgstr "הרפובליקה הצ'כית"
+
+msgid "country_de"
+msgstr "גרמניה"
+
+msgid "country_dj"
+msgstr "ג'יבוטי"
+
+msgid "country_dk"
+msgstr "דנמרק"
+
+msgid "country_dm"
+msgstr "דומיניקה"
+
+msgid "country_do"
+msgstr "הרפובליקה הדומיניקנית"
+
+msgid "country_dz"
+msgstr "אלג'יריה"
+
+msgid "country_ec"
+msgstr "אקוודור"
+
+msgid "country_ee"
+msgstr "אסטוניה"
+
+msgid "country_eg"
+msgstr "מצרים"
+
+msgid "country_eh"
+msgstr "סהרה המערבית"
+
+msgid "country_er"
+msgstr "אריתריאה"
+
+msgid "country_es"
+msgstr "ספרד"
+
+msgid "country_et"
+msgstr "אתיופיה"
+
+msgid "country_fi"
+msgstr "פינלנד"
+
+msgid "country_fj"
+msgstr "פיג'י"
+
+msgid "country_fk"
+msgstr "איי פוקלנד"
+
+msgid "country_fm"
+msgstr "מיקרונזיה"
+
+msgid "country_fo"
+msgstr "איי פר-אר"
+
+msgid "country_fr"
+msgstr "צרפת"
+
+msgid "country_ga"
+msgstr "גאבון"
+
+msgid "country_gb"
+msgstr "בריטניה"
+
+msgid "country_gd"
+msgstr "גרנדה"
+
+msgid "country_ge"
+msgstr "ג'ורג'יה"
+
+msgid "country_gf"
+msgstr "גיאנה הצרפתית"
+
+msgid "country_gg"
+msgstr "גרנזי"
+
+msgid "country_gh"
+msgstr "גאנה"
+
+msgid "country_gi"
+msgstr "ג'יברלטר"
+
+msgid "country_gl"
+msgstr "גרינלנד"
+
+msgid "country_gm"
+msgstr "גמביה"
+
+msgid "country_gn"
+msgstr "גינאה"
+
+msgid "country_gp"
+msgstr "גוואדלופ"
+
+msgid "country_gq"
+msgstr "גיניאה המשוונית"
+
+msgid "country_gr"
+msgstr "יוון"
+
+msgid "country_gs"
+msgstr "איי דרום ג'ורג'יה ואיי דרום סנדוויץ"
+
+msgid "country_gt"
+msgstr "גואטמלה"
+
+msgid "country_gu"
+msgstr "גואם"
+
+msgid "country_gw"
+msgstr "גיניאה ביסאו"
+
+msgid "country_gy"
+msgstr "גיאנה"
+
+msgid "country_hk"
+msgstr "הונג קונג"
+
+msgid "country_hm"
+msgstr "האי הרד ואיי מקדונלד"
+
+msgid "country_hn"
+msgstr "הונדורס"
+
+msgid "country_hr"
+msgstr "קרואטיה"
+
+msgid "country_ht"
+msgstr "האיטי"
+
+msgid "country_hu"
+msgstr "הונגריה"
+
+msgid "country_id"
+msgstr "אינדונזיה"
+
+msgid "country_ie"
+msgstr "אירלנד"
+
+msgid "country_il"
+msgstr "ישראל"
+
+msgid "country_im"
+msgstr "האי מאן"
+
+msgid "country_in"
+msgstr "הודו"
+
+msgid "country_io"
+msgstr "הטריטוריה הבריטית באוקיינוס ההודי"
+
+msgid "country_iq"
+msgstr "עירק"
+
+msgid "country_ir"
+msgstr "איראן"
+
+msgid "country_is"
+msgstr "איסלנד"
+
+msgid "country_it"
+msgstr "איטליה"
+
+msgid "country_je"
+msgstr "ג'רסי"
+
+msgid "country_jm"
+msgstr "ג'מייקה"
+
+msgid "country_jo"
+msgstr "ירדן"
+
+msgid "country_jp"
+msgstr "יפן"
+
+msgid "country_ke"
+msgstr "קניה"
+
+msgid "country_kg"
+msgstr "קירגיסטן"
+
+msgid "country_kh"
+msgstr "קמבודיה"
+
+msgid "country_ki"
+msgstr "קיריבטי"
+
+msgid "country_km"
+msgstr "קומורו"
+
+msgid "country_kn"
+msgstr "סנט קיטס נוויס"
+
+msgid "country_kp"
+msgstr "צפון קוריאה"
+
+msgid "country_kr"
+msgstr "דרום קוריאה"
+
+msgid "country_kw"
+msgstr "כווית"
+
+msgid "country_ky"
+msgstr "איי קיימאן"
+
+msgid "country_kz"
+msgstr "קזחסטן"
+
+msgid "country_la"
+msgstr "לאוס"
+
+msgid "country_lb"
+msgstr "לבנון"
+
+msgid "country_lc"
+msgstr "סנט לוצ'יה"
+
+msgid "country_li"
+msgstr "ליכטנשטיין"
+
+msgid "country_lk"
+msgstr "סרי לנקה"
+
+msgid "country_lr"
+msgstr "ליבריה"
+
+msgid "country_ls"
+msgstr "לסוטו"
+
+msgid "country_lt"
+msgstr "ליטא"
+
+msgid "country_lu"
+msgstr "לוכסמבורג"
+
+msgid "country_lv"
+msgstr "לטביה"
+
+msgid "country_ly"
+msgstr "לוב"
+
+msgid "country_ma"
+msgstr "מרוקו"
+
+msgid "country_mc"
+msgstr "מונקו"
+
+msgid "country_md"
+msgstr "מולדובה"
+
+msgid "country_me"
+msgstr "מונטנגרו"
+
+msgid "country_mg"
+msgstr "מדגסקר"
+
+msgid "country_mh"
+msgstr "איי מרשל"
+
+msgid "country_mk"
+msgstr "מקדוניה"
+
+msgid "country_ml"
+msgstr "מאלי"
+
+msgid "country_mm"
+msgstr "מיאנמר"
+
+msgid "country_mn"
+msgstr "מונגוליה"
+
+msgid "country_mo"
+msgstr "מקאו"
+
+msgid "country_mp"
+msgstr "איי מריינה הצפוניים"
+
+msgid "country_mq"
+msgstr "מרטיניק"
+
+msgid "country_mr"
+msgstr "מאוריטניה"
+
+msgid "country_ms"
+msgstr "מונסראט"
+
+msgid "country_mt"
+msgstr "מלטה"
+
+msgid "country_mu"
+msgstr "מאוריציוס"
+
+msgid "country_mv"
+msgstr "האיים המלדיביים"
+
+msgid "country_mw"
+msgstr "מלאווי"
+
+msgid "country_mx"
+msgstr "מקסיקו"
+
+msgid "country_my"
+msgstr "מלזיה"
+
+msgid "country_mz"
+msgstr "מוזמביק"
+
+msgid "country_na"
+msgstr "נמיביה"
+
+msgid "country_nc"
+msgstr "קלדוניה החדשה"
+
+msgid "country_ne"
+msgstr "ניגר"
+
+msgid "country_nf"
+msgstr "האי נורפולק"
+
+msgid "country_ng"
+msgstr "ניגריה"
+
+msgid "country_ni"
+msgstr "ניקאראגואה"
+
+msgid "country_nl"
+msgstr "הולנד"
+
+msgid "country_no"
+msgstr "נורבגיה"
+
+msgid "country_np"
+msgstr "נפאל"
+
+msgid "country_nr"
+msgstr "נאורו"
+
+msgid "country_nu"
+msgstr "ניווה"
+
+msgid "country_nz"
+msgstr "ניו זילנד"
+
+msgid "country_om"
+msgstr "עומן"
+
+msgid "country_pa"
+msgstr "פנמה"
+
+msgid "country_pe"
+msgstr "פרו"
+
+msgid "country_pf"
+msgstr "פולינזיה הצרפתית"
+
+msgid "country_pg"
+msgstr "פאפואה-גינאה החדשה"
+
+msgid "country_ph"
+msgstr "הפיליפינים"
+
+msgid "country_pk"
+msgstr "פקיסטן"
+
+msgid "country_pl"
+msgstr "פולין"
+
+msgid "country_pm"
+msgstr "סנט פייר"
+
+msgid "country_pn"
+msgstr "איי פיטקרן"
+
+msgid "country_pr"
+msgstr "פוארטו-ריקו"
+
+msgid "country_ps"
+msgstr "פלסטין"
+
+msgid "country_pt"
+msgstr "פורטוגל"
+
+msgid "country_pw"
+msgstr "פלאו"
+
+msgid "country_py"
+msgstr "פרגוואי"
+
+msgid "country_qa"
+msgstr "קטאר"
+
+msgid "country_re"
+msgstr "האי ריוניון"
+
+msgid "country_ro"
+msgstr "רומניה"
+
+msgid "country_rs"
+msgstr "סרביה"
+
+msgid "country_ru"
+msgstr "רוסיה"
+
+msgid "country_rw"
+msgstr "רואנדה"
+
+msgid "country_sa"
+msgstr "ערב הסעודית"
+
+msgid "country_sb"
+msgstr "איי שלמה"
+
+msgid "country_sc"
+msgstr "איי סיישל"
+
+msgid "country_sd"
+msgstr "סודןn"
+
+msgid "country_se"
+msgstr "שוודיה"
+
+msgid "country_sg"
+msgstr "סינגפור"
+
+msgid "country_sh"
+msgstr "סנט הלנה"
+
+msgid "country_si"
+msgstr "סלובניה"
+
+msgid "country_sj"
+msgstr "סוואלברד ואיי יאן מאיין"
+
+msgid "country_sk"
+msgstr "סלובקיה"
+
+msgid "country_sl"
+msgstr "סיירה ליאונה"
+
+msgid "country_sm"
+msgstr "סאן-מארינו"
+
+msgid "country_sn"
+msgstr "סנגל"
+
+msgid "country_so"
+msgstr "סומליה"
+
+msgid "country_sr"
+msgstr "סורינאם"
+
+msgid "country_st"
+msgstr "סאו תומה ופרינסיפה"
+
+msgid "country_sv"
+msgstr "אל-סלבדור"
+
+msgid "country_sy"
+msgstr "סוריה"
+
+msgid "country_sz"
+msgstr "סווזילנד"
+
+msgid "country_tc"
+msgstr "איי טרקס אנד קאיקוס"
+
+msgid "country_td"
+msgstr "צ'ד"
+
+msgid "country_tf"
+msgstr "הטריטוריה הצרפתית הדרומית"
+
+msgid "country_tg"
+msgstr "טוגו"
+
+msgid "country_th"
+msgstr "תאילנד"
+
+msgid "country_tj"
+msgstr "טאג'יקיסטן"
+
+msgid "country_tk"
+msgstr "טוקלאו"
+
+msgid "country_tl"
+msgstr "האי טימור"
+
+msgid "country_tm"
+msgstr "טורקמניסטאן"
+
+msgid "country_tn"
+msgstr "טוניסיה"
+
+msgid "country_to"
+msgstr "טונגה"
+
+msgid "country_tr"
+msgstr "טורקיה"
+
+msgid "country_tt"
+msgstr "טרינידד וטובגו"
+
+msgid "country_tv"
+msgstr "טובאלו"
+
+msgid "country_tw"
+msgstr "טאיוואן"
+
+msgid "country_tz"
+msgstr "טנזניה"
+
+msgid "country_ua"
+msgstr "אוקראינה"
+
+msgid "country_ug"
+msgstr "אוגנדה"
+
+msgid "country_um"
+msgstr "האיים הפסיפיים"
+
+msgid "country_us"
+msgstr "ארצות הברית"
+
+msgid "country_uy"
+msgstr "אורוגוואי"
+
+msgid "country_uz"
+msgstr "אוזבקיסטן"
+
+msgid "country_va"
+msgstr "ותיקן"
+
+msgid "country_vc"
+msgstr "סנט וינסנט והגרנידים"
+
+msgid "country_ve"
+msgstr "ונצואלה"
+
+msgid "country_vg"
+msgstr "איי הבתולה הבריטיים"
+
+msgid "country_vi"
+msgstr "איי הבתולה האמריקאים"
+
+msgid "country_vn"
+msgstr "וייטנאם"
+
+msgid "country_vu"
+msgstr "ונואטו"
+
+msgid "country_wf"
+msgstr "איי ווליס ופוטונה"
+
+msgid "country_ws"
+msgstr "ואה המערבית"
+
+msgid "country_ye"
+msgstr "תימן"
+
+msgid "country_yt"
+msgstr "מאיוט"
+
+msgid "country_za"
+msgstr "דרום-אפריקה"
+
+msgid "country_zm"
+msgstr "זמביה"
+
+msgid "country_zw"
+msgstr "זימבבואה"
+
