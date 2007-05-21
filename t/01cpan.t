@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-my @modules = (
+my %modules = (
     'Apache'                                => 0,
     'Apache::AuthCookie'                    => 3.05,
     'Apache::Request'                       => 0,
@@ -29,9 +29,9 @@ my @modules = (
     'XML::Atom'                             => 0.20,
 );
 use Test::More;
-plan tests => 1 + @modules;
+plan tests => 1 + 2 * keys %modules;
 cmp_ok($], 'ge', 5.008001, 'perl >= 5.8.1');
-while (my ($name, $minversion) = splice(@modules,0,2)) {
+while (my ($name, $minversion) = each %modules) {
     require_ok($name);
     my $version = eval '$' . $name . '::VERSION';
     cmp_ok($version, '>=', $minversion, "$name $version >= $minversion");
