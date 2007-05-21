@@ -212,6 +212,7 @@ sub _ttest
 
     $Request{conference} = $t->{conf};
     $Config->set(uri => $t->{conf});
+    $Config->set(name => { $Request{language} => 'foobar' });
 
     if ($t->{web}) {
         $Request{r} = Test::MockObject->new;

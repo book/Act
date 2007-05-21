@@ -117,7 +117,7 @@ sub process
                              }
             );
         }
-        if ($Request{conference} && $Request{dbh}) {
+        if ($Request{conference}) {
             $global{conference} = {
                 name => $Config->name->{$Request{language}},
             };
