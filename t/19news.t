@@ -1,6 +1,11 @@
-use Test::More tests => 7;
+use Test::More tests => 9;
 use DateTime;
+use Test::MockObject;
+
+use Act::Config;
 use Act::News;
+use Act::Template;
+
 use strict;
 use t::Util;
 
@@ -30,12 +35,35 @@ is_deeply($fetched, $news, "fetch");
 
 # update
 $now = DateTime->now();
-$news->update(text => "something else\nentirely");
+$news->update(text => "something else\nentirely", published => 1);
 $fetched = Act::News->new(news_id => $news->news_id);
 is_deeply($fetched, $news,"update");
 
 # content
-is($fetched->content, "<p>something else</p>\n<p>entirely</p>", "content");
+my $expected_content = "<p>something else</p>\n<p>entirely</p>";
+is($fetched->content, $expected_content, "content");
+
+# global.news
+%Request = ( %Request,
+             language   => 'en',
+             args       => {},
+             conference => 'conf',
+           );
+$Request{r} = Test::MockObject->new;
+$Request{r}->set_true(qw(send_http_header))
+           ->set_always(method => 'GET')
+           ->set_isa('Apache');
+$Config->set(languages => {});
+$Config->set(name => { en => 'foobar' });
+
+
+my $template = Act::Template->new(TRIM => 1);
+my $output;
+$template->process(\"[% PROCESS common; global.news.size %]", \$output);
+is($output, 1, "template - size");
+$template->process(\"[% PROCESS common; global.news.0.content %]", \$output);
+is($fetched->content, $expected_content, "template - content");
+
 
 # delete
 $news->delete;
