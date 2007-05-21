@@ -15,12 +15,7 @@ sub handler
         $Request{status} = NOT_FOUND;
         return;
     }
-    my $template = Act::Template::HTML->new();
 
-    # new item    
-    if ($Request{args}{add}) {
-        return Act::Util::redirect(make_uri('newsedit'));
-    }
     # fetch this conference's news items
     my $news = Act::News->get_items(
                     conf_id => $Request{conference},
@@ -28,6 +23,7 @@ sub handler
                );
 
     # process the template
+    my $template = Act::Template::HTML->new();
     $template->variables(news => $news);
     $template->process('news/admin');
 }

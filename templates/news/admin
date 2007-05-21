@@ -1,7 +1,6 @@
 [% PROCESS common %]
 [% WRAPPER ui title = loc("News Administration") %]
 
-<form method="POST" action="[% global.request.r.uri %]">
 [% IF news.size %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
@@ -16,6 +15,5 @@
 [% END %]
 </table>
 [% END %]
-<input type="submit" name="add" value="{{Create a new item}}" />
-</form>
+<a href="[% make_uri('newsedit') %]">{{Create a new item}}</a>
 [% END %]
