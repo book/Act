@@ -39,7 +39,12 @@
   <td align="right" valign="top">{{Published}}</td>
   <td>&nbsp;</td>
   <td>
-    <input type="checkbox" name="published"[% ' checked' IF published %] />
+    <input type="radio" name="published" value="1" [% "checked" IF published %] /> {{Yes}}
+    <input type="radio" name="published" value="0" [% "checked" UNLESS published %] /> {{No}}
+  </td>
+</tr>
+
+
    </td>
 </tr>
 <tr>
