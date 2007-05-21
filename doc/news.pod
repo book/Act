@@ -4,7 +4,7 @@
 
   [% PROCESS common %]
   <div class="newsbox">
-    [% FOREACH item = news %]
+    [% FOREACH item = global.news %]
     <p><h3>[% item.title %]</h3>
     <em>[% date_format(item.datetime, 'datetime_short') %] by [% user_info(item.user) %]</em>
     <br>
@@ -14,7 +14,7 @@
 
 The number of items can be limited by supplying a count argument to C<news>:
 
-  [% FOREACH item = news(5) %]
+  [% FOREACH item = global.news(5) %]
 
 =head2 Atom feed
 

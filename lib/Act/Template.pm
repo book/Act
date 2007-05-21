@@ -147,12 +147,10 @@ sub process
               @{ $global{conferences}{$_} };
         }
         # news
-        $self->variables(
-            news => sub { my $count = shift;
-                          require Act::Handler::News::Fetch;
-                          return Act::Handler::News::Fetch::fetch($count);
-                        }
-        );
+        $global{news} = sub { my $count = shift;
+                              require Act::Handler::News::Fetch;
+                              return Act::Handler::News::Fetch::fetch($count);
+                            };
 
         $output ||= $Request{r};
     }
