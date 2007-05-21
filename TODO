@@ -1,3 +1,20 @@
+PRIORITIZED TODO LIST
+
+* track management: organizers should be able to create tracks for
+  their conference, speakers should be able to select a track for their talk
+
+* talk languages: define a set of accepted languages for a conference
+  and let the speakers set the talk language
+
+* attendees should be able to pick one day out of the N days when they
+  participate
+
+* sponsor donation: allow for donation from non registered users;
+  user donation: donation from registered users
+
+* password modification page
+
+
 UNPRIORITIZED TODO LIST
 
 * let the organizers force the registration of existing users
@@ -8,30 +25,9 @@ UNPRIORITIZED TODO LIST
   and add a payment (and use the code for finding duplicate users)
   (useful for on site registration during the conference)
 
-* replace Act::Form by Data::FormValidator
-
-* list and document all the templates in the application
-
-* divide the template content between structural information needed
-  by the application (e.g. creation of the schedule, application
-  forms) and presentation information which should be overridable by
-  conference-specific templates
-
 * define a set of coherent CSS styles for the application templates,
   so that conference organizers may easily override the application
   look and feel, and integrate it into their web site
-
-* define a procedure (and possibly write some helper scripts) to
-  manage the text modifications. When someone changes some text
-  in the templates, the may be able to translate it at best in
-  one or two other languages. Other translators need to be
-  informed of the changes.
-
-* track management: organizers should be able to create tracks for
-  their conference, speakers should be able to select a track for their talk
-
-* talk languages: define a set of accepted languages for a conference
-  and let the speakers set the talk language
 
 * talk target audience: beginner, intermediate, advanced.
 
@@ -39,10 +35,6 @@ UNPRIORITIZED TODO LIST
   should there be a way for the organisers to mark the attendees as
   present? When a conference is over, treasurer/orga should be able to
   unregister participants who didn't show up.
-
-* password modification page
-
-* a website for managing one's profile outside any conference
 
 * some statistics for the organizers
   - T-shirts stats:
@@ -81,22 +73,9 @@ UNPRIORITIZED TODO LIST
 
 * photo gallery? Links with Flickr? tags? links with talks? author?
 
-* usefulness of global rights?
-
 * more tests, especially for the web interface
 
 * may a user have a different photograph every year?
-
-* change the "orga" right name
-
-* think about the user preferred language as a preference list:
-  - ye2005,  pt => list = pt
-  - fpw2005, fr => list = fr,pt
-  - ipw2005, en => list = en,fr,pt
-  at that point, we need to reconfigure the prefered language for
-  the two other sites
-  Another option is to add a lang field in participations, to have
-  a favorite language per conference
 
 * global user stats (top attendee, top speaker, etc)
 
@@ -106,13 +85,11 @@ UNPRIORITIZED TODO LIST
 
 * PDF immutable invoices
 
-* replace Act::Object with a more trendy ORM
-
 * create a eg/ directory with at least two example conferences
 
 * support for per conference options, like
   - register the hotel (e.g. european hackathon 2007)
-  - vegeratian food
+  - vegetarian food
 
 * hackathons do not have talks. Support that by disabling the talks
   related handlers.
@@ -139,13 +116,23 @@ UNPRIORITIZED TODO LIST
 * Closing Date
   It should be possible to close registrations before the event start date.
 
-* Change Password Mechanism
-  There should be a way to change passwords.
+* Optional SSL Protected Admin Login
+  There should be an optional SSL protected login option, at least for admins,
+  allowing them to login to the website without being evasedropped.
+
+* Make it clear how to register for an event.
+    => register for an event?
+
+* replace Act::Form by Data::FormValidator
+    => maybe. Act::Form seems to work well now.
+
+* replace Act::Object with a more trendy ORM
 
 * User Identification
   The login page asks for "User Identification", and this is not really clear.
   It's difficult to say what is the "user identification" needed. Maybe the
   text could be a bit more specific.
+    => Maybe. Does anyone really has trouble understanding the login form?
 
 * Tracking Suspicious Users
   There should be a way to track down, mark out and pay attention on
@@ -153,21 +140,18 @@ UNPRIORITIZED TODO LIST
   known or findable. Those registrations cause a lot of trouble, making
   organizers to waste time and resources with room reservations, special meals
   and other resources for people that will never show up.
+    => the above definition of /suspicious/ seems pretty vague.
 
-* Admin Statistics
-  Admins and organizers should be able to have some statistics and accounting
-  for his/her personal use. Simple things like "how many people will be present
-  to the event?" or "how many of those people have special needs - special
-  meals, special accommodations?" or "how many people are staying on the hotel
-  we booked and how many aren't?" should do the trick.
+* think about the user preferred language as a preference list:
+  - ye2005,  pt => list = pt
+  - fpw2005, fr => list = fr,pt
+  - ipw2005, en => list = en,fr,pt
+  at that point, we need to reconfigure the prefered language for
+  the two other sites
+  Another option is to add a lang field in participations, to have
+  a favorite language per conference
+    => overkill
 
-* Optional SSL Protected Admin Login
-  There should be an optional SSL protected login option, at least for admins,
-  allowing them to login to the website without being evasedropped.
+* a website for managing one's profile outside any conference
+    => overkill
 
-* Provide RSS Feeds to inform people interested on the projects.
-
-* Make it clear how to register for an event.
-
-* Ensure users get clear and meaningful error messages when they get wrong
-  passwords or aren't registered in the system.

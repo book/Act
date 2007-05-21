@@ -1,5 +1,20 @@
 Changes in Act
 
+[main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
+
+2007/05/08 r1395 optional talk accept notification
+
+2007/05/02 r1386 add a fourth room color
+
+2007/04/24 r1371 don't mangle pm_group user input
+                 handle multiple pm_group per user in search
+
+2007/04/19 r1368 add support for glob-like * in user search
+
+2007/04/16 r1359 iCal import and export enhancements
+
+2007/04/10 r1330 apply site policy to configuration
+
 2007/04/07 r1312 paymentreport enhancements
            r1311 wiki "delete page" feature
 
