@@ -11,7 +11,7 @@ use Act::Util;
 
 my $form = Act::Form->new(
   required => [qw(title text)],
-  optional => [qw(published)],
+  optional => [qw(published delete)],
   filters  => {
      published => sub { $_[0] ? 1 : 0 },
   },
