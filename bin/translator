@@ -3,10 +3,10 @@ use strict;
 use warnings;
 
 # useful modules
-use Locale::Maketext::Lexicon::Gettext;
 use File::Spec::Functions;
 use File::Slurp;
 use Term::ReadKey;
+use Tie::IxHash;
 use Getopt::Long;
 
 my %conf = (
@@ -28,18 +28,24 @@ if ( $conf{rev} ) {
     write_rev( $lang, $rev );
     exit;
 }
-# the case for 'en'
+# the case for 'en'
 if ( $lang eq 'en' ) {
     my $ref_lex = read_po( 'en'  => catfile( $posvn, 'en.po.svn-base' ) );
     my $ref_rev = read_rev( 'en' => catfile( $posvn, 'en.rev.svn-base ' ) );
     my $new_lex = read_po( 'en'  => catfile( $podir, 'en.po' ) );
     my $new_rev = read_rev( 'en' => catfile( $podir, 'en.rev' ) );
 
-    # find modified ids
+    # find new / modified ids
     $new_rev->{$_} = ( $ref_rev->{$_} || 0 ) + 1
         for grep { ( $new_lex->{$_} ||= '' ) ne ( $ref_lex->{$_} ||= '' ) }
-        grep { !/^__|^$/ } keys %$new_lex;
+        keys %$new_lex;
 
+    # find deleted ids
+    delete $new_rev->{$_} 
+        for grep { not exists $new_lex->{$_} }
+        keys %$ref_lex;
+
+    # rewrite rev file
     write_rev( $lang, $new_rev );
     exit;
 }
@@ -66,8 +72,8 @@ my %action = (
 );
 
 # find the outdated ids
-my @todo = sort grep { ( $ext_rev->{$_} ||= 0 ) < ( $ref_rev->{$_} ||= 1 ) }
-    grep { !/^__|^$/ } keys %$ref_lex;
+my @todo = grep { ( $ext_rev->{$_} ||= 0 ) < ( $ref_rev->{$_} ||= 1 ) }
+    keys %$ref_lex;
 
 # process the ids interactively
 my $answer = 'a';
@@ -94,8 +100,34 @@ exit;
 sub read_po {
     my ( $lang, $file ) = @_;
 
-    return {} if ! -e $file;
-    return Locale::Maketext::Lexicon::Gettext->parse( read_file $file);
+    my %lexicon;
+    tie %lexicon, 'Tie::IxHash';
+
+    return \%lexicon if ! -e $file;
+    open my $fh, '<', $file or die "Can't open $file: $!";
+    my ($msgid, $msgstr);
+    while (<$fh>) {
+        chomp;
+        if (/^msgid "(.*)"$/) {
+            $msgid = $1;
+            $msgstr = '';
+        }
+        elsif (/^msgstr "(.*)"$/) {
+            $msgstr = $1;
+        }
+        elsif (/^"(.*)"/) {
+            $msgstr .= $1;
+        }
+        elsif (/^ *$/) {
+            $lexicon{$msgid} = $msgstr if $msgid;
+            undef $msgid;
+        }
+        else {
+            die "$file: syntax error line $.\n";
+        }
+    }
+    $lexicon{$msgid} = $msgstr if $msgid;
+    return \%lexicon;
 }
 
 sub write_po {
@@ -103,10 +135,15 @@ sub write_po {
     my $file = catfile( $podir, "$lang.po" );
 
     open my $fh, '>', $file or die "Can't open $file: $!";
+    print $fh <<EOF;
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-    for my $id ( sort keys %$lex ) {
-        next if $id =~ /^__/;
-
+EOF
+    for my $id ( keys %$lex ) {
         # msgid
         print $fh qq(msgid "$id"\n);
 
@@ -125,8 +162,13 @@ sub write_po {
 sub read_rev {
     my ( $lang, $file ) = @_;
 
-    return {} if !-e $file;
-    return { map { chomp; split / \@ / } read_file $file };
+    my %rev;
+    tie %rev, 'Tie::IxHash';
+
+    if (-e $file) {
+        %rev = map { chomp; split / \@ / } read_file $file;
+    }
+    return \%rev;
 }
 
 sub write_rev {
@@ -134,7 +176,7 @@ sub write_rev {
     my $file = catfile( $podir, "$lang.rev" );
 
     write_file( $file,
-        sort map {"$_ \@ $rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
+        map {"$_ \@ $rev->{$_}\n"} grep { !/^__|^$/ } keys %$rev );
 }
 
 sub get_choice {
