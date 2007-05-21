@@ -5,6 +5,7 @@ use warnings;
 # useful modules
 use File::Spec::Functions;
 use File::Slurp;
+use File::Temp;
 use Term::ReadKey;
 use Tie::IxHash;
 use Getopt::Long;
@@ -64,8 +65,10 @@ my %action = (
     },
     e => sub {
         my $id = shift;
-        $ext_lex->{$id} = get_new_text();
-        $ext_rev->{$id} = $ref_rev->{$id};
+        if (my $text = get_new_text()) {
+            $ext_lex->{$id} = $text;
+            $ext_rev->{$id} = $ref_rev->{$id};
+        }
     },
     i => sub { },
     x => sub { exit; },
@@ -201,7 +204,15 @@ sub get_choice {
 }
 
 sub get_new_text {
-
+    my $fh = File::Temp->new();
+    use Fcntl qw/F_SETFD F_GETFD/;
+    fcntl($fh, F_SETFD, 0)
+        or die "Can’t clear close−on−exec flag on temp fh: $!\n";
+    system($ENV{EDITOR} || 'vi', '/dev/fd/'. fileno($fh)) and return;
+    seek $fh, 0, 0;
+    my $text = read_file($fh);
+    chomp $text;
+    return $text;
 }
 
 sub usage {
