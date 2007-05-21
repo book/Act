@@ -119,8 +119,14 @@ sub read_po {
             $msgstr .= $1;
         }
         elsif (/^ *$/) {
-            $lexicon{$msgid} = $msgstr if $msgid;
-            undef $msgid;
+            if ($msgid) {
+                for ($msgstr) {
+                    s/\\n/\n/g;
+                    s/\\//g;
+                }
+                $lexicon{$msgid} = $msgstr ;
+                undef $msgid;
+            }
         }
         else {
             die "$file: syntax error line $.\n";
@@ -138,9 +144,9 @@ sub write_po {
     print $fh <<EOF;
 msgid ""
 msgstr ""
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
 
 EOF
     for my $id ( keys %$lex ) {
