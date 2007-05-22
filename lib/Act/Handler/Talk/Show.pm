@@ -55,10 +55,12 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         %$talk,
-        level => $Config->get("levels_level" . $talk->level . "_name_$Request{language}"),
         chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
         user => $user,
     );
+    $template->variables(
+        level => $Config->get("levels_level" . $talk->level . "_name_$Request{language}"),
+    ) if $Config->talks_levels;
     $template->process('talk/show');
 }
 
