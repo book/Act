@@ -1,0 +1,22 @@
+[% PROCESS common %]
+[% WRAPPER ui title = loc("Tracks") %]
+<p>
+[% IF tracks.size == 0 %]
+ {{No track}}
+[% ELSE %]
+  <table border="0">
+  [% FOREACH tr = tracks %]
+  <tr><td><a href="[% make_uri('trackedit', 'track_id', tr.track_id) %]">[% tr.title %]</a></td>
+  <td>                          [% loc('n talks',     tr.talks.total)     %]
+   [%- IF tr.talks.total %],    [% loc('n accepted',  tr.talks.accepted)  %]
+   [%- IF tr.talks.accepted %], [% loc('n confirmed', tr.talks.confirmed) %]
+   [%- END; END %]
+  </td>
+  </tr>
+  [% END %]
+  </table>
+[% END %]
+<br />
+<a href="[% make_uri('trackedit') %]">{{Add a new track}}</a>
+</p>
+[% END %]

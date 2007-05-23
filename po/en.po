@@ -1219,3 +1219,27 @@ msgstr "No news yet!"
 msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
 msgstr "Use HTML to format text. Text between newlines will be turned into paragraphs"
 
+msgid "Add a new track"
+msgstr "Add a new track"
+
+msgid "Create/Edit a track"
+msgstr "Create/Edit a track"
+
+msgid "Delete this track"
+msgstr "Delete this track"
+
+msgid "Submit this track"
+msgstr "Submit this track"
+
+msgid "You must enter a title for the track"
+msgstr "You must enter a title for the track"
+
+msgid "n talks"
+msgstr "%quant(%1,talk)"
+
+msgid "n accepted"
+msgstr "%quant(%1,accepted,accepted)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,confirmed,confirmed)"
+

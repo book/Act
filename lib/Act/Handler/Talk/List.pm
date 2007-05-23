@@ -52,7 +52,7 @@ sub handler
     }
     for my $track ( @$tracks ) {
         my $id = $track->track_id;
-        $track->{talks} = [ grep { $_->track_id eq $id } @$talks ];
+        $track->{talks} = [ grep { $_->track_id == $id } @$talks ];
     }
     
     # process the template

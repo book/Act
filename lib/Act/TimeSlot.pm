@@ -1,6 +1,7 @@
 package Act::TimeSlot;
 use Act::Event;
 use Act::Talk;
+use Act::Track;
 use Act::User;
 
 sub get_items {
@@ -20,7 +21,10 @@ sub get_items {
             bless $_, 'Act::TimeSlot';
         }
         @{ Act::Event->get_events( %args_event ) },
-        map { $_->{user} = Act::User->new( user_id => $_->user_id ); $_ }
+        map { $_->{user}  = Act::User->new( user_id => $_->user_id );
+              $_->{track} = Act::Track->new( track_id => $_->track_id )
+                if $_->{track_id};
+              $_ }
         grep !$_->{lightning},  # FIXME
         @{ Act::Talk->get_talks( %args_talk ) }
     ];

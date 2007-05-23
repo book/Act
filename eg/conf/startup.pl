@@ -24,6 +24,8 @@ use Act::Handler::Talk::Import;
 use Act::Handler::Talk::List;
 use Act::Handler::Talk::Schedule;
 use Act::Handler::Talk::Show;
+use Act::Handler::Track::Edit;
+use Act::Handler::Track::List;
 use Act::Handler::User::Change;
 use Act::Handler::User::Main;
 use Act::Handler::User::Photo;

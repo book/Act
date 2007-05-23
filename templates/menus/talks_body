@@ -12,6 +12,11 @@
 [% END %]
 [% IF global.request.user.is_orga %]
    [% WRAPPER menus/item %]
+   <a href="[% make_uri('tracks') %]">
+    {{Tracks}}
+   </a>
+   [% END %]
+   [% WRAPPER menus/item %]
    <a href="[% make_uri('ical_import') %]">
     {{iCal import}}
    </a>

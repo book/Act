@@ -17,7 +17,7 @@ our %sql_mapping = (
     map( { ($_, "(t.$_=?)") }
          qw( track_id conf_id ) )
 );
-our %sql_opts    = ( 'order by' => 'track_id' );
+our %sql_opts    = ( 'order by' => 'title' );
 
 *get_tracks = \&Act::Object::get_items;
 
