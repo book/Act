@@ -5,6 +5,7 @@ use Act::Talk;
 use Act::User;
 use Act::Event;
 
+unless ($^C) {
 $Request{dbh} = DBI->connect(
     $Config->database_test_dsn,
     $Config->database_test_user,
@@ -17,6 +18,7 @@ $Request{dbh} = DBI->connect(
 # clean up before
 $Request{dbh}->do("DELETE FROM $_")
     for qw(events invoice_num invoices news orders participations rights talks users bios );
+}
 
 # fill the database with simple default data
 sub db_add_users {
