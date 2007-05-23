@@ -10,9 +10,24 @@
 [%- IF diff OR adiff %]
 {{The following fields have been updated:}}
 [% IF diff;
+   # field name to i18n id mapping
+   fields = {
+     title          => "Title"
+     url_abstract   => "Abstract URL"
+     url_talk       => "Talk URL"
+     comment        => "Comments"
+     duration       => "Duration"
+     is_lightning   => "Lightning talk"
+     accepted       => "accepted"
+     confirmed      => "confirmed"
+     datetime       => "Date",
+     room           => "Room"
+     track          => "Track"
+     audience       => "Target audience"
+   };
    FOREACH d=diff %]
--[% d %]: [% IF d == 'datetime'; datetime(tbefore); ELSE; tbefore.$d; END %]
-+[% d %]: [% IF d == 'datetime'; datetime(talk); ELSE; talk.$d; END %]
+-[% loc(fields.$d) %]: [% IF d == 'datetime'; datetime(tbefore); ELSE; tbefore.$d; END %]
++[% loc(fields.$d) %]: [% IF d == 'datetime'; datetime(talk); ELSE; talk.$d; END %]
 [% END; END; IF adiff %]
 {{Abstract:}}
 [% adiff %]
@@ -24,7 +39,13 @@
 [% ELSE -%]
 {{Date:}} [% datetime(talk) %]
 {{Duration:}} [% talk.duration %] {{minutes}}
-[%- END -%]
+[%- END %]
+[% IF talk.track -%]
+{{Track}}: [% talk.track %]
+[% END -%]
+[% IF talk.audience -%]
+{{Target audience}}: [% talk.audience %]
+[% END -%]
 
 [% IF talk.url_abstract -%]
    {{Abstract:}} [% talk.url_abstract %]

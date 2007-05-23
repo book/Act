@@ -8,6 +8,7 @@ use Text::Diff ();
 use Act::Config;
 use Act::Email;
 use Act::Form;
+use Act::I18N;
 use Act::Talk;
 use Act::Template;
 use Act::Template::HTML;
@@ -22,6 +23,7 @@ my $form = Act::Form->new(
   optional => [qw(url_abstract url_talk comment duration is_lightning
                   accepted confirmed date time room delete track_id level)],
   filters  => {
+     track_id => sub { $_[0] || undef },
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
   constraints => {
@@ -242,28 +244,58 @@ sub notify
         # diff with previous version if update
         my (@diff, $adiff);
         if ($tbefore) {
-            # simple fields
-            my %exclude = map { $_ => 1 } qw(abstract datetime);
-            @diff = grep { !$exclude{$_} and $tbefore->$_ ne $talk->$_ } keys %$talk;
-
-            # abstract
-            my ($a1, $a2) = ($tbefore->abstract, $talk->abstract);
-            if ($a1 ne $a2) {
-                substr($_, length($_), 1) ne "\n" and $_ .= "\n" for ($a1, $a2);
-                $adiff = Text::Diff::diff(\$a1, \$a2);
+            for my $field (keys %$talk) {
+                if ($field eq 'abstract') {
+                    my ($a1, $a2) = ($tbefore->abstract, $talk->abstract);
+                    if ($a1 ne $a2) {
+                        substr($_, length($_), 1) ne "\n" and $_ .= "\n" for ($a1, $a2);
+                        $adiff = Text::Diff::diff(\$a1, \$a2);
+                    }
+                }
+                elsif ($field eq 'datetime') {
+                    push @diff, 'datetime'
+                        if   $tbefore->datetime && !$talk->datetime
+                         || !$tbefore->datetime &&  $talk->datetime
+                         || DateTime->compare($tbefore->datetime, $talk->datetime);
+                }
+                elsif ($field eq 'level') {
+                    if ($tbefore->level != $talk->level) {
+                        for my $t ($tbefore, $talk) {
+                            $t->{audience} = $Config->get("levels_level" . $t->level ."_name_$Request{language}")
+                                if $t->level;
+                        }
+                        push @diff, 'audience';
+                    }
+                }
+                elsif ($field eq 'track_id') {
+                    if (($tbefore->track_id || 0) != ($talk->track_id || 0)) {
+                        for my $t ($tbefore, $talk) {
+                            $t->{track} = Act::Track->new(track_id => $t->track_id)->title
+                                if $t->track_id;
+                        }
+                        push @diff, 'track';
+                    }
+                }
+                else {
+                    # simple fields
+                    push @diff, $field
+                        if $tbefore->$field ne $talk->$field;
+                }
             }
-            # dates
-            push @diff, 'datetime'
-                if   $tbefore->datetime && !$talk->datetime
-                 || !$tbefore->datetime &&  $talk->datetime
-                 || DateTime->compare($tbefore->datetime, $talk->datetime);
+            return unless @diff || $adiff;
         }
-        return unless @diff || $adiff;
 
         # determine which language to send the notification in
         local $Request{language} = $Config->talks_submissions_notify_language
                                 || $Request{language}
                                 || $Config->general_default_language;
+        local $Request{loc} = Act::I18N->get_handle($Request{language});
+
+        # additional talk information
+        $talk->{track} = Act::Track->new(track_id => $talk->track_id)->title
+                                if $talk->track_id;
+        $talk->{audience} = $Config->get("levels_level" . $talk->level ."_name_$Request{language}")
+            if $Config->talks_levels;
 
         # generate subject and body from templates
         my $template = Act::Template->new;
