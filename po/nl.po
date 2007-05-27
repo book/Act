@@ -401,9 +401,6 @@ msgstr "U kan deze pagina afdrukken: enkel de faktuur hieronder zal afgedrukt wo
 msgid "Printer friendly version"
 msgstr "Afdrukvriendelijke versie"
 
-msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Klik hier</a> om deze informatie te wijzigen of te vervolledigen."
-
 msgid "Establishing your invoice requires your address."
 msgstr "Uw adres is vereist om een faktuur op te stellen."
 

@@ -752,9 +752,6 @@ msgstr "Factura"
 msgid "You can print this page: only the invoice below will be printed."
 msgstr "Pode imprimirr esta página; apenas a factura será impressa."
 
-msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Clique aqui</a> para modificar ou actualizar esta informação."
-
 msgid "Establishing your invoice requires your address."
 msgstr "A criação da sua factura precisa do seu endereço postal."
 

@@ -959,9 +959,6 @@ msgstr ""
 msgid "Printer friendly version"
 msgstr "Version imprimable"
 
-msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Cliquer ici</a> pour modifier ou compléter ces informations."
-
 msgid "Establishing your invoice requires your address."
 msgstr "Votre adresse est indispensable pour l'émission d'une facture."
 

@@ -728,9 +728,6 @@ msgstr "Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt."
 msgid "Printer friendly version"
 msgstr "Drucker-freundliche Version"
 
-msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Hier klicken</a> um diese Informationen zu ändern."
-
 msgid "Establishing your invoice requires your address."
 msgstr "Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben."
 
