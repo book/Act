@@ -427,6 +427,9 @@ msgstr "Ticket for %1."
 msgid "Price"
 msgstr "Price"
 
+msgid "Donation"
+msgstr "Donation"
+
 msgid "Buy now!"
 msgstr "Buy now!"
 

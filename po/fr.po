@@ -433,6 +433,9 @@ msgstr "Ticket d'entrée à la conférence %1."
 msgid "Price"
 msgstr "Tarif "
 
+msgid "Donation"
+msgstr "Don"
+
 msgid "Buy now!"
 msgstr "J'achète"
 
