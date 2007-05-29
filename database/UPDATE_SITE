@@ -1,20 +1,5 @@
 -- Stuff to do when upgrading the production server
 
-DROP   TABLE news;
-CREATE TABLE news
-(
-    news_id     SERIAL NOT NULL  PRIMARY KEY,
-    conf_id     text   NOT NULL,
-    lang        text   NOT NULL,
-    datetime    timestamp without time zone NOT NULL,
-    user_id     integer NOT NULL,
-    title       text    NOT NULL,
-    text        text    NOT NULL,
-    published   boolean DEFAULT false NOT NULL
-);
-
-ALTER TABLE talks ADD COLUMN level integer DEFAULT 1;
-
 update talks set track_id = '1' where track_id = 'A';
 update talks set track_id = '2' where track_id = 'B';
 update talks set track_id = '3' where track_id = 'C';
