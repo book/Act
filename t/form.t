@@ -300,6 +300,26 @@ my @tests = (
     },
   ],
 },
+{ profile => {
+      optional    => 'r1',
+      filters     => {
+         r1 => sub { $_[0] || undef },
+      },
+      desc  => 'filter empty values',
+  },
+  inputs => [
+    { input  => { r1 => 'foo' },
+      fields => { r1 => 'foo' },
+      valid  => 1,
+      desc   => 'not empty',
+    },
+    { input  => { r1 => '' },
+      fields => { },
+      valid  => 1,
+      desc   => 'empty',
+    },
+  ],
+},
 );
 plan tests => 1 + scalar(@tests) + 3 * sum map scalar(@{$_->{inputs}}), @tests;
 

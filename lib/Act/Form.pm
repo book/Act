@@ -105,7 +105,7 @@ sub _set_field
             s/\s+$//;
         }
         # apply user-defined filters
-        if ($value && $self->{profile}{filters} && $self->{profile}{filters}{$field}) {
+        if ($self->{profile}{filters} && $self->{profile}{filters}{$field}) {
             $value = $self->{profile}{filters}{$field}->($value);
         }
         
