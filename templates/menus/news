@@ -1,0 +1,8 @@
+[% WRAPPER menus/section %]
+<a href="[% make_uri('news') %]">{{News}}</a>
+[% END %]
+[% IF global.request.user.is_orga %]
+[% WRAPPER menus/item %]
+<a href="[% make_uri('newsadmin') %]">{{News Administration}}</a>
+[% END %]
+[% END %]

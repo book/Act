@@ -1,0 +1,61 @@
+[% WRAPPER ui title = loc("Edit a news item") %]
+
+<div align="center">
+
+[% PROCESS error
+   msgs = {
+     ERR_TITLE          => loc("You must enter a title"),
+     ERR_TEXT           => loc("You must enter some text"),
+  }
+%]
+
+<form method="POST" action="[% global.request.r.uri %]">
+[% IF news_id %]
+<input type="hidden" name="news_id" value="[% news_id %]" />
+<p>
+<input type="checkbox" name="delete" />
+{{Delete this item}}
+</p>
+[% END %]
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+<tr>
+  <td align="right">{{Title}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
+  </td>
+</tr>
+<tr>
+  <td align="right" valign="top">
+  {{Text}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <font size="-1">{{Use HTML to format text. Text between newlines will be turned into paragraphs}}</font><br />
+    <textarea name="text" cols="60" rows="30">[% text | form_unescape %]</textarea>
+  </td>
+</tr>
+<tr>
+  <td align="right" valign="top">{{Published}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="radio" name="published" value="1" [% "checked" IF published %] /> {{Yes}}
+    <input type="radio" name="published" value="0" [% "checked" UNLESS published %] /> {{No}}
+  </td>
+</tr>
+
+
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="submit" value="{{Submit this item}}" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</div>
+
+[% END %]

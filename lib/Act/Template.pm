@@ -117,7 +117,7 @@ sub process
                              }
             );
         }
-        if ($Request{conference} && $Request{dbh}) {
+        if ($Request{conference}) {
             $global{conference} = {
                 name => $Config->name->{$Request{language}},
             };
@@ -146,6 +146,11 @@ sub process
               sort { $a->{begin} <=> $b->{begin} }
               @{ $global{conferences}{$_} };
         }
+        # news
+        $global{news} = sub { my $count = shift;
+                              require Act::Handler::News::Fetch;
+                              return Act::Handler::News::Fetch::fetch($count);
+                            };
 
         $output ||= $Request{r};
     }

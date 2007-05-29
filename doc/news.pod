@@ -1,0 +1,31 @@
+=head1 News
+
+=head2 Including news in a static page
+
+  [% PROCESS common %]
+  <div class="newsbox">
+    [% FOREACH item = global.news %]
+    <p><h3>[% item.title %]</h3>
+    <em>[% date_format(item.datetime, 'datetime_short') %] by [% user_info(item.user) %]</em>
+    <br>
+    [% item.content %]</p>
+    [% END %]
+  </div>
+
+The number of items can be limited by supplying a count argument to C<news>:
+
+  [% FOREACH item = global.news(5) %]
+
+=head2 Atom feed
+
+News items are available as an Atom feed. The feed's URL is
+
+  /conf_id/atom/en.xml
+
+where C<en> represents the feed's language.
+
+You can make this feed available by including the following line in the
+E<lt>headE<gt> section of your pages, for example in your C<ui> template:
+
+  <link rel="alternate" type="application/atom+xml" title="[% global.conference.name %]"
+        href="[% global.request.base_url %][% make_uri_info( 'atom', global.request.language ) %].xml" />
