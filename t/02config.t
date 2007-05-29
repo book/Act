@@ -72,6 +72,14 @@ for my $conf (keys %{$Config->conferences}) {
     isa_ok($cfg->name, 'HASH', "$conf name");
     ok($cfg->name->{$_}, "$conf name $_")
         for keys %{$cfg->languages};
+
+    # talk levels
+    if ($cfg->talks_levels) {
+        for my $i (1 .. $cfg->talks_levels) {
+            ok($cfg->get("levels_level$i\_name_$_"), "$conf talks level $i in $_")
+                for keys %{$cfg->languages};
+        }
+    }
     # prices
     my $oldstyle;
     my $errhandler = $cfg->{STATE}->_ehandler();

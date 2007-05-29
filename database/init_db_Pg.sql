@@ -116,6 +116,8 @@ CREATE TABLE talks
     datetime     timestamp without time zone,
     track_id     text,
 
+    level        integer DEFAULT 1,
+
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
     /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
 );

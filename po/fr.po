@@ -406,6 +406,12 @@ msgstr "Présentation"
 msgid "Duration"
 msgstr "Durée"
 
+msgid "Target audience"
+msgstr "Cible"
+
+msgid "Target audience:"
+msgstr "Cible&nbsp;:"
+
 msgid "abstract (link)"
 msgstr "Résumé"
 
@@ -713,6 +719,9 @@ msgstr "L'URL de l'événement n'est pas une URL valide"
 
 msgid "Incorrect room submitted"
 msgstr "Salle incorrecte"
+
+msgid "Please choose a target audience"
+msgstr "Veuillez spécifier une cible"
 
 msgid "View"
 msgstr "Voir"

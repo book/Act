@@ -59,6 +59,17 @@ conference.
     
     # show accepted talks, or all
     show_all  = 0
+
+    # target audience. Omit this, and
+    # the [levels] section, if not used
+    levels = 4
+    
+    [levels]
+    # level names in all supported languages
+    level1_name_en = Any
+    level2_name_en = Beginner
+    level3_name_en = Intermediate
+    level4_name_en = Advanced
     
     [rooms]
     # list of rooms (must match /r\d+/)

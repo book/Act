@@ -400,6 +400,12 @@ msgstr "Talk title"
 msgid "Duration"
 msgstr "Duration"
 
+msgid "Target audience"
+msgstr "Target audience"
+
+msgid "Target audience:"
+msgstr "Target audience:"
+
 msgid "abstract (link)"
 msgstr "Abstract"
 
@@ -700,6 +706,9 @@ msgstr "Event URL is not a valid URL"
 
 msgid "Incorrect room submitted"
 msgstr "Incorrect room submitted"
+
+msgid "Please choose a target audience"
+msgstr "Please choose a target audience"
 
 msgid "View"
 msgstr "View"
