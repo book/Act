@@ -28,7 +28,7 @@ my %public_handlers = (
     stats           => 'Act::Handler::User::Stats',
     talk            => 'Act::Handler::Talk::Show',
     talks           => 'Act::Handler::Talk::List',
-    'timetable.ics' => 'Act::Handler::Talk::Export',
+    'timetable.ics' => 'Act::Handler::Talk::ExportIcal',
     user            => 'Act::Handler::User::Show',
     wiki            => 'Act::Handler::Wiki',
 );

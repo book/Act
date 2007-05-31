@@ -19,7 +19,7 @@ use Act::Handler::Payment::List;
 use Act::Handler::Payment::Payment;
 use Act::Handler::Static;
 use Act::Handler::Talk::Edit;
-use Act::Handler::Talk::Export;
+use Act::Handler::Talk::ExportIcal;
 use Act::Handler::Talk::Import;
 use Act::Handler::Talk::List;
 use Act::Handler::Talk::Schedule;

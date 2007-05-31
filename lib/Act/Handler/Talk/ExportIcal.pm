@@ -1,4 +1,4 @@
-package Act::Handler::Talk::Export;
+package Act::Handler::Talk::ExportIcal;
 use strict;
 
 use Apache::Constants qw(FORBIDDEN);
@@ -81,7 +81,7 @@ __END__
 
 =head1 NAME
 
-Act::Handler::Talk::Export - export talk/event schedule to iCalendar format (RFC2445) .ics files.
+Act::Handler::Talk::ExportIcal - export talk/event schedule to iCalendar format (RFC2445) .ics files.
 
 =head1 DESCRIPTION
 
