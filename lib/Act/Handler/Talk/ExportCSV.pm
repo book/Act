@@ -8,10 +8,16 @@ use Text::xSV;
 
 use Act::Config;
 use Act::Talk;
+use Act::User;
 
-my @ROWS = qw(
- talk_id
+my @UROWS = qw(
  user_id
+ first_name
+ last_name
+ nick_name
+);
+my @TROWS = qw(
+ talk_id
  title
  abstract
  url_abstract
@@ -38,7 +44,7 @@ sub handler
     my $talks = Act::Talk->get_talks(conf_id => $Request{conference});
 
     # generate CSV report
-    my $csv = Text::xSV->new( header => \@ROWS );
+    my $csv = Text::xSV->new( header => [ @UROWS, @TROWS ] );
     $Request{r}->send_http_header('text/csv; charset=UTF-8');
     $Request{r}->print($csv->format_header());
 
@@ -46,8 +52,14 @@ sub handler
         # convert datetime
         $talk->{datetime} = DateTime::Format::Pg->format_datetime($talk->datetime)
             if ($talk->datetime);
+        # fetch user
+        my $user = Act::User->new(user_id => $talk->user_id);
+
         # print in CSV format
-        $Request{r}->print($csv->format_row( map $talk->$_, @ROWS ));
+        $Request{r}->print($csv->format_row(
+            map($user->$_, @UROWS),
+            map($talk->$_, @TROWS),
+        ));
     }
 }
 
