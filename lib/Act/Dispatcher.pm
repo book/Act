@@ -39,6 +39,7 @@ my %private_handlers = (
     editevent       => 'Act::Handler::Event::Edit',
     edittalk        => 'Act::Handler::Talk::Edit',
     export          => 'Act::Handler::User::Export',
+    export_talks    => 'Act::Handler::Talk::ExportCSV',
     ical_import     => 'Act::Handler::Talk::Import',
     invoice         => 'Act::Handler::Payment::Invoice',
     logout          => 'Act::Handler::Logout',

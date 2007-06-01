@@ -21,6 +21,11 @@
     {{iCal import}}
    </a>
    [% END %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('export_talks') %]">
+    {{CSV export}}
+   </a>
+   [% END %]
 [% END %]
 [% IF global.config.talks_submissions_open OR global.request.user.is_orga %]
    [% WRAPPER menus/item %]
