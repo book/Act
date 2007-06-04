@@ -28,7 +28,7 @@ my %public_handlers = (
     stats           => 'Act::Handler::User::Stats',
     talk            => 'Act::Handler::Talk::Show',
     talks           => 'Act::Handler::Talk::List',
-    'timetable.ics' => 'Act::Handler::Talk::Export',
+    'timetable.ics' => 'Act::Handler::Talk::ExportIcal',
     user            => 'Act::Handler::User::Show',
     wiki            => 'Act::Handler::Wiki',
 );
@@ -39,6 +39,7 @@ my %private_handlers = (
     editevent       => 'Act::Handler::Event::Edit',
     edittalk        => 'Act::Handler::Talk::Edit',
     export          => 'Act::Handler::User::Export',
+    export_talks    => 'Act::Handler::Talk::ExportCSV',
     ical_import     => 'Act::Handler::Talk::Import',
     invoice         => 'Act::Handler::Payment::Invoice',
     logout          => 'Act::Handler::Logout',
