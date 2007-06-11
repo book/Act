@@ -85,7 +85,7 @@
    <select name="track_id">
      <option value=""[% ' selected="selected"' UNLESS track_id %] />
    [% FOREACH t=tracks %]
-     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %] />[% t.track_id %] - [% t.title %]
+     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %] />[% t.title %]
    [% END %]
     </select>
 

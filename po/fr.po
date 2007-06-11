@@ -1181,3 +1181,27 @@ msgstr "Aucune actualité"
 msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
 msgstr "Utiliser du HTML pour formater le texte. Les sauts de ligne seront transformés en marques de paragraphes"
 
+msgid "Add a new track"
+msgstr "Ajouter un thème"
+
+msgid "Create/Edit a track"
+msgstr "Créer/Modifier un thème"
+
+msgid "Delete this track"
+msgstr "Supprimer ce thème"
+
+msgid "Submit this track"
+msgstr "Soumettre ce thème"
+
+msgid "You must enter a title for the track"
+msgstr "Le titre est obligatoire"
+
+msgid "n talks"
+msgstr "%quant(%1,présentation)"
+
+msgid "n accepted"
+msgstr "%quant(%1,acceptée)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,confirmée)"
+

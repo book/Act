@@ -31,7 +31,7 @@
   <ul>
   [% FOREACH tr = tracks %]
   [% NEXT UNLESS tr.track_id %]
-  <li>[% tr.track_id %] - <a href="#[% tr.track_id %]">[% tr.title %]</a></li>
+  <li><a href="#[% tr.track_id %]">[% tr.title %]</a></li>
   [% END %]
   </ul>
 [% END %]

@@ -53,6 +53,8 @@ my %private_handlers = (
     photo           => 'Act::Handler::User::Photo',
     purchase        => 'Act::Handler::User::Purchase',
     rights          => 'Act::Handler::User::Rights',
+    trackedit       => 'Act::Handler::Track::Edit',
+    tracks          => 'Act::Handler::Track::List',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
 );

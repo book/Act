@@ -90,6 +90,17 @@ CREATE TABLE participations
 CREATE INDEX participations_idx ON participations (conf_id, user_id);
 
 /*** Talks related tables ***/
+/* tracks */
+DROP   TABLE tracks CASCADE;
+CREATE TABLE tracks
+(   
+    track_id    serial     NOT NULL    PRIMARY KEY,
+    conf_id     text       NOT NULL,
+    title       text       NOT NULL,
+    description text
+);
+CREATE INDEX tracks_idx ON tracks ( conf_id );
+
 /* talks */
 DROP   TABLE talks CASCADE;
 CREATE TABLE talks
@@ -114,7 +125,7 @@ CREATE TABLE talks
     /* for the schedule */
     room         text,
     datetime     timestamp without time zone,
-    track_id     text,
+    track_id     integer REFERENCES tracks(track_id) ON DELETE SET NULL,
 
     level        integer DEFAULT 1,
 
@@ -134,21 +145,9 @@ CREATE TABLE events
     url_abstract text,
     room       text, 
     duration   integer,
-    datetime   timestamp without time zone,
-    track_id   text
+    datetime   timestamp without time zone
 );
 CREATE INDEX events_idx ON events ( event_id, conf_id );
-
-/* tracks */
-DROP   TABLE tracks CASCADE;
-CREATE TABLE tracks
-(   
-    track_id    text       NOT NULL,
-    conf_id     text       NOT NULL,
-    title       text,
-    description text
-);
-CREATE INDEX tracks_idx ON tracks ( track_id, conf_id );
 
 /* orders */
 DROP   TABLE orders CASCADE;
