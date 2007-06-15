@@ -11,6 +11,7 @@ sub handler
 {
     # retrieve talks and speaker info
     my $talks =Act::Talk->get_talks( conf_id => $Request{conference} );
+    my $talks_total = scalar @$talks;
     $_->{user} = Act::User->new( user_id => $_->user_id ) for @$talks;
 
     # sort talks
@@ -20,6 +21,11 @@ sub handler
                 || lc $a->{user}->last_name cmp lc $b->{user}->last_name
                 || lc $a->{user}->first_name cmp lc $b->{user}->first_name
                 || $a->talk_id <=> $b->talk_id
+        }
+        grep {    $Config->talks_show_all
+               || $_->accepted
+               || ($Request{user} && (   $Request{user}->is_orga
+                                      || $Request{user}->user_id == $_->user_id))
         } @$talks
     ];
 
@@ -59,7 +65,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         talks          => $talks,
-        talks_total    => scalar @$talks,
+        talks_total    => $talks_total,
         talks_accepted => $accepted,
         talks_duration => $duration,
         talks_lightning => $lightnings,
