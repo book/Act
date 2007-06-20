@@ -27,8 +27,6 @@ my @conf_simple = qw(
     general_default_country
     general_timezone
     talks_submissions_open
-    talks_submissions_notify_address
-    talks_submissions_notify_language
     talks_show_schedule
     talks_start_date
     talks_end_date
