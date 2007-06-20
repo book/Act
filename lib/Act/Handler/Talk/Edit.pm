@@ -67,7 +67,8 @@ sub handler {
     # and edit existing talks when edition_open or submission_open
     #
     unless ($Request{user}->is_orga) {
-        unless ( ($talk && ($Config->talks_edition_open || $Config->talks_submissions_open))
+        unless ( ($talk && $talk->user_id == $Request{user}->user_id
+                        && ($Config->talks_edition_open || $Config->talks_submissions_open))
                 || $Config->talks_submissions_open )
         {
             $Request{status} = NOT_FOUND;
@@ -116,11 +117,6 @@ sub handler {
         }
         # normal user
         else {
-            # can only edit his own talks
-            if( defined $talk and $talk->user_id != $Request{user}->user_id ) {
-                $Request{status} = FORBIDDEN;
-                return;
-            }
             # cannot comment a talk or change the date/room
             delete @{$fields}{qw( is_lightning date time room )};
             # cannot modify the duration
