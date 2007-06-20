@@ -37,8 +37,7 @@ sub handler
         my $fields = $form->{fields};
         if ($ok) {
             # first form has been submitted
-            # purge existing order from previous failed attempt
-            # and always a use a newly created order
+            # always a use a newly created order
             # (some banks will only process a given order_id once)
             my $amount = Act::Payment::get_price($fields->{price})->{amount}
                        + $fields->{donation};
@@ -49,9 +48,7 @@ sub handler
                 currency => $Config->payment_currency,
                 status   => 'init',
             );
-            my $order = Act::Order->new(%f);
-            $order->delete() if $order;
-            $order = Act::Order->create(%f);
+            my $order = Act::Order->create(%f);
     
             # display second form (submits to the bank)
             my $plugin = Act::Payment::load_plugin();
