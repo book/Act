@@ -77,23 +77,23 @@
   </td>
 </tr>
 [% IF tracks.size != 0 %]
+  [% IF global.request.user.is_orga %]
 <tr>
   <td align="right" valign="top">
   {{Track}}</td>
   <td></td>
   <td>
-  [% IF global.request.user.is_orga %]
    <select name="track_id">
      <option value=""[% ' selected="selected"' UNLESS track_id %] />
    [% FOREACH t=tracks %]
      <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %] />[% t.title %]
    [% END %]
    </select>
+  </td>
+</tr>
   [% ELSE %]
    <input type="hidden" name="track_id" value="[% track_id %]" />
   [% END %]
-  </td>
-</tr>
 [% END %]
 <tr>
   <td align="right" valign="top">

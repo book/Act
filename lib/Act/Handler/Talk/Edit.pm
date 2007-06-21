@@ -207,6 +207,8 @@ sub handler {
 
     # display the talk submission form
     $template->variables(
+        levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
+                    1 .. $Config->talks_levels ],
         defined $talk
         ? ( %$talk,
             duration => ( $talk->lightning ? 'lightning' : $talk->duration ) )
@@ -218,8 +220,6 @@ sub handler {
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
         rooms => $Config->rooms,
-        levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
-                    1 .. $Config->talks_levels ],
         tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
     ) if $Request{user}->is_orga;
     $template->process('talk/add');
