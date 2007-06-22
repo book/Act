@@ -48,7 +48,7 @@ sub handler {
     %seen = ();
     $pm_groups = [ sort
                    grep !$seen{lc $_}++,
-                   map { split /\s*[^\w. ]\s*/, $_->[0] }
+                   map { split /\s*[^\w. -]\s*/, $_->[0] }
                    @{$sth->fetchall_arrayref()}
                  ];
     $sth->finish;
