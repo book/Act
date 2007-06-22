@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 71 + 5 * NBPASS;
+use Test::More tests => 72 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -92,5 +92,8 @@ while (my ($n, $dlist) = splice(@t, 0, 2)) {
     }
 }
 
+# usort
+my @sorted = Act::Util::usort { $_ } qw(éb ec eà);
+is_deeply(\@sorted, [qw(eà éb ec)], 'usort');
 
 __END__

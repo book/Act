@@ -41,8 +41,7 @@ sub CountryNames
     my $lh = Act::I18N->get_handle($Request{language});
     return $Cache{$Request{language}} ||=
      [
-      sort { $a->{normalized} cmp $b->{normalized} }
-      map {{ %$_, normalized => Act::Util::normalize($_->{name}) }}
+      Act::Util::usort { $_->{name} }
       map {{ iso => $_, name => $lh->maketext("country_$_") }}
       @COUNTRY_CODES
      ];

@@ -4,6 +4,7 @@ use Act::Config;
 use Act::Template::HTML;
 use Act::User;
 use Act::Country;
+use Act::Util;
 
 sub handler {
 
@@ -46,7 +47,7 @@ sub handler {
     $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
     %seen = ();
-    $pm_groups = [ sort
+    $pm_groups = [ Act::Util::usort { $_ }
                    grep !$seen{lc $_}++,
                    map { split /\s*[^\w. -]\s*/, $_->[0] }
                    @{$sth->fetchall_arrayref()}

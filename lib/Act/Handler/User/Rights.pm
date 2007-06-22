@@ -84,10 +84,10 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        right  => [ sort { lc $a->{user}{last_name} cmp lc $b->{user}{last_name} }
+        right  => [ Act::Util::usort { $_->{user}{last_name} }
                     values %right ],
         right_list => \@Act::Config::Right_ids,
-        users  => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }
+        users  => [ Act::Util::usort { $_->{last_name} }
                     grep { ! exists $right{$_->user_id} }
                     @{Act::User->get_users( conf_id => $Request{conference} )}
                   ],

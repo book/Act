@@ -33,10 +33,7 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        users => [ sort {
-                            lc $a->last_name  cmp lc $b->last_name
-                         || lc $a->first_name cmp lc $b->first_name
-                        }
+        users => [ Act::Util::usort { $_->last_name }
                    @$users
                  ],
         orders => \%orders,
