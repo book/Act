@@ -7,6 +7,8 @@ use vars qw(@ISA @EXPORT $Config %Request %Languages);
 @EXPORT = qw($Config %Request %Languages );
 
 use AppConfig qw(:expand :argcount);
+use DateTime;
+use DateTime::Format::Pg;
 use File::Spec::Functions qw(catfile);
 
 # our configs
@@ -166,9 +168,15 @@ sub reload_configs
 sub get_config
 {
     my $conf = shift;
-    return $conf && $ConfConfigs{$conf}
-         ? $ConfConfigs{$conf}
-         : $GlobalConfig;
+    if ($conf && $ConfConfigs{$conf}) {
+        # conference's closing date
+        my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
+        $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
+        $ConfConfigs{$conf}->set(closed => DateTime->now() > $enddate);
+
+        return $ConfConfigs{$conf}
+    }
+    return $GlobalConfig;
 }
 
 sub _init_config

@@ -34,9 +34,7 @@ sub handler
 
     # conference is closed, do not POST
     if ( $Request{args}{join} ) {
-        my $enddate = DateTime::Format::Pg->parse_timestamp( $Config->talks_end_date );
-        $enddate->set_time_zone($Config->general_timezone);
-        if ( DateTime->now() > $enddate ) {
+        if ($Config->closed) {
             $Request{status} = FORBIDDEN;
             return;
         }
