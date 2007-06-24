@@ -1,3 +1,19 @@
+#!/usr/bin/perl
+
+use Act::Database;
+
+my $version = Act::Database::required_version();
+
+print <<EOF;
+/*** schema version ***/
+
+DROP   TABLE schema CASCADE;
+CREATE TABLE schema
+(
+    current_version integer NOT NULL
+);
+INSERT INTO schema VALUES ($version);
+
 /*** users' related tables ***/
 
 /* users */
@@ -231,3 +247,4 @@ CREATE TABLE twostep
     email         text NOT NULL,
     datetime      timestamp without time zone
 );
+EOF

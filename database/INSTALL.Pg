@@ -27,11 +27,11 @@ Grant access from localhost to these databases by adding these lines to pg_hba.c
 
 and restart the PostgreSQL server.
 
-Run the init_db.pg.sql script in this directory. This will create
+Run the output of bin/dbinit in this directory. This will create
 the tables in databases act and acttest:
 
-    $ psql -U act act < database/init_db_Pg.sql
-    $ psql -U act acttest < database/init_db_Pg.sql
+    $ bin/dbinit | psql -U act act
+    $ bin/dbinit | psql -U act acttest
 
 Run wiki-toolkit-setupdb to create the tables in database actwiki.
 (This utility is installed by Wiki::Toolkit.)
