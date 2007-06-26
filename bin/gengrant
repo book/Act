@@ -6,7 +6,6 @@ use DBI;
 use Act::Config;
 
 # command line arguments
-my $database = shift or usage();
 my $username = shift or usage();
 
 # connect to database
@@ -23,16 +22,22 @@ my ($dbowner) = $sth->fetchrow_array();
 
 # fetch list of relations
 $sth = $dbh->prepare(
-    "SELECT relname FROM pg_class"
+    "SELECT relname, relacl FROM pg_class"
     . " WHERE relowner = ? AND relname NOT LIKE ? AND relkind IN (?, ?) ORDER BY relname"
     
 );
 $sth->execute($dbowner, 'pg_%', 'r', 'S');
-while (my ($relname) = $sth->fetchrow_array()) {
-    print "GRANT ALL ON $relname TO $username;\n";
+while (my ($relname, $relacl) = $sth->fetchrow_array()) {
+    for ($relacl) {   # {eric=arwdRxt/eric,nobody=arwdRxt/eric}
+        s/^\{//;
+        s/\}$//;
+        unless ( { map split('='), split ',' }->{$username} ) {
+            print "GRANT ALL ON $relname TO $username;\n";
+        }
+    }
 }
 ####################
 sub usage
 {
-    die "Syntax: $0 database_name user_name\n";
+    die "Syntax: $0 user_name\n";
 }
