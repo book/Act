@@ -7,7 +7,7 @@ use Getopt::Std qw(getopts);
 
 # command line options
 my %opts;
-getopts('n', \%opts) or die "usage: $0 [-n]\n";
+getopts('n', \%opts) or usage();
 
 my %databases = (
     main => [ $Config->database_dsn,
@@ -47,9 +47,10 @@ for my $v ($version + 1 .. $required) {
     $dbh->do($sql) unless $opts{n};
     $version = $v;
 }
-print "updating schema version to $version\n";
+my $sql = "UPDATE schema SET current_version = " . $dbh->quote($version) . ';';
+print "$sql\n";
 unless ($opts{n}) {
-    $dbh->do("UPDATE schema SET current_version = ?", undef, $version);
+    $dbh->do($sql);
     $dbh->commit;
 }
 $dbh->disconnect;
