@@ -124,7 +124,7 @@ sub process
         }
         # other confs
         $global{conferences} = { past => [], present => [], future => []};
-        my $now = DateTime->now;
+        my $now = DateTime->today;
         for my $conf_id ( keys %{ $Config->conferences } ) {
             next if $conf_id eq $Request{conference};
             my $cfg = Act::Config::get_config($conf_id);
@@ -132,8 +132,8 @@ sub process
                 conf_id => $conf_id,
                 url     => $cfg->general_full_uri,
                 name    => $cfg->name->{ $Request{language} },
-                begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date),
-                end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
+                begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date)->truncate(to => 'day'),
+                end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date )->truncate(to => 'day'),
             };
             my $when;
             if    ( $conf->{end} < $now )   { $when = 'past'; }
