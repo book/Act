@@ -39,11 +39,13 @@ sub handler
             # first form has been submitted
             # always a use a newly created order
             # (some banks will only process a given order_id once)
-            my $amount = Act::Payment::get_price($fields->{price})->{amount}
+            my $price = Act::Payment::get_price($fields->{price});
+            my $amount = $price->{amount}
                        + $fields->{donation};
             my %f = (
                 user_id  => $Request{user}{user_id},
                 conf_id  => $Request{conference},
+                price    => $price->{name},
                 amount   => $amount,
                 currency => $Config->payment_currency,
                 status   => 'init',

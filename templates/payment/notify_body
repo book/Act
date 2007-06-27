@@ -5,4 +5,4 @@
         order.order_id,
         date_format(order.datetime, 'datetime_full'),
         order.amount,
-        order.currency ) %]
+        order.currency, order.price ) %]

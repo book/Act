@@ -8,6 +8,10 @@ my @SCHEMA_UPDATES = (
    );
    insert into schema values (1);
   ",
+#2
+  "alter table orders add column price text;
+   alter table orders add column type text;
+  ",
 );
 
 # returns ( current database schema version, required version )
