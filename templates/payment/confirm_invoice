@@ -1,27 +1,20 @@
 [% WRAPPER ui title = loc('Invoice') %]
 [% PROCESS common %]
 
-[% BLOCK update_link %]
-<p>
-  [% loc("Click here to modify or update this information.", make_uri('change')) %]
-</p>
-[% END %]
-
 <div align="center">
-[% UNLESS global.request.user.address %]
-<p>
- {{Establishing your invoice requires your address.}}
-</p>
-[% PROCESS update_link %]
+[% PROCESS error
+   msgs = {
+     ERR_FIRST_NAME => loc("You must enter your first name"),
+     ERR_LAST_NAME  => loc("You must enter your last name"),
+     ERR_ADDRESS    => loc("Establishing your invoice requires your address."),
+  }
+%]
 
-[% ELSE %]
 <form method="POST" action="[% make_uri('invoice') %]">
 <input type="hidden" name="order_id" value="[% order_id %]">
 <p>
  {{Please make sure the billing information is correct.}}
 </p>
-
-[% PROCESS update_link %]
 
 <table border="0" cellpadding="10" cellspacing="0"><tr><td>
 
@@ -31,42 +24,53 @@
 
 <tr>
    <td align="right">
-      {{Name}}
+      {{First Name}}
    </td>
    <td>&nbsp;</td>
-   <td align="left">
-         [% global.request.user.first_name %]
-         [% global.request.user.last_name %]
+   <td>
+      <input type="text" name="first_name"  value="[% first_name %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
-   <td align="right" valign="top">{{Address}}</td>
+   <td align="right">
+      {{Last Name}}
+   </td>
    <td>&nbsp;</td>
-   <td align="left">[% global.request.user.address | html_line_break %]</td>
+   <td>
+      <input type="text" name="last_name"  value="[% last_name %]" size="25" maxlength="60" />
+   </td>
 </tr>
 <tr>
-  <td align="right">
-     {{Company}}
-  </td>
-  <td>&nbsp;</td>
-  <td align="left">
-     [% global.request.user.company %]
-  </td>
+   <td align="right" valign="top">
+      {{Full address}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <textarea name="address" cols="25" rows="5" >[% address | form_unescape %]</textarea>
+   </td>
 </tr>
 <tr>
-  <td align="right">
-     {{VAT Number}}
-  </td>
-  <td>&nbsp;</td>
-  <td align="left">
-     [% global.request.user.vat %]
-  </td>
+   <td align="right" valign="top">
+      {{Company}}
+   </td>
+   <td>&nbsp;</td>
+   <td valign="top">
+      <input type="text" name="company"  value="[% company %]" size="40" maxlength="120" /><br />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{VAT Number}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="vat" value="[% vat %]" size="25" maxlength="60" />
+   </td>
 </tr>
 </table>
 </td></tr></table>
 </td></tr></table>
 <input type="submit" name="ok" value="{{I confirm}}" />
 </form>
-[% END %]
 </div>
 [% END %]

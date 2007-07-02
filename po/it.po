@@ -789,9 +789,6 @@ msgstr "Potete stampare questa pagina: solo la fattura sarà stampata."
 msgid "Printer friendly version"
 msgstr "Versione stampabile"
 
-msgid "Click here to modify or update this information."
-msgstr "<a href=\"%1\">Modifica o aggiorna queste informazioni.</a>"
-
 msgid "Establishing your invoice requires your address."
 msgstr "Per preparare la fattura è necessario il vostro indirizzo."
 
