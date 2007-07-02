@@ -45,6 +45,7 @@ sub handler
             my %f = (
                 user_id  => $Request{user}{user_id},
                 conf_id  => $Request{conference},
+                price    => $price->{name},
                 amount   => $amount,
                 currency => $Config->payment_currency,
                 status   => 'init',

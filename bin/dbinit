@@ -179,6 +179,8 @@ CREATE TABLE orders
     means      text,
     currency   text,
     status     text      NOT NULL,
+    price      text,
+    type       text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );

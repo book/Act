@@ -15,7 +15,8 @@ sub handler
     $Request{args} = { map { $_ => $Request{r}->param($_) || '' } $Request{r}->param };
 
     # load appropriate plugin, hardwired to the url in httpd.conf
-    my $plugin = Act::Payment::load_plugin( $Request{r}->dir_config('ActPaymentType') );
+    my $type = $Request{r}->dir_config('ActPaymentType');
+    my $plugin = Act::Payment::load_plugin($type);
 
     # verify payment
     my ($verified, $paid, $order_id) = $plugin->verify($Request{args});
@@ -25,9 +26,11 @@ sub handler
         if ($order && $order->status eq 'init') {
             # update order
             $order->update(status => 'paid',
-                           means  => 'ONLINE'
+                           means  => 'ONLINE',
+                           type   => $type,
                           );
             # send email notification
+use Data::Dumper; warn Dumper $order;
             _notify($order, $plugin);
         }
     }

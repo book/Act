@@ -25,7 +25,9 @@ $order = Act::Order->create(
    conf_id   => 'conf',
    amount    => AMOUNT,
    currency  => 'EUR',
+   price     => 'Regular',
    status    => 'init',
+   type      => 'FOO',
 );
 isa_ok( $order, 'Act::Order', 'create()' );
 
@@ -39,7 +41,9 @@ is_deeply( Act::Order->new( user_id => $user->user_id ),
    status       => 'init',
    amount       => AMOUNT,
    currency     => 'EUR',
+   price        => 'Regular',
    means        => undef,
+   type         => 'FOO',
    },
   "fetch" );
 
@@ -59,7 +63,9 @@ is_deeply(  Act::Order->new( order_id => $order->order_id ),
    status       => 'paid',
    amount       => AMOUNT,
    currency     => 'EUR',
+   price        => 'Regular',
    means        => 'ONLINE',
+   type         => 'FOO',
    },
   "update" );
 
