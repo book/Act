@@ -30,7 +30,6 @@ sub handler
                            type   => $type,
                           );
             # send email notification
-use Data::Dumper; warn Dumper $order;
             _notify($order, $plugin);
         }
     }
