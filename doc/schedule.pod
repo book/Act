@@ -101,7 +101,7 @@ you shouldn't have any overlapping talks). Please let us know when
 this happens.
 
 B<WARNING:> The schedule layout will be completely broken if you have
-any even that ends after midnight. This is a low priority I<known bug>.
+any event that ends after midnight. This is a low priority I<known bug>.
 Until it's fixed, B<do not configure any talk or event to end after midnight!>
 
 Events are:
