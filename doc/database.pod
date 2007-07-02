@@ -1,0 +1,86 @@
+=head1 Tracking database schema changes
+
+=head2 Description
+
+Act implements a system to track database schema changes.
+
+=over
+
+=item *
+
+Developers indicate a schema change, and the SQL commands needed to update the schema from its previous version.
+
+=item *
+
+The code in C<Act::Util::db_connect> checks that the current schema version is up to date.
+If the schema isn't up to date, it dies with an error message:
+
+  Database schema version XX needs updating: YY required. Run bin/dbupdate
+
+=item *
+
+The command line utility C<bin/dbupdate> runs the SQL commands needed to bring the schema up to date.
+
+=back
+
+=head2 Implementation
+
+=over
+
+=item database
+
+The C<schema> table has one row that contains the current schema version:
+
+  create table schema
+  (
+      current_version integer NOT NULL
+  );
+
+=item code
+
+On the code side, schema changes are tracked in C<Act::Database>:
+
+  use strict;
+  package Act::Database;
+  
+  my @SCHEMA_UPDATES = (
+  #1
+    "create table schema (
+       current_version integer NOT NULL
+     );
+     insert into schema values (1);
+    ",
+  #2
+    "create sequence tracks_track_id_seq;
+     select setval('tracks_track_id_seq', 13);
+     alter table events drop column track_id;
+    ",
+  #3
+    "alter table talks add column level integer default 1;
+    ",
+  );
+
+Each value is a string that contains a list of SQL commands
+that should be run to update the database schema from the previous version.
+
+=item Bootstrapping
+
+By definition, version 0 denotes the absence of a schema table
+(databases created prior to the release of this tracking code).
+Version 1 is the first version to use the tracking code.
+The initial contents of C<Act::Database> allow C<bin/dbupdate>)
+to bootstrap the system:
+
+  use strict;
+  package Act::Database;
+  
+  my @SCHEMA_UPDATES = (
+  #1
+    "create table schema (
+       current_version integer NOT NULL
+     );
+     insert into schema values (1);
+    ",
+  );
+
+=back

@@ -10,6 +10,7 @@ use Unicode::Normalize ();
 use URI::Escape ();
 
 use Act::Config;
+use Act::Database;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
@@ -37,6 +38,15 @@ sub db_connect
           pg_enable_utf8 => 1,
         }
     ) or die "can't connect to database: " . $DBI::errstr;
+
+    # check schema version
+    my ($version, $required) = Act::Database::get_versions($Request{dbh});
+    if ($version > $required) {
+        die "database schema version $version is too recent: this code runs version $required\n";
+    }
+    if ($version < $required) {
+        die "database schema version $version is too old: version $required is required. Run bin/dbupdate\n";
+    }
 }
 
 # create a uri for an action with args

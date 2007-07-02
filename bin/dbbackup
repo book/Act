@@ -3,7 +3,7 @@
 # dbbackup: backup the act databases
 #
 # to restore:
-#  % psql act < database/init_db_Pg.sql
+#  % bin/dbinit | psql act
 #  % pg_restore -a -d act actdb
 
 use strict;
