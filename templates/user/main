@@ -35,7 +35,7 @@
   [% END %]
  </p>
  [% END %]
- [% ELSE %]
+ [% ELSIF !global.config.closed %]
   [% loc("You did not register for this conference", make_uri('register')) %]
  [% END %]
 [% ELSE %]
@@ -51,7 +51,7 @@
     <li><a href="[% make_uri('purchase') %]">{{purchase your conference ticket}}</a><br />
     </li>
     [% END %]
-   [% ELSE %]
+   [% ELSIF !global.config.closed %]
     <li><a href="[% make_uri('register') %]">{{register for this conference}}</a><br />
     </li>
    [% END %]

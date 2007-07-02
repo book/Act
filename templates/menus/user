@@ -6,7 +6,7 @@
    [% WRAPPER menus/item %]
    <a href="[% make_uri('logout') %]">{{Logout}}</a>
    [% END %]
-   [% UNLESS global.request.user.participation %]
+   [% UNLESS global.request.user.participation OR global.config.closed %]
      [% WRAPPER menus/item %]
      <a href="[% make_uri('register') %]">{{Register}}</a>
      [% END %]
@@ -21,8 +21,10 @@
    [% WRAPPER menus/item %]
    <a href="[% make_uri('main') %]">{{Log in}}</a>
    [% END %]
-   [% WRAPPER menus/item %]
-   <a href="[% make_uri('register') %]">{{New user}}</a>
+   [% UNLESS global.config.closed %]
+     [% WRAPPER menus/item %]
+     <a href="[% make_uri('register') %]">{{New user}}</a>
+     [% END %]
    [% END %]
 [% END %]
 [% FOREACH lang = global.languages %]

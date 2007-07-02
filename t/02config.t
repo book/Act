@@ -22,6 +22,7 @@ my @simple = qw(
 );
 my @conf_simple = qw(
     uri
+    closed
     general_full_uri
     general_default_language
     general_default_country
