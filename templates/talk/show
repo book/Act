@@ -22,7 +22,7 @@
   {{Lightning talk}} <br />
 [% ELSE %]
   <b>{{Date:}}</b>
-  [% IF datetime ; date_format(datetime, 'datetime_full') ; ELSE %]
+  [% IF datetime && ( global.config.talks_show_schedule || global.request.user.is_orga ); date_format(datetime, 'datetime_full') ; ELSE %]
   {{Not scheduled yet.}}[% END %]<br />
 
 <b>{{Duration:}}</b> [% duration %]
