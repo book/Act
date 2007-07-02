@@ -23,6 +23,16 @@
    </td>
 </tr>
 <tr>
+   <td align="right">
+      {{Donation}}:
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input name="donation" type="text" size="5" maxlength="5" />
+      [% currency %]
+   </td>
+</tr>
+<tr>
    <td colspan="3" align="right">
       <input type="submit" name="purchase" value="{{Buy now!}}" />
    </td>
