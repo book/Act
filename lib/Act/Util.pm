@@ -157,6 +157,31 @@ sub normalize
     $string = lc $string;
     return $string;
 }
+
+# unicode-aware string sort
+sub usort(&@)
+{
+    my $code = shift;
+    my $getkey = sub { local $_ = shift; $code->() };
+
+    # use Unicode::Collate if allkeys.txt is installed
+    eval {
+        require Unicode::Collate;
+        # new() dies if allkeys.txt isn't installed
+        my $collator = Unicode::Collate->new();
+
+        return map  { $_->[1] }
+               sort { $collator->cmp( $a->[0], $b->[0] ) }
+               map  { [ $getkey->($_->{name}), $_ ] }
+               @_;
+    };
+    # fallback to normalize()
+    return map  { $_->[1] }
+           sort { $a->[0] cmp $b->[0] }
+           map  { [ normalize($getkey->($_)), $_ ] }
+           @_;
+}
+
 1;
 
 __END__
@@ -170,6 +195,8 @@ Act::Util - Utility routines
     $uri = make_uri("talkview", id => 234, name => 'foo');
     $uri = self_uri(language => 'en');
     ($clear, $crypted) = Act::Util::gen_passwd();
+    my $localized_string = localize('some_string_id');
+    my @sorted = Act::Util::usort { $_->{last_name} } @users;
 
 =head1 DESCRIPTION
 
@@ -202,6 +229,12 @@ Translates a string according to the current request language.
 
 Normalizes a string for sorting: removes diacritical marks and converts
 to lowercase.
+
+=item usort
+
+Sorts a list of strings with correct Unicode semantics, as provided
+by C<Unicode::Collate>. If the Unicode Collation Element Table is not
+installed, C<usort> falls back to comparing normalized strings.
 
 =back
 
