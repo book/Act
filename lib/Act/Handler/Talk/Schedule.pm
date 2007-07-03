@@ -47,8 +47,8 @@ sub compute_schedule {
         # fill the rows
         $_->{end} = $_->datetime->clone;
         $_->{end}->add( minutes => $_->duration );
-        $time{$day}{$_->datetime->strftime('%H:%M')} = $_->datetime->clone;
-        $time{$day}{$_->{end}->strftime('%H:%M')}    = $_->{end};
+        $time{$day}{$_->datetime->strftime('%Y-%m-%d %H:%M')} = $_->datetime->clone;
+        $time{$day}{$_->{end}->strftime('%Y-%m-%d %H:%M')}    = $_->{end};
         # separate global and local items
         push @{ $_->is_global ? $globals : $todo }, $_;
     }
