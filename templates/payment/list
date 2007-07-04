@@ -9,7 +9,6 @@
  <th>{{Payment means}}</th>
  <th colspan="2">{{Price}}</th>
 </tr>
-[% total = { } %]
 [% speaker = BLOCK %]{{speaker}}[% END %]
 [% BLOCK user_status;
      lines = [];
@@ -23,7 +22,6 @@
   [% o = orders.${u.user_id} %]
   <tr>
     [% IF o %]
-        [% total.${o.currency} = total.${o.currency} + o.amount %]
         <td><strong>[% u.last_name %] [% u.first_name %]
             [% IF invoice_uri.${u.user_id} %] 
               [ <a href="[% invoice_uri.${u.user_id} %]">
