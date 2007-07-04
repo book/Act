@@ -24,7 +24,7 @@
       [%- IF pseudonymous %]
          [% nick_name %]
       [%- ELSE %]
-         [% loc("civility_${civility}") IF civility %]
+         [% loc("salutation_${salutation}") IF salutation %]
          [% first_name %]
          [% last_name %]
          [% "($nick_name)" IF nick_name %]

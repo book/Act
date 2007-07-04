@@ -27,12 +27,12 @@
 
 <tr>
    <td align="right">
-      {{Civility}}
+      {{Salutation}}
    </td>
    <td>&nbsp;</td>
    <td>
-      [% FOREACH c = [1 .. civilities] %]
-      <input type="radio" name="civility" value="[% c %]"[% " checked" IF civility==c %] /> [% loc("civility_$c") %]
+      [% FOREACH s = [1 .. salutations] %]
+      <input type="radio" name="salutation" value="[% s %]"[% " checked" IF salutation == s %] /> [% loc("salutation_$s") %]
       [% END %]
    </td>
 </tr>
@@ -103,7 +103,7 @@
          [% FOREACH c = [ 1..5 ] %]
          <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
          [% END %]
-         <option value="6"[% ' selected="selected"' IF nb_family >= 6 %]>{{6 or more}}</option>
+         <option value="6"[% ' selected="selected"' IF nb_family AND nb_family >= 6 %]>{{6 or more}}</option>
       </select>
       {{people (who will not attend the conference)}}
    </td>

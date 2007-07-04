@@ -25,16 +25,16 @@ msgstr "Extérieur"
 msgid "room_venue"
 msgstr "Sur place"
 
-msgid "civility_1"
+msgid "salutation_1"
 msgstr "M."
 
-msgid "civility_2"
+msgid "salutation_2"
 msgstr "Mme."
 
-msgid "civility_3"
+msgid "salutation_3"
 msgstr "Mlle."
 
-msgid "civility_4"
+msgid "salutation_4"
 msgstr "D<sup>r</sup>"
 
 msgid "User information"
@@ -505,7 +505,7 @@ msgstr "Le nombre de personnes vous accompagnant doit être un nombre"
 msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
 msgstr "Clé GPG invalide : 8 chiffres hexadécimaux attendus"
 
-msgid "Civility"
+msgid "Salutation"
 msgstr "Civilité"
 
 msgid "Nickname"
