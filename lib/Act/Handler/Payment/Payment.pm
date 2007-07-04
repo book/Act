@@ -27,7 +27,8 @@ sub handler
                 if ($Request{args}{ok}) {
                     # payment form submission
                     my %prices = map { $_->{price_id} => $_ } @$prices;
-                    my $amount = $Request{args}{amount} || $prices{$Request{args}{price}}{amount};
+                    my $amount = $Request{args}{means} eq 'FREE' ? 0
+                               : $Request{args}{amount} || $prices{$Request{args}{price}}{amount};
 
                     # create an order row for this payment
                     Act::Order->create(
