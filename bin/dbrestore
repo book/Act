@@ -1,4 +1,0 @@
-#!/bin/sh
-scp profane.mongueurs.net:/home/act/act* .
-pg_restore -O -c --disable-triggers -d act actdb && mv -f actdb database/actdb.old
-pg_restore -O -c --disable-triggers -d actwiki actwikidb && mv -f actwikidb database/actwikidb.old
