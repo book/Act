@@ -55,6 +55,17 @@ t.track.title.split('\W').0 %]</a>][% END %]
 [% END;
    END;
 %]
+[% MACRO expand_talk(c)
+    BLOCK;
+    user_info(c.user) ; " - " ;
+    talk_link(c.talk) ;
+    END;
+%]
+[% MACRO expand_user(c)
+    BLOCK;
+    user_info(c.user) ;
+    END;
+%]
 [% MACRO expand( chunks )
    BLOCK;
    FOREACH c = chunks ;

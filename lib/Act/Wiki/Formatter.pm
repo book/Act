@@ -60,11 +60,21 @@ sub _make_link
 
     my $prefix = '';
     if ($u->scheme) {
-        if ($u->scheme eq 'talk' or $u->scheme eq 'user') {
-            my $chunks = Act::Abstract::chunked($link);
-            my $n = $formatter->new_chunk($chunks);
-            return "{% expand(chunks.$n) %}\n";
+        if ($u->scheme eq 'talk') {
+            my ($talk, $user) = Act::Abstract::expand_talk(URI::Escape::uri_unescape($u->opaque));
+            if ($talk) {
+                my $n = $formatter->new_chunk({ talk => $talk, user => $user });
+                return "{% expand_talk(chunks.$n) %}\n";
+            }
         }
+        elsif ($u->scheme eq 'user') {
+            my $user = Act::Abstract::expand_user(URI::Escape::uri_unescape($u->opaque));
+            if ($user) {
+                my $n = $formatter->new_chunk({ user => $user });
+                return "{% expand_user(chunks.$n) %}\n";
+            }
+        }
+        return $link;
     }
     else {
         $link = URI::Escape::uri_escape_utf8($link);
