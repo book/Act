@@ -27,7 +27,7 @@ sub handler {
             };
         }
         if ($p) {
-            for my $g (split(/\s*[^\w. ]\s*/, $p)) {
+            for my $g (split(/\s*[^\w. -]\s*/, $p)) {
                 my $lg = lc $g;
                 $pm->{$lg}{count}++ || do {
                     $pm->{$lg}{name}      = $g;
