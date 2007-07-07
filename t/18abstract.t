@@ -10,7 +10,7 @@ use DateTime;
 $Request{conference} = 'conf'; # needed by has_talk
 db_add_users();
 db_add_talks();
-my $user = Act::User->new(login => 'echo');
+my $user = Act::User->new(login => 'echo', conf_id => $Request{conference});
 my $talk = Act::Talk->new(title => 'My talk');
 
 my $uid = $user->user_id;

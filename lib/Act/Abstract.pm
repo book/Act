@@ -49,7 +49,10 @@ sub expand_talk
     );
     my $user;
     if ($talk) {
-        $user = Act::User->new(user_id => $talk->user_id);
+        $user = Act::User->new(
+            user_id => $talk->user_id,
+            conf_id => $Request{conference},
+        );
     }
     return ($talk, $user);
 }
@@ -58,14 +61,20 @@ sub expand_user
 {
     my $user_info = shift;
     my $user;
+    my %args;
     if ($user_info =~ /^\d+/) {
-        return Act::User->new(user_id => $user_info);
+        %args = (user_id => $user_info);
     }
-    my @id = split /\s+/, $user_info;
-    if (@id == 2) {
-        return Act::User->new(first_name => $id[0], last_name => $id[1]);
+    else {
+        my @id = split /\s+/, $user_info, 2;
+        if (@id == 2) {
+            %args = (first_name => $id[0], last_name => $id[1]);
+        }
+        else {
+            %args = (nick_name => $user_info);
+        }
     }
-    return Act::User->new(nick_name => $user_info);
+    return Act::User->new(%args, conf_id => $Request{conference});
 }
 
 1;
