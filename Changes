@@ -2,6 +2,11 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2007/07/02 r1482 Online payment: store payment type and price name
+           r1481 track database schema changes
+           r1478 allow donation in user payment
+           r1477 let treasurer generate invoices
+
 2007/06/11 r1444 track management
 
 2007/06/04 r1441 export talks to CSV format
