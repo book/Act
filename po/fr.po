@@ -16,6 +16,9 @@ msgstr "En ligne"
 msgid "payment_means_XFER"
 msgstr "Transfert"
 
+msgid "payment_means_FREE"
+msgstr "Gratuit"
+
 msgid "room_out"
 msgstr "Extérieur"
 

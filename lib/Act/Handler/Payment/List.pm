@@ -17,7 +17,7 @@ sub handler
     }
     # retrieve users and their payment info
     my $users = Act::User->get_items( conf_id => $Request{conference} );
-    my (%orders, %invoice_uri);
+    my (%orders, %invoice_uri, %total);
     for my $u (@$users) {
         $orders{$u->user_id} = Act::Order->new(
             user_id  => $u->user_id,
@@ -27,6 +27,7 @@ sub handler
         if ($orders{$u->user_id}) {
             $orders{$u->user_id}{means} = localize('payment_means_' . $orders{$u->user_id}{means});
             $invoice_uri{$u->user_id} = make_uri_info('invoice', $orders{$u->user_id}->order_id);
+            $total{ $orders{$u->user_id}{currency} } += $orders{$u->user_id}{amount};
         }
     }
 
@@ -37,6 +38,7 @@ sub handler
                    @$users
                  ],
         orders => \%orders,
+        total  => \%total,
         invoice_uri => \%invoice_uri,
     ); 
     $template->process('payment/list');
