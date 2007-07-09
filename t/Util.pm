@@ -37,6 +37,9 @@ sub db_add_users {
         passwd  => 'ECHO',
         email   => 'echo@yyy.zzz',
         country => 'fr',
+        nick_name => 'echo',
+        first_name => 'Eric',
+        last_name  => 'Cholet',
         timezone => 'Europe/Paris',
     );
     Act::User->create(
