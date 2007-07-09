@@ -397,7 +397,7 @@ msgstr "A perlmonks azonosítónak számnak kell lennie"
 msgid "Number of family members attending must be a number"
 msgstr "A résztvevõ családtagok számának számnak kell lennie"
 
-msgid "Civility"
+msgid "Salutation"
 msgstr "Titulus"
 
 msgid "Nickname"

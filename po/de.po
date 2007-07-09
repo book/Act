@@ -19,10 +19,10 @@ msgstr "Ausserhalb"
 msgid "room_venue"
 msgstr "Veranstalungsort"
 
-msgid "civility_1"
+msgid "salutation_1"
 msgstr "Herr"
 
-msgid "civility_2"
+msgid "salutation_2"
 msgstr "Frau"
 
 msgid "User information"
@@ -411,7 +411,7 @@ msgstr "Die Perlmonks ID muss eine Nummer sei"
 msgid "Number of family members attending must be a number"
 msgstr "Nummer der Familienmitglieder muss eine Nummer sei"
 
-msgid "Civility"
+msgid "Salutation"
 msgstr "Anrede"
 
 msgid "Nickname"

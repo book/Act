@@ -38,7 +38,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     my $fields;
     my $form = Act::Form->new( @form_params, 
-        optional => [qw(im civility email_hide gpg_key_id im pause_id
+        optional => [qw(im salutation email_hide gpg_key_id im pause_id
                         pseudonymous nick_name
                         monk_id pm_group pm_group_url timezone town web_page
                         company company_url vat address ),
@@ -114,7 +114,7 @@ sub handler
     }
     # display form
     $template->variables(
-        civilities => $Act::Config::Nb_civilities,
+        salutations => $Act::Config::Nb_salutations,
         countries  => Act::Country::CountryNames(),
         timezones  => [ DateTime::TimeZone::all_names() ],
         %$fields

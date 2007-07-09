@@ -12,6 +12,8 @@ my @SCHEMA_UPDATES = (
   "alter table orders add column price text;
    alter table orders add column type text;
   ",
+#3
+  "alter table users rename civility to salutation;"
 );
 
 # returns ( current database schema version, required version )

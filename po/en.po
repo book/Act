@@ -25,16 +25,16 @@ msgstr "Outside"
 msgid "room_venue"
 msgstr "Venue"
 
-msgid "civility_1"
+msgid "salutation_1"
 msgstr "Mr."
 
-msgid "civility_2"
+msgid "salutation_2"
 msgstr "Mrs."
 
-msgid "civility_3"
+msgid "salutation_3"
 msgstr "Ms."
 
-msgid "civility_4"
+msgid "salutation_4"
 msgstr "Dr."
 
 msgid "User information"
@@ -498,8 +498,8 @@ msgstr "Number of family members attending must be a number"
 msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
 msgstr "Not a valid GPG key ID: 8 hexadecimal digits expected"
 
-msgid "Civility"
-msgstr "Civility"
+msgid "Salutation"
+msgstr "Salutation"
 
 msgid "Nickname"
 msgstr "Nickname"

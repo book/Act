@@ -87,8 +87,8 @@ our %Image_formats = (
     jpeg    => '.jpg',
 );
 
-# civilities
-our $Nb_civilities = 4;
+# salutations
+our $Nb_salutations = 4;
 
 # rights
 our @Right_ids = qw( admin orga staff treasurer );
