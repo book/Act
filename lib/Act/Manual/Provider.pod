@@ -20,6 +20,10 @@ The online payment architecture in Act.
 
 Some installation tips.
 
+=item L<Act::Manual::Provider::Database>
+
+Database configuration for Act.
+
 =item L<Act::Manual::Provider::Performance>
 
 Some performance hints for running Act on your system.
