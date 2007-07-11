@@ -1,0 +1,42 @@
+
+=head1 NAME
+
+Act::Manual::Provider - Act service provider documentation
+
+=head1 DESCRIPTION
+
+This section of the manual is aimed at Act providers, that is to say,
+people who set up an Act instance to serve one or several conferences.
+
+It is divided in several subsections:
+
+=over 4
+
+=item L<Act::Manual::Provider::Payment>
+
+The online payment architecture in Act.
+
+=item L<Act::Manual::Provider::Installation>
+
+Some installation tips.
+
+=item L<Act::Manual::Provider::Performance>
+
+Some performance hints for running Act on your system.
+
+=back
+
+=head1 AUTHOR
+
+Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+
