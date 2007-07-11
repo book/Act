@@ -1248,3 +1248,18 @@ msgstr "%quant(%1,accepted,accepted)"
 msgid "n confirmed"
 msgstr "%quant(%1,confirmed,confirmed)"
 
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Please type in your new password"
+msgstr "Please type in your new password"
+
+msgid "Passwords don't match"
+msgstr "Passwords don't match"
+
+msgid "New password"
+msgstr "New password"
+
+msgid "Enter your new password twice"
+msgstr "Enter your new password twice"
+
