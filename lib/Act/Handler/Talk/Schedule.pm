@@ -27,7 +27,7 @@ sub compute_schedule {
     # pick up talks and events without a time or a place
     my (@ts, @undecided );
     for( @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
-        if( ( defined $_->{datetime} && defined $_->room ) ) {
+        if( ( $_->{datetime} && $_->room ) ) {
             push @ts, $_;
         }
         else { push @undecided, $_ }
