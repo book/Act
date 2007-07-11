@@ -1,4 +1,8 @@
-=head1 ONLINE PAYMENT ARCHITECTURE
+=head1 NAME
+
+Act::Manual::Provider::Payment - The Act online payment architecture
+
+=head1 DESCRIPTION
 
 This document describes the architecture of Act's online payment subsystem.
 This system defers the actual purchasing to a third party, usually a bank.
@@ -60,6 +64,20 @@ to the user's main page in the conference.
 Meanwhile, the bank sends us an HTTP request with the status of the purchase.
 
 =back
+
+=cut
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
 
 =cut
 
