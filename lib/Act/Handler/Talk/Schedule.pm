@@ -135,7 +135,7 @@ sub compute_schedule {
                 # check that a line exists to mark the end of the new talk
                 $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{end};
-                unless( $row->[$j][0] == $new->{end} ) {
+                if( $j < @$row && $row->[$j][0] != $new->{end} ) {
                     splice @$row, $j, 0,
                         [ $new->{end}, { map { $_ => [] } keys %room }, [] ];
                 }
