@@ -1,15 +1,19 @@
-=head1 SETTING UP A NEW LANGUAGE IN ACT
+=head1 NAME
 
-Act is meant to support multilingual conferences.
-When you start your conference, you just have to decide which
+Act::Manual::Developer::Translation - How to support a new language in Act
+
+=head1 DESCRIPTION
+
+Act was developed from the beginning  to support multilingual conferences.
+When an organizer starts a conference, they just have to decide which
 languages will be supported. This usually includes at least
-English and your own language.
+English and their own language.
 
 If your language is not yet supported by Act, don't panic.
 That just means you'll have to help us translate all the localized
 strings used by Act.
 
-=head2 Translating conference templates
+=head1 CONFERENCE TEMPLATES
 
 Multilingual templates are set up directly in the HTML, with the help
 of the special tag C<E<lt>tE<gt> ... E<lt>/tE<gt>>.
@@ -31,11 +35,14 @@ Here's a very simple example:
 You'll also have to add the languages you need to all your specific
 static pages.
 
-=head2 Translating Act
+This is specific to each conference "I<static>" templates and doesn't
+require any addition to the Act core.
+
+=head1 ADDING SUPPORT FOR A NEW LANGUAGE IN ACT
 
 The following sections apply to adding a new language to Act iself.
 
-=head3 Act strings
+=head2 Act strings
 
 All localized strings used by Act are stored in F<po/*.po> files, one
 file per language. A F<.po> file is a simple text file which contains
@@ -55,7 +62,35 @@ any embedded occurences of the characters C<E<gt>>, C<E<lt>> and C<&>
 must be replaced by the corresponding HTML entity
 (C<&gt;>, C<&lt;> and C<&amp;>).
 
-=head3 Act::Util
+=head2 Act core templates
+
+Act core template do not and should not ever contain text in any language
+other than HTML and TT2. Localization is achieved by replacing all
+human-readable text by special strings:
+
+Here's an example from F<templates/core/user/register>:
+
+
+    [% IF date.now > end_date %]
+    <p>
+     {{Sorry, this conference is over.}}
+    </p>
+    [% ELSE %]
+    
+    <p>
+     [% loc('To register to the <name> conference', global.conference.name) %]
+    </p>
+
+    ...
+    [% END %]
+
+The first string (C<{{Sorry, this conference is over.}}>) is "static" text.
+The text between double curly braces is a C<msgid> and it will be replaced
+by the corresponding text in the F<.po> file for the requested language.
+
+FIXME - explain the way loc() works in TT2
+
+=head2 C<Act::Util>
 
 The Act::Util module contains some information about how dates are
 handled in each supported language. The structure needs to be updated
@@ -75,6 +110,20 @@ The C<name> value is the name of the language, in that language.
 The date and time formats use C<strftime()> compatible specifiers,
 see L<http://search.cpan.org/perldoc?DateTime#strftime_Specifiers>
 for a complete list.
+
+=cut
+
+=head1 AUTHORS
+
+Éric Cholet, Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
 
 =cut
 
