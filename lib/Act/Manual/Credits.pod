@@ -91,7 +91,7 @@ conference...
   Anders Hellström
   Claes Jakobsson
   Jose Kahan
-  Maros Kollar
+  Maroš Kollár
   Thomas Klausner
   David Landgren
   Jonas B. Nielsen
