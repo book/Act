@@ -62,6 +62,34 @@ any embedded occurences of the characters C<E<gt>>, C<E<lt>> and C<&>
 must be replaced by the corresponding HTML entity
 (C<&gt;>, C<&lt;> and C<&amp;>).
 
+Some strings take parameters:
+
+  msgid "To register to the <name> conference"
+  msgstr ""
+  "To register to the %1 conference,\n"
+  "simply push the button below.\n"
+
+The parameters are simply numbered so that the order in which they
+are output can change between translations (this is better than 
+C<printf()>).
+
+  msgid "Congratulations, you are now registered"
+  msgstr ""
+  "Congratulations, <b>%1</b>, you are now registered.\n"
+  "Your password is <b>%2</b> .\n"
+
+Since localization is actually handled by C<Locale::Maketext>,
+it can handle plurals very easily:
+
+  msgid "There are n registered people"
+  msgstr ""
+  "There are %1 registered people\n"
+  "coming from %quant(%2,country,countries)\n"
+  "and %quant(%3,monger group).\n"
+  "There are %4 committed users,\n"
+  "that is to say, people that either paid their\n"
+  "conference ticket or will give a talk.\n"
+
 =head2 Act core templates
 
 Act core template do not and should not ever contain text in any language
@@ -69,7 +97,6 @@ other than HTML and TT2. Localization is achieved by replacing all
 human-readable text by special strings:
 
 Here's an example from F<templates/core/user/register>:
-
 
     [% IF date.now > end_date %]
     <p>
@@ -88,7 +115,8 @@ The first string (C<{{Sorry, this conference is over.}}>) is "static" text.
 The text between double curly braces is a C<msgid> and it will be replaced
 by the corresponding text in the F<.po> file for the requested language.
 
-FIXME - explain the way loc() works in TT2
+The C<loc()> macro in the template is used for localized strings that take
+parameters.
 
 =head2 C<Act::Util>
 
