@@ -1,13 +1,15 @@
+=head1 NAME
 
-Performance hints
------------------
+Act::Manual::Provider::Performance - Act performance hints
+
+=head1 DESCRIPTION
 
 The following describes steps you can take to get the best performance
 out of your Act installation, in a production environment. Full
 explanations of the techniques used are outside of the scope of this
 document, so we only provide introductory comments.
 
-* pre-loading modules at Apache startup and persistent database connections
+=head2 pre-loading modules at Apache startup and persistent database connections
 
 Insert the following configuration directive in httpd.conf:
 
@@ -20,7 +22,7 @@ to copy-on-write their code is shared, at least for a while.)
 startup.pl also uses Apache::DBI to enable persistent database connections,
 obviating the need to connect to the database for each request.
 
-* Dual Apache setup
+=head2 Dual Apache setup
 
 mod_perl-enabled servers tend to have a large memory footprint, so you don't
 want too many of them. Server instances tend to spend most of their time
@@ -92,3 +94,18 @@ adjust the numbers to your requirements and hardware.
     RewriteRule         ^/(.*)$                             http://127.0.0.1:8000/$1 [P,L]
     ProxyPassReverse    /  http://www.example.com/
   </VirtualHost>
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

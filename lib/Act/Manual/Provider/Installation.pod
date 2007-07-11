@@ -1,5 +1,8 @@
-Installing Act on your system
------------------------------
+=head1 NAME
+
+Act::Manual::Provider::Installation - Installing Act on your system
+
+=head1 DESCRIPTION
 
 Install (or cvs checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
@@ -31,7 +34,7 @@ Next, define a virtual host in your Apache configuration file
       Include      /home/act/conf/httpd.conf
     </VirtualHost>
 
-For code development it is useful to install the Apache::Reload
+For code development it is useful to install the C<Apache::Reload>
 module. Enable it in httpd.conf (outside of any VirtualHost
 containers):
 
@@ -56,12 +59,12 @@ an easy setup is to use a port-based virtual host:
     </VirtualHost>
 
 Create the directory where photos will be uploaded, by default
-$ACTHOME/wwwdocs/photos. Make sure it is readable by all, and
+F<$ACTHOME/wwwdocs/photos>. Make sure it is readable by all, and
 writable by the user running Apache.
 
-Next, create a local configuration file in $ACTHOME/conf/local.ini.
+Next, create a local configuration file in F<$ACTHOME/conf/local.ini>.
 This file is not part of the distribution: its contents override
-the global settings in $ACTHOME/conf/act.ini. If you have no need
+the global settings in F<$ACTHOME/conf/act.ini>. If you have no need
 to override these standard settings, local.ini isn't needed.
 
 You are now ready to install and configure the database system.
@@ -82,4 +85,18 @@ This test suite requires Test::More.
 
     cd $ACTHOME
     make test
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
 
