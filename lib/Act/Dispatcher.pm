@@ -34,6 +34,7 @@ my %public_handlers = (
 );
 my %private_handlers = (
     change          => 'Act::Handler::User::Change',
+    changepwd       => 'Act::Handler::User::ChangePassword',
     create          => 'Act::Handler::User::Create',
     csv             => 'Act::Handler::CSV',
     editevent       => 'Act::Handler::Event::Edit',

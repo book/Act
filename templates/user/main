@@ -59,10 +59,8 @@
     </li>
     <li><a href="[% make_uri('photo') %]">{{manage your photo}}</a><br />
     </li>
-[% BLOCK commentaire %]
-    <li><a href="[% make_uri('updatepw') %]">{{change your password}}</a>
+    <li><a href="[% make_uri('changepwd') %]">{{change your password}}</a>
     </li>
-[% END %]
     [% IF global.request.conference
        AND talks.size %]
         <li>{{see your talks (accepted talks are shown in bold type)}}:
