@@ -1,6 +1,6 @@
 =head1 NAME
 
-act.ini - The Act configuration file
+Act::Manual::Organizer::Configuration - The Act configuration file
 
 =head1 DESCRIPTION
 
@@ -125,4 +125,20 @@ Conference organisers can skip this section.
     smtp_server = localhost
     smtp_port   = 0
     test        = 0
-    
+
+=cut
+
+=head1 AUTHORS
+
+Philippe Bruhat, Éric Cholet.
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+
