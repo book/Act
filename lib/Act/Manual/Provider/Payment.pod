@@ -69,11 +69,11 @@ Meanwhile, the bank sends us an HTTP request with the status of the purchase.
 
 =head1 AUTHOR
 
-Éric Cholet
+Ã‰ric Cholet
 
 =head1 COPYRIGHT
 
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+Copyright (C) 2004-2007, by Philippe Bruhat and Ã‰ric Cholet.
 All Rights Reserved.
 
 This module is free software; you can redistribute it and/or

@@ -96,7 +96,7 @@ Here an example of what you can do:
 =item F<actdocs/index.html>
 
     [% title = {
-          fr => 'Ma conférence'
+          fr => 'Ma confÃ©rence'
           en => 'My conference'
           de => 'Mein Konferenz'
           pt => '...'
@@ -171,7 +171,7 @@ Philippe Bruhat
 
 =head1 COPYRIGHT
 
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+Copyright (C) 2004-2007, by Philippe Bruhat and Ã‰ric Cholet.
 All Rights Reserved.
 
 This module is free software; you can redistribute it and/or

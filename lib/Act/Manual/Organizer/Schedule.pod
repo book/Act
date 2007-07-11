@@ -84,7 +84,7 @@ If you want to add some static information to the schedule
 F<actdocs/templates/talk/schedule>, based on the following:
 
     [% WRAPPER ui
-       title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idıbeoszt·s'}
+       title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Id√µbeoszt√°s'}
     %]
     
     <!-- The schedule table -->
@@ -147,15 +147,15 @@ in the event or talk description.
 As an exemple, here is the source description of the lightning talks
 session of the French Perl Workshop 2005:
 
-    Programme des prÈsentations Èclairs :
+    Programme des pr√©sentations √©clairs :
     - talk:101
     - talk:63
     - talk:201
     - talk:198
     - talk:190
     - Alexandre Buisse - Le GC de Parrot
-    - Pierre Weis - PrÈsentation d'OCaml
-    - StÈphane Payrard - GreaseMonkey
+    - Pierre Weis - Pr√©sentation d'OCaml
+    - St√©phane Payrard - GreaseMonkey
 
 (The last three talks were last minutes talks that were not registered
 in the database.)
@@ -171,7 +171,7 @@ Philippe Bruhat
 
 =head1 COPYRIGHT
 
-Copyright (C) 2004-2007, by Philippe Bruhat and …ric Cholet.
+Copyright (C) 2004-2007, by Philippe Bruhat and √âric Cholet.
 All Rights Reserved.
 
 This module is free software; you can redistribute it and/or

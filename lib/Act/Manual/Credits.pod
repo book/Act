@@ -13,12 +13,12 @@ authors and numerous other people who have contributed to it.
 In 2003, when the French Perl Mongers began organising their YAPC::Europe
 in Paris, they thought about the web site and what they wanted to do
 with it. Starting from Sylvain Lhullier's Java-looking prototype,
-…ric Cholet and Philippe Bruhat created a conference web site that
+√âric Cholet and Philippe Bruhat created a conference web site that
 was multilingual, template-driven, and able to manage the users, talks,
 schedule and payment. It used mod_perl and Template Toolkit. They promised
 they would open the source after cleaning it up a bit.
 
-The year after, when preparing the first French Perl Workshop, …ric
+The year after, when preparing the first French Perl Workshop, √âric
 and Philippe worked on a second system, designed from the beginning to
 support everything the old site could do, with one difference: it had to
 support multiple conferences.
@@ -63,7 +63,7 @@ conference...
 =head2 Act developers
 
   Philippe Bruhat (BooK)
-  …ric Cholet
+  √âric Cholet
 
 =head2 Code contributors
 
@@ -73,22 +73,22 @@ conference...
 =head2 Translations
 
   de: Thomas Klausner
-  hu: G·bor SzabÛ
+  hu: G√°bor Szab√≥
   it: Gianni "dakkar" Cecarelli
-  nl: Eric Colson, Emmanuel di PrÈtoro
-  pt: Alberto Manuel Brand„o Simıes
+  nl: Eric Colson, Emmanuel di Pr√©toro
+  pt: Alberto Manuel Brand√£o Sim√µes
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
-  SÈbastien Aperghis-Tramoni
+  S√©bastien Aperghis-Tramoni
   Ann Barcomb
-  Alberto Manuel Brand„o Simıes 
+  Alberto Manuel Brand√£o Sim√µes 
   Jim Brandt
-  JosÈ Alves de Castro 
+  Jos√© Alves de Castro 
   Gianni "dakkar" Cecarelli
   Kurt DeMaagd
   Jeremy Fluhmann
-  Anders Hellstrˆm
+  Anders Hellstr√∂m
   Claes Jakobsson
   Jose Kahan
   Maros Kollar
@@ -98,17 +98,17 @@ conference...
   Salve J Nilsen
   Enrico Sorcinelli
   Ricardo Signes
-  G·bor SzabÛ
+  G√°bor Szab√≥
   Lars Thegler
   Daniel J. Wright
 
 =head1 AUTHORS
 
-Philippe Bruhat, …ric Cholet
+Philippe Bruhat, √âric Cholet
 
 =head1 COPYRIGHT
 
-Copyright (C) 2004-2007, by Philippe Bruhat and …ric Cholet.
+Copyright (C) 2004-2007, by Philippe Bruhat and √âric Cholet.
 All Rights Reserved.
 
 This module is free software; you can redistribute it and/or
