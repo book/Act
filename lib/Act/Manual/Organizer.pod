@@ -1,7 +1,7 @@
 
 =head1 NAME
 
-Act::Manual::Organize - User guide for Act conference organizers
+Act::Manual::Organizer - User guide for Act conference organizers
 
 =head1 DESCRIPTION
 
