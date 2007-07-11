@@ -127,7 +127,7 @@ sub compute_schedule {
                 # eventually add a new line to put the new talk
                 my $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{datetime};
-                unless( $row->[$j][0] == $new->datetime ) {
+                if( $j >= @$row || $row->[$j][0] != $new->datetime ) {
                     splice @$row, $j, 0,
                         [ $new->datetime, { map { $_ => [] } keys %room }, [] ];
                 }
