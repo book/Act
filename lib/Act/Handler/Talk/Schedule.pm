@@ -27,7 +27,7 @@ sub compute_schedule {
     # pick up talks and events without a time or a place
     my (@ts, @undecided );
     for( @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
-        if( ( defined $_->{datetime} && defined $_->room ) ) {
+        if( ( $_->{datetime} && $_->room ) ) {
             push @ts, $_;
         }
         else { push @undecided, $_ }
@@ -127,7 +127,7 @@ sub compute_schedule {
                 # eventually add a new line to put the new talk
                 my $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{datetime};
-                unless( $row->[$j][0] == $new->datetime ) {
+                if( $j >= @$row || $row->[$j][0] != $new->datetime ) {
                     splice @$row, $j, 0,
                         [ $new->datetime, { map { $_ => [] } keys %room }, [] ];
                 }
@@ -135,7 +135,7 @@ sub compute_schedule {
                 # check that a line exists to mark the end of the new talk
                 $j = $i;
                 $j++ while $j < @$row and $row->[$j][0] < $new->{end};
-                unless( $row->[$j][0] == $new->{end} ) {
+                if( $j >= @$row || $row->[$j][0] != $new->{end} ) {
                     splice @$row, $j, 0,
                         [ $new->{end}, { map { $_ => [] } keys %room }, [] ];
                 }
