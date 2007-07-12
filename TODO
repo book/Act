@@ -5,8 +5,6 @@ PRIORITIZED TODO LIST
 * attendees should be able to pick one day out of the N days when they
   participate
 
-* password modification page
-
 * talk languages: define a set of accepted languages for a conference
   and let the speakers set the talk language
 
@@ -114,39 +112,3 @@ UNPRIORITIZED TODO LIST
 * Optional SSL Protected Admin Login
   There should be an optional SSL protected login option, at least for admins,
   allowing them to login to the website without being evasedropped.
-
-* Make it clear how to register for an event.
-    => register for an event?
-
-* replace Act::Form by Data::FormValidator
-    => maybe. Act::Form seems to work well now.
-
-* replace Act::Object with a more trendy ORM
-
-* User Identification
-  The login page asks for "User Identification", and this is not really clear.
-  It's difficult to say what is the "user identification" needed. Maybe the
-  text could be a bit more specific.
-    => Maybe. Does anyone really has trouble understanding the login form?
-
-* Tracking Suspicious Users
-  There should be a way to track down, mark out and pay attention on
-  /suspicious/ users, in special those that doesn't register properly or aren't
-  known or findable. Those registrations cause a lot of trouble, making
-  organizers to waste time and resources with room reservations, special meals
-  and other resources for people that will never show up.
-    => the above definition of /suspicious/ seems pretty vague.
-
-* think about the user preferred language as a preference list:
-  - ye2005,  pt => list = pt
-  - fpw2005, fr => list = fr,pt
-  - ipw2005, en => list = en,fr,pt
-  at that point, we need to reconfigure the prefered language for
-  the two other sites
-  Another option is to add a lang field in participations, to have
-  a favorite language per conference
-    => overkill
-
-* a website for managing one's profile outside any conference
-    => overkill
-
