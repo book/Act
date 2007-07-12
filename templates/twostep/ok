@@ -1,5 +1,0 @@
-[% WRAPPER ui title = loc("Confirmation email sent") %]
-
-[% PROCESS core/twostep/ok %]
-
-[% END %]

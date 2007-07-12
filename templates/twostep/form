@@ -1,7 +1,0 @@
-[% WRAPPER ui title = loc("Confirmation required") %]
-
-<p>{{This operation requires a confirmation. Please enter your email address,}}</p>
-
-[% PROCESS core/twostep/form %]
-
-[% END %]

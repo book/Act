@@ -13,6 +13,16 @@ use Apache::Constants qw(FORBIDDEN);
 use DateTime;
 use DateTime::Format::Pg;
 
+# twostep form
+my $twostep_form = Act::Form->new(
+  required    => [qw(email)],
+  filters     => { email => sub { lc shift } },
+  constraints => { email => 'email' },
+);
+
+# twostep template filename
+my $twostep_template = 'user/twostep_add';
+
 # registration form
 my $form = Act::Form->new(
   required => [qw(login first_name last_name email country tshirt )],
@@ -152,12 +162,24 @@ sub handler
     }
     elsif ($Request{args}{twostepsubmit}) {      # two-step form has been submitted
         # validate form and create a new token
-        Act::TwoStep::create();
+        if (Act::TwoStep::create(
+                $twostep_template, $twostep_form,
+                'user/twostep_add_email_subject', 'user/twostep_add_email_body',
+                sub { $twostep_form->{fields}{email} },
+                sub { my @errors;
+                      $twostep_form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
+                      $twostep_form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+                      return \@errors;
+                    },
+        )) {
+            $template->variables(email => $twostep_form->{fields}{email});
+            $template->process('user/twostep_add_ok');
+        }
         return;
     }
     else {
         # do we have a twostep token in the uri?
-        $token = Act::TwoStep::verify_uri()
+        $token = Act::TwoStep::verify_uri($twostep_template)
             or return;
     }
     # display the registration form
