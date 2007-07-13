@@ -80,12 +80,11 @@ sub handler
     my $template = Act::Template::HTML->new();
     my $fields = {};
     my $duplicates = [];
-    my $token;
 
     if ($Request{args}{join}) {         # registration form has been submitted
 
         # must have a valid twostep token
-        $token = Act::TwoStep::verify_form()
+        (my $token) = Act::TwoStep::verify_form()
             or return;
             
         my @errors;
@@ -179,7 +178,7 @@ sub handler
     }
     else {
         # do we have a twostep token in the uri?
-        $token = Act::TwoStep::verify_uri($twostep_template)
+        Act::TwoStep::verify_uri($twostep_template)
             or return;
     }
     # display the registration form

@@ -17,12 +17,12 @@ use constant DEFAULT_PAGE => 'index.html';
 # main dispatch table
 my %public_handlers = (
     atom            => 'Act::Handler::News::Atom',
+    changepwd       => 'Act::Handler::User::ChangePassword',
     event           => 'Act::Handler::Event::Show',
     events          => 'Act::Handler::Event::List',
     login           => 'Act::Handler::Login',
     news            => 'Act::Handler::News::List',
     register        => 'Act::Handler::User::Register',
-    resetpw         => 'Act::Handler::User::ResetPassword',
     schedule        => 'Act::Handler::Talk::Schedule',
     search          => 'Act::Handler::User::Search',
     stats           => 'Act::Handler::User::Stats',
@@ -34,7 +34,6 @@ my %public_handlers = (
 );
 my %private_handlers = (
     change          => 'Act::Handler::User::Change',
-    changepwd       => 'Act::Handler::User::ChangePassword',
     create          => 'Act::Handler::User::Create',
     csv             => 'Act::Handler::CSV',
     editevent       => 'Act::Handler::Event::Edit',

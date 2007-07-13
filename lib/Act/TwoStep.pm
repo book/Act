@@ -10,7 +10,7 @@ use Act::Template;
 use Act::Template::HTML;
 use Act::Util;
 
-# returns token if present in pathinfo and exists in database
+# returns true if token is present in pathinfo and exists in database
 # otherwise displays the twostep form and returns undef
 sub verify_uri
 {
@@ -26,7 +26,7 @@ sub verify_uri
             return;
         }
         # valid auth token
-        return $token;
+        return 1;
     }
     # no token: display email address form
     _display_form($template_file);
@@ -36,7 +36,7 @@ sub verify_uri
 # validate twostep form and create a new token
 sub create
 {
-    my ($template_file, $form, $email_subject_file, $email_body_file, $email_get, $errors_get) = @_;
+    my ($template_file, $form, $email_subject_file, $email_body_file, $email_get, $errors_get, $data_get) = @_;
     my $ok = $form->validate($Request{args});
     if ($ok) {
         my $email = $email_get->();
@@ -45,8 +45,10 @@ sub create
         my $token = _create_token($email);
         
         # store it in the database
-        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime) VALUES (?, ?, NOW())');
-        $sth->execute($token, $email);
+        my $data;
+        $data = $data_get->() if $data_get;
+        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime, data) VALUES (?, ?, NOW(), ?)');
+        $sth->execute($token, $email, $data);
         $Request{dbh}->commit;
 
         # email it
@@ -72,7 +74,10 @@ sub verify_form
 {
     # do we have an authentication token in the uri?
     my $token = $Request{path_info};
-    return $token if $token && _exists($token);
+    if ($token) {
+        my $data = _exists($token);
+        return ($token, $$data) if $data;
+    }
     $Request{status} = FORBIDDEN;
     return;
 }
@@ -98,16 +103,16 @@ sub _display_form
     $template->process($template_file);
 }
 
-# returns true if token exists in database
+# returns twostep data if token exists in database
 sub _exists
 {
     my $token = shift;
 
-    my $sth = $Request{dbh}->prepare_cached('SELECT token FROM twostep WHERE token = ?');
+    my $sth = $Request{dbh}->prepare_cached('SELECT token, data FROM twostep WHERE token = ?');
     $sth->execute($token);
-    (my $found) = $sth->fetchrow_array();
+    my ($found, $data) = $sth->fetchrow_array();
     $sth->finish;
-    return $found;
+    return $found ? \$data : undef;
 }
 
 # create a new token
@@ -173,10 +178,9 @@ Modify an existing form handler to work in two steps:
     
     ...
     
-    my $token;
     if ($Request{args}{ok}) {                   # form has been submitted
         # must have a valid twostep token
-        $token = Act::TwoStep::verify_form()
+        my ($token, $token_data) = Act::TwoStep::verify_form()
             or return;
         ...
         # if form is valid, remove token
@@ -198,6 +202,7 @@ Modify an existing form handler to work in two steps:
                       $twostep_form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
                       return \@errors;
                     },
+                sub { $token_data },
         )) {
             # twostep form is valid, display confirmation page
             $template->variables(email => $twostep_form->{fields}{email});
@@ -207,7 +212,7 @@ Modify an existing form handler to work in two steps:
     }
     else {
         # do we have a twostep token in the uri?
-        $token = Act::TwoStep::verify_uri($twostep_template);
+        Act::TwoStep::verify_uri($twostep_template)
             or return;
     }
     # display form
@@ -229,18 +234,19 @@ otherwise displays a form using the supplied $twostep_template and returns undef
 
 Your handler should return after calling this function if it returns undef;
 
-=item $token = verify_form()
+=item ($token, $token_data) = verify_form()
 
-Returns token if present in submitted form data and exists in database,
+Returns token and optional token data if present in submitted form data and exists in database,
 otherwise sets the handler return status to FORBIDDEN and returns undef,
 
-Your handler should return after calling this function if it returns undef;
+Your handler should return after calling this function if it returns undef.
 
-=item create($twostep_template_file, $twostep_form, $email_subject_file, $email_body_file, $email_get, $errors_get)
+=item create($twostep_template_file, $twostep_form, $email_subject_file, $email_body_file, $email_get, $errors_get, $toen_data_get)
 
 Validates the submitted twostep form, creates a new token in the database,
 and sends an email back to the user with a link embedding the token,
 and displays an acknowledgement page.
+$token_data is an optional sub that returns data that will later be retrived with C<verify_form()>.
 
 Your handler should return after calling this function.
 

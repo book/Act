@@ -124,8 +124,6 @@ your own version of F<talk/schedule>.
 
 =item * B<F<user/stats>>
 
-=item * B<F<user/resetpassword>>
-
 =item * B<F<user/purchase>>
 
 =item * B<F<user/change>>

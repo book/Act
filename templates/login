@@ -46,7 +46,7 @@
 
 </form>
 
-<p>[% loc('Forgot your password?', make_uri('resetpw')) %]</p>
+<p>[% loc('Forgot your password?', make_uri('changepwd')) %]</p>
 
 <p>
 <font size="-1">
