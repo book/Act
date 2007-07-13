@@ -11,6 +11,10 @@ use Act::Util;
 
 my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
+  filters => {
+     newpassword1 => sub { lc shift },
+     newpassword2 => sub { lc shift },
+  },
 );
 # twostep form
 my $twostep_form = Act::Form->new(
