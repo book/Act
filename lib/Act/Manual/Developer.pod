@@ -12,6 +12,10 @@ area of the Act internals:
 
 =over 4
 
+=item L<Act::Manual::Developer::Resources>
+
+A list of resources available to developers.
+
 =item L<Act::Manual::Developer::Translation>
 
 How to write a new language translation for Act.

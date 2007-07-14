@@ -1,0 +1,50 @@
+=head1 NAME
+
+Act::Manual::Developer::Resources - Resources for developers
+
+=head1 Subversion repository
+
+Act source code is maintained in a Subversion repository. The repository
+is available for anonymous checkout at the following URL:
+
+   svn://svn.mongueurs.net/act
+
+There are several different branches under act subtree in the repository.
+Development takes place in the trunk.
+
+   svn://svn.mongueurs.net/act/trunk
+
+The C<stable> branch is aimed at production sites hosting Act websites.
+Once changes to the trunk have been satisfactorily tested, project leaders
+merge them into the C<stable> branch. This branch can be checkout at
+the following URL:
+
+  svn://svn.mongueurs.net/act/branches/stable
+
+=head1 Subversion web site
+
+A web-based view of the Subversion history is available at
+L<http://svnweb.mongueurs.net/Act>.
+
+=head1 Mailing list
+
+Discussions pertaining to Act development take place on the C<act-dev>
+mailing list. You can subscribe to the C<act-dev> list at the following
+URL:
+
+  http://listes.mongueurs.net/mailman/listinfo/act-dev
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+
