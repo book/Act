@@ -26,13 +26,34 @@ the following URL:
 A web-based view of the Subversion history is available at
 L<http://svnweb.mongueurs.net/Act>.
 
-=head1 Mailing list
+=head1 Mailing lists
 
 Discussions pertaining to Act development take place on the C<act-dev>
 mailing list. You can subscribe to the C<act-dev> list at the following
 URL:
 
   http://listes.mongueurs.net/mailman/listinfo/act-dev
+
+Commit emails are sent to the C<act-cvs> mailing list. Subscribe at the
+following URL:
+
+  http://listes.mongueurs.net/mailman/listinfo/act-cvs
+
+=head1 RSS feeds
+
+Changes can also be tracked by subscribing to RSS feeds:
+
+All changes:
+
+  http://svnweb.mongueurs.net/Act/rss
+
+Changes to trunk:
+
+  http://svnweb.mongueurs.net/Act/rss/trunk
+
+Changes to the stable branch:
+
+  http://svnweb.mongueurs.net/Act/rss/branches/stable
 
 =head1 AUTHOR
 
