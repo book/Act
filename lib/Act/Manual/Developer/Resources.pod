@@ -55,6 +55,11 @@ Changes to the stable branch:
 
   http://svnweb.mongueurs.net/Act/rss/branches/stable
 
+=head1 IRC
+
+Act developers often hang out on L<irc://irc.perl.org/act>
+(C<#act> on C<irc.perl.org>)
+
 =head1 AUTHOR
 
 Éric Cholet
