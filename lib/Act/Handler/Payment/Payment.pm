@@ -27,9 +27,17 @@ sub handler
                 if ($Request{args}{ok}) {
                     # payment form submission
                     my %prices = map { $_->{price_id} => $_ } @$prices;
-                    my $amount = $Request{args}{means} eq 'FREE' ? 0
-                               : $Request{args}{amount} || $prices{$Request{args}{price}}{amount};
-
+                    my ($amount, $price);
+                    if ($Request{args}{means} eq 'FREE') {
+                        $amount = 0;
+                    }
+                    elsif ($Request{args}{amount}) {
+                        $amount = $Request{args}{amount};
+                    }
+                    else {
+                        $amount = $prices{$Request{args}{price}}{amount};
+                        $price  = $prices{$Request{args}{price}}{name};
+                    }
                     # create an order row for this payment
                     Act::Order->create(
                         user_id  => $user->user_id,
@@ -37,6 +45,7 @@ sub handler
                         amount   => $amount,
                         currency => $Config->payment_currency,
                         means    => $Request{args}{means},
+                        price    => $price,
                         status   => 'paid',
                     );
                     # back to the payment list
