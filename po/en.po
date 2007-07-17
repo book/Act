@@ -948,6 +948,9 @@ msgstr "User"
 msgid "Payment means"
 msgstr "Payment means"
 
+msgid "or"
+msgstr "or"
+
 msgid "Update"
 msgstr "Update"
 

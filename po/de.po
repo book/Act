@@ -669,6 +669,9 @@ msgstr "UserIn"
 msgid "Payment means"
 msgstr "Zahlungsart"
 
+msgid "or"
+msgstr "oder"
+
 msgid "Update"
 msgstr "Speichern"
 

@@ -26,7 +26,7 @@
         <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% currency %]</option>
     [% END %]
   </select>
-  &nbsp;
+  &nbsp;{{or}}&nbsp;
   <input type="text" name="amount" value="" size="5" />
   [% currency %]
  </td>

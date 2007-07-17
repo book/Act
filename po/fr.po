@@ -905,6 +905,9 @@ msgstr "Utilisateur"
 msgid "Payment means"
 msgstr "Moyen de paiement"
 
+msgid "or"
+msgstr "ou"
+
 msgid "Update"
 msgstr "Valider"
 

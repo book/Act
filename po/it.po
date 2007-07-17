@@ -730,6 +730,9 @@ msgstr "Utente"
 msgid "Payment means"
 msgstr "Metodo di pagamento"
 
+msgid "or"
+msgstr "o"
+
 msgid "Update"
 msgstr "Aggiorna"
 
