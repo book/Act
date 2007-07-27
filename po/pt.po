@@ -696,6 +696,9 @@ msgstr "Utilizador"
 msgid "Payment means"
 msgstr "Modalidade de pagamento"
 
+msgid "or"
+msgstr "ou"
+
 msgid "Update"
 msgstr "Validar"
 
