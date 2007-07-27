@@ -48,6 +48,11 @@ for my $lang (sort keys %Languages) {
 ## global config
 _test_config($Config, 'global');
 
+# optional compiled templates
+if ($Config->general_dir_ttc) {
+    ok(-d $Config->general_dir_ttc, "compiled templates directory exists");
+}
+
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");
 isa_ok($Config->uris, 'HASH', "uris");

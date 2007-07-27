@@ -196,7 +196,7 @@ sub _init_config
     # optional settings
     $cfg->set($_ => undef)
         for qw(talks_show_all talks_notify_accept talks_levels talks_submissions_notify_address talks_submissions_notify_language
-               database_debug
+               database_debug general_dir_ttc
                payment_notify_address);
     return $cfg;
 }

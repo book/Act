@@ -28,6 +28,10 @@ sub new
     $conf .= join '', map "$_$opts{$_}", sort keys %opts;
     return $templates{$class}{$conf} if exists $templates{$class}{$conf};
 
+    # optional compiled templates option
+    $opts{COMPILE_DIR} = $Config->general_dir_ttc
+        if $Config->general_dir_ttc;
+
     # otherwise create one
     my $self = $class->SUPER::new(%opts);
     $templates{$class}{$conf} = $self;
