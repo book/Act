@@ -631,7 +631,7 @@ msgid "No user was found with this login or email address"
 msgstr "No user was found with this login or email address"
 
 msgid "Specify a login, or an email address, but not both"
-msgstr "Specify a login, or an email address, but not both"
+msgstr "Specify a login, or an email address (but not both)"
 
 msgid "Generate password"
 msgstr "Reset password"
