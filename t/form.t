@@ -320,6 +320,28 @@ my @tests = (
     },
   ],
 },
+{ profile => {
+      optional => [ qw(r1 r2) ],
+      global   => [ sub { $_[0]{r1} && !$_[0]{r2}
+                                    ||
+                         !$_[0]{r1} &&  $_[0]{r2}
+                        }
+                  ],
+      desc     => 'global',
+  },
+  inputs => [
+    { input  => { r1 => 1, r2 => 0 },
+      fields => { r1 => 1, r2 => 0 },
+      valid  => 1,
+      desc   => 'good',
+    },
+    { input  => { r1 => 1, r2 => 2 },
+      fields => { r1 => 1, r2 => 2 },
+      valid  => '',
+      desc   => 'bad',
+    },
+  ],
+},
 );
 plan tests => 1 + scalar(@tests) + 3 * sum map scalar(@{$_->{inputs}}), @tests;
 

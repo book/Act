@@ -1,1 +1,5 @@
+[% WRAPPER ui title = loc("Confirmation email sent") %]
+
 <p>[% loc("An email has been sent to <email>. Click on the link in the email to", email) %]</p>
+
+[% END %]

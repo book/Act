@@ -607,7 +607,14 @@ msgstr "Update Photo"
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
 "Someone, possibly you, has requested that your password be reset.\n"
-"Your new password is: %1\n"
+"In order to complete this operation, please click on the following link:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"If you have received this message without having requested it, it is\n"
+"because someone attempted to use your username or email address.  It\n"
+"was mostly likely an innocent mistake, and they are not getting your\n"
+"password, so you can safely disregard this message.\n"
 
 msgid "New password"
 msgstr "Reset password"
@@ -615,19 +622,16 @@ msgstr "Reset password"
 msgid "Reset Password"
 msgstr "Reset Password"
 
-msgid "Your password has been reset and emailed to you."
-msgstr "Your password has been reset and emailed to you."
-
 msgid "Specify either your login, or your email address."
 msgstr ""
 "Specify either your <B>login</B>, or your <B>email address</B>.\n"
-"A new password will be created and emailed to you.\n"
+"You will receive an email with instructions on how to reset your password.\n"
 
 msgid "No user was found with this login or email address"
 msgstr "No user was found with this login or email address"
 
 msgid "Specify a login, or an email address, but not both"
-msgstr "Specify a login, or an email address, but not both"
+msgstr "Specify a login, or an email address (but not both)"
 
 msgid "Generate password"
 msgstr "Reset password"
@@ -1262,4 +1266,9 @@ msgstr "New password"
 
 msgid "Enter your new password twice"
 msgstr "Enter your new password twice"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"An email has been sent to you. Click on the link in the email to\n"
+"access your user account and set a new password.\n"
 

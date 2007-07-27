@@ -617,7 +617,13 @@ msgstr "Modifier photo"
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
 "Quelqu'un, peut-être vous, a demandé à changer votre mot de passe.\n"
-"Votre nouveau mot de passe est : %1\n"
+"Pour terminer l'opération, veuillez cliquer sur le lien suivant :\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Si vous avez reçu ce message sans en avoir fait la demande, c'est que quelqu'un\n"
+"a utilisé votre login ou votre adresse email. Il s'agit très probablement\n"
+"d'une erreur, et vous pouvez ignorer ce message.\n"
 
 msgid "New password"
 msgstr "Nouveau mot de passe"
@@ -625,13 +631,10 @@ msgstr "Nouveau mot de passe"
 msgid "Reset Password"
 msgstr "Changer de mot de passe"
 
-msgid "Your password has been reset and emailed to you."
-msgstr "Un nouveau mot de passe a été généré, et vous a été envoyé par email."
-
 msgid "Specify either your login, or your email address."
 msgstr ""
 "Spécifiez votre <b>identifiant</b> ou votre <b>adresse email</b>.\n"
-"Un nouveau mot de passe sera généré et vous sera envoyé par email.\n"
+"Vous recevrez un email vous expliquant comment créer un nouveau mot de passe.\n"
 
 msgid "No user was found with this login or email address"
 msgstr "Aucun utilisateur avec cet identifiant ou adresse email."
@@ -1222,4 +1225,9 @@ msgstr "Nouveau mot de passe"
 
 msgid "Enter your new password twice"
 msgstr "Veuillez saisir votre nouveau mot de passe deux fois"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Un email vous a été envoyé. Cliquez sur le lien contenu dans cet\n"
+"email pour accéder à votre compte et saisir un nouveau mot de passe.\n"
 

@@ -64,6 +64,15 @@ sub validate
                 or $self->{invalid}{$field} = $type;
         }
     }
+    # global validation
+    if ($self->{profile}{global}) {
+        for my $g ( @{ $self->{profile}{global} } ) {
+            unless ($g->( $self->{fields} )) {
+                $self->{invalid}{global} = 1;
+                last;
+            }
+        }
+    }
     # return true if validation successful
     return 0 == keys %{$self->{invalid}};
 }

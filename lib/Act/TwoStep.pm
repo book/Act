@@ -6,21 +6,16 @@ use Digest::MD5;
 
 use Act::Config;
 use Act::Email;
-use Act::Form;
 use Act::Template;
 use Act::Template::HTML;
 use Act::Util;
 
-my $form = Act::Form->new(
-  required    => [qw(email)],
-  filters     => { email => sub { lc shift } },
-  constraints => { email => 'email' },
-);
-
-# returns token if present in pathinfo and exists in database
-# otherwise displays the form and returns undef
+# returns true if token is present in pathinfo and exists in database
+# otherwise displays the twostep form and returns undef
 sub verify_uri
 {
+    my $template_file = shift;
+
     # do we have an authentication token in the uri?
     my $token = $Request{path_info};
     if ($token) {
@@ -31,44 +26,46 @@ sub verify_uri
             return;
         }
         # valid auth token
-        return $token;
+        return 1;
     }
     # no token: display email address form
-    _display_form();
+    _display_form($template_file);
     return;
 }
 
-# validate form and create a new token
+# validate twostep form and create a new token
 sub create
 {
+    my ($template_file, $form, $email_subject_file, $email_body_file, $email_get, $errors_get, $data_get) = @_;
     my $ok = $form->validate($Request{args});
     if ($ok) {
-        my $email = $Request{args}{email};
+        my $email = $email_get->();
 
         # create a new token
         my $token = _create_token($email);
         
         # store it in the database
-        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime) VALUES (?, ?, NOW())');
-        $sth->execute($token, $email);
+        my $data;
+        $data = $data_get->() if $data_get;
+        my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime, data) VALUES (?, ?, NOW(), ?)');
+        $sth->execute($token, $email, $data);
         $Request{dbh}->commit;
 
         # email it
-        _send_email($token, $email);
+        _send_email($email_subject_file, $email_body_file, $token, $email);
 
-        # thanks, user
-        my $template = Act::Template::HTML->new();
-        $template->variables(email => $email);
-        $template->process('twostep/ok');
+        # return success
+        return 1;
     }
     else {
         # map errors
-        my @errors;
-        $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
-        $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+        my $errors = $errors_get->();
 
         # display form again
-        _display_form(\@errors, $form->{fields});
+        _display_form($template_file, $errors, $form->{fields});
+        
+        # return error
+        return 0;
     }
 }
 
@@ -77,7 +74,10 @@ sub verify_form
 {
     # do we have an authentication token in the uri?
     my $token = $Request{path_info};
-    return $token if $token && _exists($token);
+    if ($token) {
+        my $data = _exists($token);
+        return ($token, $$data) if $data;
+    }
     $Request{status} = FORBIDDEN;
     return;
 }
@@ -92,27 +92,27 @@ sub remove
     $Request{dbh}->commit;
 }
 
-# display the email address form
+# display the twostep form
 sub _display_form
 {
-    my ($errors, $fields) = @_;
+    my ($template_file, $errors, $fields) = @_;
 
     my $template = Act::Template::HTML->new();
     $template->variables(errors => $errors) if $errors;
     $template->variables(%$fields) if $fields;
-    $template->process('twostep/form');
+    $template->process($template_file);
 }
 
-# returns true if token exists in database
+# returns twostep data if token exists in database
 sub _exists
 {
     my $token = shift;
 
-    my $sth = $Request{dbh}->prepare_cached('SELECT token FROM twostep WHERE token = ?');
+    my $sth = $Request{dbh}->prepare_cached('SELECT token, data FROM twostep WHERE token = ?');
     $sth->execute($token);
-    (my $found) = $sth->fetchrow_array();
+    my ($found, $data) = $sth->fetchrow_array();
     $sth->finish;
-    return $found;
+    return $found ? \$data : undef;
 }
 
 # create a new token
@@ -130,12 +130,12 @@ sub _create_token
 # send email with link embedding token
 sub _send_email
 {
-    my ($token, $email) = @_;
+    my ($email_subject_file, $email_body_file, $token, $email) = @_;
 
     # generate subject and body from templates
     my $template = Act::Template->new;
     my $subject;
-    $template->process("core/twostep/email_subject", \$subject);
+    $template->process($email_subject_file, \$subject);
     chomp $subject;
 
     my $body;
@@ -144,7 +144,7 @@ sub _send_email
         token => $token,
         link  => $Request{base_url} . join('/', self_uri(), $token),
     );
-    $template->process("core/twostep/email_body", \$body);
+    $template->process($email_body_file, \$body);
 
     # send the email
     Act::Email::send(
@@ -167,10 +167,20 @@ Act::TwoStep - Two-step handler utility routines
 
 Modify an existing form handler to work in two steps:
 
-    my $token;
+    # twostep form
+    my $twostep_form = Act::Form->new(
+      required    => [qw(email)],
+      filters     => { email => sub { lc shift } },
+      constraints => { email => 'email' },
+    );
+    # twostep template filename
+    my $twostep_template = 'user/twostep_add';
+    
+    ...
+    
     if ($Request{args}{ok}) {                   # form has been submitted
         # must have a valid twostep token
-        $token = Act::TwoStep::verify_form()
+        my ($token, $token_data) = Act::TwoStep::verify_form()
             or return;
         ...
         # if form is valid, remove token
@@ -183,12 +193,26 @@ Modify an existing form handler to work in two steps:
     }
     elsif ($Request{args}{twostepsubmit}) {     # two-step form has been submitted
         # validate form and create a new token
-        Act::TwoStep::create();
+        if (Act::TwoStep::create(
+           $twostep_template, $twostep_form,
+           $twostep_email_subject_template, $twostep_email_body_template,
+                sub { $twostep_form->{fields}{email} },
+                sub { my @errors;
+                      $twostep_form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
+                      $twostep_form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+                      return \@errors;
+                    },
+                sub { $token_data },
+        )) {
+            # twostep form is valid, display confirmation page
+            $template->variables(email => $twostep_form->{fields}{email});
+            $template->process('user/twostep_add_ok');
+        }
         return;
     }
     else {
         # do we have a twostep token in the uri?
-        $token = Act::TwoStep::verify_uri();
+        Act::TwoStep::verify_uri($twostep_template)
             or return;
     }
     # display form
@@ -203,25 +227,26 @@ back to the handler. The link embeds an authentication token.
 
 =over 4
 
-=item $token = verify_uri()
+=item $token = verify_uri($twostep_template)
 
 Returns token if present in pathinfo and exists in database,
-otherwise displays a form with an email address field and returns undef.
+otherwise displays a form using the supplied $twostep_template and returns undef.
 
 Your handler should return after calling this function if it returns undef;
 
-=item $token = verify_form()
+=item ($token, $token_data) = verify_form()
 
-Returns token if present in submitted form data and exists in database,
+Returns token and optional token data if present in submitted form data and exists in database,
 otherwise sets the handler return status to FORBIDDEN and returns undef,
 
-Your handler should return after calling this function if it returns undef;
+Your handler should return after calling this function if it returns undef.
 
-=item create()
+=item create($twostep_template_file, $twostep_form, $email_subject_file, $email_body_file, $email_get, $errors_get, $toen_data_get)
 
-Validates the submitted email address, creates a new token in the database,
+Validates the submitted twostep form, creates a new token in the database,
 and sends an email back to the user with a link embedding the token,
 and displays an acknowledgement page.
+$token_data is an optional sub that returns data that will later be retrived with C<verify_form()>.
 
 Your handler should return after calling this function.
 
