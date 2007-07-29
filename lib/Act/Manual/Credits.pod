@@ -101,6 +101,7 @@ conference...
   Gábor Szabó
   Lars Thegler
   Daniel J. Wright
+  Farley Balasuriya
 
 =head1 AUTHORS
 
