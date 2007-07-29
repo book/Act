@@ -2,6 +2,14 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2007/07/27 r1560 support for optional compiled templates
+           r1559 change password in two steps replaces reset password
+
+2007/07/11 r1542 change password page
+
+2007/07/09 r1508 wiki [user:nick_name], [user:first_name last_name] links
+           r1505 new payment means FREE
+
 2007/07/02 r1482 Online payment: store payment type and price name
            r1481 track database schema changes
            r1478 allow donation in user payment
