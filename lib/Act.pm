@@ -40,6 +40,14 @@ event management and schedule display,
 
 =item *
 
+news items with Atom feeds
+
+=item *
+
+integrated wiki
+
+=item *
+
 statistics,
 
 =item *
@@ -128,8 +136,7 @@ it will increase visibility and acceptance.
 =back
 
 Act currently supports 6 languages: English, French, Italian, Portuguese,
-German and Hungarian. With the planned port to UTF-8, a version in Hebrew is
-expected.
+German and Hungarian. A Hebrew version is in the works.
 
 =head1 COPYRIGHT
 
