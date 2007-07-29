@@ -4,6 +4,7 @@ PRODID:-//act.mongueurs.net//Act//EN
 X-WR-RELCALID:[% cid %]
 X-WR-CALNAME:[% calname %]
 CALSCALE:GREGORIAN
+METHOD:PUBLISH
 [% FOREACH e = events %]
 BEGIN:VEVENT
 SEQUENCE:2
