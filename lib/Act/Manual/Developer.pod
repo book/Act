@@ -36,6 +36,10 @@ Global configuration variables used in Act.
 
 How to write handlers.
 
+=item L<Act::Manual::Developer::Database>
+
+Act's database usage.
+
 =back
 
 =head1 AUTHOR

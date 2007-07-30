@@ -1,3 +1,7 @@
+=head1 NAME
+
+Act::Manual::Organizer::Templates - Act templates
+
 =head1 THE FULL LIST OF ALL ACT TEMPLATES
 
 This page documents B<all> templates used within the Act framework.
@@ -17,7 +21,7 @@ These templates define the look of your conference.
 =item * B<F<ui>>
 
 This is the master template, included by every other template in the system.
-Its used as aC<WRAPPER> template by the Act system, ensuring all generated
+It's used as a C<WRAPPER> template by the Act system, ensuring all generated
 pages shares the same headers, titles, and footers.
 
 You're strongly advised to use it as a C<WRAPPER> template on your I<static>
@@ -25,17 +29,17 @@ pages as well.
 
 =item * B<F<menu>>
 
-There is no default B<F<menu>> template. You must create one before start
+There is no default B<F<menu>> template. You must create one before you start
 using Act.
 
 =item * B<F<menus/item>>
 
-There is no default B<F<menus/item>> template. You must create one before start
+There is no default B<F<menus/item>> template. You must create one before you start
 using Act.
 
 =item * B<F<menus/section>>
 
-There is no default B<F<menus/section>> template. You must create one before
+There is no default B<F<menus/section>> template. You must create one before you
 start using Act.
 
 =item * B<F<error_ui>>
@@ -285,8 +289,7 @@ Don't override them unless you know what you're doing.
 
 =item * B<F<common>>
 
-This template defines commonly used macros. Those macros seems to be in use at
-this moment on the following templates:
+This template defines commonly used macros.
 
 =cut
 
@@ -296,50 +299,6 @@ this moment on the following templates:
 ### :r! find templates -type f -exec grep -nEH common "{}" \; | grep -v \.svn | sed -e 's/^templates\//=item * B<F</;s/:.*$/>>/'
 
 =pod
-
-=over 4 
-
-=item ** B<F<core/talk/schedule>>
-
-=item ** B<F<core/user/add>>
-
-=item ** B<F<core/user/create>>
-
-=item ** B<F<core/user/rights>>
-
-=item ** B<F<core/twostep/form>>
-
-=item ** B<F<talk/list>>
-
-=item ** B<F<talk/show>>
-
-=item ** B<F<user/list>>
-
-=item ** B<F<user/main>>
-
-=item ** B<F<user/show>>
-
-=item ** B<F<user/rights>>
-
-=item ** B<F<wiki/node>>
-
-=item ** B<F<wiki/recent>>
-
-=item ** B<F<wiki/history>>
-
-=item ** B<F<event/list>>
-
-=item ** B<F<event/show>>
-
-=item ** B<F<payment/list>>
-
-=item ** B<F<payment/confirm_invoice>>
-
-=item ** B<F<payment/payment>>
-
-=back
-
-This is not considered a good practice, and must be changed. The technical writer recommends that the macros should be included at the L<Template> object configuration, pushing macros everywhere, even if they are not used.
 
 =item * B<Macro Documentation>
 
@@ -418,19 +377,6 @@ duration in minutes.
 For anything else, this macro just will return the parameter passed into,
 becoming as harmless as possible.
 
-=item * B<C<expand(chuncks)>>
-
-Weird macro used to "expand" bits of information passed in as a list. For every
-item passed in, returns eighter C<item.text> (if defined) or assumes that there
-is a L<Act::User> object referenced by the C<item.user> field and a
-L<Act::Talk> object referenced by the field C<item.talk> and calls
-C<user_info(item.user)> for the user object and C<talk_link(item.talk)> for the
-talk object, returning them concatenated with a dash in between.
-
-This seems to be B<very> specific, and shouldn't be here. It is recomended
-stronglly that you avoid using this macro. Maybe someone will deprecate and
-remove this code from the project soon.
-
 =back
 
 =back
@@ -502,4 +448,18 @@ Builds the administrative B<Admin> menu, offering a single link to the
 B<rights> page, for user role management.
 
 =back
+
+=head1 AUTHOR
+
+Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
 
