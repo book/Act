@@ -2,9 +2,9 @@
 
 Act::Manual::Provider::Installation - Installing Act on your system
 
-=head1 DESCRIPTION
+=head1 Installing Act
 
-Install (or cvs checkout) Act in a directory. In this document we'll
+Install (or svn checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 
 The required modules are tested for in t/01cpan.t. You'll find the
@@ -68,7 +68,7 @@ the global settings in F<$ACTHOME/conf/act.ini>. If you have no need
 to override these standard settings, local.ini isn't needed.
 
 You are now ready to install and configure the database system.
-See the details in database/INSTALL.<db> (where <db> is one of
+See the details in database/INSTALL.E<lt>dbE<gt> (where E<lt>dbE<gt> is one of
 Pg, MySQL....)
 
 In the end, you must have the following section in your conf/act.ini
@@ -86,9 +86,32 @@ This test suite requires Test::More.
     cd $ACTHOME
     make test
 
+=head1 Adding a new conference
+
+Decide the name of your conference. We'll use act-2004 as an example.
+
+  $ACTHOME/
+      actdocs/
+        act-2004/
+          conf/             # local configuration
+          static/           # "static" multilingual .html pages
+          templates/        # local templates or global overrides
+      wwwdocs/              # static files
+          photos/           # user photos (general_dir_photos conf item)
+          act-2004/
+              css/
+              images/
+
+Several forms used by Act used the WRAPPER "ui" for adding the local
+look&feel. The name "ui" is therefore the standard template for redefining
+the user interface.
+
+If you plan to modify some default templates, you should copy/paste*
+them to the local templates/ directory.
+
 =head1 AUTHOR
 
-Éric Cholet
+Philippe Bruhat, Éric Cholet
 
 =head1 COPYRIGHT
 

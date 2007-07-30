@@ -26,7 +26,15 @@ Some information about Unicode in Act.
 
 =item L<Act::Manual::Developer::Templates>
 
-The list of all the Act I<core> templates.
+Using Act templates.
+
+=item L<Act::Manual::Developer::Config>
+
+Global configuration variables used in Act.
+
+=item L<Act::Manual::Developer::Handlers>
+
+How to write handlers.
 
 =back
 

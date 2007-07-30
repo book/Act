@@ -1,0 +1,80 @@
+=head1 NAME
+
+Act::Manual::Developer::Config - Act configuration variables
+
+=head1 Global variables available at runtime
+
+  use Act::Config;
+
+which exports two globals: C<$Config> and C<%Request>.
+
+=head2 C<$Config>: current configuration.
+
+C<< $Config->foo_bar >> retrieves the value of the configuration parameter
+named C<foo> in section C<bar>.
+
+Configuration parameters coming from .ini files are currently all string values.
+These additional parameters are also available:
+
+=over 4
+
+=item conferences
+
+A reference to a hash whose keys are the conference names.
+
+=item languages
+
+A reference to a hash whose keys are the language codes.
+
+=back
+
+=head2 C<%Request>: current request object
+
+A hash which holds information about the current request.
+
+=over 4
+
+=item r
+
+The Apache request object.
+
+=item args
+
+A hashref to the query's parameters (decoded from query string or POSTed variables).
+
+=item language
+
+Current client language code.
+
+=item conference
+
+Name of the current conference if applicable.
+
+=item path_info
+
+What's left of the URI that hasn't been parsed.
+
+=item dbh
+
+Handle to the database. connect/disconnect is automatic.
+
+=item user
+
+A hashref to the current registered user, if applicable.
+
+=back
+
+=head1 AUTHOR
+
+Philippe Bruhat, Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+
