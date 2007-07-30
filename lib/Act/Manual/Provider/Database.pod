@@ -1,5 +1,8 @@
-Act's database
---------------
+=head1 NAME
+
+Act::Manual::Provider::Database - Setting up the Act databases
+
+=head1 DESCRIPTION
 
 In order to use the database with Act, you need to follow the procedure
 explained below. Act's preferred database is PostgreSQL, so the examples
@@ -38,7 +41,7 @@ Run wiki-toolkit-setupdb to create the tables in database actwiki.
 
     $ wiki-toolkit-setupdb --type postgres --name actwiki --user act --pass xyzzy
 
-Update $ACTHOME/conf/act.ini (or $ACTHOME/conf/local.ini) with the
+Update F<$ACTHOME/conf/act.ini> (or F<$ACTHOME/conf/local.ini>) with the
 database names and credentials.
 
     [database]
@@ -58,4 +61,18 @@ From the package's top level directory, run the test suite to verify
 that the software is able to connect to the database.
 
     $ make test
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
 

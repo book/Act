@@ -1,4 +1,13 @@
-=head1 News
+=head1 NAME
+
+Act::Manual::Organizer::News - Managing "news" items in Act
+
+=head1 DESCRIPTION
+
+Act can store news item about your conference in the database.
+
+You can edit them through the web interface, and integrate them
+anywere in the web site, including Atom feeds.
 
 =head2 Including news in a static page
 
@@ -29,3 +38,18 @@ E<lt>headE<gt> section of your pages, for example in your C<ui> template:
 
   <link rel="alternate" type="application/atom+xml" title="[% global.conference.name %]"
         href="[% global.request.base_url %][% make_uri_info( 'atom', global.request.language ) %].xml" />
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

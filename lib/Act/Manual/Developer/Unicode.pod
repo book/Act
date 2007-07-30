@@ -1,4 +1,8 @@
-=head1 Unicode
+=head1 NAME
+
+Act::Manual::Developer::Unicode - What is and what is not Unicode in Act
+
+=head1 DESCRIPTION
 
 All files are in UTF-8. But really most files are pure ASCII:
 
@@ -13,3 +17,18 @@ The databases are in UTF-8.
 All output (web, email) is in UTF-8.
 
 Conference templates, static pages and F<.ini> files are in UTF-8.
+
+=head1 AUTHOR
+
+Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

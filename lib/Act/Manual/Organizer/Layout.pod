@@ -1,4 +1,10 @@
-=head1 MANAGING YOUR ACT WEB SITE
+=head1 NAME
+
+Act::Manual::Organizer::Layout - The layout of a conference repository
+
+=head1 DESCRIPTION
+
+This manual describes the layout of a conference repository.
 
 An Act-enabled conference web site uses two subdirectories:
 
@@ -15,9 +21,13 @@ contains all the files that will be statically served
 
 =back
 
+=head2 F<wwwdocs/>
+
 You organise F<wwwdocs> as you please. To link to files stored in
 your F<wwwdocs> directory, use C<E<lt>a href="/yourconf/path/to/file"E<gt>>,
 where I<yourconf> is your conference id (e.g. ye2005, fpw2006, etc.).
+
+=head2 F<actdocs/>
 
 The F<actdocs> directory is laid out as follows:
 
@@ -86,7 +96,7 @@ Here an example of what you can do:
 =item F<actdocs/index.html>
 
     [% title = {
-          fr => 'Ma conf�rence'
+          fr => 'Ma conférence'
           en => 'My conference'
           de => 'Mein Konferenz'
           pt => '...'
@@ -152,6 +162,20 @@ For example:
 
 The various menus and links are activated and shown according to each
 user's rights and the conference current configuration.
+
+=cut
+
+=head1 AUTHOR
+
+Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
 
 =cut
 

@@ -1,0 +1,47 @@
+
+=head1 NAME
+
+Act::Manual - User guide and reference manual for Act
+
+=head1 DESCRIPTION
+
+The Act use manual is divided in several subsections, aimed at
+the different kind of users of the Act conference toolkit:
+
+=over 4
+
+=item L<Act::Manual::Organizer>
+
+This section contains information for conference organiser hosted on
+a web server using Act.
+
+=item L<Act::Manual::Provider>
+
+This section contains setup details and performance tricks for
+application providers: people that host an Act instance on their system.
+
+=item L<Act::Manual::Developer>
+
+This section contains detailed explanations on the inner workings
+of the Act toolkit and how to add components to it.
+
+=item L<Act::Manual::Credits>
+
+Author and contributor credits, with a bit of project history.
+
+=back
+
+=head1 AUTHOR
+
+Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

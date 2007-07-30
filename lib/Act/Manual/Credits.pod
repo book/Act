@@ -1,0 +1,119 @@
+
+=head1 NAME
+
+Act::Manual::Credits - 
+
+=head1 DESCRIPTION
+
+This section provides a brief history of Act and details the primary
+authors and numerous other people who have contributed to it.
+
+=head1 HISTORY
+
+In 2003, when the French Perl Mongers began organising their YAPC::Europe
+in Paris, they thought about the web site and what they wanted to do
+with it. Starting from Sylvain Lhullier's Java-looking prototype,
+Éric Cholet and Philippe Bruhat created a conference web site that
+was multilingual, template-driven, and able to manage the users, talks,
+schedule and payment. It used mod_perl and Template Toolkit. They promised
+they would open the source after cleaning it up a bit.
+
+The year after, when preparing the first French Perl Workshop, Éric
+and Philippe worked on a second system, designed from the beginning to
+support everything the old site could do, with one difference: it had to
+support multiple conferences.
+
+With the source code from YAPC Europe 2003, two developpers and two
+months of spare time were enough for this project to be ready for the
+2004 French Perl Workshop (June). Act (A Conference Toolkit) was born.
+We wanted to support several French Workshops without having to recode a
+conference web site engine every year. Laziness is a lot of work... C<:-)>
+
+At that time, we hoped that by September 2004, the code should be published
+and ready to serve other conferences.
+
+The YAPC Europe Foundation was created just after YAPC Europe in Paris,
+to help and support the organisation of Perl conferences in Europe. Since
+YEF and Act are hosted on the French mongers system, it was only natural
+that Act integrated the online payment system sponsored by YEF.
+
+The code was finally published in January 2007.
+
+While Act is not the official Perl conference software,
+The Perl Foundation has shown significant interest in Act.
+More importantly, the Perl community has used Act to organize about
+twenty conferences in Europe and in the U.S. between 2004 and 2007.
+
+However, becoming the official Perl conference software is on the roadmap
+of our world domination plan! C<;-)>
+
+=head1 NAME
+
+The name of the toolkit is Act, not ACT. 
+
+Even if it looks like an acronym (inspired by the one of APL), it is
+more of an inspirational injunction to conference organizers to forget
+about hacking the website and organize their conference. In short: "Act!".
+
+We won't get mad if you spell it ACT, as long as you use it for your
+conference...
+
+=head1 CONTRIBUTORS
+
+=head2 Act developers
+
+  Philippe Bruhat (BooK)
+  Éric Cholet
+
+=head2 Code contributors
+
+  Elizabeth Cortell
+  Thomas Klausner
+
+=head2 Translations
+
+  de: Thomas Klausner
+  hu: Gábor Szabó
+  it: Gianni "dakkar" Cecarelli
+  nl: Eric Colson, Emmanuel di Prétoro
+  pt: Alberto Manuel Brandão Simões
+
+=head2 Bugs finders, translations, idea purveyors, and general good vibes
+
+  Sébastien Aperghis-Tramoni
+  Ann Barcomb
+  Alberto Manuel Brandão Simões 
+  Jim Brandt
+  José Alves de Castro 
+  Gianni "dakkar" Cecarelli
+  Kurt DeMaagd
+  Jeremy Fluhmann
+  Anders Hellström
+  Claes Jakobsson
+  Jose Kahan
+  Maroš Kollár
+  Thomas Klausner
+  David Landgren
+  Jonas B. Nielsen
+  Salve J Nilsen
+  Enrico Sorcinelli
+  Ricardo Signes
+  Gábor Szabó
+  Lars Thegler
+  Daniel J. Wright
+  Farley Balasuriya
+
+=head1 AUTHORS
+
+Philippe Bruhat, Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

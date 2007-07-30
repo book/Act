@@ -1,0 +1,102 @@
+=head1 NAME
+
+Act::Manual::Developer::Handlers - Act handlers
+
+=head1 Definition
+
+A handler is a subroutine tied to a specific URL.
+
+=head1 How to write handlers
+
+Choose a suitable name space for your handler, we'll use C<Act::Handler::Foo>.
+Create your handler in F<lib/Act/Handler/Foo.pm>, naming your sub C<handler>.
+
+=head2 The C<handler> subroutine
+
+In your C<handler> subroutine:
+
+=over 4
+
+=item *
+
+Figure out what to do, based on the query's arguments C<$Request{args}>
+or maybe using C<$Request{path_info}>.
+
+=item *
+
+Do it. You might need to query the database with C<$Request{dbh}>.
+
+=item *
+
+In most cases you'll want to send an HTML page using a template.
+First Retrieve a template object:
+
+  my $template = Act::Template::HTML->new;
+
+Always instantiate this template object at runtime (Act uses its
+own caching mechanism to pull the correct template.)
+
+Create some template variables:
+
+  $template->variables(
+    name  => $user->{name},
+  );
+
+=item *
+
+Finally process the template. Its output will be sent to the client's
+browser.
+
+  $template->process('foo.html');
+
+Just provide the template's base name, don't use pathnames-- the template
+object knows about the current request and will know where to look.
+Template files in conference subdirectories override global templates.
+
+=back
+
+=head2 URL to handler dispatch
+
+Now choose an "action" word that best describes your handler. We'll use
+the string C<foo>. We now associate that action word with our sub by
+adding the mapping to the C<%public_handlers> hash in C<Act::Dispatcher>.
+
+  my %public_handlers = (
+    ...
+    foo => 'Act::Handler::Foo',
+    ...
+  );
+
+This will enable this handler for all URLs that start with /conference/foo
+where conference is a conference name, e.g.:
+
+  /2004/foo
+  /2004/foo?q=1
+  /2004/foo/bar
+
+If this action requires the user to be registered, add the mapping to
+C<%private_handlers> instead:
+
+  my %private_handlers = (
+    ...
+    foo => 'Act::Handler::Foo,
+    ...
+  );
+
+The user will be prompted for credentials (login and password) the first time
+a protected page is requested in a given session.
+
+=head1 AUTHOR
+
+Philippe Bruhat, Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

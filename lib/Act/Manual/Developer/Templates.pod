@@ -1,0 +1,82 @@
+=head1 NAME
+
+Act::Manual::Developer::Templates - Act's templates
+
+=head1 DESCRIPTION
+
+Act provides a set of classes that encapsulate Template Toolkit's functionality.
+The base class is Act::Template, a subclass of Template to which it adds:
+
+=over 4
+
+=item automatic INCLUDE_PATH configuration
+
+A template's INCLUDE_PATH is the list of directories where TT searches
+for template files.
+When a new template is created (C<< Act::Template->new >>), the INCLUDE_PATH
+is set according to current configuration and request: first any conference
+specific paths, if the current request is within a given conference, then
+the global template directories. This allows overriding global templates
+on a case by case basis.
+
+=item template object caching
+
+C<< Act::Template->new >> acts as an object factory: it maintains an internal
+cache of template objects. This avoids the overhead associated with template
+object creation and leverages TT's internal compiled templates cache.
+
+=item multilingual templates
+
+Multiple versions of the same text can be included in a given template, using
+an XML-like syntax: 
+
+C<< <t>...</t> >> surrounds a multilingual text section.
+C<< <xx>...</xx> >> surrounds a particular language version, where C<xx> is a language
+code. Here's an example:
+
+  <t><fr>Bonjour</fr><en>Hello</en></t>
+
+These language sections are parsed when TT compiles the template, and therefore
+have no impact on TT's compiled templates cache.
+At request time, Act::Template will process the appropriate language section
+according to the current request language.
+
+=item easier variable setting
+
+This is a convenience method. C<< $template->variables() >> will accumulate template
+variable settings until template processing time.
+
+=item default output
+
+When no output argument is provided, C<Act::Template::process> outputs to
+C<$Request{r}>, which if in a web context will be the client's browser.
+Thus in the general case process() is called with a single argument, the
+template's filename.
+
+=back
+
+Act::Template::HTML is a subclass of Act::Template which adds the following features:
+
+=over 4
+
+=item *
+
+automatic HTML escaping of template variables: &, E<lt>, E<gt> are converted to HTML
+entities &amp; &lt; and &gt;. This works on nested data structures as well.
+
+=back
+
+=head1 AUTHOR
+
+Philippe Bruhat, Éric Cholet
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+

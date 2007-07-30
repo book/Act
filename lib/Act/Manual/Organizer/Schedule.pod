@@ -1,4 +1,13 @@
-=head1 TALK SCHEDULE WITH ACT
+=head1 NAME
+
+Act::Manual::Organizer::Schedule - Managing the talk schedule with Act
+
+=head1 DESCRIPTION
+
+Act automatically creates a schedule web pages from the talks information.
+This informations is also made available in the iCal format.
+
+=head1 GENERAL SCHEDULE TIPS
 
 Once you have enough accepted talks, you can start working out
 the talk schedule.
@@ -30,6 +39,10 @@ speaker out. C<;-)>
 Count 1 minute between two lightning talks (you need time to swap speakers)
 So, that's 10 five minutes lightning talks per hour (not 12).
 
+This way, you'll also have room to accept an extra talk or two, in case
+the process runs very smoothly (e.g. using a data switcher to let one
+speaker prepare while the previous one is still talking).
+
 =item *
 
 Do not pit any talker against the lightning talks. The lightning talks
@@ -41,7 +54,7 @@ Once you've worked out a rough draft of the schedule, you can start
 using Act to edit the talks date, time and room. You can also change
 the duration, but discuss it with the speaker first.
 
-=head1 THE SCHEDULE
+=head1 THE ACT SCHEDULE
 
 =head2 How it looks
 
@@ -58,20 +71,20 @@ at the same time in the same place) in a nice way.
 
 The HTML table uses as many styles as you have rooms, plus three. Imagine
 you have three rooms, the table will use the following styles: C<header>,
-C<out>, C<venue>, C<r1>, C<r2> and C<r3>. (If you have four rooms, a
-style C<r4> will automatically be used, and so on.)
+C<out>, C<venue>, C<r1>, C<r2>, C<r3> and C<r4>. (If you have five rooms, a
+style C<r5> will automatically be used, and so on.)
 
-You can either define those styles in you stylesheet, or simply load the
+You can either define those styles in your stylesheet, or simply load the
 style located at F</css/schedule.css> with
 C<E<lt>link rel="stylesheet" type="text/css" href="/css/schedule.css" /E<gt>>.
-We'll add new colours when a conference has more than three rooms.
+We'll add new colours when a conference has more than four rooms.
 
 If you want to add some static information to the schedule
 (for example sponsor information), create a new template in
 F<actdocs/templates/talk/schedule>, based on the following:
 
     [% WRAPPER ui
-       title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Idıbeoszt·s'}
+       title = { en => 'Schedule', fr => 'Emploi du temps', it => 'Programma', pt => 'Programa', de => 'Programm', hu => 'Id√µbeoszt√°s'}
     %]
     
     <!-- The schedule table -->
@@ -134,21 +147,35 @@ in the event or talk description.
 As an exemple, here is the source description of the lightning talks
 session of the French Perl Workshop 2005:
 
-    Programme des prÈsentations Èclairs :
+    Programme des pr√©sentations √©clairs :
     - talk:101
     - talk:63
     - talk:201
     - talk:198
     - talk:190
     - Alexandre Buisse - Le GC de Parrot
-    - Pierre Weis - PrÈsentation d'OCaml
-    - StÈphane Payrard - GreaseMonkey
+    - Pierre Weis - Pr√©sentation d'OCaml
+    - St√©phane Payrard - GreaseMonkey
 
 (The last three talks were last minutes talks that were not registered
 in the database.)
 
 And here is the result:
 L<http://conferences.yapceurope.org/fpw2005/event/43>.
+
+=cut
+
+=head1 AUTHOR
+
+Philippe Bruhat
+
+=head1 COPYRIGHT
+
+Copyright (C) 2004-2007, by Philippe Bruhat and √âric Cholet.
+All Rights Reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
 
 =cut
 
