@@ -2,6 +2,8 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2007/07/30 r1569 Reorganizing The Fine Manual
+
 2007/07/27 r1560 support for optional compiled templates
            r1559 change password in two steps replaces reset password
 
