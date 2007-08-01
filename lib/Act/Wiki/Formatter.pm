@@ -64,7 +64,7 @@ sub _make_link
             my ($talk, $user) = Act::Abstract::expand_talk(URI::Escape::uri_unescape($u->opaque));
             if ($talk) {
                 my $n = $formatter->new_chunk({ talk => $talk, user => $user });
-                return "{% expand_talk(chunks.$n) %}\n";
+                return "{% expand_talk(chunks.$n) -%}\n";
             }
             return $link;
         }
@@ -72,7 +72,7 @@ sub _make_link
             my $user = Act::Abstract::expand_user(URI::Escape::uri_unescape($u->opaque));
             if ($user) {
                 my $n = $formatter->new_chunk({ user => $user });
-                return "{% expand_user(chunks.$n) %}\n";
+                return "{% expand_user(chunks.$n) -%}\n";
             }
             return $link;
         }
