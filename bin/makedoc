@@ -67,18 +67,26 @@ use File::Find            qw(find);
 use File::Path            qw(mkpath);
 use File::Spec::Functions qw(catfile);
 use FindBin               qw($Bin);
-use Getopt::Std           qw(getopts);
-use Pod::POM;
-use Pod::POM::View::Text;
-use Template;
+use Getopt::Long          qw(GetOptions);
+use Pod::POM              qw();
+use Pod::POM::View::Text  qw();
+use Pod::Usage            qw(pod2usage);
+use Template              qw();
 
 # parse command line
-my %opts;
-getopts('nva:', \%opts) or usage();
-my $acthome = $opts{a} || $ENV{ACTHOME} || "$Bin/.."
-    or die "can't determine ACTHOME\n";
+my ($help, $verbose, $dryrun, $acthome);
+Getopt::Long::Configure('bundling');
+GetOptions(
+    'help|h'    => \$help,
+    'verbose|v' => \$verbose,
+    'dryrun|n'  => \$dryrun,
+    'acthome:s' => \$acthome,
+) or pod2usage(0);
+pod2usage(1) if $help;
+$acthome ||= "$Bin/..";
 my $srcdir  = catfile($acthome, "lib/Act");
-my $destdir = shift or usage();
+-d $srcdir or pod2usage("Can't determine ACTHOME");
+my $destdir = shift or pod2usage("You must specify a destination directory!");
 
 # create POD parser and view and template objects
 my $parser = Pod::POM->new(warn => 1);
@@ -102,7 +110,7 @@ find( $wanted, $srcdir );
 for my $pathname (@files) {
     # filename relative to source directory
     (my $file = $pathname) =~ s|^$srcdir/||;
-    print "$file" if $opts{v};
+    print "$file" if $verbose;
     
     # read file
     my $pod = do {
@@ -123,8 +131,8 @@ for my $pathname (@files) {
     # determine pathname of output file
     $file =~ s/\.pod$/.html/;
     $file = catfile($destdir, $file);
-    print "  => $file\n" if $opts{v};
-    next if $opts{n};
+    print "  => $file\n" if $verbose;
+    next if $dryrun;
 
     # create destination directory
     my $dir = dirname($file);
@@ -140,27 +148,61 @@ for my $pathname (@files) {
         }
     }
     # process file through our page template
-    my $output;
+    open my $fh, '>:encoding(UTF-8)', $file
+        or die "can't open $file for writing: $!\n";
     $template->process(
         'page',
         {
           content => $html,
           meta    => \%meta,
         },
-        \$output);
-    open my $fh, '>:encoding(UTF-8)', $file
-        or die "can't open $file for writing: $!\n";
-    print $fh $output;
+        $fh);
 }
-##########
-sub usage
-{
-    die <<EOF;
-usage: $0 [-nv] [-a acthome] target_directory
+__END__
 
-Options:
-    -a acthome      specify alternate ACTHOME
-    -n              dry run
-    -v              verbose
-EOF
-}
+=head1 NAME
+
+makedoc - build HTML tree from Act's POD documenation (Act::Manual)
+
+=head1 SYNOPSIS
+
+makedoc [options] destination_directory
+
+ Options:
+   -a, --acthome <acthome>     specify alternate ACTHOME
+   -h, --help                  prints brief help text
+   -n, --dryrun                dry run
+   -v, --verbose               verbose
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--help>
+
+Prints a brief help message and exits.
+
+=item B<--acthome>
+
+Specify an alternate Act home directory. C<makedoc> will look for POD files
+in that directory's F<lib/Act> subdirectory.
+
+Defaults to the parent directory
+
+=item B<--dryrun>
+
+Processes the POD files without saving them.
+
+=item B<--verbose>
+
+Prints information on each processed POD file.
+
+=back
+
+=head1 DESCRIPTION
+
+B<makedoc> converts the Act manual's POD file tree into an HTML file tree.
+It doesn't rely on a correctly configured running Act installation,
+only on a directory where pod files can be found in F<lib/Act/>.
+
+=cut
