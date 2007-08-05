@@ -16,7 +16,6 @@ The databases are in UTF-8.
 
 All output (web, email) is in UTF-8.
 
-Conference templates, static pages and F<.ini> files are in UTF-8.
+Conference templates, static pages and F<.ini> files are in UTF-8
 
 =cut
-

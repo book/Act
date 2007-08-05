@@ -4,23 +4,28 @@
 <head>
 [%- IF meta.NAME -%]<title>[% meta.NAME %]</title>[% END %]
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" />
+<link rel="stylesheet" type="text/css" href="[% baseurl %]/css/style.css" />
 </head>
 <body>
-[% content %]
-<hr />
-<div id="authors">
-  <h3>Authors</h3>
-  Philippe Bruhat, Éric Cholet
-</div>
-<div id="copyright">
-  <h3>Copyright</h3>
-  Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-  All Rights Reserved.
-</div>
-<div id="license">
-  <h3>License</h3>
-  This module is free software; you can redistribute it and/or
-  modify it under the same terms as Perl itself.
+<div id="doc3">
+  <div id="bd">[% content %]</div>
+  <div id="ft">
+    <div id="authors">
+      <h3>Authors</h3>
+      Philippe Bruhat, Éric Cholet
+    </div>
+    <div id="copyright">
+      <h3>Copyright</h3>
+      Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+      All Rights Reserved.
+    </div>
+    <div id="license">
+      <h3>License</h3>
+      This module is free software; you can redistribute it and/or
+      modify it under the same terms as Perl itself.
+    </div>
+  </div>
 </div>
 </body>
 </html>

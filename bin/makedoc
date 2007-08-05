@@ -74,16 +74,18 @@ use Pod::Usage            qw(pod2usage);
 use Template              qw();
 
 # parse command line
-my ($help, $verbose, $dryrun, $acthome);
+my ($help, $verbose, $dryrun, $acthome, $baseurl);
 Getopt::Long::Configure('bundling');
 GetOptions(
     'help|h'    => \$help,
     'verbose|v' => \$verbose,
     'dryrun|n'  => \$dryrun,
     'acthome:s' => \$acthome,
+    'baseurl:s' => \$baseurl,
 ) or pod2usage(0);
 pod2usage(1) if $help;
 $acthome ||= "$Bin/..";
+$baseurl ||= '';
 my $srcdir  = catfile($acthome, "lib/Act");
 -d $srcdir or pod2usage("Can't determine ACTHOME");
 my $destdir = shift or pod2usage("You must specify a destination directory!");
@@ -155,6 +157,7 @@ for my $pathname (@files) {
         {
           content => $html,
           meta    => \%meta,
+          baseurl => $baseurl,
         },
         $fh);
 }
@@ -170,6 +173,7 @@ makedoc [options] destination_directory
 
  Options:
    -a, --acthome <acthome>     specify alternate ACTHOME
+   --baseurl <url>             specify static resource root URL
    -h, --help                  prints brief help text
    -n, --dryrun                dry run
    -v, --verbose               verbose
@@ -192,6 +196,23 @@ Defaults to the parent directory
 =item B<--dryrun>
 
 Processes the POD files without saving them.
+
+=item B<--baseurl>
+
+Specify the URL of the root of the mandocs. It is prepended to links to static
+resources such as CSS stylesheets and image files.
+Do not include a trailing slash.
+
+Defaults to the empty string.
+
+Example:
+
+Build the HTML docs as a subdirectory the root of an Act checkout, and use the supplied static
+resources (images and stylesheets) files in F<mandocs/>:
+
+  act% bin/makedocs --baseurl=${PWD}/mandocs docs
+
+This will create an HTML tree suitable for local (C<file://) viewing.
 
 =item B<--verbose>
 
