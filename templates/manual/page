@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+[%- IF meta.NAME -%]<title>[% meta.NAME %]</title>[% END %]
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+[% content %]
+<hr />
+<div id="authors">
+  <h3>Authors</h3>
+  Philippe Bruhat, Éric Cholet
+</div>
+<div id="copyright">
+  <h3>Copyright</h3>
+  Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
+  All Rights Reserved.
+</div>
+<div id="license">
+  <h3>License</h3>
+  This module is free software; you can redistribute it and/or
+  modify it under the same terms as Perl itself.
+</div>
+</body>
+</html>

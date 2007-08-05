@@ -1,0 +1,166 @@
+#!/usr/bin/env perl
+#
+# Build a HTML tree from the Act POD manual.
+
+use strict;
+
+##########################
+package MyView;
+use base 'Pod::POM::View::HTML';
+
+my $prefix = 'Act::';
+my %meta_sections = map { $_ => 1 } qw(NAME);
+
+sub is_meta_section
+{
+    my ($self, $name) = @_;
+    return exists $meta_sections{$name};
+}
+
+sub page_depth
+{
+    my $self = shift;
+    if (@_) {
+        $self->{_act_makedoc_depth} = shift;
+    }
+    return $self->{_act_makedoc_depth};
+}
+
+sub view_pod
+{
+    my ($self, $pod) = @_;
+    return $pod->content->present($self);
+}
+sub view_head1
+{
+    my ($self, $head1) = @_;
+    my $title = $head1->title->present($self);
+
+    if ($meta_sections{$title}) {
+        return '';
+    }
+    my $html = $head1->content->present($self);
+    if ($title eq 'DESCRIPTION') {
+        return $html;
+    }
+    return "<h1>$title</h1>\n"
+           . $head1->content->present($self);
+}
+sub view_seq_link_transform_path
+{
+    my ($self, $page) = @_;
+    if ($page =~ /^$prefix/) {
+        # a link to another man page
+        $page =~ s/^$prefix//;
+        $page =~ s|::|/|g;
+        return '../' x $self->page_depth . $page . '.html';
+    }
+    warn "unknown link: $page\n";
+    return;
+}
+
+###########################
+package main;
+
+use File::Basename        qw(dirname);
+use File::Find            qw(find);
+use File::Path            qw(mkpath);
+use File::Spec::Functions qw(catfile);
+use FindBin               qw($Bin);
+use Getopt::Std           qw(getopts);
+use Pod::POM;
+use Pod::POM::View::Text;
+use Template;
+
+# parse command line
+my %opts;
+getopts('nva:', \%opts) or usage();
+my $acthome = $opts{a} || $ENV{ACTHOME} || "$Bin/.."
+    or die "can't determine ACTHOME\n";
+my $srcdir  = catfile($acthome, "lib/Act");
+my $destdir = shift or usage();
+
+# create POD parser and view and template objects
+my $parser = Pod::POM->new(warn => 1);
+my $view_html = MyView->new;
+my $view_text = Pod::POM::View::Text->new;
+my $template = Template->new(
+   INCLUDE_PATH => catfile($acthome, qw(templates manual)),
+   UNICODE  => 1,
+   ENCODING => 'UTF-8',
+);
+
+# find all pod files
+my @files;
+my $wanted = sub {
+    $File::Find::prune = 1 if -d && /\A(?:CVS|\.svn)\b/;
+    -f && /.pod$/ && push @files, $File::Find::name;
+};
+find( $wanted, $srcdir );
+
+# convert pod to html
+for my $pathname (@files) {
+    # filename relative to source directory
+    (my $file = $pathname) =~ s|^$srcdir/||;
+    print "$file" if $opts{v};
+    
+    # read file
+    my $pod = do {
+        local $/ = undef;
+        open my $fh, '<:encoding(UTF-8)', $pathname
+            or die "can't open $pathname for reading: $!\n";
+        <$fh>;
+    };
+    # determine this file's depth within the tree,
+    # this will be used by the view to make relative links
+    my $depth = () = $file =~ m|/|g;
+    $view_html->page_depth($depth);
+
+    # parse and render the POD
+    my $pom = $parser->parse_text($pod);
+    my $html = $pom->present($view_html);
+
+    # determine pathname of output file
+    $file =~ s/\.pod$/.html/;
+    $file = catfile($destdir, $file);
+    print "  => $file\n" if $opts{v};
+    next if $opts{n};
+
+    # create destination directory
+    my $dir = dirname($file);
+    -d $dir or mkpath($dir);
+
+    # retrieve meta data
+    my %meta;
+    for my $head1 ($pom->head1()) {
+        if (MyView->is_meta_section($head1->title())) {
+            my $text = $head1->content->present($view_text);
+            $text =~ s/\s+$//;
+            $meta{ $head1->title() } = $text;
+        }
+    }
+    # process file through our page template
+    my $output;
+    $template->process(
+        'page',
+        {
+          content => $html,
+          meta    => \%meta,
+        },
+        \$output);
+    open my $fh, '>:encoding(UTF-8)', $file
+        or die "can't open $file for writing: $!\n";
+    print $fh $output;
+}
+##########
+sub usage
+{
+    die <<EOF;
+usage: $0 [-nv] [-a acthome] target_directory
+
+Options:
+    -a acthome      specify alternate ACTHOME
+    -n              dry run
+    -v              verbose
+EOF
+}
