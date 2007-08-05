@@ -1,7 +1,6 @@
-
 =head1 NAME
 
-Act::Manual::Credits - 
+Act::Manual::Credits
 
 =head1 DESCRIPTION
 
@@ -47,7 +46,7 @@ twenty conferences in Europe and in the U.S. between 2004 and 2007.
 However, becoming the official Perl conference software is on the roadmap
 of our world domination plan! C<;-)>
 
-=head1 NAME
+=head1 The Name
 
 The name of the toolkit is Act, not ACT. 
 
@@ -102,18 +101,6 @@ conference...
   Lars Thegler
   Daniel J. Wright
   Farley Balasuriya
-
-=head1 AUTHORS
-
-Philippe Bruhat, Éric Cholet
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
 
 =cut
 

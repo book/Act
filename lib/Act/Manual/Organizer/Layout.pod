@@ -164,18 +164,3 @@ The various menus and links are activated and shown according to each
 user's rights and the conference current configuration.
 
 =cut
-
-=head1 AUTHOR
-
-Philippe Bruhat
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
-
-=cut
-
