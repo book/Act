@@ -3,23 +3,25 @@ h1 { font-size: 2em }
 h2 { font-size: 1.5em }
 li { list-style: square }
 
-p {
+p, ul, li, h1, h2, h3, pre {
   margin-top: 1em;
 }
 ul {
-  margin-top: 1em;
   margin-left: 2em;
 }
 h1, h2, h3  {
-  margin-top: 1em;
   font-weight: bold;
 }
 pre {
-  margin-top: 1em;
   padding: 2em;
   background: #EEE;
   border: 1px solid #AAA;
   color: black;
   white-space: pre;
   font-family: "Monaco", "Courier", monospace;
+}
+#ft {
+  margin-top: 2em;
+  border-top: 1px solid #AAA;
+  font-size: small;
 }
