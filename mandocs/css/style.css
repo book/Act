@@ -12,13 +12,15 @@ ul {
 h1, h2, h3  {
   font-weight: bold;
 }
+pre, code {
+  font-family: "Monaco", "Courier", monospace;
+}
 pre {
   padding: 2em;
   background: #EEE;
   border: 1px solid #AAA;
   color: black;
   white-space: pre;
-  font-family: "Monaco", "Courier", monospace;
 }
 #ft {
   margin-top: 2em;
