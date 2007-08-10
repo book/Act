@@ -1,5 +1,4 @@
 use Test::More tests => 9;
-use DateTime;
 use Test::MockObject;
 
 use Act::Config;
@@ -19,7 +18,6 @@ db_add_users();
 my $user = Act::User->new( login => 'echo' );
 
 # create a news item
-my $now = DateTime->now();
 $news = Act::News->create(
     conf_id => 'conf',
     user_id => $user->user_id,
@@ -34,7 +32,6 @@ my $fetched = Act::News->new(conf_id => 'conf');
 is_deeply($fetched, $news, "fetch");
 
 # update
-$now = DateTime->now();
 $news->update(text => "something else\nentirely", published => 1);
 $fetched = Act::News->new(news_id => $news->news_id);
 is_deeply($fetched, $news,"update");
