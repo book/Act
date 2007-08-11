@@ -13,6 +13,7 @@ my @UROWS = qw(
     has_talk has_paid
 );
 my @PROWS = qw( tshirt_size nb_family );
+my @TROWS = qw( company address vat );
 
 sub handler
 {
@@ -25,7 +26,7 @@ sub handler
     my $users = Act::User->get_items(conf_id => $Request{conference});
 
     # generate CSV report
-    my $csv = Text::xSV->new( header => [ @UROWS, @PROWS ] );
+    my $csv = Text::xSV->new( header => [ @UROWS, @PROWS , ($Request{user}->is_treasurer ? @TROWS : ())] );
     $Request{r}->send_http_header('text/csv; charset=UTF-8');
     $Request{r}->print($csv->format_header());
 
@@ -38,6 +39,7 @@ sub handler
         $Request{r}->print($csv->format_row(
             map($u->$_,   @UROWS),
             map($p->{$_}, @PROWS),
+            ($Request{user}->is_treasurer ? map($u->$_, @TROWS) : ()),
         ));
     }
 }
