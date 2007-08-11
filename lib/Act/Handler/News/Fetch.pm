@@ -1,6 +1,8 @@
 use strict;
 package Act::Handler::News::Fetch;
 
+use DateTime;
+
 use Act::Config;
 use Act::News;
 use Act::User;
@@ -15,6 +17,11 @@ sub fetch
                         lang      => $Request{language},
                         published => 1,
                );
+
+    # remove items in the future
+    my $now = DateTime->now();
+    $news = [ grep { $_->datetime <= $now } @$news ];
+
     # apply optional limit
     $#$news = $count - 1 if $count && @$news > $count;
 

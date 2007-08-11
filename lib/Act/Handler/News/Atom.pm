@@ -10,6 +10,7 @@ $XML::Atom::DefaultVersion = "1.0";
 use Act::Config;
 use Act::News;
 use Act::User;
+use Act::Handler::News::Fetch;
 
 sub handler
 {
@@ -20,11 +21,7 @@ sub handler
         $Request{language} = $1;
     }
     # fetch this conference's published news items
-    my $news = Act::News->get_items(
-                        conf_id   => $Request{conference},
-                        lang      => $Request{language},
-                        published => 1,
-               );
+    my $news = Act::Handler::News::Fetch::fetch();
 
     # generate Atom feed
     my $url = $Config->general_full_uri . "atom/$Request{language}.xml";
