@@ -2,6 +2,7 @@ use strict;
 package Act::Handler::News::Edit;
 
 use Apache::Constants qw(NOT_FOUND);
+use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Form;
@@ -9,12 +10,16 @@ use Act::News;
 use Act::Template::HTML;
 use Act::Util;
 
-my $form = Act::Form->new(
-  required => [qw(title text)],
-  optional => [qw(published delete)],
+my %form_params = (
+  common_required => [qw(title text)],
+  common_optional => [qw(published delete)],
   filters  => {
      published => sub { $_[0] ? 1 : 0 },
   },
+  constraints => {
+    date => 'date',
+    time => 'time',
+  }
 );
 
 sub handler
@@ -38,15 +43,39 @@ sub handler
             $Request{status} = NOT_FOUND;
             return;
         }
+        # convert datetime to conference timezone
+        my $dt = $news->datetime->clone();
+        $dt->set_time_zone('UTC');
+        $dt->set_time_zone($Config->general_timezone);
+        $news->{date} = $dt->ymd;
+        $news->{time} = $dt->strftime('%H:%M');
     }
 
     # form has been submitted
     if ($Request{args}{submit}) {
         # validate form fields
+        $form_params{required} = [ @{ $form_params{common_required} } ];
+        $form_params{optional} = [ @{ $form_params{common_optional} } ];
+        if ($news) {
+            push @{ $form_params{required} }, qw(date time);
+        }
+        else {
+            push @{ $form_params{optional} }, qw(date time);
+        }
+        my $form = Act::Form->new(%form_params);
         my @errors;
         my $ok = $form->validate($Request{args});
         my $fields = $form->{fields};
         if ($ok) {
+            # convert to UTC datetime
+            if (    defined $news
+                 && !$form->{invalid}{date}
+                 && !$form->{invalid}{time} )
+            {
+                $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+                $fields->{datetime}->set_time_zone($Config->general_timezone);
+                $fields->{datetime}->set_time_zone('UTC');
+            }
             # update existing item
             if (defined $news) { 
                 if ($fields->{delete}) {
@@ -72,6 +101,8 @@ sub handler
             # map errors
             $form->{invalid}{title} && push @errors, 'ERR_TITLE';
             $form->{invalid}{text}  && push @errors, 'ERR_TEXT';
+            $form->{invalid}{date}  && push @errors, 'ERR_DATE';
+            $form->{invalid}{time}  && push @errors, 'ERR_TIME';
         }
         $template->variables(errors => \@errors);
     }
