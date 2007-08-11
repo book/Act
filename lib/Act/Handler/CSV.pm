@@ -15,10 +15,12 @@ ORDER BY p.datetime, u.last_name, u.first_name
 SQL
     payments => [ sub { $_[0]->is_treasurer() }, << 'SQL', [ 'paid'] ],
 SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name,
-    u.last_name, u.email, o.amount, o.currency, o.means
-FROM orders o, users u
-WHERE o.conf_id = ? 
-  AND o.user_id = u.user_id AND o.status = ?
+    u.last_name, u.email, o.amount, o.currency, o.means,
+    i.invoice_no, i.company, i.address, i.vat
+FROM orders o
+LEFT JOIN users u ON (o.user_id = u.user_id )
+LEFT OUTER JOIN invoices i ON (o.order_id = i.order_id)
+WHERE o.conf_id = ? AND o.status = ?
 ORDER BY o.datetime
 SQL
 );
