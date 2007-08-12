@@ -9,6 +9,9 @@
 <p>
  {{Please create your user below.}}
 </p>
+[% MACRO user_info_x(user)
+   BLOCK;
+%]<a href="[% user.most_recent_participation.url %]user/[% user.user_id %]">[% user_info_base(user); END %]
 
 <center>
 
@@ -31,7 +34,7 @@
    "<p>";
    FOREACH u IN duplicates ;
        "[" ; u.login ; "] ";
-       user_info(u);
+       user_info_x(u);
        IF ! u.email_hide ; " &lt;"; u.email; "&gt;" ; END ;
        " ("; u.country_name;
        ")<br />";

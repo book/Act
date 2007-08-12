@@ -4,6 +4,7 @@ use Act::Object;
 use Act::Talk;
 use Act::Country;
 use Carp;
+use List::Util qw(first);
 use base qw( Act::Object );
 
 # class data used by Act::Object
@@ -258,9 +259,34 @@ sub possible_duplicates {
                 $self->$attr() )
             if $self->$attr();
     }
+    $_->most_recent_participation() for @twins;
+
     @twins = sort { $a->user_id <=> $b->user_id } @twins;
 
     return \@twins;
+}
+sub most_recent_participation {
+    my ($self) = @_;
+
+    # get all participations
+    my $participations = $self->participations;
+
+    # prefer current conference
+    my $chosen = first { $_->{conf_id} eq $Request{conference} } @$participations;
+    unless ($chosen) {
+        # if no participation date, use conference start date instead
+        for my $p (@$participations) {
+            $p->{datetime} ||= Act::Config::get_config($p->{conf_id})->talks_start_date;
+        }
+        # sort participations in reverse chronological order
+        my @p = sort { $b->{datetime} cmp $a->{datetime} } @$participations;
+        
+        # choose most recent participation
+        $chosen = $p[0];
+    }
+    # add url information
+    $chosen->{url} = Act::Config::get_config($chosen->{conf_id})->general_full_uri;
+    $self->{most_recent_participation} = $chosen;
 }
 
 1;

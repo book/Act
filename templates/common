@@ -28,7 +28,8 @@
 [% END ; END %]
 [% MACRO user_info(user)
    BLOCK;
-%]<a href="[% make_uri_info('user', user.user_id) %]">[%
+%]<a href="[% make_uri_info('user', user.user_id) %]">[% user_info_base(user); END %]
+[% MACRO user_info_base(user) BLOCK;
     IF user.pseudonymous;
       user.nick_name;
     ELSE;
