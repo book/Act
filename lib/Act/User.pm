@@ -285,7 +285,8 @@ sub most_recent_participation {
         $chosen = $p[0];
     }
     # add url information
-    $chosen->{url} = Act::Config::get_config($chosen->{conf_id})->general_full_uri;
+    $chosen->{url} = Act::Config::get_config($chosen->{conf_id})->general_full_uri
+        if $chosen->{conf_id};
     $self->{most_recent_participation} = $chosen;
 }
 
