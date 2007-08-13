@@ -1,5 +1,6 @@
 use Test::More tests => 9;
 use Test::MockObject;
+use DateTime;
 
 use Act::Config;
 use Act::News;
@@ -24,6 +25,7 @@ $news = Act::News->create(
     lang    => 'en',
     title   => 'breaking news!',
     text    => 'something interesting',
+    datetime => DateTime->now(),
 );
 isa_ok($news, 'Act::News');
 

@@ -21,7 +21,6 @@
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
-[% IF news_id %]
 <tr>
   <td align="right">{{Date}}</td>
   <td>&nbsp;</td>
@@ -31,7 +30,6 @@
     <input type="text" name="time" value="[% time %]" size="5" maxlength="5" />
   </td>
 </tr>
-[% END %]
 <tr>
   <td align="right">{{Title}}</td>
   <td>&nbsp;</td>

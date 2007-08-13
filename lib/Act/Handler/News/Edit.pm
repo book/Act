@@ -2,6 +2,7 @@ use strict;
 package Act::Handler::News::Edit;
 
 use Apache::Constants qw(NOT_FOUND);
+use DateTime;
 use DateTime::Format::Pg;
 
 use Act::Config;
@@ -10,9 +11,9 @@ use Act::News;
 use Act::Template::HTML;
 use Act::Util;
 
-my %form_params = (
-  common_required => [qw(title text)],
-  common_optional => [qw(published delete)],
+my $form = Act::Form->new(
+  required => [qw(title text date time)],
+  optional => [qw(news_id published delete)],
   filters  => {
      published => sub { $_[0] ? 1 : 0 },
   },
@@ -43,39 +44,20 @@ sub handler
             $Request{status} = NOT_FOUND;
             return;
         }
-        # convert datetime to conference timezone
-        my $dt = $news->datetime->clone();
-        $dt->set_time_zone('UTC');
-        $dt->set_time_zone($Config->general_timezone);
-        $news->{date} = $dt->ymd;
-        $news->{time} = $dt->strftime('%H:%M');
     }
 
     # form has been submitted
     if ($Request{args}{submit}) {
         # validate form fields
-        $form_params{required} = [ @{ $form_params{common_required} } ];
-        $form_params{optional} = [ @{ $form_params{common_optional} } ];
-        if ($news) {
-            push @{ $form_params{required} }, qw(date time);
-        }
-        else {
-            push @{ $form_params{optional} }, qw(date time);
-        }
-        my $form = Act::Form->new(%form_params);
         my @errors;
         my $ok = $form->validate($Request{args});
-        my $fields = $form->{fields};
+        $fields = $form->{fields};
         if ($ok) {
             # convert to UTC datetime
-            if (    defined $news
-                 && !$form->{invalid}{date}
-                 && !$form->{invalid}{time} )
-            {
-                $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
-                $fields->{datetime}->set_time_zone($Config->general_timezone);
-                $fields->{datetime}->set_time_zone('UTC');
-            }
+            $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+            $fields->{datetime}->set_time_zone($Config->general_timezone);
+            $fields->{datetime}->set_time_zone('UTC');
+
             # update existing item
             if (defined $news) { 
                 if ($fields->{delete}) {
@@ -106,8 +88,22 @@ sub handler
         }
         $template->variables(errors => \@errors);
     }
+    # initial form display
+    else {
+        if (exists $Request{args}{news_id}) {
+            $fields = { %$news };
+        }
+        else {
+            $fields = { datetime => DateTime->now() };
+        }
+        # convert datetime to conference timezone
+        $fields->{datetime}->set_time_zone('UTC');
+        $fields->{datetime}->set_time_zone($Config->general_timezone);
+        $fields->{date} = $fields->{datetime}->ymd;
+        $fields->{time} = $fields->{datetime}->strftime('%H:%M');
+    }
     # display the news item submission form
-    $template->variables( defined $news ? %$news :  %$fields );
+    $template->variables( %$fields );
     $template->process('news/edit');
 }
 
