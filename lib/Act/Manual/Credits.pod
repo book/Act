@@ -80,6 +80,7 @@ conference...
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
   Sébastien Aperghis-Tramoni
+  Farley Balasuriya
   Ann Barcomb
   Alberto Manuel Brandão Simões 
   Jim Brandt
@@ -92,6 +93,7 @@ conference...
   Jose Kahan
   Maroš Kollár
   Thomas Klausner
+  Roland Lammel
   David Landgren
   Jonas B. Nielsen
   Salve J Nilsen
@@ -100,7 +102,6 @@ conference...
   Gábor Szabó
   Lars Thegler
   Daniel J. Wright
-  Farley Balasuriya
 
 =cut
 
