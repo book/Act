@@ -13,7 +13,7 @@ The base class is Act::Template, a subclass of Template to which it adds:
 
 A template's INCLUDE_PATH is the list of directories where TT searches
 for template files.
-When a new template is created (C<< Act::Template->new >>), the INCLUDE_PATH
+When a new template is created (C<Act::Template-E<gt>new>), the INCLUDE_PATH
 is set according to current configuration and request: first any conference
 specific paths, if the current request is within a given conference, then
 the global template directories. This allows overriding global templates
@@ -21,7 +21,7 @@ on a case by case basis.
 
 =item template object caching
 
-C<< Act::Template->new >> acts as an object factory: it maintains an internal
+C<Act::Template-E<gt>new> acts as an object factory: it maintains an internal
 cache of template objects. This avoids the overhead associated with template
 object creation and leverages TT's internal compiled templates cache.
 
@@ -30,8 +30,8 @@ object creation and leverages TT's internal compiled templates cache.
 Multiple versions of the same text can be included in a given template, using
 an XML-like syntax: 
 
-C<< <t>...</t> >> surrounds a multilingual text section.
-C<< <xx>...</xx> >> surrounds a particular language version, where C<xx> is a language
+C<E<lt>tE<gt>...E<lt>/t<E<gt>> surrounds a multilingual text section.
+C<E<lt>xxE<gt>...E<lt>/xxE<gt>> surrounds a particular language version, where C<xx> is a language
 code. Here's an example:
 
   <t><fr>Bonjour</fr><en>Hello</en></t>
@@ -43,7 +43,7 @@ according to the current request language.
 
 =item easier variable setting
 
-This is a convenience method. C<< $template->variables() >> will accumulate template
+This is a convenience method. C<$template-E<gt>variables()> will accumulate template
 variable settings until template processing time.
 
 =item default output
@@ -65,18 +65,6 @@ automatic HTML escaping of template variables: &, E<lt>, E<gt> are converted to 
 entities &amp; &lt; and &gt;. This works on nested data structures as well.
 
 =back
-
-=head1 AUTHOR
-
-Philippe Bruhat, Éric Cholet
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
 
 =cut
 

@@ -164,18 +164,3 @@ And here is the result:
 L<http://conferences.yapceurope.org/fpw2005/event/43>.
 
 =cut
-
-=head1 AUTHOR
-
-Philippe Bruhat
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
-
-=cut
-

@@ -10,7 +10,7 @@ which exports two globals: C<$Config> and C<%Request>.
 
 =head2 C<$Config>: current configuration.
 
-C<< $Config->foo_bar >> retrieves the value of the configuration parameter
+C<$Config-E<gt>foo_bar> retrieves the value of the configuration parameter
 named C<foo> in section C<bar>.
 
 Configuration parameters coming from .ini files are currently all string values.
@@ -63,18 +63,6 @@ Handle to the database. connect/disconnect is automatic.
 A hashref to the current registered user, if applicable.
 
 =back
-
-=head1 AUTHOR
-
-Philippe Bruhat, Éric Cholet
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
 
 =cut
 

@@ -314,7 +314,7 @@ Creates a link to the given Talk Info page, using the talk title as the link
 name. It will make the talk title bold if the talk is already accepted for the
 conference.
 
-This calls B<L<make_uri_info()>> function passing using the C<talk.id> field to
+This calls C<make_uri_info()> function passing using the C<talk.id> field to
 identify the talk and build the link. It will also use the C<talk.title> field
 for the link text and C<talk.accepted> field to decide about format.
 
@@ -326,7 +326,7 @@ Creates a link to the given talk info page, using the talk title as the link
 name. It will make the talk title bold if the talk is already confirmed for the
 conference.
 
-This calls B<L<make_uri_info()>> function using the C<talk.id> field to
+This calls C<make_uri_info()> function using the C<talk.id> field to
 identify the talk and build the link. It will also use the C<talk.title> field
 for the link text and C<talk.confirmed> field to decide about formatting.
 
@@ -342,21 +342,21 @@ B<C<talks_edition_open>> configuration options.
 
 =item * B<C<event_link(event)>>
 
-Receives an L<Act::Event> object as parameter;
+Receives an C<Act::Event> object as parameter;
 
 Returns a link to the event information page for this event object, using
 C<event.title> as the link text.
 
 =item * B<C<event_modify_link(event)>>
 
-Receives an L<Act::Event> object as parameter;
+Receives an C<Act::Event> object as parameter;
 
 Builds a link to the B<editevent> page, allowing only event organizers to edit
 the event properties.
 
 =item * B<C<user_info(user)>>
 
-Receives an L<Act::User> object as parameter.
+Receives an C<Act::User> object as parameter.
 
 Builds a link to the user information page, either using the C<user.nick_name>
 (if C<user.pseudonymous> is on) as the link text or the classical "First-Last
@@ -364,14 +364,14 @@ name (nickname)" format.
 
 =item * B<C<timeslot(t)>>
 
-Receives as input either an L<Act::Talk> or an L<Act:Event> object, and
+Receives as input either an C<Act::Talk> or an C<Act:Event> object, and
 returns:
 
-For L<Act::Talk>s, a link for the user information page, a link for the talk
+For C<Act::Talk>s, a link for the user information page, a link for the talk
 (bold indicates talk already confirmed) and the talk duration in minutes; Also
 adds up information about the track this talk is included into.
 
-For L<Act::Event>s, a link for the event information page, and the event
+For C<Act::Event>s, a link for the event information page, and the event
 duration in minutes.
 
 For anything else, this macro just will return the parameter passed into,
@@ -448,18 +448,6 @@ Builds the administrative B<Admin> menu, offering a single link to the
 B<rights> page, for user role management.
 
 =back
-
-=head1 AUTHOR
-
-Philippe Bruhat
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
 
 =cut
 

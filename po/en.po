@@ -248,7 +248,7 @@ msgstr ""
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"The personal data that will be gathered here will be used to create"
+"The personal data that will be gathered here will be used to create\n"
 "an <a href=\"%1\">online <i>who's who</i></a> of all the attendees.\n"
 "This will be very useful after the conference, when you'll want to get\n"
 "in touch with someone you met during the conference. Or even before,\n"

@@ -86,17 +86,5 @@ C<%private_handlers> instead:
 The user will be prompted for credentials (login and password) the first time
 a protected page is requested in a given session.
 
-=head1 AUTHOR
-
-Philippe Bruhat, Éric Cholet
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet.
-All Rights Reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
-
 =cut
 
