@@ -4,7 +4,7 @@ Act::Manual::Organizer::News - Managing "news" items in Act
 
 =head1 DESCRIPTION
 
-Act can store news item about your conference in the database.
+Act can store news items about your conference in the database.
 
 You can edit them through the web interface, and integrate them
 anywere in the web site, including Atom feeds.
