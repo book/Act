@@ -15,6 +15,7 @@
      ERR_URL_TALK       => loc("Talk URL is not a valid URL"),
      ERR_ROOM           => loc("Incorrect room submitted"),
      ERR_LEVEL          => loc("Please choose a target audience"),
+     ERR_LANG           => loc("Incorrect language"),
   }
 %]
 
@@ -81,7 +82,7 @@
 <tr>
   <td align="right" valign="top">
   {{Track}}</td>
-  <td></td>
+  <td>&nbsp;</td>
   <td>
    <select name="track_id">
      <option value=""[% ' selected="selected"' UNLESS track_id %] />
@@ -94,6 +95,19 @@
   [% ELSE %]
    <input type="hidden" name="track_id" value="[% track_id %]" />
   [% END %]
+[% END %]
+[% IF global.config.talks_languages %]
+<tr>
+  <td align="right" valign="top">
+  {{Language}}</td>
+  <td>&nbsp;</td>
+  <td><select name="lang" size="1">
+        <option value=""[% ' selected="selected"' UNLESS lang %] />
+      [% FOREACH lg = global.config.talks_languages.keys.sort %]
+        <option value="[% lg %]"[% ' selected="selected"' IF lang==lg %]>[% global.config.talks_languages.$lg %]</option>
+      [% END %]
+  </select></td>
+</tr>
 [% END %]
 <tr>
   <td align="right" valign="top">

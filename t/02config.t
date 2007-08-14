@@ -36,6 +36,7 @@ my @conf_simple = qw(
     payment_prices
 );
 
+BEGIN { use_ok('Act::Language') }
 BEGIN { use_ok('Act::Config') }
 ok($Config, "configuration loaded");
 
@@ -83,6 +84,11 @@ for my $conf (keys %{$Config->conferences}) {
             ok($cfg->get("levels_level$i\_name_$_"), "$conf talks level $i in $_")
                 for keys %{$cfg->languages};
         }
+    }
+    # talk languages
+    if ($cfg->talks_languages) {
+        ok(Act::Language::name($_), "$conf talks languages $_")
+            for keys %{$cfg->talks_languages};
     }
     # prices
     my $oldstyle;

@@ -1042,11 +1042,20 @@ msgstr "Abstract URL is not a valid URL"
 msgid "Talk URL is not a valid URL"
 msgstr "Talk URL is not a valid URL"
 
+msgid "Incorrect language"
+msgstr "Incorrect language"
+
 msgid "Delete this talk"
 msgstr "Delete this talk"
 
 msgid "Track"
 msgstr "Track"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Language:"
+msgstr "Language:"
 
 msgid "Abstract URL"
 msgstr "Abstract URL"

@@ -12,6 +12,7 @@
  <tr>
   <th>{{Speaker}}</th>
   <th>{{Talk title}}</th>
+  [% IF global.config.talks_languages %]<th>{{Language}}</th>[% END %]
   <th>{{Duration}}</th>
  </tr>
  [% FOREACH t IN todo %]
@@ -27,6 +28,7 @@
          [% talk_modify_link(t) %]
       [% END %]
   </td>
+  [% IF global.config.talks_languages %]<td>[% global.config.talks_languages.${t.lang} %]</td>[% END %]
   <td>[% t.duration %] {{minutes}}
   </td>
  </tr>

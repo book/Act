@@ -1056,11 +1056,20 @@ msgstr "L'URL du résumé n'est pas une URL valide"
 msgid "Talk URL is not a valid URL"
 msgstr "L'URL de la présentation n'est pas une URL valide"
 
+msgid "Incorrect language"
+msgstr "Langue incorrecte"
+
 msgid "Delete this talk"
 msgstr "Supprimer cette présentation"
 
 msgid "Track"
 msgstr "Thème"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "Language:"
+msgstr "Langue&nbsp;:"
 
 msgid "Abstract URL"
 msgstr "URL résumé"

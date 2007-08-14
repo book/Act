@@ -21,7 +21,7 @@ use Act::Handler::Talk::Util;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id level)],
+                  accepted confirmed date time room delete track_id level lang)],
   filters  => {
      track_id => sub { $_[0] || undef },
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
@@ -36,6 +36,7 @@ my $form = Act::Form->new(
      level        => sub { !$Config->talks_levels
                            || ($_[0] =~ /^\d+$/ && $_[0] >= 1 && $_[0] <= $Config->talks_levels)
                      },
+     lang         => sub { exists $Config->talks_languages->{$_[0]} },
   }
 );
 

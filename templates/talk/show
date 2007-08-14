@@ -34,6 +34,10 @@
   [% level %]<br />
 [% END %]
 
+[% IF global.config.talks_languages %]
+<b>{{Language:}}</b>
+  [% global.config.talks_languages.$lang %]<br />
+[% END %]
 
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]

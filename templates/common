@@ -44,7 +44,8 @@
     IF t.type == 'Act::Talk' %]
 [% user_info(t.user) %] -
 [% talk_confirmed_link(t) %]
-([% t.duration %]&nbsp;{{min}})
+([% t.duration %]&nbsp;{{min}}
+[%- IF global.config.talks_languages %], [% global.config.talks_languages.${t.lang}; END %])
 [% IF t.track_id %][<a href="[% make_uri('talks') %]#[% t.track_id %]">[%
 t.track.title.split('\W').0 %]</a>][% END %]
 [% talk_modify_link(t) %]

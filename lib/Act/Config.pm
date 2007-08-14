@@ -6,6 +6,8 @@ use vars qw(@ISA @EXPORT $Config %Request %Languages);
 @ISA    = qw(Exporter);
 @EXPORT = qw($Config %Request %Languages );
 
+use Act::Language;
+
 use AppConfig qw(:expand :argcount);
 use DateTime;
 use DateTime::Format::Pg;
@@ -116,6 +118,12 @@ sub load_configs
         _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
         _make_hash($ConfConfigs{$conf}, languages => $ConfConfigs{$conf}->general_languages);
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
+        if ($ConfConfigs{$conf}->talks_languages) {
+            $ConfConfigs{$conf}->set(
+                talks_languages => { map { $_ => Act::Language::name($_) }
+                                     split /\s+/, $ConfConfigs{$conf}->talks_languages
+                                   });
+        }
         _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
         $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
             for keys %{$ConfConfigs{$conf}->rooms};
@@ -195,7 +203,8 @@ sub _init_config
     $cfg->set(home => $home);
     # optional settings
     $cfg->set($_ => undef)
-        for qw(talks_show_all talks_notify_accept talks_levels talks_submissions_notify_address talks_submissions_notify_language
+        for qw(talks_show_all talks_notify_accept talks_levels talks_languages
+               talks_submissions_notify_address talks_submissions_notify_language
                database_debug general_dir_ttc
                payment_notify_address);
     return $cfg;

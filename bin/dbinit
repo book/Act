@@ -144,6 +144,7 @@ CREATE TABLE talks
     track_id     integer REFERENCES tracks(track_id) ON DELETE SET NULL,
 
     level        integer DEFAULT 1,
+    lang         text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
     /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
