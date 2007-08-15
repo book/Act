@@ -4,6 +4,12 @@
 <form method="POST" action="[% global.request.r.uri %]">
 <input type="hidden" name="user_id" value="[% user.user_id %]" />
 <table border="0" cellspacing="0" cellpadding="4">
+[% IF order_id %]
+<input type="hidden" name="order_id" value="[% order_id %]" />
+<tr>
+ <td colspan="2">Editing payment <strong>#[% order_id %]</strong></td>
+</tr>
+[% END %]
 <tr>
  <td>{{User}}</td>
  <td><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
@@ -12,8 +18,8 @@
  <td>{{Payment means}}</td>
  <td>
   <select name="means">
-    [% FOREACH m = means.keys %]
-        <option value="[% m %]">[% means.$m %]</option>
+    [% FOREACH m = allmeans.keys %]
+        <option value="[% m %]"[% ' selected="selected"' IF m == means %]>[% allmeans.$m %]</option>
     [% END %]
   </select>
  </td>
@@ -22,12 +28,16 @@
  <td>{{Price}}</td>
  <td>
   <select name="price">
-    [% FOREACH p = prices %]
-        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% currency %]</option>
+    [% isprice = 0;
+       FOREACH p = prices;
+         IF price AND price == p.name AND amount == p.amount; isprice = p.price_id ; END 
+    %]
+        <option value="[% p.price_id %]"[% ' selected="selected"' IF p.price_id == isprice %]
+           >[% p.name %] [% p.amount %] [% currency %]</option>
     [% END %]
   </select>
   &nbsp;{{or}}&nbsp;
-  <input type="text" name="amount" value="" size="5" />
+  <input type="text" name="amount" value="[% amount IF amount AND NOT isprice %]" size="5" />
   [% currency %]
  </td>
 </tr>
