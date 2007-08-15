@@ -7,7 +7,7 @@
 [% IF order_id %]
 <input type="hidden" name="order_id" value="[% order_id %]" />
 <tr>
- <td colspan="2">Editing payment <strong>#[% order_id %]</strong></td>
+ <td colspan="2">{{Editing payment}} <strong>[% order_id %]</strong></td>
 </tr>
 [% END %]
 <tr>
