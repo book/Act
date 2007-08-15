@@ -74,12 +74,13 @@ use Pod::Usage            qw(pod2usage);
 use Template              qw();
 
 # parse command line
-my ($help, $verbose, $dryrun, $acthome, $baseurl);
+my ($help, $verbose, $dryrun, $force, $acthome, $baseurl);
 Getopt::Long::Configure('bundling');
 GetOptions(
     'help|h'    => \$help,
     'verbose|v' => \$verbose,
     'dryrun|n'  => \$dryrun,
+    'force|f'   => \$force,
     'acthome:s' => \$acthome,
     'baseurl:s' => \$baseurl,
 ) or pod2usage(0);
@@ -113,7 +114,19 @@ for my $pathname (@files) {
     # filename relative to source directory
     (my $file = $pathname) =~ s|^$srcdir/||;
     print "$file" if $verbose;
-    
+
+    # determine pathname of output file
+    (my $outputfile = $file) =~ s/\.pod$/.html/;
+    $outputfile = catfile($destdir, $outputfile);
+    print "  => $outputfile\n" if $verbose;
+    next if $dryrun;
+
+    # check timestamps
+    if (!$force && (stat($pathname))[9] <= (stat($outputfile))[9] ) {
+        print "  up to date, skipping\n" if $verbose;
+        next;
+    }
+
     # read file
     my $pod = do {
         local $/ = undef;
@@ -130,14 +143,8 @@ for my $pathname (@files) {
     my $pom = $parser->parse_text($pod);
     my $html = $pom->present($view_html);
 
-    # determine pathname of output file
-    $file =~ s/\.pod$/.html/;
-    $file = catfile($destdir, $file);
-    print "  => $file\n" if $verbose;
-    next if $dryrun;
-
     # create destination directory
-    my $dir = dirname($file);
+    my $dir = dirname($outputfile);
     -d $dir or mkpath($dir);
 
     # retrieve meta data
@@ -150,8 +157,8 @@ for my $pathname (@files) {
         }
     }
     # process file through our page template
-    open my $fh, '>:encoding(UTF-8)', $file
-        or die "can't open $file for writing: $!\n";
+    open my $fh, '>:encoding(UTF-8)', $outputfile
+        or die "can't open $outputfile for writing: $!\n";
     $template->process(
         'page',
         {
@@ -174,6 +181,7 @@ makedoc [options] destination_directory
  Options:
    -a, --acthome <acthome>     specify alternate ACTHOME
    --baseurl <url>             specify static resource root URL
+   -f, --force                 force rebuild (ignore timestamps)
    -h, --help                  prints brief help text
    -n, --dryrun                dry run
    -v, --verbose               verbose
@@ -196,6 +204,10 @@ Defaults to the parent directory
 =item B<--dryrun>
 
 Processes the POD files without saving them.
+
+=item B<--force>
+
+Processes each file even if the destination file is up to date.
 
 =item B<--baseurl>
 
