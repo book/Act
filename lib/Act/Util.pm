@@ -25,6 +25,9 @@ my %grams = (
 );
 my @pass = qw( vcvcvc cvcvcv cvcvc vcvcv );
 
+# normalize() cache
+my %ncache;
+
 # connect to the database
 sub db_connect
 {
@@ -162,10 +165,10 @@ sub localize
 sub normalize
 {
     my $string = shift;
+    return $ncache{$string} if exists $ncache{$string};
     $string = Unicode::Normalize::NFD($string);
     $string =~ s/\p{InCombiningDiacriticalMarks}//g;
-    $string = lc $string;
-    return $string;
+    return $ncache{$string} = lc $string;
 }
 
 # unicode-aware string sort
