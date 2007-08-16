@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Organizer::Configuration - The Act configuration file
-
-=head1 DESCRIPTION
+=head1 The Act configuration file
 
 Most of the configuration items for your conference are stored in the
 file F<act.ini>. It is divided in several sections, some of which

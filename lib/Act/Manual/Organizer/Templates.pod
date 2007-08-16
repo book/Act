@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Organizer::Templates - Act templates
+=head1 Act templates
 
 =head1 THE FULL LIST OF ALL ACT TEMPLATES
 

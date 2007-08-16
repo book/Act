@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Provider::Performance - Act performance hints
-
-=head1 DESCRIPTION
+=head1 Act performance hints
 
 The following describes steps you can take to get the best performance
 out of your Act installation, in a production environment. Full

@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Config - Act configuration variables
+=head1 Act configuration variables
 
 =head1 Global variables available at runtime
 

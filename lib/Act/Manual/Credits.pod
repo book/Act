@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Credits
-
-=head1 DESCRIPTION
+=head1 The people behind Act
 
 This section provides a brief history of Act and details the primary
 authors and numerous other people who have contributed to it.
@@ -82,7 +78,6 @@ conference...
   Sébastien Aperghis-Tramoni
   Farley Balasuriya
   Ann Barcomb
-  Alberto Manuel Brandão Simões 
   Jim Brandt
   José Alves de Castro 
   Gianni "dakkar" Cecarelli
@@ -97,6 +92,7 @@ conference...
   David Landgren
   Jonas B. Nielsen
   Salve J Nilsen
+  Alberto Simões 
   Enrico Sorcinelli
   Ricardo Signes
   Gábor Szabó

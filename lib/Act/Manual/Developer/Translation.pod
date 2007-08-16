@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Translation - How to support a new language in Act
-
-=head1 DESCRIPTION
+=head1 How to support a new language in Act
 
 Act was developed from the beginning  to support multilingual conferences.
 When an organizer starts a conference, they just have to decide which
@@ -118,7 +114,7 @@ by the corresponding text in the F<.po> file for the requested language.
 The C<loc()> macro in the template is used for localized strings that take
 parameters.
 
-=head2 C<Act::Util>
+=head2 Act::Util
 
 The Act::Util module contains some information about how dates are
 handled in each supported language. The structure needs to be updated

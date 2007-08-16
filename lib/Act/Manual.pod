@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual - User guide and reference manual for Act
-
-=head1 DESCRIPTION
+=head1 User guide and reference manual for Act
 
 The Act use manual is divided in several subsections, aimed at
 the different kind of users of the Act conference toolkit:

@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Organizer - User guide for Act conference organizers
-
-=head1 DESCRIPTION
+=head1 User guide for Act conference organizers
 
 This section of the manual is aimed at conference organizers,
 that is, the "users" of Act from the point of view of the developers.

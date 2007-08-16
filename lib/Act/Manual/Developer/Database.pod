@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Database - Act database usage
+=head1 Act database usage
 
 =head1 Tracking database schema changes
 

@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Provider::Database - Setting up the Act databases
-
-=head1 DESCRIPTION
+=head1 Setting up the Act databases
 
 In order to use the database with Act, you need to follow the procedure
 explained below. Act's preferred database is PostgreSQL, so the examples
