@@ -1,23 +1,21 @@
-[% PROCESS common %]
+[%- PROCESS common;
+    MACRO sortlink(msg, key) BLOCK;
+      UNLESS key == sortkey; "<a href='${global.request.uri}?sort=$key'>"; END;
+      loc(msg);
+      IF key == sortkey; " &#9660;"; ELSE; "</a>"; END;
+    END;
+-%]
 [% WRAPPER ui title = loc("Billing") %]
 <div align="center">
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
- <th>{{User}}</th>
- <th>Status</th>
- <th>{{Payment date}}</th>
- <th>{{Payment means}}</th>
- <th colspan="2">{{Price}}</th>
+ <th>[% sortlink('User', 'user') %]</th>
+ <th>[% sortlink('Status', 'status') %]</th>
+ <th>[% sortlink('Payment date', 'date') %]</th>
+ <th>[% sortlink('Payment means', 'means') %]</th>
+ <th colspan="2">[% sortlink('Price', 'price') %]</th>
 </tr>
-[% speaker = BLOCK %]{{speaker}}[% END %]
-[% BLOCK user_status;
-     lines = [];
-     FOREACH r = user.rights.keys;
-        lines.push(r);
-     END;
-     lines.push(speaker) IF user.has_talk;
-     lines.sort.join('<br />');
-   END %]
+[% BLOCK user_status; user.status.sort.join('<br />'); END %]
 [% FOREACH u = users %]
   [% o = orders.${u.user_id} %]
   <tr>
