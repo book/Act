@@ -66,6 +66,7 @@ is_deeply( Act::Talk->new( user_id => $user2->user_id ),
    url_abstract => undef,
    abstract     => undef,
    room         => undef,
+   lang         => undef,
    comment      => undef,
    # boolean values
    lightning    => 1,

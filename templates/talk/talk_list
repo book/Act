@@ -3,6 +3,9 @@
  <th>{{Speaker}}</th>
  <th>{{Talk title}}</th>
  <th>{{Duration}}</th>
+ [% IF global.config.talks_languages %]
+ <th>{{Language}}</th>
+ [% END %]
  [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
  <th>{{Date}}</th>
  [% END %]
@@ -33,6 +36,9 @@
          [% t.duration %] {{minutes}}
         [% END %]
     </td>
+    [% IF global.config.talks_languages %]
+    <td>[% global.config.talks_languages.${t.lang} %]</td>
+    [% END %]
     [% IF global.request.user.is_orga OR global.config.talks_show_schedule %]
     <td align="center" nowrap="nowrap">[% IF t.datetime; date_format(t.datetime, 'datetime_short'); ELSE; '&nbsp;'; END %]</td>
     [% END %]

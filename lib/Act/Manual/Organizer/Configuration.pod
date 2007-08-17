@@ -25,7 +25,7 @@ conference.
     # name of the conference in each supported language
     name_en = The foo2004 conference
     name_fr = L'atelier Perl foo2004
- 
+    
     # default country and timezone for new users
     default_country  = fr
     timezone  = Europe/Paris
@@ -47,7 +47,7 @@ conference.
     # submission notification emails settings
     submissions_notify_address  = interventions@mongueurs.net
     submissions_notify_language = fr
-
+    
     # email the speaker when the talk is accepted
     notify_accept = 1
     
@@ -59,7 +59,11 @@ conference.
     
     # show accepted talks, or all
     show_all  = 0
-
+    
+    # talk languages. Use only for
+    # multilingual conferences.
+    languages = en fr
+    
     # target audience. Omit this, and
     # the [levels] section, if not used
     levels = 4

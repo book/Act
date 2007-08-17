@@ -18,6 +18,9 @@ my @SCHEMA_UPDATES = (
 #4
   "alter table twostep add column data text;
   ",
+#5,
+  "alter table talks add column lang text;
+  ",
 );
 
 # returns ( current database schema version, required version )

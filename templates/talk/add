@@ -15,6 +15,7 @@
      ERR_URL_TALK       => loc("Talk URL is not a valid URL"),
      ERR_ROOM           => loc("Incorrect room submitted"),
      ERR_LEVEL          => loc("Please choose a target audience"),
+     ERR_LANG           => loc("Incorrect language"),
   }
 %]
 
@@ -54,7 +55,7 @@
    <select name="date">
      <option value=""[% ' selected="selected"' UNLESS datetime %] />
    [% FOREACH d=dates %]
-     <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %] />[% d.ymd %]
+     <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %]>[% d.ymd %]</option>
    [% END %]
     </select>
    {{Time}}
@@ -63,7 +64,7 @@
     <select name="room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
-     <option value="[% r %]"[% ' selected="selected"' IF room == r %] />[% rooms.$r %]
+     <option value="[% r %]"[% ' selected="selected"' IF room == r %]>[% rooms.$r %]</option>
     [% END %]
     </select>
    </td>
@@ -81,12 +82,12 @@
 <tr>
   <td align="right" valign="top">
   {{Track}}</td>
-  <td></td>
+  <td>&nbsp;</td>
   <td>
    <select name="track_id">
      <option value=""[% ' selected="selected"' UNLESS track_id %] />
    [% FOREACH t=tracks %]
-     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %] />[% t.title %]
+     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %]>[% t.title %]</option>
    [% END %]
    </select>
   </td>
@@ -94,6 +95,19 @@
   [% ELSE %]
    <input type="hidden" name="track_id" value="[% track_id %]" />
   [% END %]
+[% END %]
+[% IF global.config.talks_languages %]
+<tr>
+  <td align="right" valign="top">
+  {{Language}}</td>
+  <td>&nbsp;</td>
+  <td><select name="lang" size="1">
+        <option value=""[% ' selected="selected"' UNLESS lang %] />
+      [% FOREACH lg = global.config.talks_languages.keys.sort %]
+        <option value="[% lg %]"[% ' selected="selected"' IF lang==lg %]>[% global.config.talks_languages.$lg %]</option>
+      [% END %]
+  </select></td>
+</tr>
 [% END %]
 <tr>
   <td align="right" valign="top">
@@ -137,8 +151,8 @@
       [% END %]
     [% ELSE %]
       <select name="duration">
-       <option value=""[% ' selected="selected"' UNLESS duration %]></option>
-       <option value="lightning"[% ' selected="selected"' IF lightning %] />
+       <option value=""[% ' selected="selected"' UNLESS duration %] />
+       <option value="lightning"[% ' selected="selected"' IF lightning %]>
           {{Lightning talk}}
        </option>
        [% FOREACH d = global.config.talks_durations.keys.nsort %]
