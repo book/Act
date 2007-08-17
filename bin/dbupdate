@@ -5,10 +5,6 @@ use Act::Config;
 use Act::Database;
 use Getopt::Std qw(getopts);
 
-# command line options
-my %opts;
-getopts('n', \%opts) or usage();
-
 my %databases = (
     main => [ $Config->database_dsn,
               $Config->database_user,
@@ -19,6 +15,10 @@ my %databases = (
               $Config->database_test_passwd,
             ],
 );
+
+# command line options
+my %opts;
+getopts('n', \%opts) or usage();
 
 my $database = shift || 'main';
 my $c = $databases{$database} or usage();
@@ -36,10 +36,10 @@ if ($version > $required) {
     die "database $database schema version $version is too recent: this code runs $required\n";
 }
 if ($version == $required) {
-    print "database $database schema version $version is up to date, exiting.\n";
+    print "-- database $database schema version $version is up to date, exiting.\n";
     exit;
 }
-print "database $database schema version $version needs update to $required\n";
+print "-- database $database schema version $version needs update to $required\n";
 for my $v ($version + 1 .. $required) {
     print "-- schema update from $version to $v\n";
     my $sql = Act::Database::get_update($v);

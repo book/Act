@@ -19,7 +19,7 @@ SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name,
     i.invoice_no, i.company, i.address, i.vat
 FROM orders o
 LEFT JOIN users u ON (o.user_id = u.user_id )
-LEFT OUTER JOIN invoices i ON (o.order_id = i.order_id)
+LEFT JOIN invoices i ON (o.order_id = i.order_id)
 WHERE o.conf_id = ? AND o.status = ?
 ORDER BY o.datetime
 SQL
