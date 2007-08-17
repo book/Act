@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Resources - Resources for developers
+=head1 Resources for developers
 
 =head1 Subversion repository
 

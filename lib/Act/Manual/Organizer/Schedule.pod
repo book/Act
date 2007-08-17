@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Organizer::Schedule - Managing the talk schedule with Act
-
-=head1 DESCRIPTION
+=head1 Managing the talk schedule with Act
 
 Act automatically creates a schedule web pages from the talks information.
 This informations is also made available in the iCal format.

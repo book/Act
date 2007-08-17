@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer - Developer documentation for Act
-
-=head1 DESCRIPTION
+=head1 Developer documentation for Act
 
 This section of the manual is aimed at Act developers and contributors.
 

@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Provider - Act service provider documentation
+=head1 Act service provider documentation
 
 =head1 DESCRIPTION
 

@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Templates - Act's templates
-
-=head1 DESCRIPTION
+=head1 Act's templates
 
 Act provides a set of classes that encapsulate Template Toolkit's functionality.
 The base class is Act::Template, a subclass of Template to which it adds:

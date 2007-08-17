@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Unicode - What is and what is not Unicode in Act
-
-=head1 DESCRIPTION
+=head1 What is and what is not Unicode in Act
 
 All files are in UTF-8. But really most files are pure ASCII:
 

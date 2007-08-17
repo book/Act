@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Provider::Payment - The Act online payment architecture
-
-=head1 DESCRIPTION
+=head1 The Act online payment architecture
 
 This document describes the architecture of Act's online payment subsystem.
 This system defers the actual purchasing to a third party, usually a bank.

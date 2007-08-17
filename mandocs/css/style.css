@@ -1,6 +1,4 @@
 em { font-weight: bold }
-h1 { font-size: 2em }
-h2 { font-size: 1.5em }
 li { list-style: square }
 
 p, ul, li, h1, h2, h3, pre {
@@ -9,15 +7,23 @@ p, ul, li, h1, h2, h3, pre {
 ul {
   margin-left: 2em;
 }
+a:link, A:visited {
+  background: transparent;
+  color: #006699;
+}
 h1, h2, h3  {
   font-weight: bold;
+  color: #006699;
 }
-pre, code {
-  font-family: "Monaco", "Courier", monospace;
+h1 {
+  font-size: large;
+}
+h2 {
+  font-size: medium;
 }
 pre {
-  padding: 2em;
-  background: #EEE;
+  padding: 1em;
+  background: #eeeeee;
   border: 1px solid #AAA;
   color: black;
   white-space: pre;

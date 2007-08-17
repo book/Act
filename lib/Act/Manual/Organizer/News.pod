@@ -1,8 +1,4 @@
-=head1 NAME
-
-Act::Manual::Organizer::News - Managing "news" items in Act
-
-=head1 DESCRIPTION
+=head1 Managing "news" items in Act
 
 Act can store news items about your conference in the database.
 

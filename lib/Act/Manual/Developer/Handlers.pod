@@ -1,6 +1,4 @@
-=head1 NAME
-
-Act::Manual::Developer::Handlers - Act handlers
+=head1 Act handlers
 
 =head1 Definition
 
