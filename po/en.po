@@ -942,6 +942,9 @@ msgstr "Credit card payment"
 msgid "Payment"
 msgstr "Payment"
 
+msgid "Editing payment"
+msgstr "Editing payment"
+
 msgid "User"
 msgstr "User"
 

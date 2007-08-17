@@ -954,6 +954,9 @@ msgstr "Paiement par carte bancaire"
 msgid "Payment"
 msgstr "Saisie d'un règlement"
 
+msgid "Editing payment"
+msgstr "Modification du règlement"
+
 msgid "User"
 msgstr "Utilisateur"
 
