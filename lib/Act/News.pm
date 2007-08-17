@@ -22,11 +22,6 @@ our %sql_opts    = ( 'order by' => 'datetime desc' );
 sub content {
     join( "\n", map "<p>$_</p>", split /(?:\r?\n)+/, $_[0]->text)
 }
-sub create {
-    my ($class, %args ) = @_;
-    $args{datetime} = DateTime->now();
-    return $class->SUPER::create(%args);
-}
 
 =head1 NAME
 

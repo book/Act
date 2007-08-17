@@ -22,6 +22,12 @@ sub handler
                     lang    => $Request{language},
                );
 
+    # convert to local time
+    for (@$news) {
+        $_->datetime->set_time_zone('UTC');
+        $_->datetime->set_time_zone($Config->general_timezone);
+    }
+
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(news => $news);
