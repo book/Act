@@ -2,6 +2,13 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2007/08/17 r1612 talk languages: define a set of accepted languages for a conference
+                 and let the speakers set the talk language
+           r1609 news items datetime always editable, in local time,
+                 can be in the future
+           r1603 treasurer can edit payments that he's created
+                 and with no associated invoice
+
 2007/07/30 r1569 Reorganizing The Fine Manual
 
 2007/07/27 r1560 support for optional compiled templates
