@@ -3,6 +3,7 @@ use Act::Config;
 use Act::Object;
 use Act::Talk;
 use Act::Country;
+use Act::Util;
 use Carp;
 use List::Util qw(first);
 use base qw( Act::Object );
@@ -44,7 +45,7 @@ sub get_items {
     my ($class, %args) = @_;
     
     if( $args{name} ) {
-        $args{name} = quotemeta( $args{name} );
+        $args{name} = Act::Util::search_expression( quotemeta( $args{name} ) );
         $args{name} =~ s/\\\*/.*/g;
     }
 
