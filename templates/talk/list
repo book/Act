@@ -25,33 +25,38 @@
 </p>
 [% END %]
 </div>
-[% IF tracks.size != 0 %]
-  <h2>{{Tracks}}
-  </h2>
-  <ul>
-  [% FOREACH tr = tracks %]
-  [% NEXT UNLESS tr.track_id %]
-  <li><a href="#[% tr.track_id %]">[% tr.title %]</a></li>
-  [% END %]
-  </ul>
+
+[% IF tracks.size;
+     first = 0;
+     FOREACH tr = tracks;
+       NEXT UNLESS tr.track_id AND tr.talks.size;
+       UNLESS first;
+         first = 1 %]
+         <h2>{{Tracks}}</h2>
+         <ul>
+       [% END %]
+       <li><a href="#[% tr.track_id %]">[% tr.title %]</a></li>
+     [% END; IF first %]</ul>[% END %]
 [% END %]
 [% IF global.request.user.is_orga %]
 <form method="POST" action="[% global.request.r.uri %]">
 [% END %]
-[% IF tracks.size != 0 %]
-  [% FOREACH tr = tracks %]
-  [% IF tr.track_id %]
-     <a name="[% tr.track_id %]" ><h2>[% tr.title %]</h2></a>
-     <p>[% tr.description %]</p>
-     [% PROCESS talk/talk_list talks = tr.talks %]
-  [% ELSIF tr.talks.size != 0 %]
-     <h2>{{No track}}</h2>
-     [% PROCESS talk/talk_list talks = tr.talks %]
-  [% END %]
-  [% END %]
-[% ELSE %]
-  [% PROCESS talk/talk_list talks = talks %]
-[% END %]
+[% IF tracks.size != 0;
+     FOREACH tr = tracks;
+       IF tr.talks.size;
+         IF tr.track_id %]
+           <a name="[% tr.track_id %]" ><h2>[% tr.title %]</h2></a>
+           <p>[% tr.description %]</p>
+           [% PROCESS talk/talk_list talks = tr.talks;
+         ELSE %] 
+           <h2>{{No track}}</h2>
+          [% PROCESS talk/talk_list talks = tr.talks;
+         END;
+       END;
+     END;
+  ELSE;    
+    PROCESS talk/talk_list talks = talks;
+  END %]
 [% IF global.request.user.is_orga %]
 <br />
 <input type="submit" name="ok" value="{{Update}}" />
