@@ -1130,6 +1130,9 @@ msgstr "Import"
 msgid "List of talks"
 msgstr "List of talks"
 
+msgid "List of talks tagged <tag>"
+msgstr "List of talks tagged %1"
+
 msgid "No talk was submitted yet."
 msgstr "No talk was submitted yet."
 
