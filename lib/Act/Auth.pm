@@ -105,8 +105,7 @@ sub send_cookie
 sub _update_language
 {
     $Request{user}->update(language => $Request{language})
-        unless defined($Request{user}->{language})
-            && $Request{language} eq $Request{user}->{language};
+      if $Request{language} && $Request{user}->language ne $Request{language};
 }
 
 1;
