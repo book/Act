@@ -1301,3 +1301,12 @@ msgstr ""
 "Un email vous a été envoyé. Cliquez sur le lien contenu dans cet\n"
 "email pour accéder à votre compte et saisir un nouveau mot de passe.\n"
 
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tags:"
+msgstr "Tags :"
+
+msgid "add new tags:"
+msgstr "ajouter des tags :"
+

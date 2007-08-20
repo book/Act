@@ -1287,3 +1287,12 @@ msgstr ""
 "An email has been sent to you. Click on the link in the email to\n"
 "access your user account and set a new password.\n"
 
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "add new tags:"
+msgstr "add new tags:"
+

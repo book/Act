@@ -17,7 +17,7 @@ $Request{dbh} = DBI->connect(
 
 # clean up before
 $Request{dbh}->do("DELETE FROM $_")
-    for qw(events invoice_num invoices news orders participations rights talks users bios );
+    for qw(events invoice_num invoices news orders participations rights talks users bios tags);
 }
 
 # fill the database with simple default data

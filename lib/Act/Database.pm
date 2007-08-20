@@ -21,6 +21,15 @@ my @SCHEMA_UPDATES = (
 #5,
   "alter table talks add column lang text;
   ",
+#6,
+  "create table tags (
+    tag_id        serial not null primary key,
+    conf_id       text not null,
+    tag           text not null,
+    type          text not null,
+    tagged_id     text not null
+   );
+  ",
 );
 
 # returns ( current database schema version, required version )
