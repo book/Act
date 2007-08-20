@@ -96,6 +96,14 @@
    <input type="hidden" name="track_id" value="[% track_id %]" />
   [% END %]
 [% END %]
+<tr>
+ <td align="right" valign="top">
+ {{Tags}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="tags" value="[% tags %]" size="51" maxlength="100" />
+  </td>
+</tr>
 [% IF global.config.talks_languages %]
 <tr>
   <td align="right" valign="top">

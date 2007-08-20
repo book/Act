@@ -3,14 +3,31 @@ use strict;
 use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Template::HTML;
+use Act::Tag;
 use Act::Talk;
 use Act::Track;
+use Act::Util;
 use Act::Handler::Talk::Util;
 
 sub handler
 {
+    # searching by tag
+    my ($tag, $talks);
+    if ($Request{path_info}) {
+        (my $type, $tag) = split '/', $Request{path_info};
+        if ($type eq 'tag' && $tag) {
+            $tag = Act::Util::normalize($tag);
+            my @talk_ids = Act::Tag->find_tagged(
+                conf_id     => $Request{conference},
+                type        => 'talk',
+                tags        => [ $tag ],
+            );
+            $talks = [ map Act::Talk->new(talk_id => $_), @talk_ids ];
+        }
+    }
     # retrieve talks and speaker info
-    my $talks =Act::Talk->get_talks( conf_id => $Request{conference} );
+    $talks = Act::Talk->get_talks( conf_id => $Request{conference} )
+        unless $tag;
     my $talks_total = scalar @$talks;
     $_->{user} = Act::User->new( user_id => $_->user_id ) for @$talks;
 
@@ -60,7 +77,14 @@ sub handler
         my $id = $track->track_id;
         $track->{talks} = [ grep { $_->track_id == $id } @$talks ];
     }
-    
+
+    # get all tags
+    my $alltags = Act::Tag->find_tags(
+                    conf_id => $Request{conference},
+                    type   => 'talk',
+                    filter => [ map $_->talk_id, @$talks ],
+    );
+
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
@@ -70,6 +94,8 @@ sub handler
         talks_duration => $duration,
         talks_lightning => $lightnings,
         tracks         => $tracks,
+        tags           => $alltags,
+        tag            => $tag,
     ); 
     $template->process('talk/list');
 }

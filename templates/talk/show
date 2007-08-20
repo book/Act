@@ -42,8 +42,11 @@
 [% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
       AND comment %]
 <b>{{Comment:}}</b>
-[% comment %]
+[% comment %]<br />
 [% END %]
+
+[% showtags(tags, 'talks') %]
+
 </p>
 [% IF url_abstract || url_talk %]
 <p> {{You can find more information on the speaker's site:}}</p>
@@ -65,5 +68,4 @@
 <p>
 [% expand(chunked_abstract) | html_line_break %]
 </p>
-[%END %]
-
+[% END %]

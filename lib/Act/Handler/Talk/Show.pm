@@ -3,6 +3,7 @@ use strict;
 use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Template::HTML;
+use Act::Tag;
 use Act::Talk;
 use Act::Abstract;
 
@@ -51,12 +52,35 @@ sub handler
         return;
     };
 
+    # retrieve tags
+    my @tags = Act::Tag->fetch_tags(
+                    conf_id     => $Request{conference},
+                    type        => 'talk',
+                    tagged_id   => $talk_id,
+               );
+
+    # add tags
+    if ($Request{user} && $Request{args}{ok}) {
+        my %oldtags = map { $_ => 1 } @tags;
+        my @newtags = grep !$oldtags{$_}, Act::Tag->split_tags($Request{args}{newtags});
+        if (@newtags) {
+            Act::Tag->update_tags(
+                conf_id     => $Request{conference},
+                type        => 'talk',
+                tagged_id   => $talk_id,
+                oldtags     => \@tags,
+                newtags     => [  @tags, @newtags ],
+            );
+        }
+        Act::Util::redirect( $Request{r}->uri );
+    }
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
         %$talk,
         chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
         user => $user,
+        tags => \@tags,
     );
     $template->variables(
         level => $Config->get("levels_level" . $talk->level . "_name_$Request{language}"),
