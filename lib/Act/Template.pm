@@ -47,6 +47,7 @@ sub _init
     $options->{PLUGIN_BASE} = 'Act::Plugin';
     $options->{UNICODE} = 1;
     $options->{ENCODING} = 'UTF-8';
+    $options->{PRE_PROCESS} = 'common';
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs
