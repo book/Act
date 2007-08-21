@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 package Act::Util;
 
 use Apache::Constants qw(M_GET REDIRECT);
@@ -25,9 +26,39 @@ my %grams = (
 );
 my @pass = qw( vcvcvc cvcvcv cvcvc vcvcv );
 
-# normalize() cache
-my %ncache;
-
+# normalize() stuff
+my (%ncache, %chartab);
+BEGIN {
+    my %accents = (
+        a => 'àáâãäåȧāą',
+        c => 'çć',
+        d => 'ḑ',
+        e => 'èéêëēęȩ',
+        g => 'ģğ',
+        h => 'ḩ',
+        i => 'ìíîïī',
+        k => 'ķ',
+        n => 'ļł',
+        n => 'ñńņ',
+        o => 'òóôõöőōð',
+        r => 'ŕřŗ',
+        s => 'šśş',
+        t => 'ťţ',
+        u => 'ùúûüűųūů',
+        y => 'ýÿ',
+        z => 'źżżž',
+    );
+    # build %chartab for search_expression()
+    while (my ($letter, $accented) = each %accents) {
+        my @accented = split '', $accented;
+        my $cclass = '[' . $letter . uc($letter) . join('', @accented, map uc, @accented) . ']';
+        $chartab{$_} = $cclass for ($letter, uc($letter), @accented);
+    }
+}
+sub search_expression
+{
+    return join '', map { $chartab{$_} || $_ } split '', shift;
+}
 # connect to the database
 sub db_connect
 {

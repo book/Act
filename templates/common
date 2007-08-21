@@ -28,7 +28,7 @@
 [% END ; END %]
 [% MACRO user_info(user)
    BLOCK;
-%]<a href="[% make_uri_info('user', user.user_id) %]">[% user_info_base(user); END %]
+%]<a href="[% make_uri_info('user', user.user_id) %]">[% user_info_base(user) %]</a>[% END %]
 [% MACRO user_info_base(user) BLOCK;
     IF user.pseudonymous;
       user.nick_name;
@@ -36,7 +36,6 @@
       "${user.first_name} ${user.last_name}";
       " (${user.nick_name})" IF user.nick_name;
     END;
-    "</a>";
   END;
 %]
 [% MACRO timeslot(t)
