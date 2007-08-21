@@ -2,12 +2,12 @@
    BLOCK; %]
    <a href="[% make_uri_info( 'talk', talk.talk_id ) %]">
    [% "<b>" IF talk.accepted %][% talk.title %][% "</b>" IF talk.accepted %]</a>
-[% END %]
+[% END -%]
 [% MACRO talk_confirmed_link(talk)
    BLOCK; %]
    <a href="[% make_uri_info( 'talk', talk.talk_id ) %]">
    [% "<b>" IF talk.confirmed %][% talk.title %][% "</b>" IF talk.confirmed %]</a>
-[% END %]
+[% END -%]
 [% MACRO talk_modify_link(talk)
    BLOCK;
      IF global.request.user.is_orga
@@ -16,19 +16,19 @@
 (<a href="[% make_uri( 'edittalk', 'talk_id', talk.talk_id ) %]">{{edit}}</a>)
 [%   END;
   END;
-%]
+-%]
 [% MACRO event_link(event)
    BLOCK %]
 <a href="[% make_uri_info('event', event.event_id) %]">[% event.title %]</a>
-[% END %]
+[% END -%]
 [% MACRO event_modify_link(event)
    BLOCK %]
 [% IF global.request.user.is_orga %]
 (<a href="[% make_uri('editevent', 'event_id', event.event_id ) %]">{{edit}}</a>)
-[% END ; END %]
+[% END ; END -%]
 [% MACRO user_info(user)
    BLOCK;
-%]<a href="[% make_uri_info('user', user.user_id) %]">[% user_info_base(user) %]</a>[% END %]
+%]<a href="[% make_uri_info('user', user.user_id) %]">[% user_info_base(user) %]</a>[% END -%]
 [% MACRO user_info_base(user) BLOCK;
     IF user.pseudonymous;
       user.nick_name;
@@ -37,7 +37,7 @@
       " (${user.nick_name})" IF user.nick_name;
     END;
   END;
-%]
+-%]
 [% MACRO timeslot(t)
    BLOCK;
     IF t.type == 'Act::Talk' %]
@@ -55,7 +55,7 @@ t.track.title.split('\W').0 %]</a>][% END %]
     [% ELSE ; t %]
 [% END;
    END;
-%]
+-%]
 [% MACRO tagcloud(tags) BLOCK;
    IF tags AND tags.size;
     USE Math;
@@ -69,7 +69,7 @@ t.track.title.split('\W').0 %]</a>][% END %]
     maxpx = 36;
     ratio =  (maxpx - minpx) / (maxv - minv + 1);
     offset = minpx;
-%]
+-%]
 <style type="text/css">
 #tagcloud a { text-decoration: none; }
 </style>
@@ -78,7 +78,7 @@ t.track.title.split('\W').0 %]</a>][% END %]
   &nbsp;<a href="[% global.request.r.uri %]/tag/[% t.0 | uri %]" style="font-size: [% Math.int((t.1 - minv) * ratio) + offset %]px;">[% t.0 %]</a>&nbsp;
   [% END %]
 </div>
-[% END; END %]
+[% END; END -%]
 [% MACRO showtags(tags, action, hidden) BLOCK;
    IF tags AND tags.size %]
     <b>{{Tags:}}</b>
@@ -92,18 +92,18 @@ t.track.title.split('\W').0 %]</a>][% END %]
     <input type="submit" name="ok" value="{{Submit}}" />
     </form>
    [% END %]
-[% END %]
+[% END -%]
 [% MACRO expand_talk(c)
     BLOCK;
     user_info(c.user) ; " - " ;
     talk_link(c.talk) ;
     END;
-%]
+-%]
 [% MACRO expand_user(c)
     BLOCK;
     user_info(c.user) ;
     END;
-%]
+-%]
 [% MACRO expand( chunks )
    BLOCK;
    FOREACH c = chunks ;
@@ -117,4 +117,4 @@ t.track.title.split('\W').0 %]</a>][% END %]
      END ;
    END;
    END;
-%]
+-%]
