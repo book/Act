@@ -71,6 +71,7 @@ sub find_tagged
 sub find_tags
 {
     my ($class, %args) = @_;
+    return [] if $args{filter} && !@{$args{filter}};
     my $SQL = 'SELECT tag, COUNT(tag) FROM tags'
             . ' WHERE conf_id = ? AND type = ?';
     my @values = ( $args{conf_id}, $args{type} );
