@@ -20,7 +20,7 @@
   {{new page}}
  [% END %]
 </p>
-[% showtags(tags, 'wiki', [ [ 'node', node ] ] ) UNLESS version %]
+[% showtags(tags, 'wiki', [ [ 'node', node ] ] ) UNLESS version OR NOT data.last_modified %]
 <p>
 <a href="[% make_uri('wiki') %]">{{Home}}</a>
 |
