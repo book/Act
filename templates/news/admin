@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc("News Administration") %]
 
 [% IF news.size %]

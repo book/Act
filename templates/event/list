@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc("List of events") %]
 <div align="center">
 <p>

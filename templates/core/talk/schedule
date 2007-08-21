@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% IF not ( global.request.user.is_orga
          or global.request.user.is_staff
          or global.config.talks_show_schedule ) %]

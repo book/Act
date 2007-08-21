@@ -1,4 +1,3 @@
-[% PROCESS common %]
 <p>{{Committed users are listed in <b>bold</b> type}}</p>
 
 [% IF users.size %]

@@ -27,7 +27,7 @@ sub format_node
     my %metadata;
     my $cooked = $wiki->format($content, \%metadata);
     if ($metadata{chunks}) {
-        $cooked = '[% PROCESS common %][% TAGS {% %} %]' . $cooked;
+        $cooked = '[% TAGS {% %} %]' . $cooked;
         my $output;
         $template->variables(chunks => $metadata{chunks});
         $template->process(\$cooked, \$output);

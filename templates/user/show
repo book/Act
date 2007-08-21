@@ -1,5 +1,4 @@
 [% WRAPPER ui title = loc("User information") %]
-[% PROCESS common %]
 
 <div align="center">
 

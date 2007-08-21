@@ -1,4 +1,3 @@
-[%- PROCESS common -%]
 [% WRAPPER ui title = loc("iCal Import") %]
 <center>
 [% IF timeslots %]

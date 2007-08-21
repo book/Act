@@ -7,7 +7,6 @@ anywere in the web site, including Atom feeds.
 
 =head2 Including news in a static page
 
-  [% PROCESS common %]
   <div class="newsbox">
     [% FOREACH item = global.news %]
     <p><h3>[% item.title %]</h3>

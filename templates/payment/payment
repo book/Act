@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc('Payment') %]
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
