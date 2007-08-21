@@ -1,22 +1,14 @@
 [% WRAPPER ui title = loc("Wiki - Recent changes") %]
 [%- PROCESS common -%]
-<table>
- <tr><th>{{Page}}</th>
-     <th>{{Modified on}}</th>
-     <th>{{By}}</th>
- </tr>
- [% FOREACH node IN nodes %]
- <tr>
-     <td><a href="[% make_uri('wiki', 'node', node.name) %]">[% node.name %]</a></td>
-     <td>[% date_format(node.last_modified, 'datetime_short') %]</td>
-     <td>[% user_info(node.user) %]</td>
- </tr>
- [% END %]
-</table>
+[% PROCESS wiki/list %]
 <form method="GET" action="[% make_uri('wiki') %]">
 <input type="hidden" name="action" value="recent" />
 <a href="[% make_uri('wiki') %]">{{Home}}</a>
 |
+[% IF alltags.size %]
+<a href="[% make_uri('wiki', 'action', 'tags') %]">{{Tags}}</a>
+|
+[% END %]
 {{Changes in last}}
 <select name="period" size="1" onChange="submit();">
  [% periods = [

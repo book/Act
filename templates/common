@@ -79,13 +79,14 @@ t.track.title.split('\W').0 %]</a>][% END %]
   [% END %]
 </div>
 [% END; END %]
-[% MACRO showtags(tags, action) BLOCK;
-   IF tags.size %]
+[% MACRO showtags(tags, action, hidden) BLOCK;
+   IF tags AND tags.size %]
     <b>{{Tags:}}</b>
     [% FOREACH tag = tags %]<a href="[% make_uri_info(action, 'tag') %]/[% tag | uri %]">[% tag %]</a> [% END %]
    [% END %]
    [% IF global.request.user %]
     <form method="POST" action="[% global.request.r.uri %]">
+    [% FOREACH h = hidden %]<input type="hidden" name="[% h.0 %]" value="[% h.1 %]" />[% END %]
     {{add new tags:}}
     <input type="text" name="newtags" value="" length="12" maxlength="64" />
     <input type="submit" name="ok" value="{{Submit}}" />

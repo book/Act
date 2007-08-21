@@ -20,6 +20,7 @@
   {{new page}}
  [% END %]
 </p>
+[% showtags(tags, 'wiki', [ [ 'node', node ] ] ) UNLESS version %]
 <p>
 <a href="[% make_uri('wiki') %]">{{Home}}</a>
 |
@@ -31,6 +32,10 @@
 [% ELSE %]
   <a href="[% make_uri('wikiedit', 'action', 'edit', 'node', node) %]">{{Edit this page}}</a>
   |
+[% END %]
+[% IF alltags.size %]
+<a href="[% make_uri('wiki', 'action', 'tags') %]">{{Tags}}</a>
+|
 [% END %]
 <a href="[% make_uri('wiki', 'action', 'recent') %]">{{Recent changes}}</a>
 [% IF data.version %]

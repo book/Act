@@ -942,6 +942,12 @@ msgstr "%quant(%1,semaine)"
 msgid "<n> month(s)"
 msgstr "%1 mois"
 
+msgid "Wiki tags"
+msgstr "Wiki - tags"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki - pages avec le tag %1"
+
 msgid "Administrative tasks"
 msgstr "Tâches administratives"
 
