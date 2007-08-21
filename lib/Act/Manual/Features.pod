@@ -1,0 +1,214 @@
+=head1 Act features
+
+This section provides a brief list of main Act features.
+
+=head2 General
+
+=over 4
+
+=item *
+
+Multiple conferences.
+
+=item *
+
+Fully multilingual, unicode.
+
+=item *
+
+Look and feel of conference site fully customizable.
+Add static pages -- they're really templates so
+they're multilingual and share the same UI.
+
+=back
+
+=head2 User registration
+
+=over 4
+
+=item *
+
+One account per user, can register to multiple conferences.
+
+=item *
+
+CSV export for organizers.
+
+=item *
+
+User search, user statistics.
+
+=back
+
+=head2 Talks
+
+=over 4
+
+=item *
+
+Configurable durations, target audience, tracks.
+
+=item *
+
+Submitted, then accepted by organizers.
+
+=item *
+
+Email notification to organizers upon submission / modification.
+
+=item *
+
+Email notification to submitter upon acceptance.
+
+=item *
+
+Talk list and schedule hidden from public view until enabled.
+
+=item *
+
+Support for non talk events, e.g. coffee break, lunch.
+
+=item *
+
+Schedule iCal export.
+
+=item *
+
+Talks can be tagged (associate a list of keywords, or tags, to a talk).
+
+=item *
+
+=item *
+
+Talk list CSV export for organizers.
+
+=item *
+
+Schedule work flow for organizers: iCal export =E<gt> edit talk dates and times in Google Calendar, Apple iCal =E<gt> iCal import.
+
+=back
+
+=head2 News
+
+=over 4
+
+=item *
+
+Organizers create / edit / delete news items
+
+=item *
+
+Multilingual
+
+=item *
+
+Can be published / unpublished at any time.
+
+=item *
+
+Full control over the publication date. Can schedule items to be published in the future.
+
+=item *
+
+News list has its own web page, but news items can be displayed on any page with a simple macro.
+
+=item *
+
+Atom feed.
+
+=back
+
+=head2 Wiki
+
+=over 4
+
+=item *
+
+Integrated wiki.
+
+=item *
+
+Only logged in users can post, so no spam.
+
+=item *
+
+Full version history for each page - organizers can revert a page to any previous version.
+
+=item *
+
+Easy way to link to users, talks.
+
+=back
+
+=head2 Payment
+
+=over 4
+
+=item *
+
+Online (credit card) payment, targets several back ends (YEF, TPF).
+
+=item *
+
+Invoices.
+
+=item *
+
+Treasurer's page
+
+=item *
+
+Treasurer can enter payments (checks, bank transfer, free passes).
+
+=item *
+
+Treasurer can create invoices.
+
+=item *
+
+CSV export of payments.
+
+=item *
+
+Automatic payment reports in CSV and/or text format by email.
+
+=back
+
+=head2 Role management
+
+=over 4
+
+=item *
+
+Initially configure one or more administrators. Administrators
+can then easily grant rights (organizer, treasurer) to other users.
+
+=back
+
+=head2 Hosting
+
+=over 4
+
+=item *
+
+Hosted on the French Perl Mongers' servers.
+
+=item *
+
+Fully redundant, backed up.
+
+=item *
+
+Runs under your own domain name.
+
+=item *
+
+Development / staging server.
+
+=item *
+
+Subversion repository for your conference site.
+
+=back
+
+=cut
