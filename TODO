@@ -9,6 +9,10 @@ PRIORITIZED TODO LIST
 
 UNPRIORITIZED TODO LIST
 
+* newsadmin: add preview (dan)
+
+* display a nicer page for expired twostep urls, instead of 404 (rjbs)
+
 * let the organizers force the registration of existing users
   (useful for speakers who can't be bothered to use the site,
   but will give a talk)
