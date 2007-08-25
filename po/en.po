@@ -1243,9 +1243,6 @@ msgstr "Delete this item"
 msgid "Text"
 msgstr "Text"
 
-msgid "Submit this item"
-msgstr "Submit this item"
-
 msgid "No news yet!"
 msgstr "No news yet!"
 

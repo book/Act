@@ -47,37 +47,42 @@ sub handler
     }
 
     # form has been submitted
-    if ($Request{args}{submit}) {
+    if ($Request{args}{preview} || $Request{args}{save}) {
         # validate form fields
         my @errors;
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
         if ($ok) {
-            # convert to UTC datetime
             $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
-            $fields->{datetime}->set_time_zone($Config->general_timezone);
-            $fields->{datetime}->set_time_zone('UTC');
-
-            # update existing item
-            if (defined $news) { 
-                if ($fields->{delete}) {
-                    $news->delete;
-                }
-                else {
-                    $news->update( %$fields );
-                }
+            if ($Request{args}{preview}) {
+                $template->variables_raw(preview => Act::News->content( $fields->{text} ));
             }
-            # insert new item
             else {
-                $news = Act::News->create(
-                    %$fields,
-                    conf_id   => $Request{conference},
-                    lang      => $Request{language},
-                    user_id   => $Request{user}->user_id,
-                );
+                # convert to UTC datetime
+                $fields->{datetime}->set_time_zone($Config->general_timezone);
+                $fields->{datetime}->set_time_zone('UTC');
+    
+                # update existing item
+                if (defined $news) { 
+                    if ($fields->{delete}) {
+                        $news->delete;
+                    }
+                    else {
+                        $news->update( %$fields );
+                    }
+                }
+                # insert new item
+                else {
+                    $news = Act::News->create(
+                        %$fields,
+                        conf_id   => $Request{conference},
+                        lang      => $Request{language},
+                        user_id   => $Request{user}->user_id,
+                    );
+                }
+                # redirect to news admin
+                return Act::Util::redirect(make_uri('newsadmin'));
             }
-            # redirect to news admin
-            return Act::Util::redirect(make_uri('newsadmin'));
         }
         else {
             # map errors
