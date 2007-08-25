@@ -78,8 +78,6 @@ Talks can be tagged (associate a list of keywords, or tags, to a talk).
 
 =item *
 
-=item *
-
 Talk list CSV export for organizers.
 
 =item *
