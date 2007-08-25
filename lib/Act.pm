@@ -140,7 +140,7 @@ German and Hungarian. A Hebrew version is in the works.
 
 =head1 COPYRIGHT
 
-Copyright 2004-2006 Philippe "BooK" Bruhat and Éric Cholet.
+Copyright 2004-2007 Philippe "BooK" Bruhat and Éric Cholet.
 All Rights Reserved.
 
 =head1 LICENSE
