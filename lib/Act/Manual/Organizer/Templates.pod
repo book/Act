@@ -378,8 +378,6 @@ becoming as harmless as possible.
 
 =item * F<B<payment/notify_subject>>
 
-=item * F<B<payment/button>>
-
 =item * F<B<payment/confirm_invoice>>
 
 =item * F<B<payment/payment>>

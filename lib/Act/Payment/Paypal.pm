@@ -7,7 +7,6 @@ use LWP::UserAgent;
 use IPC::Open2;
 
 use Act::Config;
-use Act::Template;
 use Act::Util;
 
 sub create_form
@@ -37,12 +36,7 @@ sub create_form
 
     # return form
     my $url_bank = $Config->payment_plugin_Paypal_url_bank;
-
-    # submit button
-    my $template = Act::Template->new();
-    my $button;
-    $template->process('payment/button', \$button);
-    chomp $button;
+    my $button = Act::Util::localize('Credit card payment');
 
     return <<EOF
 <form action="$url_bank" method="post">
