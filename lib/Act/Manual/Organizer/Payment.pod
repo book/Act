@@ -1,0 +1,77 @@
+=head1 Online Payment
+
+Act defers the actual purchasing to a third party through the use
+of pluggable backends targeting various online payment solutions.
+
+Currently implemented backends are C<YEF>, used by the
+YAPC::Europe Foundation, C<TPF>, used by The Perl Foundation,
+and PayPal which targets PayPal merchant accounts.
+There's also a Fake backend which simulates a purchase for testing purposes.
+
+The YEF and TPF online payment backends handle credit card payments.
+PayPal handles payment by credit card or via the customer's own PayPal
+account. Funds end up in the selected foundation's bank account, which then
+forwards them back to the organizers. Using either backend
+requires prior agreement between the organizers and the relevant foundation.
+
+=head1 Configuration
+
+  [payment]
+  open        = 1
+
+Set C<open> to 1 to enable, or to 0 to disable, the online payment system.
+
+=head2 YEF
+
+  [payment]
+  open        = 1
+  type        = YEF
+  currency    = EUR
+
+YEF currently accepts payments in euros.
+
+=head2 TPF
+
+TPF currently accepts payments in US dollars.
+
+  [payment]
+  open        = 1
+  type        = TPF
+  currency    = USD
+
+Set C<open> to 1 to enable, or to 0 to disable, the online payment system.
+C<type> should be set to the appropriate backend: C<YEF>, C<TPF> or C<Fake>.
+
+=head3 PayPal
+
+PayPal currently accepts payments in the following currencies:
+
+  USD U.S. Dollar
+  AUD Australian Dollar
+  CAD Canadian Dollar
+  CZK Czech Koruna
+  DKK Danish Krone
+  EUR Euro
+  HKD Hong Kong Dollar
+  HUF Hungarian Forint
+  NZD New Zealand Dollar
+  NOK Norwegian Krone
+  PLN Polish Zloty
+  GBP Pound Sterling
+  SGD Singapore Dollar
+  SEK Swedish Krona
+  CHF Swiss Franc
+  JPY Yen
+
+Configure your conference with the currency code for your PayPal account's
+primary currency. Act currently supports a single currency.
+
+  [payment]
+  open        = 1
+  type        = PaypalFoo
+  currency    = USD
+
+The payment type (C<PaypalFoo>) should be configured by your Act provider.
+See L<Act::Manual::Provider::Payment> for more information.
+
+=cut

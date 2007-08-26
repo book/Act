@@ -5,13 +5,14 @@ This system defers the actual purchasing to a third party, usually a bank.
 We allow for pluggable backends to target various online payment solutions.
 
 Currently implemented backends are YEF, used by the YAPC::Europe Foundation,
-and TPF, used by The Perl Foundation. Online payment funds end up in the
-selected foundation's bank account. The foundation then forwards them back to the
-organizers. Using either backend requires prior agreement between the organizers
-and the relevant foundation.
+TPF, used by The Perl Foundation, and PayPal. YEF and TPF online payment funds
+end up in the selected foundation's bank account. The foundation then forwards
+them back to the organizers. Using either backend requires prior agreement between
+the organizers and the relevant foundation.
 
 YEF currently accepts payments in euros. TPF currently accepts payments in
-US dollars.
+US dollars. PayPal accepts payments in various currencies, check the PayPal
+documentation for available currencies.
 
 There's also a Fake backend which simulates a purchase for testing purposes.
 
@@ -38,7 +39,7 @@ if she's registered and hasn't yet paid.
 
 Clicking the C<purchase> button invokes C<Act::Handler::User::Purchase>.
 This fetches the prices from the database table and displays the
-purchase form via F<templates/user/purchase>. This template can be overriden
+purchase form via F<templates/user/purchase>. This template can be overridden
 and customized on a per-conference basis.
 
 =item *
@@ -61,5 +62,100 @@ Meanwhile, the bank sends us an HTTP request with the status of the purchase.
 
 =back
 
-=cut
+=head1 PayPal configuration
 
+The PayPal payment backend implements PayPal's "Instant Payment" which requires
+a PayPal "Business Account". Communication between Act and PayPal is encrypted
+using X509 certificates.
+
+Each distinct PayPal account requires configuring a payment type, which holds
+information about the account. In this example we configure Act for a PayPal
+account we'll identify as "Foo", and call the payment type C<payment_type_PaypalFoo>.
+This type should be used to configure payment for conferences wishing to use this PayPal account.
+
+=head2 Payment plugin configuration
+
+Using the PayPal payment backend requires a one time configuration of
+the PayPal plugin.
+
+Encrypted communication requires PayPal's public X509 certificate.
+Download F<paypal_cert.pem> from the PayPal account's
+s Profile Summary page on the PayPal web site,
+section "Selling Preferences", item "Encrypted Payment Settings".
+
+The plugin makes use of the C<openssl> command line utility.
+Configure the path to this program on your system.
+
+  [payment_plugin_Paypal]
+  url_bank    = https://www.paypal.com/cgi-bin/webscr
+  pp_cert     = $(home)/conf/paypal_cert.pem.pem
+  openssl     = /usr/bin/openssl
+
+PayPal provides a sandbox for testing purposes. To use the sandbox,
+configure the plugin to use sandbox URLs. You'll need to download
+PayPal's sandbox public certificate, which is different from the
+one used in production.
+
+  [payment_plugin_Paypal]
+  url_bank    = https://www.sandbox.paypal.com/cgi-bin/webscr
+  pp_cert     = $(home)/conf/paypal-sandbox-cert.pem
+  openssl     = /usr/bin/openssl
+
+=head2 Creating a certificate
+
+Create a key pair (F<keyFoo.pem>) and certificate (F<certFoo.pem>).
+
+  # openssl genrsa -out keyFoo.pem 1024
+  # openssl req -new -key keyFoo.pem -x509 -days 365 -out certFoo.pem
+
+and place them in your F<conf/> directory.
+
+Now upload the certificate F<certFoo.pem> to the PayPal account:
+From the account's Profile Summary page on the PayPal web site,
+section "Selling Preferences", item "Encrypted Payment Settings".
+
+Once the certificate is uploaded, make a note of the B<Cert ID>
+for the certificate.
+
+=head2 Payment type configuration
+
+We now configure the payment type in the global F<act.ini>.
+
+  [payment_type_PaypalFoo]
+  plugin      = Paypal
+  email       = email@example.com
+  my_key      = $(home)/conf/keyFoo.pem
+  my_cert     = $(home)/conf/certFoo.pem
+  my_cert_id  = XXXXXXXXXXXXX
+
+C<email> is the email address of the PayPal account. It is visible on the
+the account's Profile Summary page PayPal web site, section "Account Information",
+item "Email".
+
+=head2 Confirmation URL configuration
+
+Act uses PayPal's "Instant Payment Notification" to receive notifications
+of payments from PayPal. The URL on your web server used by PayPal to send
+those notifications is C</E<lt>typeE<gt>confirm>, where E<type> is the
+payment type.
+
+  <Location /PaypalFooconfirm>
+    PerlSetVar   ActPaymentType PaypalFoo
+    SetHandler   perl-script
+    PerlHandler  Act::Handler::Payment::Confirm
+  </Location>
+
+=head2 Bank template
+
+During the purchase process, Act displays information specific to the
+payment type. This commonly includes information about the account and
+the financial institution providing online payment, alternate means of
+payment, and contact information. If the payment type is configured
+to use the PayPal Sandbox, this is the place to mention it.
+
+This template must bear the name of the payment type and be stored
+in directory F<templates/core/bank>. In our example we create a file
+named F<templates/core/bank/PaypalFoo>.
+
+
+=cut
