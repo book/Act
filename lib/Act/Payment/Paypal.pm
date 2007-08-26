@@ -7,6 +7,7 @@ use LWP::UserAgent;
 use IPC::Open2;
 
 use Act::Config;
+use Act::Template;
 use Act::Util;
 
 sub create_form
@@ -36,11 +37,16 @@ sub create_form
 
     # return form
     my $url_bank = $Config->payment_plugin_Paypal_url_bank;
-    my $button   = $Config->get("payment_plugin_Paypal_button_$Request{language}");
+
+    # submit button
+    my $template = Act::Template->new();
+    my $button;
+    $template->process('payment/button', \$button);
+    chomp $button;
 
     return <<EOF
 <form action="$url_bank" method="post">
-<input type="image" name="submit" border="0" src="$button" />
+<input type="submit" name="submit" value="$button" />
 <input type="hidden" name="cmd" value="_s-xclick" />
 <input type="hidden" name="encrypted" value="$encrypted" />
 </form>
