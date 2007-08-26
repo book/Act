@@ -5,6 +5,13 @@
 <table border="0" cellpadding="0" cellspacing="10">
 
 <tr>
+   <th colspan="3">
+      [% loc('<conf> registration', global.conference.name) %]
+      <br />
+      [% order.price %]
+   </th>
+</tr>
+<tr>
    <td align="right">
       {{Name}}
    </td>
@@ -41,4 +48,10 @@
 
 
 </center>
+
+<p>
+ {{Please note that everything regarding your bank account and credit card number}}
+</p>
+
+[% file = "core/bank/${global.config.payment_type}" ; PROCESS $file %]
 [% END %]
