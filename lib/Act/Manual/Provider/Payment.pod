@@ -136,7 +136,7 @@ item "Email".
 
 Act uses PayPal's "Instant Payment Notification" to receive notifications
 of payments from PayPal. The URL on your web server used by PayPal to send
-those notifications is C</E<lt>typeE<gt>confirm>, where E<type> is the
+those notifications is C</E<lt>typeE<gt>confirm>, where C<type> is the
 payment type.
 
   <Location /PaypalFooconfirm>
