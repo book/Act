@@ -1,1 +1,1 @@
-<a href="[% make_uri('wiki') %]">Wiki</a>
+[% WRAPPER menus/item %]<a href="[% make_uri('wiki') %]">Wiki</a>[% END %]
