@@ -9,6 +9,7 @@ use Act::Config;
 use Act::Email;
 use Act::Form;
 use Act::I18N;
+use Act::Tag;
 use Act::Talk;
 use Act::Template;
 use Act::Template::HTML;
@@ -21,9 +22,10 @@ use Act::Handler::Talk::Util;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id level lang)],
+                  accepted confirmed date time room delete track_id level lang tags)],
   filters  => {
      track_id => sub { $_[0] || undef },
+     tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
      map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
   },
   constraints => {
@@ -51,7 +53,7 @@ sub handler {
         while (($_ = $dates[-1]->clone->add( days => 1 ) ) < $edate );
 
     # get the talk
-    my $talk;
+    my ($talk, @tags);
     if (exists $Request{args}{talk_id}) {
         $talk = Act::Talk->new(
             talk_id   => $Request{args}{talk_id},
@@ -62,6 +64,12 @@ sub handler {
             $Request{status} = NOT_FOUND;
             return;
         }
+        # retrieve tags
+        @tags = Act::Tag->fetch_tags(
+                    conf_id     => $Request{conference},
+                    type        => 'talk',
+                    tagged_id   => $talk->talk_id,
+                );
     }
     # orgas can submit/edit talks anytime
     # regular users can submit new talks when submissions_open
@@ -188,6 +196,16 @@ sub handler {
                 notify(insert => $talk);
                 return;
             }
+            # update tags
+            my @newtags = Act::Tag->split_tags( $fields->{tags} );
+            Act::Tag->update_tags(
+                conf_id     => $Request{conference},
+                type        => 'talk',
+                tagged_id   => $talk->talk_id,
+                oldtags     => \@tags,
+                newtags     => \@newtags,
+            );
+            @tags = @newtags;
         }
         else {
             # map errors
@@ -210,6 +228,7 @@ sub handler {
     $template->variables(
         levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
                     1 .. $Config->talks_levels ],
+        tags   => join(' ', @tags),
         defined $talk
         ? ( %$talk,
             duration => ( $talk->lightning ? 'lightning' : $talk->duration ) )

@@ -147,7 +147,6 @@ CREATE TABLE talks
     lang         text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
-    /* FOREIGN KEY( category_id  ) REFERENCES category( category_id ) */
 );
 CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 
@@ -249,6 +248,18 @@ CREATE TABLE twostep
     token         char(32) NOT NULL PRIMARY KEY,
     email         text NOT NULL,
     datetime      timestamp without time zone,
-    data          text,
+    data          text
 );
+
+/* tags */
+DROP   TABLE tags CASCADE;
+CREATE TABLE tags
+(
+    tag_id        serial NOT NULL PRIMARY KEY,
+    conf_id       text NOT NULL,
+    tag           text NOT NULL,
+    type          text NOT NULL,
+    tagged_id     text NOT NULL
+);
+
 EOF

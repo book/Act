@@ -930,6 +930,12 @@ msgstr "%quant(%1,week)"
 msgid "<n> month(s)"
 msgstr "%quant(%1,month)"
 
+msgid "Wiki tags"
+msgstr "Wiki tags"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki pages tagged %1"
+
 msgid "Administrative tasks"
 msgstr "Administrative tasks"
 
@@ -1130,6 +1136,9 @@ msgstr "Import"
 msgid "List of talks"
 msgstr "List of talks"
 
+msgid "List of talks tagged <tag>"
+msgstr "List of talks tagged %1"
+
 msgid "No talk was submitted yet."
 msgstr "No talk was submitted yet."
 
@@ -1286,4 +1295,13 @@ msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
 "An email has been sent to you. Click on the link in the email to\n"
 "access your user account and set a new password.\n"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "add new tags:"
+msgstr "add new tags:"
 

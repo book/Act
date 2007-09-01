@@ -4,6 +4,7 @@ use strict;
 use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 
 use Act::Config;
+use Act::Tag;
 use Act::Template::HTML;
 use Act::Util;
 use Act::Wiki;
@@ -40,6 +41,12 @@ sub wiki_edit
         node     => $node,
         content  => $data{content},
         checksum => $data{checksum},
+        tags     => join(' ', Act::Tag->fetch_tags(
+                                conf_id     => $Request{conference},
+                                type        => 'wiki',
+                                tagged_id   => $node,
+                              ),
+                        ),
     );
     $template->process('wiki/edit');
 }
@@ -62,6 +69,7 @@ sub wiki_commit
             preview  => 1,
             node     => $node,
             checksum => $Request{args}{checksum},
+            tags     => $Request{args}{tags},
         );
         $template->process('wiki/edit');
         return;
@@ -77,6 +85,21 @@ sub wiki_commit
         }
        ))
     {
+        # update tags
+        my @tags = Act::Tag->fetch_tags(
+                    conf_id     => $Request{conference},
+                    type        => 'wiki',
+                    tagged_id   => $node,
+                   );
+        my @newtags = Act::Tag->split_tags( $Request{args}{tags} );
+        Act::Tag->update_tags(
+                conf_id     => $Request{conference},
+                type        => 'wiki',
+                tagged_id   => $node,
+                oldtags     => \@tags,
+                newtags     => \@newtags,
+        );
+
         # display the node again
         Act::Util::redirect(make_uri('wiki', node => $node));
     }
@@ -89,6 +112,7 @@ sub wiki_commit
             new_content => $Request{args}{content},
             content     => $data{content},
             checksum    => $data{checksum},
+            tags        => $Request{args}{tags},
         );
         $template->process('wiki/edit');
     }
@@ -139,6 +163,20 @@ sub wiki_delete
     }
     # delete node
     $wiki->delete_node(name => Act::Wiki::make_node_name($node));
+
+    # remove tags
+    my @tags = Act::Tag->fetch_tags(
+                conf_id     => $Request{conference},
+                type        => 'wiki',
+                tagged_id   => $node,
+               );
+    Act::Tag->update_tags(
+        conf_id     => $Request{conference},
+        type        => 'wiki',
+        tagged_id   => $node,
+        oldtags     => \@tags,
+        newtags     => [],
+    );
 
     # display home page
     Act::Wiki::display_node($wiki, $template, 'HomePage');

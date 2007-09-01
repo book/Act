@@ -14,6 +14,8 @@
 <form method="POST" action="[% global.request.r.uri %]">
   <textarea name="content" rows="25" cols="80">[% content %]</textarea>
   <br />
+  {{Tags:}}&nbsp;<input type="text" name="tags" value="[% tags %]" size="51" maxlength="100" />
+  <br />
   <a href="[% make_uri('wiki', 'action', 'help') %]">{{Help}}</a>
   |
   <input type="hidden" name="action" value="commit" />

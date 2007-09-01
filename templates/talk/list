@@ -1,5 +1,8 @@
 [% PROCESS common %]
-[% WRAPPER ui title = loc("List of talks") %]
+[% IF tag; title = loc("List of talks tagged <tag>", tag);
+   ELSE;   title = loc("List of talks");
+   END;
+   WRAPPER ui title = title %]
 <div align="center">
 <p>
  [% IF talks_total == 0 %]
@@ -25,6 +28,11 @@
 </p>
 [% END %]
 </div>
+
+[% IF !tag AND tags.size %]
+  <h2>{{Tags}}</h2>
+  [% tagcloud(tags) %]
+[% END %]
 
 [% IF tracks.size;
      first = 0;

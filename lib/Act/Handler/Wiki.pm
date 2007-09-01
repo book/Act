@@ -7,6 +7,7 @@ use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Template::HTML;
+use Act::Tag;
 use Act::User;
 use Act::Util;
 use Act::Wiki;
@@ -16,18 +17,29 @@ my %actions = (
     recent  => \&wiki_recent,
     history => \&wiki_history,
     help    => \&wiki_help,
+    tags    => \&wiki_tags,
 );
 
 sub handler
 {
-    my $action = $Request{args}{action} || 'display';
+    my ($action, @args);
+    if ($Request{path_info}) {
+        my ($type, $tag) = split '/', $Request{path_info};
+        if ($type eq 'tag' && $tag) {
+            $action = 'tags';
+            @args = ( $tag );
+        }
+    }
+    else {
+        $action = $Request{args}{action} || 'display';
+    }
     unless (exists $actions{$action}) {
         $Request{status} = NOT_FOUND;
         return;
     }
     my $wiki     = Act::Wiki->new();
     my $template = Act::Template::HTML->new();
-    $actions{$action}->($wiki, $template);
+    $actions{$action}->($wiki, $template, @args);
 }
 
 # display a specific node (wiki page)
@@ -65,6 +77,10 @@ sub wiki_recent
     $template->variables(
         nodes  => \@nodes,
         period => $quant . $unit,
+        alltags => Act::Tag->find_tags(
+                        conf_id => $Request{conference},
+                        type    => 'wiki',
+                   ),
     );
     $template->process('wiki/recent');
 }
@@ -96,7 +112,44 @@ sub wiki_help
     my ($wiki, $template) = @_;
     $template->process('wiki/help');
 }
+sub wiki_tags
+{
+    my ($wiki, $template, $tag) = @_;
 
+    # searching by tag
+    if ($tag) {
+        $tag = Act::Util::normalize($tag);
+        my @names = Act::Tag->find_tagged(
+            conf_id     => $Request{conference},
+            type        => 'wiki',
+            tags        => [ $tag ],
+        );
+        my @nodes;
+        for my $node (@names) {
+            my $name = Act::Wiki::make_node_name($node);
+            my %node = $wiki->retrieve_node(name => $name);
+            $node{user} = Act::User->new( user_id => $node{metadata}{user_id}[0]);
+            $node{name} = $node;
+            $node{last_modified} = DateTime::Format::Pg->parse_datetime($node{last_modified});
+            push @nodes, \%node;
+        }
+        $template->variables(
+            nodes  => \@nodes,
+        );
+    }
+
+    # get all tags
+    my $alltags = Act::Tag->find_tags(
+                    conf_id => $Request{conference},
+                    type    => 'wiki',
+                  );
+
+    $template->variables(
+        tags    => $alltags,
+        tag     => $tag,
+    );
+    $template->process('wiki/tags');
+}
 1;
 __END__
 

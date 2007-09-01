@@ -56,6 +56,43 @@ t.track.title.split('\W').0 %]</a>][% END %]
 [% END;
    END;
 %]
+[% MACRO tagcloud(tags) BLOCK;
+   IF tags AND tags.size;
+    USE Math;
+    minv = tags.0.1;
+    maxv = 0;
+    FOREACH t = tags;
+       IF t.1 < minv; minv = t.1; END;
+       IF t.1 > maxv; maxv = t.1; END;
+    END;
+    minpx = 12;
+    maxpx = 36;
+    ratio =  (maxpx - minpx) / (maxv - minv + 1);
+    offset = minpx;
+%]
+<style type="text/css">
+#tagcloud a { text-decoration: none; }
+</style>
+<div id="tagcloud">
+  [% FOREACH t = tags %]
+  &nbsp;<a href="[% global.request.r.uri %]/tag/[% t.0 | uri %]" style="font-size: [% Math.int((t.1 - minv) * ratio) + offset %]px;">[% t.0 %]</a>&nbsp;
+  [% END %]
+</div>
+[% END; END %]
+[% MACRO showtags(tags, action, hidden) BLOCK;
+   IF tags AND tags.size %]
+    <b>{{Tags:}}</b>
+    [% FOREACH tag = tags %]<a href="[% make_uri_info(action, 'tag') %]/[% tag | uri %]">[% tag %]</a> [% END %]
+   [% END %]
+   [% IF global.request.user %]
+    <form method="POST" action="[% global.request.r.uri %]">
+    [% FOREACH h = hidden %]<input type="hidden" name="[% h.0 %]" value="[% h.1 %]" />[% END %]
+    {{add new tags:}}
+    <input type="text" name="newtags" value="" length="12" maxlength="64" />
+    <input type="submit" name="ok" value="{{Submit}}" />
+    </form>
+   [% END %]
+[% END %]
 [% MACRO expand_talk(c)
     BLOCK;
     user_info(c.user) ; " - " ;
