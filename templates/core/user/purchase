@@ -5,9 +5,9 @@
 <table border="0" cellpadding="0" cellspacing="10">
 
 <tr>
- <td colspan="3">
+ <th colspan="3">
   [% loc('Ticket for <conference name>.', global.conference.name) %]
- </td>
+ </th>
 </tr>
 <tr>
    <td align="right">

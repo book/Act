@@ -5,7 +5,6 @@ use base qw(Act::Payment::Plugin);
 use DateTime;
 
 use Act::Config;
-use Act::Template;
 use Act::Util;
 
 # CyberMut settings
@@ -17,10 +16,7 @@ sub create_form
     my ($self, $order) = @_;
 
     # submit button
-    my $template = Act::Template->new();
-    my $button;
-    $template->process('payment/button', \$button);
-    chomp $button;
+    my $button = Act::Util::localize('Credit card payment');
 
     # variables submitted to the bank
     my $url_bank = $Config->payment_plugin_CyberMut_url_bank;

@@ -82,7 +82,7 @@ conference.
     [payment]
     open        = 0
     
-    # which online payment system? (Fake/YEF/TPF)
+    # which online payment system? (Fake/YEF/TPF/...)
     type        = YEF
     
     # currency. Valid values depends on the payment type
