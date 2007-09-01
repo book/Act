@@ -1,4 +1,4 @@
-use Test::More tests => 9;
+use Test::More tests => 10;
 use Test::MockObject;
 use DateTime;
 
@@ -41,6 +41,7 @@ is_deeply($fetched, $news,"update");
 # content
 my $expected_content = "<p>something else</p>\n<p>entirely</p>";
 is($fetched->content, $expected_content, "content");
+is(Act::News->content($news->text), $expected_content, "content as class method");
 
 # global.news
 %Request = ( %Request,

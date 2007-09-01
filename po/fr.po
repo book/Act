@@ -1257,9 +1257,6 @@ msgstr "Supprimer cet item"
 msgid "Text"
 msgstr "Texte"
 
-msgid "Submit this item"
-msgstr "Valider cet item"
-
 msgid "No news yet!"
 msgstr "Aucune actualité"
 

@@ -1,5 +1,14 @@
 [% WRAPPER ui title = loc("Edit a news item") %]
 
+[% IF preview %]
+  <div class="newsbox">
+    <h3>[% title %]</h3>
+    <em>[% date_format(datetime, 'datetime_short') %] {{by}} [% user_info(global.request.user) %]</em>
+    <br />
+   [% preview %]
+  </div>
+[% END %]
+
 <div align="center">
 
 [% PROCESS error
@@ -60,7 +69,8 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
-      <input type="submit" name="submit" value="{{Submit this item}}" />
+      <input type="submit" name="preview" value="{{Preview}}" />
+      <input type="submit" name="save" value="{{Save}}" />
    </td>
 </tr>
 </table>
