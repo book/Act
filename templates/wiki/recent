@@ -1,5 +1,4 @@
 [% WRAPPER ui title = loc("Wiki - Recent changes") %]
-[%- PROCESS common -%]
 [% PROCESS wiki/list %]
 <form method="GET" action="[% make_uri('wiki') %]">
 <input type="hidden" name="action" value="recent" />

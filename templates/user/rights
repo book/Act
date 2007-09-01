@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc('User rights') %]
 
 [% PROCESS core/user/rights %]

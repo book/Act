@@ -58,9 +58,9 @@ $Config->set(name => { en => 'foobar' });
 
 my $template = Act::Template->new(TRIM => 1);
 my $output;
-$template->process(\"[% PROCESS common; global.news.size %]", \$output);
+$template->process(\"[% global.news.size %]", \$output);
 is($output, 1, "template - size");
-$template->process(\"[% PROCESS common; global.news.0.content %]", \$output);
+$template->process(\"[% global.news.0.content %]", \$output);
 is($fetched->content, $expected_content, "template - content");
 
 

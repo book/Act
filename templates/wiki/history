@@ -1,5 +1,4 @@
 [% WRAPPER ui title = loc('Wiki - <node> History', node) %]
-[%- PROCESS common -%]
 [% IF versions.size %]
 <table>
  <tr><th>{{Version}}</th>

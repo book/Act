@@ -289,15 +289,6 @@ Don't override them unless you know what you're doing.
 
 This template defines commonly used macros.
 
-=cut
-
-### This list was auto-generated using a shell-replace command on vim.
-### If you need to reproduce it, use this command on your text editor:
-### (sorry, long line)
-### :r! find templates -type f -exec grep -nEH common "{}" \; | grep -v \.svn | sed -e 's/^templates\//=item * B<F</;s/:.*$/>>/'
-
-=pod
-
 =item * B<Macro Documentation>
 
 Those macros can be found at the B<F<common>> template source.

@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc("Tracks") %]
 <p>
 [% IF tracks.size == 0 %]

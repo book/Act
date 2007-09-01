@@ -1,5 +1,4 @@
-[%- PROCESS common;
-    MACRO sortlink(msg, key) BLOCK;
+[%- MACRO sortlink(msg, key) BLOCK;
       UNLESS key == sortkey; "<a href='${global.request.uri}?sort=$key'>"; END;
       loc(msg);
       IF key == sortkey; " &#9660;"; ELSE; "</a>"; END;

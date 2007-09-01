@@ -1,5 +1,4 @@
 [% WRAPPER ui title = loc('Invoice') %]
-[% PROCESS common %]
 
 <div align="center">
 [% PROCESS error

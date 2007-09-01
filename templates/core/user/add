@@ -1,5 +1,3 @@
-[% PROCESS common %]
-
 [% USE date %]
 [% IF date.now > end_date %]
 <p>

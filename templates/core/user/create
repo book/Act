@@ -1,5 +1,3 @@
-[% PROCESS common %]
-
 <p>{{Please create the user below.}}</p>
 
 <center>

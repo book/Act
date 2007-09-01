@@ -2,7 +2,6 @@
    ELSE;   title = loc("Wiki tags");
    END;
    WRAPPER ui title = title %]
-[% PROCESS common %]
 
 [% IF tag AND nodes.size %]
      <h2>[% tag %]</h2>

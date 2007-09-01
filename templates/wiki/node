@@ -1,5 +1,4 @@
 [% WRAPPER ui title = loc('Wiki - <node>', node) %]
-[% PROCESS common %]
 
 [% content %]
 

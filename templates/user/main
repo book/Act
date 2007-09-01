@@ -1,4 +1,3 @@
-[% PROCESS common %]
 [% WRAPPER ui title = loc("Main private page") %]
 <p>
  {{This is your personal page.}}
