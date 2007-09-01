@@ -3,10 +3,9 @@ use strict;
 use base qw(Act::Payment::Plugin);
 
 use DateTime;
+use Digest::HMAC_SHA1;
 
 use Act::Config;
-use Act::Template;
-use Act::Util;
 
 sub create_form
 {
@@ -19,23 +18,20 @@ sub create_form
         currency   => $order->currency,
         orderid    => $order->order_id,
         productid  => $Request{conference},
-        text       => $Config->name->{$Request{language}},
+        text       => $self->_item_name(),
         language   => $Request{language},
-        returnurl  => join('', $Request{base_url}, make_uri('main')),
+        returnurl  => $self->_return_url(),
     );
 
     # compute the digest
     $vars{MAC} = $self->_compute_digest(join '*', map $vars{$_}, sort keys %vars);
 
     # return the HTML form
-    my $template = Act::Template->new();
-    my $form;
-    $template->variables(
-        url  => $self->_type_config('gateway_url'),
-        vars => \%vars,
+    return $self->_process_form(
+        'payment/plugins/external',
+        $self->_type_config('gateway_url'),
+        \%vars,
     );
-    $template->process('payment/form', \$form);
-    return $form;
 }
 
 sub verify
@@ -55,20 +51,13 @@ sub create_response
 {
     my ($self, $verified) = @_;
 
-    my $response = $verified ? "OK" : "ERR forged";
-    $Request{r}->print(<<EOF);
-Pragma: no-cache
-Content-type: text/plain
-Version: 1
-$response
-EOF
+    $self->_create_response( $verified ? "OK" : "ERR forged" );
 }
 
 sub _compute_digest
 {
     my ($self, $string) = @_;
 
-    require Digest::HMAC_SHA1;
     return Digest::HMAC_SHA1::hmac_sha1_hex($string, pack("H*", $self->_type_config('key')));
 }
 

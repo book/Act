@@ -7,23 +7,22 @@ use LWP::UserAgent;
 use IPC::Open2;
 
 use Act::Config;
-use Act::Util;
 
 sub create_form
 {
     my ($self, $order) = @_;
 
     # variables submitted to Paypal
-    my %form = (
+    my %vars = (
         cmd             => '_xclick',
         business        => $self->_type_config('email'),
-        item_name       => Act::Util::localize('<conf> registration', $Config->name->{$Request{language}}),
+        item_name       => $self->_item_name(),
         item_number     => $order->order_id,
         amount          => $order->amount,
         currency_code   => $order->currency,
         notify_url      => join('', $Request{base_url}, '/', $self->{type}, 'confirm'),
-        return          => join('', $Request{base_url}, make_uri('main')),
-        cancel_return   => join('', $Request{base_url}, make_uri('main')),
+        return          => $self->_return_url(),
+        cancel_return   => $self->_return_url(),
         rm              => '1',
         no_note         => '1',
         no_shipping     => '0',
@@ -32,19 +31,17 @@ sub create_form
     );
 
     # encrypt and sign
-    my $encrypted = $self->_encrypt_and_sign(%form);
+    my $encrypted = $self->_encrypt_and_sign(%vars);
 
-    # return form
-    my $url_bank = $Config->payment_plugin_Paypal_url_bank;
-    my $button = Act::Util::localize('Credit card payment');
-
-    return <<EOF
-<form action="$url_bank" method="post">
-<input type="submit" name="submit" value="$button" />
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="encrypted" value="$encrypted" />
-</form>
-EOF
+    # return the HTML form
+    return $self->_process_form(
+        'payment/plugins/paypal',
+        $Config->payment_plugin_Paypal_url_bank,
+        {
+            cmd       => "_s-xclick",
+            encrypted => $encrypted,
+        }
+    );
 }
 
 sub verify
@@ -80,11 +77,7 @@ sub create_response
 {
     my ($self, $verified) = @_;
 
-    $Request{r}->print(<<EOF);
-Pragma: no-cache
-Content-type: text/plain
-
-EOF
+    $self->_create_response( '' );
 }
 
 sub _encrypt_and_sign

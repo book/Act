@@ -3,6 +3,7 @@ use strict;
 use base qw(Act::Payment::Plugin);
 
 use DateTime;
+use Digest::HMAC_SHA1;
 
 use Act::Config;
 use Act::Util;
@@ -15,44 +16,36 @@ sub create_form
 {
     my ($self, $order) = @_;
 
-    # submit button
-    my $button = Act::Util::localize('Credit card payment');
-
-    # variables submitted to the bank
-    my $url_bank = $Config->payment_plugin_CyberMut_url_bank;
-    my $url_main = join('', $Request{base_url}, make_uri('main'));
-    my $key      = pack("H*", $self->_type_config('key'));
-    my $date     = DateTime->now->set_time_zone('Europe/Paris')->strftime("%d/%m/%Y:%H:%M:%S");
-    my $tpe      = $self->_type_config('tpe');
-    my $societe  = $self->_type_config('societe');
-    my $montant  = $order->amount . $order->currency;
+    # language
     my $langue   = uc $Request{language};
     $langue = 'EN' unless exists $Languages{$langue}; 
-    my $ref      = $order->order_id;
-    my $txt      = $Request{conference};
+
+    # variables submitted to the bank
+    my %vars = (
+        version         => $Version,
+        TPE             => $self->_type_config('tpe'),
+        date            => DateTime->now->set_time_zone('Europe/Paris')->strftime("%d/%m/%Y:%H:%M:%S"),
+        montant         => $order->amount . $order->currency,
+        reference       => $order->order_id,
+        url_retour      => $self->_return_url(),
+        url_retour_ok   => $self->_return_url(),
+        url_retour_err  => $self->_return_url(),
+        lgue            => $langue,
+        societe         => $self->_type_config('societe'),
+        "texte-libre"   => $Request{conference},
+    );
 
     # compute the Digest
-    require Digest::HMAC_SHA1;
-    my $hstring = join("*", $tpe, $date, $montant, $ref, $txt, $Version, $langue, $societe) . "*";
-    my $mac = Digest::HMAC_SHA1::hmac_sha1_hex($hstring, $key);
+    my $key     = pack("H*", $self->_type_config('key'));
+    my $hstring = join("*", @vars{qw(TPE date montant reference), 'texte-libre', qw(version lgue societe)}) . "*";
+    $vars{MAC}  = Digest::HMAC_SHA1::hmac_sha1_hex($hstring, $key);
 
-    return <<EOF
-<FORM  METHOD="post" NAME="FinalOrder" ACTION="$url_bank">
-<INPUT TYPE="hidden" NAME="version"        VALUE="$Version" />
-<INPUT TYPE="hidden" NAME="TPE"            VALUE="$tpe" />
-<INPUT TYPE="hidden" NAME="date"           VALUE="$date" />
-<INPUT TYPE="hidden" NAME="montant"        VALUE="$montant" />
-<INPUT TYPE="hidden" NAME="reference"      VALUE="$ref" />
-<INPUT TYPE="hidden" NAME="MAC"            VALUE="$mac" />
-<INPUT TYPE="hidden" NAME="url_retour"     VALUE="$url_main" />
-<INPUT TYPE="hidden" NAME="url_retour_ok"  VALUE="$url_main" />
-<INPUT TYPE="hidden" NAME="url_retour_err" VALUE="$url_main" />
-<INPUT TYPE="hidden" NAME="lgue"           VALUE="$langue" />
-<INPUT TYPE="hidden" NAME="societe"        VALUE="$societe" />
-<INPUT TYPE="hidden" NAME="texte-libre"    VALUE="$txt" />
-<INPUT TYPE="submit" NAME="bouton"         VALUE="$button" />
-</FORM>
-EOF
+    # return the HTML form
+    return $self->_process_form(
+        'payment/plugins/cybermut',
+        $Config->payment_plugin_CyberMut_url_bank,
+        \%vars,
+    );
 }
 
 sub verify
@@ -78,13 +71,7 @@ sub create_response
 {
     my ($self, $verified) = @_;
 
-    my $response = $verified ? "OK" : "Document falsifie";
-    $Request{r}->print(<<EOF);
-Pragma: no-cache
-Content-type: text/plain
-Version: 1
-$response
-EOF
+    $self->_create_response( $verified ? "OK" : "Document falsifie" );
 }
 
 1;

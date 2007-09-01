@@ -3,17 +3,21 @@ use strict;
 use base qw(Act::Payment::Plugin);
 
 use Act::Config;
-use Act::Template::HTML;
 use Act::Util;
 
 sub create_form
 {
     my ($self, $order) = @_;
-    my $template = Act::Template::HTML->new(AUTOCLEAR => 0);
-    $template->variables(order => $order);
-    my $form;
-    $template->process('user/fake_payment', \$form);
-    return $form;
+
+    # return the HTML form
+    return $self->_process_form(
+        'payment/plugins/cybermut',
+        '/fakeconfirm',
+        {
+            order_id    => $order->order_id,
+            amount      => $order->amount,
+        }
+    );
 }
 
 sub verify

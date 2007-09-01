@@ -510,9 +510,6 @@ msgstr ""
 "dati della vostra carta di credito.<br /><br />Premete il pulsante per\n"
 "simulare il pagamento.\n"
 
-msgid "Pay"
-msgstr "Pagare"
-
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Gli utenti che hanno confermato la partecipazione (ovvero, che\n"
