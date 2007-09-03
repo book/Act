@@ -1,6 +1,7 @@
 package Act::Handler::User::Photo;
 
 use strict;
+use Digest::MD5 qw(md5_hex);
 use File::Spec::Functions qw(catfile);
 use Imager;
 
@@ -41,8 +42,14 @@ sub handler
                 # delete previous photo
                 _delete_photo();
 
+                # compute MD5
+                my $data;
+                $img->write(data => \$data, type => $format)
+                    or die $img->errstr;
+                my $digest = md5_hex($data);
+
                 # store picture
-                my $filename = $Request{user}{user_id} . $Act::Config::Image_formats{$format};
+                my $filename = $digest . $Act::Config::Image_formats{$format};
                 my $pathname = catfile($Request{r}->document_root,
                                        $Config->general_dir_photos,
                                        $filename);
