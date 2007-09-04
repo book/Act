@@ -1,4 +1,3 @@
-[% WRAPPER ui title = loc('Your information') %]
 <center>
 
 [% PROCESS error
@@ -331,4 +330,3 @@
 
 </form>
 </center>
-[% END %]
