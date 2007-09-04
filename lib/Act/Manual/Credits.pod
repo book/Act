@@ -13,8 +13,8 @@ was multilingual, template-driven, and able to manage the users, talks,
 schedule and payment. It used mod_perl and Template Toolkit. They promised
 they would open the source after cleaning it up a bit.
 
-The year after, when preparing the first French Perl Workshop, Éric
-and Philippe worked on a second system, designed from the beginning to
+The following year, when preparing the first French Perl Workshop, Éric
+and Philippe worked on a second system, designed from the start to
 support everything the old site could do, with one difference: it had to
 support multiple conferences.
 
@@ -65,13 +65,17 @@ conference...
   Elizabeth Cortell
   Thomas Klausner
 
+=head2 Documentation contributors
+
+  Luis Motta Campos
+
 =head2 Translations
 
   de: Thomas Klausner
   hu: Gábor Szabó
   it: Gianni "dakkar" Cecarelli
-  nl: Eric Colson, Emmanuel di Prétoro
-  pt: Alberto Manuel Brandão Simões
+  nl: Erik Colson, Emmanuel di Prétoro
+  pt: Alberto Manuel Brandão Simões, Luis Motta Campos
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
@@ -79,6 +83,7 @@ conference...
   Farley Balasuriya
   Ann Barcomb
   Jim Brandt
+  Luis Motta Campos
   José Alves de Castro 
   Gianni "dakkar" Cecarelli
   Kurt DeMaagd

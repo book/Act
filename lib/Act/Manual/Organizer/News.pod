@@ -3,9 +3,9 @@
 Act can store news items about your conference in the database.
 
 You can edit them through the web interface, and integrate them
-anywere in the web site, including Atom feeds.
+anywere in the web site. Atom feeds are automatically generated.
 
-=head2 Including news in a static page
+=head2 Including news in a template or static page
 
   <div class="newsbox">
     [% FOREACH item = global.news %]

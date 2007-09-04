@@ -22,6 +22,10 @@ A detailed description of the content of the F<act.ini> configuration file.
 Some tips on how to organize the conference schedule using the tools
 in Act.
 
+=item L<Act::Manual::Organizer::News>
+
+How to create, publish and display news items.
+
 =item L<Act::Manual::Organizer::Templates>
 
 The list of all templates that an organizer I<might> want to override
