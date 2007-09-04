@@ -1,0 +1,332 @@
+<center>
+
+[% PROCESS error
+   msgs = {
+     ERR_FIRST_NAME         => loc("You must enter your first name"),
+     ERR_LAST_NAME          => loc("You must enter your last name"),
+     ERR_EMAIL              => loc("You must enter your email"),
+     ERR_COUNTRY            => loc("You must enter a country from the list"),
+     ERR_EMAIL_SYNTAX       => loc("Your email address looks bogus."),
+     ERR_NICK               => loc("You cannot be pseudonymous with a blank nickname"),
+     ERR_PMGROUP            => loc("The Perl monger group must end with <tt>.pm</tt>"),
+     ERR_PM_URL             => loc("The Perl monger group URL must start with http://"),
+     ERR_COMPANY_URL        => loc("The company URL must start with http://"),
+     ERR_WEBPAGE            => loc("Your web site URL must start with http://"),
+     ERR_MONKID             => loc("Your perlmonks id must be a number"),
+     ERR_NBFAMILY           => loc("Number of family members attending must be a number"),
+     ERR_TSHIRT             => loc("A valid T-shirt size is required."),
+     ERR_GPG_KEY_ID         => loc("Not a valid GPG key ID: 8 hexadecimal digits expected"),
+  }
+%]
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+<tr>
+   <td align="right">
+      {{Salutation}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% FOREACH s = [1 .. salutations] %]
+      <input type="radio" name="salutation" value="[% s %]"[% " checked" IF salutation == s %] /> [% loc("salutation_$s") %]
+      [% END %]
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{First Name}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="first_name"  value="[% first_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Last Name}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="last_name"  value="[% last_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Nickname}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="nick_name"  value="[% nick_name %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Stay pseudonymous}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="radio" name="pseudonymous" value="1" [% "checked" IF pseudonymous %] /> {{Yes}}
+      <input type="radio" name="pseudonymous" value="0" [% "checked" UNLESS pseudonymous %] /> {{No}}
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Email}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="email"  value="[% email %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Hide email}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="radio" name="email_hide" value="1" [% "checked" IF email_hide %] /> {{Yes}}
+      <input type="radio" name="email_hide" value="0" [% "checked" UNLESS email_hide %] /> {{No}}
+   </td>
+</tr>
+<tr>
+   <td align="right">
+    {{Coming with}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="nb_family">
+         <option value="0"[% ' selected="selected"' UNLESS nb_family %]>0</option>
+         [% FOREACH c = [ 1..5 ] %]
+         <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
+         [% END %]
+         <option value="6"[% ' selected="selected"' IF nb_family AND nb_family >= 6 %]>{{6 or more}}</option>
+      </select>
+      {{people (who will not attend the conference)}}
+   </td>
+</tr>
+<tr>
+   <td align="right">
+    {{T-shirt size}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="tshirt_size">
+         [% UNLESS tshirt_size %]<option value="" selected="selected" />[% END %]
+         [% FOREACH t = [ 'S', 'M', 'L', 'XL', 'XXL' ] %]
+         <option value="[% t %]"[% ' selected="selected"' IF tshirt_size == t %]>[% t %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{City}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="town"  value="[% town %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Country}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="country">
+         [% FOREACH c = countries %]
+            <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right" valign="top">
+      {{Full address}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <textarea name="address" cols="25" rows="5" >[% address | form_unescape %]</textarea>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{Timezone}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <select name="timezone">
+         [% FOREACH tz = timezones %]
+            <option value="[% tz %]"[% ' selected="selected"' IF timezone == tz %]>[% tz %]</option>
+         [% END %]
+      </select>
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF web_page %]
+         <a href="[% web_page %]" >
+      [% END %]
+      {{Web page}}
+      [%- IF web_page %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="web_page"  value="[% web_page %]" size="40" maxlength="120" />
+   </td>
+</tr>
+<tr>
+   <td align="right" valign="top">
+      [%- IF pm_group_url %]
+         <a href="[% pm_group_url %]" >
+      [% END %]
+      {{Monger group}}
+      [%- IF pm_group_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td valign="top">
+      <input type="text" name="pm_group"  value="[% pm_group %]" size="40" maxlength="120" /><br />
+      {{(<em>City.pm</em>, city name in English, please)}}
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF pm_group_url %]
+         <a href="[% pm_group_url %]" >
+      [% END %]
+      {{Monger group URL}}
+      [%- IF pm_group_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="pm_group_url"  value="[% pm_group_url %]" size="40" maxlength="120" />
+   </td>
+</tr>
+<tr>
+   <td align="right" valign="top">
+      [%- IF company_url %]
+         <a href="[% company_url %]" >
+      [% END %]
+      {{Company}}
+      [%- IF company_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td valign="top">
+      <input type="text" name="company"  value="[% company %]" size="40" maxlength="120" /><br />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{VAT Number}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="vat" value="[% vat %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF company_url %]
+         <a href="[% company_url %]" >
+      [% END %]
+      {{Company URL}}
+      [%- IF company_url %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="company_url"  value="[% company_url %]" size="40" maxlength="120" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF gpg_key_id %]
+         <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x[% gpg_key_id %]">
+      [% END %]
+      {{GPG public key ID}}
+      [%- IF gpg_key_id %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      Ox<input type="text" name="gpg_key_id" value="[% gpg_key_id %]" size="8" maxlength="8" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF pause_id %]
+         <a href="http://search.cpan.org/author/[% pause_id %]/" >
+      [% END %]
+      Pause id
+      [%- IF pause_id %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="pause_id"  value="[% pause_id %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      [%- IF monk_id %]
+         <a href="http://perlmonks.org/index.pl?node_id=[% monk_id %]" >
+      [% END %]
+      Perlmonks id
+      [%- IF monk_id %]
+         </a>
+      [% END %]
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="monk_id"  value="[% monk_id %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right">
+      {{IM}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      <input type="text" name="im" value="[% im %]" size="25" maxlength="60" />
+   </td>
+</tr>
+<tr>
+   <td align="right" valign="top">
+      {{Bio}}
+   </td>
+   <td>&nbsp;</td>
+   <td>
+      [% FOREACH lang = global.config.languages.keys %]
+      [% global.config.languages.$lang.name|ucfirst %]
+      [% IF lang == 'en' %]
+      {{(please fill at least this one)}}
+      [% END %]<br />
+      <textarea name="bio_[% lang %]" cols="40" rows="5">[% bio.$lang | form_unescape %]</textarea>
+      <br />
+      [% END %]
+   </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="join" value="{{Update info}}" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</center>
