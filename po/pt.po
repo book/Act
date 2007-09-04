@@ -269,8 +269,8 @@ msgstr "Sair"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Acabou de sair do sistema, e a sua informação foi apagada do browser."
 
-msgid "Act conferences"
-msgstr "Conferências Act"
+msgid "Other conferences"
+msgstr "Outras conferências"
 
 msgid "Admin"
 msgstr "Admin"

@@ -331,8 +331,8 @@ msgstr "Logout"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "You have been logged out and the cookie deleted from your browser."
 
-msgid "Act conferences"
-msgstr "Act conferences"
+msgid "Other conferences"
+msgstr "Other conferences"
 
 msgid "Admin"
 msgstr "Admin"

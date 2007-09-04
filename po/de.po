@@ -261,8 +261,8 @@ msgstr "Logout"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht."
 
-msgid "Act conferences"
-msgstr "Act Konferenzen"
+msgid "Other conferences"
+msgstr "Andere Konferenzen"
 
 msgid "Admin"
 msgstr "Admin"

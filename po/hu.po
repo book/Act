@@ -247,7 +247,7 @@ msgstr "Kijelentkezés"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "A kijelentkezés megtörtént, a böngészõ süti törlésre került."
 
-msgid "Act conferences"
+msgid "Other conferences"
 msgstr "További konferenciák"
 
 msgid "Admin"

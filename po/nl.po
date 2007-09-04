@@ -111,9 +111,6 @@ msgstr "Afmelden"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "U werd afgemeld en de cookie werd verwijderd van Uw browser."
 
-msgid "Act conferences"
-msgstr "Act conferenties"
-
 msgid "Admin"
 msgstr "Admin"
 

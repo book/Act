@@ -337,8 +337,8 @@ msgstr "Déconnexion"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Vous êtes déconnecté et le cookie a été supprimé."
 
-msgid "Act conferences"
-msgstr "Conférences Act"
+msgid "Other conferences"
+msgstr "Autres Conférences"
 
 msgid "Admin"
 msgstr "Admin"
