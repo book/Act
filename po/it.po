@@ -284,8 +284,8 @@ msgstr "Uscita"
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Siete usciti dal sistema, e il <em>cookie</em> è stato eliminato."
 
-msgid "Act conferences"
-msgstr "Conferenze Act"
+msgid "Other conferences"
+msgstr "Altre conferenze"
 
 msgid "Admin"
 msgstr "Admin"
