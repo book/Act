@@ -24,7 +24,7 @@ in Act.
 
 =item L<Act::Manual::Organizer::News>
 
-Managing "news" items in Act.
+How to create, publish and display news items.
 
 =item L<Act::Manual::Organizer::Templates>
 
