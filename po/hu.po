@@ -467,9 +467,6 @@ msgstr ""
 "a bankkártya informcáiókat.<<br /><br />\n"
 "A szimulált fizetéshez az Elküld gombra kell kattintani.\n"
 
-msgid "Pay"
-msgstr "Elküld"
-
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""A <b>kiemelt</b> felhasználók elõadást fognak tartani"
 

@@ -54,8 +54,8 @@ sub handler
     
             # display second form (submits to the bank)
             my $plugin = Act::Payment::load_plugin();
-            $template->variables(order => $order);
             $template->variables_raw(form => $plugin->create_form($order));
+            $template->variables(order => $order);
             $template->process('user/payment');
             return;
         }

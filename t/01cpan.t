@@ -16,6 +16,7 @@ my %modules = (
     'Email::Valid'                          => 0,
     'Imager'                                => 0,
     'HTML::Entities'                        => 0,
+    'HTML::TagCloud'                        => 0,
     'Locale::Maketext'                      => 0,
     'Locale::Maketext::Lexicon'             => 0,
     'Template'                              => 2.16,

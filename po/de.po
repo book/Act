@@ -481,9 +481,6 @@ msgstr ""
 "Ihre Kreditkarteninformationen eingeben könnten.<br /><br />\n"
 "Klicken Sie unten, um den Zahlungsvorgang zu simulieren.\n"
 
-msgid "Pay"
-msgstr "Zahlen"
-
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder\n"

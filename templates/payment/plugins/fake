@@ -1,4 +1,8 @@
-<form method="POST" name="FinalOrder" ACTION="[% url %]">
+<p>
+ {{This is a simulation. Under real circumstances, submitting}}
+</p>
+
+<form method="POST" action="[% url %]">
 [% FOREACH k=vars.keys.sort %]<input type="hidden" name="[% k %]" value="[% vars.$k %]" />
 [% END %]
 <input type="submit" name="submit" value="{{Credit card payment}}" />

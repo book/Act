@@ -138,14 +138,14 @@ sub wiki_tags
         );
     }
 
-    # get all tags
-    my $alltags = Act::Tag->find_tags(
-                    conf_id => $Request{conference},
-                    type    => 'wiki',
-                  );
-
+    # get tag cloud
+    $template->variables_raw(
+        tagcloud => Act::Tag->get_cloud(
+                        conf_id => $Request{conference},
+                        type    => 'wiki',
+                    )
+    );
     $template->variables(
-        tags    => $alltags,
         tag     => $tag,
     );
     $template->process('wiki/tags');

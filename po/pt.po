@@ -487,9 +487,6 @@ msgstr ""
 "informação sobre o seu cartão de crédito.<br/><br/>\n"
 "Clique no botão para simular o pagamento.\n"
 
-msgid "Pay"
-msgstr "Pagar"
-
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Os utilizadores registados estão listados a <b>negrito</b> (aqueles\n"
