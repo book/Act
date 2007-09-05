@@ -8,7 +8,7 @@
      [% PROCESS wiki/list %]
 [% END %]
 
-[% IF tags AND tags.size %]
+[% IF !tag AND tags AND tags.size %]
   <h2>{{Tags}}</h2>
   [% tagcloud(tags) %]
 [% END %]
@@ -17,6 +17,10 @@
 <p>
 <a href="[% make_uri('wiki') %]">{{Home}}</a>
 |
+[% IF tags AND tags.size %]
+<a href="[% make_uri('wiki', 'action', 'tags') %]">{{Tags}}</a>
+|
+[% END %]
 <a href="[% make_uri('wiki', 'action', 'recent') %]">{{Recent changes}}</a>
 </p>
 
