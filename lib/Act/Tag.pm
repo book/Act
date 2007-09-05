@@ -92,7 +92,7 @@ sub split_tags
     return sort
            map Act::Util::normalize($_),
            grep $_ && !$seen{$_}++,
-           split /\W+/, $string;
+           split /[^\w.]+/, $string;
 }
 
 =head1 NAME
