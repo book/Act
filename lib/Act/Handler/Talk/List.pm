@@ -78,8 +78,8 @@ sub handler
         $track->{talks} = [ grep { $_->track_id == $id } @$talks ];
     }
 
-    # get all tags
-    my $alltags = Act::Tag->find_tags(
+    # get tag cloud
+    my $tagcloud = Act::Tag->get_cloud(
                     conf_id => $Request{conference},
                     type   => 'talk',
                     filter => [ map $_->talk_id, @$talks ],
@@ -87,6 +87,7 @@ sub handler
 
     # process the template
     my $template = Act::Template::HTML->new();
+    $template->variables_raw(tagcloud => $tagcloud);
     $template->variables(
         talks          => $talks,
         talks_total    => $talks_total,
@@ -94,7 +95,6 @@ sub handler
         talks_duration => $duration,
         talks_lightning => $lightnings,
         tracks         => $tracks,
-        tags           => $alltags,
         tag            => $tag,
     ); 
     $template->process('talk/list');

@@ -3,6 +3,9 @@ use strict;
 use Act::Object;
 use base qw( Act::Object );
 
+use HTML::TagCloud;
+use URI::Escape;
+
 use Act::Config;
 
 use constant DEBUG => !$^C && $Config->database_debug;
@@ -84,6 +87,18 @@ sub find_tags
     my $sth = $Request{dbh}->prepare($SQL);
     $sth->execute(@values);
     return $sth->fetchall_arrayref([]);
+}
+sub get_cloud
+{
+    my ($class, %args) = @_;
+    my $tags = $class->find_tags(%args);
+    my $cloud = HTML::TagCloud->new;
+    for my $t (@$tags) {
+        my ($tag, $count) = @$t;
+        my $url = join '/', $Request{r}->uri, 'tag', URI::Escape::uri_escape_utf8($tag);
+        $cloud->add($tag, $url, $count);
+    }
+    return $cloud->html_and_css;
 }
 sub split_tags
 {

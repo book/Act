@@ -28,9 +28,9 @@
 [% END %]
 </div>
 
-[% IF !tag AND tags.size %]
+[% IF !tag AND tagcloud %]
   <h2>{{Tags}}</h2>
-  [% tagcloud(tags) %]
+  [% tagcloud %]
 [% END %]
 
 [% IF tracks.size;
