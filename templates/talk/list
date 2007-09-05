@@ -31,6 +31,7 @@
 [% IF !tag AND tagcloud %]
   <h2>{{Tags}}</h2>
   [% tagcloud %]
+  <br />
 [% END %]
 
 [% IF tracks.size;
