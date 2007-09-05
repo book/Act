@@ -350,7 +350,7 @@ msgid "Events"
 msgstr "Événements"
 
 msgid "Submit a new event"
-msgstr "Soumettre un événement"
+msgstr "Proposer un événement"
 
 msgid "Schedule"
 msgstr "Horaires"
@@ -362,7 +362,7 @@ msgid "iCal import"
 msgstr "Import iCal"
 
 msgid "Submit a talk proposal"
-msgstr "Soumettre une présentation"
+msgstr "Proposer une présentation"
 
 msgid "Presentations"
 msgstr "Présentations"
