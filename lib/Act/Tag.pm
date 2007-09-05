@@ -92,6 +92,7 @@ sub get_cloud
 {
     my ($class, %args) = @_;
     my $tags = $class->find_tags(%args);
+    return unless @$tags;
     my $cloud = HTML::TagCloud->new;
     for my $t (@$tags) {
         my ($tag, $count) = @$t;
