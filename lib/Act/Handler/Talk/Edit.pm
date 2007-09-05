@@ -165,6 +165,7 @@ sub handler {
                 if( $fields->{delete} ) {
                     # optional email notification ?
                     # notify('delete', $talk); # FIXME
+                    _update_tags($talk, \@tags, '');
                     $talk->delete;
                     $template->variables(%$fields);
                     $template->process('talk/removed');
@@ -173,6 +174,7 @@ sub handler {
                 else {
                     my $tbefore = $talk->clone;
                     $talk->update( %$fields );
+                    @tags = _update_tags($talk, \@tags, $fields->{tags});
 
                     # optional email notifications
                     notify('update', $tbefore, $talk);
@@ -188,24 +190,15 @@ sub handler {
                     user_id   => $user_id,
                     conf_id   => $Request{conference},
                 );
+                @tags = _update_tags($talk, \@tags, $fields->{tags});
+
                 # thanks, come again
                 $template->variables(%$fields, talk_id => $talk->talk_id);
                 $template->process('talk/added');
 
                 # optional email notification
                 notify(insert => $talk);
-                return;
             }
-            # update tags
-            my @newtags = Act::Tag->split_tags( $fields->{tags} );
-            Act::Tag->update_tags(
-                conf_id     => $Request{conference},
-                type        => 'talk',
-                tagged_id   => $talk->talk_id,
-                oldtags     => \@tags,
-                newtags     => \@newtags,
-            );
-            @tags = @newtags;
         }
         else {
             # map errors
@@ -339,6 +332,21 @@ sub notify
             %output,
         );
     }
+}
+# update tags
+sub _update_tags
+{
+    my ($talk, $oldtags, $newtags) = @_;
+
+    my @newtags = Act::Tag->split_tags($newtags);
+    Act::Tag->update_tags(
+        conf_id     => $Request{conference},
+        type        => 'talk',
+        tagged_id   => $talk->talk_id,
+        oldtags     => $oldtags,
+        newtags     => \@newtags,
+    );
+    return @newtags;
 }
 
 1;
