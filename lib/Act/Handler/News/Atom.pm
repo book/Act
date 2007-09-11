@@ -45,7 +45,7 @@ sub handler
     for my $item (@$news) {
         my $entry = XML::Atom::Entry->new;
         $entry->title($item->title);
-        $entry->id($Config->general_full_uri . $item->news_id);
+        $entry->id($Config->general_full_uri . $Request{language} . '/' . $item->news_id);
         unless ($authors{$item->user_id}) {
             my $user = Act::User->new(user_id => $item->user_id);
             my $person = XML::Atom::Person->new;

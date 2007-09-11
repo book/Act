@@ -10,8 +10,21 @@
 [% FOREACH n = news %]
   <tr>
     <td>[% date_format(n.datetime, 'datetime_short') %]</td>
-    <td><a href="[% make_uri('newsedit', 'news_id', n.news_id) %]">[% n.title %]</a></td>
-    <td>[% '✓' IF n.published %]</td>
+    <td>[% IF global.config.languages.keys.size > 1 %]
+          <table border="0">
+          [% FOREACH lang = n.items.keys.sort %]
+          <tr>
+            <td>[% global.config.languages.$lang.name %]</td>
+            <td><a href="[% make_uri('newsedit', 'news_id', n.news_id) %]">[% n.items.$lang.title %]</a>
+          </tr>
+          [% END %]
+          </table>
+        [% ELSE;
+           lang = n.items.keys.0 %]
+          <a href="[% make_uri('newsedit', 'news_id', n.news_id) %]">[% n.items.$lang.title %]</a>
+        [% END %]
+    </td>
+    <td align="center">[% '✓' IF n.published %]</td>
   </tr>
 [% END %]
 </table>

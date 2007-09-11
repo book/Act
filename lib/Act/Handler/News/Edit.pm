@@ -7,12 +7,12 @@ use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Form;
+use Act::I18N;
 use Act::News;
 use Act::Template::HTML;
 use Act::Util;
 
-my $form = Act::Form->new(
-  required => [qw(title text date time)],
+my %form_params = (
   optional => [qw(news_id published delete)],
   filters  => {
      published => sub { $_[0] ? 1 : 0 },
@@ -49,13 +49,39 @@ sub handler
     # form has been submitted
     if ($Request{args}{preview} || $Request{args}{save}) {
         # validate form fields
+        my $form = Act::Form->new(
+                    %form_params,
+                    required => [ qw(date time),
+                                  map { ("title_$_", "text_$_") } keys %{ $Config->languages } ],
+        );
         my @errors;
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
+
+        # extract items
+        my %items = map { $_ => { title => delete $fields->{"title_$_" },
+                                  text  => delete $fields->{"text_$_"  },
+                                }
+                        } keys %{ $Config->languages };
+
         if ($ok) {
             $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
             if ($Request{args}{preview}) {
-                $template->variables_raw(preview => Act::News->content( $fields->{text} ));
+                my %preview;
+                for my $lang (keys %{ $Config->languages }) {
+                    local $Request{language} = $lang;
+                    local $Request{loc} = Act::I18N->get_handle($Request{language});
+                    $template->variables(
+                        %$fields,
+                        title => $items{$lang}{title},
+                    );
+                    $template->variables_raw(
+                        content => Act::News->content($items{$lang}{text}),
+                    );
+                    $preview{$lang} = '';
+                    $template->process('news/item', \$preview{$lang});
+                }
+                $template->variables_raw(preview => \%preview);
             }
             else {
                 # convert to UTC datetime
@@ -65,10 +91,10 @@ sub handler
                 # update existing item
                 if (defined $news) { 
                     if ($fields->{delete}) {
-                        $news->delete;
+                        $news->delete( items => \%items );
                     }
                     else {
-                        $news->update( %$fields );
+                        $news->update( %$fields, items => \%items );
                     }
                 }
                 # insert new item
@@ -76,8 +102,8 @@ sub handler
                     $news = Act::News->create(
                         %$fields,
                         conf_id   => $Request{conference},
-                        lang      => $Request{language},
                         user_id   => $Request{user}->user_id,
+                        items     => \%items,
                     );
                 }
                 # redirect to news admin
@@ -86,17 +112,19 @@ sub handler
         }
         else {
             # map errors
-            $form->{invalid}{title} && push @errors, 'ERR_TITLE';
-            $form->{invalid}{text}  && push @errors, 'ERR_TEXT';
+            grep($form->{invalid}{"title_$_"}, keys %{ $Config->languages }) && push @errors, 'ERR_TITLE';
+            grep($form->{invalid}{"text_$_"},  keys %{ $Config->languages }) && push @errors, 'ERR_TEXT';
             $form->{invalid}{date}  && push @errors, 'ERR_DATE';
             $form->{invalid}{time}  && push @errors, 'ERR_TIME';
+            $template->variables(errors => \@errors);
         }
-        $template->variables(errors => \@errors);
+        $fields->{items} = \%items;
     }
     # initial form display
     else {
         if (exists $Request{args}{news_id}) {
             $fields = { %$news };
+            $fields->{items} = $news->items;
         }
         else {
             $fields = { datetime => DateTime->now() };

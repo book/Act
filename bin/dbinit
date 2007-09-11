@@ -219,12 +219,21 @@ CREATE TABLE news
 (
     news_id     SERIAL NOT NULL  PRIMARY KEY,
     conf_id     text   NOT NULL,
-    lang        text   NOT NULL,
     datetime    timestamp without time zone NOT NULL,
     user_id     integer NOT NULL,
-    title       text    NOT NULL,
-    text        text    NOT NULL,
     published   boolean DEFAULT false NOT NULL
+);
+DROP TABLE news_items;
+CREATE TABLE news_items
+(
+    news_item_id    SERIAL  NOT NULL PRIMARY KEY,
+    news_id         integer NOT NULL,
+    lang            text    NOT NULL,
+    title           text    NOT NULL,
+    text            text    NOT NULL,
+
+    UNIQUE (news_id, lang),
+    FOREIGN KEY( news_id  ) REFERENCES news( news_id )
 );
 
 /* perl mongers groups */
