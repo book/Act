@@ -25,9 +25,14 @@ sub fetch
     # apply optional limit
     $#$news = $count - 1 if $count && @$news > $count;
 
-    # fetch users
-    $_->{user} = Act::User->new(user_id => $_->user_id) for @$news;
-
+    my %users;
+    for my $n (@$news) {
+        # fetch user
+        $n->{user} = $users{$n->user_id} ||= Act::User->new(user_id => $n->user_id);
+        # fetch title and text
+        my $item = $n->items->{$Request{language}};
+        $n->{$_} = $item->{$_} for qw(title text);
+    }
     return $news;
 }
 

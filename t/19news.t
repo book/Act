@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More tests => 16;
 use Test::MockObject;
 use DateTime;
 
@@ -19,29 +19,41 @@ db_add_users();
 my $user = Act::User->new( login => 'echo' );
 
 # create a news item
+my %items = ( en => { title => 'breaking news!',
+                      text  => 'something interesting' } );
 $news = Act::News->create(
     conf_id => 'conf',
     user_id => $user->user_id,
-    lang    => 'en',
-    title   => 'breaking news!',
-    text    => 'something interesting',
+    items   => \%items,
     datetime => DateTime->now(),
 );
 isa_ok($news, 'Act::News');
 
-# fetch
+# new
 my $fetched = Act::News->new(conf_id => 'conf');
 is_deeply($fetched, $news, "fetch");
+is_deeply($fetched->items, \%items, "items");
 
 # update
-$news->update(text => "something else\nentirely", published => 1);
+$items{en}{text} = "something else\nentirely";
+$news->update(items => \%items, published => 1);
 $fetched = Act::News->new(news_id => $news->news_id);
 is_deeply($fetched, $news,"update");
+is_deeply($fetched->items, \%items, "updated items");
+
+# fetch
+$Request{language} = 'en';
+require_ok('Act::Handler::News::Fetch');
+$fetched = Act::Handler::News::Fetch::fetch();
+isa_ok($fetched, 'ARRAY', "fetch");
+is(scalar(@$fetched), 1, "fetched 1");
+$fetched = $fetched->[0];
+is($fetched->{news_id}, $news->news_id, "fetch news_id");
 
 # content
 my $expected_content = "<p>something else</p>\n<p>entirely</p>";
 is($fetched->content, $expected_content, "content");
-is(Act::News->content($news->text), $expected_content, "content as class method");
+is(Act::News->content($fetched->text), $expected_content, "content as class method");
 
 # global.news
 %Request = ( %Request,
@@ -64,7 +76,6 @@ is($output, 1, "template - size");
 $template->process(\"[% global.news.0.content %]", \$output);
 is($fetched->content, $expected_content, "template - content");
 
-
 # delete
-$news->delete;
+$news->delete(items => \%items);
 is(Act::News->new(news_id => $news->news_id), undef, "News item removed");

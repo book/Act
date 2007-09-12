@@ -30,6 +30,22 @@ my @SCHEMA_UPDATES = (
     tagged_id     text not null
    );
   ",
+#7,
+  "create table news_items (
+    news_item_id    serial  not null primary key,
+    news_id         integer not null,
+    lang            text    not null,
+    title           text    not null,
+    text            text    not null,
+
+    unique (news_id, lang),
+    foreign key( news_id  ) references news( news_id )
+   );
+   insert into news_items (news_id, lang, title, text) select news_id, lang, title, text from news;
+   alter table news drop column lang;
+   alter table news drop column title;
+   alter table news drop column text;
+  ",
 );
 
 # returns ( current database schema version, required version )

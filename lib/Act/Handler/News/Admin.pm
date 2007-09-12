@@ -19,8 +19,8 @@ sub handler
     # fetch this conference's news items
     my $news = Act::News->get_items(
                     conf_id => $Request{conference},
-                    lang    => $Request{language},
                );
+    $_->items for @$news;
 
     # convert to local time
     for (@$news) {
