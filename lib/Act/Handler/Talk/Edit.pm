@@ -201,7 +201,7 @@ sub handler {
             }
 
             # return to the referring URL
-            my $referer = $Request->{r}->header_in('Referer');
+            my $referer = $Request{r}->header_in('Referer');
             return Act::Util::redirect($referer)
                 if $referer
                 =~ m{/(?:main|talks|schedule|user)};
