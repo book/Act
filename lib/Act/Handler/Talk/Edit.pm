@@ -199,6 +199,12 @@ sub handler {
                 # optional email notification
                 notify(insert => $talk);
             }
+
+            # return to the referring URL
+            my $referer = $Request->{r}->header_in('Referer');
+            return Act::Util::redirect($referer)
+                if $referer
+                =~ m{/(?:main|talks|schedule|user)};
         }
         else {
             # map errors
