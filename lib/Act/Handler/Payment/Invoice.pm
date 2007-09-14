@@ -19,7 +19,9 @@ my $form = Act::Form->new(
 sub handler
 {
     # invoices must be enabled
-    unless ($Config->payment_invoices || $Request{user}->is_treasurer) {
+    unless ($Config->payment_type ne 'NONE' &&
+            ($Config->payment_invoices || $Request{user}->is_treasurer))
+    {
         $Request{status} = NOT_FOUND;
         return;
     }

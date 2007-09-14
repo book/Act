@@ -82,8 +82,15 @@ conference.
     [payment]
     open        = 0
     
-    # which online payment system? (Fake/YEF/TPF/...)
+    # which online payment system? (Fake/NONE/YEF/TPF/...)
+    #  Fake: payment simulation, for tests
+    #  NONE: the conference is free
+    #  YEF:  using the YAPC Europe Foundation's payment system
+    #  TPF:  using The Perl Foundation's payment system
+    #  PaypalFoo: using a Paypal account
     type        = YEF
+    
+    # if type is "NONE", the following configuration should be ommitted
     
     # currency. Valid values depends on the payment type
     currency    = EUR

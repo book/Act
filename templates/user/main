@@ -24,7 +24,7 @@
  <p>[% loc("Download your invoice", make_uri_info('invoice', order.order_id)) %]
  </p>
  [% END %]
-  [% ELSE %]
+  [% ELSIF global.config.payment_type != "NONE" %]
  <p>
   {{You have not bought your conference ticket yet.}}
   [% IF global.config.payment_open %]
@@ -45,6 +45,7 @@
    <ul>
    [% IF global.request.user.has_registered %]
     [% IF global.request.conference
+       AND global.config.payment_type != "NONE"
        AND global.config.payment_open
        AND NOT global.request.user.has_paid %]
     <li><a href="[% make_uri('purchase') %]">{{purchase your conference ticket}}</a><br />

@@ -17,9 +17,11 @@ my $form = Act::Form->new(
 );
 sub handler
 {
-    # shouldn't get here unless the online payment is open
+    # shouldn't get here unless the conference isn't free,
+    # online payment is open,
     # and this user is registered and hasn't paid
-    unless ($Config->payment_open &&
+    unless ($Config->payment_type ne 'NONE' &&
+            $Config->payment_open &&
             $Request{user}->has_registered() &&
             !$Request{user}->has_paid)
     {

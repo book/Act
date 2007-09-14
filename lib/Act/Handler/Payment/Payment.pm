@@ -15,8 +15,10 @@ sub handler
 }
 sub _handler
 {
-    # for treasurers only
-    return unless $Request{user}->is_treasurer && $Request{args}{user_id};
+    # for non-free conferences, treasurers only
+    return unless $Config->payment_type ne 'NONE'
+               && $Request{user}->is_treasurer
+               && $Request{args}{user_id};
 
     # payment means and prices
     my $means  = Act::Payment::get_means;

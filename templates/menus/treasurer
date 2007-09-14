@@ -1,5 +1,5 @@
 <!-- money menu -->
-[% IF global.request.user.is_treasurer %]
+[% IF global.request.user.is_treasurer AND global.config.payment_type != "NONE" %]
    [% WRAPPER menus/section %]
    {{Treasurer}}
    [% END %]
