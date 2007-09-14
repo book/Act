@@ -21,6 +21,10 @@
 
 <form method="POST" action="[% global.request.r.uri %]">
 
+[% IF return_url %]
+<input type="hidden" name="return_url" value="[% return_url %]" />
+[% END %]
+
 [% IF talk_id %]
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
 <p>
