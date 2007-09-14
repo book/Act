@@ -22,7 +22,8 @@ use Act::Handler::Talk::Util;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id level lang tags)],
+                  accepted confirmed date time room delete track_id level lang
+                  tags return_url)],
   filters  => {
      track_id => sub { $_[0] || undef },
      tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
@@ -39,6 +40,7 @@ my $form = Act::Form->new(
                            || ($_[0] =~ /^\d+$/ && $_[0] >= 1 && $_[0] <= $Config->talks_levels)
                      },
      lang         => sub { exists $Config->talks_languages->{$_[0]} },
+     return_url   => 'url',
   }
 );
 
@@ -87,6 +89,11 @@ sub handler {
     # not registered!
     return Act::Util::redirect(make_uri('register'))
       unless $Request{user}->has_registered;
+
+    # automatically compute the return URL
+    my $referer = $Request{r}->header_in('Referer');
+    $Request{args}{return_url} ||= $referer
+        if $referer =~ m{/(?:main|talks|schedule|user)};
 
     if ($Request{args}{submit}) {
         # form has been submitted
@@ -200,11 +207,9 @@ sub handler {
                 notify(insert => $talk);
             }
 
-            # return to the referring URL
-            my $referer = $Request{r}->header_in('Referer');
-            return Act::Util::redirect($referer)
-                if $referer
-                =~ m{/(?:main|talks|schedule|user)};
+            # return to the referring URL if needed
+            return Act::Util::redirect( $fields->{return_url} )
+                if $fields->{return_url};
         }
         else {
             # map errors
