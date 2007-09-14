@@ -23,7 +23,7 @@ my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
                   accepted confirmed date time room delete track_id level lang
-                  tags return_url)],
+                  tags )],
   filters  => {
      track_id => sub { $_[0] || undef },
      tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
@@ -40,7 +40,6 @@ my $form = Act::Form->new(
                            || ($_[0] =~ /^\d+$/ && $_[0] >= 1 && $_[0] <= $Config->talks_levels)
                      },
      lang         => sub { exists $Config->talks_languages->{$_[0]} },
-     return_url   => 'url',
   }
 );
 
@@ -208,8 +207,8 @@ sub handler {
             }
 
             # return to the referring URL if needed
-            return Act::Util::redirect( $fields->{return_url} )
-                if $fields->{return_url};
+            return Act::Util::redirect( $Request{args}{return_url} )
+                if $Request{args}{return_url};
         }
         else {
             # map errors
@@ -230,6 +229,7 @@ sub handler {
 
     # display the talk submission form
     $template->variables(
+        return_url => $Request{args}{return_url},
         levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
                     1 .. $Config->talks_levels ],
         tags   => join(' ', @tags),
