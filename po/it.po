@@ -368,9 +368,6 @@ msgstr "Gli interventi in <b>grassetto</b> sono stati confermati dai rispettivi 
 msgid "Time"
 msgstr "Ora"
 
-msgid "Room <room name>"
-msgstr "Stanza %1"
-
 msgid "Ticket for <conference name>."
 msgstr "Bigiletto per %1."
 

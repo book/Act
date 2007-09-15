@@ -113,20 +113,37 @@ sub load_configs
     # their content may override global config settings
     my %uris;
     for my $conf (keys %{$GlobalConfig->conferences}) {
+        # load conference configuration
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
+        # conference languages
         _make_hash($ConfConfigs{$conf}, languages => $ConfConfigs{$conf}->general_languages);
+        # talk durations
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
+        # talk languages
         if ($ConfConfigs{$conf}->talks_languages) {
             $ConfConfigs{$conf}->set(
                 talks_languages => { map { $_ => Act::Language::name($_) }
                                      split /\s+/, $ConfConfigs{$conf}->talks_languages
                                    });
         }
-        _make_hash($ConfConfigs{$conf}, rooms => $ConfConfigs{$conf}->rooms_rooms);
-        $ConfConfigs{$conf}->rooms->{$_} = $ConfConfigs{$conf}->get("rooms_$_")
-            for keys %{$ConfConfigs{$conf}->rooms};
+        # room names
+        my %rooms_names;
+        _make_hash($ConfConfigs{$conf}, rooms_codes => $ConfConfigs{$conf}->rooms_rooms);
+        for my $r (keys %{$ConfConfigs{$conf}->rooms_codes}) {
+            for my $lang (keys %{$ConfConfigs{$conf}->languages}) {
+                eval {
+                    local $SIG{__WARN__} = sub {};
+                    # new style: r1_name_en = TheName
+                    $rooms_names{$r}{$lang} = $ConfConfigs{$conf}->get(join '_', 'rooms', $r, 'name', $lang);
+                };
+                # old style: r1 = TheName
+                $rooms_names{$r}{$lang} ||= $ConfConfigs{$conf}->get("rooms_$r");
+            }
+        }
+        $ConfConfigs{$conf}->set( rooms_names => \%rooms_names );
+
         # name of the conference in various languages
         $ConfConfigs{$conf}->set(name => { });
         for( keys %Languages ) {
@@ -185,6 +202,21 @@ sub get_config
         return $ConfConfigs{$conf}
     }
     return $GlobalConfig;
+}
+# finalize config once $Request{language} is set
+sub finalize_config
+{
+    my ($cfg, $language) = @_;
+
+    # room names in current language
+    my $allnames = $cfg->rooms_names;
+    my %names;
+    for my $r (keys %$allnames) {
+        $names{$r} =  $allnames->{$r}{$language}
+                   || $allnames->{$r}{$cfg->general_default_language}
+                   || $allnames->{$r}{en};
+    }
+    $cfg->set(rooms => \%names);
 }
 
 sub _init_config

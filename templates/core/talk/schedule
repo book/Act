@@ -49,7 +49,7 @@
   </th>
   [% FOREACH r IN room.keys.sort %]
   <th colspan="[% width.$r.$d %]">
-    [% loc('Room <room name>', global.config.rooms.$r) %]
+    [% global.config.rooms.$r %]
   </th>
   [% END %]
  </tr>

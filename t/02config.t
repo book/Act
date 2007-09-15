@@ -31,6 +31,7 @@ my @conf_simple = qw(
     talks_show_schedule
     talks_start_date
     talks_end_date
+    rooms_rooms
     payment_type
 );
 
@@ -88,6 +89,12 @@ for my $conf (keys %{$Config->conferences}) {
         ok(Act::Language::name($_), "$conf talks languages $_")
             for keys %{$cfg->talks_languages};
     }
+    # rooms
+    isa_ok($cfg->rooms_names, 'HASH', "$conf rooms_names");
+    for my $r (keys %{ $cfg->rooms_names }) {
+        ok($cfg->rooms_names->{$r}{$_}, "$conf room $r name $_")
+                for keys %{$cfg->languages};
+    }    
     # payment
     if ($cfg->payment_type eq 'NONE') {
         ok(1, "$conf payment_type NONE");

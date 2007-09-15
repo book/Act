@@ -339,9 +339,6 @@ msgstr "Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt."
 msgid "Time"
 msgstr "Zeit"
 
-msgid "Room <room name>"
-msgstr "Raum: %1"
-
 msgid "Ticket for <conference name>."
 msgstr "Teilnahme an %1."
 
