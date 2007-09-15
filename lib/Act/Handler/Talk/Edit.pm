@@ -22,7 +22,8 @@ use Act::Handler::Talk::Util;
 my $form = Act::Form->new(
   required => [qw(title abstract)],
   optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id level lang tags)],
+                  accepted confirmed date time room delete track_id level lang
+                  tags )],
   filters  => {
      track_id => sub { $_[0] || undef },
      tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
@@ -87,6 +88,11 @@ sub handler {
     # not registered!
     return Act::Util::redirect(make_uri('register'))
       unless $Request{user}->has_registered;
+
+    # automatically compute the return URL
+    my $referer = $Request{r}->header_in('Referer');
+    $Request{args}{return_url} ||= $referer
+        if $referer =~ m{/(?:main|talks|schedule|user)};
 
     if ($Request{args}{submit}) {
         # form has been submitted
@@ -199,6 +205,10 @@ sub handler {
                 # optional email notification
                 notify(insert => $talk);
             }
+
+            # return to the referring URL if needed
+            return Act::Util::redirect( $Request{args}{return_url} )
+                if $Request{args}{return_url};
         }
         else {
             # map errors
@@ -219,6 +229,7 @@ sub handler {
 
     # display the talk submission form
     $template->variables(
+        return_url => $Request{args}{return_url},
         levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
                     1 .. $Config->talks_levels ],
         tags   => join(' ', @tags),

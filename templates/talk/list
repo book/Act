@@ -67,7 +67,9 @@
   END %]
 [% IF global.request.user.is_orga %]
 <br />
+ [% IF talks_total != 0 %]
 <input type="submit" name="ok" value="{{Update}}" />
+ [% END %]
 </form>
 [% END %]
 [% END %]
