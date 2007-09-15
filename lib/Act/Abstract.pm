@@ -59,7 +59,7 @@ sub expand_talk
 
 sub expand_user
 {
-    my $user_info = shift;
+    my $user_info = shift or return;
     my $user;
     my %args;
     if ($user_info =~ /^\d+/) {
