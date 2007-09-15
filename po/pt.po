@@ -347,9 +347,6 @@ msgstr "As apresentações em <b>negrito</b> já foram confirmadas pelos respect
 msgid "Time"
 msgstr "Hora"
 
-msgid "Room <room name>"
-msgstr "Sala %1"
-
 msgid "Ticket for <conference name>."
 msgstr "Bilhete para %1."
 

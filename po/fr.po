@@ -427,9 +427,6 @@ msgstr "Les présentations en <b>gras</b> ont été confirmées par leurs auteur
 msgid "Time"
 msgstr "Heure"
 
-msgid "Room <room name>"
-msgstr "Salle %1"
-
 msgid "Ticket for <conference name>."
 msgstr "Ticket d'entrée à la conférence %1."
 

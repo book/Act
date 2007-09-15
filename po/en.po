@@ -421,9 +421,6 @@ msgstr "Talks in <b>bold type</b> have been confirmed by their respective speake
 msgid "Time"
 msgstr "Time"
 
-msgid "Room <room name>"
-msgstr "Room %1"
-
 msgid "Ticket for <conference name>."
 msgstr "Ticket for %1."
 

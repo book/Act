@@ -122,6 +122,7 @@ sub _dispatch
     # per-request initialization
     $Request{args} = { map { scalar $_ => decode_utf8($r->param($_)) } $r->param };
     _set_language();
+    Act::Config::finalize_config($Config, $Request{language});
 
     # redirect language change requests
     if (delete $Request{args}{language}) {
