@@ -1,3 +1,4 @@
+[% RETURN UNLESS talks.size %]
 <table border="1" cellspacing="0" cellpadding="4">
 <tr>
  <th>{{Speaker}}</th>
