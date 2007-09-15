@@ -31,9 +31,7 @@ my @conf_simple = qw(
     talks_show_schedule
     talks_start_date
     talks_end_date
-    payment_open
     payment_type
-    payment_prices
 );
 
 BEGIN { use_ok('Act::Language') }
@@ -90,25 +88,32 @@ for my $conf (keys %{$Config->conferences}) {
         ok(Act::Language::name($_), "$conf talks languages $_")
             for keys %{$cfg->talks_languages};
     }
-    # prices
-    my $oldstyle;
-    my $errhandler = $cfg->{STATE}->_ehandler();
-    $cfg->{STATE}->_ehandler( sub { $oldstyle = 1 } );
-    $cfg->payment_currency;
-    $cfg->{STATE}->_ehandler($errhandler);
-
-    ok(!$oldstyle, "$conf open payment is new style")
-        if $cfg->payment_open;
-    for my $i (1 .. $cfg->payment_prices) {
-        my $key = "price$i";
-        ok($cfg->get($key . '_amount'), "$conf $key amount");
-        if ($oldstyle) {
-            ok($cfg->get($key . "_$_"), "$conf $key $_")
-                for qw(type currency);
-        }
-        else {
-            ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
-                for keys %{$cfg->languages};
+    # payment
+    if ($cfg->payment_type eq 'NONE') {
+        ok(1, "$conf payment_type NONE");
+    }
+    else {
+        ok(defined $cfg->$_, "$conf $_") for qw(payment_open payment_prices);
+        # prices
+        my $oldstyle;
+        my $errhandler = $cfg->{STATE}->_ehandler();
+        $cfg->{STATE}->_ehandler( sub { $oldstyle = 1 } );
+        $cfg->payment_currency;
+        $cfg->{STATE}->_ehandler($errhandler);
+    
+        ok(!$oldstyle, "$conf open payment is new style")
+            if $cfg->payment_open;
+        for my $i (1 .. $cfg->payment_prices) {
+            my $key = "price$i";
+            ok($cfg->get($key . '_amount'), "$conf $key amount");
+            if ($oldstyle) {
+                ok($cfg->get($key . "_$_"), "$conf $key $_")
+                    for qw(type currency);
+            }
+            else {
+                ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
+                    for keys %{$cfg->languages};
+            }
         }
     }
     # remember payment type
@@ -120,6 +125,7 @@ while (my ($uri, $conf) = each %{$Config->uris}) {
 }
 # payment types
 for my $type (sort keys %payment_types) {
+    next if $type eq 'NONE';
     my $prefix = 'payment_type_' . $type . '_';
     my $plugin_type = $Config->get($prefix . 'plugin');
     ok($plugin_type, "payment_type_$type: plugin type = $plugin_type");

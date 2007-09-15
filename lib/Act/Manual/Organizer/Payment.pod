@@ -16,6 +16,18 @@ requires prior agreement between the organizers and the relevant foundation.
 
 =head1 Configuration
 
+=head2 Free conference
+
+If the conference is free of charge, configure payment thusly:
+
+  [payment]
+  type        = NONE
+
+All payment related features will be disabled.
+
+
+=head2 Conference using an online payment system
+
   [payment]
   open        = 1
 
