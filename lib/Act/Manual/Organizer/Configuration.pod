@@ -75,9 +75,9 @@ conference.
     # list of rooms (must match /r\d+/)
     rooms = r1 r2
     
-    # room names
-    r1 = LMET
-    r2 = O'Reilly
+    # room names in all supported languages
+    r1_name_en = LMET
+    r2_name_en = O'Reilly
     
     [payment]
     open        = 0

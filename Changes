@@ -2,6 +2,9 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2007/09/15 r1693 multilingual room names
+           r1690 support for free conferences (no payment)
+
 2007/09/01 r1649 PayPal payment plugin
            r1648 preview news items before saving them
            r1646 tags: users can tag talks and wiki pages
