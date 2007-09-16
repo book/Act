@@ -217,6 +217,12 @@ sub finalize_config
                    || $allnames->{$r}{en};
     }
     $cfg->set(rooms => \%names);
+
+    # talk level names in current language
+    $cfg->set(talks_levels_names => 
+            [ map $cfg->get("levels_level$_\_name_$language"),
+                  1 .. $cfg->talks_levels ]);
+
 }
 
 sub _init_config

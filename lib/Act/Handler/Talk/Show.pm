@@ -83,7 +83,7 @@ sub handler
         tags => \@tags,
     );
     $template->variables(
-        level => $Config->get("levels_level" . $talk->level . "_name_$Request{language}"),
+        level => $Config->talks_levels_names->[ $talk->level - 1 ],
     ) if $Config->talks_levels;
     $template->process('talk/show');
 }

@@ -181,7 +181,7 @@
   <td align="right" valign="top">{{Target audience}}</td>
   <td>&nbsp;</td>
   <td><select name="level">
-       [% FOREACH levelname = levels %]
+       [% FOREACH levelname = global.config.talks_levels_names %]
          <option value="[% loop.count %]"[% ' selected="selected"' IF level == loop.count %]>[% levelname %]</option>
        [% END %]
   </td>

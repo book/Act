@@ -230,8 +230,6 @@ sub handler {
     # display the talk submission form
     $template->variables(
         return_url => $Request{args}{return_url},
-        levels => [ map $Config->get("levels_level$_\_name_$Request{language}"),
-                    1 .. $Config->talks_levels ],
         tags   => join(' ', @tags),
         defined $talk
         ? ( %$talk,
@@ -281,7 +279,7 @@ sub notify
                 elsif ($field eq 'level') {
                     if ($tbefore->level != $talk->level) {
                         for my $t ($tbefore, $talk) {
-                            $t->{audience} = $Config->get("levels_level" . $t->level ."_name_$Request{language}")
+                            $t->{audience} = $Config->talks_levels_names->[$t->level - 1]
                                 if $t->level;
                         }
                         push @diff, 'audience';
@@ -314,7 +312,7 @@ sub notify
         # additional talk information
         $talk->{track} = Act::Track->new(track_id => $talk->track_id)->title
                                 if $talk->track_id;
-        $talk->{audience} = $Config->get("levels_level" . $talk->level ."_name_$Request{language}")
+        $talk->{audience} = $Config->talks_levels_names->[ $talk->level - 1 ]
             if $Config->talks_levels;
 
         # generate subject and body from templates
