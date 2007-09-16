@@ -24,7 +24,7 @@
          [% loc("salutation_${salutation}") IF salutation %]
          [% first_name %]
          [% last_name %]
-         [% "($nick_name)" IF nick_name %]
+         [% "(&lrm;${nick_name}&lrm;)" IF nick_name %]
       [% END %]
    </td>
 </tr>
