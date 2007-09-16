@@ -43,7 +43,7 @@
             user.nick_name;
         ELSE;
             "${user.first_name} ${user.last_name}";
-            " (${user.nick_name})" IF user.nick_name;
+            " (&lrm;${user.nick_name}&lrm;)" IF user.nick_name;
         END;
     END;
 

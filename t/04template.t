@@ -185,7 +185,7 @@ my @templates = (
     { # user_info_base
       in   => '[% user_info_base(user) %]',
       var  => { user => { first_name => 'John', last_name => 'Doe', nick_name => 'Zorglub' } },
-      out  => 'John Doe (Zorglub)',
+      out  => 'John Doe (&lrm;Zorglub&lrm;)',
       sections => [ { nolang => '[% user_info_base(user) %]' } ],
     },
     { # user_info_base
