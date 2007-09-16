@@ -1,13 +1,13 @@
 [%  MACRO talk_link(talk)
     BLOCK;
         %]<a href="[% make_uri_info( 'talk', talk.talk_id ) %]">
-            [%- "<b>" IF talk.accepted %][% talk.title %][% "</b>" IF talk.accepted %]</a>
+            [%- "<b>" IF talk.accepted %]&lrm;[% talk.title %]&lrm;[% "</b>" IF talk.accepted %]</a>
 [%- END;
 
     MACRO talk_confirmed_link(talk)
     BLOCK;
         %]<a href="[% make_uri_info( 'talk', talk.talk_id ) %]">
-            [%- "<b>" IF talk.confirmed %][% talk.title %][% "</b>" IF talk.confirmed %]</a>
+            [%- "<b>" IF talk.confirmed %]&lrm;[% talk.title %]&lrm;[% "</b>" IF talk.confirmed %]</a>
 [%- END;
 
     MACRO talk_modify_link(talk)
@@ -22,7 +22,7 @@
 
     MACRO event_link(event)
     BLOCK;
-        %]<a href="[% make_uri_info('event', event.event_id) %]">[% event.title %]</a>
+        %]<a href="[% make_uri_info('event', event.event_id) %]">&lrm;[% event.title %]&lrm;</a>
 [%- END;
 
     MACRO event_modify_link(event)
