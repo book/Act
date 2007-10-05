@@ -24,6 +24,11 @@ sub handler
             );
             $talks = [ map Act::Talk->new(talk_id => $_), @talk_ids ];
         }
+        else {
+            # invalid path_info, redirect to canonical uri
+            Act::Util::redirect(Act::Util::make_uri('talks'));
+            return;
+        }
     }
     # retrieve talks and speaker info
     $talks ||= Act::Talk->get_talks( conf_id => $Request{conference} );
