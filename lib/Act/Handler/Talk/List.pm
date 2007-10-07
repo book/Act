@@ -14,9 +14,9 @@ sub handler
     # searching by tag
     my ($tag, $talks);
     if ($Request{path_info}) {
-        (my $type, $tag) = split '/', $Request{path_info};
-        if ($type eq 'tag' && $tag) {
-            $tag = Act::Util::normalize($tag);
+        my ($type, $stag) = split '/', $Request{path_info};
+        if ($type eq 'tag' && $stag) {
+            $tag = Act::Util::normalize($stag);
             my @talk_ids = Act::Tag->find_tagged(
                 conf_id     => $Request{conference},
                 type        => 'talk',
@@ -24,10 +24,14 @@ sub handler
             );
             $talks = [ map Act::Talk->new(talk_id => $_), @talk_ids ];
         }
+        else {
+            # invalid path_info, redirect to canonical uri
+            Act::Util::redirect(Act::Util::make_uri('talks'));
+            return;
+        }
     }
     # retrieve talks and speaker info
-    $talks = Act::Talk->get_talks( conf_id => $Request{conference} )
-        unless $tag;
+    $talks ||= Act::Talk->get_talks( conf_id => $Request{conference} );
     my $talks_total = scalar @$talks;
     $_->{user} = Act::User->new( user_id => $_->user_id ) for @$talks;
 
