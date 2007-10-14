@@ -557,7 +557,7 @@ msgid "country_qa"
 msgstr "Qatar"
 
 msgid "country_re"
-msgstr "Reunion"
+msgstr "Réunion"
 
 msgid "country_ro"
 msgstr "Romania"
