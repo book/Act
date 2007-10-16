@@ -4,3 +4,1296 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "payment_means_CHQ"
+msgstr "צ'ק"
+
+msgid "payment_means_CASH"
+msgstr "מזומן"
+
+msgid "payment_means_ONLINE"
+msgstr "מקוון"
+
+msgid "payment_means_XFER"
+msgstr "העברה בנקאית"
+
+msgid "payment_means_FREE"
+msgstr "חינם"
+
+msgid "room_out"
+msgstr "בחוץ"
+
+msgid "room_venue"
+msgstr "חדר"
+
+msgid "salutation_1"
+msgstr "מר"
+
+msgid "salutation_2"
+msgstr "גב'"
+
+msgid "salutation_3"
+msgstr "--"
+
+msgid "salutation_4"
+msgstr "ד\"ר"
+
+msgid "User information"
+msgstr "מידע על המשתמש"
+
+msgid "Login"
+msgstr "שם משתמש"
+
+msgid "Name"
+msgstr "שם"
+
+msgid "City"
+msgstr "עיר"
+
+msgid "Country"
+msgstr "ארץ"
+
+msgid "Perl mongers group"
+msgstr "קבוצה שוחרי Perl"
+
+msgid "Company"
+msgstr "חברה"
+
+msgid "Email"
+msgstr "דוא\"ל"
+
+msgid "Web page"
+msgstr "אתר אינטרנט"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "מזהה מתפח GPG"
+
+msgid "No photo"
+msgstr "אין תמונה"
+
+msgid "Talk"
+msgstr "%numerate(%1,הרצאה)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,הרצאה שהתקבלה)"
+
+msgid "minutes"
+msgstr "דקות"
+
+msgid "Lightning talk"
+msgstr "הרצאת בזק"
+
+msgid "Bio"
+msgstr "מידע ביוגרפי"
+
+msgid "Other Act conferences:"
+msgstr "כנסי Act נוספים:"
+
+msgid "Main private page"
+msgstr "דף פרטי ראשי"
+
+msgid "to <this conference>"
+msgstr "אל %1."
+
+msgid "This is your personal page."
+msgstr ""
+"זה הדף הפרטי שלך.\n"
+"מכאן ניתן לנהל כל מה שקשור להשתתפותך\n"
+
+msgid "to Act-enabled conferences."
+msgstr "אל כנסים מבוססי Act."
+
+msgid "You have purchased your conference ticket:"
+msgstr "רכשת את כרטיסיך לכנס:""
+
+msgid "Order number"
+msgstr "מספר הזמנה"
+
+msgid "Payment date"
+msgstr "תאריך תשלום"
+
+msgid "Amount paid"
+msgstr "סכום ששולם"
+
+msgid "Download your invoice"
+msgstr "הורד את <a href=\"%1\">החשבונית שלך</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "טרם רכשת כרטיסים לכנס."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "אנו ממליצים לרכוש אותם במאצעות מערכת התשלומים המקוונת שלנו"
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "אנו ממליצים להשתמש במערכת התשלומים המקוונת שלנו לאחר שהיא תהיה מוכנה."
+
+msgid "You did not register for this conference"
+msgstr ""
+"לא נרשמת <a href=\"%1\">לכנס זה</a>.\n"
+"נא להרשם אם בכוונתל להשתתך בכנס או להרצות בו.\n"
+
+msgid "You can:"
+msgstr "הנך יכול:"
+
+msgid "purchase your conference ticket"
+msgstr "לרכוש כרטיס לכנס"
+
+msgid "register for this conference"
+msgstr "להרשם לכנס"
+
+msgid "update your information"
+msgstr "לעדבן את המידע שלך"
+
+msgid "manage your photo"
+msgstr "לנהל את התמונתך"
+
+msgid "change your password"
+msgstr "לשנות את סיסמתך"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "צפה בהרצאות שלך (הרצאות שהתקבלו מוצגות בכתב <b>מודגש</b> type)"
+
+msgid "submit a talk"
+msgstr "להגיש הצעה להרצאה"
+
+msgid "log out"
+msgstr "יציאה מהמערכת"
+
+msgid "unregister from <this conference>"
+msgstr "ביאול הרשמה מ- %1"
+
+msgid "(You were there)"
+msgstr "(היית שם)"
+
+msgid "(You are there)"
+msgstr "(התה שם)"
+
+msgid "(You will be there)"
+msgstr "(תהיה שם)"
+
+msgid "Confirmation required"
+msgstr "דרוש אישור"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"פעולה זו דורשת וידוא. יש להזין כתובת דוא\"ל\n"
+"יישלח אליך דוא\"ל עם קישור.\n"
+
+msgid "You must enter your email"
+msgstr "יש להזין כתובת דוא\"ל"
+
+msgid "Your email address looks bogus."
+msgstr "כתובת הדוא"ל שלך נראית חשודה."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"נשלח דוא\"ל אל  <b>%1</b>. יש ללחוץ על הקישור בדוא\"ל\n"
+"לסיום הפעולה את הפעולה.\n"
+
+msgid "Confirmation email sent"
+msgstr "נשלח דוא\"ל לאישור"
+
+msgid "In order to complete your operation"
+msgstr "כדי להשלים את פעולתך על \"%1\", נא ללחוץ על הקישור הבא:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - אישור"
+
+msgid "Registration"
+msgstr "הרשמה"
+
+msgid "Sorry, this conference is over."
+msgstr "צר לנו, אך כנס זה כבר הסתיים."
+
+msgid "Please create your user below."
+msgstr "נא ליצור את השמתמש שלך למטה."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "השם המזהה %1 כבר נמצא בשימוש. מא לבחור שם מזהה אחר."
+
+msgid "The address is already registered."
+msgstr "התכובת %1 כבר רשומה."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "השם המזהה חייב להכיל לפחות 3 תווים ועל כולם להיות תווים אלפאנומריים (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "יש להזין את השם הפרטי"
+
+msgid "You must enter your last name"
+msgstr "יש להזין את שם המשפחה"
+
+msgid "You must enter a country from the list"
+msgstr "יש לבחור ארץ מהרשימה"
+
+msgid "Accounts with similar information already exist."
+msgstr "חשבונות עם פרטים דומים כבר קיימים."
+
+msgid "A valid T-shirt size is required."
+msgstr "יש לבחור מידה תקינה לחולצה."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"יש להשתמש בקישורים למעלה כדי לבדוק אם אתה אחד מהם. אם כן אז יש\n"
+"<a href=\"%1\">להתחבר למערכת</a> אם החשבון הקיים שלכם.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"כדי להרדם, יש ליצור תחילה חשבון על האתר.\n"
+"<b>אם כבר יש לכם חשבון מכנס קודם,\n"
+"אז אין צורך להרשם שוב, תוכלו פשוט \n"
+"<a href=\"%1\">להתחבר למערכת</a> עם החשבון הקיים שלכם.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"המידע האישי שנאסף כאן ישמש ליצירת \n"
+"an <a href=\"%1\">מקוון <i> מי הוא מי?</i></a> של כל מי משתתפי הכנס.\n"
+"זה יהיה מאוד שימושי אחרי הכנס, כשתרצו ליצור קשר\n"
+"עם מישהו שפגשתם בכנס. או אפילו לפני,\n"
+"כשתרצו לדעת מי מהגורואים יהיו בכנס.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"לאחר שיהיה לך חשבון תוכל להשתמש במצעי התשלום המקוונים שלנו\n"
+"כדי לשלם על הכנס. שים לב כי כל מה שקשור לחשבון בנק \n"
+"ולכרטיס האשראי שלך מטופל על ידי הבנק.\n"
+""
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>אין לנו גישה למידע על כרטיס האשראי שלך במשך התהליך.</b>\\n"
+"אנחנו רק מקבלים את הכסף בסוף.\n"
+" <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "נא ליצור את המשתמש למטה."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"השתמש בקישורים למעלה כדי לבדוק אם אחד משמות המשתמש הוא זה שאתה רוצה ליצור\n"
+"אם כן, סמן אותו והגש את הטופס. \n"
+"submit this form.\n"
+
+msgid "Register"
+msgstr "הרשם"
+
+msgid "Registered!"
+msgstr "נרשמ!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"מזל טוב, <b>%1</b>, נרשצת בהצלחה.\n"
+"סיסמתך היא <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "שם פרטי"
+
+msgid "Last Name"
+msgstr "שם משפחה"
+
+msgid "T-Shirt"
+msgstr "חולצה"
+
+msgid "Join!"
+msgstr "הצטרף!"
+
+msgid "edit"
+msgstr "ערוך"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "כניסה למערכת"
+
+msgid "Password"
+msgstr "סיסמה"
+
+msgid "Submit"
+msgstr "הגש"
+
+msgid "Forgot your password?"
+msgstr "שכחת את סיסמתך?  לחץ <a href=\"%1\">כאן</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"האתר משתמש ב-cookies כדי לאמת את זהותם של משתמשים שנכנסו למערכת\n"
+"ייתכן כי תצרטך להנחות את הדפדפן שלך לקבל cookies ממתחם זה <b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "שם משתמש או סיסמה שגויים"
+
+msgid "Logout"
+msgstr "יציאה מהמערכת"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "יצאת מהמערכת וה-cookie נמחקה מהדפדן שלך."
+
+msgid "Other conferences"
+msgstr "כנסים נוספים"
+
+msgid "Admin"
+msgstr "לוח ניהול"
+
+msgid "Rights management"
+msgstr "ניהול הרשאות"
+
+msgid "Events"
+msgstr "אירועים"
+
+msgid "Submit a new event"
+msgstr "הוסף אירוע חדש"
+
+msgid "Schedule"
+msgstr "לוח זמנים"
+
+msgid "iCal export"
+msgstr "ייצוא ל-iCal"
+
+msgid "iCal import"
+msgstr "יבוא מ-iCal"
+
+msgid "Submit a talk proposal"
+msgstr "הגש הצעה להרצאה"
+
+msgid "Presentations"
+msgstr "הרצאות"
+
+msgid "Treasurer"
+msgstr "גזבר"
+
+msgid "Payments"
+msgstr "תשלומים"
+
+msgid "Edit profile"
+msgstr "ערוך פרופיל"
+
+msgid "New user"
+msgstr "משתמש חדש"
+
+msgid "Users"
+msgstr "משתמשים"
+
+msgid "Search"
+msgstr "חיפוש"
+
+msgid "Statistics"
+msgstr "סטטיסטיקה"
+
+msgid "CSV export"
+msgstr "ייצוא ל-CSV"
+
+msgid "Register a new user"
+msgstr "רשום משתמש חדש"
+
+msgid "The schedule is not ready to be seen."
+msgstr "לוח הזמנים אינו מוכן לצפייה."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "הזמן והמקום של ההרצאות הבאות טרם נקבע."
+
+msgid "Speaker"
+msgstr "מצרה"
+
+msgid "Talk title"
+msgstr "כותרת ההרצאה"
+
+msgid "Duration"
+msgstr "משך"
+
+msgid "Target audience"
+msgstr "קהל יעד"
+
+msgid "Target audience:"
+msgstr "קהל יעד:"
+
+msgid "abstract (link)"
+msgstr "תקציר"
+
+msgid "talk (link)"
+msgstr "הרצאה"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "הרצאות הכתב <b>מודגש type</b> אושרו על ידי המרצים שלהן."
+
+msgid "Time"
+msgstr "זמן"
+
+msgid "Ticket for <conference name>."
+msgstr "כרטיס ל- %1."
+
+msgid "Price"
+msgstr "מחיר"
+
+msgid "Donation"
+msgstr "תרומה"
+
+msgid "Buy now!"
+msgstr "קנה עכשיו!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"שים לב שכל משה שקשור לחשבון הבנק שלך וכרטיס האשראי שלך מאטפל על ידי הבנק.\n"
+"<b>אין לנו גישה לפרטי כרטיס האשראי שלך בשום שלב שלב מתהליך התשלום.\n"
+"</b> אנחנו רק מקלבים את הכסף הסוף. <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "תשלום מקוון"
+
+msgid "Join"
+msgstr "הצטרף"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"כדי להרשם לכנס %1 ,\n"
+"יש ללחוץ על הכפתור.\n"
+
+msgid "The recognised rights are:"
+msgstr "ההרשאות המוכרות הן:"
+
+msgid "Organizer"
+msgstr "מארגן"
+
+msgid "Organizer (talks management)"
+msgstr "מארגן (ניהול הרתאות)"
+
+msgid "Treasurer (payment management)"
+msgstr "גזבר (ניהול תשלומים)"
+
+msgid "Administrator (rights management)"
+msgstr "מנהל (ניהול הרשאוץ)"
+
+msgid "User rights"
+msgstr "הרשאות משתמש"
+
+msgid "Amount"
+msgstr "סכום"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "אי אפשר לשהתמש בשם בדוי עם כינוי ריק"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "שם קבוצת שוחרי Perl חייב להסתיים ב- <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "כתובת האתר של קבוצת שוחרי Perl חייבת להתחיל ב- http://"
+
+msgid "The company URL must start with http://"
+msgstr "כתובת אתר החברה חייבת להתחיל ב- http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "כתובת האתר שלך חייבת להתחיל ב- http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "מזהה ה perlmonks שלך חייב להיות מספר"
+
+msgid "Number of family members attending must be a number"
+msgstr "מספר בני משפחה משתתפים חייב להיות מספר"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "מזהה מפתח GPG לא תקין: צריך להיות 8 ספרות  הקסדצימליות"
+
+msgid "Salutation"
+msgstr "פנייה"
+
+msgid "Nickname"
+msgstr "כינוי"
+
+msgid "Stay pseudonymous"
+msgstr "השאר בשם בדוי"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Hide email"
+msgstr "הסתר דוא\"ל"
+
+msgid "Coming with"
+msgstr "מגיע עם"
+
+msgid "6 or more"
+msgstr "6 או יותר"
+
+msgid "people (who will not attend the conference)"
+msgstr "אנשים (שלא ישתתפו בכנס)"
+
+msgid "T-shirt size"
+msgstr "מידת חולצה"
+
+msgid "Full address"
+msgstr "כתובת מלאה"
+
+msgid "Timezone"
+msgstr "איזון זמן"
+
+msgid "Monger group"
+msgstr "קבוצת שוחרי Perl"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>City.pm</em>, שם עיר באנגלית בבקשה)"
+
+msgid "Monger group URL"
+msgstr "כתובת אתר קבוצת שחורי Perl"
+
+msgid "VAT Number"
+msgstr "מספר חברה/עוסק ל מע\"מ"
+
+msgid "Company URL"
+msgstr "כתובת אתר חברה"
+
+msgid "GPG public key ID"
+msgstr "מפרח מזהה GPG ציבורי"
+
+msgid "(please fill at least this one)"
+msgstr "(נא למלא לפחות את זה)"
+
+msgid "Update info"
+msgstr "עגכן מידע"
+
+msgid "Your information"
+msgstr "המידע שלך"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"זוהי הדגמה בלבד. המקרה של הגשת אמת טופס זה\n"
+"ייקח אותך לאתר הבנק שלך שבו תוכל להזין את מספר כרטיס האשראי שלך\n"
+".<br /><br />\n"
+"לחץ על הגש/Submit להדמיית תשלום.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"משתמשים מחובים מסומנים בכתב  <b>bold</b> מוגש (הם שילמו\n"
+"או נותנים הרצאה).\n"
+
+msgid "Search for users"
+msgstr "חפש משתמשים"
+
+msgid "Search form"
+msgstr "טופס חיפוש"
+
+msgid "Any"
+msgstr "כלשהו"
+
+msgid "Your photo"
+msgstr "תמונתך"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "לא ניתן לקרוא את התמונה. נא להעלות את תמונך באחד הפורמטים הבאים:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"התמונה תגיע כנראה בסופו של דבר  ל<i>מדריך משתתפי הכנס</i>,\n"
+"כדי שאנשים יוכלו לזהות אותך אם הם יירצו למצוא אותך\n"
+"או לדעת אם מי הם בילו בשיחה נדחמה כשהם פגשו אותך בכנס.<br />\n"
+"יש לחשוב על כך שבוחרים תמונה!\n"
+
+msgid "Delete Photo"
+msgstr "מחק תמונה"
+
+msgid "Update Photo"
+msgstr "עדכן תמונה"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"מישהו, כנראה אתה, ביקש לאפס את סיסמתך.\n"
+"כדי להשלים את הפעולה יש ללחוץ על קישור הבא:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"אם קיבלת את ההודה הזאת ללא בקשה מצידך\n"
+"אז מישהו ניסה להשתמש בשם המשתמש או בכתוב הדוא\"ל שלך.  It\n"
+"ככל הנראה זה היה בטעות, והם לא מקבלים את הסיסמה שלך\n"
+"לכן אתה יכול להתעם מהודעה זו.\n"
+
+msgid "New password"
+msgstr "איפוס סיסמה"
+
+msgid "Reset Password"
+msgstr "אפס סיסמה"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"הזן את  <B>שפ המשתמש שלך</B>, או את  <B>כתובת הדוא\"ל שלך</B>.\n"
+"תקבל הנחיות בדוא\"ל לגבי תהליך איפוס הסיסמה.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "לא נמצא אף משתמש אם שם משתמש או כתובת דוא\"ל אילו"
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "הזן שם משתמש או כתובת דוא\"ל, (אך לא את שניהם)"
+
+msgid "Generate password"
+msgstr "אפס סיסמה"
+
+msgid "<conf name> Statistics"
+msgstr "סטטיסטיקה של %1 "
+
+msgid "There are n registered people"
+msgstr ""
+"נרשמו %1 אנשים\n"
+"שהגיעו מ- %quant(%2,ארץ,ארצות)\n"
+"ומ- %quant(%3,קבוצות שוחרי Perl).\n"
+"יש %4 משתמשים מחוייבים,\n"
+"כלומר, אנשים ששילמו עבור הכנס\n"
+"או מרצים בו.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"ניתן לראות ססטיסטיקה לפי <a href=\"%1\">ארצות/קבוצות שוחרי Perl </a>\n"
+"או לפי <a href=\"%2\">ערים</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"מספר המשתמשים המחוייבים מופיע בסוגריים\n"
+"בטבלאות הבאות.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "לחץ על הקישורים הבאים כדי למצוא את המשתמשים המתאימים!"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"שימו לב: סה\"ב מספר הארצות אינו זהה לסה\"כ הערים.\n"
+"או השערים לא תמיד נמצאות בארצות המתאימות.\n"
+"זה בגלל המשתמשים!\n"
+
+msgid "Cities"
+msgstr "ערים"
+
+msgid "No city information entered"
+msgstr "לא הוזן מידע על עיר"
+
+msgid "Countries"
+msgstr "ארצות"
+
+msgid "Monger groups"
+msgstr "קבוצת שוחרי Perl"
+
+msgid "Un-Registration"
+msgstr "ביטול הרשמה"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"לביטול הרשמה מ- %1,\n"
+"יש ללחות על הכפתור.\n"
+
+msgid "Unregister from <conference>"
+msgstr "בטל הרשמה מ- %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "הגש/הרוך אירוע שאינו הרצאה"
+
+msgid "You must enter a title for the event"
+msgstr "יש להזיון כותרת לאירוע"
+
+msgid "You must enter a short description for the event"
+msgstr "יש להזין תקציר לאירוע"
+
+msgid "Please choose a duration"
+msgstr "נא לבחור משך"
+
+msgid "The supplied date is invalid"
+msgstr "התראיך ההוזן אינו תקף"
+
+msgid "The supplied time is invalid"
+msgstr "השעה שהוזנה אינה תקפה"
+
+msgid "The date/time is out of range"
+msgstr "העשה/תאריך הם מחוץ לתחום"
+
+msgid "Event URL is not a valid URL"
+msgstr "כתובת אתר האירוע אינה כתובת תקפה"
+
+msgid "Incorrect room submitted"
+msgstr "הוגש חדר לא נכון"
+
+msgid "Please choose a target audience"
+msgstr "יש לבחור קהל יעד"
+
+msgid "View"
+msgstr "הצג"
+
+msgid "Delete this event"
+msgstr "מחק אירוע"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Date"
+msgstr "תאריך"
+
+msgid "Room"
+msgstr "חדר"
+
+msgid "Abstract"
+msgstr "תקציר"
+
+msgid "(plain text)"
+msgstr "(טקסט פשוט)"
+
+msgid "External URL"
+msgstr "כתובת אתר חיצוני"
+
+msgid "Submit this event"
+msgstr "הגש אירוע"
+
+msgid "Event submitted"
+msgstr "אירוע הוגש"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"תודה, האירוע נרשם כ-\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "רשימת אירועים"
+
+msgid "No event was submitted yet."
+msgstr "טרם הוגש אירוע כלשהו."
+
+msgid "Event title"
+msgstr "כותרת האירוע"
+
+msgid "Event removed"
+msgstr "האירוע נמחק"
+
+msgid "The event has been removed."
+msgstr "האירוע <b>%1</b> נמחק."
+
+msgid "Date:"
+msgstr "תאריך:"
+
+msgid "Not scheduled yet."
+msgstr "טרם נקבע זמן."
+
+msgid "Duration:"
+msgstr "משך:"
+
+msgid "You can find more information on the following site:"
+msgstr "ניתן למצוא מידע נוסף בתר הבא:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - עורך את %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"מישהו שמר שינויים לצומת, זה מאז שהתחלת את העריכה.\n"
+"מתטרך למזג את השינויים שלך ידנית לגרסה החדשה.\n"
+
+msgid "Current node contents:"
+msgstr "תוכן נוכחי של הצומת:"
+
+msgid "Help"
+msgstr "עזרה"
+
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+msgid "Save"
+msgstr "שמירה"
+
+msgid "Your proposed revision:"
+msgstr "השינוי השצעת:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - הסטוריה של %1 "
+
+msgid "Version"
+msgstr "גריסה"
+
+msgid "Modified on"
+msgstr "שונה בתאריך/שעה"
+
+msgid "By"
+msgstr "על ידי"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "גירסה"
+
+msgid "saved on"
+msgstr "נשמר בתאריך/שעה"
+
+msgid "Last modified:"
+msgstr "שונה לאחרונה:"
+
+msgid "by"
+msgstr "על ידי"
+
+msgid "new page"
+msgstr "דף חדש"
+
+msgid "Home"
+msgstr "כית"
+
+msgid "Revert to this version"
+msgstr "חזור לגרסה זו"
+
+msgid "Edit this page"
+msgstr "ערוך דף זה"
+
+msgid "Delete this page"
+msgstr "מחק דף זה"
+
+msgid "Recent changes"
+msgstr "שינויים אחרונים"
+
+msgid "History"
+msgstr "הסטוריה"
+
+msgid "Wiki help"
+msgstr "עזרה ל-Wiki"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>עיצוב תווים</h2>\n"
+"<ul>\n"
+"<li>טקסט בין שלושה גרשים בודדים (מכל צד) הוא <b>מודגש</b>.</li>\n"
+"<li>טקסט בין שני גרשם בודדים (מכל צד) הוא <i>נטוי</i>.</li>\n"
+"<li>כל מילה עם מספר אותיות גדולות (באנגלית לדוגמה StudlyCaps) תוצג כקישור.</li>\n"
+"</ul>\n"
+"<h2>עיצוב פיסקה</h2>\n"
+"<ul>\n"
+"<li>ארבעה מקפים או יותר בתחילת שורה הופכים לקו אופקי.</li>\n"
+"<li>סימני שורה חדשה הופכים לתג המתאים.</li>\n"
+"<li>כותרים מסומנים על ידי סימני שוויון מאוזנים משני מידי הטקסט. ככל שיש יותר סימני שוייון, רמת הכותר נמוכה יותר.</li>\n"
+"</ul>\n"
+"<h2>רשימות</h2>\n"
+"<ul>\n"
+"<li>רשימות אן טקסט המורחק מהשוליים בטאב אחד או ארבעיה רווחים (כברירת מחדל).</li>\n"
+"<li>ברשימות לא מסודרות, כשלכל פריט יש סימון משלו, יש להוסיף בתחילת כל פריט ככובית ורווח.</li>\n"
+"<li>רשימות מסודרות הן רשימות של פריטים המסומנים על ידי צירוף של אותיות או מספרים שאחריהם נקודה, ניתן להוסי, גם רווח..</li>\n"
+"<li>ניתן לקנן רשימות.</li>\n"
+"</ul>\n"
+"<h2>קוד</h2>\n"
+"<ul>\n"
+"<li>כל טקסט המורחק מהשוליים ללא אחד מהיממונים שצויינו, מטופל כפי שהוא. ניתן לקנן רשימות.</li>\n"
+"</ul>\n"
+"<h2>sudnv</h2>\n"
+"\n"
+"טקטס ה-wiki  שנראה כאן הוא טקסט בפורמט wiki תקין.\n"
+"<pre>\n"
+"\n"
+"        = my interesting text =\n"
+"\n"
+"        NormalLink\n"
+"        [AnExtendedLink|let the Sun shine]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:first_name last_name]\n"
+"        [talk:id]\n"
+"\n"
+"        == my interesting lists ==\n":w
+
+"\n"
+"            * unordered one\n"
+"            * unordered two\n"
+"\n"
+"            1. ordered one\n"
+"            2. ordered two\n"
+"                        a. nested one\n"
+"                        b. nested two\n"
+"\n"
+"            code one\n"
+"            code two\n"
+"\n"
+"        The first line of a normal paragraph.\n"
+"        The second line of a normal paragraph.  Whee.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - שינויים שנעשו לאחרונה"
+
+msgid "Page"
+msgstr "עמוד"
+
+msgid "Changes in last"
+msgstr "שינויים ב"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,יום/ימים) אחרונים"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,שבוע/שבועות) אחרונים"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,חודש/חודשים) אחרונים"
+
+msgid "Wiki tags"
+msgstr "תגיות Wiki"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "דפי Wiki עם תגית %1"
+
+msgid "Administrative tasks"
+msgstr "משימות אדמיניסטרטיוויות"
+
+msgid "Talks & events"
+msgstr "הרצאות &amp; אירועים"
+
+msgid "Credit card payment"
+msgstr "תשלום באמצעות כרטיס אשראי"
+
+msgid "Payment"
+msgstr "תשלום"
+
+msgid "Editing payment"
+msgstr "עריכת תשלום"
+
+msgid "User"
+msgstr "משתמש"
+
+msgid "Payment means"
+msgstr "אמצעי תשלום"
+
+msgid "or"
+msgstr "או"
+
+msgid "Update"
+msgstr "עדכון"
+
+msgid "speaker"
+msgstr "מרצה"
+
+msgid "Total"
+msgstr "סה\"כ"
+
+msgid "Payment confirmation"
+msgstr "אישור תשלום"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"התשלום המקוון כלך עבור הרשמה ל-%1 אושר.\n"
+"\n"
+"מספר הזמנה: %2\n"
+"תאריך תשלום: %3 GMT\n"
+"סכום: %4 %5 (%6)\n"
+"\n"
+"מספר ההזמנה שלך הוא %2.\n"
+"זכור להביא אותו איתך כשאתה מדיע לכנס.\n"
+"\n"
+"תודה על הצטרפותך %1!\n"
+
+msgid "Invoice #"
+msgstr "חשבונית #"
+
+msgid "Dated"
+msgstr "תעריך"
+
+msgid "Printed on"
+msgstr "עודפסה בתאריך"
+
+msgid "Description"
+msgstr "תיאור"
+
+msgid "Quantity"
+msgstr "כמות"
+
+msgid "Unit Price"
+msgstr "מחיר ליחידה"
+
+msgid "<conf> registration"
+msgstr "הרשמה ל%1"
+
+msgid "Your order number:"
+msgstr "מספר הזמנה:"
+
+msgid "Total due"
+msgstr "סה\"כ לתשלום"
+
+msgid "Invoice"
+msgstr "חשבונית"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "ניתן להדפיס גף זה: רק החשבונית מתחת הודעה זו תודפס."
+
+msgid "Printer friendly version"
+msgstr "גרסה להדפסה"
+
+msgid "Establishing your invoice requires your address."
+msgstr "נחוצה תכובת ליצירת חשבונית."
+
+msgid "Please make sure the billing information is correct."
+msgstr "נא לוודא שהמידע לתשלום הוא נכון."
+
+msgid "Address"
+msgstr "כתובת"
+
+msgid "I confirm"
+msgstr "אני מאשר/ת"
+
+msgid "Submit/Edit a talk"
+msgstr "הגש/הרוך הרצאה"
+
+msgid "You must specify a user"
+msgstr "יש לציין שם משתמש"
+
+msgid "You must enter a title for the talk"
+msgstr "יש לציין כותרת להרצאה"
+
+msgid "You must provide an abstract"
+msgstr "יש לספק תקציר"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "כתובת התר התקציר אינה כתובת תקפה"
+
+msgid "Talk URL is not a valid URL"
+msgstr "כתובת אתר ההרצאה אינה כתובת תקפה"
+
+msgid "Incorrect language"
+msgstr "שפה שגויה"
+
+msgid "Delete this talk"
+msgstr "מחק הרצאה"
+
+msgid "Track"
+msgstr "מסלול"
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Language:"
+msgstr "שפה:"
+
+msgid "Abstract URL"
+msgstr "כתובת אתר התקציר"
+
+msgid "Talk URL"
+msgstr "כתובת התר ההרצאה"
+
+msgid "Standard durations for <confname> are:"
+msgstr "המשכים התקניים ל%1 הם:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"אם המשכים המוצעים אינם מתאימים להרצאה שלך\n"
+"השתמש בבקשה בדשה ההערות כדי לציין את משך ההרצאה הרצוי לך.\n"
+
+msgid "Comments"
+msgstr "הערות"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"שדה ההרות משמש להעברת מידע על ההרצאה\n"
+"למארגני הכנס.\n"
+
+msgid "Status"
+msgstr "סטטוס"
+
+msgid "accepted"
+msgstr "התקבלה"
+
+msgid "confirmed"
+msgstr "אושרה"
+
+msgid "Accepted"
+msgstr "התקבלה"
+
+msgid "Pending"
+msgstr "בהמתנה"
+
+msgid "Submit this talk"
+msgstr "הגש הרצאה"
+
+msgid "Talk submitted"
+msgstr "הרצאה הוגשה"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "תודה, הצעתך להרצאה נשמרה כ- <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "יבוא iCal"
+
+msgid "The following talks have been updated:"
+msgstr "ההרצאות הבאות עודכנו:"
+
+msgid "Old time"
+msgstr "זמן קודם"
+
+msgid "New time"
+msgstr "זמן חדש"
+
+msgid "title"
+msgstr "כותרה"
+
+msgid "Upload an iCal file"
+msgstr "העלה קובץ iCal"
+
+msgid "Import"
+msgstr "יבוא"
+
+msgid "List of talks"
+msgstr "רשימת הרצאות"
+
+msgid "List of talks tagged <tag>"
+msgstr "רשימת הרצאות עם תג %1"
+
+msgid "No talk was submitted yet."
+msgstr "טרם הוגשו הרצאו."
+
+msgid "Submitted talks:"
+msgstr "הרצאות השוגשו:"
+
+msgid "Accepted talks:"
+msgstr "הרצאות שהתקבלו:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "הרצאות השתקבלו מסומנות  <b>בכתב מודגש</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "משך כולל של ההרצאות שהתקבלו:"
+
+msgid "hours"
+msgstr "שעות"
+
+msgid "Accepted lightning talks:"
+msgstr "הרצאות בזק שהתקבלו:"
+
+msgid "Tracks"
+msgstr "מסלולים"
+
+msgid "No track"
+msgstr "ללא מסלול"
+
+msgid "lightning"
+msgstr "בזק"
+
+msgid "from"
+msgstr "מ-"
+
+msgid "Comment:"
+msgstr "הערה:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "ניתן למצוא צידע נוסף על אתר המרצה:"
+
+msgid "Abstract:"
+msgstr "תקציר:"
+
+msgid "Talk:"
+msgstr "הרצאה:"
+
+msgid "Talk removed"
+msgstr "הרצאה נמחקה"
+
+msgid "The Talk <title> has been removed."
+msgstr "ההרצאה <b>%1</b> נמחקה."
+
+msgid "Talk inserted"
+msgstr "הרצאה הוספה"
+
+msgid "Talk updated"
+msgstr "הרצאה עודכנה"
+
+msgid "Submitted by:"
+msgstr "הוגשה על ידי:"
+
+msgid "The following fields have been updated:"
+msgstr "השדות הבאים עודכנו:"
+
+msgid "By:"
+msgstr "על ידי:"
+
+msgid "Remember me on this computer"
+msgstr "זכור אותי על מחשב זה"
+
+msgid "Billing"
+msgstr "חיוב"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"הצעה זו התקבלה\n"
+"יש ללחות על הקישור הבא כדי לאשר את הופעתך.\n"
+
+msgid "News"
+msgstr "חדשות"
+
+msgid "News Administration"
+msgstr "ניהול חדשות"
+
+msgid "Published"
+msgstr "הופץ"
+
+msgid "Create a new item"
+msgstr "צור פריט חדש"
+
+msgid "Edit a news item"
+msgstr "ערוך פריט חדשות"
+
+msgid "You must enter a title"
+msgstr "יש להזין כותרת"
+
+msgid "You must enter some text"
+msgstr "יש להזין טקסט"
+
+msgid "Delete this item"
+msgstr "מחק פריט זה"
+
+msgid "Text"
+msgstr "טקסט"
+
+msgid "No news yet!"
+msgstr "עוד אין חדשות!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "יש להשמתש ב-HTML כדי לתת פורמט לטקסטץ טקסט בין סימני תחילת שורה יומר לספקאות"
+
+msgid "Add a new track"
+msgstr "הוסף מסלול"
+
+msgid "Create/Edit a track"
+msgstr "צור/ערוך מסלול"
+
+msgid "Delete this track"
+msgstr "מחק מסלול"
+
+msgid "Submit this track"
+msgstr "הגש מסלול"
+
+msgid "You must enter a title for the track"
+msgstr "יש להזין כותרת למסלול"
+
+msgid "n talks"
+msgstr "%quant(%1,הרצאות)"
+
+msgid "n accepted"
+msgstr "%quant(%1,התקבלה,התקבלו)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,אושרה,הושרו)"
+
+msgid "Change Password"
+msgstr "החלף סיסמה"
+
+msgid "Please type in your new password"
+msgstr "נא הקלד את הסיסמה החדשה"
+
+msgid "Passwords don't match"
+msgstr "הסיסמאות אינן תואמות"
+
+msgid "New password"
+msgstr "סיסמה חדשה"
+
+msgid "Enter your new password twice"
+msgstr "הזן את הסיסמה החדשה פעמיים"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"נשלח אליך דוא\"ל\n"
+"לחץ על הקישור הדוא\"ל ועדכן סיסמה חדשה.\n"
+
+msgid "Tags"
+msgstr "תגיות"
+
+msgid "Tags:"
+msgstr "תגיות:"
+
+msgid "add new tags:"
+msgstr "הוסף תגיות חדשות:"
+
