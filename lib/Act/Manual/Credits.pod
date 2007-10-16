@@ -72,6 +72,7 @@ conference...
 =head2 Translations
 
   de: Thomas Klausner
+  he: Uri Bruck
   hu: Gábor Szabó
   it: Gianni "dakkar" Cecarelli
   nl: Erik Colson, Emmanuel di Prétoro
