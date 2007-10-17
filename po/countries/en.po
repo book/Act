@@ -734,5 +734,5 @@ msgid "country_zm"
 msgstr "Zambia"
 
 msgid "country_zw"
-msgstr "Zimbabue"
+msgstr "Zimbabwe"
 
