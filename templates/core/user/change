@@ -31,35 +31,35 @@
    <td>&nbsp;</td>
    <td>
       [% FOREACH s = [1 .. salutations] %]
-      <input type="radio" name="salutation" value="[% s %]"[% " checked" IF salutation == s %] /> [% loc("salutation_$s") %]
+      <input type="radio" name="salutation" id="form-salutation" value="[% s %]"[% " checked" IF salutation == s %] /> <label for="form-salutation">[% loc("salutation_$s") %]</label>
       [% END %]
    </td>
 </tr>
 <tr>
    <td align="right">
-      {{First Name}}
+      <label for="form-first-name">{{First Name}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="first_name"  value="[% first_name %]" size="25" maxlength="60" />
+      <input type="text" name="first_name" id="form-first-name"  value="[% first_name %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
    <td align="right">
-      {{Last Name}}
+      <label for="form-last-name">{{Last Name}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="last_name"  value="[% last_name %]" size="25" maxlength="60" />
+      <input type="text" name="last_name" id="form-last-name"  value="[% last_name %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
    <td align="right">
-      {{Nickname}}
+      <label for="form-nick-name">{{Nickname}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="nick_name"  value="[% nick_name %]" size="25" maxlength="60" />
+      <input type="text" name="nick_name" id="form-nick-name"  value="[% nick_name %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
@@ -74,11 +74,11 @@
 </tr>
 <tr>
    <td align="right">
-      {{Email}}
+      <label for="form-email">{{Email}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="email"  value="[% email %]" size="25" maxlength="60" />
+      <input type="text" name="email" id="form-email"  value="[% email %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
@@ -93,11 +93,11 @@
 </tr>
 <tr>
    <td align="right">
-    {{Coming with}}
+    <label for="form-nb-family">{{Coming with}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <select name="nb_family">
+      <select name="nb_family" id="form-nb-family">
          <option value="0"[% ' selected="selected"' UNLESS nb_family %]>0</option>
          [% FOREACH c = [ 1..5 ] %]
          <option value="[% c %]"[% ' selected="selected"' IF nb_family == c %]>[% c %]</option>
@@ -109,11 +109,11 @@
 </tr>
 <tr>
    <td align="right">
-    {{T-shirt size}}
+    <label for="form-tshirt-size">{{T-shirt size}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <select name="tshirt_size">
+      <select name="tshirt_size" id="form-tshirt-size">
          [% UNLESS tshirt_size %]<option value="" selected="selected" />[% END %]
          [% FOREACH t = [ 'S', 'M', 'L', 'XL', 'XXL' ] %]
          <option value="[% t %]"[% ' selected="selected"' IF tshirt_size == t %]>[% t %]</option>
@@ -123,20 +123,20 @@
 </tr>
 <tr>
    <td align="right">
-      {{City}}
+      <label for="form-town">{{City}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="town"  value="[% town %]" size="25" maxlength="60" />
+      <input type="text" name="town" id="form-town"  value="[% town %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
    <td align="right">
-      {{Country}}
+      <label for="form-country">{{Country}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <select name="country">
+      <select name="country" id="form-country">
          [% FOREACH c = countries %]
             <option value="[% c.iso %]"[% ' selected="selected"' IF country == c.iso %]>[% c.name %]</option>
          [% END %]
@@ -145,20 +145,20 @@
 </tr>
 <tr>
    <td align="right" valign="top">
-      {{Full address}}
+      <label for="form-address">{{Full address}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <textarea name="address" cols="25" rows="5" >[% address | form_unescape %]</textarea>
+      <textarea name="address" id="form-address" cols="25" rows="5" >[% address | form_unescape %]</textarea>
    </td>
 </tr>
 <tr>
    <td align="right">
-      {{Timezone}}
+      <label for="form-timezone">{{Timezone}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <select name="timezone">
+      <select name="timezone" id="form-timezone">
          [% FOREACH tz = timezones %]
             <option value="[% tz %]"[% ' selected="selected"' IF timezone == tz %]>[% tz %]</option>
          [% END %]
@@ -228,11 +228,11 @@
 </tr>
 <tr>
    <td align="right">
-      {{VAT Number}}
+      <label for="form-vat">{{VAT Number}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="vat" value="[% vat %]" size="25" maxlength="60" />
+      <input type="text" name="vat" id="form-vat" value="[% vat %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
@@ -297,11 +297,11 @@
 </tr>
 <tr>
    <td align="right">
-      {{IM}}
+      <label for="form-im">{{IM}}</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input type="text" name="im" value="[% im %]" size="25" maxlength="60" />
+      <input type="text" name="im" id="form-im" value="[% im %]" size="25" maxlength="60" />
    </td>
 </tr>
 <tr>
