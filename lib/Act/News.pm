@@ -46,7 +46,7 @@ sub items
 sub content {
     my $self = shift;
     my $text = ref $self ? $self->text : shift;
-    join( "\n", map "<p>$_</p>", split /(?:\r?\n)+/, $text)
+    join( "\n", map "<p>$_</p>", split /(?:\r?\n){2,}/, $text)
 }
 
 sub create {
