@@ -113,3 +113,6 @@ UNPRIORITIZED TODO LIST
 * Optional SSL Protected Admin Login
   There should be an optional SSL protected login option, at least for admins,
   allowing them to login to the website without being evasedropped.
+
+* RSS feed for the wiki
+
