@@ -582,6 +582,9 @@ msgstr ""
 msgid "Search for users"
 msgstr "Recherche d'utilisateurs"
 
+msgid "Search in all conferences"
+msgstr "Chercher dans toutes les conférences"
+
 msgid "Search form"
 msgstr "Formulaire de recherche"
 

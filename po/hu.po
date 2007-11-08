@@ -470,6 +470,9 @@ msgstr ""A <b>kiemelt</b> felhasználók elõadást fognak tartani"
 msgid "Search for users"
 msgstr "Résztvevõk"
 
+msgid "Search in all conferences"
+msgstr "Search in all conferences"
+
 msgid "Search form"
 msgstr "Keresés"
 

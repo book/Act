@@ -31,10 +31,13 @@ sub handler {
 
     my ($SQL, $sth, %seen);
 
+    # search in current conf or in all confs
+    my $which_confs = $Request{args}{all_confs} ? '' : 'AND p.conf_id=?';
+
     # fetch the countries
     my $countries = Act::Country::CountryNames();
     $SQL = 'SELECT DISTINCT u.country FROM users u, participations p'
-         . ' WHERE u.user_id=p.user_id AND p.conf_id=? ORDER BY u.country';
+         . ' WHERE u.user_id=p.user_id ' . $which_confs . ' ORDER BY u.country';
     $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
     %seen = ( map { $_->[0] => 1 } @{$sth->fetchall_arrayref()} );
@@ -43,7 +46,7 @@ sub handler {
 
     # fetch the monger groups
     $SQL = 'SELECT DISTINCT u.pm_group FROM users u, participations p'
-         . ' WHERE u.user_id=p.user_id AND p.conf_id=? AND u.pm_group IS NOT NULL';
+         . ' WHERE u.user_id=p.user_id ' . $which_confs . ' AND u.pm_group IS NOT NULL';
     $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
     %seen = ();
@@ -65,6 +68,7 @@ sub handler {
         prev          => defined($oprev),   # $oprev can be zero
         onext         => $onext,
         next          => defined($onext), 
+        all_confs     => $Request{args}{all_confs},
     );
     $template->process('user/search_form');
 

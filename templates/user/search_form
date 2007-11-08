@@ -42,6 +42,9 @@
 </tr>
 </table>
 
+<input type="checkbox" name="all_confs" id="user-all-confs" value="1"[% ' selected="selected"' IF global.request.args.all_confs == 1 %] />
+<label for="user-all-confs">{{Search in all conferences}}</label>
+
 <input type="submit" name="search" value="{{Search}}" />
 
 </fieldset>

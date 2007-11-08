@@ -486,6 +486,9 @@ msgstr ""
 msgid "Search for users"
 msgstr "User suchen"
 
+msgid "Search in all conferences"
+msgstr "Search in all conferences"
+
 msgid "Search form"
 msgstr "Suchformular"
 
