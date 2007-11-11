@@ -492,9 +492,6 @@ msgstr ""
 msgid "Search for users"
 msgstr "Procurar utilizadores"
 
-msgid "Search in all conferences"
-msgstr "Search in all conferences"
-
 msgid "Search form"
 msgstr "Formulário de pesquisa"
 
