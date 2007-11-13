@@ -557,7 +557,7 @@ msgid "country_qa"
 msgstr "Qatar"
 
 msgid "country_re"
-msgstr "Reunion"
+msgstr "Réunion"
 
 msgid "country_ro"
 msgstr "Romania"
@@ -734,5 +734,5 @@ msgid "country_zm"
 msgstr "Zambia"
 
 msgid "country_zw"
-msgstr "Zimbabue"
+msgstr "Zimbabwe"
 
