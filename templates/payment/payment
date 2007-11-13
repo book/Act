@@ -24,9 +24,9 @@
  </td>
 </tr>
 <tr>
- <td>{{Price}}</td>
+ <td><label for="form-price">{{Price}}</label></td>
  <td>
-  <select name="price">
+  <select name="price" id="form-price">
     [% isprice = 0;
        FOREACH p = prices;
          IF price AND price == p.name AND amount == p.amount; isprice = p.price_id ; END 

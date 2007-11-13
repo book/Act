@@ -26,19 +26,19 @@ END %]
 [% IF news_id %]
 <input type="hidden" name="news_id" value="[% news_id %]" />
 <p>
-<input type="checkbox" name="delete" />
-{{Delete this item}}
+<input type="checkbox" name="delete" id="form-delete" />
+<label for="form-delete">{{Delete this item}}</label>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 <tr>
-  <td align="right">{{Date}}</td>
+  <td align="right"><label for="form-date">{{Date}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="date" value="[% date %]" size="10" maxlength="10" />
-   {{Time}}
-    <input type="text" name="time" value="[% time %]" size="5" maxlength="5" />
+    <input type="text" name="date" id="form-date" value="[% date %]" size="10" maxlength="10" />
+   <label for="form-time">{{Time}}</label>
+    <input type="text" name="time" id="form-time" value="[% time %]" size="5" maxlength="5" />
   </td>
 </tr>
 [% FOREACH lang = global.config.languages.keys;
@@ -48,10 +48,10 @@ END %]
 </tr>
 [% END %]
 <tr>
-  <td align="right">{{Title}}</td>
+  <td align="right"><label for="form-title">{{Title}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="title_[% lang %]" value="[% items.$lang.title %]" size="51" maxlength="100" />
+    <input type="text" name="title_[% lang %]" id="form-title" value="[% items.$lang.title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>

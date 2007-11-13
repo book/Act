@@ -23,33 +23,33 @@
  {{View}}
  <a href="[% make_uri_info('event', event_id) %]" >[% title %]</a>
 </p><p>
-<input type="checkbox" name="delete" />
-{{Delete this event}}
+<input type="checkbox" name="delete" id="delete" />
+<label for="delete">{{Delete this event}}</label>
 </p>
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 <tr>
-  <td align="right">{{Title}}</td>
+  <td align="right"><label for="form-title">{{Title}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
+    <input type="text" name="title" id="form-title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
-  <td align="right">{{Date}}</td>
+  <td align="right"><label for="form-date">{{Date}}</label></td>
   <td>&nbsp;</td>
   <td>
-   <select name="date">
+   <select name="date" id="form-date">
      <option value=""[% ' selected="selected"' UNLESS datetime %] />
    [% FOREACH d=dates %]
      <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %]>[% d.ymd %]</option>
    [% END %]
     </select>
-   {{Time}}
-    <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   {{Room}}
-    <select name="room">
+   <label for="form-time">{{Time}}</label>
+    <input type="text" name="time" id="form-time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
+   <label for="form-room">{{Room}}</label>
+    <select name="room" id="form-room">
      <option value=""[% ' selected="selected"' UNLESS room %] />
     [% FOREACH r = rooms.keys.sort %]
      <option value="[% r %]"[% ' selected="selected"' IF room == r %]>[% rooms.$r %]</option>
@@ -67,17 +67,17 @@
   </td>
 </tr>
 <tr>
-  <td align="right">{{External URL}}</td>
+  <td align="right"><label for="form-url-abstract">{{External URL}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
+    <input type="text" name="url_abstract" id="form-url-abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
 <tr>
-  <td align="right" valign="top">{{Duration}}</td>
+  <td align="right" valign="top"><label for="form-duration">{{Duration}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input name="duration" value="[% duration %]" size="3" />
+    <input name="duration" id="form-duration" value="[% duration %]" size="3" />
     {{minutes}}
   </td>
 </tr>

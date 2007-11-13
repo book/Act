@@ -11,11 +11,11 @@
 </tr>
 <tr>
    <td align="right">
-      {{Price}}:
+      <label for="form-price">{{Price}}:</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <select name="price">
+      <select name="price" id="form-price">
        [% FOREACH p=prices %]
         <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% currency %]</option>
        [% END %]
@@ -24,11 +24,11 @@
 </tr>
 <tr>
    <td align="right">
-      {{Donation}}:
+      <label for="form-donation">{{Donation}}:</label>
    </td>
    <td>&nbsp;</td>
    <td>
-      <input name="donation" type="text" size="5" maxlength="5" />
+      <input name="donation" id="form-donation" type="text" size="5" maxlength="5" />
       [% currency %]
    </td>
 </tr>
