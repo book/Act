@@ -13,13 +13,20 @@ END %]
 
 <div align="center">
 
-[% PROCESS error
-   msgs = {
+[% msgs = {
      ERR_TITLE          => loc("You must enter a title"),
      ERR_TEXT           => loc("You must enter some text"),
      ERR_DATE           => loc("The supplied date is invalid"),
      ERR_TIME           => loc("The supplied time is invalid"),
-  }
+  };
+  FOREACH err = errors;
+    WRAPPER error_ui;
+      msgs.${err.list.0};
+      IF err.list.1;
+        ' ('; global.config.languages.${err.list.1}.name; ')';
+      END;
+    END;
+  END;
 %]
 
 <form method="POST" action="[% global.request.r.uri %]">

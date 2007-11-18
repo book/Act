@@ -58,15 +58,9 @@ sub create {
     my $news = $class->SUPER::create(%args);
     
     if ($news && $items) {
-        my $SQL = "INSERT INTO news_items ( title, text, news_id, lang ) VALUES (?, ?, ?, ?)";
-        my $sth = $Request{dbh}->prepare_cached($SQL);
-        for my $lang ( keys %$items ) {
-            my @v = ( $items->{$lang}{title}, $items->{$lang}{text}, $news->{news_id}, $lang );
-            Act::Object::_sql_debug($SQL, @v) if DEBUG;
-            $sth->execute( @v );
-        }
-        $Request{dbh}->commit;
+        $news->_update_items($items);
     }
+    $Request{dbh}->commit;
     return $news;
 }
 sub update {
@@ -74,37 +68,32 @@ sub update {
     my $items = delete $args{items};
     
     $self->SUPER::update(%args) if %args;
-
-    if ($items) {
-        my @SQL = (
-            "SELECT 1 FROM news_items WHERE news_id=? AND lang=?",
-            "UPDATE news_items SET title=?,text=? WHERE news_id=? AND lang=?",
-            "INSERT INTO news_items ( title, text, news_id, lang ) VALUES (?, ?, ?, ?)",
-        );
-        my @sth = map { $Request{dbh}->prepare_cached( $_ ) } @SQL;
-        for my $lang ( keys %$items ) {
-            my @v = ( $items->{$lang}{title}, $items->{$lang}{text}, $self->news_id, $lang );
-            Act::Object::_sql_debug($SQL[0], $self->news_id, $lang) if DEBUG;
-            $sth[0]->execute($self->news_id, $lang);
-            my $i = $sth[0]->fetchrow_arrayref ? 1 : 2;
-            Act::Object::_sql_debug($SQL[$i], @v) if DEBUG;
-            $sth[$i]->execute( @v );
-            $sth[0]->finish;
-        }
-        $Request{dbh}->commit;
-    }
+    $self->_update_items($items);
+    $Request{dbh}->commit;
 }
 sub delete {
     my ($self, %args) = @_;
-    my $items = delete $args{items};
-    if ($items) {
-        my $SQL = 'DELETE FROM news_items WHERE news_id = ?';
-        Act::Object::_sql_debug($SQL, $self->news_id) if DEBUG;
-        my $sth = $Request{dbh}->prepare_cached($SQL);
-        $sth->execute($self->news_id);
-        $Request{dbh}->commit;
-    }    
+
+    $self->_update_items( {} );
     $self->SUPER::delete(%args);
+    $Request{dbh}->commit;
+}
+sub _update_items
+{
+    my ($self, $items) = @_;
+
+    my $SQL = 'DELETE FROM news_items WHERE news_id=?';
+    Act::Object::_sql_debug($SQL, $self->news_id) if DEBUG;
+    my $sth = $Request{dbh}->prepare_cached($SQL);
+    $sth->execute($self->news_id);
+
+    $SQL = 'INSERT INTO news_items ( title, text, news_id, lang ) VALUES (?, ?, ?, ?)';
+    $sth = $Request{dbh}->prepare_cached($SQL);
+    for my $lang (keys %$items) {
+        my @v = ( $items->{$lang}{title}, $items->{$lang}{text}, $self->news_id, $lang );
+        Act::Object::_sql_debug($SQL, @v) if DEBUG;
+        $sth->execute(@v);
+    }
 }
 =head1 NAME
 
