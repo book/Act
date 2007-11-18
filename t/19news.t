@@ -35,7 +35,7 @@ is_deeply($fetched, $news, "fetch");
 is_deeply($fetched->items, \%items, "items");
 
 # update
-$items{en}{text} = "something else\nentirely";
+$items{en}{text} = "something else\n\nentirely";
 $news->update(items => \%items, published => 1);
 $fetched = Act::News->new(news_id => $news->news_id);
 is_deeply($fetched, $news,"update");
