@@ -77,6 +77,7 @@ conference...
   it: Gianni "dakkar" Cecarelli
   nl: Erik Colson, Emmanuel di Prétoro
   pt: Alberto Manuel Brandão Simões, Luis Motta Campos
+  ru: Andrew Shitov
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 

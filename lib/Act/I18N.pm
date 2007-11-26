@@ -61,6 +61,24 @@ sub numerate
     return $s ? $forms[0] : $forms[1];
 }
 
+package Act::I18N::ru;
+
+# Russian declensions for numerals.
+# usage: numerate(num, nominative, genitive,   plural);
+# or:    numerate(num, form for 1, form for 2, form for 5);
+sub numerate
+{
+   my ($handle, $num, $nominative, $genitive, $plural) = @_;
+
+   return $plural if $num =~ /1.$/;
+
+   my ($last_digit) = $num =~ /(.)$/;
+
+   return $nominative if $last_digit == 1;
+   return $genitive if $last_digit > 0 && $last_digit < 5;
+   return $plural;
+}
+
 
 1;
 
