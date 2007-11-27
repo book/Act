@@ -101,6 +101,7 @@ sub process
          config  => $Config,
          request => \%Request,
     );
+    $Request{language_info} = $Languages{$Request{language}};
     if ($web) {
          my %lparams = $Request{r}->method eq 'POST' ? () : %{$Request{args}};
          $global{languages} = [

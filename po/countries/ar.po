@@ -1,0 +1,738 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "أندورا"
+
+msgid "country_ae"
+msgstr "الإمارات العربية المتحدة"
+
+msgid "country_af"
+msgstr "أفغانستان"
+
+msgid "country_ag"
+msgstr "أنتيغا وبربودا"
+
+msgid "country_ai"
+msgstr "أنغويلا"
+
+msgid "country_al"
+msgstr "ألبانيا"
+
+msgid "country_am"
+msgstr "أرمينيا"
+
+msgid "country_an"
+msgstr "جزر الأنتيل الهولندية"
+
+msgid "country_ao"
+msgstr "أنغولا"
+
+msgid "country_aq"
+msgstr "أنتاركتيكا"
+
+msgid "country_ar"
+msgstr "الأرجنتين"
+
+msgid "country_as"
+msgstr "ساموا الأمريكية"
+
+msgid "country_at"
+msgstr "النمسا"
+
+msgid "country_au"
+msgstr "أستراليا"
+
+msgid "country_aw"
+msgstr "أروبا"
+
+msgid "country_ax"
+msgstr "أولان"
+
+msgid "country_az"
+msgstr "أذربيجان"
+
+msgid "country_ba"
+msgstr "البوسنة والهرسك"
+
+msgid "country_bb"
+msgstr "باربادوس"
+
+msgid "country_bd"
+msgstr "بنغلاديش"
+
+msgid "country_be"
+msgstr "بلجيكا"
+
+msgid "country_bf"
+msgstr "بوركينا فاسو"
+
+msgid "country_bg"
+msgstr "بلغاريا"
+
+msgid "country_bh"
+msgstr "البحرين"
+
+msgid "country_bi"
+msgstr "بوروندي"
+
+msgid "country_bj"
+msgstr "بنين"
+
+msgid "country_bm"
+msgstr "جزر برمودا"
+
+msgid "country_bn"
+msgstr "بروناي"
+
+msgid "country_bo"
+msgstr "بوليفيا"
+
+msgid "country_br"
+msgstr "البرازيل"
+
+msgid "country_bs"
+msgstr "البهاما"
+
+msgid "country_bt"
+msgstr "بوتان"
+
+msgid "country_bv"
+msgstr "التوقيت الحالي"
+
+msgid "country_bw"
+msgstr "بوتسوانا"
+
+msgid "country_by"
+msgstr "روسيا البيضاء"
+
+msgid "country_bz"
+msgstr "بليز"
+
+msgid "country_ca"
+msgstr "كندا"
+
+msgid "country_cc"
+msgstr "التوقيت الحالي"
+
+msgid "country_cd"
+msgstr "جمهورية الكونغو الديمقراطية"
+
+msgid "country_cf"
+msgstr "جمهورية أفريقيا الوسطى"
+
+msgid "country_cg"
+msgstr "جمهورية الكونغو"
+
+msgid "country_ch"
+msgstr "سويسرا"
+
+msgid "country_ci"
+msgstr "ساحل العاج"
+
+msgid "country_ck"
+msgstr "جزر كوك"
+
+msgid "country_cl"
+msgstr "تشيلي"
+
+msgid "country_cm"
+msgstr "الكاميرون"
+
+msgid "country_cn"
+msgstr "جمهورية الصين الشعبية"
+
+msgid "country_co"
+msgstr "كولومبيا"
+
+msgid "country_cr"
+msgstr "كوستاريكا"
+
+msgid "country_cu"
+msgstr "كوبا"
+
+msgid "country_cv"
+msgstr "الرأس الأخض"
+
+msgid "country_cx"
+msgstr "جزيرة عيد الميلاد"
+
+msgid "country_cy"
+msgstr "قبرص"
+
+msgid "country_cz"
+msgstr "تشيك"
+
+msgid "country_de"
+msgstr "ألمانيا"
+
+msgid "country_dj"
+msgstr "جيبوتي"
+
+msgid "country_dk"
+msgstr "الدانمارك"
+
+msgid "country_dm"
+msgstr "دومينيكا"
+
+msgid "country_do"
+msgstr "جمهورية الدومنيكان"
+
+msgid "country_dz"
+msgstr "الجزائر"
+
+msgid "country_ec"
+msgstr "الإكوادور"
+
+msgid "country_ee"
+msgstr "إستونيا"
+
+msgid "country_eg"
+msgstr "مصر"
+
+msgid "country_eh"
+msgstr "الجمهورية العربية الصحراوية الديمقراطية"
+
+msgid "country_er"
+msgstr "إريتريا"
+
+msgid "country_es"
+msgstr "إسبانيا"
+
+msgid "country_et"
+msgstr "إثيوبيا"
+
+msgid "country_fi"
+msgstr "فنلندا"
+
+msgid "country_fj"
+msgstr "فيجي"
+
+msgid "country_fk"
+msgstr "جزر فوكلاند"
+
+msgid "country_fm"
+msgstr "ولايات ميكرونيسيا المتحدة"
+
+msgid "country_fo"
+msgstr "جزر فارو"
+
+msgid "country_fr"
+msgstr "فرنسا"
+
+msgid "country_ga"
+msgstr "الغابون"
+
+msgid "country_gb"
+msgstr "المملكة المتحدة"
+
+msgid "country_gd"
+msgstr "غرينادا"
+
+msgid "country_ge"
+msgstr "جورجيا"
+
+msgid "country_gf"
+msgstr "جويانا الفرنسية"
+
+msgid "country_gg"
+msgstr "غيرنزي"
+
+msgid "country_gh"
+msgstr "غانا"
+
+msgid "country_gi"
+msgstr "جبل طارق"
+
+msgid "country_gl"
+msgstr "غرينلاند"
+
+msgid "country_gm"
+msgstr "غامبيا"
+
+msgid "country_gn"
+msgstr "غينيا"
+
+msgid "country_gp"
+msgstr "جزر جوادلوب"
+
+msgid "country_gq"
+msgstr "غينيا الاستوائية"
+
+msgid "country_gr"
+msgstr "اليونان"
+
+msgid "country_gs"
+msgstr "ساوث جورجيا وجزر ساندويش"
+
+msgid "country_gt"
+msgstr "غواتيمالا"
+
+msgid "country_gu"
+msgstr "غوام"
+
+msgid "country_gw"
+msgstr "غينيا بيساو"
+
+msgid "country_gy"
+msgstr "غويانا"
+
+msgid "country_hk"
+msgstr "هونغ كونغ"
+
+msgid "country_hm"
+msgstr "جزيرة هيرد وماكدونالد"
+
+msgid "country_hn"
+msgstr "هندوراس"
+
+msgid "country_hr"
+msgstr "كرواتيا"
+
+msgid "country_ht"
+msgstr "هايتي"
+
+msgid "country_hu"
+msgstr "المجر"
+
+msgid "country_id"
+msgstr "إندونسيا"
+
+msgid "country_ie"
+msgstr "جمهورية"
+
+msgid "country_il"
+msgstr "إسرائيل"
+
+msgid "country_im"
+msgstr "جزيرة مان"
+
+msgid "country_in"
+msgstr "الهند"
+
+msgid "country_io"
+msgstr "أرض المحيط"
+
+msgid "country_iq"
+msgstr "العراق"
+
+msgid "country_ir"
+msgstr "إيران"
+
+msgid "country_is"
+msgstr "أيسلندا"
+
+msgid "country_it"
+msgstr "إيطاليا"
+
+msgid "country_je"
+msgstr "جزيرة جيرزي"
+
+msgid "country_jm"
+msgstr "جاميكا"
+
+msgid "country_jo"
+msgstr "الأردن"
+
+msgid "country_jp"
+msgstr "اليابان"
+
+msgid "country_ke"
+msgstr "كينيا"
+
+msgid "country_kg"
+msgstr "قرغيزستان"
+
+msgid "country_kh"
+msgstr "كمبوديا"
+
+msgid "country_ki"
+msgstr "كيريباس"
+
+msgid "country_km"
+msgstr "جزر القمر"
+
+msgid "country_kn"
+msgstr "سانت كيتس ونيفيس"
+
+msgid "country_kp"
+msgstr "كوريا الشمالية"
+
+msgid "country_kr"
+msgstr "كوريا الجنوبية"
+
+msgid "country_kw"
+msgstr "الكويت"
+
+msgid "country_ky"
+msgstr "جزر كايمان"
+
+msgid "country_kz"
+msgstr "كازاخستان"
+
+msgid "country_la"
+msgstr "لاوس"
+
+msgid "country_lb"
+msgstr "لبنان"
+
+msgid "country_lc"
+msgstr "سانت لوسيا"
+
+msgid "country_li"
+msgstr "ليختنشتاين"
+
+msgid "country_lk"
+msgstr "سريلانكا"
+
+msgid "country_lr"
+msgstr "ليبيريا"
+
+msgid "country_ls"
+msgstr "ليسوتو"
+
+msgid "country_lt"
+msgstr "ليتوانيا"
+
+msgid "country_lu"
+msgstr "لوكسمبورغ"
+
+msgid "country_lv"
+msgstr "لاتفيا"
+
+msgid "country_ly"
+msgstr "ليبيا"
+
+msgid "country_ma"
+msgstr "المغرب"
+
+msgid "country_mc"
+msgstr "موناكو"
+
+msgid "country_md"
+msgstr "مولدافيا"
+
+msgid "country_me"
+msgstr "الجبل الأسو"
+
+msgid "country_mg"
+msgstr "مدغشقر"
+
+msgid "country_mh"
+msgstr "جزر مارشال"
+
+msgid "country_mk"
+msgstr "مقدونيا"
+
+msgid "country_ml"
+msgstr "مالي"
+
+msgid "country_mm"
+msgstr "ميانمار"
+
+msgid "country_mn"
+msgstr "منغوليا"
+
+msgid "country_mo"
+msgstr "ماكاو"
+
+msgid "country_mp"
+msgstr "جزر ماريانا الشمالية"
+
+msgid "country_mq"
+msgstr "مورتينيك"
+
+msgid "country_mr"
+msgstr "موريتانيا"
+
+msgid "country_ms"
+msgstr "مونتسرات"
+
+msgid "country_mt"
+msgstr "مالطا"
+
+msgid "country_mu"
+msgstr "موريشيوس"
+
+msgid "country_mv"
+msgstr "المالديف"
+
+msgid "country_mw"
+msgstr "ملاوي"
+
+msgid "country_mx"
+msgstr "المكسيك"
+
+msgid "country_my"
+msgstr "ماليزيا"
+
+msgid "country_mz"
+msgstr "موزمبيق"
+
+msgid "country_na"
+msgstr "ناميبيا"
+
+msgid "country_nc"
+msgstr "كاليدونيا الجديدة"
+
+msgid "country_ne"
+msgstr "النيجر"
+
+msgid "country_nf"
+msgstr "جزيرة نورفولك"
+
+msgid "country_ng"
+msgstr "نيجيريا"
+
+msgid "country_ni"
+msgstr "نيكاراغوا"
+
+msgid "country_nl"
+msgstr "هولندا"
+
+msgid "country_no"
+msgstr "النرويج"
+
+msgid "country_np"
+msgstr "النيبال"
+
+msgid "country_nr"
+msgstr "ناورو"
+
+msgid "country_nu"
+msgstr "نيويه"
+
+msgid "country_nz"
+msgstr "نيوزيلندا"
+
+msgid "country_om"
+msgstr "عُمان"
+
+msgid "country_pa"
+msgstr "بنما"
+
+msgid "country_pe"
+msgstr "البيرو"
+
+msgid "country_pf"
+msgstr "بولينسيا الفرنسية"
+
+msgid "country_pg"
+msgstr "بابوا غينيا الجديدة"
+
+msgid "country_ph"
+msgstr "الفلبين"
+
+msgid "country_pk"
+msgstr "باكستان"
+
+msgid "country_pl"
+msgstr "بولندا"
+
+msgid "country_pm"
+msgstr "سان بيار وميكلون"
+
+msgid "country_pn"
+msgstr "جزر بيتكيرن"
+
+msgid "country_pr"
+msgstr "بورتو ريكو"
+
+msgid "country_ps"
+msgstr "فلسطين"
+
+msgid "country_pt"
+msgstr "البرتغال"
+
+msgid "country_pw"
+msgstr "بالاو"
+
+msgid "country_py"
+msgstr "الباراغواي"
+
+msgid "country_qa"
+msgstr "قطر"
+
+msgid "country_re"
+msgstr "ريونيون"
+
+msgid "country_ro"
+msgstr "رومانيا"
+
+msgid "country_rs"
+msgstr "جمهورية صربيا"
+
+msgid "country_ru"
+msgstr "روسيا"
+
+msgid "country_rw"
+msgstr "رواندا"
+
+msgid "country_sa"
+msgstr "السعودية"
+
+msgid "country_sb"
+msgstr "جزر سليمان"
+
+msgid "country_sc"
+msgstr "سيشيل"
+
+msgid "country_sd"
+msgstr "السودان"
+
+msgid "country_se"
+msgstr "السويد"
+
+msgid "country_sg"
+msgstr "سنغافورة"
+
+msgid "country_sh"
+msgstr "سانت"
+
+msgid "country_si"
+msgstr "سلوفينيا"
+
+msgid "country_sj"
+msgstr "جزر سفالبارد و جان والجزر المشطرة الجنوبية"
+
+msgid "country_sk"
+msgstr "سلوفاكيا"
+
+msgid "country_sl"
+msgstr "سيراليون"
+
+msgid "country_sm"
+msgstr "سان مارينو"
+
+msgid "country_sn"
+msgstr "السنغال"
+
+msgid "country_so"
+msgstr "الصومال"
+
+msgid "country_sr"
+msgstr "سورينام"
+
+msgid "country_st"
+msgstr "ساو تومي وبرينسيبي"
+
+msgid "country_sv"
+msgstr "السلفادور"
+
+msgid "country_sy"
+msgstr "سوريا"
+
+msgid "country_sz"
+msgstr "سوازيلند"
+
+msgid "country_tc"
+msgstr "جزر تركس وكايكوس"
+
+msgid "country_td"
+msgstr "تشاد"
+
+msgid "country_tf"
+msgstr "الأراضي الجنوبية الفرنسي"
+
+msgid "country_tg"
+msgstr "توغو"
+
+msgid "country_th"
+msgstr "تايلند"
+
+msgid "country_tj"
+msgstr "طاجيكستان"
+
+msgid "country_tk"
+msgstr "توكيلو"
+
+msgid "country_tl"
+msgstr "تيمور الشرقية"
+
+msgid "country_tm"
+msgstr "تركمنستان"
+
+msgid "country_tn"
+msgstr "تونس"
+
+msgid "country_to"
+msgstr "تونغا"
+
+msgid "country_tr"
+msgstr "تركيا"
+
+msgid "country_tt"
+msgstr "ترينيداد وتوباغو"
+
+msgid "country_tv"
+msgstr "توفالو"
+
+msgid "country_tw"
+msgstr "تايوان"
+
+msgid "country_tz"
+msgstr "تنزانيا"
+
+msgid "country_ua"
+msgstr "أوكرانيا"
+
+msgid "country_ug"
+msgstr "أوغندا"
+
+msgid "country_um"
+msgstr "الجزر الصغيرة البعيدة عن الولايات المتحد"
+
+msgid "country_us"
+msgstr "الولايات المتحدة"
+
+msgid "country_uy"
+msgstr "الأوروغواي"
+
+msgid "country_uz"
+msgstr "أوزبكستان"
+
+msgid "country_va"
+msgstr "الفاتيكان"
+
+msgid "country_vc"
+msgstr "سانت فنسينت والجرينادينز"
+
+msgid "country_ve"
+msgstr "فنزويلا"
+
+msgid "country_vg"
+msgstr "الجزر العذراء البريطانية"
+
+msgid "country_vi"
+msgstr "الجزر العذراء الأمريكية"
+
+msgid "country_vn"
+msgstr "فيتنام"
+
+msgid "country_vu"
+msgstr "فانواتو"
+
+msgid "country_wf"
+msgstr "والس وفوتونا"
+
+msgid "country_ws"
+msgstr "ساموا"
+
+msgid "country_ye"
+msgstr "اليمن"
+
+msgid "country_yt"
+msgstr "مايوطه"
+
+msgid "country_za"
+msgstr "جنوب أفريقيا"
+
+msgid "country_zm"
+msgstr "زامبيا"
+
+msgid "country_zw"
+msgstr "زمبابوي"
+

@@ -44,6 +44,18 @@ A hashref to the query's parameters (decoded from query string or POSTed variabl
 
 Current client language code.
 
+=item language_info
+
+A hash of properties describing current client language.
+
+=over 4
+
+=item bidi
+
+This boolean is true is the current language requires bidi (bi-directional text) handling.
+
+=back
+
 =item conference
 
 Name of the current conference if applicable.
