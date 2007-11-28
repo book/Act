@@ -12,28 +12,31 @@ sub fetch
     my $count = shift || 0;
 
     # fetch this conference's published news items
-    my $news = Act::News->get_items(
+    my $cnews = Act::News->get_items(
                         conf_id   => $Request{conference},
                         lang      => $Request{language},
                         published => 1,
                );
 
-    # remove items in the future
-    my $now = DateTime->now();
-    $news = [ grep { $_->datetime <= $now } @$news ];
-
-    # apply optional limit
-    $#$news = $count - 1 if $count && @$news > $count;
-
+    my @news;
     my %users;
-    for my $n (@$news) {
+    my $now = DateTime->now();
+    for my $n (@$cnews) {
+        # remove items in the future
+        next if $n->datetime > $now;
+
+        # fetch title and text, if available in this language
+        my $item = $n->items->{$Request{language}};
+        next unless $item;
+        @$n{keys %$item} = values %$item;
+
         # fetch user
         $n->{user} = $users{$n->user_id} ||= Act::User->new(user_id => $n->user_id);
-        # fetch title and text
-        my $item = $n->items->{$Request{language}};
-        $n->{$_} = $item->{$_} for qw(title text);
+        push @news, $n;
     }
-    return $news;
+    # apply optional limit
+    $#news = $count - 1 if $count && @news > $count;
+    return \@news;
 }
 
 1;

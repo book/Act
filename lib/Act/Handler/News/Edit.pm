@@ -12,7 +12,8 @@ use Act::News;
 use Act::Template::HTML;
 use Act::Util;
 
-my %form_params = (
+my $form = Act::Form->new(
+  required => [ qw(date time) ],
   optional => [qw(news_id published delete)],
   filters  => {
      published => sub { $_[0] ? 1 : 0 },
@@ -49,26 +50,37 @@ sub handler
     # form has been submitted
     if ($Request{args}{preview} || $Request{args}{save}) {
         # validate form fields
-        my $form = Act::Form->new(
-                    %form_params,
-                    required => [ qw(date time),
-                                  map { ("title_$_", "text_$_") } keys %{ $Config->languages } ],
-        );
         my @errors;
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
         # extract items
-        my %items = map { $_ => { title => delete $fields->{"title_$_" },
-                                  text  => delete $fields->{"text_$_"  },
-                                }
-                        } keys %{ $Config->languages };
+        my %items;
+        my $ngood = 0;
+        my @ifields = qw(title text);
+        for my $lang ( keys %{ $Config->languages } ) {
+            my %item = map { $_ => _trim($Request{args}{"${_}_$lang"}) } @ifields;
+            if (grep $_, values %item) {
+                # if one of (title,text) is provided, the other must be
+                if (grep !$_, values %item) {
+                    $ok = 0;
+                    push @errors,
+                        map [ "ERR_\U$_", $lang ], grep !$item{$_}, @ifields;
+                }
+                else {
+                    ++$ngood;
+                }
+                $items{$lang} = \%item;
+            }
+        }
 
+        # at least one language must be provided
+        $ok = 0 unless $ngood;
         if ($ok) {
             $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
             if ($Request{args}{preview}) {
                 my %preview;
-                for my $lang (keys %{ $Config->languages }) {
+                for my $lang (keys %items) {
                     local $Request{language} = $lang;
                     local $Request{loc} = Act::I18N->get_handle($Request{language});
                     $template->variables(
@@ -112,8 +124,6 @@ sub handler
         }
         else {
             # map errors
-            grep($form->{invalid}{"title_$_"}, keys %{ $Config->languages }) && push @errors, 'ERR_TITLE';
-            grep($form->{invalid}{"text_$_"},  keys %{ $Config->languages }) && push @errors, 'ERR_TEXT';
             $form->{invalid}{date}  && push @errors, 'ERR_DATE';
             $form->{invalid}{time}  && push @errors, 'ERR_TIME';
             $template->variables(errors => \@errors);
@@ -138,6 +148,15 @@ sub handler
     # display the news item submission form
     $template->variables( %$fields );
     $template->process('news/edit');
+}
+sub _trim
+{
+    my $s = shift;
+    for ($s) {
+        s/^\s+//;
+        s/\s+$//;
+    }
+    $s;
 }
 
 1;
