@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
-use Getopt::Std qw(getopts);
+use Getopt::Long    qw(GetOptions);
+use Pod::Usage      qw(pod2usage);
 
 use Act::Config;
 use Act::Email;
@@ -8,69 +9,35 @@ use Act::Util;
 
 my @Row_names = qw(order_id user_id conf_id datetime first_name last_name email amount currency means);
 
-my %Formats = (
-    c => {
-          content_type => 'text/csv',
-          begin => sub {
-                         my $output = shift;
-                         require Text::xSV;
-                         my $csv = Text::xSV->new;
-                         $$output = $csv->format_row(@Row_names);
-                         return $csv;
-                       },
-          row   => sub {
-                         my ($csv, $row, $output) = @_;
-                         $$output .= $csv->format_row(@$row);
-                       },
-          end   => sub {
-                         my ($csv, $output) = @_;
-                         return $$output;
-                       },
-         },
-    t => {
-          content_type => 'text/plain',
-          begin => sub {
-                         require Text::TabularDisplay;
-                         return Text::TabularDisplay->new(@Row_names);
-                       },
-          row   => sub {
-                         my ($table, $row) = @_;
-                         $table->add(@$row);
-                       },
-          end   => sub {
-                         my ($table, $unused, $total) = @_;
-                         if ($total) {
-                            $table->add((' ') x @Row_names);
-                            for my $conf_id (sort keys %$total) {
-                                $table->add(undef, undef, $conf_id, undef, undef, undef, undef,
-                                            $total->{$conf_id}{total}, $total->{$conf_id}{currency},
-                                            undef);
-                            }
-                         }
-                         return $table->render();
-                       },
-         },
-);
+my %Formats = ( c => 'CSV', t => 'Text' );
 
 # command line arguments
-my %opts;
-getopts('hnf:m:t', \%opts);
+my $format = 't';
+my ($means, $dryrun, $help, $do_total);
+GetOptions(
+    'dry-run'       => \$dryrun,
+    'format=s'      => sub { $format = lc(substr($_[1],0,1)) },
+    'help'          => \$help,
+    'means=s'       => \$means,
+    'total'         => \$do_total,
+) or pod2usage(0);
+pod2usage(1) if $help;
 
-$opts{h} and usage();
+exists $Formats{$format} or pod2usage("Unknown format: $format");
+$do_total && $format eq 'c' and pod2usage("--ttotal not available for CSV format");
 
-$opts{f} ||= 't';
-my $format = $Formats{$opts{f}} or usage("Unknown format: $opts{f}");
-$opts{t} && $opts{f} eq 'c' and usage("-t (total) not available for CSV format");
-
-my @confs      = grep /^\w+$/, @ARGV or usage("must provide at least one conf_id");
+my @confs      = grep /^\w+$/, @ARGV or pod2usage("Must provide at least one conf_id");
 my @recipients = grep /@/,     @ARGV;
-@recipients || $opts{n} or usage('must provide at least one recipient');
+@recipients || $dryrun or pod2usage('Must provide at least one recipient');
 
-if ($opts{n}) {
-    print "Format:      $format->{content_type}\n";
+my $pkg = "My::Format::$Formats{$format}";
+my $formatter = $pkg->new;
+
+if ($dryrun) {
+    print "Format:      ", $formatter->content_type, "\n";
     print "Conferences: @confs\n";
     print "Recipients:  @recipients\n" if @recipients;
-    print "Means:       $opts{m}\n"    if $opts{m};
+    print "Means:       $means\n"      if $means;
     print "\n";
 }
 
@@ -82,33 +49,39 @@ my $sql =
     'SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name, u.last_name, u.email, o.amount, o.currency, o.means'
   . ' FROM orders o, users u'
   . ' WHERE o.user_id = u.user_id AND o.status = ?';
-$sql .= ' AND o.means = ?' if $opts{m};
+$sql .= ' AND o.means = ?' if $means;
 $sql .= ' AND o.conf_id IN (' . join(',', map '?', @confs) . ') ORDER BY o.datetime';
 my $sth = $Request{dbh}->prepare($sql);
-if ($opts{m}) {
-    $sth->execute('paid', $opts{m}, @confs);
+if ($means) {
+    $sth->execute('paid', $means, @confs);
 }
 else {
     $sth->execute('paid', @confs);
 }
 
 # create report
-my $output;
 my %total;    # total per conf
-my $fh = $format->{begin}->(\$output);
 
 while (my @row = $sth->fetchrow_array) {
-    $format->{row}->($fh, \@row, \$output);
-    if ($opts{t}) {
+    $formatter->row(\@row);
+    if ($do_total) {
         my ($conf_id, $amount, $currency) = @row[2,7,8];
         $total{$conf_id}{currency} = $currency;
         $total{$conf_id}{total} += $amount;
     }
 }
-my $report = $format->{end}->($fh, \$output, $opts{t} ? \%total : undef);
+if ($do_total) {
+    $formatter->blank_line;
+    for my $conf_id (sort keys %total) {
+        $formatter->row([ 'Total', undef, $conf_id, undef, undef, undef, undef,
+                          $total{$conf_id}{total}, $total{$conf_id}{currency},
+                          undef ]);
+    }
+}
+my $report = $formatter->render;
 
 # display or send report
-if ($opts{n}) {
+if ($dryrun) {
     # display report
     binmode STDOUT, ":utf8";
     print "$report\n";
@@ -116,7 +89,7 @@ if ($opts{n}) {
 else {
     # send email
     Act::Email::send(
-        content_type => $format->{content_type},
+        content_type => $formatter->content_type,
         from     => { name => 'Act', email => 'echo@mongueurs.net' },
         to       => \@recipients,
         subject  => "Act payment report",
@@ -124,20 +97,96 @@ else {
         body     => $report,
     );
 }
-sub usage
-{
-    my $error = shift;
-    print "\nError: $error\n\n" if $error;
-    die <<EOF;
-Usage: $0 [-f format] [-m means] [-n] email | conf_id [email | conf_id...]
-Options:
-    -f format    report format:
-                     c = CSV
-                     t = tabular text (default)
-    -m means     only report on transactions of means 'means',
-                 where means is one of CASH, CHQ, ONLINE, XFER, FREE.
-    -n           dry run: print report to STDOUT, no email
-    -t           include a Total line (only for text format)
+##########################################
+package My::Format::CSV;
 
-EOF
+sub content_type { 'text/csv' }
+sub new
+{
+    my $class = shift;
+    require Text::xSV;
+    my $csv = Text::xSV->new;
+    return bless {
+        csv => $csv,
+        output => $csv->format_row(@Row_names),
+    }, $class;
 }
+sub row
+{
+    my ($self, $row) = @_;
+    $self->{output} .= $self->{csv}->format_row(@$row);
+}
+sub render { shift->{output} }
+
+##########################################
+package My::Format::Text;
+
+sub content_type { 'text/plain' }
+sub new
+{
+    my $class = shift;
+    require Text::TabularDisplay;
+    return bless { table => Text::TabularDisplay->new(@Row_names) }, $class;
+}
+sub row
+{
+    my ($self, $row) = @_;
+    $self->{table}->add(@$row);
+}
+sub blank_line
+{
+    shift->{table}->add((' ') x @Row_names);
+}
+sub render { shift->{table}->render }
+##########################################
+
+__END__
+
+=head1 NAME
+
+paymentreport - display or send payment reports
+
+=head1 SYNOPSIS
+
+  paymentreport [options] [email_address...] conf_id...
+
+  Options:
+    --format format         report format:
+                              c[sv]    comma separated values
+                              t[ext]   tabular text (default)
+    --means means           only report on transactions with this payment means,
+                            where means is one of CASH, CHQ, ONLINE, XFER, FREE.
+    --dry-run               dry run: print report to STDOUT, no email
+    --total                 include a Total line (only for text format)
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--help>
+
+Prints a brief help message and exits.
+
+=item B<--dryrun>
+
+Displays report on standard output. No email is sent.
+
+=item B<--format>
+
+Specify the report format: text (default) or csv.
+
+=item B<--means>
+
+Only report on payments made with that means, where means is one of CASH, CHQ, ONLINE, XFER or FREE.
+
+=item B<--total>
+
+Adds a total line. Not available for CSV reports.
+
+=back
+
+=head1 DESCRIPTION
+
+Generates payment reports for one or more conferences.
+
+=cut
