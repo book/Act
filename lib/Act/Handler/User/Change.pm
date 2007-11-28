@@ -55,7 +55,7 @@ sub handler
         $fields = $form->{fields};
 
         # needs a nick_name if pseudonymous
-        if( $fields->{pseudonymous} && ! exists $fields->{nick_name} ) {
+        if( $fields->{pseudonymous} && !$fields->{nick_name} ) {
              $form->{invalid}{nick_name} = 1;
              $ok = 0;
         }
