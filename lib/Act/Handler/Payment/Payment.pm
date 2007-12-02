@@ -15,9 +15,8 @@ sub handler
 }
 sub _handler
 {
-    # for non-free conferences, treasurers only
-    return unless $Config->payment_type ne 'NONE'
-               && $Request{user}->is_treasurer
+    # for treasurers only
+    return unless $Request{user}->is_treasurer
                && $Request{args}{user_id};
 
     # payment means and prices
