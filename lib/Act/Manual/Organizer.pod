@@ -35,6 +35,10 @@ for a conference.
 
 Information on Act's online payment feature and configuration.
 
+=item L<Act::Manual::Organizer::Photos>
+
+How to create photo galleries.
+
 =back
 
 =cut

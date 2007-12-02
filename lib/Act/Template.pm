@@ -4,6 +4,7 @@ use strict;
 use Carp;
 
 use Act::Config;
+use Act::Flickr;
 use Act::Template::Parser;
 use Act::Util;
 
@@ -15,6 +16,7 @@ my %Functions = (
     make_uri      => \&Act::Util::make_uri,
     make_uri_info => \&Act::Util::make_uri_info,
     date_format   => \&Act::Util::date_format,
+    flickr_get    => \&Act::Flickr::fetch,
 );
 
 my %templates;
