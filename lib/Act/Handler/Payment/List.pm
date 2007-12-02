@@ -69,8 +69,7 @@ sub Act::User::status { $_[0]->{status} }
 sub handler
 {
     # for treasurers only
-    unless ($Config->payment_type ne 'NONE' &&
-            $Request{user} && $Request{user}->is_treasurer)
+    unless ($Request{user} && $Request{user}->is_treasurer)
     {
         $Request{status} = NOT_FOUND;
         return;

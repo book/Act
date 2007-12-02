@@ -33,10 +33,6 @@ sub handler
         return;
     }
     my $report = $CSV{$Request{path_info}};
-    if ($Config->payment_type eq 'NONE' && $report eq 'payments') {
-        $Request{status} = NOT_FOUND;
-        return;
-    }
 
     # check rights
     unless ($Request{user} && $report->[0]->($Request{user})) {
