@@ -226,6 +226,34 @@ sub usort(&@)
            @_;
 }
 
+use DateTime;
+package DateTime;
+
+my %genitive_monthnames = (
+    ru => [ "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря"
+          ],
+);
+
+sub genitive_month
+{
+    my $self = shift;
+    my $lang = (split/::/, ref $self->locale)[-1];
+    return exists $genitive_monthnames{$lang}
+                ? $genitive_monthnames{$lang}[$self->month_0]
+                : undef;
+}
+
 1;
 
 __END__

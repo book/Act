@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 72 + 5 * NBPASS;
+use Test::More tests => 73 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -72,7 +72,10 @@ for (1..NBPASS) {
 use utf8;
 $Request{language} = 'fr';
 my $dt = DateTime->new(year => 2007, month => 2, day => 15);
-is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format');
+is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format fr');
+
+$Request{language} = 'ru';  # test genitive month name
+is(Act::Util::date_format($dt, 'datetime_full'), 'четверг, 15 февраля 2007 г., 00:00', 'date_format ru');
 
 # normalize
 use charnames ();
