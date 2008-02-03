@@ -8,12 +8,12 @@ use Act::Util;
 my @COUNTRY_CODES = qw(
   ad ae af ag ai al am an ao aq ar as at au aw ax az
   ba bb bd be bf bg bh bi bj bm bn bo br bs bt bv bw by bz
-  ca cc cd cf cg ck ch ci cl cm cn co cr cu cv cx cy cz
-  de dk dj dm do dz
+  ca cc cd cf cg ch ci ck cl cm cn co cr cu cv cx cy cz
+  de dj dk dm do dz
   ec ee eg eh er es et
   fi fj fk fm fo fr
   ga gb gd ge gf gg gh gi gl gm gn gp gq gr gs gt gu gw gy
-  hm hn hk hr ht hu
+  hk hm hn hr ht hu
   id ie il im in io iq ir is it
   je jm jo jp
   ke kg kh ki km kn kp kr kw ky kz
@@ -24,14 +24,13 @@ my @COUNTRY_CODES = qw(
   pa pe pf pg ph pk pl pm pn pr ps pt pw py
   qa
   re ro rs ru rw
-  sa sb sc sd se sg sh si sk sj sl sm sn so sr st sv sy sz
+  sa sb sc sd se sg sh si sj sk sl sm sn so sr st sv sy sz
   tc td tf tg th tj tk tl tm tn to tr tt tv tw tz
   ua ug um us uy uz
   va vc ve vg vi vn vu
   wf ws
-  za
   ye yt
-  zm zw
+  za zm zw
 );
 
 my %Cache;
