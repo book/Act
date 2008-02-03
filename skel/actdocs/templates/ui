@@ -20,7 +20,25 @@
 [% PROCESS menu %]
 [%- IF title -%]<h1>[% title  %]</h1>[%- END -%]
 
-[% content %]
+<div id="wrapper">
+
+  <div id="header">
+    <h1>Our Perl Workshop</h1>
+  </div>
+
+  <div id="menu">
+    [% PROCESS menu %]
+  </div>
+
+  <div id="content">
+    [% content %]
+  </div>
+
+  <div id="footer">
+    Copyright &copy; Us - Powered by <a href="http://act.mongueurs.net/">Act</a>
+  </div>
+
+</div>
 
 </body>
 </html>
