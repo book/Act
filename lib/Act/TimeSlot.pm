@@ -1,8 +1,14 @@
 package Act::TimeSlot;
+
+use Act::Config;
 use Act::Event;
 use Act::Talk;
 use Act::Track;
 use Act::User;
+
+use DateTime;
+use DateTime::Format::Pg;
+use List::Util qw(first);
 
 sub get_items {
     my ( undef, %args ) = @_;
@@ -40,6 +46,50 @@ for my $attr ( qw( id datetime room conf_id type title abstract duration ) ) {
 }
 
 sub is_global { $_[0]{room} =~ /^(?:out|venue)$/; }
+
+# get list of current and upcoming talks/events
+sub get_current
+{
+    my $class = shift;
+    my $now = shift || DateTime->now();
+
+    # optional conversion from string to DateTime object
+    $now = DateTime::Format::Pg->parse_timestamp_without_time_zone($now)
+        unless ref $now;
+ 
+    # get scheduled talks and events, in chronological order
+    my @ts = sort { DateTime->compare($a->datetime, $b->datetime) }
+             grep { $_->datetime && $_->room }
+             @{ $class->get_items( conf_id => $Request{conference} ) };
+
+    # compute event end times, and index by room
+    my %ts;
+    for my $t (@ts) {
+        $t->{end} = _end_date($t->datetime, $t->duration);
+        push @{ $ts{$t->room} }, $t;
+    }
+    # current and upcoming talks
+    my $limit = _end_date($now, 60);
+    my %criteria = (
+        current  => sub { $_[0]->datetime <= $now && $_[0]->{end} > $now },
+        upcoming => sub { $_[0]->datetime > $now && $_[0]->datetime <= $limit },
+    );
+    my %interesting;
+    for my $room (keys %ts) {
+        for my $c (keys %criteria) {
+            my $slot = first { $criteria{$c}->($_) } @{$ts{$room}};
+            $interesting{$c}{$room} = $slot if $slot;
+        }
+    }
+    return \%interesting;
+}
+sub _end_date
+{
+    my ($startdate, $duration) = @_;
+    my $enddate = $startdate->clone;
+    $enddate->add(minutes => $duration);
+    return $enddate;
+}
 
 1;
 
