@@ -39,6 +39,10 @@ Information on Act's online payment feature and configuration.
 
 How to create photo galleries.
 
+=item L<Act::Manual::Organizer::CurrentEvents>
+
+Display current and upcoming talks/events.
+
 =back
 
 =cut

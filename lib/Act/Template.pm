@@ -6,6 +6,7 @@ use Carp;
 use Act::Config;
 use Act::Flickr;
 use Act::Template::Parser;
+use Act::TimeSlot;
 use Act::Util;
 
 use base qw(Template);
@@ -17,6 +18,7 @@ my %Functions = (
     make_uri_info => \&Act::Util::make_uri_info,
     date_format   => \&Act::Util::date_format,
     flickr_get    => \&Act::Flickr::fetch,
+    current_events => sub { Act::TimeSlot->get_current(@_) },
 );
 
 my %templates;

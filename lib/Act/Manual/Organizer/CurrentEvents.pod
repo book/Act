@@ -1,0 +1,61 @@
+=head1 Current events
+
+This feature lets any page or template retrieve and display current
+and upcoming talks and events.
+
+The template function C<current_events()> returns a hash with two keys:
+C<current> and C<upcoming>. For each key, the value is a hash whose keys
+are the rooms and the values are the corresponding event.
+
+This snippet of code displays the entire structure:
+
+  <table>
+  [% events = current_events('2007-08-28 10:00:00');
+     FOREACH period = events.keys.sort %]
+     
+     <tr><td colspan="3"><h2>[% period %]</h2></td></tr>
+     
+     [% FOREACH room = events.$period.keys.sort;
+          event = events.$period.$room %]
+          <tr><td>[% global.config.rooms.$room OR loc("room_$room") %]</td>
+              <td>[% date_format(event.datetime, 'time') %]</td>
+              <td><b>[% event.title %]</b>
+                  <i>([% event.duration %] {{min}})</i>
+                  [% IF global.config.talks_languages %]
+                  - [% global.config.talks_languages.${event.lang} %]
+                  [% END %]
+                  [% IF event.user %]
+                    <br />{{by}} [% user_info_base(event.user) %]
+                  [% END %]
+              </td>
+          </tr>
+     [% END %]
+
+  [% END %]
+  </table>
+
+The following example displays a more concise schedule:
+
+    [% events = current_events();
+       FOREACH period = events.keys.sort %]
+       
+         <tr><td colspan="3"><h1>[% period %]</h1></td></tr>
+    
+         [% FOREACH room = events.$period.keys.sort;
+              event = events.$period.$room %]
+              <tr><td>[% global.config.rooms.$room %]</td>
+                  <td>[% date_format(event.datetime, 'time') %]</td>
+                  <td><b>[% event.title %]</b> <i>([% event.duration %]mn)</i></td>
+              </tr>
+         [% END %]
+    
+      [% END %]
+
+C<current_events()> uses the current date and time to determine current
+and upcoming events. To accomodate testing ahead of time, the function
+takes a datetime string as an optional argument:
+
+  [% events = current_events('2007-08-28 10:00:00') %]
+
+=cut
+
