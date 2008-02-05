@@ -204,6 +204,8 @@ sub handler {
 
                 # optional email notification
                 notify(insert => $talk);
+                
+                return;
             }
 
             # return to the referring URL if needed
