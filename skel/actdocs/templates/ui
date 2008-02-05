@@ -11,13 +11,13 @@
 [%- IF title -%]<title>[% title  %]</title>[%- END -%]
 
 <!-- CSS Stylesheets -->
+<link rel="stylesheet" type="text/css" href="[% make_uri_info('css', 'style.css') %]" />
 
 <!-- Favorite icon -->
 <link rel="shortcut icon" type="image/png" href="/favicon.png" />
 </head>
 
 <body>
-[% PROCESS menu %]
 [%- IF title -%]<h1>[% title  %]</h1>[%- END -%]
 
 <div id="wrapper">

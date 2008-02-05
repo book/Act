@@ -1,6 +1,4 @@
-[% WRAPPER ui title = "Our Conference" %]
-
-<h1>Our Conference</h1>
+[% WRAPPER ui title = global.conference.name %]
 
 <p>
 Welcome to Our Conference web site.
@@ -13,7 +11,7 @@ rerum unde magna delectus dolor alias ab iste corporis vel natus saepe
 </p>
 
 <p>
-Watch this space for updates, or check the <a href="[% make_uri('atom/en.xml') %]">feed</a>.
+Watch this space for updates, or check the <a href="[% global.request.base_url %][% make_uri_info( 'atom', global.request.language ) %].xml">feed</a>.
 </p>
 
 [% news = global.news(3);
