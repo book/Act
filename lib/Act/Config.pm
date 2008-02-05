@@ -114,12 +114,12 @@ our %Image_formats = (
 
 # optional variables
 my @Optional = qw(
-  general_registration_open
   talks_show_all talks_notify_accept talks_levels talks_languages
   talks_submissions_notify_address talks_submissions_notify_language
   database_debug general_dir_ttc
   flickr_apikey flickr_tags
   payment_notify_address
+  registration_open registration_max_attendees
 );
 
 # salutations
@@ -227,10 +227,26 @@ sub get_config
 {
     my $conf = shift;
     if ($conf && $ConfConfigs{$conf}) {
-        # conference's closing date
-        my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
-        $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
-        $ConfConfigs{$conf}->set(closed => DateTime->now() > $enddate);
+        ## see if conference is closed
+        # closed by configuraiton
+        my $closed = !$ConfConfigs{$conf}->registration_open;
+        # past conference's closing date
+        unless ($closed) {
+            my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
+            $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
+            $closed = ( DateTime->now() > $enddate );
+        }
+        # max attendees reached
+        if (!$closed && $ConfConfigs{$conf}->registration_max_attendees) {
+            my $sth = $Request{dbh}->prepare_cached(
+                'SELECT COUNT(*) FROM participations WHERE conf_id=?' );
+            $sth->execute( $conf );
+            my ($count) = $sth->fetchrow_array();
+            $sth->finish();
+
+            $closed ||= ( $count >= $ConfConfigs{$conf}->registration_max_attendees );
+        }
+        $ConfConfigs{$conf}->set(closed => $closed);
 
         return $ConfConfigs{$conf}
     }

@@ -26,6 +26,12 @@ conference.
     default_country  = fr
     timezone  = Europe/Paris
     
+    [registration]
+    open = 1
+    # optional maximum number of attendees
+    # omit this is not applicable
+    max_attendees = 100
+
     [email]
     sender_address = your@address.com
     

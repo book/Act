@@ -42,12 +42,10 @@ my $form = Act::Form->new(
 sub handler
 {
 
-    # conference is closed, do not POST
-    if ( $Request{args}{join} ) {
-        if ($Config->closed) {
-            $Request{status} = FORBIDDEN;
-            return;
-        }
+    # conference is closed
+    if ($Config->closed) {
+        $Request{status} = FORBIDDEN;
+        return;
     }
     # special case of logged in users!
     if( defined $Request{user} ) {
