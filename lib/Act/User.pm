@@ -29,10 +29,10 @@ our %sql_mapping = (
     full_name  =>  "(u.first_name || ' ' || u.last_name ~* ?)",
     # text search
     map( { ($_, "(u.$_~*?)") }
-      qw( town pm_group company address nick_name ) ),
+      qw( town company address nick_name ) ),
     # text egality
     map( { ($_, "(lower(u.$_)=lower(?))") }
-      qw( first_name last_name ) ),
+      qw( first_name last_name pm_group ) ),
     # standard stuff
     map( { ($_, "(u.$_=?)") }
       qw( user_id session_id login email country ) )
