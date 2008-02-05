@@ -33,9 +33,14 @@ my %modules = (
 use Test::More;
 plan tests => 1 + 2 * keys %modules;
 cmp_ok($], 'ge', 5.008001, 'perl >= 5.8.1');
-while (my ($name, $minversion) = each %modules) {
-    require_ok($name);
-    my $version = eval '$' . $name . '::VERSION';
-    cmp_ok($version, '>=', $minversion, "$name $version >= $minversion");
+while ( my ( $name, $minversion ) = each %modules ) {
+    if ( require_ok($name) ) {
+        my $version = eval '$' . $name . '::VERSION';
+        cmp_ok( $version, '>=', $minversion,
+            "$name $version >= $minversion" );
+    }
+    else {
+        ok( 0, "$name not installed, version check failed" );
+    }
 }
 __END__
