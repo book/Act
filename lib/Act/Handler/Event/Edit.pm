@@ -51,6 +51,11 @@ sub handler {
         return;
     }
 
+    # automatically compute the return URL
+    my $referer = $Request{r}->header_in('Referer');
+    $Request{args}{return_url} ||= $referer
+        if $referer =~ m{/(?:schedule)};
+
     if ($Request{args}{submit}) {
         # form has been submitted
         my @errors;
@@ -98,6 +103,10 @@ sub handler {
 
                 return;
             }
+
+            # return to the referring URL if needed
+            return Act::Util::redirect( $Request{args}{return_url} )
+                if $Request{args}{return_url};
         }
         else {
             # map errors
