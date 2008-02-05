@@ -40,6 +40,8 @@ Digest::MD5
 
 Email::Valid
 
+Flickr::API
+
 HTML::Entities
 
 Imager
