@@ -14,6 +14,7 @@ my %modules = (
     'DBI'                                   => 0,
     'Digest::MD5'                           => 0,
     'Email::Valid'                          => 0,
+    'Flickr::API'                           => 0,
     'Imager'                                => 0,
     'HTML::Entities'                        => 0,
     'HTML::TagCloud'                        => 0,

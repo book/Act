@@ -260,6 +260,7 @@ sub _init_config
         for qw(talks_show_all talks_notify_accept talks_levels talks_languages
                talks_submissions_notify_address talks_submissions_notify_language
                database_debug general_dir_ttc
+               flickr_apikey flickr_tags
                payment_notify_address);
     return $cfg;
 }
