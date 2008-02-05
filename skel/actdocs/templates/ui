@@ -11,16 +11,34 @@
 [%- IF title -%]<title>[% title  %]</title>[%- END -%]
 
 <!-- CSS Stylesheets -->
+<link rel="stylesheet" type="text/css" href="[% make_uri_info('css', 'style.css') %]" />
 
 <!-- Favorite icon -->
 <link rel="shortcut icon" type="image/png" href="/favicon.png" />
 </head>
 
 <body>
-[% PROCESS menu %]
 [%- IF title -%]<h1>[% title  %]</h1>[%- END -%]
 
-[% content %]
+<div id="wrapper">
+
+  <div id="header">
+    <h1>Our Perl Workshop</h1>
+  </div>
+
+  <div id="menu">
+    [% PROCESS menu %]
+  </div>
+
+  <div id="content">
+    [% content %]
+  </div>
+
+  <div id="footer">
+    Copyright &copy; Us - Powered by <a href="http://act.mongueurs.net/">Act</a>
+  </div>
+
+</div>
 
 </body>
 </html>
