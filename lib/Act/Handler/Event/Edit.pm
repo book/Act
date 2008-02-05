@@ -124,6 +124,7 @@ sub handler {
 
     # display the event submission form
     $template->variables(
+        return_url => $Request{args}{return_url},
         dates => \@dates, defined $event ? ( %$event ) : ( %$fields ),
         rooms => { %{ $Config->rooms },
                    map { $_ => localize("room_$_") } qw(venue out),
