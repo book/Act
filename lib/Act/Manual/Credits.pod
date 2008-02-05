@@ -71,6 +71,7 @@ conference...
 
 =head2 Translations
 
+  be: Andrei Protasovitski, Taras Ivanyukovich
   de: Thomas Klausner
   he: Uri Bruck
   hu: Gábor Szabó
@@ -79,7 +80,6 @@ conference...
   pt: Alberto Manuel Brandão Simões, Luis Motta Campos
   ru: Andrew Shitov
   uk: Andrew Shitov
-  be: Andrei Protasovitski, Taras Ivanyukovich
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
