@@ -20,10 +20,9 @@ body {
 	font-size: 110%;
 }
 
-#menu ul {
-	list-style-image: none;
-	list-style-position: outside;
-	list-style-type: none;
+#menu li {
+    margin-left: 1em;
+    list-style-type: none;
 }
 
 #content {
