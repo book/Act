@@ -252,13 +252,24 @@ sub get_config
         }
         # max attendees reached
         if (!$closed && $ConfConfigs{$conf}->registration_max_attendees) {
-            my $sth = $Request{dbh}->prepare_cached(
-                'SELECT COUNT(*) FROM participations WHERE conf_id=?' );
-            $sth->execute( $conf );
+            my $sql = 'SELECT COUNT(*) FROM participations p WHERE p.conf_id=?';
+            my @values = ($conf);
+            if ($ConfConfigs{$conf}->payment_type ne 'NONE') {
+                $sql .= <<EOF;
+ AND (
+     EXISTS(SELECT 1 FROM talks t WHERE t.user_id=p.user_id AND t.conf_id=? AND t.accepted IS TRUE)
+  OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=p.user_id AND o.conf_id=? AND o.status=?)
+  OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=p.user_id AND r.conf_id=? AND r.right_id IN (?,?))
+)
+EOF
+                push @values, $conf, $conf, 'paid', $conf, 'orga', 'staff';
+            }
+            my $sth = $Request{dbh}->prepare_cached($sql);
+            $sth->execute(@values);
             my ($count) = $sth->fetchrow_array();
             $sth->finish();
 
-            $closed ||= ( $count >= $ConfConfigs{$conf}->registration_max_attendees );
+            $closed = ( $count >= $ConfConfigs{$conf}->registration_max_attendees );
         }
         $ConfConfigs{$conf}->set(closed => $closed);
 
