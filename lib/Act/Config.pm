@@ -83,6 +83,13 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%d/%m/%y',
             fmt_time           => '%H:%M',
           },
+    ja => { name               => '日本語',
+            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
+            fmt_datetime_short => '%m/%d/%y %H:%M',
+            fmt_date_full      => '%A %B %e, %Y',
+            fmt_date_short     => '%m/%d/%y',
+            fmt_time           => '%H:%M',
+          },
     nl => { name               => 'Nederlands',
             fmt_datetime_full  => '%A %e %B %Y %H:%M',
             fmt_datetime_short => '%d-%m-%y %H:%M',
@@ -245,9 +252,22 @@ sub get_config
         }
         # max attendees reached
         if (!$closed && $ConfConfigs{$conf}->registration_max_attendees) {
-            my $sth = $Request{dbh}->prepare_cached(
-                'SELECT COUNT(*) FROM participations WHERE conf_id=?' );
-            $sth->execute( $conf );
+            my $sth;
+            if ($Config->payment_type eq 'NONE') {
+                $sth = $Request{dbh}->prepare_cached('SELECT COUNT(*) FROM participations WHERE conf_id=?');
+                $sth->execute( $conf );
+            }
+            else {
+                $sth = $Request{dbh}->prepare_cached(<<EOF);
+SELECT count(u.*) FROM users u WHERE (
+     EXISTS(SELECT 1 FROM participations p WHERE p.user_id=u.user_id AND p.conf_id=?)
+  OR EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE)
+  OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status=?)
+  OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=u.user_id AND r.conf_id=? AND r.right_id IN (?,?))
+)
+EOF
+                $sth->execute( $conf, $conf, $conf, 'paid', $conf, 'orga', 'staff' );
+            }
             my ($count) = $sth->fetchrow_array();
             $sth->finish();
 
