@@ -1,0 +1,738 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "アンドラ"
+
+msgid "country_ae"
+msgstr "アラブ首長国連邦"
+
+msgid "country_af"
+msgstr "アフガニスタン"
+
+msgid "country_ag"
+msgstr "アンティグア・バーブーダ"
+
+msgid "country_ai"
+msgstr "アンギラ"
+
+msgid "country_al"
+msgstr "アルバニア"
+
+msgid "country_am"
+msgstr "アルメニア"
+
+msgid "country_an"
+msgstr "オランダ領アンティル"
+
+msgid "country_ao"
+msgstr "アンゴラ"
+
+msgid "country_aq"
+msgstr "南極"
+
+msgid "country_ar"
+msgstr "アルゼンチン"
+
+msgid "country_as"
+msgstr "アメリカ領サモア"
+
+msgid "country_at"
+msgstr "オーストリア"
+
+msgid "country_au"
+msgstr "オーストラリア"
+
+msgid "country_aw"
+msgstr "アルバ"
+
+msgid "country_ax"
+msgstr "オーランド諸島"
+
+msgid "country_az"
+msgstr "アゼルバイジャン"
+
+msgid "country_ba"
+msgstr "ボスニア・ヘルツェゴビナ"
+
+msgid "country_bb"
+msgstr "バルバドス"
+
+msgid "country_bd"
+msgstr "バングラデシュ"
+
+msgid "country_be"
+msgstr "ベルギー"
+
+msgid "country_bf"
+msgstr "ブルキナファソ"
+
+msgid "country_bg"
+msgstr "ブルガリア"
+
+msgid "country_bh"
+msgstr "バーレーン"
+
+msgid "country_bi"
+msgstr "ブルンジ"
+
+msgid "country_bj"
+msgstr "ベナン"
+
+msgid "country_bm"
+msgstr "バミューダ諸島"
+
+msgid "country_bn"
+msgstr "ブルネイ"
+
+msgid "country_bo"
+msgstr "ボリビア"
+
+msgid "country_br"
+msgstr "ブラジル"
+
+msgid "country_bs"
+msgstr "バハマ"
+
+msgid "country_bt"
+msgstr "ブータン"
+
+msgid "country_bv"
+msgstr "ブーベ島"
+
+msgid "country_bw"
+msgstr "ボツワナ"
+
+msgid "country_by"
+msgstr "ベラルーシ"
+
+msgid "country_bz"
+msgstr "ベリーズ"
+
+msgid "country_ca"
+msgstr "カナダ"
+
+msgid "country_cc"
+msgstr "ココス諸島"
+
+msgid "country_cd"
+msgstr "コンゴ民主共和国"
+
+msgid "country_cf"
+msgstr "中央アフリカ"
+
+msgid "country_cg"
+msgstr "コンゴ共和国"
+
+msgid "country_ch"
+msgstr "スイス"
+
+msgid "country_ci"
+msgstr "コートジボワール"
+
+msgid "country_ck"
+msgstr "クック諸島"
+
+msgid "country_cl"
+msgstr "チリ"
+
+msgid "country_cm"
+msgstr "カメルーン"
+
+msgid "country_cn"
+msgstr "中華人民共和国"
+
+msgid "country_co"
+msgstr "コロンビア"
+
+msgid "country_cr"
+msgstr "コスタリカ"
+
+msgid "country_cu"
+msgstr "キューバ"
+
+msgid "country_cv"
+msgstr "カーボベルデ"
+
+msgid "country_cx"
+msgstr "クリスマス島 (オーストラリア)"
+
+msgid "country_cy"
+msgstr "キプロス"
+
+msgid "country_cz"
+msgstr "チェコ"
+
+msgid "country_de"
+msgstr "ドイツ"
+
+msgid "country_dj"
+msgstr "ジブチ"
+
+msgid "country_dk"
+msgstr "デンマーク"
+
+msgid "country_dm"
+msgstr "ドミニカ国"
+
+msgid "country_do"
+msgstr "ドミニカ共和国"
+
+msgid "country_dz"
+msgstr "アルジェリア"
+
+msgid "country_ec"
+msgstr "エクアドル"
+
+msgid "country_ee"
+msgstr "エストニア"
+
+msgid "country_eg"
+msgstr "エジプト"
+
+msgid "country_eh"
+msgstr "西サハラ"
+
+msgid "country_er"
+msgstr "エリトリア"
+
+msgid "country_es"
+msgstr "スペイン"
+
+msgid "country_et"
+msgstr "エチオピア"
+
+msgid "country_fi"
+msgstr "フィンランド"
+
+msgid "country_fj"
+msgstr "フィジー"
+
+msgid "country_fk"
+msgstr "フォークランド諸島"
+
+msgid "country_fm"
+msgstr "ミクロネシア連邦"
+
+msgid "country_fo"
+msgstr "フェロー諸島"
+
+msgid "country_fr"
+msgstr "フランス"
+
+msgid "country_ga"
+msgstr "ガボン"
+
+msgid "country_gb"
+msgstr "イギリス"
+
+msgid "country_gd"
+msgstr "グレナダ"
+
+msgid "country_ge"
+msgstr "グルジア"
+
+msgid "country_gf"
+msgstr "フランス領ギアナ"
+
+msgid "country_gg"
+msgstr "ガーンジー島"
+
+msgid "country_gh"
+msgstr "ガーナ"
+
+msgid "country_gi"
+msgstr "ジブラルタル"
+
+msgid "country_gl"
+msgstr "グリーンランド"
+
+msgid "country_gm"
+msgstr "ガンビア"
+
+msgid "country_gn"
+msgstr "ギニア"
+
+msgid "country_gp"
+msgstr "グアドループ島"
+
+msgid "country_gq"
+msgstr "赤道ギニア"
+
+msgid "country_gr"
+msgstr "ギリシャ"
+
+msgid "country_gs"
+msgstr "南ジョージア島"
+
+msgid "country_gt"
+msgstr "グアテマラ"
+
+msgid "country_gu"
+msgstr "グアム"
+
+msgid "country_gw"
+msgstr "ギニアビサウ"
+
+msgid "country_gy"
+msgstr "ガイアナ"
+
+msgid "country_hk"
+msgstr "香港"
+
+msgid "country_hm"
+msgstr "ヘアド島"
+
+msgid "country_hn"
+msgstr "ホンジュラス"
+
+msgid "country_hr"
+msgstr "クロアチア"
+
+msgid "country_ht"
+msgstr "ハイチ"
+
+msgid "country_hu"
+msgstr "ハンガリー"
+
+msgid "country_id"
+msgstr "インドネシア"
+
+msgid "country_ie"
+msgstr "アイルランド"
+
+msgid "country_il"
+msgstr "イスラエル"
+
+msgid "country_im"
+msgstr "マン島"
+
+msgid "country_in"
+msgstr "インド"
+
+msgid "country_io"
+msgstr "イギリス領インド洋地域"
+
+msgid "country_iq"
+msgstr "イラク"
+
+msgid "country_ir"
+msgstr "イラン"
+
+msgid "country_is"
+msgstr "アイスランド"
+
+msgid "country_it"
+msgstr "イタリア"
+
+msgid "country_je"
+msgstr "ジャージー島"
+
+msgid "country_jm"
+msgstr "ジャマイカ"
+
+msgid "country_jo"
+msgstr "ヨルダン"
+
+msgid "country_jp"
+msgstr "日本"
+
+msgid "country_ke"
+msgstr "ケニア"
+
+msgid "country_kg"
+msgstr "キルギス"
+
+msgid "country_kh"
+msgstr "カンボジア"
+
+msgid "country_ki"
+msgstr "キリバス"
+
+msgid "country_km"
+msgstr "コモロ"
+
+msgid "country_kn"
+msgstr "セントクリストファー・ネイビス"
+
+msgid "country_kp"
+msgstr "朝鮮民主主義人民共和国"
+
+msgid "country_kr"
+msgstr "大韓民国"
+
+msgid "country_kw"
+msgstr "クウェート"
+
+msgid "country_ky"
+msgstr "ケイマン諸島"
+
+msgid "country_kz"
+msgstr "カザフスタン"
+
+msgid "country_la"
+msgstr "ラオス"
+
+msgid "country_lb"
+msgstr "レバノン"
+
+msgid "country_lc"
+msgstr "セントルシア"
+
+msgid "country_li"
+msgstr "リヒテンシュタイン"
+
+msgid "country_lk"
+msgstr "スリランカ"
+
+msgid "country_lr"
+msgstr "リベリア"
+
+msgid "country_ls"
+msgstr "レソト"
+
+msgid "country_lt"
+msgstr "リトアニア"
+
+msgid "country_lu"
+msgstr "ルクセンブルク"
+
+msgid "country_lv"
+msgstr "ラトビア"
+
+msgid "country_ly"
+msgstr "リビア"
+
+msgid "country_ma"
+msgstr "モロッコ"
+
+msgid "country_mc"
+msgstr "モナコ"
+
+msgid "country_md"
+msgstr "モルドバ"
+
+msgid "country_me"
+msgstr "モンテネグロ"
+
+msgid "country_mg"
+msgstr "マダガスカル"
+
+msgid "country_mh"
+msgstr "マーシャル諸島"
+
+msgid "country_mk"
+msgstr "マケドニア"
+
+msgid "country_ml"
+msgstr "マリ共和国"
+
+msgid "country_mm"
+msgstr "ミャンマー"
+
+msgid "country_mn"
+msgstr "モンゴル国"
+
+msgid "country_mo"
+msgstr "マカオ"
+
+msgid "country_mp"
+msgstr "北マリアナ諸島"
+
+msgid "country_mq"
+msgstr "マルチニーク島"
+
+msgid "country_mr"
+msgstr "モーリタニア"
+
+msgid "country_ms"
+msgstr "モントセラト"
+
+msgid "country_mt"
+msgstr "マルタ"
+
+msgid "country_mu"
+msgstr "モーリシャス"
+
+msgid "country_mv"
+msgstr "モルディブ"
+
+msgid "country_mw"
+msgstr "マラウイ"
+
+msgid "country_mx"
+msgstr "メキシコ"
+
+msgid "country_my"
+msgstr "マレーシア"
+
+msgid "country_mz"
+msgstr "モザンビーク"
+
+msgid "country_na"
+msgstr "ナミビア"
+
+msgid "country_nc"
+msgstr "ニューカレドニア"
+
+msgid "country_ne"
+msgstr "ニジェール"
+
+msgid "country_nf"
+msgstr "ノーフォーク島"
+
+msgid "country_ng"
+msgstr "ナイジェリア"
+
+msgid "country_ni"
+msgstr "ニカラグア"
+
+msgid "country_nl"
+msgstr "オランダ"
+
+msgid "country_no"
+msgstr "ノルウェー"
+
+msgid "country_np"
+msgstr "ネパール"
+
+msgid "country_nr"
+msgstr "ナウル"
+
+msgid "country_nu"
+msgstr "ニウエ"
+
+msgid "country_nz"
+msgstr "ニュージーランド"
+
+msgid "country_om"
+msgstr "オマーン"
+
+msgid "country_pa"
+msgstr "パナマ"
+
+msgid "country_pe"
+msgstr "ペルー"
+
+msgid "country_pf"
+msgstr "フランス領ポリネシア"
+
+msgid "country_pg"
+msgstr "パプアニューギニア"
+
+msgid "country_ph"
+msgstr "フィリピン"
+
+msgid "country_pk"
+msgstr "パキスタン"
+
+msgid "country_pl"
+msgstr "ポーランド"
+
+msgid "country_pm"
+msgstr "サンピエール島・ミクロン島"
+
+msgid "country_pn"
+msgstr "ピトケアン"
+
+msgid "country_pr"
+msgstr "プエルトリコ"
+
+msgid "country_ps"
+msgstr "パレスチナ"
+
+msgid "country_pt"
+msgstr "ポルトガル"
+
+msgid "country_pw"
+msgstr "パラオ"
+
+msgid "country_py"
+msgstr "パラグアイ"
+
+msgid "country_qa"
+msgstr "カタール"
+
+msgid "country_re"
+msgstr "レユニオン"
+
+msgid "country_ro"
+msgstr "ルーマニア"
+
+msgid "country_rs"
+msgstr "セルビア"
+
+msgid "country_ru"
+msgstr "ロシア"
+
+msgid "country_rw"
+msgstr "ルワンダ"
+
+msgid "country_sa"
+msgstr "サウジアラビア"
+
+msgid "country_sb"
+msgstr "ソロモン諸島"
+
+msgid "country_sc"
+msgstr "セーシェル"
+
+msgid "country_sd"
+msgstr "スーダン"
+
+msgid "country_se"
+msgstr "スウェーデン"
+
+msgid "country_sg"
+msgstr "シンガポール"
+
+msgid "country_sh"
+msgstr "セントヘレナ島"
+
+msgid "country_si"
+msgstr "スロベニア"
+
+msgid "country_sj"
+msgstr "スバールバル諸島"
+
+msgid "country_sk"
+msgstr "スロバキア"
+
+msgid "country_sl"
+msgstr "シエラレオネ"
+
+msgid "country_sm"
+msgstr "サンマリノ"
+
+msgid "country_sn"
+msgstr "セネガル"
+
+msgid "country_so"
+msgstr "ソマリア"
+
+msgid "country_sr"
+msgstr "スリナム"
+
+msgid "country_st"
+msgstr "サントメ・プリンシペ"
+
+msgid "country_sv"
+msgstr "エルサルバドル"
+
+msgid "country_sy"
+msgstr "シリア"
+
+msgid "country_sz"
+msgstr "スワジランド"
+
+msgid "country_tc"
+msgstr "タークス・カイコス諸島"
+
+msgid "country_td"
+msgstr "チャド"
+
+msgid "country_tf"
+msgstr "フランス領南方・南極地域"
+
+msgid "country_tg"
+msgstr "トーゴ"
+
+msgid "country_th"
+msgstr "タイ王国"
+
+msgid "country_tj"
+msgstr "タジキスタン"
+
+msgid "country_tk"
+msgstr "トケラウ諸島"
+
+msgid "country_tl"
+msgstr "東ティモール"
+
+msgid "country_tm"
+msgstr "トルクメニスタン"
+
+msgid "country_tn"
+msgstr "チュニジア"
+
+msgid "country_to"
+msgstr "トンガ"
+
+msgid "country_tr"
+msgstr "トルコ"
+
+msgid "country_tt"
+msgstr "トリニダード・トバゴ"
+
+msgid "country_tv"
+msgstr "ツバル"
+
+msgid "country_tw"
+msgstr "台湾"
+
+msgid "country_tz"
+msgstr "タンザニア"
+
+msgid "country_ua"
+msgstr "ウクライナ"
+
+msgid "country_ug"
+msgstr "ウガンダ"
+
+msgid "country_um"
+msgstr "アメリカ領太平洋諸島"
+
+msgid "country_us"
+msgstr "アメリカ合衆国"
+
+msgid "country_uy"
+msgstr "ウルグアイ"
+
+msgid "country_uz"
+msgstr "ウズベキスタン"
+
+msgid "country_va"
+msgstr "バチカン市国"
+
+msgid "country_vc"
+msgstr "セントビンセントおよびグレナディーン諸島"
+
+msgid "country_ve"
+msgstr "ベネズエラ"
+
+msgid "country_vg"
+msgstr "イギリス領ヴァージン諸島"
+
+msgid "country_vi"
+msgstr "アメリカ領ヴァージン諸島"
+
+msgid "country_vn"
+msgstr "ベトナム"
+
+msgid "country_vu"
+msgstr "バヌアツ"
+
+msgid "country_wf"
+msgstr "ウォリス・フツナ"
+
+msgid "country_ws"
+msgstr "サモア"
+
+msgid "country_ye"
+msgstr "イエメン"
+
+msgid "country_yt"
+msgstr "マヨット島"
+
+msgid "country_za"
+msgstr "南アフリカ"
+
+msgid "country_zm"
+msgstr "ザンビア"
+
+msgid "country_zw"
+msgstr "ジンバブエ"
+
