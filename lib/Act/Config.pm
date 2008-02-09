@@ -111,6 +111,13 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%d.%m.%y',
             fmt_time           => '%H:%M',
           },
+    uk => { name               => 'Українська',
+            fmt_datetime_full  => '%A, %e %{genitive_month} %Y р., %H:%M',
+            fmt_datetime_short => '%d.%m.%y %H:%M',
+            fmt_date_full      => '%A, %e %{genitive_month} %Y р.',
+            fmt_date_short     => '%d.%m.%y',
+            fmt_time           => '%H:%M',
+          },
 );
 
 # image formats
