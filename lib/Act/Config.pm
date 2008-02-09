@@ -251,7 +251,7 @@ sub get_config
             $closed = ( DateTime->now() > $enddate );
         }
         # max attendees reached
-        if (!$closed && $ConfConfigs{$conf}->registration_max_attendees) {
+        if (!$closed && $ConfConfigs{$conf}->registration_max_attendees && $Request{dbh}) {
             my $sql = 'SELECT COUNT(*) FROM participations p WHERE p.conf_id=?';
             my @values = ($conf);
             if ($ConfConfigs{$conf}->payment_type ne 'NONE') {
