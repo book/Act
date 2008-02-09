@@ -126,6 +126,16 @@ our %Image_formats = (
     jpeg    => '.jpg',
 );
 
+# optional variables
+my @Optional = qw(
+  talks_show_all talks_notify_accept talks_levels talks_languages
+  talks_submissions_notify_address talks_submissions_notify_language
+  database_debug general_dir_ttc
+  flickr_apikey flickr_tags
+  payment_notify_address
+  registration_open registration_max_attendees
+);
+
 # salutations
 our $Nb_salutations = 4;
 
@@ -231,10 +241,37 @@ sub get_config
 {
     my $conf = shift;
     if ($conf && $ConfConfigs{$conf}) {
-        # conference's closing date
-        my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
-        $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
-        $ConfConfigs{$conf}->set(closed => DateTime->now() > $enddate);
+        ## see if conference is closed
+        # closed by configuraiton
+        my $closed = !$ConfConfigs{$conf}->registration_open;
+        # past conference's closing date
+        unless ($closed) {
+            my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
+            $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
+            $closed = ( DateTime->now() > $enddate );
+        }
+        # max attendees reached
+        if (!$closed && $ConfConfigs{$conf}->registration_max_attendees && $Request{dbh}) {
+            my $sql = 'SELECT COUNT(*) FROM participations p WHERE p.conf_id=?';
+            my @values = ($conf);
+            if ($ConfConfigs{$conf}->payment_type ne 'NONE') {
+                $sql .= <<EOF;
+ AND (
+     EXISTS(SELECT 1 FROM talks t WHERE t.user_id=p.user_id AND t.conf_id=? AND t.accepted IS TRUE)
+  OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=p.user_id AND o.conf_id=? AND o.status=?)
+  OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=p.user_id AND r.conf_id=? AND r.right_id IN (?,?))
+)
+EOF
+                push @values, $conf, $conf, 'paid', $conf, 'orga', 'staff';
+            }
+            my $sth = $Request{dbh}->prepare_cached($sql);
+            $sth->execute(@values);
+            my ($count) = $sth->fetchrow_array();
+            $sth->finish();
+
+            $closed = ( $count >= $ConfConfigs{$conf}->registration_max_attendees );
+        }
+        $ConfConfigs{$conf}->set(closed => $closed);
 
         return $ConfConfigs{$conf}
     }
@@ -277,12 +314,7 @@ sub _init_config
     );
     $cfg->set(home => $home);
     # optional settings
-    $cfg->set($_ => undef)
-        for qw(talks_show_all talks_notify_accept talks_levels talks_languages
-               talks_submissions_notify_address talks_submissions_notify_language
-               database_debug general_dir_ttc
-               flickr_apikey flickr_tags
-               payment_notify_address);
+    $cfg->set($_ => undef) for @Optional;
     return $cfg;
 }
 sub _get
