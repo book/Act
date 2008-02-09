@@ -610,9 +610,6 @@ msgstr ""
 "ככל הנראה זה היה בטעות, והם לא מקבלים את הסיסמה שלך\n"
 "לכן אתה יכול להתעם מהודעה זו.\n"
 
-msgid "New password"
-msgstr "איפוס סיסמה"
-
 msgid "Reset Password"
 msgstr "אפס סיסמה"
 

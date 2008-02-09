@@ -71,7 +71,7 @@ msgid "Lightning talk"
 msgstr "Apresentações relâmpago"
 
 msgid "Other Act conferences:"
-msgstr "Outras conferências geridas com o Act:"
+msgstr "Outras conferências Act:"
 
 msgid "Main private page"
 msgstr "Página pessoal"
@@ -132,7 +132,7 @@ msgid "manage your photo"
 msgstr "alterar a sua foto"
 
 msgid "change your password"
-msgstr "TRANSLATEME"
+msgstr "alterar a sua palavra-chave"
 
 msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "ver as suas apresentações (as apresentações aceites são mostradas a <b>negrito</b>)"
@@ -519,9 +519,6 @@ msgstr ""
 "Alguém pediu para alterar o seu código de acesso. O seu novo\n"
 "código é: %1\n"
 
-msgid "New password"
-msgstr "Mudar o código de acesso"
-
 msgid "Reset Password"
 msgstr "Gerar novo código de acess"
 
@@ -886,7 +883,7 @@ msgid "Talk:"
 msgstr "Apresentação"
 
 msgid "The Talk <title> has been removed."
-msgstr "Obrigado, o apresentação <b>%1</b> foi TRANSLATEME."
+msgstr "Obrigado, a apresentação <b>%1</b> foi removida."
 
 msgid "Talk inserted"
 msgstr "Apresentação inserida"

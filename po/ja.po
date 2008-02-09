@@ -610,9 +610,6 @@ msgstr ""
 "was mostly likely an innocent mistake, and they are not getting your\n"
 "password, so you can safely disregard this message.\n"
 
-msgid "New password"
-msgstr "Reset password"
-
 msgid "Reset Password"
 msgstr "Reset Password"
 

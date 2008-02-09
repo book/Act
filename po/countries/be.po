@@ -1,0 +1,738 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "Андора"
+
+msgid "country_ae"
+msgstr "Аб'яднаныя Арабскія Эміраты"
+
+msgid "country_af"
+msgstr "Афганістан"
+
+msgid "country_ag"
+msgstr "Антыгуа і Барбуда"
+
+msgid "country_ai"
+msgstr "Ангуілля"
+
+msgid "country_al"
+msgstr "Албанія"
+
+msgid "country_am"
+msgstr "Арменія"
+
+msgid "country_an"
+msgstr "Нідэрландскія Антылы"
+
+msgid "country_ao"
+msgstr "Ангола"
+
+msgid "country_aq"
+msgstr "Антарктыка"
+
+msgid "country_ar"
+msgstr "Аргенціна"
+
+msgid "country_as"
+msgstr "Амерыканскае Самоа"
+
+msgid "country_at"
+msgstr "Аўстрыя"
+
+msgid "country_au"
+msgstr "Аўстралія"
+
+msgid "country_aw"
+msgstr "Аруба"
+
+msgid "country_ax"
+msgstr "Аландскія астравы"
+
+msgid "country_az"
+msgstr "Азербайджан"
+
+msgid "country_ba"
+msgstr "Боснія і Герцагавіна"
+
+msgid "country_bb"
+msgstr "Барбадас"
+
+msgid "country_bd"
+msgstr "Бангладэш"
+
+msgid "country_be"
+msgstr "Бельгія"
+
+msgid "country_bf"
+msgstr "Буркіна-Фасо"
+
+msgid "country_bg"
+msgstr "Балгарыя"
+
+msgid "country_bh"
+msgstr "Бахрэйн"
+
+msgid "country_bi"
+msgstr "Бурундзі"
+
+msgid "country_bj"
+msgstr "Бенін"
+
+msgid "country_bm"
+msgstr "Бермудскія астравы"
+
+msgid "country_bn"
+msgstr "Бруней-Дарусалам"
+
+msgid "country_bo"
+msgstr "Балівія"
+
+msgid "country_br"
+msgstr "Бразілія"
+
+msgid "country_bs"
+msgstr "Багамскія Астравы"
+
+msgid "country_bt"
+msgstr "Бутан"
+
+msgid "country_bv"
+msgstr "Бувэ востраў"
+
+msgid "country_bw"
+msgstr "Батсвана"
+
+msgid "country_by"
+msgstr "Беларусь"
+
+msgid "country_bz"
+msgstr "Беліз"
+
+msgid "country_ca"
+msgstr "Канада"
+
+msgid "country_cc"
+msgstr "Какосавыя астравы"
+
+msgid "country_cd"
+msgstr "Конга, Дэмакратычная Рэспубліка"
+
+msgid "country_cf"
+msgstr "Цэнтральна-Афрыканская Рэспубліка"
+
+msgid "country_cg"
+msgstr "Конга"
+
+msgid "country_ch"
+msgstr "Швейцарыя"
+
+msgid "country_ci"
+msgstr "Кот д'Івуар"
+
+msgid "country_ck"
+msgstr "Кука астравы"
+
+msgid "country_cl"
+msgstr "Чылі"
+
+msgid "country_cm"
+msgstr "Камерун"
+
+msgid "country_cn"
+msgstr "Кітай"
+
+msgid "country_co"
+msgstr "Калумбія"
+
+msgid "country_cr"
+msgstr "Коста-Рыка"
+
+msgid "country_cu"
+msgstr "Куба"
+
+msgid "country_cv"
+msgstr "Каба-Вердэ"
+
+msgid "country_cx"
+msgstr "Калядаў востраў"
+
+msgid "country_cy"
+msgstr "Кіпр"
+
+msgid "country_cz"
+msgstr "Чэхія"
+
+msgid "country_de"
+msgstr "Германія"
+
+msgid "country_dj"
+msgstr "Джыбуці"
+
+msgid "country_dk"
+msgstr "Данія"
+
+msgid "country_dm"
+msgstr "Дамініка"
+
+msgid "country_do"
+msgstr "Дамініканская Рэспубліка"
+
+msgid "country_dz"
+msgstr "Алжыр"
+
+msgid "country_ec"
+msgstr "Эквадор"
+
+msgid "country_ee"
+msgstr "Эстонія"
+
+msgid "country_eg"
+msgstr "Егіпет"
+
+msgid "country_eh"
+msgstr "Заходняя Сахара"
+
+msgid "country_er"
+msgstr "Эрытрэя"
+
+msgid "country_es"
+msgstr "Іспанія"
+
+msgid "country_et"
+msgstr "Эфіопія"
+
+msgid "country_fi"
+msgstr "Фінляндыя"
+
+msgid "country_fj"
+msgstr "Фіджы"
+
+msgid "country_fk"
+msgstr "Фолклэндскія астравы"
+
+msgid "country_fm"
+msgstr "Мікранезія"
+
+msgid "country_fo"
+msgstr "Фарэрскія астравы"
+
+msgid "country_fr"
+msgstr "Францыя"
+
+msgid "country_ga"
+msgstr "Габон"
+
+msgid "country_gb"
+msgstr "Велікабрытанія"
+
+msgid "country_gd"
+msgstr "Грэнада"
+
+msgid "country_ge"
+msgstr "Грузія"
+
+msgid "country_gf"
+msgstr "Французская Гвіяна"
+
+msgid "country_gg"
+msgstr "Гэрнсі"
+
+msgid "country_gh"
+msgstr "Гана"
+
+msgid "country_gi"
+msgstr "Гібралтар"
+
+msgid "country_gl"
+msgstr "Грэнландыя"
+
+msgid "country_gm"
+msgstr "Гамбія"
+
+msgid "country_gn"
+msgstr "Гвінея"
+
+msgid "country_gp"
+msgstr "Гвадэлупа"
+
+msgid "country_gq"
+msgstr "Экватарыяльная Гвінея"
+
+msgid "country_gr"
+msgstr "Грэцыя"
+
+msgid "country_gs"
+msgstr "Паўднёвая Джорджыя і Паўднёвыя Сандвічавы астравы"
+
+msgid "country_gt"
+msgstr "Гватэмала"
+
+msgid "country_gu"
+msgstr "Гуам"
+
+msgid "country_gw"
+msgstr "Гвінея-Бісаў"
+
+msgid "country_gy"
+msgstr "Гаяна"
+
+msgid "country_hk"
+msgstr "Гон-Конг, Кітай (САР)"
+
+msgid "country_hm"
+msgstr "Гэрда востраў і МакДоналда астравы"
+
+msgid "country_hn"
+msgstr "Гандурас"
+
+msgid "country_hr"
+msgstr "Харватыя"
+
+msgid "country_ht"
+msgstr "Гаіці"
+
+msgid "country_hu"
+msgstr "Венгрыя"
+
+msgid "country_id"
+msgstr "Інданезія"
+
+msgid "country_ie"
+msgstr "Ірландыя"
+
+msgid "country_il"
+msgstr "Ізраіль"
+
+msgid "country_im"
+msgstr "Востраў Мэн"
+
+msgid "country_in"
+msgstr "Індыя"
+
+msgid "country_io"
+msgstr "Брытанская тэрыторыя Індыйскага акіяну"
+
+msgid "country_iq"
+msgstr "Ірак"
+
+msgid "country_ir"
+msgstr "Іран, Ісламская Рэспубліка"
+
+msgid "country_is"
+msgstr "Ісландыя"
+
+msgid "country_it"
+msgstr "Італія"
+
+msgid "country_je"
+msgstr "Джэрсі"
+
+msgid "country_jm"
+msgstr "Ямайка"
+
+msgid "country_jo"
+msgstr "Іарданія"
+
+msgid "country_jp"
+msgstr "Японія"
+
+msgid "country_ke"
+msgstr "Кенія"
+
+msgid "country_kg"
+msgstr "Кыргызстан"
+
+msgid "country_kh"
+msgstr "Камбоджа"
+
+msgid "country_ki"
+msgstr "Кірыбаці"
+
+msgid "country_km"
+msgstr "Каморскія Астравы"
+
+msgid "country_kn"
+msgstr "Сэнт-Кітс і Нэвіс"
+
+msgid "country_kp"
+msgstr "Паўночная Карэя"
+
+msgid "country_kr"
+msgstr "Паўднёвая Карэя"
+
+msgid "country_kw"
+msgstr "Кувейт"
+
+msgid "country_ky"
+msgstr "Кайманавы астравы"
+
+msgid "country_kz"
+msgstr "Казахстан"
+
+msgid "country_la"
+msgstr "Лаоская Народна-Дэмакратычная Рэспубліка"
+
+msgid "country_lb"
+msgstr "Ліван"
+
+msgid "country_lc"
+msgstr "Сэнт-Люсія"
+
+msgid "country_li"
+msgstr "Ліхтэнштэйн"
+
+msgid "country_lk"
+msgstr "Шры-Ланка"
+
+msgid "country_lr"
+msgstr "Ліберыя"
+
+msgid "country_ls"
+msgstr "Лесота"
+
+msgid "country_lt"
+msgstr "Літва"
+
+msgid "country_lu"
+msgstr "Люксембург"
+
+msgid "country_lv"
+msgstr "Латвія"
+
+msgid "country_ly"
+msgstr "Лівійская Арабская Джамахірыя"
+
+msgid "country_ma"
+msgstr "Марока"
+
+msgid "country_mc"
+msgstr "Манака"
+
+msgid "country_md"
+msgstr "Малдова"
+
+msgid "country_me"
+msgstr "Чарнагорыя"
+
+msgid "country_mg"
+msgstr "Мадагаскар"
+
+msgid "country_mh"
+msgstr "Маршалавы Астравы"
+
+msgid "country_mk"
+msgstr "Македонія, БЮР"
+
+msgid "country_ml"
+msgstr "Малі"
+
+msgid "country_mm"
+msgstr "М'янма"
+
+msgid "country_mn"
+msgstr "Манголія"
+
+msgid "country_mo"
+msgstr "Макао, Кітай (САР)"
+
+msgid "country_mp"
+msgstr "Паўночныя Марыянскія астравы"
+
+msgid "country_mq"
+msgstr "Марцініка"
+
+msgid "country_mr"
+msgstr "Маўрытанія"
+
+msgid "country_ms"
+msgstr "Монсэрат"
+
+msgid "country_mt"
+msgstr "Мальта"
+
+msgid "country_mu"
+msgstr "Маўрыкій"
+
+msgid "country_mv"
+msgstr "Мальдыўскія Астравы"
+
+msgid "country_mw"
+msgstr "Малаві"
+
+msgid "country_mx"
+msgstr "Мексіка"
+
+msgid "country_my"
+msgstr "Малайзія"
+
+msgid "country_mz"
+msgstr "Мазамбік"
+
+msgid "country_na"
+msgstr "Намібія"
+
+msgid "country_nc"
+msgstr "Новая Каледонія"
+
+msgid "country_ne"
+msgstr "Нігер"
+
+msgid "country_nf"
+msgstr "Норфалкскія астравы"
+
+msgid "country_ng"
+msgstr "Нігерыя"
+
+msgid "country_ni"
+msgstr "Нікарагуа"
+
+msgid "country_nl"
+msgstr "Нідэрланды"
+
+msgid "country_no"
+msgstr "Нарвегія"
+
+msgid "country_np"
+msgstr "Непал"
+
+msgid "country_nr"
+msgstr "Науру"
+
+msgid "country_nu"
+msgstr "Ніуэ"
+
+msgid "country_nz"
+msgstr "Новая Зеландыя"
+
+msgid "country_om"
+msgstr "Аман"
+
+msgid "country_pa"
+msgstr "Панама"
+
+msgid "country_pe"
+msgstr "Перу"
+
+msgid "country_pf"
+msgstr "Франузская Палінэзія"
+
+msgid "country_pg"
+msgstr "Папуа-Новая Гвінея"
+
+msgid "country_ph"
+msgstr "Філіпіны"
+
+msgid "country_pk"
+msgstr "Пакістан"
+
+msgid "country_pl"
+msgstr "Польшча"
+
+msgid "country_pm"
+msgstr "Сен-П'ер і Мікелон"
+
+msgid "country_pn"
+msgstr "Піткэрн"
+
+msgid "country_pr"
+msgstr "Пуэрта-Рыка"
+
+msgid "country_ps"
+msgstr "Палестынскія тэрыторыі"
+
+msgid "country_pt"
+msgstr "Партугалія"
+
+msgid "country_pw"
+msgstr "Палаў"
+
+msgid "country_py"
+msgstr "Парагвай"
+
+msgid "country_qa"
+msgstr "Катар"
+
+msgid "country_re"
+msgstr "Рэюньён"
+
+msgid "country_ro"
+msgstr "Румынія"
+
+msgid "country_rs"
+msgstr "Сербія"
+
+msgid "country_ru"
+msgstr "Расія"
+
+msgid "country_rw"
+msgstr "Руанда"
+
+msgid "country_sa"
+msgstr "Саудаўская Аравія"
+
+msgid "country_sb"
+msgstr "Саламонавы Астравы"
+
+msgid "country_sc"
+msgstr "Сейшэльскія Астравы"
+
+msgid "country_sd"
+msgstr "Судан"
+
+msgid "country_se"
+msgstr "Швецыя"
+
+msgid "country_sg"
+msgstr "Сінгапур"
+
+msgid "country_sh"
+msgstr "Святой Алены, Востраў"
+
+msgid "country_si"
+msgstr "Славенія"
+
+msgid "country_sj"
+msgstr "Свальбард (Паўночна-Усходняя Зямля) і Ян-Маен"
+
+msgid "country_sk"
+msgstr "Славакія"
+
+msgid "country_sl"
+msgstr "Сьера-Леонэ"
+
+msgid "country_sm"
+msgstr "Сан-Марына"
+
+msgid "country_sn"
+msgstr "Сенегал"
+
+msgid "country_so"
+msgstr "Самалі"
+
+msgid "country_sr"
+msgstr "Сурынам"
+
+msgid "country_st"
+msgstr "Сан-Томэ і Прынсіпі"
+
+msgid "country_sv"
+msgstr "Сальвадор"
+
+msgid "country_sy"
+msgstr "Сірыйская Арабская Рэспубліка"
+
+msgid "country_sz"
+msgstr "Свазіленд"
+
+msgid "country_tc"
+msgstr "Тэркс і Кайкас астравы"
+
+msgid "country_td"
+msgstr "Чад"
+
+msgid "country_tf"
+msgstr "Французскія Паўднёвыя тэрыторыі"
+
+msgid "country_tg"
+msgstr "Тога"
+
+msgid "country_th"
+msgstr "Тайланд"
+
+msgid "country_tj"
+msgstr "Таджыкістан"
+
+msgid "country_tk"
+msgstr "Такелаў"
+
+msgid "country_tl"
+msgstr "Усходні Тымор"
+
+msgid "country_tm"
+msgstr "Туркменістан"
+
+msgid "country_tn"
+msgstr "Туніс"
+
+msgid "country_to"
+msgstr "Тангійская"
+
+msgid "country_tr"
+msgstr "Турцыя"
+
+msgid "country_tt"
+msgstr "Трынідад і Табага"
+
+msgid "country_tv"
+msgstr "Тувалу"
+
+msgid "country_tw"
+msgstr "Тайвань"
+
+msgid "country_tz"
+msgstr "Танзанія, Аб'яднаная Рэспубліка"
+
+msgid "country_ua"
+msgstr "Украіна"
+
+msgid "country_ug"
+msgstr "Уганда"
+
+msgid "country_um"
+msgstr "Знешнія малыя астравы"
+
+msgid "country_us"
+msgstr "Злучаныя Штаты"
+
+msgid "country_uy"
+msgstr "Уругвай"
+
+msgid "country_uz"
+msgstr "Узбекістан"
+
+msgid "country_va"
+msgstr "Ватыкан"
+
+msgid "country_vc"
+msgstr "Сэнт-Вінсэнт і Грэнадыны"
+
+msgid "country_ve"
+msgstr "Венесуэла"
+
+msgid "country_vg"
+msgstr "Віргінскія астравы"
+
+msgid "country_vi"
+msgstr "Віргінскія астравы, ЗША"
+
+msgid "country_vn"
+msgstr "В'етнам"
+
+msgid "country_vu"
+msgstr "Вануату"
+
+msgid "country_wf"
+msgstr "Уоліс і Футуна"
+
+msgid "country_ws"
+msgstr "Самоа (Заходняе)"
+
+msgid "country_ye"
+msgstr "Емен"
+
+msgid "country_yt"
+msgstr "Майот"
+
+msgid "country_za"
+msgstr "Паўднёва-Афрыканская Рэспубліка"
+
+msgid "country_zm"
+msgstr "Замбія"
+
+msgid "country_zw"
+msgstr "Зімбабвэ"
+

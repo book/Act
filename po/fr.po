@@ -619,9 +619,6 @@ msgstr ""
 "a utilisé votre login ou votre adresse email. Il s'agit très probablement\n"
 "d'une erreur, et vous pouvez ignorer ce message.\n"
 
-msgid "New password"
-msgstr "Nouveau mot de passe"
-
 msgid "Reset Password"
 msgstr "Changer de mot de passe"
 

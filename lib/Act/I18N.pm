@@ -63,7 +63,7 @@ sub numerate
 
 package Act::I18N::ru;
 
-# Russian declensions for numerals.
+# Russian/Belarusian declensions for numerals.
 # usage: numerate(num, nominative, genitive,   plural);
 # or:    numerate(num, form for 1, form for 2, form for 5);
 sub numerate
@@ -78,7 +78,8 @@ sub numerate
    return $genitive if $last_digit > 0 && $last_digit < 5;
    return $plural;
 }
-
+package Act::I18N::be;
+*numerate = \&Act::I18N::ru::numerate;
 
 1;
 
