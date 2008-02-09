@@ -519,9 +519,6 @@ msgstr ""
 "Alguém pediu para alterar o seu código de acesso. O seu novo\n"
 "código é: %1\n"
 
-msgid "New password"
-msgstr "Mudar o código de acesso"
-
 msgid "Reset Password"
 msgstr "Gerar novo código de acess"
 
