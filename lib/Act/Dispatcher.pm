@@ -51,6 +51,7 @@ my %private_handlers = (
     payment         => 'Act::Handler::Payment::Payment',
     payments        => 'Act::Handler::Payment::List',
     photo           => 'Act::Handler::User::Photo',
+    punregister     => 'Act::Handler::Payment::Unregister',
     purchase        => 'Act::Handler::User::Purchase',
     rights          => 'Act::Handler::User::Rights',
     trackedit       => 'Act::Handler::Track::Edit',

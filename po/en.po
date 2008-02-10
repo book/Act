@@ -1293,3 +1293,26 @@ msgstr "Tags:"
 msgid "add new tags:"
 msgstr "add new tags:"
 
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"To unregister <b>%1 %2</b> from %3,\n"
+"simply push the button below.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Unregister %1 %2 from %3"
+
+msgid "unregister"
+msgstr "unregister"
+
+msgid "edit payment"
+msgstr "edit payment"
+
+msgid "view invoice"
+msgstr "view invoice"
+
+msgid "create invoice"
+msgstr "create invoice"
+
+msgid "enter payment"
+msgstr "enter payment"
+
