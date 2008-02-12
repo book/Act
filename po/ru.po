@@ -1292,3 +1292,21 @@ msgstr "Теги:"
 msgid "add new tags:"
 msgstr "добавить новые теги:"
 
+msgid "Unregister <name> from <conference>"
+msgstr "Разрегистрировать %1 %2 с \"%3\""
+
+msgid "unregister"
+msgstr "удалить регистрацию"
+
+msgid "edit payment"
+msgstr "редактировать платеж"
+
+msgid "view invoice"
+msgstr "просмотреть инвойс"
+
+msgid "create invoice"
+msgstr "создать инвойс"
+
+msgid "enter payment"
+msgstr "перейти к платежу"
+

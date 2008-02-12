@@ -1291,3 +1291,22 @@ msgstr "Цэтлікі:"
 
 msgid "add new tags:"
 msgstr "дадаць новыя цэтлікі:"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Разрэгістраваць %1 %2 з \"%3\""
+
+msgid "unregister"
+msgstr "выдаліць рэгістрацыю"
+
+msgid "edit payment"
+msgstr "рэдагаваць плацёж"
+
+msgid "view invoice"
+msgstr "прагладзець інвойс"
+
+msgid "create invoice"
+msgstr "стварыць інвойс"
+
+msgid "enter payment"
+msgstr "перайсці да плацяжу"
+
