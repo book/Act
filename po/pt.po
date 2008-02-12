@@ -132,7 +132,7 @@ msgstr ""
 msgid "You did not register for this conference"
 msgstr ""
 "Não se <a href=\"%1\">registou para esta conferência</a>.\n"
-"Faça-o se planeia assistir a realizar uma apresentação.\n"
+"Faça-o se planeia assistir ou realizar uma apresentação.\n"
 
 msgid "You can:"
 msgstr "Pode:"
@@ -141,7 +141,7 @@ msgid "purchase your conference ticket"
 msgstr "comprar o seu bilhete para a conferência"
 
 msgid "register for this conference"
-msgstr "registou para esta conferência"
+msgstr "registar-se para esta conferência"
 
 msgid "update your information"
 msgstr "actualizar a sua informação"
@@ -319,8 +319,8 @@ msgstr "Esqueceu-se do seu palavra-chave? Siga <a href=\"%1\">esta ligação</a>
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
 "Este site usa <em>cookies</em> para a autenticação dos\n"
-"utilizadores. É prováel que tenha de indicar ao seu browser\n"
-"para aceitar <em>cookies</em> do domíio <b>%1</b>.\n"
+"utilizadores. É provável que tenha de indicar ao seu browser\n"
+"para aceitar <em>cookies</em> do domínio <b>%1</b>.\n"
 
 msgid "Incorrect login or password"
 msgstr "Utilizador ou palavra-chave incorrectas"
