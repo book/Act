@@ -1307,3 +1307,26 @@ msgstr "Tags :"
 msgid "add new tags:"
 msgstr "ajouter des tags :"
 
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Pour désinscrire <b>%1 %2</b> de la conférence %3,\n"
+"poussez simplement sur le bouton ci-dessous.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Désinscrire %1 %2 de %3"
+
+msgid "unregister"
+msgstr "désinscrire"
+
+msgid "edit payment"
+msgstr "modifier règlement"
+
+msgid "view invoice"
+msgstr "voir facture"
+
+msgid "create invoice"
+msgstr "créer facture"
+
+msgid "enter payment"
+msgstr "saisir réglement"
+
