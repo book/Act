@@ -1294,3 +1294,26 @@ msgstr "Etichette:"
 msgid "add new tags:"
 msgstr "aggiungi nuove etichette:"
 
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Per dis-iscrivere <b>%1 %2</b> da %3,\n"
+"premere il pulsante.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Dis-iscrivi %1 %2 da %3"
+
+msgid "unregister"
+msgstr "dis-iscrivi"
+
+msgid "edit payment"
+msgstr "modifica pagamento"
+
+msgid "view invoice"
+msgstr "mostra fattura"
+
+msgid "create invoice"
+msgstr "crea fattura"
+
+msgid "enter payment"
+msgstr "immetti pagamento"
+
