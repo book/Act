@@ -16,7 +16,6 @@ my %headers;
 $Request{r} = Test::MockObject->new;
 $Request{r}->mock( uri       => sub { return $uri } );
 $Request{r}->mock( header_in => sub { return $headers{ $_[1] } } );
-#$Request{r}->mock( header_in => sub { my ($self, $foo) = @_; warn "** $foo\n"; return $headers{$foo} } );
 
 # create a fake config object
 $Config = Test::MockObject->new;
