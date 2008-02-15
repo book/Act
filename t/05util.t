@@ -12,12 +12,11 @@ BEGIN { use_ok('Act::Util') }
 
 # create a fake request object
 my $uri;
-my $headers;
+my %headers;
 $Request{r} = Test::MockObject->new;
-$Request{r}->mock(
-    uri       => sub { return $uri },
-    header_in => sub { return $headers->{ +shift } }
-);
+$Request{r}->mock( uri       => sub { return $uri } );
+$Request{r}->mock( header_in => sub { return $headers{ $_[1] } } );
+#$Request{r}->mock( header_in => sub { my ($self, $foo) = @_; warn "** $foo\n"; return $headers{$foo} } );
 
 # create a fake config object
 $Config = Test::MockObject->new;
@@ -104,11 +103,10 @@ my @sorted = Act::Util::usort { $_ } qw(éb ec eà);
 is_deeply(\@sorted, [qw(eà éb ec)], 'usort');
 
 # ua_isa_bot
-$headers->{'User-Agent'}
-    = 'Mozilla/4.76 [en] (X11; U; FreeBSD 4.4-STABLE i386)';
+$headers{'User-Agent'} = 'Mozilla/4.76 [en] (X11; U; FreeBSD 4.4-STABLE i386)';
 ok( !Act::Util::ua_isa_bot(), 'Mozilla != bot' );
-$headers->{'User-Agent'}
-    = 'Mozilla/5.0 (compatible; Googlebot/2.1; http://www.google.com/bot.html)';
+
+$headers{'User-Agent'} = 'Mozilla/5.0 (compatible; Googlebot/2.1; http://www.google.com/bot.html)';
 ok( Act::Util::ua_isa_bot(), 'GoogleBot == bot' );
 
 __END__

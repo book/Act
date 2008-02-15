@@ -226,6 +226,20 @@ sub usort(&@)
            @_;
 }
 
+sub ua_isa_bot {
+    $Request{r}->header_in('User-Agent') =~ /
+      googlebot
+    | yahoo
+    | altavista
+    | lycos
+    | infoseek
+    | wget
+    | libwww-perl
+    | lwp
+    | webcrawler
+    /ix;
+}
+
 use DateTime;
 package DateTime;
 
@@ -279,20 +293,6 @@ sub genitive_month
     return exists $genitive_monthnames{$lang}
                 ? $genitive_monthnames{$lang}[$self->month_0]
                 : undef;
-}
-
-sub ua_isa_bot {
-    $Request{r}->header_in('User-Agent') =~ /
-      googlebot
-    | yahoo
-    | altavista
-    | lycos
-    | infoseek
-    | wget
-    | libwww-perl
-    | lwp
-    | webcrawler
-    /ix;
 }
 
 1;
