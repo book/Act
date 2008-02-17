@@ -226,6 +226,20 @@ sub usort(&@)
            @_;
 }
 
+sub ua_isa_bot {
+    $Request{r}->header_in('User-Agent') =~ /
+      googlebot
+    | yahoo
+    | altavista
+    | lycos
+    | infoseek
+    | wget
+    | libwww-perl
+    | lwp
+    | webcrawler
+    /ix;
+}
+
 use DateTime;
 package DateTime;
 
@@ -334,6 +348,11 @@ to lowercase.
 Sorts a list of strings with correct Unicode semantics, as provided
 by C<Unicode::Collate>. If the Unicode Collation Element Table is not
 installed, C<usort> falls back to comparing normalized strings.
+
+=item ua_isa_bot
+
+Return a true value is the client User-Agent string gives it away as
+a robot.
 
 =back
 

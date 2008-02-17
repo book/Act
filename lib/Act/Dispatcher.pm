@@ -126,7 +126,7 @@ sub _dispatch
     Act::Config::finalize_config($Config, $Request{language});
 
     # redirect language change requests
-    if (delete $Request{args}{language}) {
+    if (delete $Request{args}{language} && !Act::Util::ua_isa_bot()) {
         return Act::Util::redirect(self_uri(%{$Request{args}}));
     }
     # set up content handler

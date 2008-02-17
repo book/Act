@@ -37,6 +37,9 @@ my %default = (
    host        => 'localhost',
    port        => 80,
    method      => 'GET',
+   headers_in  => {
+       'User-Agent' => 'Mozilla',
+   },
  },
  output => {
    path_info   => '',
@@ -98,6 +101,16 @@ my @tests = (
    headers_out => { Location => '/foo/index.html' },
  },
  { # input
+   request_uri => '/foo/index.html',
+   args        => { language => 'fr' },
+   headers_in  => { 'User-Agent' => 'googlebot' },
+   # output
+   status      => OK,
+   conf        => 'foo',
+   path_info   => 'index.html',
+   handler     => 'Act::Handler::Static',
+ },
+ { # input
    request_uri => '/foo/login',
    host        => 'aa',
    # output
@@ -145,6 +158,7 @@ $r->set_always(server      => $s)
   ->mock(uri           => sub { $vin{request_uri} })
   ->mock(method        => sub { @_ > 1 and $vout{method} = $_[1]; $vin{method} })
   ->mock(push_handlers => sub { $vout{pushed_handler} = $_[2] })
+  ->mock(header_in     => sub { $vin{headers_in}{$_[1]} })
   ->mock(param         => sub { @_ > 1 ? $vin{args}{$_[1]} : keys %{$vin{args}} });
 
 Test::MockObject->fake_module('Apache::Request', instance => sub { $r });

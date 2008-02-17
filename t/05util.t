@@ -5,15 +5,17 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 73 + 5 * NBPASS;
+use Test::More tests => 73 + 5 * NBPASS + 2;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
 
 # create a fake request object
 my $uri;
+my %headers;
 $Request{r} = Test::MockObject->new;
-$Request{r}->mock(uri => sub { return $uri } );
+$Request{r}->mock( uri       => sub { return $uri } );
+$Request{r}->mock( header_in => sub { return $headers{ $_[1] } } );
 
 # create a fake config object
 $Config = Test::MockObject->new;
@@ -98,5 +100,12 @@ while (my ($n, $dlist) = splice(@t, 0, 2)) {
 # usort
 my @sorted = Act::Util::usort { $_ } qw(éb ec eà);
 is_deeply(\@sorted, [qw(eà éb ec)], 'usort');
+
+# ua_isa_bot
+$headers{'User-Agent'} = 'Mozilla/4.76 [en] (X11; U; FreeBSD 4.4-STABLE i386)';
+ok( !Act::Util::ua_isa_bot(), 'Mozilla != bot' );
+
+$headers{'User-Agent'} = 'Mozilla/5.0 (compatible; Googlebot/2.1; http://www.google.com/bot.html)';
+ok( Act::Util::ua_isa_bot(), 'GoogleBot == bot' );
 
 __END__
