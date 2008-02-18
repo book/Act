@@ -228,15 +228,19 @@ sub usort(&@)
 
 sub ua_isa_bot {
     $Request{r}->header_in('User-Agent') =~ /
-      googlebot
-    | yahoo
-    | altavista
-    | lycos
+      altavista
+    | crawler
+    | gigabot
+    | googlebot
+    | hatena
+    | msnbot
     | infoseek
-    | wget
     | libwww-perl
     | lwp
-    | webcrawler
+    | lycos
+    | spider
+    | wget
+    | yahoo
     /ix;
 }
 
