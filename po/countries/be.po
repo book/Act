@@ -82,6 +82,9 @@ msgstr "Бурундзі"
 msgid "country_bj"
 msgstr "Бенін"
 
+msgid "country_bl"
+msgstr "Сэн-Бартэльмі"
+
 msgid "country_bm"
 msgstr "Бермудскія астравы"
 
@@ -417,6 +420,9 @@ msgstr "Малдова"
 
 msgid "country_me"
 msgstr "Чарнагорыя"
+
+msgid "country_mf"
+msgstr "Сэн-Мартэн"
 
 msgid "country_mg"
 msgstr "Мадагаскар"
