@@ -1305,3 +1305,4 @@ msgstr "請求書を作成"
 
 msgid "enter payment"
 msgstr "支払いを入力"
+
