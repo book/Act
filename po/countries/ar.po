@@ -82,6 +82,9 @@ msgstr "بوروندي"
 msgid "country_bj"
 msgstr "بنين"
 
+msgid "country_bl'
+msgstr "سان بارتليمي"
+
 msgid "country_bm"
 msgstr "جزر برمودا"
 
@@ -417,6 +420,9 @@ msgstr "مولدافيا"
 
 msgid "country_me"
 msgstr "الجبل الأسو"
+
+msgid "country_mf"
+msgstr "سان مارتن الفرنسية"
 
 msgid "country_mg"
 msgstr "مدغشقر"

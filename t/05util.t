@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 73 + 5 * NBPASS + 2;
+use Test::More tests => 74 + 5 * NBPASS + 2;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -96,6 +96,8 @@ while (my ($n, $dlist) = splice(@t, 0, 2)) {
         is (Act::Util::normalize($chr), $n, charnames::viacode(ord($chr)));
     }
 }
+# normalize exceptions
+is (Act::Util::normalize('йéйè'), 'йeйe', charnames::viacode(ord('й')));
 
 # usort
 my @sorted = Act::Util::usort { $_ } qw(éb ec eà);

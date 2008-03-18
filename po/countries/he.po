@@ -82,6 +82,9 @@ msgstr "בורונדי"
 msgid "country_bj"
 msgstr "בנין"
 
+msgid "country_bl"
+msgstr "סנט ברתלמי"
+
 msgid "country_bm"
 msgstr "ברמודה"
 
@@ -417,6 +420,9 @@ msgstr "מולדובה"
 
 msgid "country_me"
 msgstr "מונטנגרו"
+
+msgid "country_mf"
+msgstr "סן מרטן"
 
 msgid "country_mg"
 msgstr "מדגסקר"

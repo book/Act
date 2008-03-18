@@ -55,6 +55,9 @@ BEGIN {
         $chartab{$_} = $cclass for ($letter, uc($letter), @accented);
     }
 }
+# normalize() exceptions
+my @normalize_exceptions = ( 'й' );
+
 sub search_expression
 {
     return join '', map { $chartab{$_} || $_ } split '', shift;
@@ -197,8 +200,16 @@ sub normalize
 {
     my $string = shift;
     return $ncache{$string} if exists $ncache{$string};
+    my $copy = $string;
     $string = Unicode::Normalize::NFD($string);
     $string =~ s/\p{InCombiningDiacriticalMarks}//g;
+    for my $chr (@normalize_exceptions) {
+        my $pos = 0;
+        while (($pos = index($copy, $chr, $pos)) >= 0) {
+            substr($string, $pos, 1) = $chr;
+            ++$pos;
+        }
+    }
     return $ncache{$string} = lc $string;
 }
 
@@ -228,15 +239,19 @@ sub usort(&@)
 
 sub ua_isa_bot {
     $Request{r}->header_in('User-Agent') =~ /
-      googlebot
-    | yahoo
-    | altavista
-    | lycos
+      altavista
+    | crawler
+    | gigabot
+    | googlebot
+    | hatena
+    | msnbot
     | infoseek
-    | wget
     | libwww-perl
     | lwp
-    | webcrawler
+    | lycos
+    | spider
+    | wget
+    | yahoo
     /ix;
 }
 

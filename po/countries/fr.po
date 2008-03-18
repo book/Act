@@ -82,6 +82,9 @@ msgstr "Burundi"
 msgid "country_bj"
 msgstr "Bénin"
 
+msgid "country_bl"
+msgstr "Saint-Barthélemy"
+
 msgid "country_bm"
 msgstr "Bermudes"
 
@@ -417,6 +420,9 @@ msgstr "Moldavie"
 
 msgid "country_me"
 msgstr "Montenegro"
+
+msgid "country_mf"
+msgstr "Saint-Martin"
 
 msgid "country_mg"
 msgstr "Madagascar"

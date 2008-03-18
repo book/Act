@@ -131,6 +131,8 @@ sub participation {
 my %methods = (
     has_talk =>
         "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=?",
+    has_accepted_talk =>
+        "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=? AND t.accepted",
     has_paid  => 
         "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
     has_registered => 

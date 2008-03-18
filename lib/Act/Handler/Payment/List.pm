@@ -79,7 +79,8 @@ sub handler
     my $means  = Act::Payment::get_means;
     my (%orders, %invoice_uri, %total);
     for my $u (@$users) {
-        $u->{status} = [ keys %{$u->rights}, $u->has_talk ? 'speaker' : () ];
+        $u->{status} = [ keys %{ $u->rights },
+            $u->has_accepted_talk ? 'speaker' : () ];
 
         my $order = Act::Order->new(
             user_id  => $u->user_id,

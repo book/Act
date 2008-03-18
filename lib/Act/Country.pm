@@ -7,7 +7,7 @@ use Act::Util;
 # http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1-semic.txt
 my @COUNTRY_CODES = qw(
   ad ae af ag ai al am an ao aq ar as at au aw ax az
-  ba bb bd be bf bg bh bi bj bm bn bo br bs bt bv bw by bz
+  ba bb bd be bf bg bh bi bj bl bm bn bo br bs bt bv bw by bz
   ca cc cd cf cg ch ci ck cl cm cn co cr cu cv cx cy cz
   de dj dk dm do dz
   ec ee eg eh er es et
@@ -18,7 +18,7 @@ my @COUNTRY_CODES = qw(
   je jm jo jp
   ke kg kh ki km kn kp kr kw ky kz
   la lb lc li lk lr ls lt lu lv ly
-  ma mc md me mg mh mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz
+  ma mc md me mf mg mh mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz
   na nc ne nf ng ni nl no np nr nu nz
   om
   pa pe pf pg ph pk pl pm pn pr ps pt pw py

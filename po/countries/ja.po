@@ -82,6 +82,9 @@ msgstr "ブルンジ"
 msgid "country_bj"
 msgstr "ベナン"
 
+msgid "country_bl"
+msgstr "サン・バルテルミー島"
+
 msgid "country_bm"
 msgstr "バミューダ諸島"
 
@@ -417,6 +420,9 @@ msgstr "モルドバ"
 
 msgid "country_me"
 msgstr "モンテネグロ"
+
+msgid "country_mf"
+msgstr "セント・マーチン島"
 
 msgid "country_mg"
 msgstr "マダガスカル"
