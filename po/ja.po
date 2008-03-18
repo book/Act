@@ -1284,3 +1284,24 @@ msgstr "タグ:"
 msgid "add new tags:"
 msgstr "新しいタグを追加:"
 
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"%1 %2 さんの %3 への参加を解除するには、以下のボタンをクリックしてください。"
+
+msgid "Unregister <name> from <conference>"
+msgstr "%1 %2 さんを %3 から参加解除する"
+
+msgid "unregister"
+msgstr "参加解除"
+
+msgid "edit payment"
+msgstr "支払いを編集"
+
+msgid "view invoice"
+msgstr "請求書を見る"
+
+msgid "create invoice"
+msgstr "請求書を作成"
+
+msgid "enter payment"
+msgstr "支払いを入力"
