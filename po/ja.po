@@ -5,25 +5,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "payment_means_CHQ"
-msgstr "Cheque"
+msgstr "小切手"
 
 msgid "payment_means_CASH"
-msgstr "Cash"
+msgstr "現金"
 
 msgid "payment_means_ONLINE"
-msgstr "Online"
+msgstr "オンライン"
 
 msgid "payment_means_XFER"
-msgstr "Transfer"
+msgstr "銀行振込"
 
 msgid "payment_means_FREE"
-msgstr "Free"
+msgstr "無料"
 
 msgid "room_out"
-msgstr "Outside"
+msgstr "屋外"
 
 msgid "room_venue"
-msgstr "Venue"
+msgstr "会場"
 
 msgid "salutation_1"
 msgstr "Mr."
@@ -38,846 +38,838 @@ msgid "salutation_4"
 msgstr "Dr."
 
 msgid "User information"
-msgstr "User information"
+msgstr "ユーザ情報"
 
 msgid "Login"
-msgstr "Login"
+msgstr "ログイン"
 
 msgid "Name"
-msgstr "Name"
+msgstr "名前"
 
 msgid "City"
-msgstr "City"
+msgstr "都市"
 
 msgid "Country"
-msgstr "Country"
+msgstr "国"
 
 msgid "Perl mongers group"
-msgstr "Perl mongers group"
+msgstr "Perl mongers グループ"
 
 msgid "Company"
-msgstr "Company"
+msgstr "会社"
 
 msgid "Email"
 msgstr "Email"
 
 msgid "Web page"
-msgstr "Web page"
+msgstr "ウェブページ"
 
 msgid "IM"
 msgstr "IM"
 
 msgid "GPG key ID"
-msgstr "GPG key ID"
+msgstr "GPG 公開鍵 ID"
 
 msgid "No photo"
-msgstr "No photo"
+msgstr "写真がありません"
 
 msgid "Talk"
-msgstr "%numerate(%1,Talk)"
+msgstr "トーク: %1"
 
 msgid "Accepted Talk"
-msgstr "%numerate(%1,Accepted Talk)"
+msgstr "受理されたトーク: %1"
 
 msgid "minutes"
-msgstr "minutes"
+msgstr "分"
 
 msgid "Lightning talk"
-msgstr "Lightning talk"
+msgstr "ライトニングトーク"
 
 msgid "Bio"
-msgstr "Bio"
+msgstr "自己紹介"
 
 msgid "Other Act conferences:"
-msgstr "Other Act conferences:"
+msgstr "その他の Perl カンファレンス:"
 
 msgid "Main private page"
-msgstr "Main private page"
+msgstr "メインページ"
 
 msgid "to <this conference>"
-msgstr "to %1."
+msgstr "(%1 専用ページ)"
 
 msgid "This is your personal page."
 msgstr ""
-"This is your personal page.\n"
-"From here you can manage everything regarding your participation\n"
+"ここはあなたのパーソナルページです。\n"
+"ここからカンファレンスの参加に関するすべてを管理できます \n"
 
 msgid "to Act-enabled conferences."
-msgstr "to Act-enabled conferences."
+msgstr "(各種 Perl カンファレンス用共通ページ)"
 
 msgid "You have purchased your conference ticket:"
-msgstr "You have purchased your conference ticket:"
+msgstr "チケットは購入済みです:"
 
 msgid "Order number"
-msgstr "Order number"
+msgstr "注文番号"
 
 msgid "Payment date"
-msgstr "Payment date"
+msgstr "支払日"
 
 msgid "Amount paid"
-msgstr "Amount paid"
+msgstr "支払金額"
 
 msgid "Download your invoice"
-msgstr "Download <a href=\"%1\">your invoice</a>."
+msgstr "<a href=\"%1\">請求書</a>をダウンロード"
 
 msgid "You have not bought your conference ticket yet."
-msgstr "You have not bought your conference ticket yet."
+msgstr "チケットはまだ購入していません。"
 
 msgid "Please consider doing so using our online payment system."
-msgstr "Please consider doing so using our online payment system."
+msgstr "チケットはオンラインでも購入できます。"
 
 msgid "Please consider doing so once our online payment system is ready."
-msgstr "Please consider doing so once our online payment system is ready."
+msgstr "チケットはオンラインでも購入できるようになる予定です。"
 
 msgid "You did not register for this conference"
 msgstr ""
-"You did not <a href=\"%1\">register for this conference</a>.\n"
-"Please do so if you plan to attend or give a presentation there.\n"
+"<a href=\"%1\">このカンファレンスに登録</a>していません。\n"
+"カンファレンスに参加したりプレゼンテーションを行いたい方はユーザ登録をお願いします。\n"
 
 msgid "You can:"
-msgstr "You can:"
+msgstr "選択してください:"
 
 msgid "purchase your conference ticket"
-msgstr "purchase your conference ticket"
+msgstr "カンファレンスのチケットを購入する"
 
 msgid "register for this conference"
-msgstr "register for this conference"
+msgstr "カンファレンスに参加登録する"
 
 msgid "update your information"
-msgstr "update your information"
+msgstr "情報を更新する"
 
 msgid "manage your photo"
-msgstr "manage your photo"
+msgstr "写真を管理する"
 
 msgid "change your password"
-msgstr "change your password"
+msgstr "パスワードを変更する"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "see your talks (accepted talks are shown in <b>bold</b> type)"
+msgstr "応募したトーク一覧を見る (受理されたトークは<b>ボールド</b>で表示されます)"
 
 msgid "submit a talk"
-msgstr "submit a talk"
+msgstr "トークを応募する"
 
 msgid "log out"
-msgstr "log out"
+msgstr "ログアウト"
 
 msgid "unregister from <this conference>"
-msgstr "unregister from %1"
+msgstr "%1 への参加をキャンセルする"
 
 msgid "(You were there)"
-msgstr "(You were there)"
+msgstr "(参加済)"
 
 msgid "(You are there)"
-msgstr "(You are there)"
+msgstr "(参加中)"
 
 msgid "(You will be there)"
-msgstr "(You will be there)"
+msgstr "(参加予定)"
 
 msgid "Confirmation required"
-msgstr "Confirmation required"
+msgstr "確認が必要です"
 
 msgid "This operation requires a confirmation. Please enter your email address,"
 msgstr ""
-"This operation requires a confirmation. Please enter your email address,\n"
-"you will receive an email with a confirmation link.\n"
+"この操作には確認が必要です。Email アドレスを入力してください。\n"
+"確認用のリンクを Email で送信します。\n"
 
 msgid "You must enter your email"
-msgstr "You must enter your email"
+msgstr "Email をご記入ください"
 
 msgid "Your email address looks bogus."
-msgstr "Your email address looks bogus."
+msgstr "Email アドレスが正しくありません。"
 
 msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
-"An email has been sent to <b>%1</b>. Click on the link in the email to\n"
-"finish this operation.\n"
+"<b>%1</b> に Email を送信しました。\n"
+"操作を完了するには Email に記されている URL をクリックしてください。\n"
 
 msgid "Confirmation email sent"
-msgstr "Confirmation email sent"
+msgstr "確認用の Email を送信しました"
 
 msgid "In order to complete your operation"
-msgstr "In order to complete your operation on \"%1\", please click on the following link:"
+msgstr "\"%1\" の操作を完了するには、以下のリンクをクリックしてください。"
 
 msgid "<conf_id> confirmation"
-msgstr "%1 - confirmation"
+msgstr "%1 - 確認"
 
 msgid "Registration"
-msgstr "Registration"
+msgstr "参加登録"
 
 msgid "Sorry, this conference is over."
-msgstr "Sorry, this conference is over."
+msgstr "このカンファレンスは終了しました。"
 
 msgid "Please create your user below."
-msgstr "Please create your user below."
+msgstr "ユーザ登録してください。"
 
 msgid "Identifier is already in use. Please choose another."
-msgstr "Identifier %1 is already in use. Please choose another."
+msgstr "ID %1 はすでに使用されています。他のIDを入力してください。"
 
 msgid "The address is already registered."
-msgstr "The address %1 is already registered."
+msgstr "アドレス %1 はすでに登録されています。"
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Your identifier must contain at least 3 characters and only contain alphanumeric characters (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "ID は3文字以上の半角英数字でお願いします。 (<tt>[a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
-msgstr "You must enter your first name"
+msgstr "ファーストネーム(名)を入力してください"
 
 msgid "You must enter your last name"
-msgstr "You must enter your last name"
+msgstr "ラストネーム(姓)を入力してください"
 
 msgid "You must enter a country from the list"
-msgstr "You must enter a country from the list"
+msgstr "国を選択してください"
 
 msgid "Accounts with similar information already exist."
-msgstr "Accounts with similar information already exist."
+msgstr "同様のアカウントがすでに存在しています。"
 
 msgid "A valid T-shirt size is required."
-msgstr "A valid T-shirt size is required."
+msgstr "Tシャツのサイズを選択してください。"
 
 msgid "Use the links above to check if you are one of those."
 msgstr ""
-"Use the links above to check if you are one of those. If so, simply\n"
-"<a href=\"%1\">log in</a> using your existing account.\n"
+"上のリンクにあてはまる場合には、既存のアカウントを利用して\n"
+"<a href=\"%1\">ログイン</a>してください。\n"
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-"To register, you first need to create an account on the site.\n"
-"<b>If you already have an account from any previous Act conference,\n"
-"you do not need to register again, simply\n"
-"<a href=\"%1\">log in</a> using your account.</b>\n"
+"参加登録するにはアカウントを作成する必要があります。\n"
+"<b>他の Perl カンファレンスで作成したアカウントがある場合は\n"
+"そのアカウントで<a href=\"%1\">ログイン</a>してください。</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"The personal data that will be gathered here will be used to create\n"
-"an <a href=\"%1\">online <i>who's who</i></a> of all the attendees.\n"
-"This will be very useful after the conference, when you'll want to get\n"
-"in touch with someone you met during the conference. Or even before,\n"
-"if you want to know which gurus will be there.\n"
+"ここで入力していただいたユーザ情報はオンライン上の\n"
+"<a href=\"%1\">参加者リスト</a>を作るのに利用されます。\n"
+"カンファレンス中に知り合った人に連絡したくなったとき、\n"
+"あるいは事前にどのような人が参加するか知りたくなったときに\n"
+"お役立てください。\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
-"Once you have an account, you'll be able to use our secure payment\n"
-"platform to buy your ticket for the conference. Please note that\n"
-"everything regarding your bank account and credit card number\n"
-"is handled by the bank.\n"
+"アカウントを作成すると、チケットをオンラインで購入できるようになります。\n"
+"あなたの銀行口座やクレジットカード番号は各種決済機関が処理します。\n"
 
 msgid "We do not have access to your credit card information"
 msgstr ""
-"<b>We do not have access to your credit\n"
-"information at any time during the payment process.</b> We just\n"
-"get the money in the end. <tt>;-)</tt>\n"
+"<b>途中でこのサイトがクレジットカード情報にアクセスすることはありません。</b>\n"
+"私たちは最後にお金を受け取るだけですのでご安心ください。\n"
 
 msgid "Please create the user below."
-msgstr "Please create the user below."
+msgstr "ユーザ登録を行ってください。"
 
 msgid "Use the links above to check if any of those users is the one you want to"
 msgstr ""
-"Use the links above to check if any of those users is the one you want to\n"
-"create. If so, simply check the corresponding radio button, and\n"
-"submit this form.\n"
+"上のリンクの中に作成しようとしたユーザが含まれていませんか。\n"
+"もし含まれているようでしたら、対応するラジオボタンをチェックして\n"
+"フォームを送信していただければ結構です。\n"
 
 msgid "Register"
-msgstr "Register"
+msgstr "登録する"
 
 msgid "Registered!"
-msgstr "Registered!"
+msgstr "登録しました!"
 
 msgid "Congratulations, you are now registered"
 msgstr ""
-"Congratulations, <b>%1</b>, you are now registered.\n"
-"Your password is <b>%2</b> .\n"
+"%1 さんを登録しました。\n"
+"初期パスワードは <b>%2</b> です。\n"
 
 msgid "First Name"
-msgstr "First Name"
+msgstr "ファーストネーム(名)"
 
 msgid "Last Name"
-msgstr "Last Name"
+msgstr "ラストネーム(姓)"
 
 msgid "T-Shirt"
-msgstr "T-Shirt"
+msgstr "Tシャツのサイズ"
 
 msgid "Join!"
-msgstr "Join!"
+msgstr "参加する"
 
 msgid "edit"
-msgstr "edit"
+msgstr "編集"
 
 msgid "min"
-msgstr "min"
+msgstr "分"
 
 msgid "Log in"
-msgstr "Log in"
+msgstr "ログイン"
 
 msgid "Password"
-msgstr "Password"
+msgstr "パスワード"
 
 msgid "Submit"
-msgstr "Submit"
+msgstr "登録"
 
 msgid "Forgot your password?"
-msgstr "Forgot your password? Click <a href=\"%1\">here</a>."
+msgstr "<a href=\"%1\">パスワードを忘れてしまった場合</a>"
 
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
-"This site uses cookies to authenticate logged in users. You might need\n"
-"to instruct your browser to accept cookies from the domain <b>%1</b>.\n"
+"このサイトはユーザの認証に Cookie を利用しています。\n"
+"ログインできない場合はブラウザの設定を変更して\n"
+"<b>%1</b> ドメインの Cookie を受け付けるようにしてください。\n"
 
 msgid "Incorrect login or password"
-msgstr "Incorrect login or password"
+msgstr "ログイン名またはパスワードが正しくありません"
 
 msgid "Logout"
-msgstr "Logout"
+msgstr "ログアウト"
 
 msgid "You have been logged out and the cookie deleted from your browser."
-msgstr "You have been logged out and the cookie deleted from your browser."
+msgstr "ログアウトしました"
 
 msgid "Other conferences"
-msgstr "Other conferences"
+msgstr "その他のカンファレンス"
 
 msgid "Admin"
-msgstr "Admin"
+msgstr "管理"
 
 msgid "Rights management"
-msgstr "Rights management"
+msgstr "ユーザの権限管理"
 
 msgid "Events"
-msgstr "Events"
+msgstr "イベント"
 
 msgid "Submit a new event"
-msgstr "Submit a new event"
+msgstr "新しいイベントの作成"
 
 msgid "Schedule"
-msgstr "Schedule"
+msgstr "スケジュール"
 
 msgid "iCal export"
-msgstr "iCal export"
+msgstr "iCal 形式でエクスポート"
 
 msgid "iCal import"
-msgstr "iCal import"
+msgstr "iCal 形式のインポート"
 
 msgid "Submit a talk proposal"
-msgstr "Submit a talk proposal"
+msgstr "トークを応募"
 
 msgid "Presentations"
-msgstr "Presentations"
+msgstr "プレゼンテーション"
 
 msgid "Treasurer"
-msgstr "Treasurer"
+msgstr "会計"
 
 msgid "Payments"
-msgstr "Payments"
+msgstr "支払い"
 
 msgid "Edit profile"
-msgstr "Edit profile"
+msgstr "プロフィールの編集"
 
 msgid "New user"
-msgstr "New user"
+msgstr "新規ユーザ"
 
 msgid "Users"
-msgstr "Users"
+msgstr "ユーザ"
 
 msgid "Search"
-msgstr "Search"
+msgstr "検索"
 
 msgid "Statistics"
-msgstr "Statistics"
+msgstr "統計"
 
 msgid "CSV export"
-msgstr "CSV export"
+msgstr "CSV エクスポート"
 
 msgid "Register a new user"
-msgstr "Register a new user"
+msgstr "新規ユーザ登録"
 
 msgid "The schedule is not ready to be seen."
-msgstr "The schedule is not ready to be seen."
+msgstr "スケジュールはまだ公開されていません。"
 
 msgid "The time and place of the following talks haven't been decided yet."
-msgstr "The time and place of the following talks haven't been decided yet."
+msgstr "以下のトークの時間と場所は未定です。"
 
 msgid "Speaker"
-msgstr "Speaker"
+msgstr "スピーカー"
 
 msgid "Talk title"
-msgstr "Talk title"
+msgstr "タイトル"
 
 msgid "Duration"
-msgstr "Duration"
+msgstr "時間"
 
 msgid "Target audience"
-msgstr "Target audience"
+msgstr "ターゲット"
 
 msgid "Target audience:"
-msgstr "Target audience:"
+msgstr "ターゲット:"
 
 msgid "abstract (link)"
-msgstr "Abstract"
+msgstr "概要"
 
 msgid "talk (link)"
-msgstr "Talk"
+msgstr "プレゼン資料"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "Talks in <b>bold type</b> have been confirmed by their respective speakers."
+msgstr "<b>ボールド</b>のトークはスピーカーの確認済みです。"
 
 msgid "Time"
-msgstr "Time"
+msgstr "時間"
 
 msgid "Ticket for <conference name>."
-msgstr "Ticket for %1."
+msgstr "%1 のチケット"
 
 msgid "Price"
-msgstr "Price"
+msgstr "価格"
 
 msgid "Donation"
-msgstr "Donation"
+msgstr "寄付"
 
 msgid "Buy now!"
-msgstr "Buy now!"
+msgstr "購入する"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"Please note that everything regarding your bank account and credit card number\n"
-"is handled by the bank. <b>We do not have access to your credit information at\n"
-"any time during the payment process.</b> We just get the money in the end. <tt>;-)</tt>\n"
+"あなたの銀行口座やクレジットカード番号は各種決済機関が処理します。\n"
+"<b>途中でこのサイトがクレジットカード情報にアクセスすることはありません。</b>\n"
+"私たちは最後にお金を受け取るだけですのでご安心ください。\n"
 
 msgid "Online payment"
-msgstr "Online payment"
+msgstr "オンライン決済"
 
 msgid "Join"
-msgstr "Join"
+msgstr "参加する"
 
 msgid "To register to the <name> conference"
 msgstr ""
-"To register to the %1 conference,\n"
-"simply push the button below.\n"
+"%1 に登録するには以下のボタンをクリックしてください。\n"
 
 msgid "The recognised rights are:"
-msgstr "The recognised rights are:"
+msgstr "現在の権限一覧:"
 
 msgid "Organizer"
-msgstr "Organizer"
+msgstr "スタッフ"
 
 msgid "Organizer (talks management)"
-msgstr "Organizer (talks management)"
+msgstr "進行管理 (トーク管理)"
 
 msgid "Treasurer (payment management)"
-msgstr "Treasurer (payment management)"
+msgstr "会計担当 (決済情報管理)"
 
 msgid "Administrator (rights management)"
-msgstr "Administrator (rights management)"
+msgstr "サイト管理 (権限管理)"
 
 msgid "User rights"
-msgstr "User rights"
+msgstr "このユーザの権限"
 
 msgid "Amount"
-msgstr "Amount"
+msgstr "金額"
 
 msgid "You cannot be pseudonymous with a blank nickname"
-msgstr "You cannot be pseudonymous with a blank nickname"
+msgstr "匿名の場合はニックネームが必要です"
 
 msgid "The Perl monger group must end with <tt>.pm</tt>"
-msgstr "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Perl monger グループは <tt>.pm</tt> までご記入ください"
 
 msgid "The Perl monger group URL must start with http://"
-msgstr "The Perl monger group URL must start with http://"
+msgstr "Perl monger グループの URL は http:// からご記入ください"
 
 msgid "The company URL must start with http://"
-msgstr "The company URL must start with http://"
+msgstr "会社の URL は http:// からご記入ください"
 
 msgid "Your web site URL must start with http://"
-msgstr "Your web site URL must start with http://"
+msgstr "ウェブサイトの URL は http:// からご記入ください"
 
 msgid "Your perlmonks id must be a number"
-msgstr "Your perlmonks id must be a number"
+msgstr "perlmonks id は半角数字でご記入ください"
 
 msgid "Number of family members attending must be a number"
-msgstr "Number of family members attending must be a number"
+msgstr "同伴者は半角数字でご記入ください"
 
 msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
-msgstr "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "GPG 公開鍵 ID が正しくありません: 8 桁の 16 進数をご記入ください"
 
 msgid "Salutation"
-msgstr "Salutation"
+msgstr "敬称"
 
 msgid "Nickname"
-msgstr "Nickname"
+msgstr "ニックネーム"
 
 msgid "Stay pseudonymous"
-msgstr "Stay pseudonymous"
+msgstr "本名を表示しない"
 
 msgid "Yes"
-msgstr "Yes"
+msgstr "はい"
 
 msgid "No"
-msgstr "No"
+msgstr "いいえ"
 
 msgid "Hide email"
-msgstr "Hide email"
+msgstr "Email を表示しない"
 
 msgid "Coming with"
-msgstr "Coming with"
+msgstr "同伴者の数"
 
 msgid "6 or more"
-msgstr "6 or more"
+msgstr "6 人以上"
 
 msgid "people (who will not attend the conference)"
-msgstr "people (who will not attend the conference)"
+msgstr " (同伴者はカンファレンスには参加できません)"
 
 msgid "T-shirt size"
-msgstr "T-shirt size"
+msgstr "Tシャツのサイズ"
 
 msgid "Full address"
-msgstr "Full address"
+msgstr "住所"
 
 msgid "Timezone"
-msgstr "Timezone"
+msgstr "タイムゾーン"
 
 msgid "Monger group"
-msgstr "Monger group"
+msgstr "Perl Monger グループ"
 
 msgid "(<em>City.pm</em>, city name in English, please)"
-msgstr "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>City.pm</em> のように都市名は英語でご記入ください)"
 
 msgid "Monger group URL"
-msgstr "Monger group URL"
+msgstr "Perl Monger グループの URL"
 
 msgid "VAT Number"
-msgstr "VAT Number"
+msgstr "VAT (付加価値税登録)番号"
 
 msgid "Company URL"
-msgstr "Company URL"
+msgstr "会社の URL"
 
 msgid "GPG public key ID"
-msgstr "GPG public key ID"
+msgstr "GPG 公開鍵 ID"
 
 msgid "(please fill at least this one)"
-msgstr "(please fill at least this one)"
+msgstr "(少なくともここだけはご記入ください)"
 
 msgid "Update info"
-msgstr "Update info"
+msgstr "情報を更新"
 
 msgid "Your information"
-msgstr "Your information"
+msgstr "あなたの情報"
 
 msgid "This is a simulation. Under real circumstances, submitting"
 msgstr ""
-"This is a simulation. Under real circumstances, submitting\n"
-"this form would take you to the bank's web site where you\n"
-"would enter you credit card information.<br /><br />\n"
-"Click submit to simulate payment.\n"
+"これはシミュレーションです。本番環境ではこのフォームを送信すると\n"
+"決済サイトに移動してクレジットカード情報を入力することになります。<br /><br />\n"
+"送信ボタンをクリックすると支払いのシミュレーションを実行します。\n"
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
-"Committed users are listed in <b>bold</b> font (they have\n"
-"bought their ticket, or will give a talk).\n"
+"参加が確定した（チケットを購入したか、トークを行う）ユーザは\n"
+"<b>ボールド</b>で表示されます。\n"
 
 msgid "Search for users"
-msgstr "Search for users"
+msgstr "ユーザ検索"
 
 msgid "Search form"
-msgstr "Search form"
+msgstr "検索フォーム"
 
 msgid "Any"
-msgstr "Any"
+msgstr "指定なし"
 
 msgid "Your photo"
-msgstr "Your photo"
+msgstr "あなたの写真"
 
 msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
-msgstr "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "画像を読み込めませんでした。対応している写真の形式は次の通りです:"
 
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
-"This photo will probably end up on the conference <i>who's who</i>,\n"
-"so that people can actually recognize you when they want to find\n"
-"out who they had a nice chat with, back when they met you at the conference.<br />\n"
-"Think about that when uploading it!\n"
+"この写真は、最終的にはカンファレンスの参加者リストとして掲載され、\n"
+"みなさんが当日楽しく話をした相手は誰だったのか調べる手がかりとなるはずのものです。\n"
+"写真をアップロードする際にはそのあたりのこともご配慮ください！\n"
 
 msgid "Delete Photo"
-msgstr "Delete Photo"
+msgstr "写真を削除"
 
 msgid "Update Photo"
-msgstr "Update Photo"
+msgstr "写真を更新"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Someone, possibly you, has requested that your password be reset.\n"
-"In order to complete this operation, please click on the following link:\n"
+"ご自分でなさったのかもしれませんが、誰かがパスワードを初期化しようとしました。\n"
+"初期化を実行する場合は次のリンクをクリックしてください:\n"
 
 msgid "If you have received this message without having requested it, it is"
 msgstr ""
-"If you have received this message without having requested it, it is\n"
-"because someone attempted to use your username or email address.  It\n"
-"was mostly likely an innocent mistake, and they are not getting your\n"
-"password, so you can safely disregard this message.\n"
+"ご自分でパスワードを初期化しようとした覚えがないのにこのメッセージが届いた場合は、\n"
+"誰かがあなたのユーザ名か Email アドレスを使おうとしたということです。\n"
+"たいていの場合は単なる間違いで、あなたのパスワードを盗もうとしているわけでは\n"
+"ありませんので、無視していただいて結構です。\n"
+
+msgid "New password"
+msgstr "新しいパスワード"
 
 msgid "Reset Password"
-msgstr "Reset Password"
+msgstr "パスワードを初期化"
 
 msgid "Specify either your login, or your email address."
 msgstr ""
-"Specify either your <B>login</B>, or your <B>email address</B>.\n"
-"You will receive an email with instructions on how to reset your password.\n"
+"<b>ログイン名</b>か <b>Email アドレス</b>を入力してください。\n"
+"パスワードを初期化する方法を記した Email が送信されます。\n"
 
 msgid "No user was found with this login or email address"
-msgstr "No user was found with this login or email address"
+msgstr "このログイン名または Email アドレスのユーザは見つかりませんでした"
 
 msgid "Specify a login, or an email address, but not both"
-msgstr "Specify a login, or an email address (but not both)"
+msgstr "ログイン名または Email アドレスを入力してください (どちらか一方)"
 
 msgid "Generate password"
-msgstr "Reset password"
+msgstr "パスワードをリセット"
 
 msgid "<conf name> Statistics"
-msgstr "%1 Statistics"
+msgstr "%1 の統計情報"
 
 msgid "There are n registered people"
 msgstr ""
-"There are %1 registered people\n"
-"coming from %quant(%2,country,countries)\n"
-"and %quant(%3,monger group).\n"
-"There are %4 committed users,\n"
-"that is to say, people that either paid their\n"
-"conference ticket or will give a talk.\n"
+"登録者数は %1 人。\n"
+"出身国は %2 か国。\n"
+"Perl Monger グループ数は %3。\n"
+"参加者数（チケット購入者＋スピーカー）は %4 人。\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"You can have a look at <a href=\"%1\">country / mongers</a>\n"
-"or <a href=\"%2\">cities</a> statistics.\n"
+"<a href=\"%1\">出身国別 / Perl Monger グループ別</a>の統計、\n"
+"<a href=\"%2\">都市別</a>の統計も表示できます。\n"
 
 msgid "The number of committed users is listed between parentheses"
 msgstr ""
-"The number of committed users is listed between parentheses\n"
-"in the following tables.\n"
+"以下の表でカッコ書きされているのは参加者数です。\n"
 
 msgid "Click on the various links to find the corresponding users!"
-msgstr "Click on the various links to find the corresponding users!"
+msgstr "リンクをクリックすると該当するユーザを検索できます！"
 
 msgid "Note: the country total is not always equal to the city total."
 msgstr ""
-"Note: the country total is not always equal to the city total.\n"
-"Or the cities are sometimes not in the relevant country.\n"
-"Blame the users!\n"
+"注: 国別の合計はかならずしも都市別の合計とは一致しません。\n"
+"また、都市と国の対応が間違っていることもあります。\n"
+"悪いのは登録を間違えた人ですよね!\n"
 
 msgid "Cities"
-msgstr "Cities"
+msgstr "都市"
 
 msgid "No city information entered"
-msgstr "No city information entered"
+msgstr "都市名が入力されていません"
 
 msgid "Countries"
-msgstr "Countries"
+msgstr "出身国"
 
 msgid "Monger groups"
-msgstr "Monger groups"
+msgstr "Perl Monger グループ"
 
 msgid "Un-Registration"
-msgstr "Un-Registration"
+msgstr "登録抹消"
 
 msgid "To unregister from <conference>,"
 msgstr ""
-"To unregister from %1,\n"
-"simply push the button below.\n"
+"%1 への登録を取りやめたい場合は下のボタンをクリックしてください。\n"
 
 msgid "Unregister from <conference>"
-msgstr "Unregister from %1"
+msgstr "%1 への登録を取りやめる"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Submit/Edit a non-talk event"
+msgstr "トーク以外のイベントを申請／編集する"
 
 msgid "You must enter a title for the event"
-msgstr "You must enter a title for the event"
+msgstr "イベントのタイトルを入力してください"
 
 msgid "You must enter a short description for the event"
-msgstr "You must enter a short description for the event"
+msgstr "イベントの簡単な説明を入力してください"
 
 msgid "Please choose a duration"
-msgstr "Please choose a duration"
+msgstr "期間を選んでください"
 
 msgid "The supplied date is invalid"
-msgstr "The supplied date is invalid"
+msgstr "日付が無効です"
 
 msgid "The supplied time is invalid"
-msgstr "The supplied time is invalid"
+msgstr "時刻が無効です"
 
 msgid "The date/time is out of range"
-msgstr "The date/time is out of range"
+msgstr "日時が範囲外です"
 
 msgid "Event URL is not a valid URL"
-msgstr "Event URL is not a valid URL"
+msgstr "イベントの URL が正しくありません"
 
 msgid "Incorrect room submitted"
-msgstr "Incorrect room submitted"
+msgstr "登録された部屋が正しくありません"
 
 msgid "Please choose a target audience"
-msgstr "Please choose a target audience"
+msgstr "対象を選択してください"
 
 msgid "View"
-msgstr "View"
+msgstr "表示"
 
 msgid "Delete this event"
-msgstr "Delete this event"
+msgstr "このイベントを削除する"
 
 msgid "Title"
-msgstr "Title"
+msgstr "タイトル"
 
 msgid "Date"
-msgstr "Date"
+msgstr "日時"
 
 msgid "Room"
-msgstr "Room"
+msgstr "部屋"
 
 msgid "Abstract"
-msgstr "Abstract"
+msgstr "概要"
 
 msgid "(plain text)"
-msgstr "(plain text)"
+msgstr "(プレーンテキスト)"
 
 msgid "External URL"
-msgstr "External URL"
+msgstr "外部 URL"
 
 msgid "Submit this event"
-msgstr "Submit this event"
+msgstr "このイベントを申請する"
 
 msgid "Event submitted"
-msgstr "Event submitted"
+msgstr "イベントを申請しました"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Thanks, the event has been recorded as\n"
-"<b><a href=\"%1\">%2</a></b>.\n"
+"ありがとうございます。申請していただいたイベントは <b><a href=\"%1\">%2</a></b> に記録しました。\n"
 
 msgid "List of events"
-msgstr "List of events"
+msgstr "イベントの一覧"
 
 msgid "No event was submitted yet."
-msgstr "No event was submitted yet."
+msgstr "申請されたイベントはありません。"
 
 msgid "Event title"
-msgstr "Event title"
+msgstr "イベントタイトル"
 
 msgid "Event removed"
-msgstr "Event removed"
+msgstr "イベントを削除しました"
 
 msgid "The event has been removed."
-msgstr "The event <b>%1</b> has been removed."
+msgstr "イベント <b>%1</b> を削除しました。"
 
 msgid "Date:"
-msgstr "Date:"
+msgstr "日付:"
 
 msgid "Not scheduled yet."
-msgstr "Not scheduled yet."
+msgstr "未定"
 
 msgid "Duration:"
-msgstr "Duration:"
+msgstr "期間:"
 
 msgid "You can find more information on the following site:"
-msgstr "You can find more information on the following site:"
+msgstr "次のサイトで詳細を見ることができます:"
 
 msgid "Wiki - editing <node>"
-msgstr "Wiki - editing %1"
+msgstr "Wiki - %1 の編集"
 
 msgid "Someone has committed changes to this node since you began editing."
 msgstr ""
-"Someone has committed changes to this node since you began editing.\n"
-"You will need to manually merge your changes into the new version.\n"
+"編集中に他の人が内容を変更しました。\n"
+"お手数ですがご自分で変更点を新しい版に反映してください。\n"
 
 msgid "Current node contents:"
-msgstr "Current node contents:"
+msgstr "現在の内容:"
 
 msgid "Help"
-msgstr "Help"
+msgstr "ヘルプ"
 
 msgid "Preview"
-msgstr "Preview"
+msgstr "プレビュー"
 
 msgid "Save"
-msgstr "Save"
+msgstr "保存"
 
 msgid "Your proposed revision:"
-msgstr "Your proposed revision:"
+msgstr "変更しようとした内容:"
 
 msgid "Wiki - <node> History"
-msgstr "Wiki - %1 History"
+msgstr "Wiki - %1 の履歴"
 
 msgid "Version"
-msgstr "Version"
+msgstr "バージョン"
 
 msgid "Modified on"
-msgstr "Modified on"
+msgstr "更新日時"
 
 msgid "By"
-msgstr "By"
+msgstr "作業者"
 
 msgid "Wiki - <node>"
 msgstr "Wiki - %1"
 
 msgid "version"
-msgstr "version"
+msgstr "バージョン"
 
 msgid "saved on"
-msgstr "saved on"
+msgstr "保存日時"
 
 msgid "Last modified:"
-msgstr "Last modified:"
+msgstr "最終更新:"
 
 msgid "by"
-msgstr "by"
+msgstr "作業者"
 
 msgid "new page"
-msgstr "new page"
+msgstr "新しいページ"
 
 msgid "Home"
 msgstr "Home"
 
 msgid "Revert to this version"
-msgstr "Revert to this version"
+msgstr "このバージョンに差し戻す"
 
 msgid "Edit this page"
-msgstr "Edit this page"
+msgstr "このページを編集"
 
 msgid "Delete this page"
-msgstr "Delete this page"
+msgstr "このページを削除"
 
 msgid "Recent changes"
-msgstr "Recent changes"
+msgstr "最近の変更"
 
 msgid "History"
-msgstr "History"
+msgstr "履歴"
 
 msgid "Wiki help"
-msgstr "Wiki help"
+msgstr "Wiki ヘルプ"
 
 msgid "<wiki help text>"
 msgstr ""
-"<h2>Character formatting</h2>\n"
+"<h2>文字単位の書式指定</h2>\n"
 "<ul>\n"
-"<li>An item wrapped in three single quotes is <b>strong</b>.</li>\n"
-"<li>An item wrapped in two single quotes is <i>emphasized</i>.</li>\n"
-"<li>Any word with multiple CapitalLetters (e. g., StudlyCaps) will become a link.</li>\n"
+"<li>3つの一重引用符(')でくくられた項目は<b>ボールド</b>で表示されます。</li>\n"
+"<li>2つの一重引用符(')でくくられた項目は<i>斜体</i>で表示されます。</li>\n"
+"<li>複数の大文字が含まれる語 (例: StudlyCaps) はリンクになります。</li>\n"
 "</ul>\n"
-"<h2>Paragraph formatting</h2>\n"
+"<h2>段落単位の書式指定</h2>\n"
 "<ul>\n"
-"<li>Four or more hyphen characters at the start of a line create a horizontal line.</li>\n"
-"<li>Newlines turn into the appropriate tags.</li>\n"
-"<li>Headers are matching equals signs around the header text -- the more signs, the lesser the header.</li>\n"
+"<li>行の先頭に4つ以上のハイフンを書くと水平線になります。</li>\n"
+"<li>改行は適切なタグに変換されます。</li>\n"
+"<li>見出しは左右同じ数の等号(=)でくくってください。等号の数が多いほど小さな見出しになります。</li>\n"
 "</ul>\n"
-"<h2>Lists</h2>\n"
+"<h2>リスト</h2>\n"
 "<ul>\n"
-"<li>Lists are indented text, by one tab or four spaces by default.</li>\n"
-"<li>In unordered lists, where each item has its own bullet point, each item needs a leading asterisk and space.</li>\n"
-"<li>Ordered lists consist of items marked with combination of one or more alphanumeric characters followed by a period and an optional space.</li>\n"
-"<li>Lists can be nested.</li>\n"
+"<li>インデント（字下げ）されたテキストはリストになります。インデントの既定値はタブ1つまたは半角スペース4つです。</li>\n"
+"<li>番号なしのリスト（記号つきリスト）は、各項目の先頭にアスタリスク(*)と半角スペースを入れてください。</li>\n"
+"<li>番号つきリストは、先頭に一つ以上の英字あるいは数字を組み合わせたものと半角ピリオドを入れてください。ピリオドのあとにスペースを入れることもできます。</li>\n"
+"<li>リストは入れ子にできます。</li>\n"
 "</ul>\n"
-"<h2>Code</h2>\n"
+"<h2>コード</h2>\n"
 "<ul>\n"
-"<li>Any indented text without either marking is code, handled literally. You can nest lists.</li>\n"
+"<li>インデントされていて先頭にリスト用の記号がついていないテキストはコードとみなされ、そのまま出力されます。入れ子にすることもできます。</li>\n"
 "</ul>\n"
-"<h2>Example</h2>\n"
+"<h2>例</h2>\n"
 "\n"
-"The following is valid Wiki formatting, with an extended link as marked.\n"
+"正しい書式の例です。リンクには拡張書式もあります。\n"
 "<pre>\n"
 "\n"
-"        = my interesting text =\n"
+"        = 私のおもしろテキスト =\n"
 "\n"
 "        NormalLink\n"
 "        [AnExtendedLink|let the Sun shine]\n"
@@ -886,410 +878,409 @@ msgstr ""
 "        [user:first_name last_name]\n"
 "        [talk:id]\n"
 "\n"
-"        == my interesting lists ==\n"
+"        == 私のおもしろリスト ==\n"
 "\n"
-"            * unordered one\n"
-"            * unordered two\n"
+"            * 番号なし1\n"
+"            * 番号なし2\n"
 "\n"
-"            1. ordered one\n"
-"            2. ordered two\n"
-"                        a. nested one\n"
-"                        b. nested two\n"
+"            1. 番号つきリスト1\n"
+"            2. 番号つきリスト2\n"
+"                        a. ネストされたリスト1\n"
+"                        b. ネストされたリスト2\n"
 "\n"
-"            code one\n"
-"            code two\n"
+"            コード1\n"
+"            コード2\n"
 "\n"
-"        The first line of a normal paragraph.\n"
-"        The second line of a normal paragraph.  Whee.\n"
+"        ふつうの段落1行目。\n"
+"        ふつうの段落2行目。イェイ\n"
 "</pre>\n"
 
 msgid "Wiki - Recent changes"
-msgstr "Wiki - Recent changes"
+msgstr "Wiki - 最近の変更"
 
 msgid "Page"
-msgstr "Page"
+msgstr "ページ"
 
 msgid "Changes in last"
-msgstr "Changes in last"
+msgstr "最後の変更"
 
 msgid "<n> day(s)"
-msgstr "%quant(%1,day)"
+msgstr "%1日"
 
 msgid "<n> week(s)"
-msgstr "%quant(%1,week)"
+msgstr "%1週間"
 
 msgid "<n> month(s)"
-msgstr "%quant(%1,month)"
+msgstr "%1か月"
 
 msgid "Wiki tags"
-msgstr "Wiki tags"
+msgstr "Wiki タグ"
 
 msgid "Wiki pages tagged <tag>"
-msgstr "Wiki pages tagged %1"
+msgstr "%1 でタグ付けされた Wiki ページ"
 
 msgid "Administrative tasks"
-msgstr "Administrative tasks"
+msgstr "管理者用ページ"
 
 msgid "Talks & events"
-msgstr "Talks &amp; events"
+msgstr "トークとイベント"
 
 msgid "Credit card payment"
-msgstr "Credit card payment"
+msgstr "クレジットカード払い"
 
 msgid "Payment"
-msgstr "Payment"
+msgstr "支払い"
 
 msgid "Editing payment"
-msgstr "Editing payment"
+msgstr "支払いの編集"
 
 msgid "User"
-msgstr "User"
+msgstr "ユーザ"
 
 msgid "Payment means"
-msgstr "Payment means"
+msgstr "支払方法"
 
 msgid "or"
-msgstr "or"
+msgstr "または"
 
 msgid "Update"
-msgstr "Update"
+msgstr "更新"
 
 msgid "speaker"
-msgstr "speaker"
+msgstr "スピーカー"
 
 msgid "Total"
-msgstr "Total"
+msgstr "合計"
 
 msgid "Payment confirmation"
-msgstr "Payment confirmation"
+msgstr "支払いの確認"
 
 msgid "Your online payment for your <conf> registration has been approved."
 msgstr ""
-"Your online payment for your %1 registration has been approved.\n"
+"%1 参加費のオンライン決済が承認されました。\n"
 "\n"
-"Your order number: %2\n"
-"Payment date: %3 GMT\n"
-"Amount paid: %4 %5 (%6)\n"
+"注文番号: %2\n"
+"支払日: %3 GMT\n"
+"支払額: %4 %5 (%6)\n"
 "\n"
-"Your order number is %2.\n"
-"Be sure to bring it along with you when you come to the conference.\n"
+"注文番号は %2 です。\n"
+"カンファレンスにお越しの際は必ずお持ちください。\n"
 "\n"
-"Thanks for joining %1!\n"
+"%1 へのご参加ありがとうございます!\n"
 
 msgid "Invoice #"
-msgstr "Invoice #"
+msgstr "請求書番号"
 
 msgid "Dated"
-msgstr "Dated"
+msgstr "請求日"
 
 msgid "Printed on"
-msgstr "Printed on"
+msgstr "発行日"
 
 msgid "Description"
-msgstr "Description"
+msgstr "内訳"
 
 msgid "Quantity"
-msgstr "Quantity"
+msgstr "数量"
 
 msgid "Unit Price"
-msgstr "Unit Price"
+msgstr "単価"
 
 msgid "<conf> registration"
-msgstr "%1 registration"
+msgstr "%1 参加登録費"
 
 msgid "Your order number:"
-msgstr "Your order number:"
+msgstr "注文番号:"
 
 msgid "Total due"
-msgstr "Total due"
+msgstr "合計金額"
 
 msgid "Invoice"
-msgstr "Invoice"
+msgstr "請求書"
 
 msgid "You can print this page: only the invoice below will be printed."
-msgstr "You can print this page: only the invoice below will be printed."
+msgstr "このページは印刷できます: 以下の請求書部分のみ印刷されます。"
 
 msgid "Printer friendly version"
-msgstr "Printer friendly version"
+msgstr "印刷用の請求書"
 
 msgid "Establishing your invoice requires your address."
-msgstr "Establishing your invoice requires your address."
+msgstr "請求を確定するには住所が必要です。"
 
 msgid "Please make sure the billing information is correct."
-msgstr "Please make sure the billing information is correct."
+msgstr "お支払情報が正しく記載されているかご確認ください。"
 
 msgid "Address"
-msgstr "Address"
+msgstr "住所"
 
 msgid "I confirm"
-msgstr "I confirm"
+msgstr "承認します"
 
 msgid "Submit/Edit a talk"
-msgstr "Submit/Edit a talk"
+msgstr "トークの応募・編集"
 
 msgid "You must specify a user"
-msgstr "You must specify a user"
+msgstr "ユーザ名を記入してください"
 
 msgid "You must enter a title for the talk"
-msgstr "You must enter a title for the talk"
+msgstr "トークのタイトルを入力してください"
 
 msgid "You must provide an abstract"
-msgstr "You must provide an abstract"
+msgstr "概要を記入してください"
 
 msgid "Abstract URL is not a valid URL"
-msgstr "Abstract URL is not a valid URL"
+msgstr "概要の URL が正しくありません"
 
 msgid "Talk URL is not a valid URL"
-msgstr "Talk URL is not a valid URL"
+msgstr "トークの URL が正しくありません"
 
 msgid "Incorrect language"
-msgstr "Incorrect language"
+msgstr "言語が正しくありません"
 
 msgid "Delete this talk"
-msgstr "Delete this talk"
+msgstr "このトークを削除"
 
 msgid "Track"
-msgstr "Track"
+msgstr "トラック"
 
 msgid "Language"
-msgstr "Language"
+msgstr "言語"
 
 msgid "Language:"
-msgstr "Language:"
+msgstr "言語:"
 
 msgid "Abstract URL"
-msgstr "Abstract URL"
+msgstr "概要の URL"
 
 msgid "Talk URL"
-msgstr "Talk URL"
+msgstr "トークの URL"
 
 msgid "Standard durations for <confname> are:"
-msgstr "Standard durations for %1 are:"
+msgstr "%1 のトークの標準時間:"
 
 msgid "If the proposed durations do not quite fit your talk, please"
 msgstr ""
-"If the proposed durations do not quite fit your talk, please\n"
-"use the comment field to indicate the preferred duration.\n"
+"トークが標準の時間に収まらない場合は\n"
+コメント欄にご希望の時間をご記入ください。\n"
 
 msgid "Comments"
-msgstr "Comments"
+msgstr "コメント"
 
 msgid "The comment field is used for communicating information about"
 msgstr ""
-"The comment field is used for communicating information about\n"
-"this talk to the organisers.\n"
+"このトークの件でスタッフに連絡したいことがある場合はコメント欄にご記入ください\n"
 
 msgid "Status"
-msgstr "Status"
+msgstr "状態"
 
 msgid "accepted"
-msgstr "accepted"
+msgstr "受理済み"
 
 msgid "confirmed"
-msgstr "confirmed"
+msgstr "確認済み"
 
 msgid "Accepted"
-msgstr "Accepted"
+msgstr "受理済み"
 
 msgid "Pending"
-msgstr "Pending"
+msgstr "保留中"
 
 msgid "Submit this talk"
-msgstr "Submit this talk"
+msgstr "このトークを応募"
 
 msgid "Talk submitted"
-msgstr "Talk submitted"
+msgstr "トークを応募しました"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Thanks, your talk submission has been recorded as <b><a href=\"%1\">%2</a></b>."
+msgstr "ありがとうございます。応募していただいたトークは <b><a href=\"%1\">%2</a></b> に記録しました。"
 
 msgid "iCal Import"
-msgstr "iCal Import"
+msgstr "iCal 形式のインポート"
 
 msgid "The following talks have been updated:"
-msgstr "The following talks have been updated:"
+msgstr "以下のトークが更新されました:"
 
 msgid "Old time"
-msgstr "Old time"
+msgstr "現在の時間"
 
 msgid "New time"
-msgstr "New time"
+msgstr "新しい時間"
 
 msgid "title"
-msgstr "title"
+msgstr "タイトル"
 
 msgid "Upload an iCal file"
-msgstr "Upload an iCal file"
+msgstr "iCal ファイルをアップロード"
 
 msgid "Import"
-msgstr "Import"
+msgstr "インポート"
 
 msgid "List of talks"
-msgstr "List of talks"
+msgstr "トークの一覧"
 
 msgid "List of talks tagged <tag>"
-msgstr "List of talks tagged %1"
+msgstr "%1 タグのついたトークの一覧"
 
 msgid "No talk was submitted yet."
-msgstr "No talk was submitted yet."
+msgstr "トークの応募はまだありません。"
 
 msgid "Submitted talks:"
-msgstr "Submitted talks:"
+msgstr "応募したトーク:"
 
 msgid "Accepted talks:"
-msgstr "Accepted talks:"
+msgstr "受理されたトーク:"
 
 msgid "Accepted talks are shown in bold type."
-msgstr "Accepted talks are shown in <b>bold type</b>."
+msgstr "受理されたトークは<b>ボールド</b>で表示されます。"
 
 msgid "Total duration of accepted talks:"
-msgstr "Total duration of accepted talks:"
+msgstr "受理されたトークの合計時間:"
 
 msgid "hours"
-msgstr "hours"
+msgstr "時間"
 
 msgid "Accepted lightning talks:"
-msgstr "Accepted lightning talks:"
+msgstr "受理されたライトニングトーク:"
 
 msgid "Tracks"
-msgstr "Tracks"
+msgstr "トラック"
 
 msgid "No track"
-msgstr "No track"
+msgstr "トラックなし"
 
 msgid "lightning"
-msgstr "lightning"
+msgstr "ライトニングトーク"
 
 msgid "from"
-msgstr "from"
+msgstr "応募者"
 
 msgid "Comment:"
-msgstr "Comment:"
+msgstr "コメント:"
 
 msgid "You can find more information on the speaker's site:"
-msgstr "You can find more information on the speaker's site:"
+msgstr "詳細はスピーカーのサイトをご覧ください:"
 
 msgid "Abstract:"
-msgstr "Abstract:"
+msgstr "概要:"
 
 msgid "Talk:"
-msgstr "Talk:"
+msgstr "トーク:"
 
 msgid "Talk removed"
-msgstr "Talk removed"
+msgstr "トークを削除しました"
 
 msgid "The Talk <title> has been removed."
-msgstr "The Talk <b>%1</b> has been removed."
+msgstr "トーク <b>%1</b> を削除しました。"
 
 msgid "Talk inserted"
-msgstr "Talk inserted"
+msgstr "トークを挿入しました"
 
 msgid "Talk updated"
-msgstr "Talk updated"
+msgstr "トークが更新されました"
 
 msgid "Submitted by:"
-msgstr "Submitted by:"
+msgstr "応募者:"
 
 msgid "The following fields have been updated:"
-msgstr "The following fields have been updated:"
+msgstr "以下の欄が更新されました:"
 
 msgid "By:"
-msgstr "By:"
+msgstr "作業者:"
 
 msgid "Remember me on this computer"
-msgstr "Remember me on this computer"
+msgstr "このコンピュータで記憶しておく"
 
 msgid "Billing"
-msgstr "Billing"
+msgstr "請求"
 
 msgid "The following submission has been accepted"
 msgstr ""
-"The following submission has been accepted. Please click\n"
-"on the link below to confirm your presentation.\n"
+"以下の応募を受理しました。\n"
+"リンクをクリックして確認をお願いします。\n"
 
 msgid "News"
-msgstr "News"
+msgstr "ニュース"
 
 msgid "News Administration"
-msgstr "News Administration"
+msgstr "ニュース管理"
 
 msgid "Published"
-msgstr "Published"
+msgstr "公開済み"
 
 msgid "Create a new item"
-msgstr "Create a new item"
+msgstr "新しい項目を作成"
 
 msgid "Edit a news item"
-msgstr "Edit a news item"
+msgstr "ニュース項目を編集"
 
 msgid "You must enter a title"
-msgstr "You must enter a title"
+msgstr "タイトルを入力してください"
 
 msgid "You must enter some text"
-msgstr "You must enter some text"
+msgstr "本文を入力してください"
 
 msgid "Delete this item"
-msgstr "Delete this item"
+msgstr "この項目を削除"
 
 msgid "Text"
-msgstr "Text"
+msgstr "本文"
 
 msgid "No news yet!"
-msgstr "No news yet!"
+msgstr "まだニュースはありません！"
 
 msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
-msgstr "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "テキストの整形には HTML を利用します。テキスト間の改行は段落になります"
 
 msgid "Add a new track"
-msgstr "Add a new track"
+msgstr "新しいトラックを追加"
 
 msgid "Create/Edit a track"
-msgstr "Create/Edit a track"
+msgstr "トラックの作成・編集"
 
 msgid "Delete this track"
-msgstr "Delete this track"
+msgstr "このトラックを削除"
 
 msgid "Submit this track"
-msgstr "Submit this track"
+msgstr "このトラックを登録"
 
 msgid "You must enter a title for the track"
-msgstr "You must enter a title for the track"
+msgstr "トラックのタイトルを入力してください"
 
 msgid "n talks"
-msgstr "%quant(%1,talk)"
+msgstr "トークの数:%1"
 
 msgid "n accepted"
-msgstr "%quant(%1,accepted,accepted)"
+msgstr "受理済み: %1"
 
 msgid "n confirmed"
-msgstr "%quant(%1,confirmed,confirmed)"
+msgstr "確認済み: %1"
 
 msgid "Change Password"
-msgstr "Change Password"
+msgstr "パスワードの変更"
 
 msgid "Please type in your new password"
-msgstr "Please type in your new password"
+msgstr "新しいパスワードを入力してください"
 
 msgid "Passwords don't match"
-msgstr "Passwords don't match"
+msgstr "パスワードが一致しません"
 
 msgid "New password"
-msgstr "New password"
+msgstr "新しいパスワード"
 
 msgid "Enter your new password twice"
-msgstr "Enter your new password twice"
+msgstr "新しいパスワードを二回入力してください"
 
 msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
-"An email has been sent to you. Click on the link in the email to\n"
-"access your user account and set a new password.\n"
+"Email を送信しました。Email に記載されたリンクをクリックして\n"
+"ユーザーアカウントにアクセスし、新しいパスワードを設定してください。\n"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "タグ"
 
 msgid "Tags:"
-msgstr "Tags:"
+msgstr "タグ:"
 
 msgid "add new tags:"
-msgstr "add new tags:"
+msgstr "新しいタグを追加:"
 
