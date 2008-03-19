@@ -76,7 +76,7 @@ sub handler
         $Request{dbh}->commit;
 
         # add the new user properly to the hash
-        $right{ $right{new}{user_id} } = delete $right{new}
+        $right{ $right{new}{user_id} } = $right{new}
             if exists $right{new};
 
         # clean up the hash
