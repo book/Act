@@ -76,6 +76,7 @@ conference...
   he: Uri Bruck
   hu: Gábor Szabó
   it: Gianni "dakkar" Cecarelli
+  ja: Kenichi Ishigaki, drry, Tatsuhiko Miyagawa
   nl: Erik Colson, Emmanuel di Prétoro
   pt: Alberto Manuel Brandão Simões, Luis Motta Campos
   ru: Andrew Shitov
