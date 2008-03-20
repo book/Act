@@ -56,7 +56,7 @@ BEGIN {
     }
 }
 # normalize() exceptions
-my $normalize_exceptions = qr/[й]/;
+my @normalize_exceptions = ( 'й' );
 
 sub search_expression
 {
@@ -203,8 +203,12 @@ sub normalize
     my $copy = $string;
     $string = Unicode::Normalize::NFD($string);
     $string =~ s/\p{InCombiningDiacriticalMarks}//g;
-    while( $copy =~ /\G($normalize_exceptions)/cog ) {
-        substr( $string, pos(), 1 ) = $1;
+    for my $chr (@normalize_exceptions) {
+        my $pos = 0;
+        while (($pos = index($copy, $chr, $pos)) >= 0) {
+            substr($string, $pos, 1) = $chr;
+            ++$pos;
+        }
     }
     return $ncache{$string} = lc $string;
 }
