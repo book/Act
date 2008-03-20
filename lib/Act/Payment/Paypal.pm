@@ -2,6 +2,7 @@ package Act::Payment::Paypal;
 use strict;
 use base qw(Act::Payment::Plugin);
 
+use Encode qw(encode_utf8);
 use HTTP::Request::Common;
 use LWP::UserAgent;
 use IPC::Open2;
@@ -98,7 +99,7 @@ sub _encrypt_and_sign
         or die "error open2 $openssl: $!\n"; 
     
     while (my ($key, $value) = each %form) {
-        print WRITER "$key=$value\n";
+        print WRITER encode_utf8("$key=$value\n");
     }
     close(WRITER);
     my @lines = <READER>;

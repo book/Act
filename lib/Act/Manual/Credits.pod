@@ -100,8 +100,10 @@ conference...
   Thomas Klausner
   Roland Lammel
   David Landgren
+  Tatsuhiko Miyagawa
   Jonas B. Nielsen
   Salve J Nilsen
+  Hiroyuki Oyama
   Alberto Simões 
   Enrico Sorcinelli
   Ricardo Signes
