@@ -70,7 +70,7 @@ sub trans_handler
     my $r = Apache::Request->instance(shift);
 
     # break it up in components
-    my @c = grep $_, split '/', $r->uri;
+    my @c = grep $_, split '/', decode_utf8($r->uri);
 
     # initialize our per-request variables
     %Request = (
