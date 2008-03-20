@@ -12,7 +12,10 @@ use Act::User;
 sub handler
 {
     # we aren't dispatched by Act::Dispatcher
-    $Request{args} = { map { $_ => $Request{r}->param($_) || '' } $Request{r}->param };
+    $Request{args} = { map { my $v = $Request{r}->param($_);
+                             $_ => defined($v) ? $v : ''
+                           } $Request{r}->param
+                     };
 
     # load appropriate plugin, hardwired to the url in httpd.conf
     my $type = $Request{r}->dir_config('ActPaymentType');
