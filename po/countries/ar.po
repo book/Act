@@ -82,7 +82,7 @@ msgstr "بوروندي"
 msgid "country_bj"
 msgstr "بنين"
 
-msgid "country_bl'
+msgid "country_bl"
 msgstr "سان بارتليمي"
 
 msgid "country_bm"

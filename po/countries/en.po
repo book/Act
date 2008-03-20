@@ -82,7 +82,7 @@ msgstr "Burundi"
 msgid "country_bj"
 msgstr "Benin"
 
-msgid "country_bl'
+msgid "country_bl"
 msgstr "Saint-Barthélemy"
 
 msgid "country_bm"
