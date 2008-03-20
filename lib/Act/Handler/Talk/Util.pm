@@ -18,6 +18,7 @@ sub notify_accept
     local $Request{language} = $Config->talks_submissions_notify_language
                             || $Request{language}
                             || $Config->general_default_language;
+    local $Request{loc} = Act::I18N->get_handle($Request{language});
 
     # generate subject and body from templates
     my $template = Act::Template->new;
