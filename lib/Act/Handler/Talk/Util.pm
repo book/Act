@@ -15,9 +15,7 @@ sub notify_accept
     my $user = Act::User->new(user_id => $talk->user_id);
 
     # determine which language to send the notification in
-    local $Request{language} = $Config->talks_submissions_notify_language
-                            || $Request{language}
-                            || $Config->general_default_language;
+    local $Request{language} = $user->language || $Config->general_default_language;
     local $Request{loc} = Act::I18N->get_handle($Request{language});
 
     # generate subject and body from templates
