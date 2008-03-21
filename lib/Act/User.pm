@@ -25,7 +25,7 @@ our %sql_stub    = (
 
 our %sql_mapping = (
     conf_id    => "(p.conf_id=? AND u.user_id=p.user_id)",
-    name       => "(u.nick_name~*? OR (u.pseudonymous IS FALSE AND (u.first_name~*? OR last_name~*? OR (u.first_name || ' ' || u.last_name)~*?)))",
+    name       => "(u.nick_name~*? OR (u.pseudonymous IS FALSE AND (u.first_name~*? OR u.last_name~*? OR (u.first_name || ' ' || u.last_name)~*?)))",
     full_name  =>  "(u.first_name || ' ' || u.last_name ~* ?)",
     # text search
     map( { ($_, "(u.$_~*?)") }
