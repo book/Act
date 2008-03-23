@@ -9,6 +9,8 @@ use Act::Template;
 use strict;
 use t::Util;
 
+$Config->set(general_full_uri => 'http://example.com/conf/');
+
 # create an empty news item
 my $news = Act::News->new();
 isa_ok($news, 'Act::News');
