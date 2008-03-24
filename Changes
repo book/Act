@@ -2,6 +2,22 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2008/03/19 r1819 Japanese translation
+
+2008/02/17 r1804 better search engine compatibility: don't redirect bots on language change
+
+2008/02/13 r1797 treasurer feature: unregister user
+
+2008/02/09 r1790 new config vars registration_open, registration_max_attendees
+           r1788 Belarusian translation
+
+2008/02/05 r1778 better looking skeleton site
+           r1772 Current Talks/Events API
+           r1766 Flickr photo galleries API
+
+2007/11/27 r1737 Hebrew translation
+           r1736 Russian translation
+
 2007/09/15 r1693 multilingual room names
            r1690 support for free conferences (no payment)
 

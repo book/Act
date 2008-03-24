@@ -100,27 +100,16 @@ for my $conf (keys %{$Config->conferences}) {
         ok(1, "$conf payment_type NONE");
     }
     else {
-        ok(defined $cfg->$_, "$conf $_") for qw(payment_open payment_prices);
+        ok(defined $cfg->$_, "$conf $_")
+            for qw(payment_open payment_prices payment_currency);
+        ok($cfg->$_, "$conf $_")
+            for qw(payment_currency);
         # prices
-        my $oldstyle;
-        my $errhandler = $cfg->{STATE}->_ehandler();
-        $cfg->{STATE}->_ehandler( sub { $oldstyle = 1 } );
-        $cfg->payment_currency;
-        $cfg->{STATE}->_ehandler($errhandler);
-    
-        ok(!$oldstyle, "$conf open payment is new style")
-            if $cfg->payment_open;
         for my $i (1 .. $cfg->payment_prices) {
             my $key = "price$i";
             ok($cfg->get($key . '_amount'), "$conf $key amount");
-            if ($oldstyle) {
-                ok($cfg->get($key . "_$_"), "$conf $key $_")
-                    for qw(type currency);
-            }
-            else {
-                ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
-                    for keys %{$cfg->languages};
-            }
+            ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
+                for keys %{$cfg->languages};
         }
     }
     # remember payment type
