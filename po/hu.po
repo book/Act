@@ -514,7 +514,7 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "Nincs ilyen azonosítójú, email címû felhasználó"
 
-msgid "Specify a login, or an email address, but not both"
+msgid "Specify your login or email address"
 msgstr "Egy azonosító vagy email cím megadása szükséges, de egyszerre mindkettõt nem lehet megadni."
 
 msgid "Generate password"

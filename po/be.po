@@ -621,8 +621,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "З такім лагінам ці адрасам карыстальнікаў не знойдзена."
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "Укажыце лагін альбо адрас электронная пошты (але не абодва адразу)"
+msgid "Specify your login or email address"
+msgstr "Укажыце лагін альбо адрас электронная пошты"
 
 msgid "Generate password"
 msgstr "Сгенерырываць пароль"

@@ -526,8 +526,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "Kein User mit dieser User-ID oder E-Mail Adress"
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "Bitte entweder User-ID oder E-Mail Adresse angeben (nicht beides)"
+msgid "Specify your login or email address"
+msgstr "Bitte entweder User-ID oder E-Mail Adresse angeben"
 
 msgid "Generate password"
 msgstr "Passwort zurücksetzten"

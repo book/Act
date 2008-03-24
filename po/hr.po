@@ -621,8 +621,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "Korisnik takvog korisničkog imena ili email-a nije pronađen."
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "Navedite korisničko ime ili email adresu, ali ne oboje."
+msgid "Specify your login or email address"
+msgstr "Navedite korisničko ime ili email adresu."
 
 msgid "Generate password"
 msgstr "Resetirajte password"

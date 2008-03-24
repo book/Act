@@ -618,8 +618,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "このログイン名または Email アドレスのユーザは見つかりませんでした"
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "ログイン名または Email アドレスを入力してください (どちらか一方)"
+msgid "Specify your login or email address"
+msgstr "ログイン名または Email アドレスを入力してください"
 
 msgid "Generate password"
 msgstr "パスワードをリセット"
