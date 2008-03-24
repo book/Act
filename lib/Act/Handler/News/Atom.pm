@@ -47,10 +47,9 @@ sub handler
         $entry->title($item->title);
         $entry->id($Config->general_full_uri . $Request{language} . '/' . $item->news_id);
         unless ($authors{$item->user_id}) {
-            my $user = Act::User->new(user_id => $item->user_id);
             my $person = XML::Atom::Person->new;
-            $person->email($user->email);
-            $person->name($user->nick_name || $user->full_name);
+            $person->email($item->{user}->email);
+            $person->name($item->{user}->nick_name || $item->{user}->full_name);
             $authors{$item->user_id} = $person;
         }
         $entry->author($authors{$item->user_id});
@@ -60,7 +59,7 @@ sub handler
         add_link($entry,
                  type => 'text/html',
                  rel  => 'alternate',
-                 href => $Config->general_full_uri . "news?language=$Request{language}");
+                 href => $item->{link});
 
         $feed->add_entry($entry);
     }

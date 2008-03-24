@@ -6,17 +6,19 @@ use DateTime;
 use Act::Config;
 use Act::News;
 use Act::User;
+use Act::Util;
 
 sub fetch
 {
     my $count = shift || 0;
+    my $news_id = shift;
 
     # fetch this conference's published news items
-    my $cnews = Act::News->get_items(
-                        conf_id   => $Request{conference},
-                        lang      => $Request{language},
-                        published => 1,
+    my %args = ( conf_id   => $Request{conference},
+                 published => 1,
                );
+    $args{news_id} = $news_id if $news_id;
+    my $cnews = Act::News->get_items(%args);
 
     my @news;
     my %users;
@@ -32,6 +34,10 @@ sub fetch
 
         # fetch user
         $n->{user} = $users{$n->user_id} ||= Act::User->new(user_id => $n->user_id);
+
+        # permalink
+        $n->{link} = $Config->general_full_uri . 'news/' . $n->{news_id};
+
         push @news, $n;
     }
     # apply optional limit

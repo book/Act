@@ -1,15 +1,32 @@
 use strict;
 package Act::Handler::News::List;
 
+use Apache::Constants qw(NOT_FOUND);
+
 use Act::Config;
 use Act::Handler::News::Fetch;
 use Act::Template::HTML;
 
 sub handler
 {
-    # fetch this conference's published news items
-    my $news = Act::Handler::News::Fetch::fetch();
-
+    # retrieve optional news_id
+    my $news;
+    my $news_id = $Request{path_info};
+    if ($news_id) {
+        unless ($news_id =~ /^\d+$/) {
+            $Request{status} = NOT_FOUND;
+            return;
+        }
+        $news = Act::Handler::News::Fetch::fetch(1, $news_id);
+        unless (@$news) {
+            $Request{status} = NOT_FOUND;
+            return;
+        }
+    }
+    else {
+        # fetch this conference's published news items
+        $news = Act::Handler::News::Fetch::fetch();
+    }
     # convert to local time
     for (@$news) {
         $_->datetime->set_time_zone('UTC');

@@ -9,7 +9,7 @@ anywere in the web site. Atom feeds are automatically generated.
 
   <div class="newsbox">
     [% FOREACH item = global.news %]
-    <p><h3>[% item.title %]</h3>
+    <p><h3><a href="[% item.link %]">[% item.title %]</a></h3>
     <em>[% date_format(item.datetime, 'datetime_short') %] by [% user_info(item.user) %]</em>
     <br>
     [% item.content %]</p>
