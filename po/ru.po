@@ -621,8 +621,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "С таким логином или адресом пользователей не найдено"
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "Укажите логин или адрес электронной почты (но не оба вместе)"
+msgid "Specify your login or email address"
+msgstr "Укажите логин или адрес электронной почты"
 
 msgid "Generate password"
 msgstr "Сбросить пароль"

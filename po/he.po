@@ -621,8 +621,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "לא נמצא אף משתמש אם שם משתמש או כתובת דוא\"ל אילו"
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "הזן שם משתמש או כתובת דוא\"ל, (אך לא את שניהם)"
+msgid "Specify your login or email address"
+msgstr "הזן שם משתמש או כתובת דוא\"ל"
 
 msgid "Generate password"
 msgstr "אפס סיסמה"

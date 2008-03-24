@@ -630,8 +630,8 @@ msgstr ""
 msgid "No user was found with this login or email address"
 msgstr "Aucun utilisateur avec cet identifiant ou adresse email."
 
-msgid "Specify a login, or an email address, but not both"
-msgstr "Spécifier soit un identifiant, soit une adresse email."
+msgid "Specify your login or email address"
+msgstr "Spécifier votre identifiant ou votre adresse email."
 
 msgid "Generate password"
 msgstr "Nouveau mot de passe"

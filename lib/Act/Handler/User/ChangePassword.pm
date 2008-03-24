@@ -28,17 +28,8 @@ my $twostep_form = Act::Form->new(
   },
   global => [ sub {
     my $fields = shift;
-    # exactly one of the fields must be provided
-    my %key;
-    for my $f (qw(login email)) {
-        if ($fields->{$f}) {
-            if (%key) {
-                %key = ();
-                last;
-            }
-            %key = ($f => $fields->{$f});
-        }
-    }
+    # at least one of the fields must be provided
+    my %key = map { $_ => $fields->{$_} } grep $fields->{$_}, qw(login email);
     unless (%key) {
         $fields->{error} = 'ERR_LOGIN_OR_EMAIL';
         return;
