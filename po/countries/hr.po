@@ -1,0 +1,744 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "Andora"
+
+msgid "country_ae"
+msgstr "Ujedinjeni Arapski Emirati"
+
+msgid "country_af"
+msgstr "Afganistan"
+
+msgid "country_ag"
+msgstr "Antigva i Barbuda"
+
+msgid "country_ai"
+msgstr "Angvila"
+
+msgid "country_al"
+msgstr "Albanija"
+
+msgid "country_am"
+msgstr "Armenija"
+
+msgid "country_an"
+msgstr "Nizozemski Antili"
+
+msgid "country_ao"
+msgstr "Angola"
+
+msgid "country_aq"
+msgstr "Antarktika"
+
+msgid "country_ar"
+msgstr "Argentina"
+
+msgid "country_as"
+msgstr "Američka Samoa"
+
+msgid "country_at"
+msgstr "Austrija"
+
+msgid "country_au"
+msgstr "Australija"
+
+msgid "country_aw"
+msgstr "Aruba"
+
+msgid "country_ax"
+msgstr "Ålandski otoci"
+
+msgid "country_az"
+msgstr "Azerbejdžan"
+
+msgid "country_ba"
+msgstr "Bosna i Hercegovina"
+
+msgid "country_bb"
+msgstr "Barbados"
+
+msgid "country_bd"
+msgstr "Bangladeš"
+
+msgid "country_be"
+msgstr "Belgija"
+
+msgid "country_bf"
+msgstr "Burkina Faso"
+
+msgid "country_bg"
+msgstr "Bugarska"
+
+msgid "country_bh"
+msgstr "Bahrein"
+
+msgid "country_bi"
+msgstr "Burundi"
+
+msgid "country_bj"
+msgstr "Benin"
+
+msgid "country_bl"
+msgstr "Saint-Barthélemy"
+
+msgid "country_bm"
+msgstr "Bermuda"
+
+msgid "country_bn"
+msgstr "Brunej"
+
+msgid "country_bo"
+msgstr "Bolivija"
+
+msgid "country_br"
+msgstr "Brazil"
+
+msgid "country_bs"
+msgstr "Bahami"
+
+msgid "country_bt"
+msgstr "Butan"
+
+msgid "country_bv"
+msgstr "Otok Bouvet"
+
+msgid "country_bw"
+msgstr "Bocvana"
+
+msgid "country_by"
+msgstr "Bjelorusija"
+
+msgid "country_bz"
+msgstr "Belize"
+
+msgid "country_ca"
+msgstr "Kanada"
+
+msgid "country_cc"
+msgstr "Kokosovi otoci"
+
+msgid "country_cd"
+msgstr "Demokratska Republika Kongo"
+
+msgid "country_cf"
+msgstr "Srednjoafrička Republika"
+
+msgid "country_cg"
+msgstr "Republika Kongo"
+
+msgid "country_ch"
+msgstr "Švicarska"
+
+msgid "country_ci"
+msgstr "Bjelokosna Obala"
+
+msgid "country_ck"
+msgstr "Kukovi Otoci"
+
+msgid "country_cl"
+msgstr "Čile"
+
+msgid "country_cm"
+msgstr "Kamerun"
+
+msgid "country_cn"
+msgstr "Kina"
+
+msgid "country_co"
+msgstr "Kolumbija"
+
+msgid "country_cr"
+msgstr "Kostarika"
+
+msgid "country_cu"
+msgstr "Kuba"
+
+msgid "country_cv"
+msgstr "Zelenortska Republika"
+
+msgid "country_cx"
+msgstr "Božićni otok"
+
+msgid "country_cy"
+msgstr "Cipar"
+
+msgid "country_cz"
+msgstr "Češka"
+
+msgid "country_de"
+msgstr "Njemačka"
+
+msgid "country_dj"
+msgstr "Džibuti"
+
+msgid "country_dk"
+msgstr "Danska"
+
+msgid "country_dm"
+msgstr "Dominika"
+
+msgid "country_do"
+msgstr "Dominikanska Republika"
+
+msgid "country_dz"
+msgstr "Alžir"
+
+msgid "country_ec"
+msgstr "Ekvador"
+
+msgid "country_ee"
+msgstr "Estonija"
+
+msgid "country_eg"
+msgstr "Egipat"
+
+msgid "country_eh"
+msgstr "Zapadna Sahara"
+
+msgid "country_er"
+msgstr "Eritreja"
+
+msgid "country_es"
+msgstr "Španjolska"
+
+msgid "country_et"
+msgstr "Etiopija"
+
+msgid "country_fi"
+msgstr "Finska"
+
+msgid "country_fj"
+msgstr "Fidži"
+
+msgid "country_fk"
+msgstr "Falklandski Otoci"
+
+msgid "country_fm"
+msgstr "Savezne Države Mikronezije"
+
+msgid "country_fo"
+msgstr "Føroyar"
+
+msgid "country_fr"
+msgstr "Francuska"
+
+msgid "country_ga"
+msgstr "Gabon"
+
+msgid "country_gb"
+msgstr "Ujedinjeno Kraljevstvo"
+
+msgid "country_gd"
+msgstr "Grenada"
+
+msgid "country_ge"
+msgstr "Gruzija"
+
+msgid "country_gf"
+msgstr "Francuska Gvajana"
+
+msgid "country_gg"
+msgstr "Guernsey"
+
+msgid "country_gh"
+msgstr "Gana"
+
+msgid "country_gi"
+msgstr "Gibraltar"
+
+msgid "country_gl"
+msgstr "Grenland"
+
+msgid "country_gm"
+msgstr "Gambija"
+
+msgid "country_gn"
+msgstr "Gvineja"
+
+msgid "country_gp"
+msgstr "Gvadalupa"
+
+msgid "country_gq"
+msgstr "Ekvatorska Gvineja"
+
+msgid "country_gr"
+msgstr "Grčka"
+
+msgid "country_gs"
+msgstr "South Georgia and the South Sandwich Islands"
+
+msgid "country_gt"
+msgstr "Gvatemala"
+
+msgid "country_gu"
+msgstr "Guam"
+
+msgid "country_gw"
+msgstr "Gvineja Bisau"
+
+msgid "country_gy"
+msgstr "Gvajana"
+
+msgid "country_hk"
+msgstr "Hong Kong"
+
+msgid "country_hm"
+msgstr "Otok Heard i otočje McDonald"
+
+msgid "country_hn"
+msgstr "Honduras"
+
+msgid "country_hr"
+msgstr "Hrvatska"
+
+msgid "country_ht"
+msgstr "Haiti"
+
+msgid "country_hu"
+msgstr "Mađarska"
+
+msgid "country_id"
+msgstr "Indonezija"
+
+msgid "country_ie"
+msgstr "Irska"
+
+msgid "country_il"
+msgstr "Izrael"
+
+msgid "country_im"
+msgstr "Otok Man"
+
+msgid "country_in"
+msgstr "Indija"
+
+msgid "country_io"
+msgstr "Britanski indijskooceanski teritoriji"
+
+msgid "country_iq"
+msgstr "Irak"
+
+msgid "country_ir"
+msgstr "Iran"
+
+msgid "country_is"
+msgstr "Island"
+
+msgid "country_it"
+msgstr "Italija"
+
+msgid "country_je"
+msgstr "Jersey"
+
+msgid "country_jm"
+msgstr "Jamajka"
+
+msgid "country_jo"
+msgstr "Jordan"
+
+msgid "country_jp"
+msgstr "Japan"
+
+msgid "country_ke"
+msgstr "Kenija"
+
+msgid "country_kg"
+msgstr "Kirgistan"
+
+msgid "country_kh"
+msgstr "Kambodža"
+
+msgid "country_ki"
+msgstr "Kiribati"
+
+msgid "country_km"
+msgstr "Komori"
+
+msgid "country_kn"
+msgstr "Sveti Kristofor i Nevis"
+
+msgid "country_kp"
+msgstr "Sjeverna Koreja"
+
+msgid "country_kr"
+msgstr "Južna Koreja"
+
+msgid "country_kw"
+msgstr "Kuvajt"
+
+msgid "country_ky"
+msgstr "Kajmanski Otoci"
+
+msgid "country_kz"
+msgstr "Kazahstan"
+
+msgid "country_la"
+msgstr "Laos"
+
+msgid "country_lb"
+msgstr "Libanon"
+
+msgid "country_lc"
+msgstr "Sveta Lucija"
+
+msgid "country_li"
+msgstr "Lihtenštajn"
+
+msgid "country_lk"
+msgstr "Šri Lanka"
+
+msgid "country_lr"
+msgstr "Liberija"
+
+msgid "country_ls"
+msgstr "Lesoto"
+
+msgid "country_lt"
+msgstr "Litva"
+
+msgid "country_lu"
+msgstr "Luksemburg"
+
+msgid "country_lv"
+msgstr "Latvija"
+
+msgid "country_ly"
+msgstr "Libija"
+
+msgid "country_ma"
+msgstr "Maroko"
+
+msgid "country_mc"
+msgstr "Monako"
+
+msgid "country_md"
+msgstr "Moldavija"
+
+msgid "country_me"
+msgstr "Crna Gora"
+
+msgid "country_mf"
+msgstr "Saint Martin"
+
+msgid "country_mg"
+msgstr "Madagaskar"
+
+msgid "country_mh"
+msgstr "Maršalovi Otoci"
+
+msgid "country_mk"
+msgstr "Makedonija"
+
+msgid "country_ml"
+msgstr "Mali"
+
+msgid "country_mm"
+msgstr "Mianmar"
+
+msgid "country_mn"
+msgstr "Mongolija"
+
+msgid "country_mo"
+msgstr "Makao"
+
+msgid "country_mp"
+msgstr "Sjevernomarijanski otoci"
+
+msgid "country_mq"
+msgstr "Martinik"
+
+msgid "country_mr"
+msgstr "Mauritanija"
+
+msgid "country_ms"
+msgstr "Montserrat"
+
+msgid "country_mt"
+msgstr "Malta"
+
+msgid "country_mu"
+msgstr "Mauricijus"
+
+msgid "country_mv"
+msgstr "Maldivi"
+
+msgid "country_mw"
+msgstr "Malavi"
+
+msgid "country_mx"
+msgstr "Meksiko"
+
+msgid "country_my"
+msgstr "Malezija"
+
+msgid "country_mz"
+msgstr "Mozambik"
+
+msgid "country_na"
+msgstr "Namibija"
+
+msgid "country_nc"
+msgstr "Nova Kaledonija"
+
+msgid "country_ne"
+msgstr "Niger"
+
+msgid "country_nf"
+msgstr "Otok Norfolk"
+
+msgid "country_ng"
+msgstr "Nigerija"
+
+msgid "country_ni"
+msgstr "Nikaragva"
+
+msgid "country_nl"
+msgstr "Nizozemska"
+
+msgid "country_no"
+msgstr "Norveška"
+
+msgid "country_np"
+msgstr "Nepal"
+
+msgid "country_nr"
+msgstr "Nauru"
+
+msgid "country_nu"
+msgstr "Niue"
+
+msgid "country_nz"
+msgstr "Novi Zeland"
+
+msgid "country_om"
+msgstr "Oman"
+
+msgid "country_pa"
+msgstr "Panama"
+
+msgid "country_pe"
+msgstr "Peru"
+
+msgid "country_pf"
+msgstr "Francuska Polinezija"
+
+msgid "country_pg"
+msgstr "Papua Nova Gvineja"
+
+msgid "country_ph"
+msgstr "Filipini"
+
+msgid "country_pk"
+msgstr "Pakistan"
+
+msgid "country_pl"
+msgstr "Poljska"
+
+msgid "country_pm"
+msgstr "Sveti Petar i Mikelon"
+
+msgid "country_pn"
+msgstr "Pitcairn"
+
+msgid "country_pr"
+msgstr "Portoriko"
+
+msgid "country_ps"
+msgstr "Palestina"
+
+msgid "country_pt"
+msgstr "Portugal"
+
+msgid "country_pw"
+msgstr "Palau"
+
+msgid "country_py"
+msgstr "Paragvaj"
+
+msgid "country_qa"
+msgstr "Katar"
+
+msgid "country_re"
+msgstr "Réunion"
+
+msgid "country_ro"
+msgstr "Rumunjska"
+
+msgid "country_rs"
+msgstr "Srbija"
+
+msgid "country_ru"
+msgstr "Rusija"
+
+msgid "country_rw"
+msgstr "Ruanda"
+
+msgid "country_sa"
+msgstr "Saudijska Arabija"
+
+msgid "country_sb"
+msgstr "Solomonski Otoci"
+
+msgid "country_sc"
+msgstr "Sejšeli"
+
+msgid "country_sd"
+msgstr "Sudan"
+
+msgid "country_se"
+msgstr "Švedska"
+
+msgid "country_sg"
+msgstr "Singapur"
+
+msgid "country_sh"
+msgstr "Sveta Helena"
+
+msgid "country_si"
+msgstr "Slovenija"
+
+msgid "country_sj"
+msgstr "Svalbard"
+
+msgid "country_sk"
+msgstr "Slovačka"
+
+msgid "country_sl"
+msgstr "Sijera Leone"
+
+msgid "country_sm"
+msgstr "San Marino"
+
+msgid "country_sn"
+msgstr "Senegal"
+
+msgid "country_so"
+msgstr "Somalija"
+
+msgid "country_sr"
+msgstr "Surinam"
+
+msgid "country_st"
+msgstr "Sveti Toma i Princip"
+
+msgid "country_sv"
+msgstr "Salvador"
+
+msgid "country_sy"
+msgstr "Sirija"
+
+msgid "country_sz"
+msgstr "Svazi"
+
+msgid "country_tc"
+msgstr "Otoci Turks i Caicos"
+
+msgid "country_td"
+msgstr "Čad"
+
+msgid "country_tf"
+msgstr "Francuski južni i antarktički teritoriji"
+
+msgid "country_tg"
+msgstr "Togo"
+
+msgid "country_th"
+msgstr "Tajland"
+
+msgid "country_tj"
+msgstr "Tadžikistan"
+
+msgid "country_tk"
+msgstr "Tokelau"
+
+msgid "country_tl"
+msgstr "Istočni Timor"
+
+msgid "country_tm"
+msgstr "Turkmenistan"
+
+msgid "country_tn"
+msgstr "Tunis"
+
+msgid "country_to"
+msgstr "Tonga"
+
+msgid "country_tr"
+msgstr "Turska"
+
+msgid "country_tt"
+msgstr "Trinidad i Tobago"
+
+msgid "country_tv"
+msgstr "Tuvalu"
+
+msgid "country_tw"
+msgstr "Tajvan"
+
+msgid "country_tz"
+msgstr "Tanzanija"
+
+msgid "country_ua"
+msgstr "Ukrajina"
+
+msgid "country_ug"
+msgstr "Uganda"
+
+msgid "country_um"
+msgstr "United States Minor Outlying Islands"
+
+msgid "country_us"
+msgstr "Sjedinjene Američke Države"
+
+msgid "country_uy"
+msgstr "Urugvaj"
+
+msgid "country_uz"
+msgstr "Uzbekistan"
+
+msgid "country_va"
+msgstr "Vatikan"
+
+msgid "country_vc"
+msgstr "Sveti Vincent i Grenadini"
+
+msgid "country_ve"
+msgstr "Venezuela"
+
+msgid "country_vg"
+msgstr "Britanski Djevičanski otoci"
+
+msgid "country_vi"
+msgstr "Američki Djevičanski otoci"
+
+msgid "country_vn"
+msgstr "Vijetnam"
+
+msgid "country_vu"
+msgstr "Vanuatu"
+
+msgid "country_wf"
+msgstr "Wallis i Futuna"
+
+msgid "country_ws"
+msgstr "Samoa"
+
+msgid "country_ye"
+msgstr "Jemen"
+
+msgid "country_yt"
+msgstr "Mayotte"
+
+msgid "country_za"
+msgstr "Južnoafrička Republika"
+
+msgid "country_zm"
+msgstr "Zambija"
+
+msgid "country_zw"
+msgstr "Zimbabve"
+

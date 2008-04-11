@@ -74,6 +74,7 @@ conference...
   be: Andrei Protasovitski, Taras Ivanyukovich
   de: Thomas Klausner
   he: Uri Bruck
+  hr: Vedran Vukotic, Vlatko Kosturjak
   hu: Gábor Szabó
   it: Gianni "dakkar" Cecarelli
   ja: Kenichi Ishigaki, drry, Tatsuhiko Miyagawa

@@ -1,0 +1,1317 @@
+# Croatian translation of ACT
+# Vedran Vukotic <v-v_public at tehend dot com>
+# Vlatko Kosturjak <kost at linux dot hr>
+
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "Ček"
+
+msgid "payment_means_CASH"
+msgstr "Gotovina"
+
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+msgid "payment_means_XFER"
+msgstr "Nalog za prijenos"
+
+msgid "payment_means_FREE"
+msgstr "Slobodno"
+
+msgid "room_out"
+msgstr "Van"
+
+msgid "room_venue"
+msgstr "Lokacija"
+
+msgid "salutation_1"
+msgstr "gospodin"
+
+msgid "salutation_2"
+msgstr "gospođica"
+
+msgid "salutation_3"
+msgstr "gospođa"
+
+msgid "salutation_4"
+msgstr "Dr."
+
+msgid "User information"
+msgstr "Korisničke informacije"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "City"
+msgstr "Grad"
+
+msgid "Country"
+msgstr "Zemlja"
+
+msgid "Perl mongers group"
+msgstr "Grupa Perl mongera"
+
+msgid "Company"
+msgstr "Organizacija"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Web page"
+msgstr "Web stranica"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "GPG ID ključa"
+
+msgid "No photo"
+msgstr "Nema fotografije"
+
+msgid "Talk"
+msgstr "%numerate(%1,Predavanje)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Prihvaćeno predavanje)"
+
+msgid "minutes"
+msgstr "minuta"
+
+msgid "Lightning talk"
+msgstr "Munjeviti govori"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Other Act conferences:"
+msgstr "Druge Act konferencije:"
+
+msgid "Main private page"
+msgstr "Glavna osobna stranica"
+
+msgid "to <this conference>"
+msgstr "za %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Ovo je vaša osobna stranica.\n"
+"Odavde možete upravljati sa svime vezanim uz vaše prisustvo\n"
+
+msgid "to Act-enabled conferences."
+msgstr "za Act bazirane konferencije."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Kupili ste vašu konferencijsku kartu:"
+
+msgid "Order number"
+msgstr "Broj narudžbe"
+
+msgid "Payment date"
+msgstr "Nadnevak plaćanja"
+
+msgid "Amount paid"
+msgstr "Iznos plaćen"
+
+msgid "Download your invoice"
+msgstr "Dohvatite <a href=\"%1\">vaš račun</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Još uvijek niste kupili vašu konferencijsku kartu."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Molimo da razmislite o plaćanju putem našeg online sustava za plaćanje."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Molimo da razmislite o plaćanju kada naš online sustav za plaćanje proradi."
+
+msgid "You did not register for this conference"
+msgstr ""
+"Niste se <a href=\"%1\">registrirali za ovu konferenciju</a>.\n"
+"Molimo vas da to učinite ako planirate imati prezentaciju ili sudjelovati na neki drugi način.\n"
+
+msgid "You can:"
+msgstr "Možete:"
+
+msgid "purchase your conference ticket"
+msgstr "kupiti vašu konferencijsku kartu"
+
+msgid "register for this conference"
+msgstr "registrirati se za ovu konferenciju"
+
+msgid "update your information"
+msgstr "ažurirati vaše informacije"
+
+msgid "manage your photo"
+msgstr "upravljati vašom slikom"
+
+msgid "change your password"
+msgstr "promijeniti vašu lozinku"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "pogledati vaša predavanja (prihvaćena predavanja će biti označena <b>podebljano</b>)"
+
+msgid "submit a talk"
+msgstr "prijaviti izlaganje"
+
+msgid "log out"
+msgstr "odjava"
+
+msgid "unregister from <this conference>"
+msgstr "odjavite se sa %1"
+
+msgid "(You were there)"
+msgstr "(Bili ste ovdje)"
+
+msgid "(You are there)"
+msgstr "(Sada ste ovdje)"
+
+msgid "(You will be there)"
+msgstr "(Biti ćete ovdje)"
+
+msgid "Confirmation required"
+msgstr "Zahtjeva se potvrda"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Ova operacija zahtijeva potvrdu. Molimo vas da unesete vašu e-mail adresu,\n"
+"i dobiti će e-mail sa linkom za potvrdu.\n"
+
+msgid "You must enter your email"
+msgstr "Morate unijeti vaš e-mail"
+
+msgid "Your email address looks bogus."
+msgstr "Vaša e-mail adresa izgleda neispravna"
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"E-mail će biti poslan <b>%1</b>. Kliknite na link u e-mail kako bi\n"
+"završili ovu operaciju.\n"
+
+msgid "Confirmation email sent"
+msgstr "Potvrdni e-mail je poslan"
+
+msgid "In order to complete your operation"
+msgstr "Kako bi završili vašu operaciju na \"%1\", molimo kliknite na sljedeći link:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - potvrda"
+
+msgid "Registration"
+msgstr "Registracija"
+
+msgid "Sorry, this conference is over."
+msgstr "Žalim, ali ova konferencija je gotova"
+
+msgid "Please create your user below."
+msgstr "Molimo napravite vašeg korisnika ispod."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "Oznaka %1 se već koristi. Molimo koristite neku drugu."
+
+msgid "The address is already registered."
+msgstr "Adresa %1 je već registrirana"
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Vaša oznaka mora sadržavati najmanje tri slova i može sadržavati samo alfanumerike (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Morate unijeti vaše ime"
+
+msgid "You must enter your last name"
+msgstr "Morate unijeti vaše prezime"
+
+msgid "You must enter a country from the list"
+msgstr "Morate unijeti zemlju iz popisa"
+
+msgid "Accounts with similar information already exist."
+msgstr "Računi sa sličnim informacijama već postoje"
+
+msgid "A valid T-shirt size is required."
+msgstr "Morate navesti ispravnu veličinu majice."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Koristite gore navedeni link da provjerite ako ste jedan od njih. Ako da, jednostavno se\n"
+"<a href=\"%1\">prijavite</a> koristeći vaš postojeći korisnički račun.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Da bi ste se registrirali trebate prvo stvoriti korisnički račun na ovoj stranici.\n"
+"<b>Ukoliko već imate korisnički račun sa neke od prethodnih konferencija,\n"
+"ne morate se ponovno registrirati, već jednostavno \n"
+"<a href=\"%1\">prijaviti</a> koristeći vaš korisnički račun.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Ovdje navedeni osobni podatci koristit će se za\n"
+"<a href=\"%1\">online <i>tko-je-tko</i> popis</a> svih sudionika.\n"
+"Ovo može biti korisno nakon konferencije, ukoliko želite pristupiti \n"
+"nekome koga ste upoznali tijekom konferencije ili čak i prije, \n"
+"ako vas zanima koji će pristupnici biti prisutni.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Jednom kada imate korisnički račun biti će vam omogučeno online plaćanje\n"
+"da bi ste kupili ulaznicu za konferenciju. Molimo vas da \n"
+"uočite da su sve stvari koje se tiću vašeg bankovnog računa ili broja kreditne kartice \n"
+"rukovane od strane banke.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Mi nemamo pristup vašem broju kreditne kartice</b>\n"
+"Mi samo dobijemo novac na kraju. <tt>;-)</tt>\n"
+
+msgid "Please create the user below."
+msgstr "Molimo vas stvorite dolje navedenog korisnika."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Koristite gornji link da bi ste provjerili da li je jedan od navedenih korisnika taj kojega želite stvoriti. \n"
+"Ako da, samo ga selektirajte i potvrdite ovu formu.\n"
+
+msgid "Register"
+msgstr "Registrirajte"
+
+msgid "Registered!"
+msgstr "Registriran"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Čestitam, <b>%1</b>, sada ste registrirani\n"
+"Vaša lozinka je <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Ime"
+
+msgid "Last Name"
+msgstr "Prezime"
+
+msgid "T-Shirt"
+msgstr "Majica"
+
+msgid "Join!"
+msgstr "Pridružite se"
+
+msgid "edit"
+msgstr "uredi"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Prijava"
+
+msgid "Password"
+msgstr "Lozinka"
+
+msgid "Submit"
+msgstr "Pošalji"
+
+msgid "Forgot your password?"
+msgstr "Zaboravili ste lozinku? Klinknite <a href=\"%1\">ovdje</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Ova stranica koristi kolačiće da bi korisnike zadržala autentificiranim. \n"
+"Možda će te trebati dozvoliti vašem pregledniku da prihvaća kolačiće sa <b>%1</b> domene.\n"
+
+msgid "Incorrect login or password"
+msgstr "Neispravan login ili lozinka"
+
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Odlogirali ste se ili ste obrisali kolačić u vašem pregledniku."
+
+msgid "Other conferences"
+msgstr "Druge konferencije"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Rights management"
+msgstr "Upravljanje ovlastima"
+
+msgid "Events"
+msgstr "Događaji"
+
+msgid "Submit a new event"
+msgstr "Prijavite novi događaj"
+
+msgid "Schedule"
+msgstr "Raspored"
+
+msgid "iCal export"
+msgstr "izvoz u iCal"
+
+msgid "iCal import"
+msgstr "uvoz pomoću iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Prijavite prijedlog predavanja"
+
+msgid "Presentations"
+msgstr "Prezentacije"
+
+msgid "Treasurer"
+msgstr "Blagajnik"
+
+msgid "Payments"
+msgstr "Plaćanja"
+
+msgid "Edit profile"
+msgstr "Ažurirajte profil"
+
+msgid "New user"
+msgstr "Novi korisnik"
+
+msgid "Users"
+msgstr "Korisnici"
+
+msgid "Search"
+msgstr "Potraga"
+
+msgid "Statistics"
+msgstr "Statistike"
+
+msgid "CSV export"
+msgstr "CSV izvoz"
+
+msgid "Register a new user"
+msgstr "Registrirajte novog korisnika"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Raspored još nije spreman za gledanje."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Još nije odlučeno vrijeme i mjesto sljedećih predavanja."
+
+msgid "Speaker"
+msgstr "Predavač"
+
+msgid "Talk title"
+msgstr "Naslov predavanja"
+
+msgid "Duration"
+msgstr "Trajanje"
+
+msgid "Target audience"
+msgstr "Ciljana publika"
+
+msgid "Target audience:"
+msgstr "Ciljana publika:"
+
+msgid "abstract (link)"
+msgstr "Sažetak"
+
+msgid "talk (link)"
+msgstr "Predavanje"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "<b>Podebljana</b> predavanja su potvrđena od strane predavača."
+
+msgid "Time"
+msgstr "Vrijeme"
+
+msgid "Ticket for <conference name>."
+msgstr "Karta za %1."
+
+msgid "Price"
+msgstr "Cijena"
+
+msgid "Donation"
+msgstr "Donacija"
+
+msgid "Buy now!"
+msgstr "Kupite sada!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Napominjemo kako sa svim podacima vezanim uz vaš bankovni račun ili brojevima kreditnih kartica\n"
+"rukuje banka. <b>Mi nemamo pristupo vašim informacijama tijekom cijelog\n"
+"procesa plaćanja.</b> Mi samo dobijemo novac na kraju. <tt>;-)</tt>\n"
+
+msgid "Online payment"
+msgstr "Online plaćanje"
+
+msgid "Join"
+msgstr "Pridružite se"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Kako biste se registrirali za %1 konferenciju,\n"
+"jednostavno pritisnite gumb niže.\n"
+
+msgid "The recognised rights are:"
+msgstr "Prepoznata ovlaštenja su:"
+
+msgid "Organizer"
+msgstr "Organizator"
+
+msgid "Organizer (talks management)"
+msgstr "Organizator (upravljanje predavanjima)"
+
+msgid "Treasurer (payment management)"
+msgstr "Blagajnik (upravljanje plaćanjima)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (upravljanje pravima)"
+
+msgid "User rights"
+msgstr "Korisnička prava"
+
+msgid "Amount"
+msgstr "Iznos"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Ne možete biti pseudonimus sa praznim nadimkom"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Perl monger grupa mora završavati sa <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "URL Perl monger grupe mora početi sa http://"
+
+msgid "The company URL must start with http://"
+msgstr "URL organizacije mora početi sa http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "URL vaših web stranica mora početi sa http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Vaš perlmonks id mora biti broj"
+
+msgid "Number of family members attending must be a number"
+msgstr "Broj članova vaše obitelji koja posjećuje mora biti broj"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Nije ispravan GPG ID ključa: 8 heksadecimalni broj se očekuje"
+
+msgid "Salutation"
+msgstr "Zvanje"
+
+msgid "Nickname"
+msgstr "Nadimak"
+
+msgid "Stay pseudonymous"
+msgstr "Ostani pseudonimus"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Hide email"
+msgstr "Sakrij email"
+
+msgid "Coming with"
+msgstr "Dolazi sa"
+
+msgid "6 or more"
+msgstr "6 ili više"
+
+msgid "people (who will not attend the conference)"
+msgstr "ljudi (koji neće prisustvovati konferenciji)"
+
+msgid "T-shirt size"
+msgstr "Veličina majice"
+
+msgid "Full address"
+msgstr "Puna adresa"
+
+msgid "Timezone"
+msgstr "Vremenska zona"
+
+msgid "Monger group"
+msgstr "Monger grupa"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Grad.pm</em>, Ime grada na engleskom, molim)"
+
+msgid "Monger group URL"
+msgstr "URL Monger grupe"
+
+msgid "VAT Number"
+msgstr "Porezni broj"
+
+msgid "Company URL"
+msgstr "URL organizacije"
+
+msgid "GPG public key ID"
+msgstr "GPG ID javnog ključa"
+
+msgid "(please fill at least this one)"
+msgstr "(molimo unesite barem ovaj unos)"
+
+msgid "Update info"
+msgstr "Ažuriraj info"
+
+msgid "Your information"
+msgstr "Vaše informacije"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Ovo je simulacija. U pravim uvjetima, slanjem\n"
+"ovog uptinika odvelo bi vas na stranice banke gdje bi mogli\n"
+"unesite podatke o vašoj kreditnoj kartici.<br /><br />\n"
+"Kliknite Pošalji kako bi simulirali plaćanje.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Potvrđeni korisnici su označeni <b>podebljano</b> u popisu (kupili su\n"
+"svoju kartu ili drže predavanje).\n"
+
+msgid "Search for users"
+msgstr "Potraga za korisnicima"
+
+msgid "Search form"
+msgstr "Upitnik potrage"
+
+msgid "Any"
+msgstr "Bilo koje"
+
+msgid "Your photo"
+msgstr "Vaša slika"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Vaša slika se ne može pročitati. Molimo pošaljite vašu sliku u jednom od sljedećih formata:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Ova će slika završiti na <i>tko-je-tko</i> popisu konferencije,\n"
+"tako da bi vas ljudi mogli prepoznati ukoliko vas žele naći.<br/>\n"
+"Razmislite o tome prilikom uploadanja slike!\n"
+
+msgid "Delete Photo"
+msgstr "Obriši sliku"
+
+msgid "Update Photo"
+msgstr "Ažuriraj sliku"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Zahtjevano je ponovno postavljanje lozinke.\n"
+"Da bi ova operacija bila izvršena, molimo vas da kliknete na slijedeći link:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Ukoliko ste dobili ovu poruku a niste je zahtjevali, to je vjerojatno zato\n"
+"što je netko pokušao koristiti vaše korisničko ime ili lozinku.\n"
+"Najvjerojatnije se radi o grešci, te možete slobodno zanemariti ovu poruku.\n"
+
+msgid "Reset Password"
+msgstr "Resetiraj lozinku"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Specificirajte vaše <B>korisničko ime</B>, ili vašu <B>email adresu</B>.\n"
+"Dobiti će te te email sa opisanim postupkom ponovnog uspostavljanja vaše lozinke.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Korisnik takvog korisničkog imena ili email-a nije pronađen."
+
+msgid "Specify a login, or an email address, but not both"
+msgstr "Navedite korisničko ime ili email adresu, ali ne oboje."
+
+msgid "Generate password"
+msgstr "Resetirajte password"
+
+msgid "<conf name> Statistics"
+msgstr "%1 Statistika"
+
+msgid "There are n registered people"
+msgstr ""
+"%1 je registriranih korisnika\n"
+"sa ukupno %quant(%2,country,countries) različitih država\n"
+"a %quant(%3,monger group).\n"
+"Tu je ukupno %4 obavezanih korisnika,\n"
+"dakle osoba koje su kupile ulazinicu ili\n"
+"drže predavanje.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Možete pogledati statistike <a href=\"%1\">po državi</a>\n"
+"ili <a href=\"%2\">po gradu</a> \n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"Broj obvezanih korisnika je ispisan u zagradi u slijedećim tabelicama.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Kliknite na raznim linkovima da bi ste pronašli odgovarajuće korisnike"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Primjetite: Suma po državi nije uvijek ista sumi po gradovima.\n"
+"Ponekad gradovi nisu u pripadajućim državama.\n"
+"Krivite korisnike za to!\n"
+
+msgid "Cities"
+msgstr "Gradovi"
+
+msgid "No city information entered"
+msgstr "Podatci grada nisu uneseni"
+
+msgid "Countries"
+msgstr "Države"
+
+msgid "Monger groups"
+msgstr "Grupa mongera"
+
+msgid "Un-Registration"
+msgstr "Odjavljivanje"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Da bi ste se odjavili sa  %1,\n"
+"samo pritisnite gumb\n"
+
+msgid "Unregister from <conference>"
+msgstr "Odjaviti sa %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Podnijeti/Modificirati događaj koji nije predavanje."
+
+msgid "You must enter a title for the event"
+msgstr "Morate unijeti naziv događaja."
+
+msgid "You must enter a short description for the event"
+msgstr "Morate unijeti kratak opis događaja"
+
+msgid "Please choose a duration"
+msgstr "Molimo vas odaberite trajanje"
+
+msgid "The supplied date is invalid"
+msgstr "Navedeni datum nije važeći"
+
+msgid "The supplied time is invalid"
+msgstr "Navedeno vrijeme nije važeće"
+
+msgid "The date/time is out of range"
+msgstr "Datum/vrijeme je izvan raspona"
+
+msgid "Event URL is not a valid URL"
+msgstr "Adresa nije važeća"
+
+msgid "Incorrect room submitted"
+msgstr "Nevažeća soba"
+
+msgid "Please choose a target audience"
+msgstr "Molimo vas odaberite ciljno gledateljstvo"
+
+msgid "View"
+msgstr "Prikaz"
+
+msgid "Delete this event"
+msgstr "Obrišite događaj"
+
+msgid "Title"
+msgstr "Naslov"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Room"
+msgstr "Soba"
+
+msgid "Abstract"
+msgstr "izvod"
+
+msgid "(plain text)"
+msgstr "(obični tekst)"
+
+msgid "External URL"
+msgstr "Vanjski link"
+
+msgid "Submit this event"
+msgstr "Predaj ovaj događaj"
+
+msgid "Event submitted"
+msgstr "Događaj prihvaćen"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Hvala, događaj je zaprimljen kao: \n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Popis događaja"
+
+msgid "No event was submitted yet."
+msgstr "Nema postavljenih događaja."
+
+msgid "Event title"
+msgstr "Naziv događaja"
+
+msgid "Event removed"
+msgstr "Događaj izbrisan"
+
+msgid "The event has been removed."
+msgstr "Događaj <b>%1</b> je izbrisan."
+
+msgid "Date:"
+msgstr "Datum:"
+
+msgid "Not scheduled yet."
+msgstr "Nije još unijeto u raspored."
+
+msgid "Duration:"
+msgstr "Trajanje:"
+
+msgid "You can find more information on the following site:"
+msgstr "Više informacija možete pronaći na slijedećoj stranici:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - editiranje %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Netko je počinio izmjene ovom čvoru dok ste editirali.\n"
+"Morati će te ručno sastaviti novu verziju.\n"
+
+msgid "Current node contents:"
+msgstr "Saržaj trenutnog čvora:"
+
+msgid "Help"
+msgstr "Pomoć"
+
+msgid "Preview"
+msgstr "Pregled"
+
+msgid "Save"
+msgstr "Spremi"
+
+msgid "Your proposed revision:"
+msgstr "Vaša preložena revizija:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 Povijest"
+
+msgid "Version"
+msgstr "Verzija"
+
+msgid "Modified on"
+msgstr "Izmjenjeno: "
+
+msgid "By"
+msgstr "od strane"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "verzija"
+
+msgid "saved on"
+msgstr "izmjenjeno"
+
+msgid "Last modified:"
+msgstr "Zadnja izmjena"
+
+msgid "by"
+msgstr "od strane"
+
+msgid "new page"
+msgstr "nova stranica"
+
+msgid "Home"
+msgstr "početak"
+
+msgid "Revert to this version"
+msgstr "Vrati na ovu verziju"
+
+msgid "Edit this page"
+msgstr "Izmjeni ovu stranicu"
+
+msgid "Delete this page"
+msgstr "Obriši stranicu"
+
+msgid "Recent changes"
+msgstr "Nedavne promjene"
+
+msgid "History"
+msgstr "Povijest"
+
+msgid "Wiki help"
+msgstr "Wiki pomoć"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Formatiranje karaktera</h2>\n"
+"<ul>\n"
+"<li>Stavka unutar tri jednostruka navodnika je ispisana <b>masnim slovima</b>.</li>\n"
+"<li>Stavka unutar dva jednostruka navodnika je ispisana <i>kosim slovima</i>.</li>\n"
+"<li>Svaka stavka sa vise VelikihSlova postaje link.</li>\n"
+"</ul>\n"
+"<h2>Formatiranje odlomka</h2>\n"
+"<ul>\n"
+"<li>Četiri ili više crtica na početku linije označavaju horizontalnu liniju..</li>\n"
+"<li>Novi redovi se automatski pretvaraju u ipsravni tag.</li>\n"
+"<li>Zaglavlja sparaju znakove jednakosti oko teksta zavljavlja -- što više znakova to manje zaglavlje.</li>\n"
+"</ul>\n"
+"<h2>Liste</h2>\n"
+"<ul>\n"
+"<li>Liste su uvučeni tekst, jedan tab ili četiri razmaka.</li>\n"
+"<li>Kod nesortiranih lista, gdje svaka ima svoju oznako stavke, svaka zahtjeva početnu zvjezdinu i razmak.</li>\n"
+"<li>Sortirane liste se sastoje od stavki označene kombinacijom jednog ili više alfanumeričkih znakova nakon čega slijedi zared i razmak.</li>\n"
+"<li>Liste mogu biti ugniježdene.</li>\n"
+"</ul>\n"
+"<h2>Kod</h2>\n"
+"<ul>\n"
+"<li>Uvučeni tekst bez posebnog označavanja je kod.</li>\n"
+"</ul>\n"
+"<h2>Primjer:</h2>\n"
+"\n"
+"Slijedeće je ispravno formatiranje wikija sa jednim vanjskim linkom.\n"
+"<pre>\n"
+"\n"
+"        = moj tekst =\n"
+"\n"
+"        NormalniLink\n"
+"        [VanjskiLink|neka Sunce Sja]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:first_name last_name]\n"
+"        [talk:id]\n"
+"\n"
+"        == moje liste ==\n"
+"\n"
+"            * prva nesortirana stavka\n"
+"            * druga nesortirana stavka\n"
+"\n"
+"            1. prva sortirana stavka\n"
+"            2. druga sortirana stavka\n"
+"                        a. jedna ugnježdena stavka\n"
+"                        b. druga ugnježdena stavka\n"
+"\n"
+"            kod jedan\n"
+"            kod dva\n"
+"\n"
+"        Prva linija je normalni odlomak.\n"
+"        Druga linija je normalni odlomak. Buahaha.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Nedavne promjene"
+
+msgid "Page"
+msgstr "stranica"
+
+msgid "Changes in last"
+msgstr "Posljednje promjene"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,day)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,week)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,month)"
+
+msgid "Wiki tags"
+msgstr "Wiki tagovi"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki stranice tagirane %1"
+
+msgid "Administrative tasks"
+msgstr "Administrativni poslovi"
+
+msgid "Talks & events"
+msgstr "Razgovori i događaji"
+
+msgid "Credit card payment"
+msgstr "Plaćanje kreditnom karticom"
+
+msgid "Payment"
+msgstr "Plaćanje"
+
+msgid "Editing payment"
+msgstr "Modificiraj plaćanje"
+
+msgid "User"
+msgstr "korisnik"
+
+msgid "Payment means"
+msgstr "Plaćanje znaći"
+
+msgid "or"
+msgstr "ili"
+
+msgid "Update"
+msgstr "ažuriraj"
+
+msgid "speaker"
+msgstr "govornik"
+
+msgid "Total"
+msgstr "Ukupno"
+
+msgid "Payment confirmation"
+msgstr "Potvrda plaćanja"
+
+msgid "Your online payment for your <conf> registration has been approved."
+msgstr ""
+"Vaše online plaćanje za %1 registraciju je odobreno.\n"
+"\n"
+"Broj narudžbe: %2\n"
+"Datum plaćanja: %3 GMT\n"
+"Svota: %4 %5 (%6)\n"
+"\n"
+"Broj vaše narudžbe je %2.\n"
+"Nemojte zaboraviti donijeti taj broj na konferenciju\n"
+"\n"
+"Hvala vam za dolazak na %1!\n"
+
+msgid "Invoice #"
+msgstr "Račun br."
+
+msgid "Dated"
+msgstr "Datirano"
+
+msgid "Printed on"
+msgstr "Ispisano na"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Quantity"
+msgstr "Količina"
+
+msgid "Unit Price"
+msgstr "Jedinična cijena"
+
+msgid "<conf> registration"
+msgstr "%1 registracija"
+
+msgid "Your order number:"
+msgstr "Broj vaše narudžbe:"
+
+msgid "Total due"
+msgstr "Ukupan dug"
+
+msgid "Invoice"
+msgstr "račun"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Ovu stranicu možete ispisati. Samo će dolje navedeni račun biti ispisan."
+
+msgid "Printer friendly version"
+msgstr "Prikaz za ispis"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Postavljanje računa zahtjeva vašu adresu."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Molimo vas osigurajte da su podatci za naplatu ispravni."
+
+msgid "Address"
+msgstr "Addresa"
+
+msgid "I confirm"
+msgstr "Potvrđujem"
+
+msgid "Submit/Edit a talk"
+msgstr "Podnesi/Izmjeni govor"
+
+msgid "You must specify a user"
+msgstr "Morate specificirati korisnika"
+
+msgid "You must enter a title for the talk"
+msgstr "Morate unijeti naziv govora"
+
+msgid "You must provide an abstract"
+msgstr "Morate prižiti izvod govora"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "Adresa izvoda nije ispravna"
+
+msgid "Talk URL is not a valid URL"
+msgstr "Adresa govora nije ispravna"
+
+msgid "Incorrect language"
+msgstr "Neispravan govor"
+
+msgid "Delete this talk"
+msgstr "Obriši ovaj govor"
+
+msgid "Track"
+msgstr "Prati"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "Language:"
+msgstr "Jezik:"
+
+msgid "Abstract URL"
+msgstr "Adresa izvoda"
+
+msgid "Talk URL"
+msgstr "Adresa govora"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Standarda trajanja %1 su:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Ako vam definirana vremena ne pašu za vaš govor, molimo vas da u komentaru\n"
+"upišete vrijeme koje bi ste željeli imati na raspolaganju.\n"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Polje za komentare se koristi za komonikaciju sa organizatorima u svezi s ovim govorom\n"
+
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "prihvaćeno"
+
+msgid "confirmed"
+msgstr "potvrđeno"
+
+msgid "Accepted"
+msgstr "Prihvaćeno"
+
+msgid "Pending"
+msgstr "nerješeno"
+
+msgid "Submit this talk"
+msgstr "Prijavi ovaj govor"
+
+msgid "Talk submitted"
+msgstr "Govor prijavljen"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Hvala, vaš govor je prijavljen kao <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "iCal uvoz"
+
+msgid "The following talks have been updated:"
+msgstr "Slijedeći su govori ažurirani:"
+
+msgid "Old time"
+msgstr "Staro vrijeme"
+
+msgid "New time"
+msgstr "Novo vrijeme"
+
+msgid "title"
+msgstr "naslov"
+
+msgid "Upload an iCal file"
+msgstr "Pošalji iCal datoteku"
+
+msgid "Import"
+msgstr "Uvezi"
+
+msgid "List of talks"
+msgstr "Popis govora"
+
+msgid "List of talks tagged <tag>"
+msgstr "Popis govora tagiranih %1"
+
+msgid "No talk was submitted yet."
+msgstr "Nema prijavljenih govora"
+
+msgid "Submitted talks:"
+msgstr "Prijavljeni govori:"
+
+msgid "Accepted talks:"
+msgstr "Prihvaćeni govori:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Prihvaćeni govori su ispisani <b>masnim slovima</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Ukupno trajanje prihvaćenih govora:"
+
+msgid "hours"
+msgstr "sati"
+
+msgid "Accepted lightning talks:"
+msgstr "Prihvaćeni kraći govori:"
+
+msgid "Tracks"
+msgstr "sekcije"
+
+msgid "No track"
+msgstr "Nema sekcije"
+
+msgid "lightning"
+msgstr "kratko"
+
+msgid "from"
+msgstr "od"
+
+msgid "Comment:"
+msgstr "Komentar:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Više informacija možete naći na govornikovoj stranici::"
+
+msgid "Abstract:"
+msgstr "Izvod:"
+
+msgid "Talk:"
+msgstr "Govor:"
+
+msgid "Talk removed"
+msgstr "Govor obrisan"
+
+msgid "The Talk <title> has been removed."
+msgstr "Govor <b>%1</b> je obrisan."
+
+msgid "Talk inserted"
+msgstr "Govor umetnut"
+
+msgid "Talk updated"
+msgstr "Govor ažuriran"
+
+msgid "Submitted by:"
+msgstr "Prijavljeno od:"
+
+msgid "The following fields have been updated:"
+msgstr "Slijedeća su polja ažurirana:"
+
+msgid "By:"
+msgstr "Od:"
+
+msgid "Remember me on this computer"
+msgstr "Zapamti me na ovo m računalu"
+
+msgid "Billing"
+msgstr "Naplaćivanje"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Slijedeće je prihvaćeno:\n"
+"Molimo vas da kliknete na link da potvrdite vašu prezentaciju.\n"
+
+msgid "News"
+msgstr "Novosti"
+
+msgid "News Administration"
+msgstr "Administriranje novosti"
+
+msgid "Published"
+msgstr "Objavljeno"
+
+msgid "Create a new item"
+msgstr "Napravi novu stavku"
+
+msgid "Edit a news item"
+msgstr "Uredi stavku u novostima"
+
+msgid "You must enter a title"
+msgstr "Morate unijeti naslov"
+
+msgid "You must enter some text"
+msgstr "Morate unijeti nešto teksta"
+
+msgid "Delete this item"
+msgstr "Obrišite ovu stavku"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "No news yet!"
+msgstr "Nema još novosti!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Koristite HTML da bi ste formatirali vaš tekst. Sav će tekst unutar oznake novog reda biti pretvoren u odlomak."
+
+msgid "Add a new track"
+msgstr "Dodaj novu sekciju"
+
+msgid "Create/Edit a track"
+msgstr "Napravi/Uredi sekciju"
+
+msgid "Delete this track"
+msgstr "Obriši ovu sekciju"
+
+msgid "Submit this track"
+msgstr "Prijavi ovu sekciju"
+
+msgid "You must enter a title for the track"
+msgstr "Morate unijeti naslov za sekciju"
+
+msgid "n talks"
+msgstr "%quant(%1,predavanje)"
+
+msgid "n accepted"
+msgstr "%quant(%1,prihvaćeno,prihvaćeno)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,potvrđeno,potvrđeno"
+
+msgid "Change Password"
+msgstr "Promijeni Lozinku"
+
+msgid "Please type in your new password"
+msgstr "Molimo unesite vašu novu lozinku"
+
+msgid "Passwords don't match"
+msgstr "Lozinke se ne podudaraju"
+
+msgid "New password"
+msgstr "Nova lozinka"
+
+msgid "Enter your new password twice"
+msgstr "Unesite vašu lozinku dva puta"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"E-mail je poslan vama. Kliknite na link u vašem e-mailu kako\n"
+"bi pristupili vašem korisničkom računu i postavili novu lozinku.\n"
+
+msgid "Tags"
+msgstr "Tagovi"
+
+msgid "Tags:"
+msgstr "Tagovi:"
+
+msgid "add new tags:"
+msgstr "dodaj nove tagove:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Za poništenje registracije <b>%1 %2</b> iz %3,\n"
+"jednostavno pritisnite gumb niže.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Poništenje registracije %1 %2 iz %3"
+
+msgid "unregister"
+msgstr "odregistriraj"
+
+msgid "edit payment"
+msgstr "uredi plaćanje"
+
+msgid "view invoice"
+msgstr "pogledaj račun"
+
+msgid "create invoice"
+msgstr "napravi račun"
+
+msgid "enter payment"
+msgstr "unesi plaćanje"
+
