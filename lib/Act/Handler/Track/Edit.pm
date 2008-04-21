@@ -36,6 +36,11 @@ sub handler {
         return;
     }
 
+    # automatically compute the return URL
+    my $referer = $Request{r}->header_in('Referer');
+    $Request{args}{return_url} ||= $referer
+        if $referer =~ m{/(?:tracks)};
+
     if ($Request{args}{submit}) {
         # form has been submitted
         my @errors;
@@ -66,12 +71,19 @@ sub handler {
                 # redirect to track list
                 return Act::Util::redirect(make_uri('tracks'));
             }
+
+            # return to the referring URL if needed
+            return Act::Util::redirect( $Request{args}{return_url} )
+                if $Request{args}{return_url};
         }
         else {
             # map errors
             $form->{invalid}{title} && push @errors, 'ERR_TITLE';
         }
-        $template->variables(errors => \@errors);
+        $template->variables(
+            return_url => $Request{args}{return_url},
+            errors     => \@errors,
+        );
     }
 
     # display the track submission form
