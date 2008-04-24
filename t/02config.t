@@ -101,15 +101,35 @@ for my $conf (keys %{$Config->conferences}) {
     }
     else {
         ok(defined $cfg->$_, "$conf $_")
-            for qw(payment_open payment_prices payment_currency);
+            for qw(payment_open payment_currency);
         ok($cfg->$_, "$conf $_")
             for qw(payment_currency);
-        # prices
-        for my $i (1 .. $cfg->payment_prices) {
-            my $key = "price$i";
-            ok($cfg->get($key . '_amount'), "$conf $key amount");
-            ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
-                for keys %{$cfg->languages};
+        ok($cfg->payment_prices || $cfg->payment_products, "$conf payment prices or products");
+        if ($cfg->payment_prices) {     # old style prices
+            for my $i (1 .. $cfg->payment_prices) {
+                my $key = "price$i";
+                ok($cfg->get($key . '_amount'), "$conf $key amount");
+                ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
+                    for keys %{$cfg->languages};
+            }
+        }
+        if ($cfg->payment_products) {   # new style products
+            ok($cfg->payment_products, "$conf payment_products");
+            for my $product (split /\s+/, $cfg->payment_products) {
+                my $key = "product_$product";
+                ok($cfg->get($key . "_name_$_"), "$conf $key name_$_")
+                    for keys %{$cfg->languages};
+                my $prices = $cfg->get($key . "_prices");
+                ok($prices, "$conf $key prices");
+                for my $i (1..$prices) {
+                    my $pkey = $key . "_price$i";
+                    ok($cfg->get($pkey . '_amount'), "$conf $pkey amount");
+                    if ($prices > 1) {
+                        ok($cfg->get($pkey . "_name_$_"), "$conf $pkey name_$_")
+                            for keys %{$cfg->languages};
+                    }
+                }
+            }
         }
     }
     # remember payment type

@@ -418,9 +418,6 @@ msgstr "<b>ボールド</b>のトークはスピーカーの確認済みです�
 msgid "Time"
 msgstr "時間"
 
-msgid "Ticket for <conference name>."
-msgstr "%1 のチケット"
-
 msgid "Price"
 msgstr "価格"
 
@@ -955,18 +952,13 @@ msgstr "合計"
 msgid "Payment confirmation"
 msgstr "支払いの確認"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"%1 参加費のオンライン決済が承認されました。\n"
+"FIXME %1 参加費のオンライン決済が承認されました。\n"
 "\n"
 "注文番号: %2\n"
 "支払日: %3 GMT\n"
-"支払額: %4 %5 (%6)\n"
-"\n"
-"注文番号は %2 です。\n"
-"カンファレンスにお越しの際は必ずお持ちください。\n"
-"\n"
-"%1 へのご参加ありがとうございます!\n"
+"支払額: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "請求書番号"

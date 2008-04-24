@@ -18,7 +18,7 @@ sub create_form
         currency   => $order->currency,
         orderid    => $order->order_id,
         productid  => $Request{conference},
-        text       => $self->_item_name(),
+        text       => $order->title,
         language   => $Request{language},
         returnurl  => $self->_return_url(),
     );

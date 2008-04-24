@@ -421,9 +421,6 @@ msgstr "Выступлення, вызначаныя <b>тлустым</b>, па
 msgid "Time"
 msgstr "Час"
 
-msgid "Ticket for <conference name>."
-msgstr "Білет на %1."
-
 msgid "Price"
 msgstr "Цана"
 
@@ -962,18 +959,13 @@ msgstr "Усяго"
 msgid "Payment confirmation"
 msgstr "Пацверджанне плацяжа"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"Ваш анлайнавы плацеж за рэгістрацыю на канферэнцыі «%1» пацверджан.\n"
+"FIXME Ваш анлайнавы плацеж за рэгістрацыю на канферэнцыі «%1» пацверджан.\n"
 "\n"
 "Нумар вашага заказу: %2\n"
 "Дата плацяжа: %3 GMT\n"
-"Сума плацяжа: %4 %5 (%6)\n"
-"\n"
-"Нумар заказа — %2.\n"
-"Калі ласка, запомніце яго ці запішыце, каб паведаміць нумар, калі вы прыедзеце на канферэнцыю.\n"
-"\n"
-"Дзякуем за тое, што далучыліся да мерапрыемства «%1»!\n"
+"Сума плацяжа: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Рхунак №"

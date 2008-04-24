@@ -1,11 +1,8 @@
-use Test::More tests => 7;
+use Test::More tests => 16;
 use strict;
-use DateTime;
 use t::Util;
 use Act::Order;
 use Act::User;
-
-use constant AMOUNT => 42;
 
 $Request{conference} = 'conf'; # required for has_* methods
 
@@ -18,57 +15,65 @@ is_deeply( $order, {}, "create empty order with new()" );
 db_add_users();
 my $user = Act::User->new( login => 'echo' );
 
-# create an order
-my $now = DateTime->now();
-$order = Act::Order->create(
-   user_id   => $user->user_id,
-   conf_id   => 'conf',
-   amount    => AMOUNT,
-   currency  => 'EUR',
-   price     => 'Regular',
-   status    => 'init',
-   type      => 'FOO',
+_test(
+  {
+    amount          => 75,
+    name            => 'A Room with a View',
+    registration    => 0,
+  },
+  {
+    amount          => 25,
+    name            => 'La grande bouffe',
+    registration    => 0,
+  },
 );
-isa_ok( $order, 'Act::Order', 'create()' );
+ok( !$user->has_paid, "User has paid" );
 
-# check the order value (it works because $user has only one order)
-is_deeply( Act::Order->new( user_id => $user->user_id ),
-   {
-   order_id     => $order->order_id,
-   user_id      => $user->user_id,
-   conf_id      => 'conf',
-   datetime     => $now,
-   status       => 'init',
-   amount       => AMOUNT,
-   currency     => 'EUR',
-   price        => 'Regular',
-   means        => undef,
-   type         => 'FOO',
-   },
-  "fetch" );
-
-# reload the user, since the order was added after we got him
-$user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
-ok( !$user->has_paid, "User hasn't paid" );
-
-# update
-$now = DateTime->now();
-$order->update(status => 'paid', means => 'ONLINE');
-is_deeply(  Act::Order->new( order_id => $order->order_id ),
-   {
-   order_id     => $order->order_id,
-   user_id      => $user->user_id,
-   conf_id      => 'conf',
-   datetime     => $now,
-   status       => 'paid',
-   amount       => AMOUNT,
-   currency     => 'EUR',
-   price        => 'Regular',
-   means        => 'ONLINE',
-   type         => 'FOO',
-   },
-  "update" );
-
-# reload the user, since the order was updated after we got him
-$user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
+# test order with registration product
+_test(
+  {
+    amount          => 50,
+    name            => 'Registration',
+    registration    => 1,
+  },
+);
 ok( $user->has_paid, "User has paid" );
+
+sub _test
+{
+    my @items = @_;
+
+    # create a new order
+    my $order = Act::Order->create(
+       user_id   => $user->user_id,
+       conf_id   => 'conf',
+       currency  => 'EUR',
+       status    => 'init',
+       type      => 'FOO',
+       items     => \@items,
+    );
+    isa_ok( $order, 'Act::Order', 'create()' );
+
+    # fetch
+    my $fetched = Act::Order->new( order_id => $order->order_id );
+    is_deeply($fetched, $order, "fetch");
+    my $fetched_items = $fetched->items;
+    delete $_->{item_id} for @$fetched_items;
+    is_deeply($fetched_items, \@items, "items");
+
+    # reload the user, since the order was added after we got him
+    $user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
+    ok( !$user->has_paid, "User hasn't paid" );
+
+    # update
+    $order->update(status => 'paid', means => 'ONLINE');
+    $fetched = Act::Order->new( order_id => $order->order_id );
+    is_deeply($fetched, $order, "update");
+    $fetched_items = $fetched->items;
+    delete $_->{item_id} for @$fetched_items;
+    is_deeply($fetched_items, \@items, "items");
+
+    # reload the user, since the order was updated after we got him
+    $user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
+}
+

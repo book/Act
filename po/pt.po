@@ -421,9 +421,6 @@ msgstr "As apresentações em <b>negrito</b> já foram confirmadas pelos respect
 msgid "Time"
 msgstr "Hora"
 
-msgid "Ticket for <conference name>."
-msgstr "Bilhete para %1."
-
 msgid "Price"
 msgstr "Preço"
 
@@ -961,19 +958,14 @@ msgstr "Total"
 msgid "Payment confirmation"
 msgstr "Confirmação de pagamento"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"O seu pagamento on-line para o registo na %1\n"
+"FIXME O seu pagamento on-line para o registo na %1\n"
 "foi aprovado.\n"
 "\n"
 "Número da compra: %2\n"
 "Data de pagamento: %3 GMT\n"
-"Valor pago: %4 %5 (%6)\n"
-"\n"
-"O seu número de compra é %2.\n"
-"Não se esqueça de o ter quando vier para a conferência.\n"
-"\n"
-"Obrigado por se juntar à %1!\n"
+"Valor pago: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Factura nº"

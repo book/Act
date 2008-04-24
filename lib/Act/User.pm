@@ -14,9 +14,6 @@ our $primary_key = 'user_id';
 
 our %sql_stub    = (
     select     => "u.*",
-    select_opt => {
-        committed => sub { exists $_[0]{conf_id} ? [ conf_id => "(EXISTS(SELECT 1 FROM talks t WHERE t.user_id=u.user_id AND t.conf_id=? AND t.accepted IS TRUE) OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=u.user_id AND o.conf_id=? AND o.status = 'paid') OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=u.user_id AND r.conf_id=? AND r.right_id IN ('orga','staff'))) AS committed" ] : () },
-    },
     from       => "users u",
     from_opt   => [
         sub { exists $_[0]{conf_id} ? "participations p" : () },
@@ -127,27 +124,45 @@ sub participation {
 }
 
 # some data related to the visited conference (if any)
-# the information must always be expected as user_id, conf_id
 my %methods = (
-    has_talk =>
+    has_talk => [
         "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=?",
-    has_accepted_talk =>
+        sub { ( $_[0]->user_id, $Request{conference} ) },
+    ],
+    has_accepted_talk => [
         "SELECT count(*) FROM talks t WHERE t.user_id=? AND t.conf_id=? AND t.accepted",
-    has_paid  => 
-        "SELECT count(*) FROM orders o WHERE o.user_id=? AND o.conf_id=? AND o.status = 'paid'",
-    has_registered => 
+        sub { ( $_[0]->user_id, $Request{conference} ) },
+    ],
+    has_paid  => [
+        "SELECT count(*) FROM orders o, order_items i
+            WHERE o.user_id=? AND o.conf_id=?
+              AND o.status = ?
+              AND o.order_id = i.order_id
+              AND i.registration",
+        sub { ( $_[0]->user_id, $Request{conference}, 'paid' ) },
+    ],
+    has_registered => [
         'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=?',
+        sub { ( $_[0]->user_id, $Request{conference} ) },
+    ],
 );
 
 for my $meth (keys %methods) {
     *{$meth} = sub {
+        my $self = shift;
+        return $self->{$meth} if exists $self->{$meth};
         # compute the data
-        my $sth = $Request{dbh}->prepare_cached( $methods{$meth} );
-        $sth->execute( $_[0]->user_id, $Request{conference} );
-        my $result = $sth->fetchrow_arrayref()->[0];
+        my ($sql, $getargs) = @{ $methods{$meth} };
+        my $sth = $Request{dbh}->prepare_cached($sql);
+        $sth->execute( $getargs->($self) );
+        $self->{$meth} = $sth->fetchrow_arrayref()->[0];
         $sth->finish();
-        return $result;
+        return $self->{$meth};
     };
+}
+sub committed {
+    my $self = shift;
+    return $self->has_paid || $self->has_accepted_talk || $self->is_orga || $self->is_staff;
 }
 
 sub participations {

@@ -1,0 +1,34 @@
+<div align="center">
+<table border="0">
+<tr>
+  <th>{{Order number}}</th>
+  <th>{{Payment date}}</th>
+  <th>{{Description}}</th>
+  <th>{{Amount paid}}</th>
+  [% IF global.config.payment_invoices %]<th>{{Invoice #}}</th>[% END %]
+</tr>
+[% FOREACH order IN orders %]
+<tr>
+  <td valign="top">[% order.order_id %]</td>
+  <td valign="top">[% date_format(order.datetime, 'datetime_short') %] UTC</td>
+  <td valign="top">
+[% IF order.items.size == 1 %]
+      [% order.items.0.name %]
+[% ELSE %]
+      <table border="0">
+      [% FOREACH item IN order.items %]
+      <tr><td>[% item.name %]</td>
+          <td>[% item.amount %] [% order.currency %]</td>
+      </tr>
+      [% END %]
+      </table>
+[% END %]
+  </td>
+  <td valign="top">[% order.amount %] [% order.currency %]</td>
+  [% IF global.config.payment_invoices %]
+    <td><a href="[% make_uri_info('invoice', order.order_id) %]">{{Invoice}}</a></td>
+  [% END %]
+</tr>
+[% END %]
+</table>
+</div>

@@ -6,16 +6,16 @@
 [% IF order_id %]
 <input type="hidden" name="order_id" value="[% order_id %]" />
 <tr>
- <td colspan="2">{{Editing payment}} <strong>[% order_id %]</strong></td>
+ <td colspan="3">{{Editing payment}} <strong>[% order_id %]</strong></td>
 </tr>
 [% END %]
 <tr>
  <td>{{User}}</td>
- <td><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
+ <td colspan="2"><a href="[% make_uri_info('user', user.user_id) %]"><strong>[% user.last_name %] [% user.first_name %]</strong></a></td>
 </tr>
 <tr>
  <td>{{Payment means}}</td>
- <td>
+ <td colspan="2">
   <select name="means">
     [% FOREACH m = allmeans.keys %]
         <option value="[% m %]"[% ' selected="selected"' IF m == means %]>[% allmeans.$m %]</option>
@@ -23,22 +23,27 @@
   </select>
  </td>
 </tr>
-<tr>
- <td><label for="form-price">{{Price}}</label></td>
- <td>
-  <select name="price" id="form-price">
-    [% isprice = 0;
-       FOREACH p = prices;
-         IF price AND price == p.name AND amount == p.amount; isprice = p.price_id ; END 
-    %]
-        <option value="[% p.price_id %]"[% ' selected="selected"' IF p.price_id == isprice %]
-           >[% p.name %] [% p.amount %] [% currency %]</option>
+[% FOREACH p IN productlist %]
+    [% NEXT IF p == 'registration' AND has_paid %]
+    <tr>
+        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td>[% products.$p.name %]</td>
+  [% IF products.$p.prices.size == 1 %]
+        <td>[% products.$p.prices.0.amount %] [% currency %]</td>
+    </tr>
+  [% ELSE %]
+        <td></td>
+    </tr>
+    [% FOREACH i IN products.$p.prices %]
+    <tr>
+        <td></td>
+        <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+            [% i.name %]</td>
+        <td>[% i.amount %] [% currency %]</td>
+    </tr>
     [% END %]
-  </select>
-  &nbsp;{{or}}&nbsp;
-  <input type="text" name="amount" value="[% amount IF amount AND NOT isprice %]" size="5" />
-  [% currency %]
- </td>
+  [% END %]
+[% END %]
 </tr>
 </table>
 <br />

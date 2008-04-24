@@ -101,20 +101,30 @@ conference.
     # currency. Valid values depends on the payment type
     currency    = EUR
     
-    # how many different registration prices
-    prices      = 2        
+    # the products your are selling
+    # these are non user visible product codes for configuration purposes only
+    # "registration" is special - it's the registration product
+    products    = registration classes accomodation
     
-    # Details on each price. name_ can be provided
-    # in each supported language, or at least in
-    # the default language
-    [price1]
-    name_en     = Regular price
-    name_fr     = Tarif normal
-    amount      = 25
+    # Details on each product
+    [product_registration]
+    name_en     = Registration
+    name_fr     = Inscription
+    prices      = 2
     
-    [price2]
-    name_en     = Reduced price
+    # omit price name if there's only one price
+    [product_registration_price1]
+    name_en     = Student price
+    name_fr     = Tarif réduit
     amount      = 15
+
+    [product_registration_price2]
+    name_en     = Normal price
+    name_fr     = Tarif normal
+    amount      = 20
+    
+    # configure any additional products
+    
 
 =head2 Infrastructure configuration
 

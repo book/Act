@@ -48,6 +48,7 @@ my %private_handlers = (
     newsadmin       => 'Act::Handler::News::Admin',
     newsedit        => 'Act::Handler::News::Edit',
     newtalk         => 'Act::Handler::Talk::Edit',
+    orders          => 'Act::Handler::User::Orders',
     payment         => 'Act::Handler::Payment::Payment',
     payments        => 'Act::Handler::Payment::List',
     photo           => 'Act::Handler::User::Photo',

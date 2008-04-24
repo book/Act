@@ -421,9 +421,6 @@ msgstr "Talks in <b>bold type</b> have been confirmed by their respective speake
 msgid "Time"
 msgstr "Time"
 
-msgid "Ticket for <conference name>."
-msgstr "Ticket for %1."
-
 msgid "Price"
 msgstr "Price"
 
@@ -963,18 +960,13 @@ msgstr "Total"
 msgid "Payment confirmation"
 msgstr "Payment confirmation"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"Your online payment for your %1 registration has been approved.\n"
+"Your online payment has been approved.\n"
 "\n"
 "Your order number: %2\n"
 "Payment date: %3 GMT\n"
-"Amount paid: %4 %5 (%6)\n"
-"\n"
-"Your order number is %2.\n"
-"Be sure to bring it along with you when you come to the conference.\n"
-"\n"
-"Thanks for joining %1!\n"
+"Amount paid: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Invoice #"
@@ -1315,4 +1307,19 @@ msgstr "create invoice"
 
 msgid "enter payment"
 msgstr "enter payment"
+
+msgid "Your purchases"
+msgstr "Your purchases"
+
+msgid "Your <conf> order #<id>"
+msgstr "Your $1 order #$2"
+
+msgid "make additional purchases"
+msgstr "make additional purchases"
+
+msgid "view all orders and invoices"
+msgstr "view all orders and invoices"
+
+msgid "Product"
+msgstr "Product"
 

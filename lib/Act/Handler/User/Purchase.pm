@@ -1,4 +1,5 @@
 package Act::Handler::User::Purchase;
+use strict;
 use Apache::Constants qw(NOT_FOUND);
 
 use Act::Config;
@@ -6,24 +7,21 @@ use Act::Form;
 use Act::Order;
 use Act::Payment;
 use Act::Template::HTML;
+use Act::Util;
 
 my $form = Act::Form->new(
-    required => [qw(price)],
     optional => [qw(donation)],
     constraints => {
-        price    => sub { Act::Payment::get_price($_[0]) },
         donation => 'numeric',
     }
 );
 sub handler
 {
-    # shouldn't get here unless the conference isn't free,
-    # online payment is open,
-    # and this user is registered and hasn't paid
+    # shouldn't get here unless online payment is open,
+    # and this user is registered 
     unless ($Config->payment_type ne 'NONE' &&
             $Config->payment_open &&
-            $Request{user}->has_registered() &&
-            !$Request{user}->has_paid)
+            $Request{user}->has_registered())
     {
         $Request{status} = NOT_FOUND;
         return;
@@ -31,28 +29,65 @@ sub handler
 
     $Request{r}->no_cache(1);
     my $template = Act::Template::HTML->new();
+    my ($productlist, $products) = Act::Payment::get_prices;
+    my $fields;
 
     if ($Request{args}{purchase}) {
         # form has been submitted
         # validate form fields
         my $ok = $form->validate($Request{args});
-        my $fields = $form->{fields};
+        $fields = $form->{fields};
+        # validate products and prices
+        my @items;
+        for my $p (@$productlist) {
+            if ($Request{args}{"product-$p"}) {
+                my $product = $products->{$p};
+                $product->{checked} = 1;
+                my $nprices = @{$product->{prices}};
+                my $price_id;
+                if ($nprices == 1) {
+                    $price_id = 1;
+                }
+                else {
+                    my $id = $Request{args}{"price-$p"};
+                    if ($id >= 1 && $id <= $nprices) {
+                        $price_id = $id;
+                    }
+                    else {
+                        $ok = 0;
+                    }
+                }
+                if ($price_id) {
+                    my $price = $product->{prices}[$price_id-1];
+                    my $name = $product->{name};
+                    $name = join(' - ', $name, $price->{name}) if $price->{name};
+                    push @items, {
+                        amount => $price->{amount},
+                        name   => $name,
+                        registration => $p eq 'registration',
+                    };
+                    $price->{checked} = 1;
+                }
+            }
+        }
+        if ($ok && $fields->{donation}) {
+            push @items, {
+                amount => $fields->{donation},
+                name   => localize('Donation'),
+            };
+        }
+        $ok = @items > 0 if $ok;
         if ($ok) {
-            # first form has been submitted
             # always a use a newly created order
             # (some banks will only process a given order_id once)
-            my $price = Act::Payment::get_price($fields->{price});
-            my $amount = $price->{amount}
-                       + $fields->{donation};
             my %f = (
                 user_id  => $Request{user}{user_id},
                 conf_id  => $Request{conference},
-                price    => $price->{name},
-                amount   => $amount,
                 currency => $Config->payment_currency,
                 type     => $Config->payment_type,
                 means    => 'ONLINE',
                 status   => 'init',
+                items    => \@items,
             );
             my $order = Act::Order->create(%f);
     
@@ -66,8 +101,10 @@ sub handler
     }
     # display the first form
     $template->variables(
-        currency => $Config->payment_currency,
-        prices   => Act::Payment::get_prices,
+        currency    => $Config->payment_currency,
+        productlist => $productlist,
+        products    => $products,
+        %$fields,
     );
     $template->process('user/purchase');
 }

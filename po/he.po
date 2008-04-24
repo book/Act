@@ -421,9 +421,6 @@ msgstr "הרצאות הכתב <b>מודגש type</b> אושרו על ידי המ
 msgid "Time"
 msgstr "זמן"
 
-msgid "Ticket for <conference name>."
-msgstr "כרטיס ל- %1."
-
 msgid "Price"
 msgstr "מחיר"
 
@@ -964,18 +961,13 @@ msgstr "סה\"כ"
 msgid "Payment confirmation"
 msgstr "אישור תשלום"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"התשלום המקוון כלך עבור הרשמה ל-%1 אושר.\n"
+"FIXME - התשלום המקוון כלך עבור הרשמה ל-%1 אושר.\n"
 "\n"
 "מספר הזמנה: %2\n"
 "תאריך תשלום: %3 GMT\n"
-"סכום: %4 %5 (%6)\n"
-"\n"
-"מספר ההזמנה שלך הוא %2.\n"
-"זכור להביא אותו איתך כשאתה מדיע לכנס.\n"
-"\n"
-"תודה על הצטרפותך %1!\n"
+"סכום: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "חשבונית #"
