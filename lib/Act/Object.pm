@@ -7,24 +7,30 @@ use DateTime::Format::Pg;
 
 use constant DEBUG => !$^C && $Config->database_debug;
 
+sub inflate_datetime { # timestamp without time zone
+    my $dt = shift;
+    ref $dt eq 'DateTime'
+        ? DateTime::Format::Pg->format_timestamp_without_time_zone($dt)
+        : $dt;
+}
+
+sub deflate_datetime { # timestamp without time zone
+    my $dt = shift;
+    ref $dt eq 'DateTime'
+        ? $dt
+        : DateTime::Format::Pg->parse_timestamp_without_time_zone($dt);
+}
+
 my %normalize = (
     pg => {
         #  4 => integer
         # 12 => text
-        SQL_TIMESTAMP() => sub { # timestamp without time zone
-            my $dt = shift;
-            ref $dt eq 'DateTime'
-            ? DateTime::Format::Pg->format_timestamp_without_time_zone($dt)
-            : $dt;
-        },
+        SQL_TIMESTAMP() => \&inflate_datetime,
+        SQL_TYPE_TIMESTAMP() => \&inflate_datetime,
     },
     perl => {
-        SQL_TIMESTAMP() => sub { # timestamp without time zone
-            my $dt = shift;
-            ref $dt eq 'DateTime'
-            ? $dt
-            : DateTime::Format::Pg->parse_timestamp_without_time_zone($dt);
-        }
+        SQL_TIMESTAMP() => \&deflate_datetime,
+        SQL_TYPE_TIMESTAMP() => \&deflate_datetime,
     },
 );
 
