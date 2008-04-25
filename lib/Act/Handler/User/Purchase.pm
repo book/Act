@@ -91,12 +91,25 @@ sub handler
             );
             my $order = Act::Order->create(%f);
     
-            # display second form (submits to the bank)
-            my $plugin = Act::Payment::load_plugin();
-            $template->variables_raw(form => $plugin->create_form($order));
-            $template->variables(order => $order);
-            $template->process('user/payment');
-            return;
+            my $total_amount;
+            $total_amount+=$_->{amount} for @items;
+
+            if ($total_amount > 0) {
+                # display second form (submits to the bank)
+                my $plugin = Act::Payment::load_plugin();
+                $template->variables_raw(form => $plugin->create_form($order));
+                $template->variables(order => $order);
+                $template->process('user/payment');
+                return;
+            }
+            else {
+                # nothing to pay
+                $order->update(status=>'paid');
+                # XXX should we send a confirmation e-mail?
+                $template->variables(order => $order);
+                $template->process('user/zeropayment');
+                return;
+            }
         }
     }
     # display the first form

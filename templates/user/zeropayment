@@ -1,0 +1,45 @@
+[% WRAPPER ui title = loc('Online payment (zero)') %]
+<div align="center">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+<tr>
+   <td align="left">
+      {{Name}}
+   </td>
+   <td>
+      [% global.request.user.first_name %] [% global.request.user.last_name %]
+   </td>
+</tr>
+<tr>
+   <td align="left">
+      {{Order number}}
+   </td>
+   <td>
+      [% order.order_id %]
+   </td>
+</tr>
+[% FOREACH i IN order.items %]
+<tr>
+    <td align="left">&nbsp;&nbsp;[% i.name %]</td>
+    <td>[% i.amount %] [% order.currency %]</td>
+</tr>
+[% END %]
+<tr>
+   <td align="left">
+      <strong>{{Amount}}</strong>
+   </td>
+   <td>
+      <strong>[% order.amount %] [% order.currency %]</strong>
+   </td>
+</tr>
+<tr>
+   <td colspan="2" align="center">
+   <a href="[% make_uri('main') %]">{{Nothing to pay, the order is already confirmed}}</a>
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</div>
+[% END %]
