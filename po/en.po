@@ -436,8 +436,14 @@ msgstr ""
 "is handled by the bank. <b>We do not have access to your credit information at\n"
 "any time during the payment process.</b> We just get the money in the end. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Since the total for this order is zero, you don't need to go through the actual payment. This order is completed"
+
 msgid "Online payment"
 msgstr "Online payment"
+
+msgid "Online payment (zero)"
+msgstr "Nothing to pay"
 
 msgid "Join"
 msgstr "Join"

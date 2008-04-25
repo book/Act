@@ -435,8 +435,14 @@ msgstr "Acquista"
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr "Notate che tutti i dettagli relativi al vostro conto in banca e carta di credito sono gestiti direttamente dalla banca: <b>in nessun momento noi avremo accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una volta terminata la transazione <tt>;-)</tt>.  "
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Il totale per questo ordine è zero: non serve affettuare il pagamento. Questo ordine è completo"
+
 msgid "Online payment"
 msgstr "Pagamento on-line"
+
+msgid "Online payment (zero)"
+msgstr "Ordine a costo zero"
 
 msgid "Join"
 msgstr "Iscrivimi a"
