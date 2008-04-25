@@ -1316,3 +1316,17 @@ msgstr "crea fattura"
 msgid "enter payment"
 msgstr "immetti pagamento"
 
+msgid "Your purchases"
+msgstr "I vostri acquisti"
+
+msgid "Your <conf> order #<id>"
+msgstr "Il vostro ordine #$2 per $1"
+
+msgid "make additional purchases"
+msgstr "fai ulteriori acquisti"
+
+msgid "view all orders and invoices"
+msgstr "mostra tutti gli ordini e le fatture"
+
+msgid "Product"
+msgstr "Prodotto"
