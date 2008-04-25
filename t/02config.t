@@ -123,7 +123,7 @@ for my $conf (keys %{$Config->conferences}) {
                 ok($prices, "$conf $key prices");
                 for my $i (1..$prices) {
                     my $pkey = $key . "_price$i";
-                    ok($cfg->get($pkey . '_amount'), "$conf $pkey amount");
+                    ok(defined $cfg->get($pkey . '_amount'), "$conf $pkey amount");
                     if ($prices > 1) {
                         ok($cfg->get($pkey . "_name_$_"), "$conf $pkey name_$_")
                             for keys %{$cfg->languages};
