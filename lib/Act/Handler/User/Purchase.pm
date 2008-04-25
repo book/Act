@@ -50,6 +50,8 @@ sub handler
                 price    => $price->{name},
                 amount   => $amount,
                 currency => $Config->payment_currency,
+                type     => $Config->payment_type,
+                means    => 'ONLINE',
                 status   => 'init',
             );
             my $order = Act::Order->create(%f);

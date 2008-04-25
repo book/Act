@@ -11,7 +11,7 @@ sub create_form
 
     # return the HTML form
     return $self->_process_form(
-        'payment/plugins/cybermut',
+        'payment/plugins/fake',
         '/fakeconfirm',
         {
             order_id    => $order->order_id,

@@ -28,10 +28,7 @@ sub handler
         $order = Act::Order->new(order_id => $order_id);
         if ($order && $order->status eq 'init') {
             # update order
-            $order->update(status => 'paid',
-                           means  => 'ONLINE',
-                           type   => $type,
-                          );
+            $order->update(status => 'paid');
             # send email notification
             _notify($order, $plugin);
         }
