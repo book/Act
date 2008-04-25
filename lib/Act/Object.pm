@@ -2,6 +2,7 @@ package Act::Object;
 use strict;
 use Act::Config;
 use Carp;
+use DBI qw(:sql_types);
 use DateTime::Format::Pg;
 
 use constant DEBUG => !$^C && $Config->database_debug;
@@ -10,7 +11,7 @@ my %normalize = (
     pg => {
         #  4 => integer
         # 12 => text
-        93 => sub { # timestamp without time zone
+        SQL_TIMESTAMP() => sub { # timestamp without time zone
             my $dt = shift;
             ref $dt eq 'DateTime'
             ? DateTime::Format::Pg->format_timestamp_without_time_zone($dt)
@@ -18,7 +19,7 @@ my %normalize = (
         },
     },
     perl => {
-        93 => sub { # timestamp without time zone
+        SQL_TIMESTAMP() => sub { # timestamp without time zone
             my $dt = shift;
             ref $dt eq 'DateTime'
             ? $dt
