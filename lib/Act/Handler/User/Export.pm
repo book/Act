@@ -8,7 +8,7 @@ use Act::Config;
 use Act::User;
 
 my @UROWS = qw(
-    user_id login email salutation first_name last_name nick_name country town pm_group
+    user_id login email salutation first_name last_name nick_name pseudonymous country town pm_group
     is_orga is_staff
     has_talk has_paid
 );
