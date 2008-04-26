@@ -165,6 +165,18 @@ CREATE TABLE events
 );
 CREATE INDEX events_idx ON events ( event_id, conf_id );
 
+/* my schedule */
+DROP   TABLE user_talks CASCADE;
+CREATE TABLE user_talks
+(
+    user_id     integer   NOT NULL,
+    conf_id     text      NOT NULL,
+    talk_id     integer   NOT NULL,
+    FOREIGN KEY( user_id  ) REFERENCES users( user_id ),
+    FOREIGN KEY( talk_id  ) REFERENCES talks( talk_id )
+);
+CREATE INDEX user_talks_idx ON user_talks ( user_id, talk_id );
+
 /* orders */
 DROP   TABLE orders CASCADE;
 CREATE TABLE orders

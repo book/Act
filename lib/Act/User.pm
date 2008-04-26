@@ -123,6 +123,20 @@ sub participation {
     return $participation;
 }
 
+sub my_talks {
+    my ($self) = @_;
+    my $sth = $Request{dbh}->prepare_cached(<<EOF);
+SELECT u.talk_id FROM user_talks u, talks t
+WHERE u.user_id=? AND u.conf_id=?
+AND   u.talk_id = t.talk_id
+AND   t.accepted
+EOF
+    $sth->execute( $self->user_id, $Request{conference} );
+    my $talk_ids = $sth->fetchall_arrayref();
+    $sth->finish();
+    return [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
+}
+
 # some data related to the visited conference (if any)
 my %methods = (
     has_talk => [
