@@ -59,6 +59,7 @@ my %private_handlers = (
     rights          => 'Act::Handler::User::Rights',
     trackedit       => 'Act::Handler::Track::Edit',
     tracks          => 'Act::Handler::Track::List',
+    updatemytalks   => 'Act::Handler::User::UpdateMyTalks',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
 );

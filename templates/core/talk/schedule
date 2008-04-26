@@ -3,6 +3,9 @@
          or global.config.talks_show_schedule ) %]
 {{The schedule is not ready to be seen.}}
 [% ELSE %]
+[% IF global.request.user AND global.request.user.has_registered %]
+<form method="POST" action="[% make_uri('updatemytalks') %]" />
+[% END %]
 [% IF todo.size %]
 <p>
  {{The time and place of the following talks haven't been decided yet.}}
@@ -67,6 +70,9 @@
  </tr>
  [% END %]
 </table>
-
+[% END %]
+[% IF global.request.user AND global.request.user.has_registered %]
+<input type="submit" name="submit" value="Submit changes" />
+</form>
 [% END %]
 [% END %]

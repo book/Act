@@ -139,9 +139,9 @@ EOF
 }
 
 sub update_my_talks {
-    my ($self, @talks) = @_;
+    my ($self, @talk_ids) = @_;
 
-    my %ids     = map { $_->talk_id => 1 } @talks;
+    my %ids     = map { $_          => 1 } @talk_ids;
     my %current = map { $_->talk_id => 1 } @{ $self->my_talks };
 
     # remove talks
