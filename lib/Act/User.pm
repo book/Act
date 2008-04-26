@@ -137,6 +137,34 @@ EOF
     return [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
 }
 
+sub update_my_talks {
+    my ($self, @talks) = @_;
+
+    my %ids     = map { $_->talk_id => 1 } @talks;
+    my %current = map { $_->talk_id => 1 } @{ $self->my_talks };
+
+    # remove talks
+    my @remove = grep { !$ids{$_} } keys %current;
+    if (@remove) {
+        my $sth = $Request{dbh}->prepare_cached(
+                    "DELETE FROM user_talks WHERE user_id = ? AND conf_id = ? AND talk_id IN ("
+                  .  join(',', map '?',@remove)
+                  . ')'
+                );
+        $sth->execute($self->user_id, $Request{conference}, @remove);
+    }
+    # add talks
+    my @add = grep { !$current{$_} } keys %ids;
+    if (@add) {
+        my $sth = $Request{dbh}->prepare_cached(
+                    "INSERT INTO user_talks VALUES (?,?,?)"
+                    );
+        $sth->execute($self->user_id, $Request{conference}, $_)
+            for @add;
+    }
+    $Request{dbh}->commit  if @add || @remove;
+}
+
 # some data related to the visited conference (if any)
 my %methods = (
     has_talk => [
