@@ -1,4 +1,4 @@
-[% WRAPPER ui title = loc("User information") %]
+[% WRAPPER ui title = loc("User information"), openid = 1 %]
 
 [% PROCESS core/user/show %]
 

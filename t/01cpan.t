@@ -20,6 +20,7 @@ my %modules = (
     'Imager'                                => 0,
     'Locale::Maketext'                      => 0,
     'Locale::Maketext::Lexicon'             => 0,
+    'Net::OpenID::Server'                   => 0,
     'Template'                              => 2.16,
     'Template::Multilingual::Parser'        => 0,
     'Test::MockObject'                      => 0,
