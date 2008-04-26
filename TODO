@@ -2,12 +2,18 @@ PRIORITIZED TODO LIST
 
 * sponsor donation: allow for donation from non registered users;
 
-* attendees should be able to pick one day out of the N days when they
-  participate
-
 * corporate registration: register n people from same company in one shot.
 
 UNPRIORITIZED TODO LIST
+
+* schedule columns should be fixed width
+
+* replace login with email address
+  the display name would be nick_name, pseudonymous would be the default behavior
+
+* iCal talk export should be in conference timezone
+
+* promotion codes for payments
 
 * add a "Powered by Act" somewhere (Maddingue)
 
