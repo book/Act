@@ -52,8 +52,8 @@ sub handler
                 else {
                     my $promocode = $Request{args}{"promo-$p"};
                     if ($promocode) {   # promotion code supplied
-                        my $id = first { $product->{prices}[$_-1]{promocode} } 1..$nprices;
-                        if ($id && $promocode eq $product->{prices}[$id-1]{promocode}) {
+                        my $id = first { $product->{prices}[$_-1]{promocode} eq $promocode } 1..$nprices;
+                        if ($id) {
                             $price_id = $id;
                         }
                         else {
