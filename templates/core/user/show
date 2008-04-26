@@ -176,7 +176,7 @@
 [% END %]
 [% IF mytalks.size %]
    <tr>
-      <td align="right" valign="top">Attending talks</td>
+      <td align="right" valign="top">{{Attending talks}}</td>
       <td>&nbsp;</td>
       <td align="left">
          <table border="1" cellpadding="5" cellspacing="0" width="100%"><tr><td>

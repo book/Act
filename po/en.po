@@ -1329,3 +1329,9 @@ msgstr "view all orders and invoices"
 msgid "Product"
 msgstr "Product"
 
+msgid "Personal Schedule"
+msgstr "Personal Schedule"
+
+msgid "Attending talks"
+msgstr "Attending talks"
+

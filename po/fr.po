@@ -1337,3 +1337,9 @@ msgstr "voir toutes vos commandes et factures"
 msgid "Product"
 msgstr "Produit"
 
+msgid "Personal Schedule"
+msgstr "Emploi du temps personnel"
+
+msgid "Attending talks"
+msgstr "Assite à"
+

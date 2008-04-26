@@ -19,7 +19,7 @@ sub handler {
         %schedule,
         todo     => [],
     );
-    $template->process('talk/schedule');
+    $template->process('talk/myschedule');
 }
 
 1;
