@@ -125,6 +125,7 @@ sub participation {
 
 sub my_talks {
     my ($self) = @_;
+    return $self->{my_talks} if $self->{my_talks};
     my $sth = $Request{dbh}->prepare_cached(<<EOF);
 SELECT u.talk_id FROM user_talks u, talks t
 WHERE u.user_id=? AND u.conf_id=?
@@ -134,7 +135,7 @@ EOF
     $sth->execute( $self->user_id, $Request{conference} );
     my $talk_ids = $sth->fetchall_arrayref();
     $sth->finish();
-    return [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
+    return $self->{my_talks} = [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
 }
 
 sub update_my_talks {
@@ -163,6 +164,12 @@ sub update_my_talks {
             for @add;
     }
     $Request{dbh}->commit  if @add || @remove;
+    $self->{my_talks} = [ grep $_->accepted, @talks ];
+}
+
+sub is_my_talk {
+    my ($self, $talk) = @_;
+    return first { $_->talk_id == $talk->{talk_id} } @{ $self->my_talks };
 }
 
 # some data related to the visited conference (if any)
