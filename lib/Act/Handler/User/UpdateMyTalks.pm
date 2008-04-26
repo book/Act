@@ -1,6 +1,7 @@
 package Act::Handler::User::UpdateMyTalks;
 use strict;
 
+use Act::Talk;
 use Act::User;
 use Act::Config;
 use Act::Util;
@@ -9,6 +10,7 @@ sub handler
 {
     if ($Request{user}->has_registered) {
         $Request{user}->update_my_talks(
+            map Act::Talk->new(talk_id => $_, conf_id => $Request{conference}),
             map /^mt-(\d+)$/, keys %{$Request{args}}
         );
     }

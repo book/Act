@@ -45,6 +45,7 @@ my %private_handlers = (
     invoice         => 'Act::Handler::Payment::Invoice',
     logout          => 'Act::Handler::Logout',
     main            => 'Act::Handler::User::Main',
+    myschedule      => 'Act::Handler::Talk::MySchedule',
     newevent        => 'Act::Handler::Event::Edit',
     newsadmin       => 'Act::Handler::News::Admin',
     newsedit        => 'Act::Handler::News::Edit',

@@ -6,25 +6,7 @@ use List::Util qw( sum );
 use strict;
 
 sub handler {
-    my ($table, $room, $width, $maxwidth, $todo) = compute_schedule();
-
-    # process the template
-    my $template = Act::Template::HTML->new();
-    $template->variables(
-        table    => $table,
-        room     => $room,
-        width    => $width,
-        maxwidth => $maxwidth,
-        todo     => $todo
-    );
-    $template->process('talk/schedule');
-}
-
-sub compute_schedule {
-    my (%table, %index, %room, %time); # helpful structures
-    my ($todo, $globals) = ([],[]);    # events lists
-
-    # pick up talks and events without a time or a place
+    # pick up talks and events
     my (@ts, @undecided );
     for( @{ Act::TimeSlot->get_items( conf_id => $Request{conference} ) } ) {
         if( ( $_->{datetime} && $_->room ) ) {
@@ -32,6 +14,23 @@ sub compute_schedule {
         }
         else { push @undecided, $_ }
     }
+
+    my %schedule = compute_schedule(@ts);
+
+    # process the template
+    my $template = Act::Template::HTML->new();
+    $template->variables(
+        %schedule,
+        todo     => \@undecided,
+    );
+    $template->process('talk/schedule');
+}
+
+sub compute_schedule {
+    my @ts = @_;
+    my (%table, %index, %room, %time); # helpful structures
+    my ($todo, $globals) = ([],[]);    # events lists
+
  
     # sort and separate global and normal items
     # compute the times to show in the chart
@@ -210,7 +209,11 @@ sub compute_schedule {
         splice( @{$table{$day}}, $_, 1) for reverse @rows_to_remove;
     }
 
-    return ( \%table, \%room, \%width, \%maxwidth, \@undecided );
+    return ( table    => \%table,
+             room     => \%room,
+             width    => \%width,
+             maxwidth => \%maxwidth,
+           );
 }
 
 1;

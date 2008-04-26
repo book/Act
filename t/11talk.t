@@ -110,10 +110,10 @@ ok( $user->committed, "User is committed" );
 
 # add some user_talks
 #   at this point talk2 and talk3 are accepted
-$user->update_my_talks(map $_->talk_id, $talk1, $talk2, $talk3);
+$user->update_my_talks($talk1, $talk2, $talk3);
 is_deeply($user->my_talks, [ $talk2, $talk3 ], "insert my_talks");
-$user->update_my_talks(map $_->talk_id, $talk2, $talk3);
+$user->update_my_talks($talk2, $talk3);
 is_deeply($user->my_talks, [ $talk2, $talk3 ], "update my_talks");
-$user->update_my_talks(map $_->talk_id, $talk1, $talk3);
+$user->update_my_talks($talk1, $talk3);
 is_deeply($user->my_talks, [ $talk3 ], "update my_talks");
 1;

@@ -21,26 +21,31 @@ sub get_items {
     $args_event{event_id} = delete $args_event{id};
 
     return [
-        map {
-            $_->{type} = ref;
-            $_->{id}   = $_->{talk_id} || $_->{event_id};
-            bless $_, 'Act::TimeSlot';
-        }
+        map upgrade($_),
         @{ Act::Event->get_events( %args_event ) },
-        map { $_->{user}  = Act::User->new( user_id => $_->user_id );
-              $_->{track} = Act::Track->new( track_id => $_->track_id )
-                if $_->{track_id};
-              $_ }
         grep !$_->{lightning},  # FIXME
         @{ Act::Talk->get_talks( %args_talk ) }
     ];
 }
+
+sub upgrade {
+    my $thing = shift;
+    if (ref $thing eq 'Act::Talk') {
+        $thing->{user}  = Act::User->new( user_id => $thing->user_id );
+        $thing->{track} = Act::Track->new( track_id => $thing->track_id )
+            if $thing->{track_id};
+    }
+    $thing->{type} = ref $thing;
+    $thing->{id}   = $thing->{talk_id} || $thing->{event_id};
+    bless $thing, 'Act::TimeSlot';
+}
+    
 *get_slots = \&get_items;
 
 sub clone { bless {%{$_[0]}}, ref $_[0]; }
 
 # a few accessors
-for my $attr ( qw( id datetime room conf_id type title abstract duration ) ) {
+for my $attr ( qw( id talk_id datetime room conf_id type title abstract duration ) ) {
     no strict 'refs';
     *$attr = sub { $_[0]{$attr} };
 }

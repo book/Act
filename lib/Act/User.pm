@@ -139,9 +139,9 @@ EOF
 }
 
 sub update_my_talks {
-    my ($self, @talk_ids) = @_;
+    my ($self, @talks) = @_;
 
-    my %ids     = map { $_          => 1 } @talk_ids;
+    my %ids     = map { $_->talk_id => 1 } @talks;
     my %current = map { $_->talk_id => 1 } @{ $self->my_talks };
 
     # remove talks
@@ -169,7 +169,7 @@ sub update_my_talks {
 
 sub is_my_talk {
     my ($self, $talk) = @_;
-    return first { $_->talk_id == $talk->{talk_id} } @{ $self->my_talks };
+    return first { $_->talk_id == $talk->talk_id } @{ $self->my_talks };
 }
 
 # some data related to the visited conference (if any)
