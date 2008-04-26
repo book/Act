@@ -51,7 +51,10 @@
     BLOCK;
         IF t.type == 'Act::Talk';
             IF global.request.user AND global.request.user.has_registered %]
-                <input type="checkbox" name="mt-[% t.talk_id %]"[% ' checked="checked"' IF global.request.user.is_my_talk(t) %] />
+                <input type="checkbox"
+                       name="mt-[% t.talk_id %]"
+                       onClick="if (typeof jQuery != 'undefined') act_toggle_mytalk('[% global.request.conference %]',[% t.talk_id %])"
+                       [% ' checked="checked"' IF global.request.user.is_my_talk(t) %] />
             [% END;
             user_info(t.user); ' - '; talk_confirmed_link(t);
             ' ('; t.duration; '&nbsp;'; loc('min');

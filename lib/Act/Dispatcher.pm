@@ -63,6 +63,8 @@ my %private_handlers = (
     updatemytalks   => 'Act::Handler::User::UpdateMyTalks',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
+    # private ajax handlers
+    ajax_toggle_mytalk  => 'Act::Handler::User::Ajax::ToggleMyTalk',
 );
 my %dispatch = ( map( { $_ => { handler => $public_handlers{$_} } } keys %public_handlers),
                  map( { $_ => { handler => $private_handlers{$_}, private => 1 } } keys %private_handlers)

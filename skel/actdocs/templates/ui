@@ -9,6 +9,9 @@
 [% IF openid %]
 <link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]" />
 [% END %]
+<!-- JavaScript sugar -->
+<script src="/js/jquery.js"></script>
+<script src="/js/act.js"></script>
 <!-- Atom news feed -->
 <link rel="alternate" type="application/atom+xml" title="[% global.conference.name %]"
       href="[% global.request.base_url %][% make_uri_info( 'atom', global.request.language ) %].xml" />
