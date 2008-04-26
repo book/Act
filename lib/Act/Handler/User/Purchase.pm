@@ -1,6 +1,7 @@
 package Act::Handler::User::Purchase;
 use strict;
 use Apache::Constants qw(NOT_FOUND);
+use List::Util qw(first);
 
 use Act::Config;
 use Act::Form;
@@ -49,12 +50,24 @@ sub handler
                     $price_id = 1;
                 }
                 else {
-                    my $id = $Request{args}{"price-$p"};
-                    if ($id >= 1 && $id <= $nprices) {
-                        $price_id = $id;
+                    my $promocode = $Request{args}{"promo-$p"};
+                    if ($promocode) {   # promotion code supplied
+                        my $id = first { $product->{prices}[$_-1]{promocode} } 1..$nprices;
+                        if ($id && $promocode eq $product->{prices}[$id-1]{promocode}) {
+                            $price_id = $id;
+                        }
+                        else {
+                            $ok = 0;
+                        }
                     }
                     else {
-                        $ok = 0;
+                        my $id = $Request{args}{"price-$p"};
+                        if ($id >= 1 && $id <= $nprices) {
+                            $price_id = $id;
+                        }
+                        else {
+                            $ok = 0;
+                        }
                     }
                 }
                 if ($price_id) {

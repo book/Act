@@ -42,6 +42,7 @@ sub get_prices
                 price_id => $price_id,
                 amount   => $Config->get($t . 'amount'),
                 name     => Act::Config::get_optional($t . 'name_' . $Request{language}),
+                promocode => Act::Config::get_optional($t . 'promocode'),
             };
         }
         $products{$p} = {

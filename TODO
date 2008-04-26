@@ -6,14 +6,14 @@ PRIORITIZED TODO LIST
 
 UNPRIORITIZED TODO LIST
 
+* main act.ini should be renamed to avoid confusion with conferences act.ini
+
 * schedule columns should be fixed width
 
 * replace login with email address
   the display name would be nick_name, pseudonymous would be the default behavior
 
 * iCal talk export should be in conference timezone
-
-* promotion codes for payments
 
 * add a "Powered by Act" somewhere (Maddingue)
 

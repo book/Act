@@ -18,9 +18,14 @@
     [% FOREACH i IN products.$p.prices %]
     <tr>
         <td></td>
+      [% IF i.promocode %]
+        <td>Promo code</td>
+        <td><input type="text" name="promo-[% p %]" size="20" maxlength="20" value="" /></td>
+      [% ELSE %]
         <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
             [% i.name %]</td>
         <td>[% i.amount %] [% currency %]</td>
+      [% END %]
     </tr>
     [% END %]
 [% END %]

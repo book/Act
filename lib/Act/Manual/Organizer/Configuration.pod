@@ -122,6 +122,8 @@ conference.
     name_en     = Normal price
     name_fr     = Tarif normal
     amount      = 20
+    # a promotion code may be required for this price
+    promocode   = qwerty
     
     # configure any additional products
     
