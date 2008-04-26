@@ -10,6 +10,9 @@ UNPRIORITIZED TODO LIST
 
 * schedule columns should be fixed width
 
+* allow several commits layout
+  (e.g. see http://www.yapceurope.org/2006/talk/schedule/1.html)
+
 * replace login with email address
   the display name would be nick_name, pseudonymous would be the default behavior
 
