@@ -38,7 +38,7 @@ sub handler {
 sub is_identity {
     my ($user, $identity_url) = @_;
     return 0 unless $user;
-warn    my $author_url = $Request{base_url} . make_uri_info('user', $user->user_id);
+    my $author_url = $Request{base_url} . make_uri_info('user', $user->user_id);
     warn $identity_url;
     $author_url eq $identity_url;
 }
