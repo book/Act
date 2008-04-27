@@ -1,5 +1,6 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,6 +130,9 @@ msgstr "Please consider doing so using our online payment system."
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "Please consider doing so once our online payment system is ready."
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "You have not confirmed your participation to this conference yet."
+
 msgid "You did not register for this conference"
 msgstr ""
 "You did not <a href=\"%1\">register for this conference</a>.\n"
@@ -139,6 +143,9 @@ msgstr "You can:"
 
 msgid "purchase your conference ticket"
 msgstr "purchase your conference ticket"
+
+msgid "confirm your participation"
+msgstr "confirm your participation"
 
 msgid "register for this conference"
 msgstr "register for this conference"
@@ -266,6 +273,11 @@ msgstr ""
 "<b>We do not have access to your credit\n"
 "information at any time during the payment process.</b> We just\n"
 "get the money in the end. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Once you have an account, you'll be able to confirm your participation\n"
+"to this conference, free of charge."
 
 msgid "Please create the user below."
 msgstr "Please create the user below."
