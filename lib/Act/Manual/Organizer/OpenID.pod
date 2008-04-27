@@ -1,0 +1,9 @@
+=head1 OpenID support
+
+Your conference site acts as en OpenID server. Users can use their public
+profile URL to authenticate in third party applications. This URL is
+of the form:
+
+  http://<your domain>/<your conf_id>/user/<user_id>
+
+=cut
