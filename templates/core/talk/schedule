@@ -72,7 +72,7 @@
 </table>
 [% END %]
 [% IF global.request.user AND global.request.user.has_registered %]
-<input type="submit" id="mytalks_submit" value="Submit changes" />
+<input type="submit" class="mytalks_submit" value="Submit changes" />
 </form>
 [% END %]
 [% END %]

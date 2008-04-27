@@ -1,7 +1,10 @@
-$(document).ready(function() {
-   $("#mytalks_submit").hide();
+$(function() {
+    $(".mytalks_submit").hide();
 });
-function act_toggle_mytalk(conf_id, talk_id)
-{
-    $.post("/" + conf_id + "/ajax_toggle_mytalk", {talk_id: talk_id} );
-}
+var act = window.act = function() {
+  return {
+    toggle_mytalk: function(conf_id, talk_id) {
+        $.post("/" + conf_id + "/ajax_toggle_mytalk", {talk_id: talk_id} );
+    }
+  };
+}();
