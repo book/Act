@@ -23,7 +23,7 @@
             [% END %]
         [% ELSIF global.config.payment_type != "NONE" %]
             <p>
-                [% IF !registration_gratis -%]
+                [% IF !global.config.registration_gratis -%]
                 {{You have not bought your conference ticket yet.}}
                 [%- ELSE -%]
                 {{You have not confirmed your participation to this conference yet.}}
@@ -46,7 +46,7 @@
         [% IF global.config.payment_open %]
             [% UNLESS global.request.user.has_paid %]
                 <li><a href="[% make_uri('purchase') %]">
-                [%- IF !registration_gratis -%]
+                [%- IF !global.config.registration_gratis -%]
                 {{purchase your conference ticket}}
                 [%- ELSE -%]
                 {{confirm your participation}}
