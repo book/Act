@@ -82,6 +82,11 @@ sub handler
                     $price->{checked} = 1;
                 }
             }
+            elsif ($Request{args}{"promo-$p"} || $Request{args}{"price-$p"}) {
+                # user selected a price or entered a promo code,
+                # but didn't check the product checkbox
+                $ok = 0;
+            }
         }
         if ($ok && $fields->{donation}) {
             push @items, {
