@@ -1330,3 +1330,9 @@ msgstr "mostra tutti gli ordini e le fatture"
 
 msgid "Product"
 msgstr "Prodotto"
+
+msgid "Personal Schedule"
+msgstr "Programma personale"
+
+msgid "Attending talks"
+msgstr "Assiste a"
