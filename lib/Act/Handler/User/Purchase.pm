@@ -52,6 +52,7 @@ sub handler
                 else {
                     my $promocode = $Request{args}{"promo-$p"};
                     if ($promocode) {   # promotion code supplied
+                        $fields->{promo}{$p} = $promocode;
                         my $id = first { $product->{prices}[$_-1]{promocode} eq $promocode } 1..$nprices;
                         if ($id) {
                             $price_id = $id;
@@ -85,6 +86,9 @@ sub handler
             elsif ($Request{args}{"promo-$p"} || $Request{args}{"price-$p"}) {
                 # user selected a price or entered a promo code,
                 # but didn't check the product checkbox
+                $fields->{promo}{$p} = $Request{args}{"promo-$p"};
+                $products->{$p}{prices}[$Request{args}{"price-$p"}-1]{checked}
+                    = $Request{args}{"price-$p"};
                 $ok = 0;
             }
         }
