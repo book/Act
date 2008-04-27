@@ -16,11 +16,6 @@ use Email::Send::Sendmail;
 use Email::Simple;
 use Email::Simple::Creator;
 
-{
-    no warnings 'redefine';
-    *Email::Simple::Creator::_crlf  = sub { "\x0d\x0a" };
-}
-
 # send an email
 # Act::Email::send(
 #     from    => <address>
