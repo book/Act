@@ -1298,3 +1298,11 @@ msgstr "請求書を作成"
 msgid "enter payment"
 msgstr "支払いを入力"
 
+msgid "Product"
+msgstr "商品"
+
+msgid "Personal Schedule"
+msgstr "マイスケジュール"
+
+msgid "Attending talks"
+msgstr "参加セッション"
