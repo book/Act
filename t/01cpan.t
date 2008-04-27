@@ -13,6 +13,7 @@ my %modules = (
     'DBD::Pg'                               => 1.22,
     'DBI'                                   => 0,
     'Digest::MD5'                           => 0,
+    'Email::Address'                        => 0,
     'Email::Date'                           => 0,
     'Email::MessageID'                      => 0,
     'Email::Send'                           => 0,

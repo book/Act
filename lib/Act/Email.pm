@@ -8,6 +8,7 @@ use List::Pairwise qw(mapp);
 use Sys::Hostname;
 
 use Act::Config;
+use Email::Address;
 use Email::Date;
 use Email::MessageID;
 use Email::Send ();
