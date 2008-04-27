@@ -1,6 +1,7 @@
 package Act::Handler::User::Ajax::ToggleMyTalk;
 use strict;
 
+use Apache::Constants qw( HTTP_NO_CONTENT );
 use Act::Talk;
 use Act::User;
 use Act::Config;
@@ -17,6 +18,8 @@ sub handler
               : ( @$my_talks, $talk )                                   # no, add it
         );
     }
+
+    $Request{status} = HTTP_NO_CONTENT;
 }
 1;
 
