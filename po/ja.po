@@ -795,7 +795,7 @@ msgid "Modified on"
 msgstr "更新日時"
 
 msgid "By"
-msgstr "投稿者"
+msgstr "スピーカー"
 
 msgid "Wiki - <node>"
 msgstr "Wiki - %1"
