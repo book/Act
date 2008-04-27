@@ -5,6 +5,7 @@ package Act::Email;
 
 use Encode ();
 use Net::SMTP;
+use Sys::Hostname;
 
 use Act::Config;
 
@@ -84,7 +85,7 @@ sub send
         'X-Mailer'                  => __PACKAGE__,
     );
     # create SMTP object
-    my %opts;
+    my %opts = (Hello => hostname);
     $opts{Port} = $Config->email_smtp_port
         if $Config->email_smtp_port;
     my $smtp = Net::SMTP->new($Config->email_smtp_server, %opts);
