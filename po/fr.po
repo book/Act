@@ -443,8 +443,14 @@ msgstr ""
 "informations bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
 "à la fin. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Rien à régler, votre commande est confirmée"
+
 msgid "Online payment"
 msgstr "Paiement en ligne"
+
+msgid "Online payment (zero)"
+msgstr "Rien à régler"
 
 msgid "Join"
 msgstr "Inscription à"
@@ -1342,4 +1348,7 @@ msgstr "Emploi du temps personnel"
 
 msgid "Attending talks"
 msgstr "Assite à"
+
+msgid "Promotion code"
+msgstr "Code promotionnel"
 

@@ -21,7 +21,7 @@
         <tr>
             <td></td>
            [% IF i.promocode; ispromo = 1 %]
-              <td>Promo code</td>
+              <td>{{Promotion code}}</td>
               <td><input type="text" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
            [% ELSE %]
               <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />

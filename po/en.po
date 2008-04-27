@@ -1335,3 +1335,6 @@ msgstr "Personal Schedule"
 msgid "Attending talks"
 msgstr "Attending talks"
 
+msgid "Promotion code"
+msgstr "Promotion code"
+
