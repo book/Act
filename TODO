@@ -6,6 +6,8 @@ PRIORITIZED TODO LIST
 
 UNPRIORITIZED TODO LIST
 
+* change password barfs on non ASCII characters
+
 * main act.ini should be renamed to avoid confusion with conferences act.ini
 
 * schedule columns should be fixed width
