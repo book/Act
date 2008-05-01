@@ -115,7 +115,7 @@
    <td>
       <select name="tshirt_size" id="form-tshirt-size">
          [% UNLESS tshirt_size %]<option value="" selected="selected" />[% END %]
-         [% FOREACH t = [ 'S', 'M', 'L', 'XL', 'XXL' ] %]
+         [% FOREACH t = [ 'S', 'M', 'L', 'XL', 'XXL', 'XXXL' ] %]
          <option value="[% t %]"[% ' selected="selected"' IF tshirt_size == t %]>[% t %]</option>
          [% END %]
       </select>

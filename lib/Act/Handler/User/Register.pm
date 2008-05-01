@@ -35,7 +35,7 @@ my $form = Act::Form->new(
   constraints => {
      login => sub { $_[0] =~ /^[A-Za-z0-9_]{3,}$/ },
      email => 'email',
-     tshirt => sub { $_[0] =~ /^(?:S|M|X{0,2}L)$/ },
+     tshirt => sub { $_[0] =~ /^(?:S|M|X{0,3}L)$/ },
   }
 );
 
