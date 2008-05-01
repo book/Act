@@ -105,6 +105,7 @@ conference...
   Jonas B. Nielsen
   Salve J Nilsen
   Hiroyuki Oyama
+  Dave Rolsky
   Alberto Simões 
   Enrico Sorcinelli
   Ricardo Signes
