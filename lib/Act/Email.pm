@@ -35,8 +35,11 @@ use Email::Simple::Creator;
 # <header>     { 'X-foo' => 'bar' }
 # <headers>    <header> or [ <headers>, <header>, ... ]
 
-$Email::Send::Sendmail::SENDMAIL = $Config->email_sendmail;
-my $sender = Email::Send->new( { mailer => 'Sendmail' } );
+my $sender;
+unless ($^C) {
+    $Email::Send::Sendmail::SENDMAIL = $Config->email_sendmail;
+    $sender = Email::Send->new( { mailer => 'Sendmail' } );
+}
 
 sub send
 {
