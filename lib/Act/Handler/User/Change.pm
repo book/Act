@@ -28,7 +28,7 @@ my @form_params = (
     web_page     => 'url',
     company_url  => 'url',
     pm_group     => sub { $_[0] =~ /\.pm$/ },
-    tshirt_size  => sub { $_[0] =~ /^(?:S|M|X{0,2}L)$/ },
+    tshirt_size  => sub { $_[0] =~ /^(?:S|M|X{0,3}L)$/ },
     gpg_key_id   => sub { $_[0] =~ /^[0-9A-F]{8}$/ },
   }
 );
