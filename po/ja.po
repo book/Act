@@ -1318,7 +1318,7 @@ msgid "Your purchases"
 msgstr "購入内容"
 
 msgid "Your <conf> order #<id>"
-msgstr "$1 注文番号 #$2"
+msgstr "%1 注文番号 #%2"
 
 msgid "make additional purchases"
 msgstr "追加注文"
