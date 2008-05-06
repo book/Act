@@ -133,6 +133,9 @@ msgstr ""
 "Merci de penser à le faire dès que le système de vente en ligne\n"
 "sera opérationnel.\n"
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Vous n'avez pas encore confirmé votre participation à cette conference."
+
 msgid "You did not register for this conference"
 msgstr ""
 "Vous n'êtes pas <a href=\"%1\">inscrit à cette conférence</a>.\n"
@@ -143,6 +146,9 @@ msgstr "Vous pouvez&nbsp;:"
 
 msgid "purchase your conference ticket"
 msgstr "acheter votre billet pour la conférence"
+
+msgid "confirm your participation"
+msgstr "confirmer votre participation"
 
 msgid "register for this conference"
 msgstr "Vous inscrire à cette conférence"
@@ -271,6 +277,11 @@ msgstr ""
 "<b>Nous n'avons à aucun moment accès aux informations\n"
 "bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
 "à la fin. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Dès que vous aurez un compte, vous pourrez gratuitement confirmer\n"
+"votre participation à cette conférence."
 
 msgid "Please create the user below."
 msgstr "Vous pouvez créer votre utilisateur ci-dessous."
