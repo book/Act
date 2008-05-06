@@ -129,6 +129,9 @@ msgstr ""
 "Considere fazê-lo usando o nosso sistema de pagamento on-line, assim que\n"
 "estiver disponível.\n"
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Ainda não confirmou a sua participação nesta conferência."
+
 msgid "You did not register for this conference"
 msgstr ""
 "Não se <a href=\"%1\">registou para esta conferência</a>.\n"
@@ -139,6 +142,9 @@ msgstr "Pode:"
 
 msgid "purchase your conference ticket"
 msgstr "comprar o seu bilhete para a conferência"
+
+msgid "confirm your participation"
+msgstr "confirmar a sua participação"
 
 msgid "register for this conference"
 msgstr "registar-se para esta conferência"
@@ -266,6 +272,11 @@ msgstr ""
 "<b>Nós não teremos acesso a nenhuma\n"
 "informação do seu crédito durante nenhuma altura do processo de pagamento.</b>\n"
 "Simplesmente teremos o dinheiro no fim. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Assim que tiver um utilizador, poderá registar-se nesta confereência,\n"
+"em qualquer custo."
 
 msgid "Please create the user below."
 msgstr "Por favor, crie o seu utilizador."
@@ -437,8 +448,14 @@ msgstr ""
 "crédito em qualquer altura do processo de pagamento.</b> Só iremos receber o\n"
 "dinheiro no fim. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Uma vez que o total da sua compra é zero, não precisa de realizar qualquer pagamento. O seu pedido está completo"
+
 msgid "Online payment"
 msgstr "Pagamento on-line"
+
+msgid "Online payment (zero)"
+msgstr "Nada a pagar"
 
 msgid "Join"
 msgstr "Inscrever-me na"
@@ -1283,4 +1300,51 @@ msgstr "Etiquetas:"
 
 msgid "add new tags:"
 msgstr "adicionar nova etiqueta:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Para anular a inscrição de <b>%1 %2</b> na %3,\n"
+"use o botão abaixo.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Anular a inscrição de %1 %2 na %3"
+
+msgid "unregister"
+msgstr "anular inscrição"
+
+msgid "edit payment"
+msgstr "editar pagamento"
+
+msgid "view invoice"
+msgstr "ver recibo"
+
+msgid "create invoice"
+msgstr "criar recibo"
+
+msgid "enter payment"
+msgstr "introduzir pagamento"
+
+msgid "Your purchases"
+msgstr "As suas compras"
+
+msgid "Your <conf> order #<id>"
+msgstr "Pedido #$2 da $1"
+
+msgid "make additional purchases"
+msgstr "fazer compras adicionais"
+
+msgid "view all orders and invoices"
+msgstr "ver todos os pedidos e recibos"
+
+msgid "Product"
+msgstr "Produto"
+
+msgid "Personal Schedule"
+msgstr "Horário Pessoal"
+
+msgid "Attending talks"
+msgstr "Apresentações que me interessam"
+
+msgid "Promotion code"
+msgstr "Código promocional"
 
