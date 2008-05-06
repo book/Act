@@ -18,12 +18,12 @@ my $form = Act::Form->new(
 );
 sub handler
 {
-    # shouldn't get here unless online payment is open,
-    # and this user is registered 
-    unless ($Config->payment_type ne 'NONE' &&
-            $Config->payment_open &&
-            $Request{user}->has_registered())
-    {
+    # not registered!
+    return Act::Util::redirect(make_uri('register'))
+      unless $Request{user}->has_registered;
+
+    # shouldn't get here unless online payment is open
+    unless ($Config->payment_type ne 'NONE' && $Config->payment_open) {
         $Request{status} = NOT_FOUND;
         return;
     }
