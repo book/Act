@@ -6,6 +6,8 @@ PRIORITIZED TODO LIST
 
 UNPRIORITIZED TODO LIST
 
+* add a can_purchase_registration() method to Act::User
+
 * change password barfs on non ASCII characters
 
 * main act.ini should be renamed to avoid confusion with conferences act.ini
