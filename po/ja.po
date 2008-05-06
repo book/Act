@@ -129,6 +129,9 @@ msgstr "チケットはオンラインでも購入できます。"
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "チケットはオンラインでも購入できるようになる予定です。"
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "このカンファレンスへの参加は未確定です。"
+
 msgid "You did not register for this conference"
 msgstr ""
 "<a href=\"%1\">このカンファレンスに登録</a>していません。\n"
@@ -139,6 +142,9 @@ msgstr "選択してください:"
 
 msgid "purchase your conference ticket"
 msgstr "カンファレンスのチケットを購入する"
+
+msgid "confirm your participation"
+msgstr "参加を確定させてください"
 
 msgid "register for this conference"
 msgstr "カンファレンスに参加登録する"
@@ -262,6 +268,10 @@ msgid "We do not have access to your credit card information"
 msgstr ""
 "<b>途中でこのサイトがクレジットカード情報にアクセスすることはありません。</b>\n"
 "私たちは最後にお金を受け取るだけですのでご安心ください。\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr "参加を確定するにはアカウントを作成してください。アカウントの作成は無料で
+す"
 
 msgid "Please create the user below."
 msgstr "ユーザ登録を行ってください。"
@@ -433,8 +443,14 @@ msgstr ""
 "<b>途中でこのサイトがクレジットカード情報にアクセスすることはありません。</b>\n"
 "私たちは最後にお金を受け取るだけですのでご安心ください。\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "金額の合計がゼロなので実際に支払いをする必要はありません。注文完了です"
+
 msgid "Online payment"
 msgstr "オンライン決済"
+
+msgid "Online payment (zero)"
+msgstr "支払不要"
 
 msgid "Join"
 msgstr "参加する"
@@ -1298,6 +1314,18 @@ msgstr "請求書を作成"
 msgid "enter payment"
 msgstr "支払いを入力"
 
+msgid "Your purchases"
+msgstr "購入内容"
+
+msgid "Your <conf> order #<id>"
+msgstr "$1 注文番号 #$2"
+
+msgid "make additional purchases"
+msgstr "追加注文"
+
+msgid "view all orders and invoices"
+msgstr "すべての注文と明細を見る"
+
 msgid "Product"
 msgstr "商品"
 
@@ -1306,3 +1334,7 @@ msgstr "マイスケジュール"
 
 msgid "Attending talks"
 msgstr "参加セッション"
+
+msgid "Promotion code"
+msgstr "クーポン番号"
+
