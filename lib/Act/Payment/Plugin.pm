@@ -3,6 +3,7 @@ use strict;
 
 use Act::Config;
 use Act::Template::HTML;
+use Act::Util;
 
 sub new
 {
