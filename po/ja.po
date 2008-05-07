@@ -270,8 +270,7 @@ msgstr ""
 "私たちは最後にお金を受け取るだけですのでご安心ください。\n"
 
 msgid "Once you have an account, you'll be able to register free of charge"
-msgstr "参加を確定するにはアカウントを作成してください。アカウントの作成は無料で
-す"
+msgstr "参加を確定するにはアカウントを作成してください。アカウントの作成は無料です"
 
 msgid "Please create the user below."
 msgstr "ユーザ登録を行ってください。"
