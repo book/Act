@@ -1,5 +1,8 @@
 package Act::Payment;
 use strict;
+
+use List::Util qw(first);
+
 use Act::Config;
 use Act::I18N;
 use Act::Util;
@@ -23,30 +26,31 @@ sub load_plugin
     return $class->new($type);
 }
 
-sub get_price
-{
-    my $price_id = shift;
-    my $prices = get_prices();
-    for my $p (@$prices) {
-        if ($p->{price_id} == $price_id) {
-            return $p;
-        }
-    }
-    return undef;
-}
-
 sub get_prices
 {
-    my @prices;
-    for my $price_id (1..$Config->payment_prices) {
-        my $s = 'price' . $price_id . '_';
-        push @prices, {
-            price_id => $price_id,
-            amount   => $Config->get($s . 'amount'),
-            name     => $Config->get($s . 'name_' . $Request{language}),
+    my @products = split /\s+/, $Config->payment_products;
+    my %products;
+    for my $p (@products) {
+        my $s = 'product_' . $p . '_';
+
+        # get prices
+        my $nprices = $Config->get($s . 'prices');
+        my @prices;
+        for my $price_id (1..$nprices) {
+            my $t = $s . 'price' . $price_id . '_';
+            push @prices, {
+                price_id => $price_id,
+                amount   => $Config->get($t . 'amount'),
+                name     => Act::Config::get_optional($t . 'name_' . $Request{language}),
+                promocode => Act::Config::get_optional($t . 'promocode'),
+            };
+        }
+        $products{$p} = {
+            name    => $Config->get($s . 'name_' . $Request{language}),
+            prices  => \@prices,
         };
     }
-    return \@prices;
+    return (\@products, \%products);
 }
 
 sub get_means

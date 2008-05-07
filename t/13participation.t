@@ -1,4 +1,4 @@
-use Test::More tests => 5;
+use Test::More tests => 6;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -52,7 +52,6 @@ is_deeply( $user,
         first_name   => 'Philippe',
         im           => undef,
         photo_name   => undef,
-        committed    => '1',
         address      => undef,
         company      => undef,
         company_url  => undef,
@@ -62,6 +61,7 @@ is_deeply( $user,
 my $user2 = Act::User->new( login => 'book', conf_id => 'conf' );
 is_deeply( $user2, $user, "Same user with new()" );
 
+is( $user->committed, 1, "committed" );
 is( $user->has_talk, 2, "has_talk" );
 is( $user->has_paid, 0, "has_paid" );
 

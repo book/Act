@@ -328,9 +328,6 @@ msgstr "A <b>kiemelt</b> elõadások megtartását az elõadó megerõsítette."
 msgid "Time"
 msgstr "Idõ"
 
-msgid "Ticket for <conference name>."
-msgstr "%1 jegy."
-
 msgid "Price"
 msgstr "Ár"
 

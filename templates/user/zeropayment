@@ -1,4 +1,4 @@
-[% WRAPPER ui title = loc('Online payment') %]
+[% WRAPPER ui title = loc('Online payment (zero)') %]
 <div align="center">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
@@ -35,17 +35,11 @@
 </tr>
 <tr>
    <td colspan="2" align="center">
-     [% form %]
+   <a href="[% make_uri('main') %]">{{Nothing to pay, the order is already confirmed}}</a>
    </td>
 </tr>
 </table>
 </td></tr></table>
 
 </div>
-
-<p>
- {{Please note that everything regarding your bank account and credit card number}}
-</p>
-
-[% file = "core/bank/${global.config.payment_type}" ; PROCESS $file %]
 [% END %]

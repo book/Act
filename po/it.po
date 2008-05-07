@@ -423,9 +423,6 @@ msgstr ""
 msgid "Time"
 msgstr "Ora"
 
-msgid "Ticket for <conference name>."
-msgstr "Bigiletto per %1."
-
 msgid "Price"
 msgstr "Prezzo"
 
@@ -438,8 +435,14 @@ msgstr "Acquista"
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr "Notate che tutti i dettagli relativi al vostro conto in banca e carta di credito sono gestiti direttamente dalla banca: <b>in nessun momento noi avremo accesso ai vostri dati bancari</b>. Ci limitamo a prendere i soldi una volta terminata la transazione <tt>;-)</tt>.  "
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Il totale per questo ordine è zero: non serve affettuare il pagamento. Questo ordine è completo"
+
 msgid "Online payment"
 msgstr "Pagamento on-line"
+
+msgid "Online payment (zero)"
+msgstr "Ordine a costo zero"
 
 msgid "Join"
 msgstr "Iscrivimi a"
@@ -964,17 +967,13 @@ msgstr "Totale"
 msgid "Payment confirmation"
 msgstr "Conferma di pagamento"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"Il pagamento per la Vostra registrazione a %1 è stato approvato.\n"
+"Il pagamento a %1 è stato approvato.\n"
 "\n"
 "Il numero del Vostro ordine è %2\n"
 "Data del pagamento: %3 GMT\n"
-"Totale pagato: %4 %5 (%6)\n"
-"\n"
-"RicordateVi di presentare il numero del Vostro ordine (%2) all'arrivo alla conferenza.\n"
-"\n"
-"Grazie per aver scelto di partecipare a %1!\n"
+"Totale pagato: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Fattura n."
@@ -1317,3 +1316,17 @@ msgstr "crea fattura"
 msgid "enter payment"
 msgstr "immetti pagamento"
 
+msgid "Your purchases"
+msgstr "I vostri acquisti"
+
+msgid "Your <conf> order #<id>"
+msgstr "Il vostro ordine #$2 per $1"
+
+msgid "make additional purchases"
+msgstr "fai ulteriori acquisti"
+
+msgid "view all orders and invoices"
+msgstr "mostra tutti gli ordini e le fatture"
+
+msgid "Product"
+msgstr "Prodotto"

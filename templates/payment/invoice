@@ -52,8 +52,7 @@
               <th>{{Total}}</th>
             </tr>
             <tr>
-              <td align="left">
-               [% loc('<conf> registration', global.conference.name) %]
+             <td align="left" colspan="4">
                <br />
                {{Your order number:}}
 
@@ -61,15 +60,19 @@
                    you can use this to turn this invoice into a receipt
                %]
                [% order.order_id %] - [% date_format(order.datetime, 'date_short') %] - [% order.means %]
-
               </td>
-              <td align="center">1</td>
-              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
-              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
             </tr>
+            [% FOREACH item IN order.items %]
+            <tr>
+              <td align="left">[% item.name %]</td>
+              <td align="center">1</td>
+              <td align="right">[% item.amount %] [% invoice.currency %]</td>
+              <td align="right">[% item.amount %] [% invoice.currency %]</td>
+            </tr>
+            [% END %]
             <tr>
               <td colspan="3" align="right">{{Total due}}</td>
-              <td align="right">[% invoice.currency %] [% invoice.amount %]</td>
+              <td align="right">[% invoice.amount %] [% invoice.currency %] </td>
             </tr>
           </table>
         </td>

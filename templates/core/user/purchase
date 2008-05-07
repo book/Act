@@ -1,34 +1,45 @@
-<center>
+<div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
 
+[% FOREACH p IN productlist %]
+    [% NEXT IF p == 'registration' AND global.request.user.has_paid %]
+    <tr>
+        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td>[% products.$p.name %]</td>
+[% IF products.$p.prices.size == 1 %]
+        <td>[% products.$p.prices.0.amount %] [% currency %]</td>
+    </tr>
+[% ELSE %]
+        <td></td>
+    </tr>
+    [% ispromo = 0;
+       FOREACH i IN products.$p.prices;
+         UNLESS i.promocode AND ispromo %]
+        <tr>
+            <td></td>
+           [% IF i.promocode; ispromo = 1 %]
+              <td>{{Promotion code}}</td>
+              <td><input type="text" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
+           [% ELSE %]
+              <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+                  [% i.name %]</td>
+              <td>[% i.amount %] [% currency %]</td>
+           [% END %]
+        </tr>
+        [% END %]
+    [% END %]
+[% END %]
+[% END %]
 <tr>
- <th colspan="3">
-  [% loc('Ticket for <conference name>.', global.conference.name) %]
- </th>
-</tr>
-<tr>
-   <td align="right">
-      <label for="form-price">{{Price}}:</label>
-   </td>
    <td>&nbsp;</td>
    <td>
-      <select name="price" id="form-price">
-       [% FOREACH p=prices %]
-        <option value="[% p.price_id %]">[% p.name %] [% p.amount %] [% currency %]</option>
-       [% END %]
-      </select>
-   </td>
-</tr>
-<tr>
-   <td align="right">
       <label for="form-donation">{{Donation}}:</label>
    </td>
-   <td>&nbsp;</td>
    <td>
-      <input name="donation" id="form-donation" type="text" size="5" maxlength="5" />
+      <input name="donation" id="form-donation" type="text" size="5" maxlength="5" value="[% donation %]" />
       [% currency %]
    </td>
 </tr>
@@ -41,7 +52,7 @@
 </td></tr></table>
 
 </form>
-</center>
+</div>
 
 <p>
  {{Please note that everything regarding your bank account and credit card number}}

@@ -1,0 +1,5 @@
+[% WRAPPER ui title = loc('Your purchases') %]
+
+[% PROCESS core/user/orders %]
+
+[% END %]

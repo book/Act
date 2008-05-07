@@ -139,7 +139,7 @@ my @Optional = qw(
   talks_submissions_notify_address talks_submissions_notify_language
   database_debug general_dir_ttc
   flickr_apikey flickr_tags
-  payment_notify_address
+  payment_prices payment_products payment_notify_address
   registration_open registration_max_attendees
 );
 
@@ -265,11 +265,14 @@ sub get_config
                 $sql .= <<EOF;
  AND (
      EXISTS(SELECT 1 FROM talks t WHERE t.user_id=p.user_id AND t.conf_id=? AND t.accepted IS TRUE)
-  OR EXISTS(SELECT 1 FROM orders o WHERE o.user_id=p.user_id AND o.conf_id=? AND o.status=?)
   OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=p.user_id AND r.conf_id=? AND r.right_id IN (?,?))
+  OR EXISTS(SELECT 1 FROM orders o, order_items i WHERE o.user_id=p.user_id AND o.conf_id=? AND o.status=?
+                                                    AND o.order_id = i.order_id AND i.registration)
 )
 EOF
-                push @values, $conf, $conf, 'paid', $conf, 'orga', 'staff';
+                push @values, $conf,
+                              $conf, 'orga', 'staff',
+                              $conf, 'paid';
             }
             my $sth = $Request{dbh}->prepare_cached($sql);
             $sth->execute(@values);
@@ -304,6 +307,17 @@ sub finalize_config
             [ map $cfg->get("levels_level$_\_name_$language"),
                   1 .. $cfg->talks_levels ]);
 
+}
+# get optional variable
+sub get_optional
+{
+    my ($varname) = @_;
+    my $result;
+    my $errhandler = $Config->{STATE}->_ehandler();
+    $Config->{STATE}->_ehandler( sub { } );
+    $result = $Config->get($varname);
+    $Config->{STATE}->_ehandler($errhandler);
+    return $result;
 }
 
 sub _init_config

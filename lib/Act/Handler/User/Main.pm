@@ -1,7 +1,10 @@
 package Act::Handler::User::Main;
 
 use strict;
+use List::Util qw(first);
+
 use Act::Config;
+use Act::Payment;
 use Act::Template::HTML;
 use Act::Order;
 
@@ -17,14 +20,24 @@ sub handler {
     my $talks = $Request{user}->talks(%t);
 
     # this guy's payment info
-    if ($Request{user}->has_registered() && $Request{user}->has_paid()) {
-        $template->variables(
-            order => Act::Order->new(
+    if ($Request{user}->has_registered()) {
+        my $orders = Act::Order->get_items(
                         user_id => $Request{user}->user_id(),
                         conf_id => $Request{conference},
                         status  => 'paid',
-                     ),
+                     );
+        my $order = first { $_->registration } @$orders;
+        $template->variables(
+            order  => $order,
+            orders => $orders,
         );
+        # more stuff to purchase?
+        if ($Config->payment_type ne 'NONE' && $Config->payment_open) {
+            my ($productlist, $products) = Act::Payment::get_prices;
+            if (first { $_ ne 'registration' } @$productlist) {
+                $template->variables(additional_purchase => 1);
+            }
+        }
     }
     $template->variables(
         talks => $talks,

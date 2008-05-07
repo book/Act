@@ -3,7 +3,6 @@ use strict;
 
 use Act::Config;
 use Act::Template::HTML;
-use Act::Util;
 
 sub new
 {
@@ -19,11 +18,6 @@ sub _return_url
 {
     my $self = shift;
     return join('', $Request{base_url}, make_uri('main'));
-}
-sub _item_name
-{
-    my $self = shift;
-    return localize('<conf> registration', $Config->name->{$Request{language}}),
 }
 sub _process_form
 {

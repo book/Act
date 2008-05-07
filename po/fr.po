@@ -133,6 +133,9 @@ msgstr ""
 "Merci de penser à le faire dès que le système de vente en ligne\n"
 "sera opérationnel.\n"
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Vous n'avez pas encore confirmé votre participation à cette conference."
+
 msgid "You did not register for this conference"
 msgstr ""
 "Vous n'êtes pas <a href=\"%1\">inscrit à cette conférence</a>.\n"
@@ -143,6 +146,9 @@ msgstr "Vous pouvez&nbsp;:"
 
 msgid "purchase your conference ticket"
 msgstr "acheter votre billet pour la conférence"
+
+msgid "confirm your participation"
+msgstr "confirmer votre participation"
 
 msgid "register for this conference"
 msgstr "Vous inscrire à cette conférence"
@@ -271,6 +277,11 @@ msgstr ""
 "<b>Nous n'avons à aucun moment accès aux informations\n"
 "bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
 "à la fin. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Dès que vous aurez un compte, vous pourrez gratuitement confirmer\n"
+"votre participation à cette conférence."
 
 msgid "Please create the user below."
 msgstr "Vous pouvez créer votre utilisateur ci-dessous."
@@ -427,9 +438,6 @@ msgstr "Les présentations en <b>gras</b> ont été confirmées par leurs auteur
 msgid "Time"
 msgstr "Heure"
 
-msgid "Ticket for <conference name>."
-msgstr "Ticket d'entrée à la conférence %1."
-
 msgid "Price"
 msgstr "Tarif "
 
@@ -446,8 +454,14 @@ msgstr ""
 "informations bancaires vous concernant.</b> Nous ne faisons que récupérer l'argent\n"
 "à la fin. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Rien à régler, votre commande est confirmée"
+
 msgid "Online payment"
 msgstr "Paiement en ligne"
+
+msgid "Online payment (zero)"
+msgstr "Rien à régler"
 
 msgid "Join"
 msgstr "Inscription à"
@@ -975,18 +989,13 @@ msgstr "Total"
 msgid "Payment confirmation"
 msgstr "Confirmation de règlement"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"Votre paiement en ligne de l'inscription à %1 est enregistré.\n"
+"Votre paiement en ligne à %1 est enregistré.\n"
 "\n"
-"Numéro d'inscription : %2\n"
+"Numéro de commande : %2\n"
 "Date de règlement : %3 GMT\n"
-"Montant réglé : %4 %5 (%6)\n"
-"\n"
-"Votre numéro d'inscription est %2.\n"
-"N'oubliez pas de vous munir de ce numéro lors de votre venue à la conférence.\n"
-"\n"
-"Merci de votre participation à %1 !\n"
+"Montant réglé : %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Facture N°"
@@ -1329,4 +1338,28 @@ msgstr "créer facture"
 
 msgid "enter payment"
 msgstr "saisir réglement"
+
+msgid "Your purchases"
+msgstr "Vos achats"
+
+msgid "Your <conf> order #<id>"
+msgstr "Votre commande $1 n°$2"
+
+msgid "make additional purchases"
+msgstr "acheter des produits supplémentaires"
+
+msgid "view all orders and invoices"
+msgstr "voir toutes vos commandes et factures"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Personal Schedule"
+msgstr "Emploi du temps personnel"
+
+msgid "Attending talks"
+msgstr "Assite à"
+
+msgid "Promotion code"
+msgstr "Code promotionnel"
 

@@ -46,6 +46,21 @@ my @SCHEMA_UPDATES = (
    alter table news drop column title;
    alter table news drop column text;
   ",
+#8,
+  "create table order_items (
+    item_id    serial    not null    primary key,
+    order_id   integer   not null,
+    amount     integer   not null,
+    name       text,
+    registration boolean not null,
+
+    foreign key( order_id  ) references orders( order_id )
+   );
+   insert into order_items (order_id, amount, name, registration)
+     select order_id, amount, price, true from orders order by order_id;
+   alter table orders drop column amount;
+   alter table orders drop column price;
+  ",
 );
 
 # returns ( current database schema version, required version )

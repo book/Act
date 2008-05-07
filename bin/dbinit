@@ -175,14 +175,24 @@ CREATE TABLE orders
     datetime   timestamp without time zone NOT NULL,
 
     /* order info */
-    amount     integer   NOT NULL,
     means      text,
     currency   text,
     status     text      NOT NULL,
-    price      text,
     type       text,
 
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
+);
+
+DROP   TABLE order_items CASCADE;
+CREATE TABLE order_items
+(
+    item_id    serial    NOT NULL    PRIMARY KEY,
+    order_id   integer   NOT NULL,
+    amount     integer   NOT NULL,
+    name       text,
+    registration boolean NOT NULL,
+
+    FOREIGN KEY( order_id  ) REFERENCES orders( order_id )
 );
 
 /* invoices */

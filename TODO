@@ -2,12 +2,25 @@ PRIORITIZED TODO LIST
 
 * sponsor donation: allow for donation from non registered users;
 
-* attendees should be able to pick one day out of the N days when they
-  participate
-
 * corporate registration: register n people from same company in one shot.
 
 UNPRIORITIZED TODO LIST
+
+* add a can_purchase_registration() method to Act::User
+
+* change password barfs on non ASCII characters
+
+* main act.ini should be renamed to avoid confusion with conferences act.ini
+
+* schedule columns should be fixed width
+
+* allow several commits layout
+  (e.g. see http://www.yapceurope.org/2006/talk/schedule/1.html)
+
+* replace login with email address
+  the display name would be nick_name, pseudonymous would be the default behavior
+
+* iCal talk export should be in conference timezone
 
 * add a "Powered by Act" somewhere (Maddingue)
 

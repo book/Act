@@ -1,5 +1,6 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,6 +130,9 @@ msgstr "Please consider doing so using our online payment system."
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "Please consider doing so once our online payment system is ready."
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "You have not confirmed your participation to this conference yet."
+
 msgid "You did not register for this conference"
 msgstr ""
 "You did not <a href=\"%1\">register for this conference</a>.\n"
@@ -139,6 +143,9 @@ msgstr "You can:"
 
 msgid "purchase your conference ticket"
 msgstr "purchase your conference ticket"
+
+msgid "confirm your participation"
+msgstr "confirm your participation"
 
 msgid "register for this conference"
 msgstr "register for this conference"
@@ -266,6 +273,11 @@ msgstr ""
 "<b>We do not have access to your credit\n"
 "information at any time during the payment process.</b> We just\n"
 "get the money in the end. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Once you have an account, you'll be able to confirm your participation\n"
+"to this conference, free of charge."
 
 msgid "Please create the user below."
 msgstr "Please create the user below."
@@ -421,9 +433,6 @@ msgstr "Talks in <b>bold type</b> have been confirmed by their respective speake
 msgid "Time"
 msgstr "Time"
 
-msgid "Ticket for <conference name>."
-msgstr "Ticket for %1."
-
 msgid "Price"
 msgstr "Price"
 
@@ -439,8 +448,14 @@ msgstr ""
 "is handled by the bank. <b>We do not have access to your credit information at\n"
 "any time during the payment process.</b> We just get the money in the end. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Since the total for this order is zero, you don't need to go through the actual payment. This order is completed"
+
 msgid "Online payment"
 msgstr "Online payment"
+
+msgid "Online payment (zero)"
+msgstr "Nothing to pay"
 
 msgid "Join"
 msgstr "Join"
@@ -963,18 +978,13 @@ msgstr "Total"
 msgid "Payment confirmation"
 msgstr "Payment confirmation"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
-"Your online payment for your %1 registration has been approved.\n"
+"Your online payment has been approved.\n"
 "\n"
 "Your order number: %2\n"
 "Payment date: %3 GMT\n"
-"Amount paid: %4 %5 (%6)\n"
-"\n"
-"Your order number is %2.\n"
-"Be sure to bring it along with you when you come to the conference.\n"
-"\n"
-"Thanks for joining %1!\n"
+"Amount paid: %4 %5\n"
 
 msgid "Invoice #"
 msgstr "Invoice #"
@@ -1315,4 +1325,28 @@ msgstr "create invoice"
 
 msgid "enter payment"
 msgstr "enter payment"
+
+msgid "Your purchases"
+msgstr "Your purchases"
+
+msgid "Your <conf> order #<id>"
+msgstr "Your $1 order #$2"
+
+msgid "make additional purchases"
+msgstr "make additional purchases"
+
+msgid "view all orders and invoices"
+msgstr "view all orders and invoices"
+
+msgid "Product"
+msgstr "Product"
+
+msgid "Personal Schedule"
+msgstr "Personal Schedule"
+
+msgid "Attending talks"
+msgstr "Attending talks"
+
+msgid "Promotion code"
+msgstr "Promotion code"
 

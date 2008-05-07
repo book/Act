@@ -17,7 +17,7 @@ sub create_form
     my %vars = (
         cmd             => '_xclick',
         business        => $self->_type_config('email'),
-        item_name       => $self->_item_name(),
+        item_name       => $order->title,
         item_number     => $order->order_id,
         amount          => $order->amount,
         currency_code   => $order->currency,

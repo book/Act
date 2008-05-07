@@ -15,7 +15,7 @@ use Act::Util;
 
 my %sortsub = (
     user    => sub { [ Act::Util::usort { $_->last_name } @{$_[0]} ] },
-    status  => sub { my ($users, $orders) = @_;
+    status  => sub { my $users = shift;
                 return [ sort {
                     # sort users with rights first
                     my ($sa, $sb) = map $_->{status}, $a, $b;
@@ -29,39 +29,6 @@ my %sortsub = (
         
 
                },
-    date    => sub { my ($users, $orders) = @_;
-                return [ sort {
-                    # sort users with payments first
-                    my ($oa, $ob) = map $orders->{$_->user_id}, $a, $b;
-                      $oa && $ob ? DateTime->compare($oa->datetime, $ob->datetime)
-                    : $oa        ? -1
-                    : $ob        ? 1
-                    :              _n($a->last_name) cmp _n($b->last_name)
-                } @$users ]
-               },
-    means   => sub { my ($users, $orders) = @_;
-                return [ sort {
-                    # sort users with payments first
-                    my ($oa, $ob) = map $orders->{$_->user_id}, $a, $b;
-                      $oa && $ob ? $oa->means cmp $ob->means
-                    : $oa        ? -1
-                    : $ob        ? 1
-                    :              _n($a->last_name) cmp _n($b->last_name)
-                } @$users ]
-             },
-    price   => sub {
-                my ($users, $orders) = @_;
-                return [ sort {
-                    # sort users with payments first
-                    my ($oa, $ob) = map $orders->{$_->user_id}, $a, $b;
-                      $oa && $ob ? $oa->amount <=> $ob->amount
-                                               ||
-                                   _n($a->last_name) cmp _n($b->last_name)
-                    : $oa        ? -1
-                    : $ob        ? 1
-                    :              _n($a->last_name) cmp _n($b->last_name)
-                } @$users ]
-             },
 );
 # hack to let TT access 'status'
 sub Act::User::status { $_[0]->{status} }
@@ -77,17 +44,17 @@ sub handler
     # retrieve users and their payment info
     my $users = Act::User->get_items( conf_id => $Request{conference} );
     my $means  = Act::Payment::get_means;
-    my (%orders, %invoice_uri, %total);
+    my (%orders, %total);
     for my $u (@$users) {
         $u->{status} = [ keys %{ $u->rights },
             $u->has_accepted_talk ? 'speaker' : () ];
 
-        my $order = Act::Order->new(
+        my $orders = Act::Order->get_items(
             user_id  => $u->user_id,
             conf_id  => $Request{conference},
             status   => 'paid',
         );
-        if ($order) {
+        for my $order (@$orders) {
             my $invoice = Act::Invoice->new( order_id => $order->order_id );
             if ($invoice) {
                 $order->{invoice_no} = $invoice->invoice_no;
@@ -98,10 +65,10 @@ sub handler
                                     && $order->currency eq $Config->payment_currency;
             }
             $order->{means} = localize('payment_means_' . $order->means);
-            $invoice_uri{$u->user_id} = make_uri_info('invoice', $order->order_id);
+            $order->{invoice_uri} = make_uri_info('invoice', $order->order_id);
             $total{ $order->currency } += $order->amount;
-            $orders{$u->user_id} = $order;
         }
+        $orders{$u->user_id} = $orders if @$orders;
     }
     # sort key
     my $sortkey = $Request{args}{sort};
@@ -110,11 +77,10 @@ sub handler
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
-        users       => $sortsub{$sortkey}->($users, \%orders),
-        sortkey     => $sortkey,
+        users       => $sortsub{$sortkey}->($users),
         orders      => \%orders,
+        sortkey     => $sortkey,
         total       => \%total,
-        invoice_uri => \%invoice_uri,
     ); 
     $template->process('payment/list');
 }

@@ -186,9 +186,6 @@ msgstr "De presentaties in het <b>vet</b> werden nog niet bevestigd door hun aut
 msgid "Time"
 msgstr "Uur"
 
-msgid "Ticket for <conference name>."
-msgstr "Toegangskaart voor %1."
-
 msgid "Price"
 msgstr "Prijs"
 

@@ -45,10 +45,12 @@ my %private_handlers = (
     invoice         => 'Act::Handler::Payment::Invoice',
     logout          => 'Act::Handler::Logout',
     main            => 'Act::Handler::User::Main',
+    myschedule      => 'Act::Handler::Talk::MySchedule',
     newevent        => 'Act::Handler::Event::Edit',
     newsadmin       => 'Act::Handler::News::Admin',
     newsedit        => 'Act::Handler::News::Edit',
     newtalk         => 'Act::Handler::Talk::Edit',
+    orders          => 'Act::Handler::User::Orders',
     openid_trust    => 'Act::Handler::OpenID::Trust',
     payment         => 'Act::Handler::Payment::Payment',
     payments        => 'Act::Handler::Payment::List',
@@ -58,8 +60,11 @@ my %private_handlers = (
     rights          => 'Act::Handler::User::Rights',
     trackedit       => 'Act::Handler::Track::Edit',
     tracks          => 'Act::Handler::Track::List',
+    updatemytalks   => 'Act::Handler::User::UpdateMyTalks',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
+    # private ajax handlers
+    ajax_toggle_mytalk  => 'Act::Handler::User::Ajax::ToggleMyTalk',
 );
 my %dispatch = ( map( { $_ => { handler => $public_handlers{$_} } } keys %public_handlers),
                  map( { $_ => { handler => $private_handlers{$_}, private => 1 } } keys %private_handlers)
