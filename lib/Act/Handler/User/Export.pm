@@ -12,7 +12,7 @@ my @UROWS = qw(
     is_orga is_staff
     has_talk has_paid
 );
-my @PROWS = qw( tshirt_size nb_family );
+my @PROWS = qw( tshirt_size nb_family datetime);
 my @TROWS = qw( company address vat );
 
 sub handler
