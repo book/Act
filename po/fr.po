@@ -1343,7 +1343,7 @@ msgid "Your purchases"
 msgstr "Vos achats"
 
 msgid "Your <conf> order #<id>"
-msgstr "Votre commande $1 n°$2"
+msgstr "Votre commande %1 n°%2"
 
 msgid "make additional purchases"
 msgstr "acheter des produits supplémentaires"

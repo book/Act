@@ -1333,7 +1333,7 @@ msgid "Your purchases"
 msgstr "I vostri acquisti"
 
 msgid "Your <conf> order #<id>"
-msgstr "Il vostro ordine #$2 per $1"
+msgstr "Il vostro ordine #%2 per %1"
 
 msgid "make additional purchases"
 msgstr "fai ulteriori acquisti"
