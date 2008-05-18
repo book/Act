@@ -5,7 +5,6 @@ package Act::Email;
 
 use Encode ();
 use List::Pairwise qw(mapp);
-use Sys::Hostname;
 
 use Act::Config;
 use Email::Address;
