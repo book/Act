@@ -1,4 +1,4 @@
-package Act::Handler::Payment::Payment;
+package Act::Handler::Payment::Edit;
 use strict;
 use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
@@ -95,7 +95,7 @@ sub _handler
         productlist => $productlist,
         products    => $products,
     );
-    $template->process('payment/payment');
+    $template->process('payment/edit');
     return 1;
 }
 
@@ -104,7 +104,7 @@ __END__
 
 =head1 NAME
 
-Act::Handler::Payment::Payment - enter a payment
+Act::Handler::Payment::Edit - enter/edit a payment (treasurer)
 
 =head1 DESCRIPTION
 
