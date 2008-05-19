@@ -92,7 +92,7 @@ sub handler {
     # automatically compute the return URL
     my $referer = $Request{r}->header_in('Referer');
     $Request{args}{return_url} ||= $referer
-        if $referer =~ m{/(?:main|talks|schedule|user)};
+        if $referer =~ m{/(?:main|talks?|schedule|user)};
 
     if ($Request{args}{submit}) {
         # form has been submitted

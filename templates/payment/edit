@@ -18,15 +18,15 @@
  <td colspan="2">
   <select name="means">
     [% FOREACH m = allmeans.keys %]
-        <option value="[% m %]"[% ' selected="selected"' IF m == means %]>[% allmeans.$m %]</option>
+        <option value="[% m %]"[% ' selected="selected"' IF m == fields.means %]>[% allmeans.$m %]</option>
     [% END %]
   </select>
  </td>
 </tr>
 [% FOREACH p IN productlist %]
-    [% NEXT IF p == 'registration' AND has_paid %]
+    [% NEXT IF p == 'registration' AND user.has_paid %]
     <tr>
-        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF fields.products.$p.checked %] /></td>
         <td>[% products.$p.name %]</td>
   [% IF products.$p.prices.size == 1 %]
         <td>[% products.$p.prices.0.amount %] [% currency %]</td>
@@ -37,12 +37,17 @@
     [% FOREACH i IN products.$p.prices %]
     <tr>
         <td></td>
-        <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+        <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF fields.products.$p.prices.${i.price_id} %] />
             [% i.name %]</td>
         <td>[% i.amount %] [% currency %]</td>
     </tr>
     [% END %]
   [% END %]
+    <tr>
+        <td></td>
+        <td>&nbsp;{{or}}&nbsp;<input type="text" name="amount-[% p %]" value="[% fields.amount.$p %]" size="6" />&nbsp;[% currency %]</td>
+        <td></td>
+    </tr>
 [% END %]
 </tr>
 </table>

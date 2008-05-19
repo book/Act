@@ -16,7 +16,7 @@ use Act::Handler::News::Fetch;
 use Act::Handler::Payment::Confirm;
 use Act::Handler::Payment::Invoice;
 use Act::Handler::Payment::List;
-use Act::Handler::Payment::Payment;
+use Act::Handler::Payment::Edit;
 use Act::Handler::Static;
 use Act::Handler::Talk::Edit;
 use Act::Handler::Talk::ExportCSV;

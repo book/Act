@@ -2,6 +2,7 @@ package Act::Handler::Payment::List;
 use strict;
 use Apache::Constants qw(NOT_FOUND);
 use DateTime;
+use List::Util qw(first);
 
 use Act::Config;
 use Act::Invoice;
@@ -30,8 +31,13 @@ my %sortsub = (
 
                },
 );
-# hack to let TT access 'status'
-sub Act::User::status { $_[0]->{status} }
+# TT only looks for methods
+{
+    no strict 'refs';
+    for my $method (qw(status orders registered_paid)) {
+        *{"Act::User::$method"} = sub { $_[0]->{$method} };
+    }
+}
 
 sub handler
 {
@@ -44,7 +50,12 @@ sub handler
     # retrieve users and their payment info
     my $users = Act::User->get_items( conf_id => $Request{conference} );
     my $means  = Act::Payment::get_means;
-    my (%orders, %total);
+
+    # do we have products to purchase besides registration
+    my ($productlist, $products) = Act::Payment::get_prices;
+    my $extra =  first { $_ ne 'registration' } @$productlist;
+
+    my %total;
     for my $u (@$users) {
         $u->{status} = [ keys %{ $u->rights },
             $u->has_accepted_talk ? 'speaker' : () ];
@@ -55,6 +66,7 @@ sub handler
             status   => 'paid',
         );
         for my $order (@$orders) {
+            $u->{registered_paid} = 1 if $order->registration;
             my $invoice = Act::Invoice->new( order_id => $order->order_id );
             if ($invoice) {
                 $order->{invoice_no} = $invoice->invoice_no;
@@ -68,7 +80,7 @@ sub handler
             $order->{invoice_uri} = make_uri_info('invoice', $order->order_id);
             $total{ $order->currency } += $order->amount;
         }
-        $orders{$u->user_id} = $orders if @$orders;
+        $u->{orders} = $orders;
     }
     # sort key
     my $sortkey = $Request{args}{sort};
@@ -78,9 +90,9 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(
         users       => $sortsub{$sortkey}->($users),
-        orders      => \%orders,
         sortkey     => $sortkey,
         total       => \%total,
+        extra       => $extra,
     ); 
     $template->process('payment/list');
 }
