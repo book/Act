@@ -24,7 +24,7 @@ sub _handler
     my ($productlist, $products) = Act::Payment::get_prices;
 
     # fetch user (create payment) or order (edit payment)
-    my ($user, $order);
+    my ($user, $order, %fields);
     if ($Request{args}{user_id}) {
         $user = Act::User->new(
             user_id => $Request{args}{user_id},
@@ -43,57 +43,70 @@ sub _handler
     if ($Request{args}{ok}) {
         # payment form submission
         my @items;
+        $fields{means} = $Request{args}{means};
         for my $p (@$productlist) {
             if ($Request{args}{"product-$p"}) {
+                $fields{products}{$p} = { checked => 1 };
                 my $product = $products->{$p};
-                my $nprices = @{$product->{prices}};
-                my $price_id;
-                if ($nprices == 1) {
-                    $price_id = 1;
+                my $amount;
+                my $name = $product->{name};
+                if ($Request{args}{means} eq 'FREE') {
+                    $amount = 0;
+                }
+                elsif ($Request{args}{"amount-$p"}) {
+                    $fields{amount}{$p} = $amount = $Request{args}{"amount-$p"};
                 }
                 else {
-                    $price_id = $Request{args}{"price-$p"};
+                    my $nprices = @{$product->{prices}};
+                    my $price_id = $nprices == 1 ? 1 : $Request{args}{"price-$p"};
+                    if ($price_id) {
+                        $fields{products}{$p}{prices}{$price_id} = 1;
+                        my $price = $product->{prices}[$price_id-1];
+                        $amount = $price->{amount};
+                        $name = join(' - ', $name, $price->{name}) if $price->{name};
+                    }
                 }
-                my $price = $product->{prices}[$price_id-1];
-                my $name = $product->{name};
-                $name = join(' - ', $name, $price->{name}) if $price->{name};
-                push @items, {
-                    amount => $Request{args}{means} eq 'FREE' ? 0 : $price->{amount},
-                    name   => $name,
-                    registration => $p eq 'registration',
-                };
+                if (defined $amount) {
+                    push @items, {
+                        amount => $amount,
+                        name   => $name,
+                        registration => $p eq 'registration',
+                    };
+                }
             }
         }
-        # create or update the order
-        if ($order) {
-            # FIXME
-            # $order->update(...);
+        if (@items) {
+            # create or update the order
+            if ($order) {
+                # FIXME
+                # $order->update(...);
+            }
+            else {
+                Act::Order->create(
+                    user_id  => $user->user_id,
+                    conf_id  => $Request{conference},
+                    means    => $Request{args}{means},
+                    type     => $Config->payment_type,
+                    currency => $Config->payment_currency,
+                    status   => 'paid',
+                    items    => \@items,
+                );
+            }
+            # back to the payment list
+            Act::Util::redirect(make_uri('payments'));
+            return 1;
         }
-        else {
-            Act::Order->create(
-                user_id  => $user->user_id,
-                conf_id  => $Request{conference},
-                means    => $Request{args}{means},
-                type     => $Config->payment_type,
-                currency => $Config->payment_currency,
-                status   => 'paid',
-                items    => \@items,
-            );
-        }
-        # back to the payment list
-        Act::Util::redirect(make_uri('payments'));
-        return 1;
     }
     # display payment form
     my $template = Act::Template::HTML->new;
     $template->variables( %$order ) if $order;
     $template->variables(
         user      => $user,
-        has_paid  => $user->has_paid,
         allmeans  => $means,
         currency  => $Config->payment_currency,
         productlist => $productlist,
         products    => $products,
+        fields      => \%fields,
     );
     $template->process('payment/edit');
     return 1;

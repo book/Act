@@ -16,11 +16,10 @@
  <th>{{Amount}}</th>
 </tr>
 [% FOREACH u = users %]
-  [% os = orders.${u.user_id};
-     numrows = 1;
-     IF os;
+  [% numrows = 1;
+     IF u.orders.size;
        numrows = 0;
-       FOREACH o IN os;
+       FOREACH o IN u.orders;
          FOREACH i IN o.items;
            numrows = numrows + 1;
          END;
@@ -33,13 +32,15 @@
         </strong>
         <br /><font size = "-2">
         <a href="[% make_uri('punregister', 'user_id', u.user_id) %]">{{unregister}}</a>
+        [% IF !u.registered_paid OR extra %]
         |
         <a href="[% make_uri('payment', 'user_id', u.user_id) %]">{{enter payment}}</a>
+        [% END %]
         </font>
     </td>
     <td rowspan="[% numrows %]">[% u.status.sort.join('<br />') || '&nbsp;' %]</td>
-    [% IF os;
-        FOREACH o IN os;
+    [% IF u.orders.size;
+        FOREACH o IN u.orders;
           numrows = 0;
           FOREACH i IN o.items;
             numrows = numrows + 1;
