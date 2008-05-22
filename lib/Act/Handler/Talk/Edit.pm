@@ -342,7 +342,8 @@ sub notify
             to       => $Config->talks_submissions_notify_address,
             xheaders => {
                 'X-Act' => join(
-                    ' ', 'payment confirmation:',
+                    ' ',
+                    $op eq 'insert' ? 'talk creation:' : 'talk edition:',
                     user => $talk->user_id,
                     conf => $Request{conference},
                     talk => $talk->talk_id,
