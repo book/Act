@@ -60,7 +60,14 @@ sub _notify
         from    => $Config->email_sender_address,
         to      => $Request{user}->email,
         bcc     => [ split /\s*,\s*/, $plugin->_type_config('notify_bcc') ],
-        xheaders => { 'X-Act' => "payment confirmation $Request{conference} " . $order->order_id },
+        xheaders => {
+            'X-Act' => join(
+                ' ', 'payment confirmation:',
+                user  => $order->user_id,
+                conf  => $Request{conference},
+                order => $order->order_id,
+            ),
+            },
         %output,
     );
     push @{$args{bcc}}, $Config->payment_notify_address
