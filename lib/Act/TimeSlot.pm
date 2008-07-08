@@ -56,12 +56,15 @@ sub is_global { $_[0]{room} =~ /^(?:out|venue)$/; }
 sub get_current
 {
     my $class = shift;
-    my $now = shift || DateTime->now();
-
-    # optional conversion from string to DateTime object
-    $now = DateTime::Format::Pg->parse_timestamp_without_time_zone($now)
-        unless ref $now;
- 
+    my $now = shift;
+    if ($now) {
+        # convert from string to DateTime object
+        $now = DateTime::Format::Pg->parse_timestamp_without_time_zone($now);
+    }
+    else {
+        # current time in conference timezone
+        $now = DateTime->now()->set_time_zone($Config->general_timezone);
+    }
     # get scheduled talks and events, in chronological order
     my @ts = sort { DateTime->compare($a->datetime, $b->datetime) }
              grep { $_->datetime && $_->room }
