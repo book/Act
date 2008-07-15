@@ -46,8 +46,10 @@
 
 <p>[% loc("To register, you first need to create an account on the site.", make_uri('main')) %]</p>
 <p>[% loc("The personal data that will be gathered here will be used to create", make_uri('search')) %]</p>
+[% IF !global.config.registration_gratis %]
 <p>{{Once you have an account, you'll be able to use our secure payment}}</p>
 <p>{{We do not have access to your credit card information}}</p>
-
+[% ELSE %]
+<p>{{Once you have an account, you'll be able to register free of charge}}</p>
 [% END %]
-
+[% END %]
