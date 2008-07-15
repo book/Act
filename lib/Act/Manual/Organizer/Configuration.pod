@@ -32,6 +32,14 @@ conference.
     # omit this is not applicable
     max_attendees = 100
 
+    # optional
+    # selects different phrases about "buying tickets", to be used when
+    # people can get it without actually paying. NOTE: if you set this to
+    # 1, there really should be a registration price of 0, otherwise users
+    # will get the nasty surprise of having to pay for a ticket that was
+    # promised "free of charge"...
+    gratis = 1
+
     [email]
     sender_address = your@address.com
     
