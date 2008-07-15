@@ -41,7 +41,8 @@ sub handler
     || delete $bio{$_} for keys %bio;
     
     $template->variables(
-        %$user,
+        %$user, # for backwards compatibility
+        user => $user,
         country  => Act::Country::CountryName( $user->country ),
         talks => [
             grep { $_->accepted
