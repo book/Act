@@ -140,7 +140,7 @@ my @Optional = qw(
   database_debug general_dir_ttc
   flickr_apikey flickr_tags
   payment_prices payment_products payment_notify_address
-  registration_open registration_max_attendees
+  registration_open registration_max_attendees registration_gratis
   registration_gratis
 );
 
