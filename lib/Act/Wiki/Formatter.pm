@@ -76,6 +76,13 @@ sub _make_link
             }
             return $link;
         }
+        elsif ($u->scheme eq 'page' ) {
+            my $url = $u->opaque;
+            if( $url =~ /^[-\w.#]+$/ )  {
+                return "{% make_uri('$url') -%}\n";
+            }
+            return $link;
+        }
     }
     else {
         $link = URI::Escape::uri_escape_utf8($link);
