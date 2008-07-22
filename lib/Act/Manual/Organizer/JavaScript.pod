@@ -3,8 +3,8 @@
 Act provides optional JavaScript support using the JQuery open source library.
 It is enabled in your conference's C<ui> template:
 
-  <script src="/js/jquery.js"></script>
-  <script src="/js/act.js"></script>
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/act.js"></script>
 
 When enabled, some Act features will take advantage of JQuery's Ajax support
 to provide an enhanced user experience by eliminating page reloads or explicit

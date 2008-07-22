@@ -19,8 +19,8 @@
 <link rel="stylesheet" type="text/css" href="/css/schedule.css" />
 
 <!-- JavaScript sugar -->
-<script src="/js/jquery.js"></script>
-<script src="/js/act.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/act.js"></script>
 
 <!-- Favorite icon -->
 <link rel="shortcut icon" type="image/png" href="/favicon.png" />
