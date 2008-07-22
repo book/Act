@@ -1,10 +1,11 @@
-$(function() {
-    $(".mytalks_submit").hide();
-});
 var act = window.act = function() {
   return {
-    toggle_mytalk: function(conf_id, talk_id) {
-        $.post("/" + conf_id + "/ajax_toggle_mytalk", {talk_id: talk_id} );
+    make_uri: function(conf_id, action, args) {
+        var uri = [ '', conf_id, action ].join('/');
+        if (args)
+            for (var p in args)
+                uri = uri + ';' + p + '=' + encodeURIComponent(args[p]);
+        return uri;
     }
   };
 }();

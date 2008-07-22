@@ -1,3 +1,13 @@
+<script type="text/javascript">
+if (window.act) {
+    $(function() {
+        $(".mytalks_submit").hide();
+    });
+    window.act.toggle_mytalk = function(conf_id, talk_id) {
+        $.post(act.make_uri(conf_id, 'ajax_toggle_mytalk'), {talk_id: talk_id} );
+    }
+}
+</script>
 [% IF not ( global.request.user.is_orga
          or global.request.user.is_staff
          or global.config.talks_show_schedule ) %]
