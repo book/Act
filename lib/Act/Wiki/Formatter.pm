@@ -77,8 +77,8 @@ sub _make_link
         elsif ($u->scheme eq 'page' ) {
             my $url = $u->opaque;
             if( $url =~ /^[-\w.#]+$/ )  {
-                my $n = $formatter->new_chunk($url);
-                return qq|<a href="{% make_uri('$url') -%}">$title</a>|;
+                my $n = $formatter->new_chunk({ url => $url, title => $title });
+                return qq|<a href="{% make_uri(chunks.$n.url) -%}">{% chunks.$n.title %}</a>|;
             }
         }
         return $link;
