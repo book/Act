@@ -10,4 +10,6 @@ When enabled, some Act features will take advantage of JQuery's Ajax support
 to provide an enhanced user experience by eliminating page reloads or explicit
 change submission.
 
+Make sure you insert these lines after loading any stylesheets.
+
 =cut
