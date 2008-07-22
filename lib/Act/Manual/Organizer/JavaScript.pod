@@ -6,10 +6,19 @@ It is enabled in your conference's C<ui> template:
   <script type="text/javascript" src="/js/jquery.js"></script>
   <script type="text/javascript" src="/js/act.js"></script>
 
+Make sure you insert these lines after loading any stylesheets.
+
 When enabled, some Act features will take advantage of JQuery's Ajax support
 to provide an enhanced user experience by eliminating page reloads or explicit
 change submission.
 
-Make sure you insert these lines after loading any stylesheets.
+Alternatively, you can load jquery from Google's content delivery network.
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+The benefits are Google's fast response time and a gzip-encoded response: currently
+about 17 KB as opposed to 55 KB when using Act's version.
+The downside is that you might need to keep track of which version of jQuery is
+certified to work with Act.
 
 =cut
