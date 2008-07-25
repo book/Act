@@ -41,5 +41,6 @@ color: inherit;
 background-color: #D3FFFF;
 vertical-align: top;
 }
-
-
+.mtbutton {
+cursor:pointer;
+}

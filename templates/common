@@ -53,7 +53,7 @@
             IF global.request.user AND global.request.user.has_registered %]
                 <input type="checkbox"
                        name="mt-[% t.talk_id %]"
-                       onClick="if (window.act) act.toggle_mytalk('[% global.request.conference %]',[% t.talk_id %])"
+                       value="[% t.talk_id %]"
                        [% ' checked="checked"' IF global.request.user.is_my_talk(t) %] />
             [% END;
             user_info(t.user); ' - '; talk_confirmed_link(t);
