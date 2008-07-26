@@ -54,7 +54,13 @@
                 <input type="checkbox"
                        name="mt-[% t.talk_id %]"
                        value="[% t.talk_id %]"
-                       [% ' checked="checked"' IF global.request.user.is_my_talk(t) %] />
+                       [% IF global.request.user.is_my_talk(t) %]
+                         title = "{{remove from personal schedule}}"
+                         checked = "checked"
+                       [% ELSE %]
+                         title = "{{add to personal schedule}}"
+                       [% END %]
+                />
             [% END;
             user_info(t.user); ' - '; talk_confirmed_link(t);
             ' ('; t.duration; '&nbsp;'; loc('min');

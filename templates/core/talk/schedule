@@ -2,10 +2,11 @@
 if (window.act) {
     toggle_image = function(elem, talk_id, set) {
         var img_name = set ? 'picked' : 'unpicked';
+        var title = set ? '{{remove from personal schedule}}' : '{{add to personal schedule}}';
         $(elem).replaceWith(
             $(
                 '<img class="mtbutton" src="/images/' + img_name + '.gif"'
-              + ' title="remove from my schedule"'
+              + ' title="' + title + '"'
               + ' onClick ="toggle_talk(this,' + talk_id + ',' + set + ');" />'
              )
          )
@@ -15,7 +16,7 @@ if (window.act) {
         toggle_image(elem, talk_id, !set);
     };
     $(function() {
-        $(".mytalks_submit").hide();
+        $(".mytalks_submit").remove();
         $(":checkbox").map(function() {
             toggle_image(this, $(this).val(), $(this).attr("checked"));
         });
@@ -96,7 +97,7 @@ if (window.act) {
 </table>
 [% END %]
 [% IF global.request.user AND global.request.user.has_registered %]
-<input type="submit" class="mytalks_submit" value="Submit changes" />
+<input type="submit" class="mytalks_submit" value="{{Submit}}" />
 </form>
 [% END %]
 [% END %]
