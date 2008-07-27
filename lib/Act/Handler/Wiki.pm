@@ -5,6 +5,7 @@ use Apache::Constants qw(NOT_FOUND);
 use DateTime;
 use DateTime::Format::Pg;
 use Encode;
+use Text::Diff ();
 
 use Act::Config;
 use Act::Template::HTML;
@@ -17,6 +18,7 @@ my %actions = (
     display => \&wiki_display,
     recent  => \&wiki_recent,
     history => \&wiki_history,
+    diff    => \&wiki_diff,
     help    => \&wiki_help,
     tags    => \&wiki_tags,
 );
@@ -107,6 +109,39 @@ sub wiki_history
         versions => \@versions,
     );
     $template->process('wiki/history');
+}
+sub wiki_diff
+{
+    my ($wiki, $template) = @_;
+
+    my $node = $Request{args}{node};
+    unless ($node) {
+        $Request{status} = NOT_FOUND;
+        return;
+    }
+    my %versions;
+    for my $r (qw(r1 r2)) {
+        my %v = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node), version => $Request{args}{$r});
+        $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
+        $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
+        $versions{$r} = \%v;
+    }
+
+    $template->variables(
+        node      => $node,
+        r1        => $Request{args}{r1},
+        r2        => $Request{args}{r2},
+        versions  => \%versions,
+        diff      => Text::Diff::diff(\$versions{r1}{content}, \$versions{r2}{content},
+          {
+            FILENAME_A  => "$node v$Request{args}{r1}",
+            FILENAME_B  => "$node v$Request{args}{r2}",
+            FILENAME_PREFIX_A => "---",
+            FILENAME_PREFIX_B => "+++",
+          }
+        ),
+    );
+    $template->process('wiki/diff');
 }
 sub wiki_help
 {
