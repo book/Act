@@ -379,6 +379,9 @@ msgstr "Treasurer"
 msgid "Payments"
 msgstr "Payments"
 
+msgid "Payment Details"
+msgstr "Payment Details"
+
 msgid "Edit profile"
 msgstr "Edit profile"
 

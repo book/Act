@@ -384,6 +384,9 @@ msgstr "Trésorier"
 msgid "Payments"
 msgstr "Paiements"
 
+msgid "Payment Details"
+msgstr "Paiements détaillés"
+
 msgid "Edit profile"
 msgstr "Modifier profil"
 
