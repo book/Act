@@ -2,6 +2,17 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2008/07/15 r1943 use Email::* modules (and sendmail) to send email
+
+2008/05/07 r1917 new purchasing features:
+                 multiple products (e.g. registration, classes, accomodation)
+                 each purchase can contain one or more products
+                 each product can have one or more prices
+                 users can issue multiple orders: they can purchase products any time payment is open
+                 prices can be protected by promo codes
+                 allow gratis prices
+2008/04/26 r1874 OpenID server
+
 2008/04/11 r1850 Croatian translation
 
 2008/03/24 r1844 permalinks for news items
