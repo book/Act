@@ -4,11 +4,11 @@
 
 <h2>diff v[% r1 %] - v[% r2 %]</h2>
 
-<b>v[% r1 %]</b> : [% date_format(versions.r1.last_modified, 'datetime_short') %] - [% user_info(versions.r1.user) %]<br />
-<b>v[% r2 %]</b> : [% date_format(versions.r2.last_modified, 'datetime_short') %] - [% user_info(versions.r2.user) %]<br />
+<b>v[% r1 %]</b>: [% date_format(versions.r1.last_modified, 'datetime_short') %] - [% user_info(versions.r1.user) %]<br />
+<b>v[% r2 %]</b>: [% date_format(versions.r2.last_modified, 'datetime_short') %] - [% user_info(versions.r2.user) %]<br />
 
 <pre>
-[% diff %]
+[%- diff %]
 </pre>
 
 [% END %]
