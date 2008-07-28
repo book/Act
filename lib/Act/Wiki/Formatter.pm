@@ -66,7 +66,6 @@ sub _make_link
                 my $n = $formatter->new_chunk({ talk => $talk, user => $user });
                 return "{% expand_talk(chunks.$n) -%}\n";
             }
-            return $link;
         }
         elsif ($u->scheme eq 'user') {
             my $user = Act::Abstract::expand_user(URI::Escape::uri_unescape($u->opaque));
@@ -74,8 +73,15 @@ sub _make_link
                 my $n = $formatter->new_chunk({ user => $user });
                 return "{% expand_user(chunks.$n) -%}\n";
             }
-            return $link;
         }
+        elsif ($u->scheme eq 'page' ) {
+            my $url = $u->opaque;
+            if( $url =~ /^[-\w.#]+$/ )  {
+                my $n = $formatter->new_chunk({ url => $url, title => $title });
+                return qq|<a href="{% make_uri(chunks.$n.url) -%}">{% chunks.$n.title %}</a>|;
+            }
+        }
+        return $link;
     }
     else {
         $link = URI::Escape::uri_escape_utf8($link);
