@@ -13,6 +13,7 @@ WHERE u.user_id=p.user_id
   AND p.conf_id=?
 ORDER BY p.datetime, u.last_name, u.first_name
 SQL
+
     payments => [ sub { $_[0]->is_treasurer() }, << 'SQL', [ 'paid'] ],
 SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name,
     u.last_name, u.email, SUM(oi.amount), o.currency, o.means,
@@ -26,6 +27,17 @@ GROUP BY o.order_id, o.user_id, o.conf_id, o.datetime,
          u.first_name, u.last_name, u.email,
          o.currency, o.means,
          i.invoice_no, i.company, i.address, i.vat
+ORDER BY o.datetime
+SQL
+
+    payment_items => [ sub { $_[0]->is_treasurer() }, << 'SQL', [ 'paid'] ],
+SELECT o.order_id, o.user_id, o.conf_id, o.datetime, u.first_name,
+    u.last_name, u.email, o.currency, o.means,
+    oi.amount, oi.name
+FROM orders o
+LEFT JOIN users u ON (o.user_id = u.user_id )
+LEFT JOIN order_items oi ON (o.order_id = oi.order_id)
+WHERE o.conf_id = ? AND o.status = ?
 ORDER BY o.datetime
 SQL
 );
