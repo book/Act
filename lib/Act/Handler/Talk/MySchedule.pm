@@ -1,9 +1,10 @@
 package Act::Handler::Talk::MySchedule;
+use strict;
 use Act::Config;
 use Act::TimeSlot;
 use Act::Template::HTML;
 use Act::Handler::Talk::Schedule;
-use strict;
+use Act::Util;
 
 sub handler {
 
