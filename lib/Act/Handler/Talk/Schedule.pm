@@ -159,7 +159,7 @@ sub compute_schedule {
             my $max;
             $max = $max < $room{$r}{$day}[$_] ? $room{$r}{$day}[$_] : $max
                 for 0 .. @{ $room{$r}{$day} } - 1;
-            $width{$r}{$day} = $max || 1;
+            $width{$r}{$day} = $max || 0;
         }
         $maxwidth{$day} = 0;
         $maxwidth{$day} += $width{$_}{$day} for keys %room;

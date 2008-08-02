@@ -76,9 +76,9 @@ if (window.act) {
    {{Time}}
   </th>
   [% FOREACH r IN room.keys.sort %]
-  <th colspan="[% width.$r.$d %]">
-    [% global.config.rooms.$r %]
-  </th>
+     [% IF width.$r.$d %]
+       <th colspan="[% width.$r.$d %]">[% global.config.rooms.$r %]</th>
+     [% END %]
   [% END %]
  </tr>
  [% FOREACH row IN table.$d %]
