@@ -12,7 +12,7 @@ if (window.act) {
          )
     };
     toggle_talk = function(elem, talk_id, set) {
-        $.post(act.make_uri('[% global.request.conference %]', 'ajax_toggle_mytalk'), {talk_id: talk_id} );
+        $.post(act.make_uri('[% global.request.conference %]', 'updatemytalks_a'), {talk_id: talk_id} );
         toggle_image(elem, talk_id, !set);
     };
     $(function() {

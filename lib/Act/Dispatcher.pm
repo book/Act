@@ -61,10 +61,9 @@ my %private_handlers = (
     trackedit       => 'Act::Handler::Track::Edit',
     tracks          => 'Act::Handler::Track::List',
     updatemytalks   => 'Act::Handler::User::UpdateMyTalks',
+    updatemytalks_a => 'Act::Handler::User::UpdateMyTalks::ajax_handler',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
-    # private ajax handlers
-    ajax_toggle_mytalk  => 'Act::Handler::User::Ajax::ToggleMyTalk',
 );
 my %dispatch = ( map( { $_ => { handler => $public_handlers{$_} } } keys %public_handlers),
                  map( { $_ => { handler => $private_handlers{$_}, private => 1 } } keys %private_handlers)
@@ -149,15 +148,17 @@ sub handler
     $Request{r} = Apache::Request->instance(shift);
 
     # dispatch
-    if( ref $dispatch{$Request{action}}{handler} eq 'CODE' ) {
-        $dispatch{$Request{action}}{handler}->();
+    my $pkg = $dispatch{$Request{action}}{handler};
+    my @c = split '::', $pkg;
+    my $handler = 'handler';
+    if ($c[-1] =~ /handler$/) {
+        $handler = pop @c;
     }
-    else {
-        eval "require $dispatch{$Request{action}}{handler};";
-        die "require $dispatch{$Request{action}}{handler} failed!" if $@;
-        $dispatch{$Request{action}}{handler}->handler();
-    }
+    $pkg = join '::', @c;
+    eval "require $pkg;";
+    die "require $pkg failed!" if $@;
 
+    $pkg->$handler();
     return $Request{status} || OK;
 }
 
