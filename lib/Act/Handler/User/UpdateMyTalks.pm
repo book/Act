@@ -8,13 +8,16 @@ use Act::Util;
 
 sub handler
 {
-    if ($Request{user}->has_registered) {
+    my $day = $Request{args}{day};
+    if ($Request{user}->has_registered && $day) {
         $Request{user}->update_my_talks(
-            map Act::Talk->new(talk_id => $_, conf_id => $Request{conference}),
-            map /^mt-(\d+)$/, keys %{$Request{args}}
+            (map Act::Talk->new(talk_id => $_, conf_id => $Request{conference}),
+             map /^mt-(\d+)$/, keys %{$Request{args}}),
+            grep { $_->datetime && $_->datetime->ymd ne $day }
+             @{ $Request{user}->my_talks }
         );
     }
-    return Act::Util::redirect(make_uri('schedule'))
+    return Act::Util::redirect(make_uri('schedule', day => $day))
 }
 
 1;

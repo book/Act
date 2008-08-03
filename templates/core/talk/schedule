@@ -23,14 +23,13 @@ if (window.act) {
     });
 }
 </script>
-[% IF not ( global.request.user.is_orga
+[% UNLESS ( global.request.user.is_orga
          or global.request.user.is_staff
-         or global.config.talks_show_schedule ) %]
+         or global.config.talks_show_schedule )
+      AND (table.keys.size OR todo.size)
+    %]
 {{The schedule is not ready to be seen.}}
 [% ELSE %]
-[% IF global.request.user AND global.request.user.has_registered %]
-<form method="POST" action="[% make_uri('updatemytalks') %]" />
-[% END %]
 [% IF todo.size %]
 <p>
  {{The time and place of the following talks haven't been decided yet.}}
@@ -63,13 +62,34 @@ if (window.act) {
 </table>
 <hr />
 [% END %]
+[% IF table.keys.size %]
 <p>
 {{Talks in bold type have been confirmed by their respective speakers.}}
 </p>
-[% FOREACH d IN table.keys.sort %]
-[% date = d.replace('$', ' 00:00:00' ) %]
-<a name="[% d %]"></a>
-<h2>[% date_format(date, 'date_full') | ucfirst %]</h2>
+[% END %]
+[%-# tabs %]
+[% day = global.request.args.day;
+   UNLESS day AND table.$day.size;
+     day = table.keys.sort.0;
+   END;
+   IF table.keys.size > 1;
+     FOREACH d IN table.keys.sort;
+       date = date_format(d.replace('$', ' 00:00:00'), "%A");
+       IF day == d %]
+         <strong>[% date %]</strong>
+       [% ELSE %]
+         <a href="[% global.request.r.uri %]?day=[% d %]">[% date %]</a>
+       [% END %]
+       [% " | " UNLESS loop.last %]
+     [% END %]
+   [% END %]
+
+[%-# schedule %]
+[% IF global.request.user.has_registered %]
+<form method="POST" action="[% make_uri('updatemytalks') %]" />
+[% END %]
+[% d = day %]
+<h2>[% date_format(d.replace('$', ' 00:00:00' ), 'date_full') | ucfirst %]</h2>
 <table border="0">
  <tr class="header">
   <th>
@@ -95,8 +115,8 @@ if (window.act) {
  </tr>
  [% END %]
 </table>
-[% END %]
-[% IF global.request.user AND global.request.user.has_registered %]
+[% IF global.request.user.has_registered %]
+<input type="hidden" name="day" value="[% day %]" />
 <input type="submit" class="mytalks_submit" value="{{Submit}}" />
 </form>
 [% END %]

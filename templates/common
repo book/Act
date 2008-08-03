@@ -50,7 +50,7 @@
     MACRO timeslot(t)
     BLOCK;
         IF t.type == 'Act::Talk';
-            IF global.request.user AND global.request.user.has_registered %]
+            IF global.request.user.has_registered %]
                 <input type="checkbox"
                        name="mt-[% t.talk_id %]"
                        value="[% t.talk_id %]"
