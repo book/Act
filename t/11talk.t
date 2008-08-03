@@ -1,4 +1,4 @@
-use Test::More tests => 17;
+use Test::More tests => 19;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -116,4 +116,11 @@ $user->update_my_talks($talk2, $talk3);
 is_deeply($user->my_talks, [ $talk2, $talk3 ], "update my_talks");
 $user->update_my_talks($talk1, $talk3);
 is_deeply($user->my_talks, [ $talk3 ], "update my_talks");
+
+# delete talks
+$user->update_my_talks($talk2, $talk3);
+ok($talk3->delete, "delete");
+$user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
+is_deeply($user->my_talks, [ $talk2 ], "my_talks updated on delete");
+
 1;
