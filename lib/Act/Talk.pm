@@ -3,8 +3,6 @@ use Act::Config;
 use Act::Object;
 use base qw( Act::Object );
 
-use constant DEBUG => !$^C && $Config->database_debug;
-
 # class data used by Act::Object
 our $table       = 'talks';
 our $primary_key = 'talk_id';
@@ -29,10 +27,7 @@ our %sql_opts    = ( 'order by' => 'talk_id' );
 sub delete {
     my ($self, %args) = @_;
 
-    my $SQL = 'DELETE FROM user_talks WHERE talk_id=?';
-    Act::Object::_sql_debug($SQL, $self->talk_id) if DEBUG;
-    my $sth = $Request{dbh}->prepare_cached($SQL);
-    $sth->execute($self->talk_id);
+    sql('DELETE FROM user_talks WHERE talk_id=?', $self->talk_id);
 
     $self->SUPER::delete(%args);
     $Request{dbh}->commit;
