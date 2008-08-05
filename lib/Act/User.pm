@@ -29,7 +29,9 @@ our %sql_mapping = (
       qw( town company address nick_name ) ),
     # text egality
     map( { ($_, "(lower(u.$_)=lower(?))") }
-      qw( first_name last_name pm_group ) ),
+      qw( first_name last_name) ),
+    # user can have multiple entries in pm_group
+    pm_group => "position(? in u.pm_group) > 0",
     # standard stuff
     map( { ($_, "(u.$_=?)") }
       qw( user_id session_id login email country ) )
