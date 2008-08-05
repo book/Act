@@ -7,6 +7,7 @@ use Data::ICal;
 use Data::ICal::DateTime;
 use Data::ICal::Entry::Event;
 
+use Act::Abstract;
 use Act::Config;
 use Act::Event;
 use Act::Talk;
@@ -63,7 +64,15 @@ sub handler
             summary => $ts->title,
             uid     => $url,
             url     => $url,
-            description => $ts->abstract,
+            description =>
+                join '',
+                map {  $_->{text} ? $_->{text}
+                     : $_->{talk} ? $_->{talk}->title
+                     : $_->{user} ? $_->{user}->pseudonymous && $_->{user}->nick_name
+                                        || join(' ', $_->{user}->first_name, $_->{user}->last_name)
+                     : undef
+                }
+                @{ Act::Abstract::chunked( $ts->abstract ) }
         );
         $event->add_properties(
             location => $Config->rooms->{$ts->room},
