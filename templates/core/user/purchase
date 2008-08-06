@@ -1,12 +1,62 @@
 <script type="text/javascript">
 if (window.act) {
+    var amounts = {
+      [% FOREACH p IN productlist %]
+        '[% p %]': {
+           [% IF products.$p.prices.size == 1 %]
+               1: [% products.$p.prices.0.amount %], single:1
+           [% ELSE %]
+             [% FOREACH i IN products.$p.prices %]
+               [% UNLESS i.promocode %]
+                 [% i.price_id %]: [% i.amount %][% ", " UNLESS loop.last %]
+               [% END %]
+             [% END %]
+           [% END %]
+           }[% ", " UNLESS loop.last %]
+       [% END %]
+    };
     $(function() {
+        get_radios = function(product) { return $(":radio[name=price-" + product +"]") };
+        compute_total = function() { 
+            var total = 0;
+            $(":checkbox[checked]").map(function() {
+                var product = $(this).val();
+                if (amounts[product]) {
+                    if (amounts[product].single)
+                        total += amounts[product][1];
+                    else
+                        get_radios(product).filter("[checked]").map(function() {
+                            var price_id = $(this).val();
+                            if (amounts[product][price_id])
+                                total += amounts[product][price_id];
+                        });
+                }
+            });
+            var donation = $("#form-donation").val();
+            if (donation) {
+                donation = parseInt(donation);
+                if (donation > 0) total += donation;
+            }
+            $("#totalamount").text(total);
+        };
         $(":checkbox").map(function() {
             var cb = $(this);
-            $(":radio[name=price-" + cb.val()+"]").click(function() { cb.attr('checked',true) });
+            var radios = get_radios(cb.val());
+            // checking a price: check corresponding product checkbox
+            radios.click(function() {
+                    cb.attr('checked',true);
+                    compute_total();
+                   });
+           // unchecking a product: uncheck all its prices
+            cb.click(function() {
+                if (!cb.attr('checked')) radios.attr('checked',false)
+                compute_total();
+            });
         });
+        $("#form-donation").change(compute_total);
+        compute_total();
+        $("#total").attr('style', 'visibility: visible');
     });
-
 }
 </script>
 <div align="center">
@@ -21,9 +71,11 @@ if (window.act) {
         <td align="right"><input type="checkbox" value="[% p %]" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
         <td>[% products.$p.name %]</td>
 [% IF products.$p.prices.size == 1 %]
-        <td>[% products.$p.prices.0.amount %] [% currency %]</td>
+        <td align="right">[% products.$p.prices.0.amount %]</td>
+        <td>[% currency %]</td>
     </tr>
 [% ELSE %]
+        <td></td>
         <td></td>
     </tr>
     [% ispromo = 0;
@@ -37,25 +89,30 @@ if (window.act) {
            [% ELSE %]
               <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
                   [% i.name %]</td>
-              <td>[% i.amount %] [% currency %]</td>
+              <td align="right">[% i.amount %]</td>
            [% END %]
+        <td>[% currency %]</td>
         </tr>
         [% END %]
     [% END %]
 [% END %]
 [% END %]
 <tr>
-   <td>&nbsp;</td>
-   <td>
+   <td colspan="2">
       <label for="form-donation">{{Donation}}:</label>
    </td>
    <td>
       <input name="donation" id="form-donation" type="text" size="5" maxlength="5" value="[% donation %]" />
-      [% currency %]
    </td>
+   <td>[% currency %]</td>
+</tr>
+<tr id="total" style="visibility: hidden">
+    <td colspan="2"><strong>{{Total}}</strong></td>
+    <td align="right"><strong><span id="totalamount">0</span></strong></td>
+    <td>[% currency %]</td>
 </tr>
 <tr>
-   <td colspan="3" align="right">
+   <td colspan="4" align="right">
       <input type="submit" name="purchase" value="{{Buy now!}}" />
    </td>
 </tr>
