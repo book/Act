@@ -1,3 +1,14 @@
+<script type="text/javascript">
+if (window.act) {
+    $(function() {
+        $(":checkbox").map(function() {
+            var cb = $(this);
+            $(":radio[name=price-" + cb.val()+"]").click(function() { cb.attr('checked',true) });
+        });
+    });
+
+}
+</script>
 <div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
 
@@ -7,7 +18,7 @@
 [% FOREACH p IN productlist %]
     [% NEXT IF p == 'registration' AND global.request.user.has_paid %]
     <tr>
-        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td align="right"><input type="checkbox" value="[% p %]" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
         <td>[% products.$p.name %]</td>
 [% IF products.$p.prices.size == 1 %]
         <td>[% products.$p.prices.0.amount %] [% currency %]</td>
