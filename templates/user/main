@@ -15,8 +15,7 @@
             <p><blockquote>
                 {{Order number}}: <strong>[% order.order_id %]</strong><br />
                 {{Payment date}}: <strong>[% date_format(order.datetime, 'datetime_full') %] GMT</strong><br />
-                {{Amount paid}}: [% FOREACH i IN order.items; IF i.registration %]
-                    <strong>[% i.amount %] [% order.currency %][% IF i.name %] ([% i.name %])[% END %]</strong>[% END; END %]
+                {{Amount paid}}: <strong>[% order.amount %] [% order.currency %]</strong>
             </blockquote/></p>
             [% IF global.config.payment_invoices %]
                 <p>[% loc("Download your invoice", make_uri_info('invoice', order.order_id)) %]</p>
