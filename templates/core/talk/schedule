@@ -2,7 +2,8 @@
 if (window.act) {
     toggle_image = function(elem, talk_id, set) {
         var img_name = set ? 'picked' : 'unpicked';
-        var title = set ? '{{remove from personal schedule}}' : '{{add to personal schedule}}';
+        [% titles = [ loc('remove from personal schedule'), loc('add to personal schedule') ] %]
+        var title = set ? '[% titles.0.replace("'", "\\'") %]' : '[% titles.1.replace("'", "\\'") %]';
         $(elem).replaceWith(
             $(
                 '<img class="mtbutton" src="/images/' + img_name + '.gif"'
