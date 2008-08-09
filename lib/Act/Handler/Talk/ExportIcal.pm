@@ -2,18 +2,17 @@ package Act::Handler::Talk::ExportIcal;
 use strict;
 
 use Apache::Constants qw(FORBIDDEN);
-use DateTime;
 use DateTime::Format::Pg;
-use DateTime::Format::ICal;
+use Data::ICal;
+use Data::ICal::DateTime;
+use Data::ICal::Entry::Event;
 
+use Act::Abstract;
 use Act::Config;
 use Act::Event;
 use Act::Talk;
-use Act::Template;
 use Act::TimeSlot;
-
-use constant CID => '532E0386-A523-11D8-A904-000393DB4634';
-use constant UID => "5F451677-A523-11D8-928A-000393DB4634";
+use Act::Util;
 
 sub handler
 {
@@ -38,7 +37,11 @@ sub handler
         datetime => DateTime::Format::Pg->parse_timestamp($Config->talks_start_date),
         duration => (sort { $a <=> $b } keys %{$Config->talks_durations})[0],
     );
-    my @events;
+    my $cal = Data::ICal->new();
+    $cal->add_properties(
+        calscale        => 'GREGORIAN',
+        'X-WR-CALNAME'  => $Config->name->{$Request{language}},
+    );
     for my $ts (@$timeslots) {
         next unless ($Request{user} && $Request{user}->is_orga)
                  || (   ($ts->type ne 'Act::Talk' || $ts->{accepted})
@@ -50,30 +53,34 @@ sub handler
         my $dtstart = $ts->datetime;
         my $dtend = $dtstart->clone;
         $dtend->add(minutes => $ts->duration);
-        # title is used to identify this event
+        # uid is used to identify this event
         # (see Act::Handler::Talk::Import)
         (my $type = $ts->type) =~ s/^Act:://;
-        push @events, {
-            dtstart => DateTime::Format::ICal->format_datetime($dtstart),
-            dtend   => DateTime::Format::ICal->format_datetime($dtend),
-            title   => join('-', lc($type), $ts->id, $ts->title),
-            uid     => sprintf('%04x', $ts->id) . substr(UID,4),
-        };
+        my $url = $Config->general_full_uri . join('/', lc($type), $ts->{id});
+        my $event = Data::ICal::Entry::Event->new();
+        $event->start($dtstart);
+        $event->end($dtend);
+        $event->add_properties(
+            summary => $ts->title,
+            uid     => $url,
+            url     => $url,
+            description =>
+                join '',
+                map {  $_->{text} ? $_->{text}
+                     : $_->{talk} ? $_->{talk}->title
+                     : $_->{user} ? $_->{user}->pseudonymous && $_->{user}->nick_name
+                                        || join(' ', $_->{user}->first_name, $_->{user}->last_name)
+                     : undef
+                }
+                @{ Act::Abstract::chunked( $ts->abstract ) }
+        );
+        $event->add_properties(
+            location => $Config->rooms->{$ts->room},
+        ) if $ts->room;
+        $cal->add_entry($event);
     }
-    # current timestamp
-    my $now = DateTime->now;
-    $now->set_time_zone('UTC');
-
-    # process the template
-    my $template = Act::Template->new(PRE_CHOMP => 1);
-    $template->variables(
-        events   => \@events,
-        now      => DateTime::Format::ICal->format_datetime($now),
-        cid      => CID,
-        calname  => $Config->name->{$Request{language}},
-    );
     $Request{r}->send_http_header('text/calendar; charset=UTF-8');
-    $template->process('talk/ical');
+    $Request{r}->print( $cal->as_string() );
 }
 
 1;
