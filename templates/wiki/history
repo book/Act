@@ -12,10 +12,16 @@
                      ELSE;
                        make_uri('wiki', 'node', node, 'version', v.version);
                      END %]"
-         >[% v.version %]</a></td>
+         >[% v.version %]</a>
+        [% UNLESS loop.first %]
+          <a href="[% make_uri('wiki', 'action', 'diff', 'node', node,
+                              'r1', v.version, 'r2', pversion) %]">diff</a>
+        [% END %]
+     </td>
      <td>[% date_format(v.last_modified, 'datetime_short') %]</td>
      <td>[% user_info(v.user) %]</td>
  </tr>
+ [% pversion = v.version %]
  [% END %]
 </table>
 [% IF global.request.user.is_orga %]
