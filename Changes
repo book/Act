@@ -2,6 +2,10 @@ Changes in Act
 
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
+2008/08/09 r1992 personal schedule
+                 wiki diff between pages
+                 enhance schedule ICal export
+
 2008/07/15 r1943 use Email::* modules (and sendmail) to send email
 
 2008/05/07 r1917 new purchasing features:
