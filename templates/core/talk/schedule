@@ -67,7 +67,6 @@ if (window.act) {
 <p>
 {{Talks in bold type have been confirmed by their respective speakers.}}
 </p>
-[% END %]
 [%-# tabs %]
 [% day = global.request.args.day;
    UNLESS day AND table.$day.size;
@@ -120,5 +119,6 @@ if (window.act) {
 <input type="hidden" name="day" value="[% day %]" />
 <input type="submit" class="mytalks_submit" value="{{Submit}}" />
 </form>
+[% END %]
 [% END %]
 [% END %]
