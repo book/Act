@@ -389,52 +389,5 @@ becoming as harmless as possible.
 =back
 
 
-=head2 The F<B<admin.html>> Template
-
-This template depends on the F<admin/users>, F<admin/talks>, F<admin/money>,
-and F<admin/rights> templates, and is just a wrapper arround them.
-
-=over 4
-
-=item * F<B<admin/users>>
-
-This template only shows content if the C<global.request.user.is_orga()> method
-returns C<true>. Or, in other words, if the user is a organizer for this
-event.
-
-Builds the administrative B<users> menu. There is only two items on this menu,
-linking to B<create> and B<export> pages for the event.
-
-=item * F<B<admin/talks>>
-
-This template only shows content if the C<global.request.user.is_orga()> method
-returns C<true>. Or, in other words, if the user is a organizer for this
-event.
-
-Builds the administrative B<talks> menu, showing talks and events associated
-with the current event. There are three items on this menu, the first one
-to B<ical_import> page, one to the B<events> page and the last one pointing to
-B<newevent> page.
-
-=item * F<B<admin/money>>
-
-This template only shows content if the C<global.request.user.is_tresaurer()>
-method returs C<true>. Or, in other words, if the user is a tresaurer for this
-event.
-
-Builds the administrative B<Tresaurer> menu, offering links to B<payments>, and
-B<csv/payments> pages, destined to tresaurer use.
-
-=item * F<B<admin/rights>>
-
-This template only shows content if the C<global.request.user.is_admin()>
-method returns C<true>. Or, in other words, if the user is an administrator for
-this event.
-
-Builds the administrative B<Admin> menu, offering a single link to the
-B<rights> page, for user role management.
-
-=back
-
 =cut
 

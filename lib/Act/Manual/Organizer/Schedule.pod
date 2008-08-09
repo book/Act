@@ -1,7 +1,7 @@
 =head1 Managing the talk schedule with Act
 
-Act automatically creates a schedule web pages from the talks information.
-This informations is also made available in the iCal format.
+Act automatically creates a schedule web page from the talks information.
+The schedule is also made available in the ICal format.
 
 =head1 GENERAL SCHEDULE TIPS
 
@@ -158,5 +158,36 @@ in the database.)
 
 And here is the result:
 L<http://conferences.yapceurope.org/fpw2005/event/43>.
+
+=head1 Using calendar software
+
+People with the C<orga> bit set can work with Act talks, both pending and accepted,
+scheduled and unscheduled, using calendar software such as iCal or Google Calendar.
+
+=over 4
+
+=item *
+
+Use "iCal export" to export talks to an .ics file.
+
+=item *
+
+Import the .ics file into your calendar software.
+Unscheduled talks will be set to a default date.
+
+=item *
+
+Compose the schedule by move talks around in the calendar software.
+
+=item *
+
+Export the calendar to an .ics file.
+
+=item *
+
+Upload the .ics file to Act using the "iCal import" feature.
+Act then updates existing talks' start date and time with new values from the uploaded file.
+
+=back
 
 =cut

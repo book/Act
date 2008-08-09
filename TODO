@@ -14,15 +14,8 @@ UNPRIORITIZED TODO LIST
 
 * schedule columns should be fixed width
 
-* allow several commits layout
-  (e.g. see http://www.yapceurope.org/2006/talk/schedule/1.html)
-
 * replace login with email address
   the display name would be nick_name, pseudonymous would be the default behavior
-
-* iCal talk export should be in conference timezone
-
-* add a "Powered by Act" somewhere (Maddingue)
 
 * display a nicer page for expired twostep urls, instead of 404 (rjbs)
 
@@ -101,10 +94,6 @@ UNPRIORITIZED TODO LIST
 * hackathons do not have talks. Support that by disabling the talks
   related handlers.
 
-* allow a conference to put a limit on the number of "paying" attendees
-  => it may actually need to be a limit to "committed" attendes, since
-     speakers often have the entrance fee waived
-
 * handle the edition of lightning talk sessions, by creating something
   less burdensome than the current talk:id 
 
@@ -119,9 +108,6 @@ UNPRIORITIZED TODO LIST
   like the need of special meals, t-shirts size, special needs for
   accommodation and the like.  Registration for a specific event shouldn't
   include information which is irrelevant to that event.
-
-* Closing Date
-  It should be possible to close registrations before the event start date.
 
 * Optional SSL Protected Admin Login
   There should be an optional SSL protected login option, at least for admins,
