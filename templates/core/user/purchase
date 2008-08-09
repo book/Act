@@ -1,34 +1,20 @@
 <script type="text/javascript">
 if (window.act) {
-    var amounts = {
-      [% FOREACH p IN productlist %]
-        '[% p %]': {
-           [% IF products.$p.prices.size == 1 %]
-               1: [% products.$p.prices.0.amount %], single:1
-           [% ELSE %]
-             [% FOREACH i IN products.$p.prices %]
-               [% UNLESS i.promocode %]
-                 [% i.price_id %]: [% i.amount %][% ", " UNLESS loop.last %]
-               [% END %]
-             [% END %]
-           [% END %]
-           }[% ", " UNLESS loop.last %]
-       [% END %]
-    };
+    var amounts = [% amounts %];
     $(function() {
         get_radios = function(product) { return $(":radio[name=price-" + product +"]") };
         compute_total = function() { 
             var total = 0;
-            $(":checkbox[checked]").map(function() {
+            $(":checkbox[checked]").each(function() {
                 var product = $(this).val();
                 if (amounts[product]) {
                     if (amounts[product].single)
-                        total += amounts[product][1];
+                        total += parseInt(amounts[product][1]);
                     else
-                        get_radios(product).filter("[checked]").map(function() {
+                        get_radios(product).filter("[checked]").each(function() {
                             var price_id = $(this).val();
                             if (amounts[product][price_id])
-                                total += amounts[product][price_id];
+                                total += parseInt(amounts[product][price_id]);
                         });
                 }
             });
@@ -39,7 +25,7 @@ if (window.act) {
             }
             $("#totalamount").text(total);
         };
-        $(":checkbox").map(function() {
+        $(":checkbox").each(function() {
             var cb = $(this);
             var radios = get_radios(cb.val());
             // checking a price: check corresponding product checkbox

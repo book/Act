@@ -1,6 +1,7 @@
 package Act::Handler::User::Purchase;
 use strict;
 use Apache::Constants qw(NOT_FOUND);
+use JSON::XS ();
 use List::Util qw(first);
 
 use Act::Config;
@@ -16,6 +17,8 @@ my $form = Act::Form->new(
         donation => 'numeric',
     }
 );
+my $json = JSON::XS->new->utf8->pretty(0);
+
 sub handler
 {
     # not registered!
@@ -135,6 +138,15 @@ sub handler
         }
     }
     # display the first form
+    my %amounts;
+    while (my ($p, $v) = each %$products) {
+        $amounts{$p} = {    map { $_->{price_id} => $_->{amount} }
+                            grep !$_->{promocode},
+                            @{$v->{prices}}
+                       };
+        $amounts{$p}{single} = 1 if keys(%{$amounts{$p}}) == 1;
+    }
+    $template->variables_raw( amounts => $json->encode(\%amounts) );
     $template->variables(
         currency    => $Config->payment_currency,
         productlist => $productlist,

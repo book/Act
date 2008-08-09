@@ -27,6 +27,7 @@ my %modules = (
     'HTML::Entities'                        => 0,
     'HTML::TagCloud'                        => 0,
     'Imager'                                => 0,
+    'JSON::XS'                              => 0,
     'List::Pairwise'                        => 0,
     'Locale::Maketext'                      => 0,
     'Locale::Maketext::Lexicon'             => 0,
