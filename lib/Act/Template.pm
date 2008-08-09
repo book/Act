@@ -2,6 +2,9 @@ package Act::Template;
 
 use strict;
 use Carp;
+use Clone qw(clone);
+use DateTime;
+use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Flickr;
@@ -49,7 +52,6 @@ sub _init
     $options->{LANGUAGE_VAR} = 'global.request.language';
     $options->{PARSER} = Act::Template::Parser->new($options);
     $options->{PLUGIN_BASE} = 'Act::Plugin';
-    $options->{UNICODE} = 1;
     $options->{ENCODING} = 'UTF-8';
     $options->{PRE_PROCESS} = 'common';
     unless ($options->{INCLUDE_PATH}) {
@@ -86,14 +88,15 @@ sub variables
     @_ == 0 and return $self->{vars};
     @_ == 1 and return $self->{vars}{$_[0]};
     while (my ($key, $value) = splice(@_, 0, 2)) {
-        next unless defined $value;
-        $self->escape($value);
-        $self->{vars}{$key} = $value;
+        $self->{vars}{$key} = $self->escape( ref($value) ? clone($value) : $value )
+            if defined $value;
     }
 }
 
 sub escape
-{} # no default escaping
+{
+    return $_[1];   # no default escaping
+}
 
 sub process
 {
@@ -103,7 +106,7 @@ sub process
     # set global variables
     my %global = (
          config  => $Config,
-         request => \%Request,
+         request => { map { $_ => $Request{$_} } grep { $_ ne 'dbh' } keys %Request },
     );
     $Request{language_info} = $Languages{$Request{language}};
     if ($web) {
@@ -120,12 +123,7 @@ sub process
         # install some useful functions from Act::Util,
         # escape the returned strings
         while (my ($name, $code) = each %Functions) {
-            $self->variables(
-                $name => sub { my $result = $code->(@_);
-                               $self->escape($result);
-                               return $result;
-                             }
-            );
+            $self->variables( $name => sub { $self->escape($code->(@_)) });
         }
         if ($Request{conference}) {
             $global{conference} = {

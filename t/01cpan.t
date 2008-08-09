@@ -6,6 +6,7 @@ my %modules = (
     'Apache::AuthCookie'                    => 3.05,
     'Apache::Request'                       => 0,
     'AppConfig'                             => 0,
+    'Clone'                                 => 0,
     'Data::ICal'                            => 0,
     'Data::ICal::DateTime'                  => 0,
     'DateTime'                              => 0,
