@@ -1,4 +1,4 @@
-use Test::More tests => 14;
+use Test::More tests => 19;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -44,7 +44,7 @@ $talk2 = Act::Talk->create(
    duration  => 5,
    level     => 3,
    lightning => 'true',
-   accepted  => '0',
+   accepted  => 1,
    confirmed => 'false',
    datetime  => $date,
 );
@@ -70,7 +70,7 @@ is_deeply( Act::Talk->new( user_id => $user2->user_id ),
    comment      => undef,
    # boolean values
    lightning    => 1,
-   accepted     => 0,
+   accepted     => 1,
    confirmed    => 0,
    },
   "User 2's talk" );
@@ -108,3 +108,19 @@ ok( $user->has_talk, "User actually has talks" );
 
 ok( $user->committed, "User is committed" );
 
+# add some user_talks
+#   at this point talk2 and talk3 are accepted
+$user->update_my_talks($talk1, $talk2, $talk3);
+is_deeply($user->my_talks, [ $talk2, $talk3 ], "insert my_talks");
+$user->update_my_talks($talk2, $talk3);
+is_deeply($user->my_talks, [ $talk2, $talk3 ], "update my_talks");
+$user->update_my_talks($talk1, $talk3);
+is_deeply($user->my_talks, [ $talk3 ], "update my_talks");
+
+# delete talks
+$user->update_my_talks($talk2, $talk3);
+ok($talk3->delete, "delete");
+$user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
+is_deeply($user->my_talks, [ $talk2 ], "my_talks updated on delete");
+
+1;

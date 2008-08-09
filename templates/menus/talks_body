@@ -9,6 +9,13 @@
     {{iCal export}}
    </a>
    [% END %]
+   [% IF global.request.user.has_registered %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('myschedule') %]">
+    {{Personal Schedule}}
+   </a>
+   [% END %]
+   [% END %]
 [% END %]
 [% IF global.request.user.is_orga %]
    [% WRAPPER menus/item %]

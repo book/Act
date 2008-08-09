@@ -338,8 +338,17 @@ sub notify
         }
         # send the notification email
         Act::Email::send(
-            from    => $Config->talks_submissions_notify_address,
-            to      => $Config->talks_submissions_notify_address,
+            from     => $Config->talks_submissions_notify_address,
+            to       => $Config->talks_submissions_notify_address,
+            xheaders => {
+                'X-Act' => join(
+                    ' ',
+                    $op eq 'insert' ? 'talk creation:' : 'talk edition:',
+                    user => $talk->user_id,
+                    conf => $Request{conference},
+                    talk => $talk->talk_id,
+                ),
+            },
             %output,
         );
     }

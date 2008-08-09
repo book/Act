@@ -1366,3 +1366,9 @@ msgstr "Assite à"
 msgid "Promotion code"
 msgstr "Code promotionnel"
 
+msgid "add to personal schedule"
+msgstr "ajouter à l'emploi du temps personnel"
+
+msgid "remove from personal schedule"
+msgstr "supprimer de l'emploi du temps personnel"
+

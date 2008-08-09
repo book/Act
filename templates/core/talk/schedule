@@ -1,6 +1,34 @@
-[% IF not ( global.request.user.is_orga
+<script type="text/javascript">
+if (window.act) {
+    toggle_image = function(elem, talk_id, set) {
+        var img_name = set ? 'picked' : 'unpicked';
+        [% titles = [ loc('remove from personal schedule'), loc('add to personal schedule') ] %]
+        var title = set ? '[% titles.0.replace("'", "\\'") %]' : '[% titles.1.replace("'", "\\'") %]';
+        $(elem).replaceWith(
+            $(
+                '<img class="mtbutton" src="/images/' + img_name + '.gif"'
+              + ' title="' + title + '"'
+              + ' onClick ="toggle_talk(this,' + talk_id + ',' + set + ');" />'
+             )
+         )
+    };
+    toggle_talk = function(elem, talk_id, set) {
+        $.post(act.make_uri('[% global.request.conference %]', 'updatemytalks_a'), {talk_id: talk_id} );
+        toggle_image(elem, talk_id, !set);
+    };
+    $(function() {
+        $(".mytalks_submit").remove();
+        $(":checkbox").map(function() {
+            toggle_image(this, $(this).val(), $(this).attr("checked"));
+        });
+    });
+}
+</script>
+[% UNLESS ( global.request.user.is_orga
          or global.request.user.is_staff
-         or global.config.talks_show_schedule ) %]
+         or global.config.talks_show_schedule )
+      AND (table.keys.size OR todo.size)
+    %]
 {{The schedule is not ready to be seen.}}
 [% ELSE %]
 [% IF todo.size %]
@@ -35,22 +63,43 @@
 </table>
 <hr />
 [% END %]
+[% IF table.keys.size %]
 <p>
 {{Talks in bold type have been confirmed by their respective speakers.}}
 </p>
-[% FOREACH d IN table.keys.sort %]
-[% date = d.replace('$', ' 00:00:00' ) %]
-<a name="[% d %]"></a>
-<h2>[% date_format(date, 'date_full') | ucfirst %]</h2>
+[% END %]
+[%-# tabs %]
+[% day = global.request.args.day;
+   UNLESS day AND table.$day.size;
+     day = table.keys.sort.0;
+   END;
+   IF table.keys.size > 1;
+     FOREACH d IN table.keys.sort;
+       date = date_format(d.replace('$', ' 00:00:00'), "%A");
+       IF day == d %]
+         <strong>[% date %]</strong>
+       [% ELSE %]
+         <a href="[% global.request.r.uri %]?day=[% d %]">[% date %]</a>
+       [% END %]
+       [% " | " UNLESS loop.last %]
+     [% END %]
+   [% END %]
+
+[%-# schedule %]
+[% IF global.request.user.has_registered %]
+<form method="POST" action="[% make_uri('updatemytalks') %]" />
+[% END %]
+[% d = day %]
+<h2>[% date_format(d.replace('$', ' 00:00:00' ), 'date_full') | ucfirst %]</h2>
 <table border="0">
  <tr class="header">
   <th>
    {{Time}}
   </th>
   [% FOREACH r IN room.keys.sort %]
-  <th colspan="[% width.$r.$d %]">
-    [% global.config.rooms.$r %]
-  </th>
+     [% IF width.$r.$d %]
+       <th colspan="[% width.$r.$d %]">[% global.config.rooms.$r %]</th>
+     [% END %]
   [% END %]
  </tr>
  [% FOREACH row IN table.$d %]
@@ -67,6 +116,9 @@
  </tr>
  [% END %]
 </table>
-
+[% IF global.request.user.has_registered %]
+<input type="hidden" name="day" value="[% day %]" />
+<input type="submit" class="mytalks_submit" value="{{Submit}}" />
+</form>
 [% END %]
 [% END %]

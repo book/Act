@@ -35,6 +35,10 @@ for a conference.
 
 Information on Act's online payment feature and configuration.
 
+=item L<Act::Manual::Organizer::JavaScript>
+
+Information on Act's JavaScript support.
+
 =item L<Act::Manual::Organizer::Photos>
 
 How to create photo galleries.
@@ -42,6 +46,10 @@ How to create photo galleries.
 =item L<Act::Manual::Organizer::CurrentEvents>
 
 Display current and upcoming talks/events.
+
+=item L<Act::Manual::Organizer::OpenID>
+
+Act is an OpenID server.
 
 =back
 

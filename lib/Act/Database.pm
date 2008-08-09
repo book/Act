@@ -61,6 +61,16 @@ my @SCHEMA_UPDATES = (
    alter table orders drop column amount;
    alter table orders drop column price;
   ",
+#9,
+  "create table user_talks (
+    user_id     integer not null,
+    conf_id     text not null,
+    talk_id     integer not null,
+    foreign key( user_id  ) references users( user_id ),
+    foreign key( talk_id  ) references talks( talk_id )
+   );
+   create index user_talks_idx on user_talks ( user_id, conf_id, talk_id );
+  ",
 );
 
 # returns ( current database schema version, required version )

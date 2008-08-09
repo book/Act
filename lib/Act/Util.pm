@@ -186,7 +186,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     $dt->set(locale => $lang);
-    return $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"});
+    return $dt->strftime($Act::Config::Languages{$lang}{"fmt_$fmt"} || $fmt);
 }
 
 # translate a string

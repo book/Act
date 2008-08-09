@@ -125,6 +125,55 @@ sub participation {
     return $participation;
 }
 
+sub my_talks {
+    my ($self) = @_;
+    return $self->{my_talks} if $self->{my_talks};
+    my $sth = $Request{dbh}->prepare_cached(<<EOF);
+SELECT u.talk_id FROM user_talks u, talks t
+WHERE u.user_id=? AND u.conf_id=?
+AND   u.talk_id = t.talk_id
+AND   t.accepted
+EOF
+    $sth->execute( $self->user_id, $Request{conference} );
+    my $talk_ids = $sth->fetchall_arrayref();
+    $sth->finish();
+    return $self->{my_talks} = [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
+}
+
+sub update_my_talks {
+    my ($self, @talks) = @_;
+
+    my %ids     = map { $_->talk_id => 1 } @talks;
+    my %current = map { $_->talk_id => 1 } @{ $self->my_talks };
+
+    # remove talks
+    my @remove = grep { !$ids{$_} } keys %current;
+    if (@remove) {
+        my $sth = $Request{dbh}->prepare_cached(
+                    "DELETE FROM user_talks WHERE user_id = ? AND conf_id = ? AND talk_id IN ("
+                  .  join(',', map '?',@remove)
+                  . ')'
+                );
+        $sth->execute($self->user_id, $Request{conference}, @remove);
+    }
+    # add talks
+    my @add = grep { !$current{$_} } keys %ids;
+    if (@add) {
+        my $sth = $Request{dbh}->prepare_cached(
+                    "INSERT INTO user_talks VALUES (?,?,?)"
+                    );
+        $sth->execute($self->user_id, $Request{conference}, $_)
+            for @add;
+    }
+    $Request{dbh}->commit  if @add || @remove;
+    $self->{my_talks} = [ grep $_->accepted, @talks ];
+}
+
+sub is_my_talk {
+    my ($self, $talk) = @_;
+    return first { $_->talk_id == $talk->talk_id } @{ $self->my_talks };
+}
+
 # some data related to the visited conference (if any)
 my %methods = (
     has_talk => [
