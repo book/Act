@@ -33,9 +33,13 @@ if (window.act) {
                     cb.attr('checked',true);
                     compute_total();
                    });
-           // unchecking a product: uncheck all its prices
+            // checking a product: check 1st price
+            // unchecking a product: uncheck all its prices
             cb.click(function() {
-                if (!cb.attr('checked')) radios.attr('checked',false)
+                if (cb.attr('checked'))
+                    radios.filter(':first').attr('checked',true);
+                else
+                    radios.attr('checked',false)
                 compute_total();
             });
         });
