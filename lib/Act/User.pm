@@ -166,8 +166,8 @@ sub update_my_talks {
 }
 
 sub is_my_talk {
-    my ($self, $talk) = @_;
-    return first { $_->talk_id == $talk->talk_id } @{ $self->my_talks };
+    my ($self, $talk_id) = @_;
+    return first { $_->talk_id == $talk_id } @{ $self->my_talks };
 }
 
 # some data related to the visited conference (if any)

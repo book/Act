@@ -9,16 +9,28 @@ use Act::Util;
 
 sub handler
 {
-    my $day = $Request{args}{day};
-    if ($Request{user}->has_registered && $day) {
-        $Request{user}->update_my_talks(
-            (map Act::Talk->new(talk_id => $_, conf_id => $Request{conference}),
-             map /^mt-(\d+)$/, keys %{$Request{args}}),
-            grep { $_->datetime && $_->datetime->ymd ne $day }
-             @{ $Request{user}->my_talks }
-        );
+    if ($Request{user}->has_registered) {
+        if (my $day = $Request{args}{day}) {                # update one day (from schedule page)
+            $Request{user}->update_my_talks(
+                (map Act::Talk->new(talk_id => $_, conf_id => $Request{conference}),
+                 map /^mt-(\d+)$/, keys %{$Request{args}}),
+                grep { $_->datetime && $_->datetime->ymd ne $day }
+                 @{ $Request{user}->my_talks }
+            );
+            return Act::Util::redirect(make_uri('schedule', day => $day));
+        }
+        elsif (my $talk_id = $Request{args}{talk_id}) {     # update one talk (from talk page)
+            my $talk = Act::Talk->new(talk_id => $talk_id, conf_id => $Request{conference});
+            my @my_talks = grep { $_->talk_id != $talk_id } @{ $Request{user}->my_talks };
+            $Request{user}->update_my_talks(
+                $Request{args}{"mt-$talk_id"}       # is talk currently selected?
+              ? ( @my_talks, $talk )               # add
+              : ( @my_talks )                      # remove
+            );
+            return Act::Util::redirect(make_uri_info('talk', $talk_id));
+        }
     }
-    return Act::Util::redirect(make_uri('schedule', day => $day))
+    return Act::Util::redirect(make_uri('schedule'));
 }
 sub ajax_handler
 {
