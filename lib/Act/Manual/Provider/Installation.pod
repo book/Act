@@ -58,22 +58,17 @@ Create the directory where photos will be uploaded, by default
 F<$ACTHOME/wwwdocs/photos>. Make sure it is readable by all, and
 writable by the user running Apache.
 
-Next, create a local configuration file in F<$ACTHOME/conf/local.ini>.
-This file is not part of the distribution: its contents override
-the global settings in F<$ACTHOME/conf/act.ini>. If you have no need
-to override these standard settings, local.ini isn't needed.
-
-You are now ready to install and configure the database system.
-See the details in database/INSTALL.E<lt>dbE<gt> (where E<lt>dbE<gt> is one of
-Pg, MySQL....)
-
-In the end, you must have the following section in your conf/act.ini
-or conf/local.ini file:
+Now edit C<conf/act.ini> and enter your settings
 
     [database]
-    dsn    = <dsn>
-    user   = <db user>
-    passwd = <db password>
+    name        = act
+    dsn         = dbi:Pg:dbname=$(database_name)
+    user        = foo
+    passwd      = sekr3t
+    
+    [general]
+    conferences = act-2004
+    
 
 To make sure that your system has all the requirements to run Act,
 and that Act works correctly on it, you can now run Act's test suite.
@@ -97,13 +92,6 @@ Decide the name of your conference. We'll use act-2004 as an example.
           act-2004/
               css/
               images/
-
-Several forms used by Act used the WRAPPER "ui" for adding the local
-look&feel. The name "ui" is therefore the standard template for redefining
-the user interface.
-
-If you plan to modify some default templates, you should copy/paste*
-them to the local templates/ directory.
 
 =cut
 

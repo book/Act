@@ -10,7 +10,7 @@ are the rooms and the values are the corresponding event.
 This snippet of code displays the entire structure:
 
   <table>
-  [% events = current_events('2007-08-28 10:00:00');
+  [% events = current_events();
      FOREACH period = events.keys.sort %]
      
      <tr><td colspan="3"><h2>[% period %]</h2></td></tr>
@@ -34,28 +34,101 @@ This snippet of code displays the entire structure:
   [% END %]
   </table>
 
-The following example displays a more concise schedule:
-
-    [% events = current_events();
-       FOREACH period = events.keys.sort %]
-       
-         <tr><td colspan="3"><h1>[% period %]</h1></td></tr>
-    
-         [% FOREACH room = events.$period.keys.sort;
-              event = events.$period.$room %]
-              <tr><td>[% global.config.rooms.$room %]</td>
-                  <td>[% date_format(event.datetime, 'time') %]</td>
-                  <td><b>[% event.title %]</b> <i>([% event.duration %]mn)</i></td>
-              </tr>
-         [% END %]
-    
-      [% END %]
-
 C<current_events()> uses the current date and time to determine current
 and upcoming events. To accomodate testing ahead of time, the function
 takes a datetime string as an optional argument:
 
   [% events = current_events('2007-08-28 10:00:00') %]
+
+The following example creates a full screen window displaying on the left side
+the current talks and events, and a slideshow on the right side.
+This requires 2 files. The first file F<fullscreen_start.html> creates a
+full screen window.
+
+  [% WRAPPER ui title="Photos" %]
+    <script language="JavaScript">
+    window.open('[% make_uri("fullscreen.html") %]', '', 'fullscreen=yes, scrollbars=auto');
+    </script>
+  [% END %]
+
+The second file F<fullscreen.html> displays the current and upcoming talks and
+events and the slideshow. The talk and event list is refreshed every 5 minutes.
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="[% global.request.language %]" xml:lang="[% global.request.language %]">
+    <head>
+    <meta http-equiv="refresh" content="300"/>
+    <title>[% global.conference.name %]</title>
+    <style>
+    body {
+      font-family: sans-serif;
+      font-size: 15pt;
+      font-weight:normal;
+      background-color: #FFF;
+      padding: 0;
+      margin: 0;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #22b5d7;
+    }
+    table {
+      border: none;
+    }
+    td {
+      vertical-align: top;
+    }
+    </style>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/act.js"></script><script language="JavaScript">
+    if (window.act) {
+        $(function() {
+            var photos = [
+              [% photos = flickr_get(); FOREACH p = photos %]
+                '[% p.medium %]'[% ',' UNLESS loop.last %]
+              [% END %]
+            ];
+            function newpic()
+            {
+                var i = Math.floor(Math.random() * photos.length);
+                $("#flickrimage").attr('src', photos[i]);
+                setTimeout(newpic, 5000);
+            }
+            newpic();
+        });
+    }
+    </script>
+    </head>
+    <body>
+    <table width="100%" cellpadding="10">
+        <tr>
+            <td width="50%">
+                <table>
+                [% events = current_events();
+                   FOREACH period = events.keys.sort %]
+                   
+                     <tr><td colspan="3"><h1>[% period %]</h1></td></tr>
+                
+                     [% FOREACH room = events.$period.keys.sort;
+                          event = events.$period.$room %]
+                          <tr><td>[% global.config.rooms.$room %]</td>
+                              <td>[% date_format(event.datetime, 'time') %]</td>
+                              <td><b>[% event.title %]</b> <i>([% event.duration %]mn)</i></td>
+                          </tr>
+                     [% END %]
+                
+                  [% END %]
+                </table>
+            </td>
+            [% IF photos.size %]
+            <td>
+              <img id="flickrimage" src="" />
+            </td>
+            [% END %]
+        </tr>
+    </table>
+    </body>
 
 =cut
 

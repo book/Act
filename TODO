@@ -71,8 +71,6 @@ UNPRIORITIZED TODO LIST
   => by default, sort the user search results by registration date, not
      by user_id
 
-* photo gallery? Links with Flickr? tags? links with talks? author?
-
 * more tests, especially for the web interface
 
 * may a user have a different photograph every year?

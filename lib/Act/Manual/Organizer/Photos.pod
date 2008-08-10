@@ -27,9 +27,9 @@ is a hash that provides a set of URLs for each photograph.
 C<flickr_get> returns a shuffled list of all photographs. An
 optional argument may be provided to limit the number of returned
 photographs. This examples displays 42 randomly selected photographs
-in "smallsquare" format, linking each picture to its Flickr web page.a
+in "smallsquare" format, linking each picture to its Flickr web page.
 
-  [% WRAPPER ui title="Photos" %]
+  [% WRAPPER ui title="Photo Gallery" %]
     
     [% photos = flickr_get(42); FOREACH p = photos %]
       <a href="[% p.photo_page %]"><img src="[% p.smallsquare %]" /></a>
@@ -37,41 +37,37 @@ in "smallsquare" format, linking each picture to its Flickr web page.a
     
   [% END %]
 
-Animation can be added using a bit of client-side JavaScript code. The
-following example builds on the previous one. Every 2 seconds, a random
-image is replaced by a different photograph from the pool returned by
-C<flickr_get>.
+Animation can be added using a bit of client-side JavaScript code.
+Here's a simple slide show:
 
-
-  [% WRAPPER ui title="Photos" %]
-    
+  [% WRAPPER ui title="Photo Gallery" %]
     <script language="JavaScript">
-      
-      var photos = [
-        [% photos = flickr_get(); FOREACH p = photos %]
-          '[% p.smallsquare %]'[% ',' UNLESS loop.last %]
-        [% END %]
-      ];
-      
-      [% display = 42 %]
-      
-      function shuffle()
-      {
-        var i = Math.floor(Math.random() * [% display %]);
-        var j = Math.floor(Math.random() * [% photos.size %]);
-        document.getElementById('flickr_' + i).src = photos[j];
-        setTimeout(shuffle, 1000);
-      }
-      
-      setTimeout(shuffle, 2000);
-      
+    if (window.act) {
+        $(function() {
+            var photos = [
+              [% photos = flickr_get(); FOREACH p = photos %]
+                '[% p.medium %]'[% ',' UNLESS loop.last %]
+              [% END %]
+            ];
+            function newpic()
+            {
+                var i = Math.floor(Math.random() * photos.length);
+                $("#flickrimage").attr('src', photos[i]);
+                setTimeout(newpic, 5000);
+            }
+            newpic();
+        });
+    }
     </script>
-    
-    [% FOREACH i = [ 1 .. display ] %]
-      <img id="flickr_[% loop.index %]" src="[% photos.${loop.index}.smallsquare %]" /></a>
+    [% IF photos.size %]
+      <img id="flickrimage" src="" />
     [% END %]
     
   [% END %]
+
+
+L<Act::Manual::Organizer::CurrentEvents> shows how to create a full screen
+window displaying current talks and events and a photo slideshow.
 
 =cut
 
