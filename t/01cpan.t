@@ -44,11 +44,13 @@ my %modules = (
 );
 use Test::More;
 plan tests => 1 + 2 * keys %modules;
+use version;
+
 cmp_ok($], 'ge', 5.008001, 'perl >= 5.8.1');
 while ( my ( $name, $minversion ) = each %modules ) {
     if ( require_ok($name) ) {
         my $version = eval '$' . $name . '::VERSION';
-        cmp_ok( $version, '>=', $minversion,
+        cmp_ok( $version, 'ge', version->new($minversion),
             "$name $version >= $minversion" );
     }
     else {
