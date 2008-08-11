@@ -1372,3 +1372,6 @@ msgstr "ajouter à l'emploi du temps personnel"
 msgid "remove from personal schedule"
 msgstr "supprimer de l'emploi du temps personnel"
 
+msgid "Attended by:"
+msgstr "Assisté par:"
+

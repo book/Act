@@ -1,4 +1,6 @@
+[% INCLUDE js/mytalks.js %]
 <p>
+<h1>[% title %]</h1><br />
 <b>{{By}}</b>
 [% user_info(user) %]
 
@@ -65,3 +67,30 @@
 <p>
 [% expand(chunked_abstract) | html_line_break %]
 </p>
+
+[% IF attendees.size %]
+<b>{{Attended by:}}</b>
+<ul>
+[% FOREACH u IN attendees %]
+  <li>[% user_info(u) %]</li>
+[% END %]
+</ul>
+[% END %]
+
+[% IF global.request.user.has_registered %]
+<form method="POST" action="[% make_uri('updatemytalks') %]" />
+<input type="checkbox"
+       name="mt-[% talk_id %]"
+       value="[% talk_id %]"
+       [% IF global.request.user.is_my_talk(talk_id) %]
+         title = "{{remove from personal schedule}}"
+         checked = "checked"
+       [% ELSE %]
+         title = "{{add to personal schedule}}"
+       [% END %]
+/>
+{{add to personal schedule}}
+<input type="hidden" name="talk_id" value="[% talk_id %]" />
+<input type="submit" class="mytalks_submit" value="{{Submit}}" />
+</form>
+[% END %]

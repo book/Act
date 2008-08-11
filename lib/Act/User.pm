@@ -166,8 +166,19 @@ sub update_my_talks {
 }
 
 sub is_my_talk {
-    my ($self, $talk) = @_;
-    return first { $_->talk_id == $talk->talk_id } @{ $self->my_talks };
+    my ($self, $talk_id) = @_;
+    return first { $_->talk_id == $talk_id } @{ $self->my_talks };
+}
+
+sub attendees {
+    my ($self, $talk_id) = @_;
+    my $sth = sql(<<EOF, $talk_id, $Request{conference} );
+SELECT user_id FROM user_talks
+WHERE talk_id=? AND conf_id=?
+EOF
+    my $user_ids = $sth->fetchall_arrayref();
+    $sth->finish();
+    return [ map Act::User->new( user_id => $_->[0] ), @$user_ids ];
 }
 
 # some data related to the visited conference (if any)

@@ -54,7 +54,7 @@
                 <input type="checkbox"
                        name="mt-[% t.talk_id %]"
                        value="[% t.talk_id %]"
-                       [% IF global.request.user.is_my_talk(t) %]
+                       [% IF global.request.user.is_my_talk(t.talk_id) %]
                          title = "{{remove from personal schedule}}"
                          checked = "checked"
                        [% ELSE %]
