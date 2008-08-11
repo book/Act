@@ -20,7 +20,11 @@ sub handler
                     conf_id => $Request{conference},
                     status  => 'paid',
                  );
-
+    # convert to user timezone
+    for (@$orders) {
+        $_->datetime->set_time_zone('UTC');
+        $_->datetime->set_time_zone($Request{user}->timezone);
+    }
     # process the template
     my $template = Act::Template::HTML->new();
     $template->variables(
