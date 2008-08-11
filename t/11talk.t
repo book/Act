@@ -1,4 +1,4 @@
-use Test::More tests => 19;
+use Test::More tests => 21;
 use strict;
 use t::Util;
 use Act::Talk;
@@ -122,5 +122,10 @@ $user->update_my_talks($talk2, $talk3);
 ok($talk3->delete, "delete");
 $user = Act::User->new( user_id => $user->user_id, conf_id => 'conf' );
 is_deeply($user->my_talks, [ $talk2 ], "my_talks updated on delete");
+
+# attendees
+my $users = Act::User->attendees($talk2->talk_id);
+is(scalar(@$users), 1, "attendees");
+is($users->[0]->user_id, $user->user_id, "attendee");
 
 1;

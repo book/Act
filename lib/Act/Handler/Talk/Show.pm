@@ -81,6 +81,7 @@ sub handler
         chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
         user => $user,
         tags => \@tags,
+        attendees => Act::User->attendees($talk_id),
     );
     $template->variables(
         level => $Config->talks_levels_names->[ $talk->level - 1 ],

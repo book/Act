@@ -1,6 +1,6 @@
 [% INCLUDE js/mytalks.js %]
 <p>
-<font size="+1"><b>[% title %]</b></font><br />
+<h1>[% title %]</h1><br />
 <b>{{By}}</b>
 [% user_info(user) %]
 
@@ -67,6 +67,16 @@
 <p>
 [% expand(chunked_abstract) | html_line_break %]
 </p>
+
+[% IF attendees.size %]
+<b>{{Attended by:}}</b>
+<ul>
+[% FOREACH u IN attendees %]
+  <li>[% user_info(u) %]</li>
+[% END %]
+</ul>
+[% END %]
+
 [% IF global.request.user.has_registered %]
 <form method="POST" action="[% make_uri('updatemytalks') %]" />
 <input type="checkbox"
