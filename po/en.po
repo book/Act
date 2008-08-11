@@ -1359,3 +1359,6 @@ msgstr "add to personal schedule"
 msgid "remove from personal schedule"
 msgstr "remove from personal schedule"
 
+msgid "Attended by:"
+msgstr "Attended by:"
+
