@@ -8,8 +8,6 @@ use Act::Object;
 use Act::Util;
 use base qw( Act::Object );
 
-use constant DEBUG => !$^C && $Config->database_debug;
-
 # class data used by Act::Object
 our $table       = 'orders';
 our $primary_key = 'order_id';
@@ -31,12 +29,9 @@ sub create {
     my $items = delete $args{items};
     my $order = $class->SUPER::create(%args);
     if ($order && $items) {
-        my $SQL = 'INSERT INTO order_items ( order_id, amount, name, registration ) VALUES (?, ?, ?, ?)';
-        my $sth = $Request{dbh}->prepare_cached($SQL);
         for my $item (@$items) {
-            my @v = ( $order->order_id, $item->{amount}, $item->{name}, $item->{registration} ? 't' : 'f' );
-            Act::Object::_sql_debug($SQL, @v) if DEBUG;
-            $sth->execute(@v);
+            sql('INSERT INTO order_items ( order_id, amount, name, registration ) VALUES (?, ?, ?, ?)',
+                $order->order_id, $item->{amount}, $item->{name}, $item->{registration} ? 't' : 'f' );
         }
         $Request{dbh}->commit;
     }
@@ -53,10 +48,8 @@ sub items
     return $self->{items} if exists $self->{items};
 
     # fill the cache if necessary
-    my $sql = "SELECT item_id, amount, name, registration FROM order_items WHERE order_id = ?";
-    Act::Object::_sql_debug($sql, $self->order_id) if DEBUG;
-    my $sth = $Request{dbh}->prepare_cached($sql);
-    $sth->execute($self->order_id);
+    my $sth = sql("SELECT item_id, amount, name, registration FROM order_items WHERE order_id = ?",
+                  $self->order_id);
 
     $self->{items} = [];
     while( my ($item_id, $amount, $name, $registration) = $sth->fetchrow_array() ) {

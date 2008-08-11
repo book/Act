@@ -58,8 +58,10 @@ sub rights {
     # get the user's rights
     $self->{rights} = {};
 
-    $sth = $Request{dbh}->prepare_cached('SELECT right_id FROM rights WHERE conf_id=? AND user_id=?');
-    $sth->execute($Request{conference}, $self->user_id);
+    my $sth = sql(
+                       'SELECT right_id FROM rights WHERE conf_id=? AND user_id=?',
+                       $Request{conference}, $self->user_id
+                      );
     $self->{rights}{$_->[0]}++ for @{ $sth->fetchall_arrayref };
     $sth->finish;
 
@@ -98,10 +100,7 @@ sub bio {
     return $self->{bio} if exists $self->{bio};
 
     # fill the cache if necessary
-    my $sth = $Request{dbh}->prepare_cached(
-        "SELECT lang, bio FROM bios WHERE user_id=?"
-    );
-    $sth->execute( $self->user_id );
+    my $sth = sql("SELECT lang, bio FROM bios WHERE user_id=?", $self->user_id );
     $self->{bio} = {};
     while( my $bio = $sth->fetchrow_arrayref() ) {
         $self->{bio}{$bio->[0]} = $bio->[1];
@@ -117,9 +116,8 @@ sub talks {
 
 sub participation {
     my ( $self ) = @_;
-    my $sth = $Request{dbh}->prepare_cached(
-        'SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?' );
-    $sth->execute( $self->user_id, $Request{conference} );
+    my $sth = sql('SELECT * FROM participations p WHERE p.user_id=? AND p.conf_id=?',
+                  $self->user_id, $Request{conference} );
     my $participation = $sth->fetchrow_hashref();
     $sth->finish();
     return $participation;
@@ -128,13 +126,12 @@ sub participation {
 sub my_talks {
     my ($self) = @_;
     return $self->{my_talks} if $self->{my_talks};
-    my $sth = $Request{dbh}->prepare_cached(<<EOF);
+    my $sth = sql(<<EOF, $self->user_id, $Request{conference} );
 SELECT u.talk_id FROM user_talks u, talks t
 WHERE u.user_id=? AND u.conf_id=?
 AND   u.talk_id = t.talk_id
 AND   t.accepted
 EOF
-    $sth->execute( $self->user_id, $Request{conference} );
     my $talk_ids = $sth->fetchall_arrayref();
     $sth->finish();
     return $self->{my_talks} = [ map Act::Talk->new( talk_id => $_->[0] ), @$talk_ids ];
@@ -149,20 +146,19 @@ sub update_my_talks {
     # remove talks
     my @remove = grep { !$ids{$_} } keys %current;
     if (@remove) {
-        my $sth = $Request{dbh}->prepare_cached(
+        sql(
                     "DELETE FROM user_talks WHERE user_id = ? AND conf_id = ? AND talk_id IN ("
                   .  join(',', map '?',@remove)
-                  . ')'
-                );
-        $sth->execute($self->user_id, $Request{conference}, @remove);
+                  . ')',
+                  $self->user_id, $Request{conference}, @remove
+           );
     }
     # add talks
     my @add = grep { !$current{$_} } keys %ids;
     if (@add) {
-        my $sth = $Request{dbh}->prepare_cached(
-                    "INSERT INTO user_talks VALUES (?,?,?)"
-                    );
-        $sth->execute($self->user_id, $Request{conference}, $_)
+        my $SQL = "INSERT INTO user_talks VALUES (?,?,?)";
+        my $sth = sql_prepare($SQL);
+        sql_exec($sth, $SQL, $self->user_id, $Request{conference}, $_)
             for @add;
     }
     $Request{dbh}->commit  if @add || @remove;
@@ -204,8 +200,7 @@ for my $meth (keys %methods) {
         return $self->{$meth} if exists $self->{$meth};
         # compute the data
         my ($sql, $getargs) = @{ $methods{$meth} };
-        my $sth = $Request{dbh}->prepare_cached($sql);
-        $sth->execute( $getargs->($self) );
+        my $sth = sql( $sql, $getargs->($self) );
         $self->{$meth} = $sth->fetchrow_arrayref()->[0];
         $sth->finish();
         return $self->{$meth};
@@ -217,10 +212,9 @@ sub committed {
 }
 
 sub participations {
-     my $sth = $Request{dbh}->prepare_cached(
-        "SELECT * FROM participations p WHERE p.user_id=?"
-     );
-     $sth->execute( $_[0]->user_id );
+     my $sth = sql(
+        "SELECT * FROM participations p WHERE p.user_id=?",
+         $_[0]->user_id );
      my $participations = [];
      while( my $p = $sth->fetchrow_hashref() ) {
          push @$participations, $p;
@@ -272,9 +266,7 @@ sub create {
         @$part{qw(conf_id user_id)} = ($Request{conference}, $user->{user_id});
         my $SQL = sprintf "INSERT INTO participations (%s) VALUES (%s);",
                           join(",", keys %$part), join(",", ( "?" ) x keys %$part);
-        my $sth = $Request{dbh}->prepare_cached($SQL);
-        $sth->execute(values %$part);
-        $sth->finish();
+        my $sth = sql( $SQL, values %$part );
         $Request{dbh}->commit;
     }
     return $user;
@@ -291,24 +283,24 @@ sub update {
         delete $part->{$_} for qw(conf_id user_id);
         my $SQL = sprintf 'UPDATE participations SET %s WHERE conf_id=? AND user_id=?',
                           join(',', map "$_=?", keys %$part);
-        my $sth = $Request{dbh}->prepare_cached($SQL);
-        $sth->execute(values %$part, $Request{conference}, $self->{user_id});
+        my $sth = sql( $SQL, values %$part, $Request{conference}, $self->{user_id} );
         $Request{dbh}->commit;
     }
     if( $bio ) {
-        my @sth = map { $Request{dbh}->prepare_cached( $_ ) }
+        my @SQL =
         (
             "SELECT 1 FROM bios WHERE user_id=? AND lang=?",
             "UPDATE bios SET bio=? WHERE user_id=? AND lang=?",
             "INSERT INTO bios ( bio, user_id, lang) VALUES (?, ?, ?)",
         );
+        my @sth = map sql_prepare($_), @SQL;
         for my $lang ( keys %$bio ) {
-            $sth[0]->execute( $self->user_id, $lang );
+            sql_exec( $sth[0], $SQL[0], $self->user_id, $lang );
             if( $sth[0]->fetchrow_arrayref ) {
-                $sth[1]->execute( $bio->{$lang}, $self->user_id, $lang );
+                sql_exec(  $sth[1], $SQL[1], $bio->{$lang}, $self->user_id, $lang );
             }
             else {
-                $sth[2]->execute( $bio->{$lang}, $self->user_id, $lang );
+                sql_exec( $sth[2], $SQL[2],  $bio->{$lang}, $self->user_id, $lang );
             }
             $sth[0]->finish;
             $Request{dbh}->commit;

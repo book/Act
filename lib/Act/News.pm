@@ -4,8 +4,6 @@ use Act::Config;
 use Act::Object;
 use base qw( Act::Object );
 
-use constant DEBUG => !$^C && $Config->database_debug;
-
 # class data used by Act::Object
 our $table       = 'news';
 our $primary_key = 'news_id';
@@ -30,10 +28,7 @@ sub items
     return $self->{items} if exists $self->{items};
 
     # fill the cache if necessary
-    my $sql = "SELECT lang, title, text FROM news_items WHERE news_id = ?";
-    Act::Object::_sql_debug($sql, $self->news_id) if DEBUG;
-    my $sth = $Request{dbh}->prepare_cached($sql);
-    $sth->execute($self->news_id);
+    my $sth = sql("SELECT lang, title, text FROM news_items WHERE news_id = ?", $self->news_id);
 
     $self->{items} = {};
     while( my ($lang, $title, $text) = $sth->fetchrow_array() ) {
@@ -82,17 +77,11 @@ sub _update_items
 {
     my ($self, $items) = @_;
 
-    my $SQL = 'DELETE FROM news_items WHERE news_id=?';
-    Act::Object::_sql_debug($SQL, $self->news_id) if DEBUG;
-    my $sth = $Request{dbh}->prepare_cached($SQL);
-    $sth->execute($self->news_id);
+    sql('DELETE FROM news_items WHERE news_id=?', $self->news_id);
 
-    $SQL = 'INSERT INTO news_items ( title, text, news_id, lang ) VALUES (?, ?, ?, ?)';
-    $sth = $Request{dbh}->prepare_cached($SQL);
     for my $lang (keys %$items) {
-        my @v = ( $items->{$lang}{title}, $items->{$lang}{text}, $self->news_id, $lang );
-        Act::Object::_sql_debug($SQL, @v) if DEBUG;
-        $sth->execute(@v);
+        sql('INSERT INTO news_items ( title, text, news_id, lang ) VALUES (?, ?, ?, ?)',
+            $items->{$lang}{title}, $items->{$lang}{text}, $self->news_id, $lang );
     }
 }
 =head1 NAME

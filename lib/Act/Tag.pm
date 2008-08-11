@@ -8,8 +8,6 @@ use URI::Escape;
 
 use Act::Config;
 
-use constant DEBUG => !$^C && $Config->database_debug;
-
 # class data used by Act::Object
 our $table       = 'tags';
 our $primary_key = 'tag_id';
@@ -61,13 +59,11 @@ sub find_tagged
 {
     my ($class, %args) = @_;
     my @tags = @{ $args{tags} };
-    my $SQL = 'SELECT DISTINCT tagged_id FROM tags'
+    my $sth = sql(
+              'SELECT DISTINCT tagged_id FROM tags'
             . ' WHERE conf_id = ? AND type = ?'
-            . ' AND tag IN (' . join(',', ('?') x @tags) . ')';
-    my @values = ( $args{conf_id}, $args{type}, @tags );
-    Act::Object::_sql_debug($SQL, @values) if DEBUG;
-    my $sth = $Request{dbh}->prepare($SQL);
-    $sth->execute(@values);
+            . ' AND tag IN (' . join(',', ('?') x @tags) . ')',
+            $args{conf_id}, $args{type}, @tags );
     my $result = $sth->fetchall_arrayref([]);
     return sort map $_->[0], @$result;
 }
@@ -83,9 +79,7 @@ sub find_tags
         push @values, @{$args{filter}};
     }
     $SQL .= ' GROUP BY tag ORDER BY tag';
-    Act::Object::_sql_debug($SQL, @values) if DEBUG;
-    my $sth = $Request{dbh}->prepare($SQL);
-    $sth->execute(@values);
+    my $sth = sql($SQL, @values);
     return $sth->fetchall_arrayref([]);
 }
 sub get_cloud

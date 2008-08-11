@@ -6,6 +6,9 @@ use DBI qw(:sql_types);
 use DateTime::Format::Pg;
 
 use constant DEBUG => !$^C && $Config->database_debug;
+use vars qw(@ISA @EXPORT );
+@ISA    = qw(Exporter);
+@EXPORT = qw(sql sql_prepare sql_exec);
 
 sub inflate_datetime { # timestamp without time zone
     my $dt = shift;
@@ -64,16 +67,11 @@ sub create {
     eval {
         my $SQL = sprintf "INSERT INTO $table (%s) VALUES (%s);",
                           join(",", keys %args), join(",", ( "?" ) x keys %args);
-        my $sth = $Request{dbh}->prepare_cached( $SQL );
         _normalize( \%args, 'pg', $data_type );
-        _sql_debug($SQL, values %args) if DEBUG;
-        $sth->execute( values %args );
+        my $sth = sql( $SQL, values %args );
 
         # retrieve inserted row's id
-        $SQL = "SELECT currval(?)";
-        $sth = $Request{dbh}->prepare_cached($SQL);
-        _sql_debug($SQL, $seq) if DEBUG;
-        $sth->execute($seq);
+        $sth = sql("SELECT currval(?)", $seq);
         ($id) = $sth->fetchrow_array;
         $sth->finish();
         $Request{dbh}->commit;
@@ -99,10 +97,8 @@ sub update {
         my $SQL = "UPDATE $table SET "
                 . join(',', map "$_=?", keys %args)
                 . " WHERE $pkey=?";
-        my $sth = $Request{dbh}->prepare_cached( $SQL );
         _normalize( \%args, 'pg', $data_type );
-        _sql_debug($SQL, values %args, $self->{$pkey}) if DEBUG;
-        $sth->execute(values %args, $self->{$pkey});
+        my $sth = sql($SQL, values %args, $self->{$pkey});
         $Request{dbh}->commit;
     };
     if ($@) {
@@ -145,10 +141,7 @@ sub delete {
     my $pkey  = ${"${class}::primary_key"};
 
     eval {
-        my $SQL = "DELETE FROM $table WHERE $pkey=?";
-        my $sth = $Request{dbh}->prepare_cached( $SQL );
-        _sql_debug($SQL, $self->{$pkey}) if DEBUG;
-        $sth->execute( $self->{$pkey});
+        sql("DELETE FROM $table WHERE $pkey=?", $self->{$pkey});
         $Request{dbh}->commit;
     };
     if ($@) {
@@ -165,10 +158,7 @@ sub init {
 
     # get the standard fields (from the table)
     my $table = ${"${class}::table"};
-    my $SQL   = "SELECT * from $table limit 0";
-    my $sth   = $Request{dbh}->prepare($SQL);
-    _sql_debug($SQL) if DEBUG;
-    $sth->execute;
+    my $sth   = sql("SELECT * from $table limit 0");
     my $fields = ${"${class}::fields"} = $sth->{NAME};
     $sth->finish;
 
@@ -249,13 +239,11 @@ sub get_items {
     # run the request
     my $items = [ ];
     eval {
-        my $sth = $Request{dbh}->prepare_cached( $SQL );
         my @params = (
             map ( { ( $args{$_->[0]} ) x $_->[1] =~ y/?// } @select_opt ),
             map ( { ( $args{$_} ) x ${"${class}::sql_mapping"}{$_} =~ y/?// } keys %args ),
         );
-        _sql_debug($SQL, @params) if DEBUG;
-        $sth->execute(@params);
+        my $sth = sql($SQL, @params);
 
         my $item;
         push @$items, bless $item, $class
@@ -271,11 +259,29 @@ sub get_items {
     return $items;
 }
 
-sub _sql_debug
+sub _debug
 {
     my ($sql, @params) = @_;
     (my $str = $sql) =~ s/\?/$Request{dbh}->quote(shift @params)/ge;
     warn "$str\n";
+}
+sub sql_prepare
+{
+    my ($sql) = @_;
+    return $Request{dbh}->prepare_cached($sql);
+}
+sub sql_exec
+{
+    my ($sth, $sql, @params) = @_;
+    _debug($sql, @params) if DEBUG;
+    $sth->execute(@params);
+}
+sub sql
+{
+    my ($sql, @params) = @_;
+    my $sth = sql_prepare($sql);
+    sql_exec($sth, $sql, @params);
+    return $sth;
 }
 
 1;
