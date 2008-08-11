@@ -7,57 +7,61 @@ use Test::MockObject;
 use Act::Config;
 use Act::I18N;
 
+my %special = ( str => '<>&"' );
+my $string = $special{str};
+
 my @templates = (
-    { in  => 'foo',
+    { name => 'simple',
+      in  => 'foo',
       out => 'foo',
       sections => [ { nolang => 'foo' } ],
     },
-    {
-      var => { v => '<>&' },
+    { name => 'simple interpolation',
+      var => { v => $string },
       in  => '[% v %]',
-      out => '<>&',
+      out => $string,
       sections => [ { nolang => '[% v %]' } ],
     },
-    {
+    { name => '<t> </t>',
       in  => '<t><fr>foo</fr></t>',
       out => 'foo',
       sections => [ { lang => { fr => 'foo' } } ],
     },
-    {
+    { name => '<t> </t> nolang',
       in  => '<t><en>foo</en></t>',
       out => '',
       sections => [ { lang => { en => 'foo' } } ],
     },
-    {
+    { name => '<t> </t> embed newline',
       in  => "<t><fr>foo</fr>\n<en>bar</en></t>",
       out => "foo",
       sections => [ { lang => { fr => "foo", en => "bar" } } ],
     },
-    {
+    { name => '<t> </t> lang override nolang',
       lang =>'en',
       in  => '<t><fr>foo</fr></t>',
       out => '',
       sections => [ { lang => { fr => 'foo' } } ],
     },
-    {
+    { name => '<t> </t> lang override',
       lang => 'en',
       in  => '<t><en>foo</en></t>',
       out => 'foo',
       sections => [ { lang => { en => 'foo' } } ],
     },
-    {
+    { name => '<t> </t> lang override embed newline',
       lang => 'en',
       in  => "<t><fr>foo</fr>\n<en>bar</en></t>",
       out => 'bar',
       sections => [ { lang => { fr => "foo", en => "bar" } } ],
     },
-    {
+    { name => 'interp preserves whitespace',
       var => { v => 'foo' },
       in  => "bar\n  [% v %]  \nbaz",
       out => "bar\n  foo  \nbaz",
       sections => [ { nolang => "bar\n  [% v %]  \nbaz" } ],
-   },
-    { # sections
+    },
+    { name => 'nolang/lang sections',
       in  => "A<t><fr>foo</fr></t>B<t><en>bar</en></t>C",
       out => 'AfooBC',
       sections => [ { nolang => 'A' },
@@ -67,38 +71,33 @@ my @templates = (
                     { nolang => 'C' },
                   ],
     },
-    { # loc()
+    { name => 'loc()',
       in  => '[% loc("country_gb") %]',
       out => 'Royaume-Uni',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],
     },
-    { # {{ }}
+    { name => '{{ }}',
       in  => '{{country_gb}}',
       out => 'Royaume-Uni',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],
     },
-    { # trailing spaces
+    { name => '{{ }} trailing spaces',
       in  => '{{ country_gb }}',
       out => 'Royaume-Uni',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],
     },
-    { # no trailing spaces
-      in  => '{{country_gb}}',
-      out => 'Royaume-Uni',
-      sections => [ { nolang => '[% loc("country_gb") %]' } ],
-    },
-    { # in English
+    { name => '{{ }} lang override',
       lang => 'en',
       in  => '{{country_gb}}',
       out => 'United Kingdom',
       sections => [ { nolang => '[% loc("country_gb") %]' } ],
     },
-    { # mixed with text
+    { name => '{{ }} mixed with text',
       in  => 'foo {{country_gb}} bar',
       out => 'foo Royaume-Uni bar',
       sections => [ { nolang => 'foo [% loc("country_gb") %] bar' } ],
     },
-    { # mix localization techniques
+    { name => 'mix localization techniques',
       in  => '{{country_gb}}<t><fr>foo</fr></t>',
       out => 'Royaume-Unifoo',
       sections => [ { nolang => '[% loc("country_gb") %]' },
@@ -106,7 +105,7 @@ my @templates = (
                   ],
     },
     #### common macros
-    { # talk_link
+    { name => 'talk_link',
       in   => '[% talk_link(talk) %]',
       conf => 'zz2007',
       web  => 1,
@@ -114,7 +113,7 @@ my @templates = (
       out  => '<a href="/zz2007/talk/42">&lrm;foo&lrm;</a>',
       sections => [ { nolang => '[% talk_link(talk) %]' } ],
     },
-    { # talk_link accepted
+    { name => 'talk_link accepted',
       in   => '[% talk_link(talk) %]',
       conf => 'zz2007',
       web  => 1,
@@ -122,7 +121,7 @@ my @templates = (
       out  => '<a href="/zz2007/talk/42"><b>&lrm;foo&lrm;</b></a>',
       sections => [ { nolang => '[% talk_link(talk) %]' } ],
     },
-    { # talk_confirmed_link
+    { name => 'talk_confirmed_link',
       in   => '[% talk_confirmed_link(talk) %]',
       conf => 'zz2007',
       web  => 1,
@@ -130,7 +129,7 @@ my @templates = (
       out  => '<a href="/zz2007/talk/42">&lrm;foo&lrm;</a>',
       sections => [ { nolang => '[% talk_confirmed_link(talk) %]' } ],
     },
-    { # talk_confirmed_link confirmed
+    { name => 'talk_confirmed_link confirmed',
       in   => '[% talk_confirmed_link(talk) %]',
       conf => 'zz2007',
       web  => 1,
@@ -138,7 +137,7 @@ my @templates = (
       out  => '<a href="/zz2007/talk/42"><b>&lrm;foo&lrm;</b></a>',
       sections => [ { nolang => '[% talk_confirmed_link(talk) %]' } ],
     },
-    { # talk_modify_link
+    { name => 'talk_modify_link',
       in   => '[% talk_modify_link(talk) %]',
       conf => 'zz2007',
       web  => 1,
@@ -148,7 +147,7 @@ my @templates = (
       out  => '(<a href="/zz2007/edittalk?talk_id=42">edit</a>)',
       sections => [ { nolang => '[% talk_modify_link(talk) %]' } ],
     },
-    { # event_link
+    { name => 'event_link',
       in   => '[% event_link(event) %]',
       conf => 'zz2007',
       web  => 1,
@@ -156,7 +155,7 @@ my @templates = (
       out  => '<a href="/zz2007/event/42">&lrm;foo&lrm;</a>',
       sections => [ { nolang => '[% event_link(event) %]' } ],
     },
-    { # event_modify_link
+    { name => 'event_modify_link',
       in   => '[% event_modify_link(event) %]',
       conf => 'zz2007',
       web  => 1,
@@ -166,7 +165,7 @@ my @templates = (
       out  => '',
       sections => [ { nolang => '[% event_modify_link(event) %]' } ],
     },
-    { # event_modify_link
+    { name => 'event_modify_link',
       in   => '[% event_modify_link(event) %]',
       conf => 'zz2007',
       web  => 1,
@@ -176,25 +175,25 @@ my @templates = (
       out  => '(<a href="/zz2007/editevent?event_id=42">edit</a>)',
       sections => [ { nolang => '[% event_modify_link(event) %]' } ],
     },
-    { # user_info_base
+    { name => 'user_info_base pseudo',
       in   => '[% user_info_base(user) %]',
       var  => { user => { pseudonymous => 1, nick_name => 'Zorglub' } },
       out  => 'Zorglub',
       sections => [ { nolang => '[% user_info_base(user) %]' } ],
     },
-    { # user_info_base
+    { name => 'user_info_base with nick',
       in   => '[% user_info_base(user) %]',
       var  => { user => { first_name => 'John', last_name => 'Doe', nick_name => 'Zorglub' } },
       out  => 'John Doe (&lrm;Zorglub&lrm;)',
       sections => [ { nolang => '[% user_info_base(user) %]' } ],
     },
-    { # user_info_base
+    { name => 'user_info_base sans nick',
       in   => '[% user_info_base(user) %]',
       var  => { user => { first_name => 'John', last_name => 'Doe' } },
       out  => 'John Doe',
       sections => [ { nolang => '[% user_info_base(user) %]' } ],
     },
-    { # user_info
+    { name => 'user_info',
       in   => '[% user_info(user) %]',
       conf => 'zz2007',
       web  => 1,
@@ -202,7 +201,7 @@ my @templates = (
       out  => '<a href="/zz2007/user/42">John Doe</a>',
       sections => [ { nolang => '[% user_info(user) %]' } ],
     },
-    { # expand
+    { name => 'expand',
       in   => '[% expand(chunks) %]',
       conf => 'zz2007',
       web  =>  1,
@@ -226,53 +225,62 @@ my @templates = (
     },
 );
 my @html_templates = (
-    { in  => 'foo',
+    { name => 'html simple',
+      in  => 'foo',
       out => 'foo',
       sections => [ { nolang => 'foo' } ],
     },
-    {
+    { name => 'html <t> </t>',
       in  => '<t><fr>foo</fr></t>',
       out => 'foo',
       sections => [ { lang => { fr => 'foo' } } ],
     },
-    {
-      var => { v => '<>&"' },
+    { name => 'html escape',
+      var => { v => $string },
       in  => '[% v %]',
       out => '&lt;&gt;&amp;&quot;',
       sections => [ { nolang => '[% v %]' } ],
     },
-    {
-      var => { v =>  { w => '<>&"' }},
+    { name => 'html escape deep',
+      var => { v =>  { w => $string }},
       in  => '[% v.w %]',
       out => '&lt;&gt;&amp;&quot;',
       sections => [ { nolang => '[% v.w %]' } ],
     },
-    {
-      var => { v => '<>&"' },
+    { name => 'html raw',
+      var => { v => $string },
       raw => 1,
       in  => '[% v %]',
-      out => '<>&"',
+      out => $string,
       sections => [ { nolang => '[% v %]' } ],
     },
-    {
-      var => { v => '<">' },
+    { name => 'html form_unescape',
+      var => { v => $string },
       in  => '[% v | form_unescape %]',
-      out => '&lt;"&gt;',
+      out => '&lt;&gt;&amp;"',
       sections => [ { nolang => '[% v | form_unescape %]' } ],
     },
-    {
+    { name => 'html double escaping',
+      var => { v => \%special, w => \%special },
+      in  => '[% v.str %],[% w.str %]',
+      out => '&lt;&gt;&amp;&quot;,&lt;&gt;&amp;&quot;',
+      sections => [ { nolang => '[% v.str %],[% w.str %]' } ],
+    },
+    { name => 'html interp preserves whitespace',
       var => { v => 'foo' },
       in  => "bar\n  [% v %]  \nbaz",
       out => "bar foo baz",
       sections => [ { nolang => "bar\n  [% v %]  \nbaz" } ],
     },
-    { conf => 'zz2007',
+    { name => 'make_uri',
+      conf => 'zz2007',
       web  => 1,
       in   => "[% make_uri('foo', 'q', '1', 'r', '2') %]",
       out  => '/zz2007/foo?q=1&amp;r=2',
       sections => [ { nolang => "[% make_uri('foo', 'q', '1', 'r', '2') %]" } ],
     },
-    { conf => 'zz2007',
+    { name => 'make_uri utf8',
+      conf => 'zz2007',
       web  => 1,
       in   => '[% make_uri("foo", "q", "césâr") %]',
       out  => '/zz2007/foo?q=c%C3%A9s%C3%A2r',
@@ -284,7 +292,7 @@ plan tests => 3 * (@templates + @html_templates) + 13;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
-ok($template);
+ok($template, "new template");
 
 # cached templates
 my $t2 = Act::Template->new;
@@ -297,11 +305,11 @@ is($t2, $t3, 'using cached template');
 # variables
 my %h = (foo => 42, bar => 43);
 $template->variables(%h);
-is($template->variables($_), $h{$_}) for keys %h;
-ok(eq_hash($template->variables(), \%h));
+is($template->variables($_), $h{$_}, "variables get $_") for keys %h;
+ok(eq_hash($template->variables(), \%h), "variables get hash");
 $template->clear;
-is($template->variables($_), undef) for keys %h;
-ok(eq_hash($template->variables(), {}));
+is($template->variables($_), undef, "clear $_") for keys %h;
+ok(eq_hash($template->variables(), {}), "clear");
 
 for my $t (@templates) {
     _ttest($template, $t);
@@ -309,7 +317,7 @@ for my $t (@templates) {
 ##### Act::Template::HTML
 require_ok('Act::Template::HTML');
 $template = Act::Template::HTML->new;
-ok($template);
+ok($template, "new HTML template");
 
 for my $t (@html_templates) {
     _ttest($template, $t);
@@ -350,9 +358,9 @@ sub _ttest
     }
 
     my $output;
-    ok($template->process(\$t->{in}, \$output));
-    is($output, $t->{out});
-    is_deeply($template->{PARSER}->sections, $t->{sections});
+    ok($template->process(\$t->{in}, \$output), "$t->{name} process");
+    is($output, $t->{out}, "$t->{name} output");
+    is_deeply($template->{PARSER}->sections, $t->{sections}, "$t->{name} sections");
 }
 
 __END__

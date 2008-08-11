@@ -29,18 +29,20 @@ sub escape
 {
     # recursively escape HTML entities
     my $self = shift;
+
     if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
         $self->escape($_) for @{$_[0]};
     }
     elsif ($_[0] && UNIVERSAL::isa($_[0],'HASH')) {
         $self->escape($_[0]{$_}) for keys %{$_[0]};
     }
-    elsif (ref $_[0] eq 'CODE') {
-        return;
+    elsif (ref $_[0]) {
+        return $_[0];
     }
-    elsif (!ref($_[0]) && defined($_[0])) {
-        $_[0] = HTML::Entities::encode($_[0], '<>&"');
+    elsif (defined $_[0]) {
+        return HTML::Entities::encode($_[0], '<>&"');
     }
+    return $_[0];
 }
 
 sub variables_raw
@@ -48,8 +50,8 @@ sub variables_raw
     my $self = shift;
     {
         no warnings 'redefine';
-        local *escape = sub { };
-        $self->SUPER::variables(@_);
+        local *escape = sub { $_[1] };
+        $self->variables(@_);
     }
 }
 
