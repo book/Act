@@ -11,7 +11,9 @@ sub handler {
     return Act::Util::redirect(make_uri('register'))
       unless $Request{user}->has_registered;
 
-    my @ts = map Act::TimeSlot::upgrade($_), @{ $Request{user}->my_talks };
+    my @ts = map Act::TimeSlot::upgrade($_),
+             @{ Act::Event->get_events( conf_id => $Request{conference} ) },
+             @{ $Request{user}->my_talks };
     my %schedule = Act::Handler::Talk::Schedule::compute_schedule(@ts);
 
     # process the template
