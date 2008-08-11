@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2008-04-27 10:09+0200\n"
+"PO-Revision-Date: 2008-08-11 20:53+0200\n"
 "Last-Translator: Gianni Ceccarelli <dakkar@thenautilus.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,9 +278,7 @@ msgstr ""
 "volta terminata la transazione <tt>;-)</tt>.\n"
 
 msgid "Once you have an account, you'll be able to register free of charge"
-msgstr ""
-"Una volta creato l'account, potrete confermare la vostra partecipazione"
-"a questa conferenza, gratuitamente."
+msgstr "Una volta creato l'account, potrete confermare la vostra partecipazione a questa conferenza, gratuitamente."
 
 msgid "Please create the user below."
 msgstr "Create il nuovo account qui sotto."
@@ -379,6 +377,9 @@ msgstr "Tesoriere"
 
 msgid "Payments"
 msgstr "Pagamenti"
+
+msgid "Payment Details"
+msgstr "Dettagli del pagamento"
 
 msgid "Edit profile"
 msgstr "Modifica profilo"
@@ -1349,3 +1350,15 @@ msgstr "Programma personale"
 
 msgid "Attending talks"
 msgstr "Assiste a"
+
+msgid "Promotion code"
+msgstr "Codice promozionale"
+
+msgid "add to personal schedule"
+msgstr "aggiungi al programma personale"
+
+msgid "remove from personal schedule"
+msgstr "rimuovi dal programma personale"
+
+msgid "Attended by:"
+msgstr "Seguito da:"
