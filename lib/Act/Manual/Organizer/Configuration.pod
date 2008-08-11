@@ -1,13 +1,7 @@
 =head1 The Act configuration file
 
 Most of the configuration items for your conference are stored in the
-file F<act.ini>. It is divided in several sections, some of which
-are related to the Act infrastructure itself, and others to your own
-conference.
-
-=head1 SECTIONS
-
-=head2 Conference configuration
+file F<act.ini>.
 
     [general]
     # this conference's full production URI
@@ -112,17 +106,16 @@ conference.
     # the products your are selling
     # these are non user visible product codes for configuration purposes only
     # "registration" is special - it's the registration product
-    products    = registration classes accomodation
+    products    = registration accomodation
     
     # Details on each product
     [product_registration]
     name_en     = Registration
     name_fr     = Inscription
-    prices      = 2
+    prices      = 3
     
-    # omit price name if there's only one price
     [product_registration_price1]
-    name_en     = Student price
+    name_en     = Early bird
     name_fr     = Tarif réduit
     amount      = 15
 
@@ -130,33 +123,23 @@ conference.
     name_en     = Normal price
     name_fr     = Tarif normal
     amount      = 20
-    # a promotion code may be required for this price
+
+    [product_registration_price3]
+    name_en     = Student price
+    name_fr     = Tarif étudiant
+    amount      = 10
+    # users must enter promotion code to select this price
     promocode   = qwerty
     
     # configure any additional products
+    [product_accomodation]
+    name_en     = Accomodation
+    name_fr     = Hébergement
+    prices      = 1
     
-
-=head2 Infrastructure configuration
-
-Conference organisers can skip this section.
-
-    [database]
-    name        = act
-    dsn         = dbi:Pg:dbname=$(database_name)
-    user        = foo
-    passwd      = sekr3t
-    pg_dump     = /home/pgsql/bin/pg_dump     # dumping tool
-    dump_file   = /home/act/actdb             # where to dump the db
-    dump_needs_password = 1
-    
-    [general]
-    conferences = fpw2004 fpw2005            # conferences handled by Act
-    cookie_name = act
-    dir_photos  = photos                     # where photos are stored
-    
-    [email]
-    smtp_server = localhost
-    smtp_port   = 0
-    test        = 0
+    # you can omit price name if there's only one price
+    [product_accomodation_price1]
+    amount      = 15
+  
 
 =cut
