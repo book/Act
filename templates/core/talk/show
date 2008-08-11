@@ -1,6 +1,5 @@
 [% INCLUDE js/mytalks.js %]
 <p>
-<h1>[% title %]</h1><br />
 <b>{{By}}</b>
 [% user_info(user) %]
 
