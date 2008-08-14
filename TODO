@@ -17,8 +17,6 @@ UNPRIORITIZED TODO LIST
 
 * schedule columns should be fixed width
 
-* schedule should default on the current day during the conference (Juerd)
-
 * replace login with email address
   the display name would be nick_name, pseudonymous would be the default behavior
 
