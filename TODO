@@ -6,6 +6,9 @@ PRIORITIZED TODO LIST
 
 UNPRIORITIZED TODO LIST
 
+* English is English (not American) (Nick)
+  (ie the two need to be distnct, as US date order is hateful, especially in Europe)
+
 * add a can_purchase_registration() method to Act::User
 
 * change password barfs on non ASCII characters
@@ -13,6 +16,8 @@ UNPRIORITIZED TODO LIST
 * main act.ini should be renamed to avoid confusion with conferences act.ini
 
 * schedule columns should be fixed width
+
+* schedule should default on the current day during the conference (Juerd)
 
 * replace login with email address
   the display name would be nick_name, pseudonymous would be the default behavior
@@ -70,8 +75,6 @@ UNPRIORITIZED TODO LIST
 * most tables should be sortable by clicking on column headers.
   => by default, sort the user search results by registration date, not
      by user_id
-
-* photo gallery? Links with Flickr? tags? links with talks? author?
 
 * more tests, especially for the web interface
 

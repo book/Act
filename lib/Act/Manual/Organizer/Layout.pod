@@ -18,8 +18,7 @@ contains all the files that will be statically served
 =head2 F<wwwdocs/>
 
 You organise F<wwwdocs> as you please. To link to files stored in
-your F<wwwdocs> directory, use C<E<lt>a href="/yourconf/path/to/file"E<gt>>,
-where I<yourconf> is your conference id (e.g. ye2005, fpw2006, etc.).
+your F<wwwdocs> directory, use C<[% make_uri("path/to/file")>.
 
 =head2 F<actdocs/>
 
