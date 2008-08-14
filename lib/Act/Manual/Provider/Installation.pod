@@ -1,5 +1,31 @@
 =head1 Installing Act on your system
 
+
+This doc is being rewritten. Here's the new outline:
+
+    install pre-requesites
+      postgresql 8.x apache 1.x mod_perl 1.x
+      cpan modules
+    create databases
+    download act
+      svn co
+    configure act
+      PERL5LIB / ACTHOME
+      create sample conference
+        mkdir actdocs;
+        cp -pr skel/
+        cp -pr skel/actdocs actdocs/sample
+      configure act
+        cp -pr eg/conf .
+        configure act.ini
+          database
+    make test
+    configure apache
+       vhost stuff
+    test
+       http://localhost/sample/
+
+
 Install (or svn checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 

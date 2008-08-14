@@ -62,8 +62,11 @@ conference...
 
 =head2 Code contributors
 
+  Gianni "dakkar" Cecarelli
   Elizabeth Cortell
   Thomas Klausner
+  Tatsuhiko Miyagawa
+  Jesse Vincent
 
 =head2 Documentation contributors
 
