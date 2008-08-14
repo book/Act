@@ -44,8 +44,12 @@
 </p>
 [%-# tabs %]
 [% day = global.request.args.day;
-   UNLESS day AND table.$day.size;
-     day = table.keys.sort.0;
+   UNLESS day AND table.$day.size;          # no valid day specified
+     USE date;                              # default to today
+     day = date.format(date.now, "%F");
+     UNLESS table.$day.size;                # if not valid default to first day
+       day = table.keys.sort.0;
+     END;
    END;
    IF table.keys.size > 1;
      FOREACH d IN table.keys.sort;
