@@ -90,7 +90,9 @@
 [% IF conferences.size %]
 <p><b>{{Other Act conferences:}}</b></p>
 <ul>
-[% FOREACH c = conferences %]<li><a href="[% c.url %]">[% c.name %]</a>
+[% FOREACH c = conferences %]
+[% NEXT IF c.begin < last_year %]
+<li><a href="[% c.url %]">[% c.name %]</a>
 [% SWITCH c.participation %]
  [% CASE 'past' %]
  {{(You were there)}}
