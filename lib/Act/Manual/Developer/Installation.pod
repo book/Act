@@ -171,7 +171,9 @@ Now edit C<conf/act.ini> and enter your conference settings:
 
     [general]
     conferences = act-2004
+    dir_ttc     = /tmp/act/ttc
     
+The C<dir_ttc> directory stores the compiled TT templates.
 
 To make sure that your system has all the requirements to run Act,
 and that Act works correctly on it, you can now run Act's test suite.
