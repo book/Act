@@ -26,6 +26,20 @@ This doc is being rewritten. Here's the new outline:
        http://localhost/sample/
 
 
+NOTES on compiling Apache 1.3 on Ubuntu
+
+Use :
+    bash ./configure --prefix=/usr/local/httpd --enable-shared=max  --enable-module=rewrite --enable-module=expires
+
+Because under Ubuntu, sh is a symlink to dash, which breaks configure.
+
+ make && make install
+
+compiling mod_perl
+
+perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/httpd/bin/apxs EVERYTHING=1
+
+
 Install (or svn checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 
