@@ -84,6 +84,14 @@ sub _make_link
             }
             return $link;
         }
+        elsif ($u->scheme eq 'image' ) {
+            my $url = $u->opaque;
+            if( $url =~ /^[-\/\w.]+$/ )  {
+                my $n = $formatter->new_chunk({ url => $url, title => $title });
+                return qq|<img src="{% make_uri(chunks.$n.url) -%}" title="{% chunks.$n.title %}" alt="{% chunks.$n.title %}" />|;
+            }
+            return $link;
+        }
     }
     else {
         $link = URI::Escape::uri_escape_utf8($link);
