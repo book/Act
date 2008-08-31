@@ -1,3 +1,4 @@
+[% FILTER collapse %]
 [% PROCESS menus/user %]
 [% PROCESS menus/users %]
 [% PROCESS menus/news %]
@@ -7,3 +8,4 @@
 [% PROCESS menus/treasurer %]
 [% PROCESS menus/admin %]
 [% PROCESS menus/act_confs %]
+[% END %]
