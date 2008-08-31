@@ -1,0 +1,1360 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "Šek"
+
+msgid "payment_means_CASH"
+msgstr "Hotovosť"
+
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+msgid "payment_means_XFER"
+msgstr "Prevod"
+
+msgid "payment_means_FREE"
+msgstr "Zadarmo"
+
+msgid "room_out"
+msgstr "Vonku"
+
+msgid "room_venue"
+msgstr "Aula"
+
+msgid "salutation_1"
+msgstr "Pán."
+
+msgid "salutation_2"
+msgstr "Pani."
+
+msgid "salutation_3"
+msgstr "Slečna."
+
+msgid "salutation_4"
+msgstr "Doktor."
+
+msgid "User information"
+msgstr "Informácie o uživateľovi"
+
+msgid "Login"
+msgstr "Prihlasovacie"
+
+msgid "Name"
+msgstr "Meno"
+
+msgid "City"
+msgstr "Mesto"
+
+msgid "Country"
+msgstr "Krajina"
+
+msgid "Perl mongers group"
+msgstr "Perl mongers skupina"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Web page"
+msgstr "Web stránka"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "ID GPG kľúča"
+
+msgid "No photo"
+msgstr "Nieje fotografia"
+
+msgid "Talk"
+msgstr "%numerate(%1,Prednáška)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Prijatá Prednáška)"
+
+msgid "minutes"
+msgstr "minúty"
+
+msgid "Lightning talk"
+msgstr "Lightning talk"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Other Act conferences:"
+msgstr "Iné Act konferencie:"
+
+msgid "Main private page"
+msgstr "Hlavná privátna stránka"
+
+msgid "to <this conference>"
+msgstr "na %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Toto je tvoja privátna stránka.\n"
+"Tu si môžeš upravovať všetko ohľadne tvojej účasti.\n"
+
+msgid "to Act-enabled conferences."
+msgstr "na konferencie čo používajú Act."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Zaplatil si si lístok na konferen:"
+
+msgid "Order number"
+msgstr "Objednávkové číslo"
+
+msgid "Payment date"
+msgstr "Dátum platby"
+
+msgid "Amount paid"
+msgstr "Zaplatená suma"
+
+msgid "Download your invoice"
+msgstr "Stiahnuť <a href=\"%1\">faktúru</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Ešte si si nekúpil lístok na konferenciu."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Zváž urobiť tak pomocou nášho online platobného systému."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Zváž urobiť tak keď bude náš online platobný systém k dispozícií."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Ešte si nepotvrdil svoju účasť na tejto konferencii."
+
+msgid "You did not register for this conference"
+msgstr ""
+"Ešte si sa<a href=\"%1\">nezaregistroval na túto konferenciu</a>.\n"
+"Prosím sprav tak ak sa plánuješ prísť pozrieť alebo prezentovať.\n"
+
+msgid "You can:"
+msgstr "Môžeš:"
+
+msgid "purchase your conference ticket"
+msgstr "kúpiť si konferenčný lístok"
+
+msgid "confirm your participation"
+msgstr "potvrdiť účasť"
+
+msgid "register for this conference"
+msgstr "zaregistrovať sa na túto konferenciu"
+
+msgid "update your information"
+msgstr "zaktualizovať svoje informácie"
+
+msgid "manage your photo"
+msgstr "zaktualizovať svoju fotografiu"
+
+msgid "change your password"
+msgstr "zmeniť si heslo"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "pozrieť si svoje prezentácie (prijáté prezentácie sú vypísané <b>tučným písmom</b>)"
+
+msgid "submit a talk"
+msgstr "odoslať prezentáciu"
+
+msgid "log out"
+msgstr "odhlásiť sa"
+
+msgid "unregister from <this conference>"
+msgstr "odregistrovať sa z %1"
+
+msgid "(You were there)"
+msgstr "(Bol si tam)"
+
+msgid "(You are there)"
+msgstr "(Si tam)"
+
+msgid "(You will be there)"
+msgstr "(Budeš tam)"
+
+msgid "Confirmation required"
+msgstr "Potvrdenie je požadované"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Táto operácia vyžaduje potvrdenie. Prosím zadaj svoju email adresu,\n"
+"dostaneš email s linkom cez ktorý sa dá potvrdiť.\n"
+
+msgid "You must enter your email"
+msgstr "Musíš zadať svoju email adresu"
+
+msgid "Your email address looks bogus."
+msgstr "Tvoja email adresa vyzerá divne."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"Email bol zaslaný na <b>%1</b>. Klikni na odkaz v emaili pre\n"
+"dokončenie operácie.\n"
+
+msgid "Confirmation email sent"
+msgstr "Potvrdzujúci email bol zaslaný"
+
+msgid "In order to complete your operation"
+msgstr "Ak chceš dokončiť túto operáciu na \"%1\", prosím klikni na tento odkaz:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - potvrdenie"
+
+msgid "Registration"
+msgstr "Registrácia"
+
+msgid "Sorry, this conference is over."
+msgstr "Prepáč, táto konferencia už skončila."
+
+msgid "Please create your user below."
+msgstr "Prosím vytvor si uživateľa dole."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "Identifikácia %1 sa už používa. Prosím vyber si inú."
+
+msgid "The address is already registered."
+msgstr "Táto adresa %1 je už zaregistrovaná."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Tvoja identifikácia musí obsahovať aspoň 3 a iba alfanumerické znaky (<tt>[a-zA-Z0-9_]{3,}</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Musíš zadať svoje meno"
+
+msgid "You must enter your last name"
+msgstr "Musíš zadať svoje priezvisko"
+
+msgid "You must enter a country from the list"
+msgstr "Musíš zadať krajinu zo zoznamu"
+
+msgid "Accounts with similar information already exist."
+msgstr "Účty s podobnými informáciami už existujú."
+
+msgid "A valid T-shirt size is required."
+msgstr "Treba zadať veľkosť trička."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Použi odkaz na zistenie či niesi jeden z nich. Ak, tak sa jednoducho\n"
+"<a href=\"%1\">prihlás</a> pomocou svojho existujúceho účtu.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Na zaregistrovanie si potrebuješ najskôr vytvoriť účet na tejto stránke.\n"
+"<b>Ak máš účet z predchádzajúcich Act konferencií,\n"
+"nepotrbuješ sa znova registrovať, jednoducho sa\n"
+"<a href=\"%1\">prihlás</a> pomocou tohto účtu.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Osobné údaje ktoré tu budú zozbierané sa použijú na vytvorenie\n"
+"<a href=\"%1\">online <i>kto je kto</i></a> zo všetkých účastníkov.\n"
+"Toto bude veľmy užitočné po konferencií, keď sa budeš chcieť\n"
+"skontaktovať s niekým koho si stretol počas konferencie. Alebo pred ňou,\n"
+"keď chceš vedieť ktorí "guruovia" tam budú.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Keď budeš mať účet, budeš môcť využiť naše bezpečné platby (secure payment\n"
+"platform) na kúpenie lístka na konferenciu. Všetky operácie s tvojím\n"
+"bankovým účtom a číslom kreditnej karty spracováva banka.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Nemáme prístup k tvojim platobným informáciam\n"
+"počas celého platobného procesu.</b> My len\n"
+"na konci dostaneme peniaze. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Keď budeš mať účet, budeš mať možnosť potvrdiť svoju bezplatnú účasť\n"
+"na tejto konferencii."
+
+msgid "Please create the user below."
+msgstr "Prosím vytvor dole uživatela."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Použi horný odkaz na overenie či niektorý uživateľ je ten čo si chcel\n"
+"vytvoriť. Ak, tak jednoducho zaškrtni príslušné políčko a\n"
+"odošli tento formulár.\n"
+
+msgid "Register"
+msgstr "Zaregistruj"
+
+msgid "Registered!"
+msgstr "Zaregistrované!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Gratulejeme, <b>%1</b>, si zaregistrovaný.\n"
+"Tvoje heslo je <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Meno"
+
+msgid "Last Name"
+msgstr "Priezvisko"
+
+msgid "T-Shirt"
+msgstr "tričko"
+
+msgid "Join!"
+msgstr "Pridaj sa!"
+
+msgid "edit"
+msgstr "upraviť"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Prihlásiť sa"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Submit"
+msgstr "Odoslať"
+
+msgid "Forgot your password?"
+msgstr "Zabudol si heslo? Clickni <a href=\"%1\">sem</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Táto stránka používa cookies na overenie prihlásených uživateľov. Možno budeš potrebovať\n"
+"nastaviť svoj prehliadač aby prijímal cookies pre doménu <b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "Zlé prihlasovacie meno alebo heslo"
+
+msgid "Logout"
+msgstr "Odhlásiť sa"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Bol si odhlásený a cookie bol odstránený z prehliadača."
+
+msgid "Other conferences"
+msgstr "Iné konferencie"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Úprava práv"
+
+msgid "Events"
+msgstr "Udalosti"
+
+msgid "Submit a new event"
+msgstr "Pošli novú udalosť"
+
+msgid "Schedule"
+msgstr "Program"
+
+msgid "iCal export"
+msgstr "iCal export"
+
+msgid "iCal import"
+msgstr "iCal import"
+
+msgid "Submit a talk proposal"
+msgstr "Odošli návrh na prezentáciu"
+
+msgid "Presentations"
+msgstr "Prezentácie"
+
+msgid "Treasurer"
+msgstr "Pokladník"
+
+msgid "Payments"
+msgstr "Platby"
+
+msgid "Payment Details"
+msgstr "Platobné detaily"
+
+msgid "Edit profile"
+msgstr "Upraviť profil"
+
+msgid "New user"
+msgstr "Nový uživateľ"
+
+msgid "Users"
+msgstr "Uživatelia"
+
+msgid "Search"
+msgstr "Hľadať"
+
+msgid "Statistics"
+msgstr "Štatistiky"
+
+msgid "CSV export"
+msgstr "CSV export"
+
+msgid "Register a new user"
+msgstr "Zaregistruj nového uživatela"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Program ešte nieje pripravený na zverejnenie."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Čas a miesto týchto prezentácií ešte neboli rozhodnuté."
+
+msgid "Speaker"
+msgstr "Rečník"
+
+msgid "Talk title"
+msgstr "Názov prezentácie"
+
+msgid "Duration"
+msgstr "Trvanie"
+
+msgid "Target audience"
+msgstr "Cieľová skupina"
+
+msgid "Target audience:"
+msgstr "Cieľová skupina:"
+
+msgid "abstract (link)"
+msgstr "Zhrnutie"
+
+msgid "talk (link)"
+msgstr "Prezentácia"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Prezentácie <b>tučnom</b> boli potvrdené ich rečníkom."
+
+msgid "Time"
+msgstr "Čas"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Donation"
+msgstr "Dotácia"
+
+msgid "Buy now!"
+msgstr "Kúpiť teraz!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Upozornenie: Všetky operácie s tvojím bankovým účtom a číslom kreditnej karty\n"
+"spracováva banka. <b>Nemáme prístup ku žiadnym platobným informáciám\n"
+"počas celého platobného procesu.</b> My len dostaneme na konci peniaze. <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Keďže celková suma pre túto objednávku je nula, nemusíš postupovať ďalej k platbe. Táto objednávka je kompletná."
+
+msgid "Online payment"
+msgstr "Online platba"
+
+msgid "Online payment (zero)"
+msgstr "Nič na zaplatenie"
+
+msgid "Join"
+msgstr "Pridaj"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Na prihlásenie sa do %1 konferencie,\n"
+"jednoducho stlač tlačítko dole.\n"
+
+msgid "The recognised rights are:"
+msgstr "Rešpektované práva sú:"
+
+msgid "Organizer"
+msgstr "Organizátor"
+
+msgid "Organizer (talks management)"
+msgstr "Organizátor (talks management)"
+
+msgid "Treasurer (payment management)"
+msgstr "Pokladník (payment management)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrátor (rights management)"
+
+msgid "User rights"
+msgstr "Uživatelove uprávnenia"
+
+msgid "Amount"
+msgstr "Množstvo"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Nemôžeš byť pseudonym s práznou prezívkou"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Perl monger skupina musí končiť s <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "URL pre Perl monger skupinu musí začínať s http://"
+
+msgid "The company URL must start with http://"
+msgstr "URL firmy musí začínať s http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "URL tvojej stránky musí začínať s http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Tvoje perlmonks id musí byť číslo"
+
+msgid "Number of family members attending must be a number"
+msgstr "Počeť členov ktorí prídu musí byť číslo"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Neplatné GPG key ID: malo by to byť hexadecimálne číslo s 8 znakmi"
+
+msgid "Salutation"
+msgstr "Pozdrav"
+
+msgid "Nickname"
+msgstr "Prezívka"
+
+msgid "Stay pseudonymous"
+msgstr "Zostať ako pseudonym"
+
+msgid "Yes"
+msgstr "Áno"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Hide email"
+msgstr "Schovať email"
+
+msgid "Coming with"
+msgstr "Prichádza s"
+
+msgid "6 or more"
+msgstr "6 alebo viac"
+
+msgid "people (who will not attend the conference)"
+msgstr "ľudia (čo prídu na konferenciu)"
+
+msgid "T-shirt size"
+msgstr "veľkosť trička"
+
+msgid "Full address"
+msgstr "Celá adresa"
+
+msgid "Timezone"
+msgstr "Časové pásmo"
+
+msgid "Monger group"
+msgstr "Monger skupina"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Mesto.pm</em>, meno mesta v angličtine, prosím)"
+
+msgid "Monger group URL"
+msgstr "URL Monger skupiny"
+
+msgid "VAT Number"
+msgstr "DIČ číslo"
+
+msgid "Company URL"
+msgstr "URL firmy"
+
+msgid "GPG public key ID"
+msgstr "ID verejného GPG kľúča"
+
+msgid "(please fill at least this one)"
+msgstr "(prosím doplň aspoň tento)"
+
+msgid "Update info"
+msgstr "Uprav informácie"
+
+msgid "Your information"
+msgstr "Tvoje informácie"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Toto je simulácia. Za normálnych okolností, odoslanie\n"
+"tohto formuláru ťa presmeruje na stránku tvojej banky kde by\n"
+"si zadal tvoje credit card informácie.<br /><br />\n"
+"Klikni submit na simulovanie platby.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Potvrdený účastníci sú vylistovaný <b>tučným</b> písmom (oni si\n"
+"buď kúpili lístok, alebo budú mať prezentáciu).\n"
+
+msgid "Search for users"
+msgstr "Hľadať uživateľov"
+
+msgid "Search form"
+msgstr "Vyhľadávací formulár"
+
+msgid "Any"
+msgstr "Akékoľvek"
+
+msgid "Your photo"
+msgstr "Tvoje foto"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Obrázok nemohol byť nahraný. Prosím odošli svoj obrázok v jednom z nasledujúcich formátov:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Táto fotografia pravdepodobne bude v konferenčnom <i>kto je kto</i>,\n"
+"aby ťa ľudia spoznali keď budú chcieť zistiť\n"
+"s kým mali pekný rozhovor, keď ťa stretnú na konferencií.<br />\n"
+"Porozmýšľaj keď posielaš!\n"
+
+msgid "Delete Photo"
+msgstr "Vymazať fotografiu"
+
+msgid "Update Photo"
+msgstr "Aktualizovať fotografiu"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Niekto, pravdepodobne ty, si vyžiadal zresetovanie hesla.\n"
+"Na dokončenie tejto operácie, prosím nasleduj tento odkaz:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Ak si dostal tento odkaz bez toho aby si si ho vyžiadal, je to asi\n"
+"preto, že niekto skúsil použiť tvoje prihlasovacie meno alebo email adresu. Asi\n"
+"to bola nevinná chyba a nedostal tvoje\n"
+"heslo, takže môžeš kľudne zahodiť tento odkaz.\n"
+
+msgid "Reset Password"
+msgstr "Zresetovať heslo"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Zadaj buď tvoje <B>prihlasovacie meno</B>, alebo tvoju <B>email adresu</B>.\n"
+"Dostaneš email s inštrukciami ako si zresetovať heslo.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Žiaden uživateľ nebol nájdený s týmto prihlasovacím menom alebo email adresou"
+
+msgid "Specify your login or email address"
+msgstr "Zadaj tvoje prihlasovacie meno alebo email adresu"
+
+msgid "Generate password"
+msgstr "Zresetovať heslo"
+
+msgid "<conf name> Statistics"
+msgstr "%1 štatistiky"
+
+msgid "There are n registered people"
+msgstr ""
+"Je tu %1 registrovaných ľudí\n"
+"čo pochádzajú z %quant(%2,country,countries)\n"
+"a %quant(%3,monger group).\n"
+"Je tu %4 potvrdených uživateľov,\n"
+"čo sú ti, ľudia čo si buď kúpili ich\n"
+"konferenčné lístky alebo budú prednášať.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Môžeš sa pozrieť na <a href=\"%1\">krajinu / mongerov</a>\n"
+"alebo štatistiku <a href=\"%2\">miest</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"Počet potvrdených účastníkov je vypísaný medzi zátvorkami\n"
+"v nasledujúcej tabuľke.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Klikni na rôzne odkazy pre nájdenie korenšpondujúcich uživateľov!"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Poznámka: suma na krajinu nieje vždy rovná sume na mesto.\n"
+"Alebo mestá niekedy sú v zlej inej krajine.\n"
+"Obviňuj uživateľov!\n"
+
+msgid "Cities"
+msgstr "Mestá"
+
+msgid "No city information entered"
+msgstr "Mesto nemá zadané informácie o sebe"
+
+msgid "Countries"
+msgstr "Krajiny"
+
+msgid "Monger groups"
+msgstr "Monger skupiny"
+
+msgid "Un-Registration"
+msgstr "Un-Registrácia"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Na odregistrovanie z %1,\n"
+"jednoducho stlač tlačidlo dole.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Odregistrovať z %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Pošli/Uprav neprezentačnú udalosť"
+
+msgid "You must enter a title for the event"
+msgstr "Musíš zadať titulok pre udalosť"
+
+msgid "You must enter a short description for the event"
+msgstr "Musíš zadať krátku poznámku pre udalosť"
+
+msgid "Please choose a duration"
+msgstr "Prosím zadaj dobu trvania"
+
+msgid "The supplied date is invalid"
+msgstr "Zadaný dátum je neplatný"
+
+msgid "The supplied time is invalid"
+msgstr "Zadaný čas je neplatný"
+
+msgid "The date/time is out of range"
+msgstr "Čas/dátum je mimo rozsahu"
+
+msgid "Event URL is not a valid URL"
+msgstr "URL udalosti nieje platné URL"
+
+msgid "Incorrect room submitted"
+msgstr "Neplatné číslo miestnosti"
+
+msgid "Please choose a target audience"
+msgstr "Prosím zadaj cieľovú skupinu"
+
+msgid "View"
+msgstr "Prehľad"
+
+msgid "Delete this event"
+msgstr "Vymazať túto udalosť"
+
+msgid "Title"
+msgstr "Názov"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Room"
+msgstr "Miestnosť"
+
+msgid "Abstract"
+msgstr "Zhrnutie"
+
+msgid "(plain text)"
+msgstr "(jednoduchý text)"
+
+msgid "External URL"
+msgstr "Externé URL"
+
+msgid "Submit this event"
+msgstr "Odošli túto udalosť"
+
+msgid "Event submitted"
+msgstr "Udalosť odoslaná"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Ďakujem, udalosť bola nahraná ako\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Zoznam udalostí"
+
+msgid "No event was submitted yet."
+msgstr "Žiadna udalosť ešte nebola odoslaná."
+
+msgid "Event title"
+msgstr "Názov udalosti"
+
+msgid "Event removed"
+msgstr "Udalosť vymazaná"
+
+msgid "The event has been removed."
+msgstr "Udalosť <b>%1</b> bola vymazaná."
+
+msgid "Date:"
+msgstr "Dátum:"
+
+msgid "Not scheduled yet."
+msgstr "Ešte nieje plán."
+
+msgid "Duration:"
+msgstr "Doba trvania:"
+
+msgid "You can find more information on the following site:"
+msgstr "Na nasledujúcej stránke môžeš nájsť viac informácií:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - úprava %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Niekto spravil úpravu po tom ako si začal ty upravovať.\n"
+"Budeš musiať manuálne spojiť zmeny do novej verzie.\n"
+
+msgid "Current node contents:"
+msgstr "Terajší obsah:"
+
+msgid "Help"
+msgstr "Pomoc"
+
+msgid "Preview"
+msgstr "Náhľad"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Your proposed revision:"
+msgstr "Tvoja správna revízia:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 história"
+
+msgid "Version"
+msgstr "Verzia"
+
+msgid "Modified on"
+msgstr "Zmenené"
+
+msgid "By"
+msgstr " "
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "verzia"
+
+msgid "saved on"
+msgstr "uložené"
+
+msgid "Last modified:"
+msgstr "Posledná zmena:"
+
+msgid "by"
+msgstr " "
+
+msgid "new page"
+msgstr "nová stránka"
+
+msgid "Home"
+msgstr "Domov"
+
+msgid "Revert to this version"
+msgstr "Vrátiť naspať túto verziu"
+
+msgid "Edit this page"
+msgstr "Upraviť túto stránku"
+
+msgid "Delete this page"
+msgstr "Zmazať túto stránku"
+
+msgid "Recent changes"
+msgstr "Posledné zmeny"
+
+msgid "History"
+msgstr "História"
+
+msgid "Wiki help"
+msgstr "pomoc s Wiki"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Formátovanie znakov</h2>\n"
+"<ul>\n"
+"<li>Položka medzi troma apostrofmi je <b>tučné písmo</b>.</li>\n"
+"<li>Položka medzi dvoma apostrofmi je <i>zvýraznená</i>.</li>\n"
+"<li>Akékoľvek slovo s viacerími MalýmiVeľkými písmenami sa zmení na link.</li>\n"
+"</ul>\n"
+"<h2>Formátovanie odstavcov</h2>\n"
+"<ul>\n"
+"<li>Štyry alebo viac pomlčiek na začiatku riadku vytvoria horizontálnu čiaru.</li>\n"
+"<li>Odriadkovanie sa zmení na príslušné tagy.</li>\n"
+"<li>Hlavičky tvoria znaky rovná sa okolo textu hlavičky, čím viac znakov tým nižšia dôležitosť hlavičky.</li>\n"
+"</ul>\n"
+"<h2>Zoznamy</h2>\n"
+"<ul>\n"
+"<li>Zoznamy sú text s odrážkami ktoré tvorí buď tab alebo štyry prázne znaky.</li>\n"
+"<li>V neutriedených zoznamoch, kde má každá položka svoju bodku, treba napísať na začiatku hviezdičku s medzerou.</li>\n"
+"<li>Utriedené zoznami pozostávajú z položiek skombinovaných s jedným alebo viacerími alfanumerickými znakmi nasledovanými bodkou a nepovinnou medzerou.</li>\n"
+"<li>Zoznamy môžu byť vnorené.</li>\n"
+"</ul>\n"
+"<h2>Kód</h2>\n"
+"<ul>\n"
+"<li>Akýkoľvek text s odrážkami bez značiak zo zoznamov bude zobrazený rovnako ako v zdrojovom text.</li>\n"
+"</ul>\n"
+"<h2>Príklad</h2>\n"
+"\n"
+"Nasleduje platné wiki formátovanie s externým odkazom.\n"
+"<pre>\n"
+"\n"
+"        = my interesting text =\n"
+"\n"
+"        NormalLink\n"
+"        [AnExtendedLink|let the Sun shine]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:first_name last_name]\n"
+"        [talk:id]\n"
+"\n"
+"        == my interesting lists ==\n"
+"\n"
+"            * unordered one\n"
+"            * unordered two\n"
+"\n"
+"            1. ordered one\n"
+"            2. ordered two\n"
+"                        a. nested one\n"
+"                        b. nested two\n"
+"\n"
+"            code one\n"
+"            code two\n"
+"\n"
+"        The first line of a normal paragraph.\n"
+"        The second line of a normal paragraph.  Whee.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Posledné zmeny"
+
+msgid "Page"
+msgstr "Stránka"
+
+msgid "Changes in last"
+msgstr "Zmeny za posledné"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,deň)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,týždeň)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,mesiac)"
+
+msgid "Wiki tags"
+msgstr "Wiki tagy"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki otagovaná %1"
+
+msgid "Administrative tasks"
+msgstr "Administratívne úlohy"
+
+msgid "Talks & events"
+msgstr "Prezentácie &amp; udalosti"
+
+msgid "Credit card payment"
+msgstr "Platba kreditnou kartou"
+
+msgid "Payment"
+msgstr "Platba"
+
+msgid "Editing payment"
+msgstr "Úprava platby"
+
+msgid "User"
+msgstr "Uživateľ"
+
+msgid "Payment means"
+msgstr "spôsob platby"
+
+msgid "or"
+msgstr "alebo"
+
+msgid "Update"
+msgstr "Úprava"
+
+msgid "speaker"
+msgstr "rečník"
+
+msgid "Total"
+msgstr "Celkovo"
+
+msgid "Payment confirmation"
+msgstr "Potvrdenie platby"
+
+msgid "<conf> online payment"
+msgstr ""
+"Tvoja online platba bola potvrdená.\n"
+"\n"
+"Číslo objednávky: %2\n"
+"Dátum platby: %3 GMT\n"
+"Zaplatené množstvo: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "Faktúra #"
+
+msgid "Dated"
+msgstr "Datovaná"
+
+msgid "Printed on"
+msgstr "Vytlačená"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Quantity"
+msgstr "Množstvo"
+
+msgid "Unit Price"
+msgstr "Jednotková cena"
+
+msgid "<conf> registration"
+msgstr "%1 registrácia"
+
+msgid "Your order number:"
+msgstr "Číslo tvojej objednávky:"
+
+msgid "Total due"
+msgstr "Celkovo"
+
+msgid "Invoice"
+msgstr "Faktúra"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Môžeš vytlačiť túto stránku: iba faktúra dole bude vytlačená."
+
+msgid "Printer friendly version"
+msgstr "Verzia pre tlač"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Vystavenie faktúry vyžaduje adresu."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Prosíme daj si záležať aby platobné informácie boli v poriadku."
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "I confirm"
+msgstr "Potvrďujem"
+
+msgid "Submit/Edit a talk"
+msgstr "Pošli/Uprav prezentáciu"
+
+msgid "You must specify a user"
+msgstr "Musíš špecifikovať uživateľa"
+
+msgid "You must enter a title for the talk"
+msgstr "Musíš zadať názov svojej prezentácie"
+
+msgid "You must provide an abstract"
+msgstr "Musíš zadať zhrnutie"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "URL zhrnutia nieje platné"
+
+msgid "Talk URL is not a valid URL"
+msgstr "URL prezentácie nieje platné URL"
+
+msgid "Incorrect language"
+msgstr "Zlý jazyk"
+
+msgid "Delete this talk"
+msgstr "Zmazať túto prezentáciu"
+
+msgid "Track"
+msgstr "Track"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Language:"
+msgstr "Jazyk:"
+
+msgid "Abstract URL"
+msgstr "URL abstraktu"
+
+msgid "Talk URL"
+msgstr "URL prednášky"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Štandardná dĺžka trvania pre %1 je:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Ak predvolená dĺžka celkom nepasuje pre tvoju prezentáciu, prosíme\n"
+"použi políčko komentáru a napíš svoju preferovanú dĺžku.\n"
+
+msgid "Comments"
+msgstr "Komentár"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Políčko komentáru sa používa pre zanechávanie informácií\n"
+"o tejto prednáške pre organizátorov.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "akceptované"
+
+msgid "confirmed"
+msgstr "potvrdené"
+
+msgid "Accepted"
+msgstr "Akceptované"
+
+msgid "Pending"
+msgstr "V procese"
+
+msgid "Submit this talk"
+msgstr "Odošli túto prednášku"
+
+msgid "Talk submitted"
+msgstr "Prednáška odoslaná"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Ďakujem, tvoja prednáška bola zaznamenaná ako <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "iCal Import"
+
+msgid "The following talks have been updated:"
+msgstr "Nasledujúce prednášky boli upravené:"
+
+msgid "Old time"
+msgstr "Starý čas"
+
+msgid "New time"
+msgstr "Nový čas"
+
+msgid "title"
+msgstr "nadpis"
+
+msgid "Upload an iCal file"
+msgstr "Vložiť iCal súbor"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "List of talks"
+msgstr "Zoznam prednášok"
+
+msgid "List of talks tagged <tag>"
+msgstr "Zoznam prednášok otagovaných %1"
+
+msgid "No talk was submitted yet."
+msgstr "Ešte nebola pridaná žiadna prednáška."
+
+msgid "Submitted talks:"
+msgstr "Pridané prednášky:"
+
+msgid "Accepted talks:"
+msgstr "Prijaté prednášky:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Prijaté prednášky sú napísané <b>tučným písmom</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Celková dĺžka akceptovaných prednášok:"
+
+msgid "hours"
+msgstr "hodiny"
+
+msgid "Accepted lightning talks:"
+msgstr "Prijaté blezkovky:"
+
+msgid "Tracks"
+msgstr "Tracks"
+
+msgid "No track"
+msgstr "Nieje track"
+
+msgid "lightning"
+msgstr "blezková"
+
+msgid "from"
+msgstr "z"
+
+msgid "Comment:"
+msgstr "Komentár:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Môžeš nájsť viac informácií na rečníkovej stránke:"
+
+msgid "Abstract:"
+msgstr "Zhrnutie:"
+
+msgid "Talk:"
+msgstr "Prednáška:"
+
+msgid "Talk removed"
+msgstr "Prednáška odstránená"
+
+msgid "The Talk <title> has been removed."
+msgstr "Prednáška <b>%1</b> bola odstránená."
+
+msgid "Talk inserted"
+msgstr "Prednáška bola pridaná"
+
+msgid "Talk updated"
+msgstr "Prednáška upravená"
+
+msgid "Submitted by:"
+msgstr "Prednáška pridaná od:"
+
+msgid "The following fields have been updated:"
+msgstr "Nasledujúce políčka boli upravené:"
+
+msgid "By:"
+msgstr "Uživateľom:"
+
+msgid "Remember me on this computer"
+msgstr "Zapametaj si ma na tomto počítači"
+
+msgid "Billing"
+msgstr "Platby"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Nasledujúce prezentácie boli prijaté. Prosím klikni\n"
+"na odkaz dole na potvrdenie svojej prezentácie.\n"
+
+msgid "News"
+msgstr "Novinky"
+
+msgid "News Administration"
+msgstr "Administrácia noviniek"
+
+msgid "Published"
+msgstr "Publikované"
+
+msgid "Create a new item"
+msgstr "Vytvoriť novú položku"
+
+msgid "Edit a news item"
+msgstr "Upraviť položku noviniek"
+
+msgid "You must enter a title"
+msgstr "Musíš zadať nadpis"
+
+msgid "You must enter some text"
+msgstr "Musíš zadať nejaký text"
+
+msgid "Delete this item"
+msgstr "Vymaž túto položku"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "No news yet!"
+msgstr "Žiadne novinky!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Použi HTML na sformátovanie textu. Text medzi práznymi riadkami sa zmení na odstavec"
+
+msgid "Add a new track"
+msgstr "Pridať track"
+
+msgid "Create/Edit a track"
+msgstr "Vytvorť/Upraviť track"
+
+msgid "Delete this track"
+msgstr "Vymazať tento track"
+
+msgid "Submit this track"
+msgstr "Odošli tento track"
+
+msgid "You must enter a title for the track"
+msgstr "Musíš zadať názov tracku"
+
+msgid "n talks"
+msgstr "%quant(%1,prezentácia)"
+
+msgid "n accepted"
+msgstr "%quant(%1,akceptovaná,akceptovaná)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,potvrdená,potvrdená)"
+
+msgid "Change Password"
+msgstr "Zmeniť heslo"
+
+msgid "Please type in your new password"
+msgstr "Prosím zadaj si nové heslo"
+
+msgid "Passwords don't match"
+msgstr "Heslá sa nezhodujú"
+
+msgid "New password"
+msgstr "Nové heslo"
+
+msgid "Enter your new password twice"
+msgstr "Zadaj svoje nové heslo dva krát"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Bol ti poslaný email. Klikni na odkaz v emaili na\n"
+"prístup do tvojho účtu a na zadanie nového hesla.\n"
+
+msgid "Tags"
+msgstr "Tagy"
+
+msgid "Tags:"
+msgstr "Tagy:"
+
+msgid "add new tags:"
+msgstr "pridať nový tag:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Na odregistrovanie <b>%1 %2</b> z %3,\n"
+"jednoducho stlač tlaćidlo dole.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Odregistrovať %1 %2 z %3"
+
+msgid "unregister"
+msgstr "odregistruj"
+
+msgid "edit payment"
+msgstr "uprav platbu"
+
+msgid "view invoice"
+msgstr "ukáž faktúru"
+
+msgid "create invoice"
+msgstr "vytvor faktúru"
+
+msgid "enter payment"
+msgstr "zadaj platbu"
+
+msgid "Your purchases"
+msgstr "Tvoje nákupy"
+
+msgid "Your <conf> order #<id>"
+msgstr "Tvoja %1 objednávka #%2"
+
+msgid "make additional purchases"
+msgstr "urob ďalší nákup"
+
+msgid "view all orders and invoices"
+msgstr "pozrieť všetky objednávky a faktúry"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Personal Schedule"
+msgstr "Osobný program"
+
+msgid "Attending talks"
+msgstr "Príde na prednášky"
+
+msgid "Promotion code"
+msgstr "Promotion kód"
+
+msgid "add to personal schedule"
+msgstr "pridať na osobný program"
+
+msgid "remove from personal schedule"
+msgstr "odstrániť z osobného programu"
+
