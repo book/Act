@@ -1,0 +1,1368 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "Sjekk"
+
+msgid "payment_means_CASH"
+msgstr "Kontant"
+
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+msgid "payment_means_XFER"
+msgstr "Overføring"
+
+msgid "payment_means_FREE"
+msgstr "Gratis"
+
+msgid "room_out"
+msgstr "Utendørs"
+
+msgid "room_venue"
+msgstr "Lokale"
+
+msgid "salutation_1"
+msgstr "Hr."
+
+msgid "salutation_2"
+msgstr "Fr."
+
+msgid "salutation_3"
+msgstr "Fr."
+
+msgid "salutation_4"
+msgstr "Dr."
+
+msgid "User information"
+msgstr "Brukerinformasjon"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "City"
+msgstr "By"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Perl mongers group"
+msgstr "'Perl mongers'-gruppe"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Web page"
+msgstr "Webside"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "GPG-nøkkelidentifikasjon"
+
+msgid "No photo"
+msgstr "Uten foto"
+
+msgid "Talk"
+msgstr "%numerate(%1,Foredrag)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Akseptert foredrag)"
+
+msgid "minutes"
+msgstr "minutter"
+
+msgid "Lightning talk"
+msgstr "Lynforedrag"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Other Act conferences:"
+msgstr "Andre Act-konferanser:"
+
+msgid "Main private page"
+msgstr "Personlig side"
+
+msgid "to <this conference>"
+msgstr "til %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Dette er din personlige side.\n"
+"Herfra kan du gjøre alle endringer i forbindelse med din deltakgelse\n"
+
+msgid "to Act-enabled conferences."
+msgstr "til Act-aktiverte konferanser."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Du har kjøpt din konferansebillett:"
+
+msgid "Order number"
+msgstr "Ordrenummer"
+
+msgid "Payment date"
+msgstr "Dato for betaling"
+
+msgid "Amount paid"
+msgstr "Betalt beløp"
+
+msgid "Download your invoice"
+msgstr "Last ned <a href=\"%1\">din kvittering</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Du har foreløbig ikke kjøpt din konferansebillett."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Vurder å gjøre det via vårt online betalingssystem."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Vurder å gjøre det så snart vårt online betalingssystem er klart for bruk."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Du har foreløbig ikke bekrefted din deltagelse på denne konferansen."
+
+msgid "You did not register for this conference"
+msgstr ""
+"Du har ikke <a href=\"%1\">registrert deg for denne konferansen</a>.\n"
+"Vær så snill å gjøre det dersom du planlegger å delta eller holde et foredrag der.\n"
+
+msgid "You can:"
+msgstr "Du kan:"
+
+msgid "purchase your conference ticket"
+msgstr "kjøpe din konferansebillett"
+
+msgid "confirm your participation"
+msgstr "bekrefte din deltagelse
+
+msgid "register for this conference"
+msgstr "registrere deg for denne konferansen"
+
+msgid "update your information"
+msgstr "oppdatere informasjon om deg"
+
+msgid "manage your photo"
+msgstr "administrere bildene dine"
+
+msgid "change your password"
+msgstr "endre passordet ditt"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "se dine foredrag (aksepterte foredrag er vist i <b>fet</b>)"
+
+msgid "submit a talk"
+msgstr "send inn et foredrag"
+
+msgid "log out"
+msgstr "logg ut"
+
+msgid "unregister from <this conference>"
+msgstr "avregistrere fra %1"
+
+msgid "(You were there)"
+msgstr "(Du var der)"
+
+msgid "(You are there)"
+msgstr "(Du er der)"
+
+msgid "(You will be there)"
+msgstr "(Du vil være der)"
+
+msgid "Confirmation required"
+msgstr "Bekreftelse er påkrevd"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Denne handlingen krever din bekreftelse.  Vær vennlig å fylle inn epostadressen din,\n"
+"så vil du motta en epost med en link til en slik bekreftelse.\n" 
+
+msgid "You must enter your email"
+msgstr "Du må fylle inn din epostadresse"
+
+msgid "Your email address looks bogus."
+msgstr "Din epostadresse ser ugyldig ut."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"En epost har blitt sendt til <b>%1</b>. Klikk på linken i eposten for å\n"
+"bekrefte denne handlingen.\n"
+
+msgid "Confirmation email sent"
+msgstr "Epost med bekreftelse er sendt"
+
+msgid "In order to complete your operation"
+msgstr "For å fullføre din handling på \"%1\", vær vennlig og klikk på linken:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - bekreftelse"
+
+msgid "Registration"
+msgstr "Registrering"
+
+msgid "Sorry, this conference is over."
+msgstr "Beklager, denne konferansen har vært."
+
+msgid "Please create your user below."
+msgstr "Vær vennlig og lage deg din egen bruker under."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "Brukernavnet %1 er allerede i bruk.  Vær vennlig og velg et annen."
+
+msgid "The address is already registered."
+msgstr "Adressen %1 er allerede registrert."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Brukernavnet ditt må inneholde minst tre tegn. Kun alfanumerisk tegn er mulig (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Du må fylle inn fornavnet ditt"
+
+msgid "You must enter your last name"
+msgstr "Du må fylle inn etternavnet ditt"
+
+msgid "You must enter a country from the list"
+msgstr "Du må velge et land fra lista"
+
+msgid "Accounts with similar information already exist."
+msgstr "Det finnes allerede konto med samme brukerinformasjon."
+
+msgid "A valid T-shirt size is required."
+msgstr "En gyldig t-skjortestørrelse er påkrevd."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Bruk linkene over for å sjekke om du står listet opp.  I så fall kan du\n"
+"<a href=\"%1\">logge inn</a> med kontoen du allerede har.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"For å registrere deg må du først lage en konto.\n"
+"<b>Dersom du allerede har en konto fra en tidligere Act-konferanse\n"
+"trenger du ikke å registrere deg igjen, bare\n"
+"<a href=\"%1\">logg inn</a> med den kontoen.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"All personlig informasjon som legges inn her vil bli brukt for å lage\n"
+"en <a href=\"%1\">online <i>hvem er hvem</i></a> over alle deltakerene.\n"
+"Dette kan være nyttig etter konferansen dersom du ønsker å komme i\n"
+"kontakt med folk du har møtt på konferansen. Også før konferansen kan\n"
+"det være kjekt for å finne ut hvilke guruer som kommer.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Så snart du har en konto vil du ha muligheten til å bruke vår sikre betalingsløsning\n"
+"for kjøp av billetter til konferansen.  Merk at all informasjon\n"
+"om din bankkonto og kredittkortnummer blir behandlet kun av banken.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Vi har tilgang til din kredittkortinformasjon\n"
+"under noe steg i betalingsprossessen.</b> Vi får bare\n"
+"pengene til slutt. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Så snart du har en konto vil du ha muligheten til å bekrefte til deltagelse\n"
+"på denne konferansen, uten kostnad for deg."
+
+msgid "Please create the user below."
+msgstr "Vær snill og opprette brukeren under."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Bruk linkene over for å sjekke om noen av de brukerene er den du ønsker å\n"
+"opprette. Dersom du finner korrekt bruker, velg den korrespondere alternativknappen\n"
+"og send inn dette skjemaet.\n"
+
+msgid "Register"
+msgstr "Registrer"
+
+msgid "Registered!"
+msgstr "Registrert!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Gratulerer, <b>%1</b>, du er nå registrert.\n"
+"Passordet ditt er <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Fornavn"
+
+msgid "Last Name"
+msgstr "Etternavn"
+
+msgid "T-Shirt"
+msgstr "T-skjorte"
+
+msgid "Join!"
+msgstr "Bli med!"
+
+msgid "edit"
+msgstr "endre"
+
+msgid "min"
+msgstr "minimum"
+
+msgid "Log in"
+msgstr "Logg inn"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Submit"
+msgstr "Send inn"
+
+msgid "Forgot your password?"
+msgstr "Har du glemt passordet ditt? Klikk <a href=\"%1\">her</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Denne websiden bruker cookies for å autentisere innloggede brukere. Det kan være\n"
+"at du må sette opp nettleseren din til å akseptere cookies fra domenet <b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "Feil brukernavn eller passord"
+
+msgid "Logout"
+msgstr "Logg ut"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Du har logget ut og cookien er slettet fra nettleseren din."
+
+msgid "Other conferences"
+msgstr "Andre konferanser"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Rights management"
+msgstr "Endre rettigheter"
+
+msgid "Events"
+msgstr "Arrangementer"
+
+msgid "Submit a new event"
+msgstr "Send inn et nytt arrangement"
+
+msgid "Schedule"
+msgstr "Tidsplan"
+
+msgid "iCal export"
+msgstr "iCal-eksport"
+
+msgid "iCal import"
+msgstr "iCal-import"
+
+msgid "Submit a talk proposal"
+msgstr "Send inn et foredragsforslag"
+
+msgid "Presentations"
+msgstr "Presentasjoner"
+
+msgid "Treasurer"
+msgstr "Kasserer"
+
+msgid "Payments"
+msgstr "Betalinger"
+
+msgid "Payment Details"
+msgstr "Betalingsdetaljer"
+
+msgid "Edit profile"
+msgstr "Endre profil"
+
+msgid "New user"
+msgstr "Ny bruker"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "Search"
+msgstr "Søk"
+
+msgid "Statistics"
+msgstr "Statistikk"
+
+msgid "CSV export"
+msgstr "CSV-eksport"
+
+msgid "Register a new user"
+msgstr "Registrer en ny bruker"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Tidsplanen er foreløbig ikke klar."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Tidspunkt og sted for følgende foredrag er foreløbig ikke bestemt."
+
+msgid "Speaker"
+msgstr "Foredragsholder"
+
+msgid "Talk title"
+msgstr "Foredragstittel"
+
+msgid "Duration"
+msgstr "Varighet"
+
+msgid "Target audience"
+msgstr "Målgruppe"
+
+msgid "Target audience:"
+msgstr "Målgruppe:"
+
+msgid "abstract (link)"
+msgstr "Sammendrag"
+
+msgid "talk (link)"
+msgstr "Foredrag"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Foredrag i <b>fet skrift</b> har blitt bekreftet av de respektive foredragsholdere."
+
+msgid "Time"
+msgstr "Tidspunkt"
+
+msgid "Price"
+msgstr "Pris"
+
+msgid "Donation"
+msgstr "Donasjon"
+
+msgid "Buy now!"
+msgstr "Kjøp nå!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Merk at all informasjon om din bankkonto og kredittkortnummer blir behandlet\n"
+"kun av banken. <b>Vi har ikke tilgang til din kredittkortinformasjon\n"
+"under noe steg i betalingsprossessen.</b> Vi får bare pengene til slutt. <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Siden totalbeløpet for denne ordren er null trenger du ikke gå gjennom betalingsprossessen.  Ordren er fullført"
+
+msgid "Online payment"
+msgstr "Online-betaling"
+
+msgid "Online payment (zero)"
+msgstr "Ingenting å betale"
+
+msgid "Join"
+msgstr "Bli med"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"For å registrere deg på %1-konferansen,\n"
+"trenger du bare å trykke på knappen under.\n"
+
+msgid "The recognised rights are:"
+msgstr "Rettighetene er:"
+
+msgid "Organizer"
+msgstr "Organisator"
+
+msgid "Organizer (talks management)"
+msgstr "Organisator (foredrag)"
+
+msgid "Treasurer (payment management)"
+msgstr "Kasserer (betaling)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (rettigheter)"
+
+msgid "User rights"
+msgstr "Brukerrettigheter"
+
+msgid "Amount"
+msgstr "Beløp"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Du kan ikke velge et blankt kallenavn som pseudonym"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "'Perl monger'-gruppens navn må slutte med <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "URL-en til 'Perl monger'-gruppen må starte med http://"
+
+msgid "The company URL must start with http://"
+msgstr "URL-en til firmaet må starte med http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "URL-en til din webside må starte med http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Din 'perlmonks id' må være et nummer"
+
+msgid "Number of family members attending must be a number"
+msgstr "Antall familiemedlemmer som deltar må være et nummer"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Ugyldig GPG-nøkkelidentifikator: 8 heksadesimale siffer forventet"
+
+msgid "Salutation"
+msgstr "Hilsen"
+
+msgid "Nickname"
+msgstr "Kallenavn"
+
+msgid "Stay pseudonymous"
+msgstr "Opptre under pseudonym"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Hide email"
+msgstr "Skjul e-postadresse"
+
+msgid "Coming with"
+msgstr "Kommer sammen med"
+
+msgid "6 or more"
+msgstr "6 eller flere"
+
+msgid "people (who will not attend the conference)"
+msgstr "personer (som ikke vil delta på konferansen)"
+
+msgid "T-shirt size"
+msgstr "T-skjortestørrelse"
+
+msgid "Full address"
+msgstr "Full adresse"
+
+msgid "Timezone"
+msgstr "Tidssone"
+
+msgid "Monger group"
+msgstr "Monger-gruppe"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>By.pm</em>, vær så snill og skrive bynavn på engelsk)"
+
+msgid "Monger group URL"
+msgstr "URL til Monger-gruppe"
+
+msgid "VAT Number"
+msgstr "MVA-nummer"
+
+msgid "Company URL"
+msgstr "URL til firma"
+
+msgid "GPG public key ID"
+msgstr "Offentlig GPG-nøkkelidentifikator"
+
+msgid "(please fill at least this one)"
+msgstr "(vær så snill og fylle ut minst denne)"
+
+msgid "Update info"
+msgstr "Oppdater informasjon"
+
+msgid "Your information"
+msgstr "Informasjon om deg"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Dette er en simulering. På 
+"This is a simulation. Under virkelige forhold, ville innsending\n"
+"av dette skjemaet sendt deg videre til bankens webside hvor du\n"
+"ville lagt inn din kredittkortinformasjon.<br /><br />\n"
+"Trykk send for å simulere betaling.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Bekreftede brukere er listet i <b>fet</b> skrift (de har kjøpt\n"
+"billett eller vil holde foredrag).\n" 
+
+msgid "Search for users"
+msgstr "Søk etter brukere"
+
+msgid "Search form"
+msgstr "Søkeskjema"
+
+msgid "Any"
+msgstr "Hvilken som helst"
+
+msgid "Your photo"
+msgstr "Bilde av deg"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Bildet kan ikke bli lest.  Vær vennlig og laste opp et bilde i et av følgende format:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Dette bilde vil antageligvis bli brukt på konferansens <i>hvem er hvem</i>,\n"
+"slik at folk kan gjenkjenne deg når de ønsker å finne ut hvem de\n"
+"hadde en trivelig prat med på konferansen.<br />\n"
+"Tenk på dette når du velger bilde for opplasting!\n"
+
+msgid "Delete Photo"
+msgstr "Slett bilde"
+
+msgid "Update Photo"
+msgstr "Oppdater bilde"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Noen, forhåpentligvis deg, har bedt om at passordet ditt blir resatt.\n"
+"For å utføre dette, vær vennlig og klikk på følgende link:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Dersom du har mottatt denne meldingen uten å ha bedt om det så er det\n"
+"fordi noen har forsøkt å bruke ditt brukernavn eller epostadresse.\n"
+"Dette er mest sannsynlig en uskyldig feiltagelse, og de får ikke tak i\n"
+"passordet ditt, så du kan trygt ignorere denne meldingen.\n"
+
+
+msgid "Reset Password"
+msgstr "Reset passord"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Oppgi enten ditt <B>brukernavn</B>, eller din <B>epostadresse</B>.\n"
+"Du vil motta en epost med instruksjoner for hvordan du resetter passordet ditt.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Ingen bruker med dette brukernavnet eller epostadresse ble funnet"
+
+msgid "Specify your login or email address"
+msgstr "Oppgi ditt brukernavn eller din epostadresse"
+
+msgid "Generate password"
+msgstr "Reset passord"
+
+msgid "<conf name> Statistics"
+msgstr "%1 statistikk"
+
+msgid "There are n registered people"
+msgstr ""
+"Det er %1 registrerte personer\n"
+"fra %quant(%2,land)\n"
+"og %quant(%3,mongergruppe, mongergrupper).\n"
+"Det er %4 bekreftede brukere,\n"
+"det vil si brukere som enten har betalt konferansebilletten\n"
+"sin eller brukere som vil holde foredrag.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Du kan ta en titt på <a href=\"%1\">land / mongers</a>-\n"
+"eller <a href=\"%2\">by</a>-statistikk.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"Antall bekreftede brukere er listet mellom parantesene i den\n"
+"påfølgende tabellen.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Klikk på de ulike linkene for å finne tilhørende brukere!"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Merk: totalen for land er ikke nødvendigvis lik totalen for byene.\n"
+"Byene kan nemlig være registrert på feil land.\n"
+"Legg skylden på brukerene!\n"
+
+msgid "Cities"
+msgstr "Byer"
+
+msgid "No city information entered"
+msgstr "Informasjon om by er ikke skrevet inn"
+
+msgid "Countries"
+msgstr "Land"
+
+msgid "Monger groups"
+msgstr "Monger-gruppe"
+
+msgid "Un-Registration"
+msgstr "Avregistrering"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"For å avregistrere fra %1,\n"
+"trykk på knappen under.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Avregistrer fra %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Send inn / endre en hendelse som ikke er et foredrag"
+
+msgid "You must enter a title for the event"
+msgstr "Du må skrive inn en tittel for hendelsen"
+
+msgid "You must enter a short description for the event"
+msgstr "Du må skrive inn en kort beskrivelse av hendelsen"
+
+msgid "Please choose a duration"
+msgstr "Vær vennlig og velg varighen"
+
+msgid "The supplied date is invalid"
+msgstr "Den oppgitte datoen er ugyldig"
+
+msgid "The supplied time is invalid"
+msgstr "Det oppgitte klokkeslettet er ugyldig"
+
+msgid "The date/time is out of range"
+msgstr "Dato eller klokkeslett er utenfor gyldig intervall"
+
+msgid "Event URL is not a valid URL"
+msgstr "URL-en til hendelsen er ikke en gyldig URL"
+
+msgid "Incorrect room submitted"
+msgstr "Feil rom sendt inn"
+
+msgid "Please choose a target audience"
+msgstr "Vær vennlig og velg målgruppe"
+
+msgid "View"
+msgstr "Vis"
+
+msgid "Delete this event"
+msgstr "Slett denne hendelsen"
+
+msgid "Title"
+msgstr "Tittel"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Room"
+msgstr "Rom"
+
+msgid "Abstract"
+msgstr "Sammendrag"
+
+msgid "(plain text)"
+msgstr "(ren tekst)"
+
+msgid "External URL"
+msgstr "Ekstern URL"
+
+msgid "Submit this event"
+msgstr "Send inn denne hendelsen"
+
+msgid "Event submitted"
+msgstr "Hendelse innsendt"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Takk, denne hendelsen har blitt lagt inn som\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Liste over hendelser"
+
+msgid "No event was submitted yet."
+msgstr "Foreløbig er ingen hendelse sendt inn"
+
+msgid "Event title"
+msgstr "Tittel for hendelsen"
+
+msgid "Event removed"
+msgstr "Hendelse fjernet"
+
+msgid "The event has been removed."
+msgstr "Hendelsen <b>%1</b> har blitt fjernet."
+
+msgid "Date:"
+msgstr "Dato:"
+
+msgid "Not scheduled yet."
+msgstr "Foreløbig ikke planlagt."
+
+msgid "Duration:"
+msgstr "Varighet:"
+
+msgid "You can find more information on the following site:"
+msgstr "Du du kan finne mer informasjon på følgende websider:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - redigerer %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Noen har lagt inn endringer på denne noden siden du begynte editeringen.\n"
+"Du må manuelt flette dine endringer inn i den nye versjonen.\n"
+
+msgid "Current node contents:"
+msgstr "Gjeldende nodes innhold:"
+
+msgid "Help"
+msgstr "Hjelp"
+
+msgid "Preview"
+msgstr "Forhåndsvis"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Your proposed revision:"
+msgstr "Din foreslåtte revisjon:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 Historie"
+
+msgid "Version"
+msgstr "Versjon"
+
+msgid "Modified on"
+msgstr "Endret"
+
+msgid "By"
+msgstr "Av"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "versjon"
+
+msgid "saved on"
+msgstr "lagret"
+
+msgid "Last modified:"
+msgstr "Siste endring:"
+
+msgid "by"
+msgstr "av"
+
+msgid "new page"
+msgstr "ny side"
+
+msgid "Home"
+msgstr "Hjem"
+
+msgid "Revert to this version"
+msgstr "Gå tilbake til denne versjonen"
+
+msgid "Edit this page"
+msgstr "Redigere denne siden"
+
+msgid "Delete this page"
+msgstr "Slett denne siden"
+
+msgid "Recent changes"
+msgstr "Siste endringer"
+
+msgid "History"
+msgstr "Historie"
+
+msgid "Wiki help"
+msgstr "Wiki-hjelp"
+
+msgid "<wiki help text>"
+
+msgstr ""
+"<h2>Tegnformatering</h2>\n"
+"<ul>\n"
+"<li>Et element omkranset av tre enkle anførselstegn blir <b>fet</b>.</li>\n"
+"<li>Et element omkranset av to enkle anførselstegn blir <i>understreket</i>.</li>\n"
+"<li>Alle ord skrevet med flere store bokstaver (f.eks PerlKonferanse) vil bli en link.</li>\n"
+"</ul>\n"
+"<h2>Avsnittsformatering</h2>\n"
+"<ul>\n"
+"<li>Fire eller flere bindestrektegn på starten av ei linje lager ei horisontal linje.</li>\n"
+"<li>Trykk på enter blir til tag for ny linje.</li>\n"
+"<li>Overskrifter lages med samsvarende antall likhetstegn på hver side av overskriften -- desto flere likhetstegn, desto mindre overskrift.</li>\n"
+"</ul>\n"
+"<h2>Lister</h2>\n"
+"<ul>\n"
+"<li>Lister er indentert tekst, som standard en tab eller fire mellomrom.</li>\n"
+"<li>For uordnede lister, hvor hvert element har sitt eget punkt, må hvert element skrives med en asteriks (*) og påfølgende mellomrom før selve elementet.</li>\n"
+"<li>Ordnede lister kan inneholde elementer merket med en eller flere alfanumeriske tegn før et punktum og eventuelt et mellomrom før selve elementet.</li>\n"
+"<li>Det er mulig å lage lister i lister (nestede lister).</li>\n"
+"</ul>\n"
+"<h2>Kode</h2>\n"
+"<ul>\n"
+"<li>All indentert tekst uten noen form for formattering er kode, som håndteres slik den er skrevet. Du kan neste lister.</li>\n"
+"</ul>\n"
+"<h2>Eksempel</h2>\n"
+"\n"
+"Følgende er gyldig Wiki-formatering, med en ekstern link som merket.\n"
+"<pre>\n"
+"\n"
+"        = min fine tekst =\n"
+"\n"
+"        NormalLink\n"
+"        [EnUtvidetLink|la sola skinne]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:first_name last_name]\n"
+"        [talk:id]\n"
+"        [page:/index.html|Konferanseoversikt]\n"
+"        [image:/images/logo.png|conference logo]\n"
+"\n"
+"        == mine fine lister ==\n"
+"\n"
+"            * uordnet nummer en\n"
+"            * uordnet nummer to\n"
+"\n"
+"            1. ordnet en\n"
+"            2. ordnet to\n"
+"                        a. nestet en\n"
+"                        b. nestet to\n"
+"\n"
+"            kodesnutt en\n"
+"            kodesnutt to\n"
+"\n"
+"        Den første linjen i et normalt avsnitt.\n"
+"        Den andre linjen i et normalt avsnitt.  Whee.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Siste endringer"
+
+msgid "Page"
+msgstr "Side"
+
+msgid "Changes in last"
+msgstr "Endringer siste"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,dag(er))"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,uke(er))"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,måned(er))"
+
+msgid "Wiki tags"
+msgstr "Wiki-tagger"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki-sider tagget %1"
+
+msgid "Administrative tasks"
+msgstr "Administrative oppgaver"
+
+msgid "Talks & events"
+msgstr "Foredrag &amp; arrangement"
+
+msgid "Credit card payment"
+msgstr "Betaling med kredittkort"
+
+msgid "Payment"
+msgstr "Betaling"
+
+msgid "Editing payment"
+msgstr "Endre betaling"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "Payment means"
+msgstr "Betaling betyr"
+
+msgid "or"
+msgstr "eller"
+
+msgid "Update"
+msgstr "Oppdater"
+
+msgid "speaker"
+msgstr "foredragsholder"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Payment confirmation"
+msgstr "Betalingsbekreftelse"
+
+msgid "<conf> online payment"
+msgstr ""
+"Din betaling har blitt godkjent.\n"
+"\n"
+"Ditt ordrenummer: %2\n"
+"Dato for betaling: %3\n"
+"Betalt beløp: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "Faktura #"
+
+msgid "Dated"
+msgstr "Datert"
+
+msgid "Printed on"
+msgstr "Skrevet"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Quantity"
+msgstr "Antall"
+
+msgid "Unit Price"
+msgstr "Pris per"
+
+msgid "<conf> registration"
+msgstr "%1 registrering"
+
+msgid "Your order number:"
+msgstr "Ditt ordrenummer:"
+
+msgid "Total due"
+msgstr "Totalsum"
+
+msgid "Invoice"
+msgstr "Faktura"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Du kan skrive ut denne siden: bare fakturaen vil bli skrevet ut."
+
+msgid "Printer friendly version"
+msgstr "Utskriftsvennlig versjon"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Adressen din trengs for å kunne lage en faktura."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Sjekk at fakturainformasjonen er korrekt."
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "I confirm"
+msgstr "Jeg bekrefter"
+
+msgid "Submit/Edit a talk"
+msgstr "Send inn / endre et foredrag"
+
+msgid "You must specify a user"
+msgstr "Du må spesifisere en bruker"
+
+msgid "You must enter a title for the talk"
+msgstr "Du må fylle inn en tittel for foredraget"
+
+msgid "You must provide an abstract"
+msgstr "Du må legge inn et sammendrag"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "URL-en til sammendraget er ikke en gyldig URL"
+
+msgid "Talk URL is not a valid URL"
+msgstr "URL-en til foredraget er ikke en gyldig URL"
+
+msgid "Incorrect language"
+msgstr "Feil språk"
+
+msgid "Delete this talk"
+msgstr "Slett dette foredraget"
+
+msgid "Track"
+msgstr "Spor"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Language:"
+msgstr "Språk:"
+
+msgid "Abstract URL"
+msgstr "URL til sammendrag"
+
+msgid "Talk URL"
+msgstr "URL til foredrag"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Standard varighet for %1 er:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Dersom den foreslåtte varigheten ikke passer ditt foredrag, bruk\n"
+"kommentarfeltet for oppgi varigheten du ønsker.\n"
+
+msgid "Comments"
+msgstr "Kommentarer"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Kommentarfeltet brukes for å gi informasjon om\n"
+"foredraget til de som organiserer konferansen.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "akseptert"
+
+msgid "confirmed"
+msgstr "bekreftet"
+
+msgid "Accepted"
+msgstr "Akseptert"
+
+msgid "Pending"
+msgstr "Forestående"
+
+msgid "Submit this talk"
+msgstr "Send inn dette foredraget"
+
+msgid "Talk submitted"
+msgstr "Foredrag innsendt"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Takk, ditt innsendte foredrag har blitt lagret som <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "iCal-import"
+
+msgid "The following talks have been updated:"
+msgstr "Følgende foredrag har blitt oppdatert:"
+
+msgid "Old time"
+msgstr "Gammelt tidspunkt"
+
+msgid "New time"
+msgstr "Nytt tidspunkt"
+
+msgid "title"
+msgstr "tittel"
+
+msgid "Upload an iCal file"
+msgstr "Last opp en iCal-fil"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "List of talks"
+msgstr "Foredragsliste"
+
+msgid "List of talks tagged <tag>"
+msgstr "Liste over foredrag tagget med %1"
+
+msgid "No talk was submitted yet."
+msgstr "Foreløbig er ingen foredrag sendt inn."
+
+msgid "Submitted talks:"
+msgstr "Innsendte foredrag:"
+
+msgid "Accepted talks:"
+msgstr "Aksepterte foredrag:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Aksepterte foredrag er vist med <b>fet skrift</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Total varighet for aksepterte foredrag:"
+
+msgid "hours"
+msgstr "timer"
+
+msgid "Accepted lightning talks:"
+msgstr "Aksepterte lynforedrag:"
+
+msgid "Tracks"
+msgstr "Spor"
+
+msgid "No track"
+msgstr "Uten spor"
+
+msgid "lightning"
+msgstr "lyn"
+
+msgid "from"
+msgstr "fra"
+
+msgid "Comment:"
+msgstr "Kommentar:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Du kan finne mer informasjon på foredragsholderens webside:"
+
+msgid "Abstract:"
+msgstr "Sammendrag:"
+
+msgid "Talk:"
+msgstr "Foredrag:"
+
+msgid "Talk removed"
+msgstr "Foredrag fjernet"
+
+msgid "The Talk <title> has been removed."
+msgstr "Foredraget <b>%1</b> har blitt fjernet."
+
+msgid "Talk inserted"
+msgstr "Foredrag lagt til"
+
+msgid "Talk updated"
+msgstr "Foredrag oppdatert"
+
+msgid "Submitted by:"
+msgstr "Lagt inn av:"
+
+msgid "The following fields have been updated:"
+msgstr "Følgende felt er oppdatert:"
+
+msgid "By:"
+msgstr "Av:"
+
+msgid "Remember me on this computer"
+msgstr "Husk meg på denne maskinen"
+
+msgid "Billing"
+msgstr "Fakturering"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Det du har sendt inn har blitt akseptert. Klikk \n"
+"på linken under for å bekrefte presentasjonen din.\n"
+
+msgid "News"
+msgstr "Nyheter"
+
+msgid "News Administration"
+msgstr "Nyhetsadministrasjon"
+
+msgid "Published"
+msgstr "Publisert"
+
+msgid "Create a new item"
+msgstr "Lag et nytt element"
+
+msgid "Edit a news item"
+msgstr "Endre et nyhetselement"
+
+msgid "You must enter a title"
+msgstr "Du må skrive inn en tittel"
+
+msgid "You must enter some text"
+msgstr "Du må skrive inn noe tekst"
+
+msgid "Delete this item"
+msgstr "Slett dette elementet"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "No news yet!"
+msgstr "Foreløbig ingen nyheter!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Bruk HTML for å formatere teksten.  Tekst mellom trykk på enter vil bli gjort om til avsnitt"
+
+msgid "Add a new track"
+msgstr "Legg til et nytt spor"
+
+msgid "Create/Edit a track"
+msgstr "Lag / endre et spor"
+
+msgid "Delete this track"
+msgstr "Slett dette sporet"
+
+msgid "Submit this track"
+msgstr "Send inn dette sporet"
+
+msgid "You must enter a title for the track"
+msgstr "Du må skrive inn en tittel for sporet"
+
+msgid "n talks"
+msgstr "%1 foredrag"
+
+msgid "n accepted"
+msgstr "%quant(%1,akseptert,aksepterte)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,bekreftete,bekreftede)"
+
+msgid "Change Password"
+msgstr "Endre passord"
+
+msgid "Please type in your new password"
+msgstr "Vær vennlig og skriv inn ditt nye passord"
+
+msgid "Passwords don't match"
+msgstr "Passordene er ulike"
+
+msgid "New password"
+msgstr "Nytt passord"
+
+msgid "Enter your new password twice"
+msgstr "Skriv inn det nye passordet ditt to ganger"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"En epost har blitt sendt til deg.  Klikk på linken i denne eposten for\n"
+"å aksessere brukerkontoen din hvor du kan sette et nytt passord.\n"
+
+msgid "Tags"
+msgstr "Tagger"
+
+msgid "Tags:"
+msgstr "Tagger:"
+
+msgid "add new tags:"
+msgstr "legg til nye tagger:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"For å avregistrere <b>%1 %2</b> fra %3\n"
+"kan du trykke på knappen under.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Avregistrer %1 %2 fra %3"
+
+msgid "unregister"
+msgstr "avregistrer"
+
+msgid "edit payment"
+msgstr "endre betaling"
+
+msgid "view invoice"
+msgstr "vis faktura"
+
+msgid "create invoice"
+msgstr "lag faktura"
+
+msgid "enter payment"
+msgstr "gå til betaling"
+
+msgid "Your purchases"
+msgstr "Dine kjøp"
+
+msgid "Your <conf> order #<id>"
+msgstr "Din %1 ordre #%2"
+
+msgid "make additional purchases"
+msgstr "foreta ytterligere kjøp"
+
+msgid "view all orders and invoices"
+msgstr "vis alle ordre og fakturaer"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Personal Schedule"
+msgstr "Personlig tidsplan"
+
+msgid "Attending talks"
+msgstr "Deltar på foredrag"
+
+msgid "Promotion code"
+msgstr "Promotion-kode"
+
+msgid "add to personal schedule"
+msgstr "legg til i din personlige tidsplan"
+
+msgid "remove from personal schedule"
+msgstr "fjern fra din personlige tidsplan"
+
+msgid "Attended by:"
+msgstr "Deltok:"
+
