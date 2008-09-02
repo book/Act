@@ -1358,3 +1358,6 @@ msgstr "pridať na osobný program"
 msgid "remove from personal schedule"
 msgstr "odstrániť z osobného programu"
 
+msgid "Attended by:"
+msgstr "Kto sa zúčastnil:"
+

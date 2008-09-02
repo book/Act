@@ -294,6 +294,19 @@ my %genitive_monthnames = (
             "ноября",
             "декабря"
           ],
+    sk => [ "Januára",
+            "Februára",
+            "Marca",
+            "Apríla",
+            "Mája",
+            "Júna",
+            "Júla",
+            "Augusta",
+            "Septembra",
+            "Októbra",
+            "Novembra",
+            "Decembra"
+          ],
     uk => [ 
             "січня",
             "лютого",

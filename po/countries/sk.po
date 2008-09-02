@@ -5,13 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "country_ad"
-msgstr "Andora"
+msgstr "Andorra"
 
 msgid "country_ae"
 msgstr "Spojené arabské emiráty"
 
 msgid "country_af"
-msgstr "Afghanistan"
+msgstr "Afganistan"
 
 msgid "country_ag"
 msgstr "Antigua a Barbuda"
@@ -119,7 +119,7 @@ msgid "country_ca"
 msgstr "Kanada"
 
 msgid "country_cc"
-msgstr "Kokosové Ostrovy"
+msgstr "Kokosové ostrovy"
 
 msgid "country_cd"
 msgstr "Kongo (býv. Zair)"
@@ -137,7 +137,7 @@ msgid "country_ci"
 msgstr "Pobrežie Slonoviny"
 
 msgid "country_ck"
-msgstr "Cookove Ostrovy"
+msgstr "Cookove ostrovy"
 
 msgid "country_cl"
 msgstr "Čile"
@@ -182,13 +182,13 @@ msgid "country_dm"
 msgstr "Dominika"
 
 msgid "country_do"
-msgstr "Dominikánská republika"
+msgstr "Dominikánska republika"
 
 msgid "country_dz"
 msgstr "Alžírsko"
 
 msgid "country_ec"
-msgstr "Ekuádor"
+msgstr "Ekvádor"
 
 msgid "country_ee"
 msgstr "Estónsko"
@@ -239,7 +239,7 @@ msgid "country_ge"
 msgstr "Gruzínsko"
 
 msgid "country_gf"
-msgstr "Francúzska Guayana"
+msgstr "Francúzska Guyana"
 
 msgid "country_gg"
 msgstr "Guernsey"
@@ -248,7 +248,7 @@ msgid "country_gh"
 msgstr "Ghana"
 
 msgid "country_gi"
-msgstr "Gibraltar"
+msgstr "Gibraltár"
 
 msgid "country_gl"
 msgstr "Grónsko"
@@ -317,7 +317,7 @@ msgid "country_in"
 msgstr "India"
 
 msgid "country_io"
-msgstr "Britské inickooceánske územie"
+msgstr "Britské indickooceánske územie"
 
 msgid "country_iq"
 msgstr "Irak"
@@ -371,7 +371,7 @@ msgid "country_kw"
 msgstr "Kuvajt"
 
 msgid "country_ky"
-msgstr "Kajmanské ostrovy"
+msgstr "Kajmanie ostrovy"
 
 msgid "country_kz"
 msgstr "Kazachstan"
@@ -545,7 +545,7 @@ msgid "country_pn"
 msgstr "Pitcairnove ostrovy"
 
 msgid "country_pr"
-msgstr "Portorico"
+msgstr "Portoriko"
 
 msgid "country_ps"
 msgstr "Palestína"
@@ -611,7 +611,7 @@ msgid "country_sl"
 msgstr "Sierra Leone"
 
 msgid "country_sm"
-msgstr "San Marino"
+msgstr "San Maríno"
 
 msgid "country_sn"
 msgstr "Senegal"
@@ -641,7 +641,7 @@ msgid "country_td"
 msgstr "Čad"
 
 msgid "country_tf"
-msgstr "Francúzske južné územie"
+msgstr "Francúzske južné územia"
 
 msgid "country_tg"
 msgstr "Togo"
@@ -692,7 +692,7 @@ msgid "country_um"
 msgstr "Menšie odľahlé ostrovy USA"
 
 msgid "country_us"
-msgstr "Spojené Štáty"
+msgstr "Spojené štáty"
 
 msgid "country_uy"
 msgstr "Uruguaj"
