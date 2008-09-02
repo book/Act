@@ -83,7 +83,11 @@ sub handler
                 # and participation to this conference
                 my $user = Act::User->create(
                     %$fields,
-                    participation => { tshirt_size => $fields->{tshirt} },
+                    participation => {
+                        tshirt_size => $fields->{tshirt},
+                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
+                        ip          => $Request{r}->connection->remote_ip,
+                    },
                 );
 
                 # display "added page"
