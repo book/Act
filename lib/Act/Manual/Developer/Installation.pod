@@ -26,6 +26,22 @@ This doc is being rewritten. Here's the new outline:
        http://localhost/sample/
 
 
+=head2 Installing and configuring Apache
+
+NOTES on compiling Apache 1.3 on Ubuntu
+
+Use :
+    bash ./configure --prefix=/usr/local/httpd --enable-shared=max  --enable-module=rewrite --enable-module=expires
+
+Because under Ubuntu, sh is a symlink to dash, which breaks configure.
+
+    make && make install
+
+compiling mod_perl
+
+    perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/httpd/bin/apxs EVERYTHING=1
+
+
 Install (or svn checkout) Act in a directory. In this document we'll
 use /home/act, and refer to it as Act's home directory.
 
@@ -84,17 +100,80 @@ Create the directory where photos will be uploaded, by default
 F<$ACTHOME/wwwdocs/photos>. Make sure it is readable by all, and
 writable by the user running Apache.
 
-Now edit C<conf/act.ini> and enter your settings
+=head2 Setting up the Act databases
+
+In order to use the database with Act, you need to follow the procedure
+explained below. Act's preferred database is PostgreSQL, so the examples
+use Pg's syntax.
+
+As the postgres superuser, create a database user for yourself:
+
+    $ createuser user
+    Shall the new role be a superuser? (y/n) y
+
+Still as the postgres superuser, create three databases named act, acttest and actwiki:
+
+    $ su - postgres
+    $ createdb act --encoding=UTF8
+    $ createdb acttest --encoding=UTF8
+    $ createdb actwiki --encoding=UTF8
+    $ ^D
+
+Grant access from localhost to these databases by adding these lines to pg_hba.conf:
+
+    # "local" is for Unix domain socket connections only
+    local   all         all                               trust
+    # IPv4 local connections:
+    host    all         all         127.0.0.1/32          trust
+    # IPv6 local connections:
+    host    all         all         ::1/128               trust
+
+and restart the PostgreSQL server.
+
+Run the output of bin/dbinit in this directory. This will create
+the tables in databases act and acttest:
+
+    $ bin/dbinit | psql act
+    $ bin/dbinit | psql acttest
+
+Run wiki-toolkit-setupdb to create the tables in database actwiki.
+(This utility is installed by Wiki::Toolkit.)
+
+    $ wiki-toolkit-setupdb --type postgres --name actwiki --user act --pass xyzzy
+
+Update F<$ACTHOME/conf/act.ini> (or F<$ACTHOME/conf/local.ini>) with the
+database names and credentials.
 
     [database]
-    name        = act
-    dsn         = dbi:Pg:dbname=$(database_name)
-    user        = foo
-    passwd      = sekr3t
-    
+    name   = act
+    dsn    = dbi:Pg:dbname=$(database_name)
+    user   = user
+    passwd = xyzzy
+    test_dsn    = dbi:Pg:dbname=acttest
+    test_user   = user
+    test_passwd = xyzzy
+
+    [wiki]
+    dbname = actwiki
+    dbuser = user
+    dbpass = xyzzy
+
+Note that for a developer install, the password is not needed, since
+the database is configured to I<trust>.
+
+From the package's top level directory, run the test suite to verify
+that the software is able to connect to the database.
+
+    $ make test
+
+
+Now edit C<conf/act.ini> and enter your conference settings:
+
     [general]
     conferences = act-2004
+    dir_ttc     = /tmp/act/ttc
     
+The C<dir_ttc> directory stores the compiled TT templates.
 
 To make sure that your system has all the requirements to run Act,
 and that Act works correctly on it, you can now run Act's test suite.
