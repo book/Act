@@ -84,6 +84,7 @@ sub db_connect
     if ($version < $required) {
         die "database schema version $version is too old: version $required is required. Run bin/dbupdate\n";
     }
+    return $Request{dbh};
 }
 
 # create a uri for an action with args
@@ -177,6 +178,14 @@ sub login
     my $user = shift;
     my $sid = create_session($user);
     Apache::AuthCookie->send_cookie($sid);
+}
+sub get_user_info
+{
+    return undef unless $Request{user};
+    return {
+        email => $Request{user}->email,
+        time_zone => $Request{user}->timezone,
+    };
 }
 
 # datetime formatting suitable for display
@@ -284,6 +293,19 @@ my %genitive_monthnames = (
             "октября",
             "ноября",
             "декабря"
+          ],
+    sk => [ "Januára",
+            "Februára",
+            "Marca",
+            "Apríla",
+            "Mája",
+            "Júna",
+            "Júla",
+            "Augusta",
+            "Septembra",
+            "Októbra",
+            "Novembra",
+            "Decembra"
           ],
     uk => [ 
             "січня",

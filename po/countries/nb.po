@@ -1,0 +1,744 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "Andorra"
+
+msgid "country_ae"
+msgstr "De forente arabiske emirater"
+
+msgid "country_af"
+msgstr "Afghanistan"
+
+msgid "country_ag"
+msgstr "Antigua og Barbuda"
+
+msgid "country_ai"
+msgstr "Anguilla"
+
+msgid "country_al"
+msgstr "Albania"
+
+msgid "country_am"
+msgstr "Armenia"
+
+msgid "country_an"
+msgstr "De nederlandske Antillene"
+
+msgid "country_ao"
+msgstr "Angola"
+
+msgid "country_aq"
+msgstr "Antarktika"
+
+msgid "country_ar"
+msgstr "Argentina"
+
+msgid "country_as"
+msgstr "Amerikansk Samoa"
+
+msgid "country_at"
+msgstr "Østerrike"
+
+msgid "country_au"
+msgstr "Australia"
+
+msgid "country_aw"
+msgstr "Aruba"
+
+msgid "country_ax"
+msgstr "Åland"
+
+msgid "country_az"
+msgstr "Aserbajdsjan"
+
+msgid "country_ba"
+msgstr "Bosnia-Hercegovina"
+
+msgid "country_bb"
+msgstr "Barbados"
+
+msgid "country_bd"
+msgstr "Bangladesh"
+
+msgid "country_be"
+msgstr "Belgia"
+
+msgid "country_bf"
+msgstr "Burkina Faso"
+
+msgid "country_bg"
+msgstr "Bulgaria"
+
+msgid "country_bh"
+msgstr "Bahrain"
+
+msgid "country_bi"
+msgstr "Burundi"
+
+msgid "country_bj"
+msgstr "Benin"
+
+msgid "country_bl"
+msgstr "Saint-Barthélemy"
+
+msgid "country_bm"
+msgstr "Bermuda"
+
+msgid "country_bn"
+msgstr "Brunei"
+
+msgid "country_bo"
+msgstr "Bolivia"
+
+msgid "country_br"
+msgstr "Brasil"
+
+msgid "country_bs"
+msgstr "Bahamas"
+
+msgid "country_bt"
+msgstr "Bhutan"
+
+msgid "country_bv"
+msgstr "Bouvetøya"
+
+msgid "country_bw"
+msgstr "Botswana"
+
+msgid "country_by"
+msgstr "Hviterussland"
+
+msgid "country_bz"
+msgstr "Belize"
+
+msgid "country_ca"
+msgstr "Canada"
+
+msgid "country_cc"
+msgstr "Kokosøyene"
+
+msgid "country_cd"
+msgstr "Den demokratiske republikken Kongo"
+
+msgid "country_cf"
+msgstr "Den sentralafrikanske republikk"
+
+msgid "country_cg"
+msgstr "Republikken Kongo"
+
+msgid "country_ch"
+msgstr "Sveits"
+
+msgid "country_ci"
+msgstr "Elfenbenskysten"
+
+msgid "country_ck"
+msgstr "Cookøyene"
+
+msgid "country_cl"
+msgstr "Chile"
+
+msgid "country_cm"
+msgstr "Kamerun"
+
+msgid "country_cn"
+msgstr "Kina"
+
+msgid "country_co"
+msgstr "Colombia"
+
+msgid "country_cr"
+msgstr "Costa Rica"
+
+msgid "country_cu"
+msgstr "Cuba"
+
+msgid "country_cv"
+msgstr "Kapp Verde"
+
+msgid "country_cx"
+msgstr "Christmasøya"
+
+msgid "country_cy"
+msgstr "Kypros"
+
+msgid "country_cz"
+msgstr "Tsjekkia"
+
+msgid "country_de"
+msgstr "Tyskland"
+
+msgid "country_dj"
+msgstr "Djibouti"
+
+msgid "country_dk"
+msgstr "Danmark"
+
+msgid "country_dm"
+msgstr "Dominica"
+
+msgid "country_do"
+msgstr "Den dominikanske republikk"
+
+msgid "country_dz"
+msgstr "Algerie"
+
+msgid "country_ec"
+msgstr "Ecuador"
+
+msgid "country_ee"
+msgstr "Estland"
+
+msgid "country_eg"
+msgstr "Egypt"
+
+msgid "country_eh"
+msgstr "Vest-Sahara"
+
+msgid "country_er"
+msgstr "Eritrea"
+
+msgid "country_es"
+msgstr "Spania"
+
+msgid "country_et"
+msgstr "Etiopia"
+
+msgid "country_fi"
+msgstr "Finland"
+
+msgid "country_fj"
+msgstr "Fiji"
+
+msgid "country_fk"
+msgstr "Falklandsøyene"
+
+msgid "country_fm"
+msgstr "Mikronesiaføderasjonen"
+
+msgid "country_fo"
+msgstr "Færøyene"
+
+msgid "country_fr"
+msgstr "Frankrike"
+
+msgid "country_ga"
+msgstr "Gabon"
+
+msgid "country_gb"
+msgstr "Storbritannia"
+
+msgid "country_gd"
+msgstr "Grenada"
+
+msgid "country_ge"
+msgstr "Georgia"
+
+msgid "country_gf"
+msgstr "Fransk Guyana"
+
+msgid "country_gg"
+msgstr "Guernsey"
+
+msgid "country_gh"
+msgstr "Ghana"
+
+msgid "country_gi"
+msgstr "Gibraltar"
+
+msgid "country_gl"
+msgstr "Grønland"
+
+msgid "country_gm"
+msgstr "Gambia"
+
+msgid "country_gn"
+msgstr "Guinea"
+
+msgid "country_gp"
+msgstr "Guadeloupe"
+
+msgid "country_gq"
+msgstr "Ekvatorial-Guinea"
+
+msgid "country_gr"
+msgstr "Hellas"
+
+msgid "country_gs"
+msgstr "Sør-Georgia og Sør-Sandwichøyene"
+
+msgid "country_gt"
+msgstr "Guatemala"
+
+msgid "country_gu"
+msgstr "Guam"
+
+msgid "country_gw"
+msgstr "Guinea-Bissau"
+
+msgid "country_gy"
+msgstr "Guyana"
+
+msgid "country_hk"
+msgstr "Hongkong"
+
+msgid "country_hm"
+msgstr "Heard- og McDonald-øyene"
+
+msgid "country_hn"
+msgstr "Honduras"
+
+msgid "country_hr"
+msgstr "Kroatia"
+
+msgid "country_ht"
+msgstr "Haiti"
+
+msgid "country_hu"
+msgstr "Ungarn"
+
+msgid "country_id"
+msgstr "Indonesia"
+
+msgid "country_ie"
+msgstr "Irland"
+
+msgid "country_il"
+msgstr "Israel"
+
+msgid "country_im"
+msgstr "Man"
+
+msgid "country_in"
+msgstr "India"
+
+msgid "country_io"
+msgstr "Det britiske territoriet i Indiahavet"
+
+msgid "country_iq"
+msgstr "Irak"
+
+msgid "country_ir"
+msgstr "Iran"
+
+msgid "country_is"
+msgstr "Island"
+
+msgid "country_it"
+msgstr "Italia"
+
+msgid "country_je"
+msgstr "Jersey"
+
+msgid "country_jm"
+msgstr "Jamaica"
+
+msgid "country_jo"
+msgstr "Jordani"
+
+msgid "country_jp"
+msgstr "Japan"
+
+msgid "country_ke"
+msgstr "Kenya"
+
+msgid "country_kg"
+msgstr "Kirgisistan"
+
+msgid "country_kh"
+msgstr "Kambodsja"
+
+msgid "country_ki"
+msgstr "Kiribati"
+
+msgid "country_km"
+msgstr "Komorene"
+
+msgid "country_kn"
+msgstr "Saint Kitts og Nevis"
+
+msgid "country_kp"
+msgstr "Nord-Korea"
+
+msgid "country_kr"
+msgstr "Sør-Korea"
+
+msgid "country_kw"
+msgstr "Kuwait"
+
+msgid "country_ky"
+msgstr "Caymanøyene"
+
+msgid "country_kz"
+msgstr "Kazakhstan"
+
+msgid "country_la"
+msgstr "Laos"
+
+msgid "country_lb"
+msgstr "Libanon"
+
+msgid "country_lc"
+msgstr "Saint Lucia"
+
+msgid "country_li"
+msgstr "Liechtenstein"
+
+msgid "country_lk"
+msgstr "Sri Lanka"
+
+msgid "country_lr"
+msgstr "Liberia"
+
+msgid "country_ls"
+msgstr "Lesotho"
+
+msgid "country_lt"
+msgstr "Litauen"
+
+msgid "country_lu"
+msgstr "Luxembourg"
+
+msgid "country_lv"
+msgstr "Latvia"
+
+msgid "country_ly"
+msgstr "Libya"
+
+msgid "country_ma"
+msgstr "Marokko"
+
+msgid "country_mc"
+msgstr "Monaco"
+
+msgid "country_md"
+msgstr "Moldova"
+
+msgid "country_me"
+msgstr "Montenegro"
+
+msgid "country_mf"
+msgstr "Saint Martin"
+
+msgid "country_mg"
+msgstr "Madagaskar"
+
+msgid "country_mh"
+msgstr "Marshalløyene"
+
+msgid "country_mk"
+msgstr "Makedonia"
+
+msgid "country_ml"
+msgstr "Mali"
+
+msgid "country_mm"
+msgstr "Burma"
+
+msgid "country_mn"
+msgstr "Mongolia"
+
+msgid "country_mo"
+msgstr "Macao"
+
+msgid "country_mp"
+msgstr "Nord-Marianene"
+
+msgid "country_mq"
+msgstr "Martinique"
+
+msgid "country_mr"
+msgstr "Mauritania"
+
+msgid "country_ms"
+msgstr "Montserrat"
+
+msgid "country_mt"
+msgstr "Malta"
+
+msgid "country_mu"
+msgstr "Mauritius"
+
+msgid "country_mv"
+msgstr "Maldivene"
+
+msgid "country_mw"
+msgstr "Malawi"
+
+msgid "country_mx"
+msgstr "Mexico"
+
+msgid "country_my"
+msgstr "Malaysia"
+
+msgid "country_mz"
+msgstr "Mosambik"
+
+msgid "country_na"
+msgstr "Namibia"
+
+msgid "country_nc"
+msgstr "Ny-Caledonia"
+
+msgid "country_ne"
+msgstr "Niger"
+
+msgid "country_nf"
+msgstr "Norfolkøya"
+
+msgid "country_ng"
+msgstr "Nigeria"
+
+msgid "country_ni"
+msgstr "Nicaragua"
+
+msgid "country_nl"
+msgstr "Nederland"
+
+msgid "country_no"
+msgstr "Norge"
+
+msgid "country_np"
+msgstr "Nepal"
+
+msgid "country_nr"
+msgstr "Nauru"
+
+msgid "country_nu"
+msgstr "Niue"
+
+msgid "country_nz"
+msgstr "New Zealand"
+
+msgid "country_om"
+msgstr "Oman"
+
+msgid "country_pa"
+msgstr "Panama"
+
+msgid "country_pe"
+msgstr "Peru"
+
+msgid "country_pf"
+msgstr "Fransk Polynesia"
+
+msgid "country_pg"
+msgstr "Papua Ny-Guinea"
+
+msgid "country_ph"
+msgstr "Filippinene"
+
+msgid "country_pk"
+msgstr "Pakistan"
+
+msgid "country_pl"
+msgstr "Polen"
+
+msgid "country_pm"
+msgstr "Saint-Pierre og Miquelon"
+
+msgid "country_pn"
+msgstr "Pitcairnøyene"
+
+msgid "country_pr"
+msgstr "Puerto Rico"
+
+msgid "country_ps"
+msgstr "Palestina"
+
+msgid "country_pt"
+msgstr "Portugal"
+
+msgid "country_pw"
+msgstr "Palau"
+
+msgid "country_py"
+msgstr "Paraguay"
+
+msgid "country_qa"
+msgstr "Qatar"
+
+msgid "country_re"
+msgstr "Réunion"
+
+msgid "country_ro"
+msgstr "Romania"
+
+msgid "country_rs"
+msgstr "Serbia"
+
+msgid "country_ru"
+msgstr "Russland"
+
+msgid "country_rw"
+msgstr "Rwanda"
+
+msgid "country_sa"
+msgstr "Saudi-Arabia"
+
+msgid "country_sb"
+msgstr "Salomonøyene"
+
+msgid "country_sc"
+msgstr "Seychellene"
+
+msgid "country_sd"
+msgstr "Sudan"
+
+msgid "country_se"
+msgstr "Sverige"
+
+msgid "country_sg"
+msgstr "Singapore"
+
+msgid "country_sh"
+msgstr "Saint Helena"
+
+msgid "country_si"
+msgstr "Slovenia"
+
+msgid "country_sj"
+msgstr "Svalbard"
+
+msgid "country_sk"
+msgstr "Slovakia"
+
+msgid "country_sl"
+msgstr "Sierra Leone"
+
+msgid "country_sm"
+msgstr "San Marino"
+
+msgid "country_sn"
+msgstr "Senegal"
+
+msgid "country_so"
+msgstr "Somalia"
+
+msgid "country_sr"
+msgstr "Surinam"
+
+msgid "country_st"
+msgstr "São Tomé og Príncipe"
+
+msgid "country_sv"
+msgstr "El Salvador"
+
+msgid "country_sy"
+msgstr "Syria"
+
+msgid "country_sz"
+msgstr "Swaziland"
+
+msgid "country_tc"
+msgstr "Turks- og Caicosøyene"
+
+msgid "country_td"
+msgstr "Tsjad"
+
+msgid "country_tf"
+msgstr "De franske sørterritorier"
+
+msgid "country_tg"
+msgstr "Togo"
+
+msgid "country_th"
+msgstr "Thailand"
+
+msgid "country_tj"
+msgstr "Tadsjikistan"
+
+msgid "country_tk"
+msgstr "Tokelau"
+
+msgid "country_tl"
+msgstr "Øst-Timor"
+
+msgid "country_tm"
+msgstr "Turkmenistan"
+
+msgid "country_tn"
+msgstr "Tunisia"
+
+msgid "country_to"
+msgstr "Tonga"
+
+msgid "country_tr"
+msgstr "Tyrkia"
+
+msgid "country_tt"
+msgstr "Trinidad og Tobago"
+
+msgid "country_tv"
+msgstr "Tuvalu"
+
+msgid "country_tw"
+msgstr "Taiwan"
+
+msgid "country_tz"
+msgstr "Tanzania"
+
+msgid "country_ua"
+msgstr "Ukraina"
+
+msgid "country_ug"
+msgstr "Uganda"
+
+msgid "country_um"
+msgstr "USAs ytre småøyer"
+
+msgid "country_us"
+msgstr "Amerikas forente stater"
+
+msgid "country_uy"
+msgstr "Uruguay"
+
+msgid "country_uz"
+msgstr "Usbekistan"
+
+msgid "country_va"
+msgstr "Vatikanstaten"
+
+msgid "country_vc"
+msgstr "Saint Vincent og Grenadinene"
+
+msgid "country_ve"
+msgstr "Venezuela"
+
+msgid "country_vg"
+msgstr "De britiske jomfruøyene"
+
+msgid "country_vi"
+msgstr "De amerikanske jomfruøyene"
+
+msgid "country_vn"
+msgstr "Vietnam"
+
+msgid "country_vu"
+msgstr "Vanuatu"
+
+msgid "country_wf"
+msgstr "Wallis- og Futunaøyene"
+
+msgid "country_ws"
+msgstr "Samoa"
+
+msgid "country_ye"
+msgstr "Jemen"
+
+msgid "country_yt"
+msgstr "Mayotte"
+
+msgid "country_za"
+msgstr "Sør-Afrika"
+
+msgid "country_zm"
+msgstr "Zambia"
+
+msgid "country_zw"
+msgstr "Zimbabwe"
+

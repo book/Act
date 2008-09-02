@@ -41,7 +41,7 @@ msgid "User information"
 msgstr "Информация о пользователе"
 
 msgid "Login"
-msgstr "Вход"
+msgstr "Логин"
 
 msgid "Name"
 msgstr "Имя"
@@ -83,7 +83,7 @@ msgid "minutes"
 msgstr "минут"
 
 msgid "Lightning talk"
-msgstr "Лайтнинг-ток"
+msgstr "Блиц-доклад"
 
 msgid "Bio"
 msgstr "О себе"
@@ -129,6 +129,9 @@ msgstr "Вы можете воспользоваться нашей платеж
 msgid "Please consider doing so once our online payment system is ready."
 msgstr "Пожалуйста, воспользуйтесь нашей платежной системой, как только она будет готова."
 
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Вы еще не подтвердили свое участие на этой конференции."
+
 msgid "You did not register for this conference"
 msgstr ""
 "Вы не <a href=\"%1\">зарегистрированы на этой конференции</a>.\n"
@@ -140,6 +143,9 @@ msgstr "Возможности:"
 
 msgid "purchase your conference ticket"
 msgstr "покупка билета на конференцию"
+
+msgid "confirm your participation"
+msgstr "подтверждение участия"
 
 msgid "register for this conference"
 msgstr "регистрация на конференции"
@@ -154,7 +160,7 @@ msgid "change your password"
 msgstr "изменение пароля"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "ваши выступления (одобненные выделены <b>жирным шрифтом</b>)"
+msgstr "ваши выступления (одобренные выделены <b>жирным шрифтом</b>)"
 
 msgid "submit a talk"
 msgstr "заявка на выступление"
@@ -267,6 +273,11 @@ msgstr ""
 "<b>У нас нет доступа к данным о вашей кредитной карте — ни до, ни во время,\n"
 "ни после оплаты.</b> Мы просто получим деньги. <tt>;-)</tt>\n"
 
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Как только вы создадите учетную запись, вы сможете подтверджить свое участие\n"
+"на этой конференции, бесплатно."
+
 msgid "Please create the user below."
 msgstr "Пожалуйста, создайте пользователя."
 
@@ -306,7 +317,7 @@ msgid "min"
 msgstr "мин."
 
 msgid "Log in"
-msgstr "Вход"
+msgstr "Логин"
 
 msgid "Password"
 msgstr "Пароль"
@@ -366,6 +377,9 @@ msgstr "Бухгалтер"
 
 msgid "Payments"
 msgstr "Оплата"
+
+msgid "Payment Details"
+msgstr "Детали платежа"
 
 msgid "Edit profile"
 msgstr "Редактирование профиля"
@@ -436,8 +450,14 @@ msgstr ""
 "карты обрабатывается банком. <b>У нас нет доступа к этой информации даже во время\n"
 "проведения платежа.</b> Мы всего лишь получим деньги в итоге. <tt>;-)</tt>\n"
 
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Поскольку общая сумма этого заказа нулевая, ничего платить не нужно. Заказ оформлен"
+
 msgid "Online payment"
 msgstr "Онлайн-платеж"
+
+msgid "Online payment (zero)"
+msgstr "Бесплатно"
 
 msgid "Join"
 msgstr "Присоединиться"
@@ -538,7 +558,7 @@ msgid "Monger group URL"
 msgstr "Адрес сайта PM-группы"
 
 msgid "VAT Number"
-msgstr "VAT Number"
+msgstr "ИНН"
 
 msgid "Company URL"
 msgstr "Адрес сайта компании"
@@ -565,7 +585,7 @@ msgstr ""
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Пользователи, допущенные к участию, выделены <b>жирным шрифтом</b> (они\n"
-"либо купили билет, либо будут делать доклад).\n"
+"либо купили билет (если это нужно), либо делают доклад).\n"
 
 msgid "Search for users"
 msgstr "Поиск пользователей"
@@ -629,11 +649,11 @@ msgstr "Статистика %1"
 
 msgid "There are n registered people"
 msgstr ""
-"%numerate(%1,Зарегистрирован,зарегистрированы,зарегистрированы) %1 %numerate(%1,участник,участника,участников)\n"
+"%numerate(%1,Зарегистрирован,Зарегистрированы,Зарегистрированы) %1 %numerate(%1,участник,участника,участников)\n"
 "из %2 %numerate(%2,страны,стран,стран)\n"
 "и %3 %numerate(%3,PM-группы,PM-групп,PM-групп).\n"
 "Участие %4 %numerate(%4,человека,человек,человек) подтверждены,\n"
-"иными словами, эти люди либо оплатили свое участие,\n"
+"иными словами, эти люди либо оплатили свое участие (если это было нужно),\n"
 "либо делают доклад.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
@@ -881,8 +901,8 @@ msgstr ""
 "        [user:nick_name]\n"
 "        [user:first_name last_name]\n"
 "        [talk:id]\n"
-"        [page:/index.html|conference index]\n"
-"        [image:/images/logo.png|conference logo]\n"
+"        [page:index.html|conference index]\n"
+"        [image:images/logo.png|conference logo]\n"
 "\n"
 "        == мои интересные списки ==\n"
 "\n"
@@ -961,7 +981,7 @@ msgstr "Всего"
 msgid "Payment confirmation"
 msgstr "Подтверждение платежаа"
 
-msgid "Your online payment for your <conf> registration has been approved."
+msgid "<conf> online payment"
 msgstr ""
 "FIXME Ваш онлайновый платеж за регистрацию на конференции «%1» подтвержден.\n"
 "\n"
@@ -1018,13 +1038,13 @@ msgid "I confirm"
 msgstr "Я подтверждаю"
 
 msgid "Submit/Edit a talk"
-msgstr "Податать или редактировать выступление"
+msgstr "Подать или редактировать выступление"
 
 msgid "You must specify a user"
 msgstr "Нужно указать пользователя"
 
 msgid "You must enter a title for the talk"
-msgstr "Выступление должно быть с названием"
+msgstr "У выступления должно название"
 
 msgid "You must provide an abstract"
 msgstr "Укажите аннотацию"
@@ -1085,7 +1105,7 @@ msgid "Accepted"
 msgstr "Принято"
 
 msgid "Pending"
-msgstr "Отложено"
+msgstr "Ожидает обработки"
 
 msgid "Submit this talk"
 msgstr "Подать заявку на выступление"
@@ -1193,12 +1213,13 @@ msgid "Remember me on this computer"
 msgstr "Запомнить меня на этом компьютере"
 
 msgid "Billing"
-msgstr "Billing"
+msgstr "Биллинг"
 
 msgid "The following submission has been accepted"
 msgstr ""
-"Следующая заявка одобрена. Пожалуйста, перейдите по ссылке ниже, чтобы\n"
-"подтвердить свое выступление.\n"
+"Следующая заявка одобрена. Пожалуйста, перейдите по ссылке ниже,\n"
+"отметьте там соответвтующий чекбокс, чтобы подтвердить свое выступление\n"
+"и сохраните запись о нем."
 
 msgid "News"
 msgstr "Новости"
@@ -1210,7 +1231,7 @@ msgid "Published"
 msgstr "Опубиковано"
 
 msgid "Create a new item"
-msgstr "Создать новоый элемент"
+msgstr "Создать новый элемент"
 
 msgid "Edit a news item"
 msgstr "Редактировать новый элемент"
@@ -1286,6 +1307,11 @@ msgstr "Теги:"
 msgid "add new tags:"
 msgstr "добавить новые теги:"
 
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Чтобы разрегистрировать участника <b>%1 %2</b> с конференции «%3»,\n"
+"просто нажмите кнопку ниже.\n"
+
 msgid "Unregister <name> from <conference>"
 msgstr "Разрегистрировать %1 %2 с \"%3\""
 
@@ -1303,4 +1329,37 @@ msgstr "создать инвойс"
 
 msgid "enter payment"
 msgstr "перейти к платежу"
+
+msgid "Your purchases"
+msgstr "Ваши покупки"
+
+msgid "Your <conf> order #<id>"
+msgstr "Заказ № %2 на мероприятие %1"
+
+msgid "make additional purchases"
+msgstr "сделать дополнительные покупки"
+
+msgid "view all orders and invoices"
+msgstr "просмотреть все заказы и счета"
+
+msgid "Product"
+msgstr "Продукт"
+
+msgid "Personal Schedule"
+msgstr "Персональное расписание"
+
+msgid "Attending talks"
+msgstr "Посещаемые доклады"
+
+msgid "Promotion code"
+msgstr "Промо-код"
+
+msgid "add to personal schedule"
+msgstr "добавить в персональное расписание"
+
+msgid "remove from personal schedule"
+msgstr "удалить из персонального расписания"
+
+msgid "Attended by:"
+msgstr "Собираются посетить:"
 
