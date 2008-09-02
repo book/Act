@@ -37,7 +37,10 @@ sub handler {
             }
         }
     }
+    my $last_year = DateTime->now;
+    $last_year->add( years => -1 );
     $template->variables(
+        last_year => $last_year,
         talks => $talks,
         conferences => $Request{user}->conferences(),
         can_unregister =>  $Request{user}->has_registered()
