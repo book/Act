@@ -88,7 +88,7 @@
          title = "{{add to personal schedule}}"
        [% END %]
 />
-{{add to personal schedule}}
+<span id="my-[% talk_id %]-text">{{add to personal schedule}}</span>
 <input type="hidden" name="talk_id" value="[% talk_id %]" />
 <input type="submit" class="mytalks_submit" value="{{Submit}}" />
 </form>

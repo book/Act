@@ -10,7 +10,12 @@ if (window.act) {
               + ' title="' + title + '"'
               + ' onClick ="toggle_talk(this,' + talk_id + ',' + set + ');" />'
              )
-         )
+        );
+        $("#my-"+talk_id+"-text").replaceWith(
+            $(
+              '<span id="my-'+talk_id+'-text">'+title+'</span>'
+             )
+        );
     };
     toggle_talk = function(elem, talk_id, set) {
         $.post(act.make_uri('[% global.request.conference %]', 'updatemytalks_a'), {talk_id: talk_id} );
