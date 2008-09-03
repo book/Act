@@ -115,13 +115,17 @@ sub wiki_diff
     my ($wiki, $template) = @_;
 
     my $node = $Request{args}{node};
-    unless ($node) {
+    unless ($node && $Request{args}{r1} && $Request{args}{r2}) {
         $Request{status} = NOT_FOUND;
         return;
     }
     my %versions;
     for my $r (qw(r1 r2)) {
         my %v = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node), version => $Request{args}{$r});
+        unless ($v{version} == $Request{args}{$r}) {
+            $Request{status} = NOT_FOUND;
+            return;
+        }
         $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
         $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
         $versions{$r} = \%v;
