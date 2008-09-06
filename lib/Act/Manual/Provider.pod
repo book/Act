@@ -13,14 +13,6 @@ It is divided in several subsections:
 
 The online payment architecture in Act.
 
-=item L<Act::Manual::Provider::Installation>
-
-Some installation tips.
-
-=item L<Act::Manual::Provider::Database>
-
-Database configuration for Act.
-
 =item L<Act::Manual::Provider::Performance>
 
 Some performance hints for running Act on your system.
