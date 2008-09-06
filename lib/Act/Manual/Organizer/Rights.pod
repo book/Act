@@ -1,0 +1,103 @@
+=head1 Rights
+
+Overview of Act's built-in rights and what powers they grant.
+
+=head2 admin
+
+Ability to grant and revoke rights.
+
+=head2 orga
+
+C<orgas> can:
+
+=over 4
+
+=item *
+
+see presentations / schedule even when show_schedule = 0
+
+=item *
+
+see talks dates even when show_schedule = 0
+
+=item *
+
+see unaccepted talks
+
+=item *
+
+accept / unaccept / confirm talks
+
+=item *
+
+set talks date and time
+
+=item *
+
+set talks duration to non standard value
+
+=item *
+
+add a talk impersonating any user
+
+=item *
+
+manage tracks
+
+=item *
+
+assign tracks to talks
+
+=item *
+
+create a new user
+
+=item *
+
+register/unregister a user
+
+=item *
+
+manage events
+
+=item *
+
+manage news items
+
+=item *
+
+see users' email addresses regardless of users "hide email" setting
+
+=item *
+
+export users list in CSV format
+
+=item *
+
+revert a wiki page to a previous version
+
+=item *
+
+delete a wiki page
+
+=back
+
+=head2 treasurer
+
+The C<treasurer> can:
+
+=over 4
+
+=item *
+
+see the payments list
+
+=item *
+
+enter payments manually
+
+=item *
+
+export payments to CSV
+
+=cut
