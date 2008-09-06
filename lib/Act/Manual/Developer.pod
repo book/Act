@@ -11,6 +11,10 @@ area of the Act internals:
 
 A list of resources available to developers.
 
+=item L<Act::Manual::Developer::Installation>
+
+Installing Act.
+
 =item L<Act::Manual::Developer::Translation>
 
 How to write a new language translation for Act.
