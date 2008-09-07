@@ -92,7 +92,7 @@ sub handler
     $template->variables(
         right  => [ Act::Util::usort { $_->{user}{last_name} }
                     values %right ],
-        right_list => \@Act::Config::Right_ids,
+        right_list => \@Act::User::Rights,
         users  => [ Act::Util::usort { $_->{last_name} }
                     grep { ! exists $right{$_->user_id} }
                     @{Act::User->get_users( conf_id => $Request{conference} )}
