@@ -72,23 +72,9 @@ sub rights {
 }
 
 # generate the is_right methods
-sub AUTOLOAD {
-
-    # don't DESTROY
-    return if $AUTOLOAD =~ /::DESTROY/;
-
-    # methods is_something regard the user rights
-    if( $AUTOLOAD =~ /::is_(\w+)$/ ) {
-        my $attr = $1;
-        no strict 'refs';
-    
-        # create the method and call it
-        *{$AUTOLOAD} = sub { $_[0]->rights()->{$attr} };
-        goto &{$AUTOLOAD};
-    }
-    
-    # die on error
-    croak "AUTOLOAD: Unknown method $AUTOLOAD";
+for my $right (@Rights) {
+    no strict 'refs';
+    *{"is_$right"} = sub { $_[0]->rights()->{$right} };
 }
 
 # This are pseudo fields!
