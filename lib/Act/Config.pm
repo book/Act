@@ -161,9 +161,6 @@ my @Optional = qw(
 # salutations
 our $Nb_salutations = 4;
 
-# rights
-our @Right_ids = qw( admin orga staff treasurer );
-
 # load configurations
 load_configs() unless $^C;
 

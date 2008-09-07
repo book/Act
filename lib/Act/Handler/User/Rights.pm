@@ -44,7 +44,7 @@ sub handler
         }
 
         # for all existing rights
-        for my $right_id (@Act::Config::Right_ids) {
+        for my $right_id (@Act::User::Rights) {
 
             # for all users who already have rights
             for my $user_id ( keys %right ) {

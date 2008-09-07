@@ -8,6 +8,9 @@ use Carp;
 use List::Util qw(first);
 use base qw( Act::Object );
 
+# rights
+our @Rights = qw( admin orga staff treasurer );
+
 # class data used by Act::Object
 our $table = 'users';
 our $primary_key = 'user_id';
