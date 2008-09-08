@@ -87,6 +87,7 @@ conference...
   ru: Andrew Shitov
   sk: Jozef Kutej
   uk: Andrew Shitov
+  zh: qiang, fayland
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
