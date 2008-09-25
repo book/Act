@@ -1,0 +1,744 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "country_ad"
+msgstr "安道尔"
+
+msgid "country_ae"
+msgstr "阿拉伯联合酋长国"
+
+msgid "country_af"
+msgstr "阿富汗"
+
+msgid "country_ag"
+msgstr "安提瓜和巴布达"
+
+msgid "country_ai"
+msgstr "安圭拉岛"
+
+msgid "country_al"
+msgstr "阿尔巴尼亚"
+
+msgid "country_am"
+msgstr "亚美尼亚"
+
+msgid "country_an"
+msgstr "荷属安地列斯群岛"
+
+msgid "country_ao"
+msgstr "安哥拉"
+
+msgid "country_aq"
+msgstr "南极洲"
+
+msgid "country_ar"
+msgstr "阿根廷"
+
+msgid "country_as"
+msgstr "东萨摩亚"
+
+msgid "country_at"
+msgstr "奥地利"
+
+msgid "country_au"
+msgstr "澳大利亚"
+
+msgid "country_aw"
+msgstr "阿鲁巴岛"
+
+msgid "country_ax"
+msgstr "奥兰群岛"
+
+msgid "country_az"
+msgstr "阿塞拜疆"
+
+msgid "country_ba"
+msgstr "波斯尼亚和黑塞哥维那"
+
+msgid "country_bb"
+msgstr "巴巴多斯"
+
+msgid "country_bd"
+msgstr "孟加拉国"
+
+msgid "country_be"
+msgstr "比利时"
+
+msgid "country_bf"
+msgstr "布基纳法索"
+
+msgid "country_bg"
+msgstr "保加利亚"
+
+msgid "country_bh"
+msgstr "巴林"
+
+msgid "country_bi"
+msgstr "布隆迪"
+
+msgid "country_bj"
+msgstr "贝宁"
+
+msgid "country_bl"
+msgstr "圣巴托洛缪"
+
+msgid "country_bm"
+msgstr "百慕大"
+
+msgid "country_bn"
+msgstr "文莱"
+
+msgid "country_bo"
+msgstr "玻利维亚"
+
+msgid "country_br"
+msgstr "巴西"
+
+msgid "country_bs"
+msgstr "巴哈马"
+
+msgid "country_bt"
+msgstr "不丹"
+
+msgid "country_bv"
+msgstr "布维岛"
+
+msgid "country_bw"
+msgstr "博茨瓦纳"
+
+msgid "country_by"
+msgstr "白俄罗斯"
+
+msgid "country_bz"
+msgstr "伯利兹"
+
+msgid "country_ca"
+msgstr "加拿大"
+
+msgid "country_cc"
+msgstr "科科斯(基林)群岛"
+
+msgid "country_cd"
+msgstr "刚果民主共和国"
+
+msgid "country_cf"
+msgstr "中非"
+
+msgid "country_cg"
+msgstr "刚果共和国"
+
+msgid "country_ch"
+msgstr "瑞士"
+
+msgid "country_ci"
+msgstr "科特迪瓦"
+
+msgid "country_ck"
+msgstr "库克群岛"
+
+msgid "country_cl"
+msgstr "智利"
+
+msgid "country_cm"
+msgstr "喀麦隆"
+
+msgid "country_cn"
+msgstr "中国"
+
+msgid "country_co"
+msgstr "哥伦比亚"
+
+msgid "country_cr"
+msgstr "哥斯达黎加"
+
+msgid "country_cu"
+msgstr "古巴"
+
+msgid "country_cv"
+msgstr "佛得角"
+
+msgid "country_cx"
+msgstr "圣诞岛"
+
+msgid "country_cy"
+msgstr "塞浦路斯"
+
+msgid "country_cz"
+msgstr "捷克"
+
+msgid "country_de"
+msgstr "德国"
+
+msgid "country_dj"
+msgstr "吉布提"
+
+msgid "country_dk"
+msgstr "丹麦"
+
+msgid "country_dm"
+msgstr "多米尼加"
+
+msgid "country_do"
+msgstr "多米尼加共和国"
+
+msgid "country_dz"
+msgstr "阿尔及利亚"
+
+msgid "country_ec"
+msgstr "厄瓜多尔"
+
+msgid "country_ee"
+msgstr "爱沙尼亚"
+
+msgid "country_eg"
+msgstr "埃及"
+
+msgid "country_eh"
+msgstr "西撒哈拉"
+
+msgid "country_er"
+msgstr "厄立特里亚"
+
+msgid "country_es"
+msgstr "西班牙"
+
+msgid "country_et"
+msgstr "埃塞俄比亚"
+
+msgid "country_fi"
+msgstr "芬兰"
+
+msgid "country_fj"
+msgstr "斐济"
+
+msgid "country_fk"
+msgstr "福克兰群岛"
+
+msgid "country_fm"
+msgstr "密克罗尼西亚联邦"
+
+msgid "country_fo"
+msgstr "法罗群岛"
+
+msgid "country_fr"
+msgstr "法国"
+
+msgid "country_ga"
+msgstr "加蓬"
+
+msgid "country_gb"
+msgstr "英国"
+
+msgid "country_gd"
+msgstr "格林纳达"
+
+msgid "country_ge"
+msgstr "格鲁吉亚"
+
+msgid "country_gf"
+msgstr "法属圭亚那"
+
+msgid "country_gg"
+msgstr "根西岛"
+
+msgid "country_gh"
+msgstr "加纳"
+
+msgid "country_gi"
+msgstr "直布罗陀"
+
+msgid "country_gl"
+msgstr "格陵兰"
+
+msgid "country_gm"
+msgstr "冈比亚"
+
+msgid "country_gn"
+msgstr "几内亚"
+
+msgid "country_gp"
+msgstr "瓜德罗普岛"
+
+msgid "country_gq"
+msgstr "赤道几内亚"
+
+msgid "country_gr"
+msgstr "希腊"
+
+msgid "country_gs"
+msgstr "南乔治亚岛和南桑德韦奇岛"
+
+msgid "country_gt"
+msgstr "危地马拉"
+
+msgid "country_gu"
+msgstr "关岛"
+
+msgid "country_gw"
+msgstr "几内亚比绍"
+
+msgid "country_gy"
+msgstr "圭亚那"
+
+msgid "country_hk"
+msgstr "中國香港"
+
+msgid "country_hm"
+msgstr "贺得及麦唐纳群岛"
+
+msgid "country_hn"
+msgstr "洪都拉斯"
+
+msgid "country_hr"
+msgstr "克罗地亚"
+
+msgid "country_ht"
+msgstr "海地"
+
+msgid "country_hu"
+msgstr "匈牙利"
+
+msgid "country_id"
+msgstr "印度尼西亚"
+
+msgid "country_ie"
+msgstr "爱尔兰"
+
+msgid "country_il"
+msgstr "以色列"
+
+msgid "country_im"
+msgstr "马恩岛"
+
+msgid "country_in"
+msgstr "印度"
+
+msgid "country_io"
+msgstr "英属印度洋领地"
+
+msgid "country_iq"
+msgstr "伊拉克"
+
+msgid "country_ir"
+msgstr "伊朗"
+
+msgid "country_is"
+msgstr "冰岛"
+
+msgid "country_it"
+msgstr "意大利"
+
+msgid "country_je"
+msgstr "泽西岛"
+
+msgid "country_jm"
+msgstr "牙买加"
+
+msgid "country_jo"
+msgstr "约旦"
+
+msgid "country_jp"
+msgstr "日本"
+
+msgid "country_ke"
+msgstr "肯尼亚"
+
+msgid "country_kg"
+msgstr "吉尔吉斯斯坦"
+
+msgid "country_kh"
+msgstr "柬埔寨"
+
+msgid "country_ki"
+msgstr "吉里巴斯"
+
+msgid "country_km"
+msgstr "科摩罗"
+
+msgid "country_kn"
+msgstr "圣基茨和尼维斯"
+
+msgid "country_kp"
+msgstr "朝鲜"
+
+msgid "country_kr"
+msgstr "韩国"
+
+msgid "country_kw"
+msgstr "科威特"
+
+msgid "country_ky"
+msgstr "开曼群岛"
+
+msgid "country_kz"
+msgstr "哈萨克斯坦"
+
+msgid "country_la"
+msgstr "老挝"
+
+msgid "country_lb"
+msgstr "黎巴嫩"
+
+msgid "country_lc"
+msgstr "圣卢西亚"
+
+msgid "country_li"
+msgstr "列支敦士登"
+
+msgid "country_lk"
+msgstr "斯里兰卡"
+
+msgid "country_lr"
+msgstr "利比里亚"
+
+msgid "country_ls"
+msgstr "莱索托"
+
+msgid "country_lt"
+msgstr "立陶宛"
+
+msgid "country_lu"
+msgstr "卢森堡"
+
+msgid "country_lv"
+msgstr "拉脱维亚"
+
+msgid "country_ly"
+msgstr "利比亚"
+
+msgid "country_ma"
+msgstr "摩洛哥"
+
+msgid "country_mc"
+msgstr "摩纳哥"
+
+msgid "country_md"
+msgstr "摩尔多瓦"
+
+msgid "country_me"
+msgstr "黑山"
+
+msgid "country_mf"
+msgstr "圣马丁"
+
+msgid "country_mg"
+msgstr "马达加斯加"
+
+msgid "country_mh"
+msgstr "马绍尔群岛"
+
+msgid "country_mk"
+msgstr "马其顿"
+
+msgid "country_ml"
+msgstr "马里"
+
+msgid "country_mm"
+msgstr "缅甸"
+
+msgid "country_mn"
+msgstr "蒙古"
+
+msgid "country_mo"
+msgstr "中国澳门"
+
+msgid "country_mp"
+msgstr "北马里亚纳群岛"
+
+msgid "country_mq"
+msgstr "马提尼岛"
+
+msgid "country_mr"
+msgstr "毛里塔尼亚"
+
+msgid "country_ms"
+msgstr "蒙特塞拉特"
+
+msgid "country_mt"
+msgstr "马耳他"
+
+msgid "country_mu"
+msgstr "毛里求斯"
+
+msgid "country_mv"
+msgstr "马尔代夫"
+
+msgid "country_mw"
+msgstr "马拉维"
+
+msgid "country_mx"
+msgstr "墨西哥"
+
+msgid "country_my"
+msgstr "墨西哥"
+
+msgid "country_mz"
+msgstr "莫桑比克"
+
+msgid "country_na"
+msgstr "纳米比亚"
+
+msgid "country_nc"
+msgstr "新喀里多尼亚"
+
+msgid "country_ne"
+msgstr "尼日尔"
+
+msgid "country_nf"
+msgstr "诺福克岛"
+
+msgid "country_ng"
+msgstr "尼日利亚"
+
+msgid "country_ni"
+msgstr "尼加拉瓜"
+
+msgid "country_nl"
+msgstr "荷兰"
+
+msgid "country_no"
+msgstr "挪威"
+
+msgid "country_np"
+msgstr "尼泊尔"
+
+msgid "country_nr"
+msgstr "瑙鲁"
+
+msgid "country_nu"
+msgstr "纽埃"
+
+msgid "country_nz"
+msgstr "新西兰"
+
+msgid "country_om"
+msgstr "阿曼"
+
+msgid "country_pa"
+msgstr "巴拿马"
+
+msgid "country_pe"
+msgstr "秘鲁"
+
+msgid "country_pf"
+msgstr "法属波利尼西亚"
+
+msgid "country_pg"
+msgstr "巴布亚新几内亚"
+
+msgid "country_ph"
+msgstr "菲律宾"
+
+msgid "country_pk"
+msgstr "巴基斯坦"
+
+msgid "country_pl"
+msgstr "波兰"
+
+msgid "country_pm"
+msgstr "圣皮埃尔和密克隆群岛"
+
+msgid "country_pn"
+msgstr "皮特开恩群岛"
+
+msgid "country_pr"
+msgstr "波多黎各"
+
+msgid "country_ps"
+msgstr "巴勒斯坦"
+
+msgid "country_pt"
+msgstr "葡萄牙"
+
+msgid "country_pw"
+msgstr "帕劳"
+
+msgid "country_py"
+msgstr "巴拉圭"
+
+msgid "country_qa"
+msgstr "卡塔尔"
+
+msgid "country_re"
+msgstr "留尼汪"
+
+msgid "country_ro"
+msgstr "罗马尼亚"
+
+msgid "country_rs"
+msgstr "塞尔维亚"
+
+msgid "country_ru"
+msgstr "俄罗斯"
+
+msgid "country_rw"
+msgstr "卢旺达"
+
+msgid "country_sa"
+msgstr "沙特阿拉伯"
+
+msgid "country_sb"
+msgstr "所罗门群岛"
+
+msgid "country_sc"
+msgstr "塞舌尔"
+
+msgid "country_sd"
+msgstr "苏丹"
+
+msgid "country_se"
+msgstr "瑞典"
+
+msgid "country_sg"
+msgstr "新加坡"
+
+msgid "country_sh"
+msgstr "圣赫勒拿"
+
+msgid "country_si"
+msgstr "斯洛文尼亚"
+
+msgid "country_sj"
+msgstr "斯瓦尔巴群岛"
+
+msgid "country_sk"
+msgstr "斯洛伐克"
+
+msgid "country_sl"
+msgstr "塞拉利昂"
+
+msgid "country_sm"
+msgstr "圣马力诺"
+
+msgid "country_sn"
+msgstr "塞内加尔"
+
+msgid "country_so"
+msgstr "索马里"
+
+msgid "country_sr"
+msgstr "苏里南"
+
+msgid "country_st"
+msgstr "圣多美和普林西比"
+
+msgid "country_sv"
+msgstr "萨尔瓦多"
+
+msgid "country_sy"
+msgstr "叙利亚"
+
+msgid "country_sz"
+msgstr "斯威士兰"
+
+msgid "country_tc"
+msgstr "特克斯与凯科斯群岛"
+
+msgid "country_td"
+msgstr "乍得"
+
+msgid "country_tf"
+msgstr "法属南部领土"
+
+msgid "country_tg"
+msgstr "多哥"
+
+msgid "country_th"
+msgstr "泰国"
+
+msgid "country_tj"
+msgstr "塔吉克斯坦"
+
+msgid "country_tk"
+msgstr "托克劳"
+
+msgid "country_tl"
+msgstr "东帝汶"
+
+msgid "country_tm"
+msgstr "土库曼斯坦"
+
+msgid "country_tn"
+msgstr "突尼斯"
+
+msgid "country_to"
+msgstr "汤加"
+
+msgid "country_tr"
+msgstr "土耳其"
+
+msgid "country_tt"
+msgstr "特立尼达和多巴哥"
+
+msgid "country_tv"
+msgstr "图瓦卢"
+
+msgid "country_tw"
+msgstr "台湾"
+
+msgid "country_tz"
+msgstr "坦桑尼亚"
+
+msgid "country_ua"
+msgstr "乌克兰"
+
+msgid "country_ug"
+msgstr "乌干达"
+
+msgid "country_um"
+msgstr "美属萨摩亚"
+
+msgid "country_us"
+msgstr "美国"
+
+msgid "country_uy"
+msgstr "乌拉圭"
+
+msgid "country_uz"
+msgstr "乌兹别克斯坦"
+
+msgid "country_va"
+msgstr "梵蒂冈"
+
+msgid "country_vc"
+msgstr "圣文森特和格林纳丁斯"
+
+msgid "country_ve"
+msgstr "委内瑞拉"
+
+msgid "country_vg"
+msgstr "英属维尔京群岛"
+
+msgid "country_vi"
+msgstr "美属维尔京群岛"
+
+msgid "country_vn"
+msgstr "越南"
+
+msgid "country_vu"
+msgstr "瓦努阿图"
+
+msgid "country_wf"
+msgstr "瓦利斯和富图纳群岛"
+
+msgid "country_ws"
+msgstr "萨摩亚"
+
+msgid "country_ye"
+msgstr "也门"
+
+msgid "country_yt"
+msgstr "马约特"
+
+msgid "country_za"
+msgstr "南非"
+
+msgid "country_zm"
+msgstr "赞比亚"
+
+msgid "country_zw"
+msgstr "津巴布韦"
+

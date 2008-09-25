@@ -1,0 +1,1345 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "支票"
+
+msgid "payment_means_CASH"
+msgstr "现金"
+
+msgid "payment_means_ONLINE"
+msgstr "在线"
+
+msgid "payment_means_XFER"
+msgstr "银行转帐"
+
+msgid "payment_means_FREE"
+msgstr "免费"
+
+msgid "room_out"
+msgstr "户外"
+
+msgid "room_venue"
+msgstr "会场"
+
+msgid "salutation_1"
+msgstr "Mr."
+
+msgid "salutation_2"
+msgstr "Mrs."
+
+msgid "salutation_3"
+msgstr "Ms."
+
+msgid "salutation_4"
+msgstr "Dr."
+
+msgid "User information"
+msgstr "用户资料"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Name"
+msgstr "姓名"
+
+msgid "City"
+msgstr "城市"
+
+msgid "Country"
+msgstr "国家"
+
+msgid "Perl mongers group"
+msgstr "Perl mongers 群组"
+
+msgid "Company"
+msgstr "公司"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Web page"
+msgstr "网址"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "GPG 公开 ID"
+
+msgid "No photo"
+msgstr "暂无头像"
+
+msgid "Talk"
+msgstr "%numerate(%1,演讲)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,已接受演讲)"
+
+msgid "minutes"
+msgstr "分"
+
+msgid "Lightning talk"
+msgstr "闪电演讲"
+
+msgid "Bio"
+msgstr "自我介绍"
+
+msgid "Other Act conferences:"
+msgstr "其他 Perl 会议:"
+
+msgid "Main private page"
+msgstr "个人私有主页"
+
+msgid "to <this conference>"
+msgstr "to %1."
+
+msgid "This is your personal page."
+msgstr ""
+"这是您的个人页面。\n"
+"在此您可以管理你参与的所有事情。 \n"
+
+msgid "to Act-enabled conferences."
+msgstr "在其它 Perl 会议。"
+
+msgid "You have purchased your conference ticket:"
+msgstr "您已成功购买了会议门票:"
+
+msgid "Order number"
+msgstr "订单号"
+
+msgid "Payment date"
+msgstr "支付日"
+
+msgid "Amount paid"
+msgstr "支付的金额"
+
+msgid "Download your invoice"
+msgstr "下载<a href=\"%1\">发票</a>"
+
+msgid "You have not bought your conference ticket yet."
+msgstr "您还没有购买会议门票。"
+
+msgid "Please consider doing so using our online payment system."
+msgstr "请使用我们的在线支付系统来购买。"
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "请在我们的在线支付系统准备完毕后购买。"
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "您还未确认是否参加该会议。"
+
+msgid "You did not register for this conference"
+msgstr ""
+"您还没有<a href=\"%1\">注册</a>该会议。\n"
+"如果您计划参加或演讲，请尽快注册。\n"
+
+msgid "You can:"
+msgstr "您可以:"
+
+msgid "purchase your conference ticket"
+msgstr "购买您的会议门票"
+
+msgid "confirm your participation"
+msgstr "参加确认"
+
+msgid "register for this conference"
+msgstr "注册该会议"
+
+msgid "update your information"
+msgstr "更新资料"
+
+msgid "manage your photo"
+msgstr "管理头像"
+
+msgid "change your password"
+msgstr "更改密码"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "您的演讲（<b>粗体</b>显示为已接受的演讲）"
+
+msgid "submit a talk"
+msgstr "提交演讲"
+
+msgid "log out"
+msgstr "退出"
+
+msgid "unregister from <this conference>"
+msgstr "删除 %1 注册记录"
+
+msgid "(You were there)"
+msgstr "(已参加)"
+
+msgid "(You are there)"
+msgstr "(参加中)"
+
+msgid "(You will be there)"
+msgstr "(将会参加)"
+
+msgid "Confirmation required"
+msgstr "需要确认"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"该操作需要邮件确认。请输入您的 email, \n"
+"您将收到一封含有确认链接的邮件。\n"
+
+msgid "You must enter your email"
+msgstr "请输入您的 Email"
+
+msgid "Your email address looks bogus."
+msgstr "您的 Email 看起来不正确，请重试。"
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"邮件已发送至 <b>%1</b> 。请点击邮件里的链接\n"
+"来完成该项操作。\n"
+
+msgid "Confirmation email sent"
+msgstr "确认邮件已发送"
+
+msgid "In order to complete your operation"
+msgstr "为了完成您的 \"%1\" 操作，请点击下面的链接。"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - 确认"
+
+msgid "Registration"
+msgstr "注册"
+
+msgid "Sorry, this conference is over."
+msgstr "抱歉，会议已结束。"
+
+msgid "Please create your user below."
+msgstr "请在下面创建用户。"
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "ID %1 已被使用。请另选。"
+
+msgid "The address is already registered."
+msgstr "该地址 %1 已注册。"
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "ID 必须是3个以上半角英文字符。 (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "您必须输入您的名"
+
+msgid "You must enter your last name"
+msgstr "您必须输入您的姓"
+
+msgid "You must enter a country from the list"
+msgstr "您必须选择列表中的一个国家（地区）"
+
+msgid "Accounts with similar information already exist."
+msgstr "拥有同样信息的帐号已存在。"
+
+msgid "A valid T-shirt size is required."
+msgstr "请输入一个合理的T恤尺码。"
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"请使用上面的链接来检查您是否是其中之一。如果是，\n"
+"请使用已有帐号 <a href=\"%1\">登录</a>。\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"确认参与会议之前，您必须先注册一个帐号。\n"
+"<b>如果您已经在其他 Act 会议注册过，请使用已有帐号\n"
+"<a href=\"%1\">登录</a>。</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"个人信息将会被收集用于创建一个\n"
+"在线的<a href=\"%1\"><i>谁是谁</i></a>参加人列表。\n"
+"在会议后，当您想与遇见的朋友联系，或在会议前您想知道谁将参加，\n"
+"该列表都将非常有用。\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"一旦您注册完毕，您就可以使用我们的安全支付系统来购买会议门票。\n"
+"请注意您的银行帐号和信用卡号码等都是由银行处理。\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>在支付进程中，我们不可能获取您的信用卡信息。</b>\n"
+"我们只是在最后得到了钱。<tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr "一旦您拥有一个帐号，您就可以免费确认参加。"
+
+msgid "Please create the user below."
+msgstr "请在下面创建用户。"
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"请使用上面的链接来确认是否其中之一是你要创建的用户。\n"
+"如果是，请选中对应的单选按钮，然后提交该表单。\n"
+
+msgid "Register"
+msgstr "注册"
+
+msgid "Registered!"
+msgstr "注册成功!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"<b>%1</b> 恭喜您，你已经注册成功。\n"
+"您的密码是 <b>%2</b> 。\n"
+
+msgid "First Name"
+msgstr "名"
+
+msgid "Last Name"
+msgstr "姓"
+
+msgid "T-Shirt"
+msgstr "T恤"
+
+msgid "Join!"
+msgstr "参加"
+
+msgid "edit"
+msgstr "编辑"
+
+msgid "min"
+msgstr "分"
+
+msgid "Log in"
+msgstr "登录"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Forgot your password?"
+msgstr "<a href=\"%1\">忘记密码</a>"
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"本站点使用 cookies 来验证登录用户。\n"
+"您可能需要更改浏览器设置接受来自 <b>%1</b> 的 Cookie。\n"
+
+msgid "Incorrect login or password"
+msgstr "用户名或密码错误"
+
+msgid "Logout"
+msgstr "退出"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "您已经顺利退出，cookie 已被删除。"
+
+msgid "Other conferences"
+msgstr "其他会议"
+
+msgid "Admin"
+msgstr "管理"
+
+msgid "Rights management"
+msgstr "权限管理"
+
+msgid "Events"
+msgstr "活动"
+
+msgid "Submit a new event"
+msgstr "创建新活动"
+
+msgid "Schedule"
+msgstr "日程安排"
+
+msgid "iCal export"
+msgstr "iCal 导出"
+
+msgid "iCal import"
+msgstr "iCal 导入"
+
+msgid "Submit a talk proposal"
+msgstr "提交一个演讲提议"
+
+msgid "Presentations"
+msgstr "演讲稿"
+
+msgid "Treasurer"
+msgstr "会计"
+
+msgid "Payments"
+msgstr "支付"
+
+msgid "Payment Details"
+msgstr "详细支付信息"
+
+msgid "Edit profile"
+msgstr "编辑资料"
+
+msgid "New user"
+msgstr "新用户"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Statistics"
+msgstr "统计"
+
+msgid "CSV export"
+msgstr "CSV 导出"
+
+msgid "Register a new user"
+msgstr "注册新用户"
+
+msgid "The schedule is not ready to be seen."
+msgstr "该日程安排还不能被查看。"
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "如下演讲时间地点还未确定。"
+
+msgid "Speaker"
+msgstr "演讲者"
+
+msgid "Talk title"
+msgstr "演讲标题"
+
+msgid "Duration"
+msgstr "时段"
+
+msgid "Target audience"
+msgstr "观众"
+
+msgid "Target audience:"
+msgstr "观众:"
+
+msgid "abstract (link)"
+msgstr "概要"
+
+msgid "talk (link)"
+msgstr "演讲"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "<b>加粗</b>的演讲已被演讲者确认。"
+
+msgid "Time"
+msgstr "时间"
+
+msgid "Price"
+msgstr "价格"
+
+msgid "Donation"
+msgstr "捐赠"
+
+msgid "Buy now!"
+msgstr "购买"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"请注意您的银行帐号和信用卡号码等都是由银行处理。\n"
+"<b>在支付进程中，我们不可能获取您的信用卡信息。</b>\n"
+"我们只是在最后得到了钱。<tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "金额合计为零，您不需要进行支付。订单已完成。"
+
+msgid "Online payment"
+msgstr "在线支付"
+
+msgid "Online payment (zero)"
+msgstr "无需支付"
+
+msgid "Join"
+msgstr "参加"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"要注册 %1 会议，请单击下面的按钮。\n"
+
+msgid "The recognised rights are:"
+msgstr "所有权限:"
+
+msgid "Organizer"
+msgstr "组织者"
+
+msgid "Organizer (talks management)"
+msgstr "组织者 (演讲管理)"
+
+msgid "Treasurer (payment management)"
+msgstr "会计 (支付管理)"
+
+msgid "Administrator (rights management)"
+msgstr "管理员 (权限管理)"
+
+msgid "User rights"
+msgstr "用户权限"
+
+msgid "Amount"
+msgstr "金额"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "您不能使用空白昵称来匿名。"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Perl monger 群组必须以 <tt>.pm</tt> 结尾"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "Perl monger 群组网址必须以 http:// 开头"
+
+msgid "The company URL must start with http://"
+msgstr "公司网址必须以 http:// 开头"
+
+msgid "Your web site URL must start with http://"
+msgstr "您的网址必须以 http:// 开头"
+
+msgid "Your perlmonks id must be a number"
+msgstr "您的 perlmonks id 必须是数字"
+
+msgid "Number of family members attending must be a number"
+msgstr "同伴个数必须是数字"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "GPG 公开 ID 不正确: 需要 8 位 16 进制"
+
+msgid "Salutation"
+msgstr "敬称"
+
+msgid "Nickname"
+msgstr "昵称"
+
+msgid "Stay pseudonymous"
+msgstr "使用昵称"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Hide email"
+msgstr "隐藏Email"
+
+msgid "Coming with"
+msgstr "同伴数"
+
+msgid "6 or more"
+msgstr "6 人以上"
+
+msgid "people (who will not attend the conference)"
+msgstr "同伴 (不参加会议)"
+
+msgid "T-shirt size"
+msgstr "T恤尺码"
+
+msgid "Full address"
+msgstr "详细地址"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "Monger group"
+msgstr "Perl Monger 群组"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>City.pm</em> 请使用英文来做城市名)"
+
+msgid "Monger group URL"
+msgstr "Perl Monger 群组网址"
+
+msgid "VAT Number"
+msgstr "VAT（增值税）号码"
+
+msgid "Company URL"
+msgstr "公司网址"
+
+msgid "GPG public key ID"
+msgstr "GPG 公开 ID"
+
+msgid "(please fill at least this one)"
+msgstr "(请最少输入一个)"
+
+msgid "Update info"
+msgstr "更新资料"
+
+msgid "Your information"
+msgstr "您的资料"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"这个是一个模拟程序。在真实情况下，提交该表单会跳转到银行的网址，\n"
+"在那里您需要输入您的信用卡资料。<br /><br />\n"
+"请点击提交按钮来模拟支付过程。\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"确认参加的用户由<b>粗体</b>列出（已经购买门票或者演讲者）。\n"
+
+msgid "Search for users"
+msgstr "搜索用户"
+
+msgid "Search form"
+msgstr "搜索表单"
+
+msgid "Any"
+msgstr "任意"
+
+msgid "Your photo"
+msgstr "您的头像"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "无法读取图片。请上传如下格式的图片:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"头像将会最终显示在<i>谁是谁</i>页面，所以人们会在想跟您交谈或者遇见的时候认出您来。\n"
+"请在您上传的时候考虑这点。\n"
+
+msgid "Delete Photo"
+msgstr "删除头像"
+
+msgid "Update Photo"
+msgstr "上传头像"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"有个人，或许是你，提交了重设密码的请求。\n"
+"为了完成操作，请点击如下链接:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"如果您在未请求的情况下收到这封消息，这是因为有个人试图使用您的用户名或电子邮件。\n"
+"这或许是个误会，他们将不会得到您的密码，所以您可以安心的忽略这封消息。\n"
+
+msgid "Reset Password"
+msgstr "重设密码"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"请输入您的<b>用户名</b>或 <b>Email</b> 。\n"
+"您将会收到一封如何重设密码的邮件。\n"
+
+msgid "No user was found with this login or email address"
+msgstr "没有使用该用户名或电子邮件的用户"
+
+msgid "Specify your login or email address"
+msgstr "请提供您的用户名或电子邮件"
+
+msgid "Generate password"
+msgstr "生成密码"
+
+msgid "<conf name> Statistics"
+msgstr "%1 统计"
+
+msgid "There are n registered people"
+msgstr ""
+"已注册 %1 人，\n"
+"来自 %2 国家和 \n"
+"%3 个 Perl Monger 。\n"
+"确认参加 %4 人。\n"
+"总共 %1 人注册\n"
+"来自 %quant(%2,国家,国家)\n"
+"%quant(%3,monger group).\n"
+"确认参加 %4 人。\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"查阅 <a href=\"%1\">国家 / Perl mongers</a>\n"
+"或 <a href=\"%2\">城市</a> 统计。\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"确认参加人数参见下表中的括号。\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "点击链接来查找对应的人！"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"注: 国家总数不一定等于城市总数。\n"
+"或有些城市没有出现在相关的国家里。\n"
+
+msgid "Cities"
+msgstr "城市"
+
+msgid "No city information entered"
+msgstr "请输入城市信息"
+
+msgid "Countries"
+msgstr "国家"
+
+msgid "Monger groups"
+msgstr "Perl Monger 群组"
+
+msgid "Un-Registration"
+msgstr "取消注册"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"请点击下面的按钮来取消注册。\n"
+
+msgid "Unregister from <conference>"
+msgstr "取消 %1 注册"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "提交/编辑非演讲相关活动"
+
+msgid "You must enter a title for the event"
+msgstr "请输入活动的标题"
+
+msgid "You must enter a short description for the event"
+msgstr "请输入活动的简介"
+
+msgid "Please choose a duration"
+msgstr "请选择持续的时间"
+
+msgid "The supplied date is invalid"
+msgstr "您所提供的日期不正确"
+
+msgid "The supplied time is invalid"
+msgstr "您所提供的时间不正确"
+
+msgid "The date/time is out of range"
+msgstr "时间超出范围"
+
+msgid "Event URL is not a valid URL"
+msgstr "活动 URL 不正确"
+
+msgid "Incorrect room submitted"
+msgstr "您所提供的房间不正确"
+
+msgid "Please choose a target audience"
+msgstr "请选择您的观众对象"
+
+msgid "View"
+msgstr "查看"
+
+msgid "Delete this event"
+msgstr "删除该活动"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Room"
+msgstr "房间"
+
+msgid "Abstract"
+msgstr "概要"
+
+msgid "(plain text)"
+msgstr "(纯文本)"
+
+msgid "External URL"
+msgstr "外部 URL"
+
+msgid "Submit this event"
+msgstr "提交该活动"
+
+msgid "Event submitted"
+msgstr "活动已提交"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"谢谢，该活动已经被记录 <b><a href=\"%1\">%2</a></b>\n"
+
+msgid "List of events"
+msgstr "所有活动"
+
+msgid "No event was submitted yet."
+msgstr "还没有任何活动被提交。"
+
+msgid "Event title"
+msgstr "活动标题"
+
+msgid "Event removed"
+msgstr "活动已删除"
+
+msgid "The event has been removed."
+msgstr "该活动 <b>%1</b> 已经被删除。"
+
+msgid "Date:"
+msgstr "日期:"
+
+msgid "Not scheduled yet."
+msgstr "待定"
+
+msgid "Duration:"
+msgstr "时段:"
+
+msgid "You can find more information on the following site:"
+msgstr "您会在如下网站找到更多资料:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - %1 编辑"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"在您编辑期间，已经有人提交了更改。\n"
+"您需要手工合并更改来提交新版本。\n"
+
+msgid "Current node contents:"
+msgstr "当前节点内容:"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Preview"
+msgstr "预览"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Your proposed revision:"
+msgstr "您提议的修订版:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 历史"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Modified on"
+msgstr "更改日期"
+
+msgid "By"
+msgstr "由"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "版本"
+
+msgid "saved on"
+msgstr "保存时间"
+
+msgid "Last modified:"
+msgstr "最后更新:"
+
+msgid "by"
+msgstr "作者"
+
+msgid "new page"
+msgstr "新页面"
+
+msgid "Home"
+msgstr "主页"
+
+msgid "Revert to this version"
+msgstr "回到这个版本"
+
+msgid "Edit this page"
+msgstr "编辑页面"
+
+msgid "Delete this page"
+msgstr "删除页面"
+
+msgid "Recent changes"
+msgstr "最近更改"
+
+msgid "History"
+msgstr "历史"
+
+msgid "Wiki help"
+msgstr "Wiki 帮助"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>字符格式</h2>\n"
+"<ul>\n"
+"<li>被三个单引号包括的字段将被<b>加粗</b>。</li>\n"
+"<li>被两个单引号包括的字段将被<i>斜体</i>.</li>\n"
+"<li>任何包含多个大写字母的单词 (例如 StudlyCaps) 将成为连接.</li>\n"
+"</ul>\n"
+"<h2>段落格式</h2>\n"
+"<ul>\n"
+"<li>四个或以上连字符开始的一行将转为水平线。</li>\n"
+"<li>换行将转换为合适的标签。</li>\n"
+"<li>用相同的等号包括的文字将成为 Header -- 越多的等号，越小的 header.</li>\n"
+"</ul>\n"
+"<h2>列表</h2>\n"
+"<ul>\n"
+"<li>列表通过缩进来表示，默认通过一个 tab 或四个空格.</li>\n"
+"<li>无序列表的每个条目需要一个星号和空格。</li>\n"
+"<li>有序列表通过一个或多个数字跟一个点号跟可选的空格组成。</li>\n"
+"<li>列表可以嵌套。</li>\n"
+"</ul>\n"
+"<h2>代码</h2>\n"
+"<ul>\n"
+"<li>没有任何标签的缩进文本将成为代码。代码里能使用嵌套列表。</li>\n"
+"</ul>\n"
+"<h2>例子</h2>\n"
+"\n"
+"下面是有效的 Wiki 格式，标志为扩展链接。\n"
+"<pre>\n"
+"\n"
+"        = my interesting text =\n"
+"\n"
+"        内部 wiki 页面链接: NormalLink\n"
+"        外部链接: [外部链接地址|链接文字]\n"
+"        用户链接: [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:first_name last_name]\n"
+"        演讲链接: [talk:id]\n"
+"        内部链接: [page:index.html|conference index]\n"
+"        [image:images/logo.png|conference logo]\n"
+"\n"
+"        == my interesting lists ==\n"
+"\n"
+"            * 无序列表 one\n"
+"            * unordered two\n"
+"\n"
+"            1. 有序列表 one\n"
+"            2. ordered two\n"
+"                        a. 嵌套列表 one\n"
+"                        b. nested two\n"
+"\n"
+"            代码 one\n"
+"            code two\n"
+"\n"
+"        The first line of a normal paragraph.\n"
+"        The second line of a normal paragraph.  Whee.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - 最近更改"
+
+msgid "Page"
+msgstr "页面"
+
+msgid "Changes in last"
+msgstr "最近更改"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,日)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,周)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,月)"
+
+msgid "Wiki tags"
+msgstr "Wiki 标签"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "标签为 %1 的 Wiki 页面"
+
+msgid "Administrative tasks"
+msgstr "管理的任务"
+
+msgid "Talks & events"
+msgstr "演讲 & 活动"
+
+msgid "Credit card payment"
+msgstr "信用卡支付"
+
+msgid "Payment"
+msgstr "支付"
+
+msgid "Editing payment"
+msgstr "编辑支付"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Payment means"
+msgstr "支付方法"
+
+msgid "or"
+msgstr "或"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "speaker"
+msgstr "演讲者"
+
+msgid "Total"
+msgstr "合计"
+
+msgid "Payment confirmation"
+msgstr "支付确认"
+
+msgid "<conf> online payment"
+msgstr ""
+"在线支付已被批准。\n"
+"\n"
+"订单号: %2\n"
+"支付日: %3 GMT\n"
+"支付额: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "发票号"
+
+msgid "Dated"
+msgstr "请求日"
+
+msgid "Printed on"
+msgstr "印刷日"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Quantity"
+msgstr "数量"
+
+msgid "Unit Price"
+msgstr "单价"
+
+msgid "<conf> registration"
+msgstr "%1 注册"
+
+msgid "Your order number:"
+msgstr "订单号:"
+
+msgid "Total due"
+msgstr "未支付总额"
+
+msgid "Invoice"
+msgstr "发票"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "你可以打印该页面：只有下面的发票会被打印。"
+
+msgid "Printer friendly version"
+msgstr "打印机版本"
+
+msgid "Establishing your invoice requires your address."
+msgstr "发票需要您的地址。"
+
+msgid "Please make sure the billing information is correct."
+msgstr "请确认您的账单信息是正确的。"
+
+msgid "Address"
+msgstr "住址"
+
+msgid "I confirm"
+msgstr "我确定"
+
+msgid "Submit/Edit a talk"
+msgstr "提交/编辑演讲稿"
+
+msgid "You must specify a user"
+msgstr "您必须指定用户"
+
+msgid "You must enter a title for the talk"
+msgstr "请输入演讲的标题"
+
+msgid "You must provide an abstract"
+msgstr "请输入概要"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "概要 URL 不是合法的 URL"
+
+msgid "Talk URL is not a valid URL"
+msgstr "演讲 URL 不是合法的 URL"
+
+msgid "Incorrect language"
+msgstr "不正确的语言"
+
+msgid "Delete this talk"
+msgstr "删除这个演讲"
+
+msgid "Track"
+msgstr "Track"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Language:"
+msgstr "语言:"
+
+msgid "Abstract URL"
+msgstr "概要 URL"
+
+msgid "Talk URL"
+msgstr "演讲 URL"
+
+msgid "Standard durations for <confname> are:"
+msgstr "%1 的标准时段:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"如果提议的时段不符合您的讲演，请\n"
+"在‘评论’字段里描述您所要的时间。\n"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"使用评论和组织者讨论演讲。\n"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "accepted"
+msgstr "已接受"
+
+msgid "confirmed"
+msgstr "已确认"
+
+msgid "Accepted"
+msgstr "已接受"
+
+msgid "Pending"
+msgstr "处理中"
+
+msgid "Submit this talk"
+msgstr "提交这个演讲"
+
+msgid "Talk submitted"
+msgstr "演讲已提交"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "谢谢，您的演讲稿已经记录为 <b><a href=\"%1\">%2</a></b> 。"
+
+msgid "iCal Import"
+msgstr "iCal 导入"
+
+msgid "The following talks have been updated:"
+msgstr "以下演讲已更新:"
+
+msgid "Old time"
+msgstr "旧时间"
+
+msgid "New time"
+msgstr "新时间"
+
+msgid "title"
+msgstr "标题"
+
+msgid "Upload an iCal file"
+msgstr "上传 iCal 文件"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "List of talks"
+msgstr "所有演讲"
+
+msgid "List of talks tagged <tag>"
+msgstr "显示标签为 %1 的演讲"
+
+msgid "No talk was submitted yet."
+msgstr "还没有演讲被提交"
+
+msgid "Submitted talks:"
+msgstr "已提交的演讲:"
+
+msgid "Accepted talks:"
+msgstr "已接受的演讲:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "已接受演讲将用<b>粗体</b>显示"
+
+msgid "Total duration of accepted talks:"
+msgstr "已接受的演讲时间总和:"
+
+msgid "hours"
+msgstr "小时"
+
+msgid "Accepted lightning talks:"
+msgstr "已接受的闪电演讲:"
+
+msgid "Tracks"
+msgstr "Tracks"
+
+msgid "No track"
+msgstr "没有 track"
+
+msgid "lightning"
+msgstr "闪电"
+
+msgid "from"
+msgstr "来自"
+
+msgid "Comment:"
+msgstr "评论:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "您能在演讲者的网站找到更多资料:"
+
+msgid "Abstract:"
+msgstr "概要:"
+
+msgid "Talk:"
+msgstr "演讲:"
+
+msgid "Talk removed"
+msgstr "演讲已删除"
+
+msgid "The Talk <title> has been removed."
+msgstr "演讲 <b>%1</b> 已删除。"
+
+msgid "Talk inserted"
+msgstr "插入的演讲"
+
+msgid "Talk updated"
+msgstr "演讲已更新"
+
+msgid "Submitted by:"
+msgstr "提交者:"
+
+msgid "The following fields have been updated:"
+msgstr "如下字段已经被更新:"
+
+msgid "By:"
+msgstr "作者:"
+
+msgid "Remember me on this computer"
+msgstr "在该电脑上记住我"
+
+msgid "Billing"
+msgstr "计费"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"以下申请已被接受。\n"
+"请点击链接来确认您的演讲。\n"
+
+msgid "News"
+msgstr "新闻"
+
+msgid "News Administration"
+msgstr "新闻管理"
+
+msgid "Published"
+msgstr "已发布"
+
+msgid "Create a new item"
+msgstr "创建一个新条目"
+
+msgid "Edit a news item"
+msgstr "编辑条目"
+
+msgid "You must enter a title"
+msgstr "请输入一个标题"
+
+msgid "You must enter some text"
+msgstr "请输入一些文字"
+
+msgid "Delete this item"
+msgstr "删除该条目"
+
+msgid "Text"
+msgstr "文本"
+
+msgid "No news yet!"
+msgstr "暂时没有新闻！"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "使用 HTML 来格式文本。换行之间的文本将被转化为段落。"
+
+msgid "Add a new track"
+msgstr "添加一个新的 track"
+
+msgid "Create/Edit a track"
+msgstr "创建/编辑一个 track"
+
+msgid "Delete this track"
+msgstr "删除该 track"
+
+msgid "Submit this track"
+msgstr "提交该 track"
+
+msgid "You must enter a title for the track"
+msgstr "您必须输入一个标题"
+
+msgid "n talks"
+msgstr "%quant(%1,演讲)"
+
+msgid "n accepted"
+msgstr "%quant(%1,已接受,已接受)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,已确认,已确认)"
+
+msgid "Change Password"
+msgstr "更改密码"
+
+msgid "Please type in your new password"
+msgstr "请输入您的新密码"
+
+msgid "Passwords don't match"
+msgstr "密码不匹配"
+
+msgid "New password"
+msgstr "新密码"
+
+msgid "Enter your new password twice"
+msgstr "请输入您的新密码两次"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Email 已发送。请点击 Email 里的链接来得到您的帐号信息和设置一个新密码。\n"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "Tags:"
+msgstr "标签:"
+
+msgid "add new tags:"
+msgstr "增加一个新标签:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"请点击下面的按钮来取消 <b>%1 %2</b> 在 %3 的注册。"
+
+msgid "Unregister <name> from <conference>"
+msgstr "取消 %1 %2 在 %3 的注册"
+
+msgid "unregister"
+msgstr "取消注册"
+
+msgid "edit payment"
+msgstr "编辑支付"
+
+msgid "view invoice"
+msgstr "查看发票"
+
+msgid "create invoice"
+msgstr "创建发票"
+
+msgid "enter payment"
+msgstr "输入支付"
+
+msgid "Your purchases"
+msgstr "您的购买"
+
+msgid "Your <conf> order #<id>"
+msgstr "%1 订单号 #%2"
+
+msgid "make additional purchases"
+msgstr "追加购买"
+
+msgid "view all orders and invoices"
+msgstr "查看所有订单和发票"
+
+msgid "Product"
+msgstr "商品"
+
+msgid "Personal Schedule"
+msgstr "个人日程安排"
+
+msgid "Attending talks"
+msgstr "参加的演讲"
+
+msgid "Promotion code"
+msgstr "促销代码"
+
+msgid "add to personal schedule"
+msgstr "加入个人日程"
+
+msgid "remove from personal schedule"
+msgstr "从个人日程删除"
+
+msgid "Attended by:"
+msgstr "参加人:"
+
