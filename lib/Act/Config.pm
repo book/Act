@@ -139,7 +139,7 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%d.%m.%y',
             fmt_time           => '%H:%M',
           },
-    zh => { name               => '汉语',
+    zh => { name               => '中文',
             fmt_datetime_full  => '%Y/%m/%d %H:%M',
             fmt_datetime_short => '%y/%m/%d %H:%M',
             fmt_date_full      => '%Y/%m/%d',

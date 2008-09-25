@@ -184,7 +184,7 @@ xh => "isiXhosa",                           # Xhosa
 yi => "ייִדיש",                             # Yiddish
 yo => "Yorùbá",                             # Yoruba
 za => "Cuengh",                             # Zhuang
-zh => "汉语",                                 # Chinese
+zh => "中文",                                 # Chinese
 zu => "isiZulu",                            # Zulu
 );
 
