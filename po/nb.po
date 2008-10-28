@@ -39,10 +39,10 @@ msgid "salutation_4"
 msgstr "Dr."
 
 msgid "User information"
-msgstr "Brukerinformasjon"
+msgstr "Deltagerinformasjon"
 
 msgid "Login"
-msgstr "Logg inn"
+msgstr "Brukernavn"
 
 msgid "Name"
 msgstr "Navn"
@@ -87,7 +87,7 @@ msgid "Lightning talk"
 msgstr "Lynforedrag"
 
 msgid "Bio"
-msgstr "Kort informasjon"
+msgstr "Informasjon om deg"
 
 msgid "Other Act conferences:"
 msgstr "Andre Act-konferanser:"
@@ -101,7 +101,7 @@ msgstr "til %1."
 msgid "This is your personal page."
 msgstr ""
 "Dette er din personlige side.\n"
-"Herfra kan du gjøre alle endringer i forbindelse med din deltakgelse.\n"
+"Herfra kan du gjøre alle endringer i forbindelse med din deltagelse.\n"
 
 msgid "to Act-enabled conferences."
 msgstr "til Act-konferanser."
@@ -157,7 +157,7 @@ msgid "manage your photo"
 msgstr "vedlikeholde bildene dine"
 
 msgid "change your password"
-msgstr "endre ditt passord"
+msgstr "endre passordet ditt"
 
 msgid "see your talks (accepted talks are shown in bold type)"
 msgstr "se dine foredrag (godkjente foredrag er vist med <b>fet</b> skrift)"
@@ -181,12 +181,11 @@ msgid "(You will be there)"
 msgstr "(Du vil være der)"
 
 msgid "Confirmation required"
-msgstr "Bekreftelse er påkrevd"
+msgstr "Påmeldingen må bekreftes"
 
 msgid "This operation requires a confirmation. Please enter your email address,"
 msgstr ""
-"Denne handlingen må bekreftes. Vennligst oppgi din epostadresse,\n"
-"og du vil motta en epost med en link for bekreftelse.\n" 
+"Vennligst oppgi din epostadresse.  Du vil så motta en epost med en link for registreringsbekreftelse.\n" 
 
 msgid "You must enter your email"
 msgstr "Du må oppgi din epostadresse"
@@ -197,16 +196,16 @@ msgstr "Din epostadresse ser ikke ekte ut."
 msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
 "En epost er blitt sendt til <b>%1</b>. Klikk på linken i eposten for å\n"
-"bekrefte denne handlingen.\n"
+"bekrefte påmeldingen.\n"
 
 msgid "Confirmation email sent"
-msgstr "Epost med bekreftelse er sendt"
+msgstr "Epost for bekreftelse av påmelding er sendt"
 
 msgid "In order to complete your operation"
-msgstr "Vennligst klikk på linkgen for å fullføre din handling på \"%1\":"
+msgstr "Vennligst klikk på linken for å melde deg på \"%1\":"
 
 msgid "<conf_id> confirmation"
-msgstr "%1 - bekreftelse"
+msgstr "%1 - deltagerbekreftelse"
 
 msgid "Registration"
 msgstr "Registrering"
@@ -215,7 +214,7 @@ msgid "Sorry, this conference is over."
 msgstr "Beklager, denne konferansen er over."
 
 msgid "Please create your user below."
-msgstr "Vennligst registrer ny brukerkonto; du kan gjøre dette nedenfor."
+msgstr "Vennligst registrer ny deltagerkonto; du kan gjøre dette nedenfor."
 
 msgid "Identifier is already in use. Please choose another."
 msgstr "Brukernavnet %1 er allerede i bruk; vennligst velg et annet."
@@ -236,7 +235,7 @@ msgid "You must enter a country from the list"
 msgstr "Du må velge et land fra listen"
 
 msgid "Accounts with similar information already exist."
-msgstr "Det finnes allerede en brukerkonto med liknende brukerinformasjon."
+msgstr "Det finnes allerede en deltagerkonto med liknende brukerinformasjon."
 
 msgid "A valid T-shirt size is required."
 msgstr "En gyldig t-skjortestørrelse er påkrevd."
@@ -244,47 +243,47 @@ msgstr "En gyldig t-skjortestørrelse er påkrevd."
 msgid "Use the links above to check if you are one of those."
 msgstr ""
 "Er du oppført i en av linkene ovenfor? I så fall kan du\n"
-"<a href=\"%1\">logge inn</a> med brukerkontoen du har allerede.\n"
+"<a href=\"%1\">logge inn</a> med deltagerkontoen du har allerede.\n"
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-"For å registrere deg må du først lage en brukerkonto.\n"
-"<b>Dersom du allerede har en brukerkonto fra en tidligere Act-konferanse,\n"
+"For å registrere deg må du først lage en deltagerkonto.\n"
+"<b>Dersom du allerede har en deltagerkonto fra en tidligere Act-konferanse,\n"
 "trenger du ikke å registrere deg på nytt, du kan\n"
-"<a href=\"%1\">logge inn</a> med den eksisterende brukerkontoen.</b>\n"
+"<a href=\"%1\">logge inn</a> med den eksisterende deltagerkontoen.</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
 "All personlig informasjon som legges inn her vil bli brukt for å lage\n"
-"en <a href=\"%1\">online oversikt</a> over alle deltakerene.\n"
+"en <a href=\"%1\">online oversikt</a> over alle deltagerne.\n"
 "Dette kan være nyttig etter konferansen, dersom du ønsker å komme i\n"
 "kontakt med folk du har møtt på konferansen, eller før konferansen for å\n"
-"finne ut hvilke kjendiser kommer.\n"
+"finne ut hvilke kjendiser som kommer.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
-"Etter at du har opprettet en brukerkonto, vil du ha muligheten til å bruke vår sikre betalingsløsning\n"
+"Etter at du har opprettet en deltagerkonto, vil du ha muligheten til å bruke vår sikre betalingsløsning\n"
 "for å kjøpe billetter til konferansen. Merk at all informasjon\n"
-"om din bankkonto og ditt kredittkort vil kun bli behandlet av banken.\n"
+"om din bankkonto og ditt kredittkort kun vil bli behandlet av banken.\n"
 
 msgid "We do not have access to your credit card information"
 msgstr ""
-"<b>Vi har tilgang til informasjon om ditt kredittkort\n"
+"<b>Vi har ikke tilgang til informasjon om ditt kredittkort\n"
 "underveis i betalingsprossessen.</b> Vi bare får\n"
 "pengene til slutt. <tt>;-)</tt>\n"
 
 msgid "Once you have an account, you'll be able to register free of charge"
 msgstr ""
-"Etter ad du har opprettet en brukerkonto, vil du ha muligheten til å bekrefte til deltagelse\n"
+"Etter at du har opprettet en deltagerkonto, vil du ha muligheten til å bekrefte til deltagelse\n"
 "på denne konferansen. Helt gratis."
 
 msgid "Please create the user below."
-msgstr "Vennligst opprett brukerkontoen nedenfor."
+msgstr "Vennligst opprett deltagerkontoen nedenfor."
 
 msgid "Use the links above to check if any of those users is the one you want to"
 msgstr ""
-"Bruk linkene ovenfor for å se om noen av brukerkontoene der er den du ønsker å\n"
-"opprette. Dersom du finner korrekt brukerkonto, kryss av ved denne\n"
+"Bruk linkene ovenfor for å se om noen av deltagerkontoene der er den du ønsker å\n"
+"opprette. Dersom du finner korrekt deltagerkonto, kryss av ved denne\n"
 "og send inn dette skjemaet.\n"
 
 msgid "Register"
@@ -305,7 +304,7 @@ msgid "Last Name"
 msgstr "Etternavn"
 
 msgid "T-Shirt"
-msgstr "T-skjorte"
+msgstr "T-skjortestørrelse"
 
 msgid "Join!"
 msgstr "Bli med!"
@@ -385,10 +384,10 @@ msgid "Edit profile"
 msgstr "Endre profil"
 
 msgid "New user"
-msgstr "Ny bruker"
+msgstr "Ny deltager"
 
 msgid "Users"
-msgstr "Brukere"
+msgstr "Deltagere"
 
 msgid "Search"
 msgstr "Søk"
@@ -400,7 +399,7 @@ msgid "CSV export"
 msgstr "Eksport av data i CSV-format"
 
 msgid "Register a new user"
-msgstr "Registrer en ny bruker"
+msgstr "Registrer en ny deltager"
 
 msgid "The schedule is not ready to be seen."
 msgstr "Tidsplanen er foreløpig ikke klar."
@@ -430,7 +429,7 @@ msgid "talk (link)"
 msgstr "Foredrag"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "Foredrag angitt i <b>fet</b> skrift er blitt bekreftet av foredragsholdere."
+msgstr "Foredrag angitt i <b>fet</b> skrift er blitt bekreftet av foredragsholder."
 
 msgid "Time"
 msgstr "Tidspunkt"
@@ -483,7 +482,7 @@ msgid "Administrator (rights management)"
 msgstr "Administrator (rettigheter)"
 
 msgid "User rights"
-msgstr "Brukerrettigheter"
+msgstr "Deltagerrettigheter"
 
 msgid "Amount"
 msgstr "Beløp"
@@ -513,7 +512,7 @@ msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
 msgstr "Ugyldig GPG-nøkkelidentifikator: 8 heksadesimale tegn skal oppgis"
 
 msgid "Salutation"
-msgstr "Hilsen"
+msgstr "Tittel"
 
 msgid "Nickname"
 msgstr "Kallenavn"
@@ -555,7 +554,7 @@ msgid "(<em>City.pm</em>, city name in English, please)"
 msgstr "(<em>By.pm</em>, vennligst skriv byens navn på engelsk)"
 
 msgid "Monger group URL"
-msgstr "URL Perl mongers-gruppen"
+msgstr "URL til Perl mongers-gruppen"
 
 msgid "VAT Number"
 msgstr "MVA-nummer"
@@ -585,11 +584,11 @@ msgstr ""
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
-"Bekreftede brukere er oppført i <b>fet</b> skrift (de har enten kjøpt\n"
+"Bekreftede deltagere er oppført i <b>fet</b> skrift (de har enten kjøpt\n"
 "billett eller vil holde foredrag).\n" 
 
 msgid "Search for users"
-msgstr "Søk etter brukere"
+msgstr "Søk etter deltagere"
 
 msgid "Search form"
 msgstr "Søkeskjema"
@@ -605,8 +604,8 @@ msgstr "Bildet kunne ikke bli lest. Vennligst last opp et bilde i et av følgend
 
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
-"Dette bildet vil trolig bli brukt på konferansens <i>deltakerliste</i>,\n"
-"slik at folk kan kjenne deg igjen, når de ønsker å finne ut hvem de\n"
+"Dette bildet vil trolig bli brukt på konferansens <i>deltagerliste</i>,\n"
+"slik at folk kan kjenne deg igjen når de ønsker å finne ut hvem de\n"
 "hadde en trivelig prat med på konferansen.<br />\n"
 "Tenk på dette når du velger et bilde for opplasting!\n"
 
@@ -618,7 +617,7 @@ msgstr "Oppdater bilde"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Noen, eller kanskje deg, har bedt om et nytt passord for deg.\n"
+"Noen, forhåpentligvis deg, har bedt om et nytt passord for din act-konto.\n"
 "For å lagge nytt passord, klikk følgende link:\n"
 
 msgid "If you have received this message without having requested it, it is"
@@ -638,7 +637,7 @@ msgstr ""
 "Du vil motta en epost med instruksjoner for hvordan du får et nytt passord.\n"
 
 msgid "No user was found with this login or email address"
-msgstr "Ingen bruker med dette brukernavnet eller epostadressen ble funnet"
+msgstr "Ingen deltager med dette brukernavnet eller epostadressen ble funnet"
 
 msgid "Specify your login or email address"
 msgstr "Oppgi ditt brukernavn eller din epostadresse"
@@ -647,35 +646,33 @@ msgid "Generate password"
 msgstr "Lag et nytt passord"
 
 msgid "<conf name> Statistics"
-msgstr "statistikk for %1"
+msgstr "Statistikk for %1"
 
 msgid "There are n registered people"
 msgstr ""
-"Det er %1 registrerte personer\n"
-"fra %quant(%2,land)\n"
-"og %quant(%3,mongers-gruppe, mongers-grupper).\n"
-"Det er %4 bekreftede brukere,\n"
-"det vil si brukere som enten har kjøpt billett til konferansen\n"
-"eller brukere som vil holde foredrag.\n"
+"Det er %1 registrerte deltagere\n"
+"fra %2 land (%quant(%3,mongers-gruppe, mongers-grupper)).\n"
+"Det er %4 bekreftede deltagere,\n"
+"det vil si deltagere som vil holde foredrag på konferansen eller som har kjøpt billett.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"Du kan ta en titt på statistikk over <a href=\"%1\">land/mongers-grupper</a>\n"
+"Vis statistikk over deltagere fra <a href=\"%1\">land og mongers-grupper</a>\n"
 "eller <a href=\"%2\">byer</a>.\n"
 
 msgid "The number of committed users is listed between parentheses"
 msgstr ""
-"Antall bekreftede brukere er angitt i parantes i den\n"
-"etterfølgende tabellen.\n"
+"Antall bekreftede deltagere er angitt i parantes i tabellen\n"
+"under.\n"
 
 msgid "Click on the various links to find the corresponding users!"
-msgstr "Klikk på de ulike linkene for å finne tilhørende brukere!"
+msgstr "Klikk på linkene for å finne tilhørende deltagere!"
 
 msgid "Note: the country total is not always equal to the city total."
 msgstr ""
 "Merk: summen for land er ikke nødvendigvis lik summen for byene.\n"
 "Byene kan være registrert på feil land.\n"
-"Legg skylden på brukerene!\n"
+"Legg skylden på deltagerene!\n"
 
 msgid "Cities"
 msgstr "Byer"
@@ -701,13 +698,13 @@ msgid "Unregister from <conference>"
 msgstr "Fjern registrering fra %1"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Send inn/endre en hendelse som ikke er et foredrag"
+msgstr "Send inn/endre en begivenhet som ikke er et foredrag"
 
 msgid "You must enter a title for the event"
-msgstr "Du må oppgi en tittel for hendelsen"
+msgstr "Du må oppgi en tittel for begivenheten"
 
 msgid "You must enter a short description for the event"
-msgstr "Du må oppgi en kort beskrivelse for hendelsen"
+msgstr "Du må oppgi en kort beskrivelse for begivenheten"
 
 msgid "Please choose a duration"
 msgstr "Vennligst velg varighet"
@@ -722,7 +719,7 @@ msgid "The date/time is out of range"
 msgstr "Dato eller klokkeslett er utenfor gyldig intervall"
 
 msgid "Event URL is not a valid URL"
-msgstr "URL-en til hendelsen er ikke gyldig"
+msgstr "URL-en til begivenheten er ikke gyldig"
 
 msgid "Incorrect room submitted"
 msgstr "Feil rom sendt inn"
@@ -734,7 +731,7 @@ msgid "View"
 msgstr "Vis"
 
 msgid "Delete this event"
-msgstr "Slett denne hendelsen"
+msgstr "Slett denne begivenheten"
 
 msgid "Title"
 msgstr "Tittel"
@@ -755,30 +752,30 @@ msgid "External URL"
 msgstr "Ekstern URL"
 
 msgid "Submit this event"
-msgstr "Send inn denne hendelsen"
+msgstr "Send inn denne begivenheten"
 
 msgid "Event submitted"
-msgstr "Hendelse er sendt inn"
+msgstr "Begivenheten er sendt inn"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Takk, denne hendelsen har blitt lagt inn som\n"
+"Takk, denne begivenheten en har blitt lagt inn som\n"
 "<b><a href=\"%1\">%2</a></b>.\n"
 
 msgid "List of events"
-msgstr "Oversikt over hendelser"
+msgstr "Oversikt over begivenheter"
 
 msgid "No event was submitted yet."
-msgstr "Ingen hendelse sendt inn ennå"
+msgstr "Ingen begivenhet sendt inn ennå"
 
 msgid "Event title"
-msgstr "Tittel for hendelsen"
+msgstr "Tittel for begivenheten"
 
 msgid "Event removed"
-msgstr "Hendelse fjernet"
+msgstr "Begivenheten er fjernet"
 
 msgid "The event has been removed."
-msgstr "Hendelsen <b>%1</b> har blitt fjernet."
+msgstr "Begivenheten <b>%1</b> har blitt fjernet."
 
 msgid "Date:"
 msgstr "Dato:"
@@ -867,7 +864,6 @@ msgid "Wiki help"
 msgstr "Wiki-hjelp"
 
 msgid "<wiki help text>"
-
 msgstr ""
 "<h2>Tegnformatering</h2>\n"
 "<ul>\n"
@@ -953,7 +949,7 @@ msgid "Administrative tasks"
 msgstr "Administrative oppgaver"
 
 msgid "Talks & events"
-msgstr "Foredrag &amp; hendelser"
+msgstr "Foredrag &amp; begivenheter"
 
 msgid "Credit card payment"
 msgstr "Betaling med kredittkort"
@@ -965,10 +961,10 @@ msgid "Editing payment"
 msgstr "Endre betaling"
 
 msgid "User"
-msgstr "Bruker"
+msgstr "Deltager"
 
 msgid "Payment means"
-msgstr "Betaling betyr"
+msgstr "Betalingstype"
 
 msgid "or"
 msgstr "eller"
@@ -1234,10 +1230,10 @@ msgid "Published"
 msgstr "Publisert"
 
 msgid "Create a new item"
-msgstr "Opprett et nytt element"
+msgstr "Opprett nyhet"
 
 msgid "Edit a news item"
-msgstr "Endre et nyhetselement"
+msgstr "Endre en nyhet"
 
 msgid "You must enter a title"
 msgstr "Du må oppgi en tittel"
@@ -1299,7 +1295,7 @@ msgstr "Skriv inn ditt nye passord to ganger"
 msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
 "En epost er blitt sendt til deg. Klikk på linken i denne eposten for\n"
-"å få tilgang til din brukerkontoen, hvor du kan velge et nytt passord.\n"
+"å få tilgang til din deltagerkonto, hvor du kan sette et nytt passord.\n"
 
 msgid "Tags"
 msgstr "Tagger"
