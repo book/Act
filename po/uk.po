@@ -4,3 +4,1362 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "payment_means_CHQ"
+msgstr "Чек"
+
+msgid "payment_means_CASH"
+msgstr "Готівка"
+
+msgid "payment_means_ONLINE"
+msgstr "Онлайн"
+
+msgid "payment_means_XFER"
+msgstr "Перевод"
+
+msgid "payment_means_FREE"
+msgstr "Безкоштовно"
+
+msgid "room_out"
+msgstr "Зовні"
+
+msgid "room_venue"
+msgstr "Приміщення"
+
+msgid "salutation_1"
+msgstr "Пан"
+
+msgid "salutation_2"
+msgstr "Пані"
+
+msgid "salutation_3"
+msgstr "Мисс"
+
+msgid "salutation_4"
+msgstr "Д-р"
+
+msgid "User information"
+msgstr "Інформація про користувача"
+
+msgid "Login"
+msgstr "Логін"
+
+msgid "Name"
+msgstr "Им'я"
+
+msgid "City"
+msgstr "Місто"
+
+msgid "Country"
+msgstr "Країна"
+
+msgid "Perl mongers group"
+msgstr "PM-група"
+
+msgid "Company"
+msgstr "Компанія"
+
+msgid "Email"
+msgstr "Електронна пошта"
+
+msgid "Web page"
+msgstr "Сайт"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "ID GPG-ключа"
+
+msgid "No photo"
+msgstr "Немає фото"
+
+msgid "Talk"
+msgstr "%numerate(%1,доповідь,доповіді,доповідей)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,прийнята доповідь,прийняті доповіді,принятих доповідей)"
+
+msgid "minutes"
+msgstr "хвилин"
+
+msgid "Lightning talk"
+msgstr "Блиц-доповідь"
+
+msgid "Bio"
+msgstr "Про себе"
+
+msgid "Other Act conferences:"
+msgstr "Інші конференції Act:"
+
+msgid "Main private page"
+msgstr "Особистий кабінет"
+
+msgid "to <this conference>"
+msgstr "на «%1»."
+
+msgid "This is your personal page."
+msgstr ""
+"Це ваш Особистий кабінет.\n"
+"Тут зібрані усі налаштування та дані, пов'язані з вашою участю\n"
+
+msgid "to Act-enabled conferences."
+msgstr "на конференціях с Act-сайтом."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Придбано квиток на конференцію:"
+
+msgid "Order number"
+msgstr "Порядковий номер"
+
+msgid "Payment date"
+msgstr "Дата платежу"
+
+msgid "Amount paid"
+msgstr "Розмір платежу"
+
+msgid "Download your invoice"
+msgstr "Скачати <a href=\"%1\">рахунок</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Квиток на конференцію ще не придбано."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Ви можете скористатися нашою платіжною онлайновою системою."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Будь ласка, скористайтеся нашою платіжною системою, тільки но вона буде готова."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Ви ще не підтвердили свою участь на цій конференції."
+
+msgid "You did not register for this conference"
+msgstr ""
+"Ви не <a href=\"%1\">зареєстровані на цій конференції</a>.\n"
+"Будь ласка, зареєструйтеся, якщо ви плануєте завітати на конференцію чи\n"
+"зробити доповідь.\n"
+
+msgid "You can:"
+msgstr "Можливості:"
+
+msgid "purchase your conference ticket"
+msgstr "придбання квитка на конференцію"
+
+msgid "confirm your participation"
+msgstr "підтвердження участі"
+
+msgid "register for this conference"
+msgstr "реєстрація на конференції"
+
+msgid "update your information"
+msgstr "оновлення інформації"
+
+msgid "manage your photo"
+msgstr "завантаження фотографії"
+
+msgid "change your password"
+msgstr "зміна паролю"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "ваші виступи (схвалені виділені <b>жирним шрифтом</b>)"
+
+msgid "submit a talk"
+msgstr "заявка на виступ"
+
+msgid "log out"
+msgstr "вихід"
+
+msgid "unregister from <this conference>"
+msgstr "видалити реєстрацію %1"
+
+msgid "(You were there)"
+msgstr "(Ви тут були)"
+
+msgid "(You are there)"
+msgstr "(Ви там)"
+
+msgid "(You will be there)"
+msgstr "(Ви там будете)"
+
+msgid "Confirmation required"
+msgstr "Вимагає підтвердження"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Ця операція вимагає підтвердження. Будь ласка, вкажіть адресу своєї електронної\n"
+"пошти, і ви отримаєте лист з посиланням для підтвердження.\n"
+
+msgid "You must enter your email"
+msgstr "Потрібно вказати електронну пошту"
+
+msgid "Your email address looks bogus."
+msgstr "Адреса електронної пошти виглядає дивно."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"Електронний лист надіслано на адресу <b>%1</b>. Перейдіть за посиланням у листі, \n"
+"щоб завершити операцію.\n"
+
+msgid "Confirmation email sent"
+msgstr "Підтверджуючий лист надіслано"
+
+msgid "In order to complete your operation"
+msgstr "Для того, щоб завершити операцію «%1», будь-ласка, перейдіть за посиланням:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 — підтвердження"
+
+msgid "Registration"
+msgstr "Реєстрація"
+
+msgid "Sorry, this conference is over."
+msgstr "На жаль, конференція вже закінчена."
+
+msgid "Please create your user below."
+msgstr "Будь-ласка, створіть користувача."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "%1 вже зайнятий. Будь ласка, виберіть інший."
+
+msgid "The address is already registered."
+msgstr "Адреса %1 вже зареєстрована."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Ваш ідентифікатор повинен складатися як мінімум з трьох символів і містити тільки латинські букви та цифри (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Необхідно ввести ім'я"
+
+msgid "You must enter your last name"
+msgstr "Необхідно вказати прізвище"
+
+msgid "You must enter a country from the list"
+msgstr "Ви повинні вибрати країну зі списку"
+
+msgid "Accounts with similar information already exist."
+msgstr "Вже існують облікові записи зі схожою інформацією."
+
+msgid "A valid T-shirt size is required."
+msgstr "Необхідно вказати розмір футболки."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Перегляньте посилання вище і пошукайте там себе. Якщо знайшли, просто \n"
+"<a href=\"%1\">заходьте</a>, використовуючи ваш існуючий обліковий запис. \n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Для реєстрації необхідно спочатку створити обліковий запис на сайті.\n"
+"<b>Якщо ви вже реєструвалися на попередніх конференціях Act,\n"
+"реєструватися заново не потрібно, просто,\n"
+"будь ласка, <a href=\"%1\">увійдіть</a>, використовуючи свої реєстраційні дані.</b> \n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Особисті дані, які ми збираємо, будуть використовуватися\n"
+"всіма учасниками у <a href=\"%1\">онлайн-каталозі <i>Хто є хто</i></ a>.\n"
+"Це може знадобитися, якщо після закінчення конференції ви захочете зв'язатися\n"
+"з кимось, з ким познайомилися під час її проведення. Або, навпаки,\n"
+"коли <i>до</i> початку заходу ви захочете дізнатися, хто з гуру там буде.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Як тільки ви створите обліковий запис, ви зможете скористатися нашою\n"
+"захищеною платіжною системою для того, щоб придбати квиток на конференцію. Зверніть\n"
+"увагу, що всі дані по вашому банківському рахунку та номер кредитної картки\n"
+"обробляє безпосередньо банк.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>У нас немає доступу до даних про вашу кредитну картку — ні до, ні під час,\n"
+"ні після оплати.</b> Ми просто отримаємо гроші. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Як тільки ви створите обліковий запис, ви зможете подтвердити свою участь\n"
+"на цій конференції безкоштовно."
+
+msgid "Please create the user below."
+msgstr "Будь-ласка, створіть користувача."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Перевірте посилання вище - можливо, серед них є запис, який ви бажаєте\n"
+"створити. Якщо такий запис є, просто виберіть відповідну радіокнопку\n"
+"та надішліть форму.\n"
+
+msgid "Register"
+msgstr "Реєстрація"
+
+msgid "Registered!"
+msgstr "Зареєстровано!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Вітаємо, <b>%1</b>, ви зареєстровані.\n"
+"Ваш пароль: <b>%2</b>.\n"
+
+msgid "First Name"
+msgstr "Ім'я"
+
+msgid "Last Name"
+msgstr "Прізвище"
+
+msgid "T-Shirt"
+msgstr "Розмір футболки"
+
+msgid "Join!"
+msgstr "Приєднатися!"
+
+msgid "edit"
+msgstr "редагування"
+
+msgid "min"
+msgstr "хв."
+
+msgid "Log in"
+msgstr "Логін"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Submit"
+msgstr "Відправити"
+
+msgid "Forgot your password?"
+msgstr "<a href=\"%1\">Нагадування пароля</a>"
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Сайт використовує кукі для авторизації користувачів. Можливо, вам буде потрібно\n"
+"змінити настройки браузера, щоб він міг приймати кукі з домену <b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "Невірний логін або пароль"
+
+msgid "Logout"
+msgstr "Вихід"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Ви вийшли з користувальницького режиму, і браузер видалив кукі."
+
+msgid "Other conferences"
+msgstr "Інші конференції"
+
+msgid "Admin"
+msgstr "Адміністрування"
+
+msgid "Rights management"
+msgstr "Управління правами"
+
+msgid "Events"
+msgstr "Події"
+
+msgid "Submit a new event"
+msgstr "Новий запис"
+
+msgid "Schedule"
+msgstr "Розклад"
+
+msgid "iCal export"
+msgstr "Експорт iCal"
+
+msgid "iCal import"
+msgstr "Імпорт iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Подача заявки на виступ"
+
+msgid "Presentations"
+msgstr "Презентації"
+
+msgid "Treasurer"
+msgstr "Бухгалтер"
+
+msgid "Payments"
+msgstr "Оплата"
+
+msgid "Payment Details"
+msgstr "Деталі платежу"
+
+msgid "Edit profile"
+msgstr "Редагування профілю"
+
+msgid "New user"
+msgstr "Новий користувач"
+
+msgid "Users"
+msgstr "Користувачі"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "CSV export"
+msgstr "Експорт CSV"
+
+msgid "Register a new user"
+msgstr "Реєстрація нового користувача"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Розклад ще не складено."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Час і місце наступних виступів ще не визначено."
+
+msgid "Speaker"
+msgstr "Доповідач"
+
+msgid "Talk title"
+msgstr "Назва виступу"
+
+msgid "Duration"
+msgstr "Тривалість"
+
+msgid "Target audience"
+msgstr "Цільова аудиторія"
+
+msgid "Target audience:"
+msgstr "Цільова аудиторія:"
+
+msgid "abstract (link)"
+msgstr "анотація"
+
+msgid "talk (link)"
+msgstr "зміст"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Промови, виділені <b>жирним</b>, підтверджені їх авторами."
+
+msgid "Time"
+msgstr "Час"
+
+msgid "Price"
+msgstr "Ціна"
+
+msgid "Donation"
+msgstr "Пожертва"
+
+msgid "Buy now!"
+msgstr "Купити!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Зверніть увагу на те, що всі дані про вашому банківському рахунку і номер кредитної\n"
+"карти обробляється банком. <b>У нас немає доступу до цієї інформації навіть під час\n"
+"проведення платежу.</b> Ми всього лише отримаємо гроші в підсумку. <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Оскільки загальна сума цього замовлення нульова, нічого сплачувати не потрібно. Замовлення оформлено"
+
+msgid "Online payment"
+msgstr "Онлайн-картку"
+
+msgid "Online payment (zero)"
+msgstr "Безкоштовно"
+
+msgid "Join"
+msgstr "Приєднатися"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Для реєстрації на конференції «%1»,\n"
+"просто натисніть кнопку нижче.\n"
+
+msgid "The recognised rights are:"
+msgstr "Доступні наступні права:"
+
+msgid "Organizer"
+msgstr "Організатор"
+
+msgid "Organizer (talks management)"
+msgstr "Організатор (управління виступами)"
+
+msgid "Treasurer (payment management)"
+msgstr "Бухгалтер (управління оплатою)"
+
+msgid "Administrator (rights management)"
+msgstr "Адміністратор (управління правами)"
+
+msgid "User rights"
+msgstr "Права користувача"
+
+msgid "Amount"
+msgstr "Сума"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Псевдонім не повинен бути порожнім"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Назва групи перл-монгеров повинно закінчуватися на <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "Адреса групи перл-монгеров повинен починатися з http://"
+
+msgid "The company URL must start with http://"
+msgstr "Адреса веб-сайту компанії повинен починатися з http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "Адреса вашого сайту повинен починатися з http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Ваш perlmonks-ідентифікатор має бути числом"
+
+msgid "Number of family members attending must be a number"
+msgstr "Кількість членів родини, які відвідують захід, має бути числом"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Невірний ID GPG-ключа; потрібні 8 шестнадцатерічних цифр"
+
+msgid "Salutation"
+msgstr "Звернення"
+
+msgid "Nickname"
+msgstr "Нік"
+
+msgid "Stay pseudonymous"
+msgstr "Приховуватись за псевдонімом"
+
+msgid "Yes"
+msgstr "Так"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Hide email"
+msgstr "Сховати електронну пошту"
+
+msgid "Coming with"
+msgstr "Іду разом з"
+
+msgid "6 or more"
+msgstr "6 або більше"
+
+msgid "people (who will not attend the conference)"
+msgstr "людьми (які не відвідують конференцію)"
+
+msgid "T-shirt size"
+msgstr "Розмір футбоілкі"
+
+msgid "Full address"
+msgstr "Повна адреса"
+
+msgid "Timezone"
+msgstr "Тимчасова зона"
+
+msgid "Monger group"
+msgstr "PM-група"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>City.pm</em>, назву міста по-англійському)"
+
+msgid "Monger group URL"
+msgstr "Адреса сайту PM-групи"
+
+msgid "VAT Number"
+msgstr "ІПН"
+
+msgid "Company URL"
+msgstr "Адреса веб-сайту компанії"
+
+msgid "GPG public key ID"
+msgstr "ID публічного GPG-ключа"
+
+msgid "(please fill at least this one)"
+msgstr "(будь ласка, заповніть хоча б це)"
+
+msgid "Update info"
+msgstr "Оновити дані"
+
+msgid "Your information"
+msgstr "Ваші дані"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Зараз перебуває в режимі емуляції. У реальних умовах відправлення цієї форми\n"
+"перенаправіт браузер на сайт платіжної системи, де буде необхідно\n"
+"ввести дані вашої кредитної картки.<br /> <br />\n"
+"Натисніть кнопку, щоб здійснити емуляцію платежу.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Користувачі, які допущені до участі, виділені <b>жирним шрифтом</b> (вони\n"
+"або купили квиток (якщо це потрібно), або роблять доповідь).\n"
+
+msgid "Search for users"
+msgstr "Пошук користувачів"
+
+msgid "Search form"
+msgstr "Пошук"
+
+msgid "Any"
+msgstr "Усі"
+
+msgid "Your photo"
+msgstr "Ваша фотографія"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Картинка бита. Будь ласка, завантажте фотографію в одному з таких форматів:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Фотографія, швидше за все, потрапить в розділ <i>Хто є хто</i>,\n"
+"щоб люди могли впізнати вас, коли захочуть з'ясувати, з ким вони приємно\n"
+"поспілкувались, коли знову зустрінуть вас на конференції.<br />\n"
+"Пам'ятайте про це, розміщуючи фотографію!\n"
+
+msgid "Delete Photo"
+msgstr "Видалити фото"
+
+msgid "Update Photo"
+msgstr "Оновити фото"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Хтось, можливо ви, запросив зміну вашого пароля.\n"
+"Для того, щоб завершити операцію, натисніть на посилання нижче:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Якщо ви отримали цей лист, але не просили про зміну паролю,\n"
+"значить хтось намагається використовувати ваш псевдонім або адресу електронної пошти.\n"
+"Швидше за все, це сталося через помилку. У будь-якому випадку ваш пароль не потрапить\n"
+"в чужі руки, тому можете не хвилюватися і проігнорувати цей лист.\n"
+
+msgid "Reset Password"
+msgstr "Змінити пароль"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Будь ласка, вкажіть ваш <b>логін</b> або <b>адресу електронної пошти</b>.\n"
+"Ви отримаєте лист з інструкціями по зміні паролю.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "З таким іменем або адресою користувачів не знайдено"
+
+msgid "Specify your login or email address"
+msgstr "Будь ласка, вкажіть логін або адресу електронної пошти"
+
+msgid "Generate password"
+msgstr "Згенерувати пароль"
+
+msgid "<conf name> Statistics"
+msgstr "Статистика %1"
+
+msgid "There are n registered people"
+msgstr ""
+"%numerate (%1, Зареєстровано, Зарєєстровано, Зареєстровано) %1 %numerate (%1, учасник, учасника, учасників)\n"
+"з %2 %numerate (%2, країн, країн, країн)\n"
+"і %3 %numerate (%3, PM-групи, PM-груп, PM-груп).\n"
+"Участь %4 %numerate (%4, людину, людина, людина) підтверджені,\n"
+"іншими словами, ці люди або оплатили свою участь (якщо це було потрібно),\n"
+"або роблять доповідь.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Подивіться на статистику <a href=\"%1\">по странам и PM-групам</a>\n"
+"або <a href=\"%2\">по містах</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"Кількість схвалених користувачів показано в таблиці у дужках.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Переходьте по посиланнях, щоб подивитися інформацію про учасників."
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Примітка: загальна кількість країн не обов'язково збігається з кількістю міст.\n"
+"А міста можуть бути записані у неправильні країни.\n"
+"У невідповідності винні самі учасники :-)\n"
+
+msgid "Cities"
+msgstr "Міста"
+
+msgid "No city information entered"
+msgstr "Немає інформації про містах"
+
+msgid "Countries"
+msgstr "Країни"
+
+msgid "Monger groups"
+msgstr "PM-групи"
+
+msgid "Un-Registration"
+msgstr "Видалити реєстрацію"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Для того, щоб скасувати реєстрацію на %1,\n"
+"просто натисніть на кнопку нижче.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Скасувати реєстрацію на %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Додати або редагувати не-доповідь"
+
+msgid "You must enter a title for the event"
+msgstr "Потрібно ввести назву події"
+
+msgid "You must enter a short description for the event"
+msgstr "Необхідно коротко описати подію"
+
+msgid "Please choose a duration"
+msgstr "Будь ласка, вкажіть тривалість"
+
+msgid "The supplied date is invalid"
+msgstr "Вказана неправильна дата"
+
+msgid "The supplied time is invalid"
+msgstr "Зазначено невірний час"
+
+msgid "The date/time is out of range"
+msgstr "Дата і час поза припустимого діапазону"
+
+msgid "Event URL is not a valid URL"
+msgstr "Неправильне посилання на подію"
+
+msgid "Incorrect room submitted"
+msgstr "Вибрано невірне приміщення"
+
+msgid "Please choose a target audience"
+msgstr "Будь ласка, вкажіть цільову аудиторію"
+
+msgid "View"
+msgstr "Перегляд"
+
+msgid "Delete this event"
+msgstr "Видалити цю подію"
+
+msgid "Title"
+msgstr "Назва"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Room"
+msgstr "Приміщення"
+
+msgid "Abstract"
+msgstr "Анотація"
+
+msgid "(plain text)"
+msgstr "(простий текст)"
+
+msgid "External URL"
+msgstr "Зовнішня адреса"
+
+msgid "Submit this event"
+msgstr "Додати подію"
+
+msgid "Event submitted"
+msgstr "Подію додано"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Спасибі, подію збережено:\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Список подій"
+
+msgid "No event was submitted yet."
+msgstr "Ще не додано ні однієї події."
+
+msgid "Event title"
+msgstr "Назва події"
+
+msgid "Event removed"
+msgstr "Подію вилучено"
+
+msgid "The event has been removed."
+msgstr "Подію <b>%1</b> було знищено."
+
+msgid "Date:"
+msgstr "Дата:"
+
+msgid "Not scheduled yet."
+msgstr "Розкладу ще немає."
+
+msgid "Duration:"
+msgstr "Тривалість:"
+
+msgid "You can find more information on the following site:"
+msgstr "Подробиці дивіться на сайті:"
+
+msgid "Wiki - editing <node>"
+msgstr "Віки — редагування %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Хтось вніс зміни до цього вузла під час вашого редагування.\n"
+"Вам буде потрібно вручну об'єднати зміни в новій версії.\n"
+
+msgid "Current node contents:"
+msgstr "Зміст поточного вузла:"
+
+msgid "Help"
+msgstr "Довідка"
+
+msgid "Preview"
+msgstr "Переглянути"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Your proposed revision:"
+msgstr "Ваша ревізія:"
+
+msgid "Wiki - <node> History"
+msgstr "Віки — історія %1"
+
+msgid "Version"
+msgstr "Версія"
+
+msgid "Modified on"
+msgstr "Змінено"
+
+msgid "By"
+msgstr "Автор:"
+
+msgid "Wiki - <node>"
+msgstr "Віки — %1"
+
+msgid "version"
+msgstr "версія"
+
+msgid "saved on"
+msgstr "збережено"
+
+msgid "Last modified:"
+msgstr "Останні зміни:"
+
+msgid "by"
+msgstr "автор:"
+
+msgid "new page"
+msgstr "нова сторінка"
+
+msgid "Home"
+msgstr "На початок"
+
+msgid "Revert to this version"
+msgstr "Відкинути до цієї версії"
+
+msgid "Edit this page"
+msgstr "Редагування сторінки"
+
+msgid "Delete this page"
+msgstr "Видалення цієї сторінки"
+
+msgid "Recent changes"
+msgstr "Останні зміни"
+
+msgid "History"
+msgstr "Історія"
+
+msgid "Wiki help"
+msgstr "Довідка з вікі"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Форматування символів</h2>\n"
+"<ul>\n"
+"<li>Те, що оточено трьома поодинокими лапками, буде виділено <b>жирним</b>.</li>\n"
+"<li>Те, що оточено двома поодинокими лапками, буде виділено <i>курсивом</i>.</li>\n"
+"<li>Будь-яке слово, в якому є кілька заголовних букв (наприклад, StudlyCaps), стане посиланням.</li>\n"
+"</ul>\n"
+"<h2>Форматування абзаців</h2>\n"
+"<ul>\n"
+"<li>Чотири або більше дефісов на початку рядка створюють гонізонтальную лінію.</li>\n"
+"<li>Переклади строк перетворюються у відповідні теги.</li>\n"
+"<li>Текст заголовків повинен бути оточений знаками рівності. Чим більше знаків, тим глибше рівень заголовку.</li>\n"
+"</ul>\n"
+"<h2>Списки</h2>\n"
+"<ul>\n"
+"<li>Списки — це текст з відступом; по одному символу табуляції або по чотири пропуск на один рівень.</li>\n"
+"<li>В ненумерованних списках перед текстом повинні стояти зірочка і пробіл.</li>\n"
+"<li>Нумерованние списки складаються з елементів, позначених однієї або більше літерами\n"
+"або цифрами, за якими стоїть точка і необов'язковий пробіл.</li>\n"
+"<li>Списки можуть бути вкладеними.</li>\n"
+"</ul>\n"
+"<h2>Код</h2>\n"
+"<ul>\n"
+"<li>Будь-який текст з відступом без будь-яких позначок копіюється буквально.</li>\n"
+"</ul>\n"
+"<h2>Приклад</h2>\n"
+"\n"
+"Далі показаний допустимий фрагмент з вікі-форматуванням, що містить зовнішнє посилання.\n"
+"<pre>\n"
+"\n"
+"= Мій цікавий текст =\n"
+"\n"
+"ЗвичайнеПосилання\n"
+"[ЗовнішнєПосилання | нехай завжди буде Сонце]\n"
+"[User: id]\n"
+"[User: nick_name]\n"
+"[User: first_name last_name]\n"
+"[Talk: id]\n"
+"[Page: index.html | conference index]\n"
+"[Image: images / logo.png | conference logo]\n"
+"\n"
+"== Мої цікаві списки ==\n"
+"\n"
+"* Ненумерованний пункт 1\n"
+"* Ненумерованний пункт 2\n"
+"\n"
+"1. Перший нумерований\n"
+"2. Другий нумерований\n"
+"A. вкладений перший\n"
+"B. вкладений другий\n"
+"\n"
+"Це код\n"
+"Це теж код\n"
+"\n"
+"Перший рядок звичайного абзацу.\n"
+"Другий рядок звичайного абзацу. Ги.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Віки — Останні зміни"
+
+msgid "Page"
+msgstr "Сторінка"
+
+msgid "Changes in last"
+msgstr "Зміни, внесені за останні"
+
+msgid "<n> day(s)"
+msgstr "%1 %numerate (%1, день, дня, днів)"
+
+msgid "<n> week(s)"
+msgstr "%1 %numerate (%1, тиждень, тижня, тижня)"
+
+msgid "<n> month(s)"
+msgstr "%1 %numerate (%1, місяць, місяця, місяців)"
+
+msgid "Wiki tags"
+msgstr "Теги вікі"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Сторінки вікі, позначені тегом «%1»"
+
+msgid "Administrative tasks"
+msgstr "Адміністративні завдання"
+
+msgid "Talks & events"
+msgstr "Виступи та події"
+
+msgid "Credit card payment"
+msgstr "Оплата кредитною карткою"
+
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "Editing payment"
+msgstr "Редагування платежу"
+
+msgid "User"
+msgstr "Користувач"
+
+msgid "Payment means"
+msgstr "Платіжні засоби"
+
+msgid "or"
+msgstr "або"
+
+msgid "Update"
+msgstr "Оновити"
+
+msgid "speaker"
+msgstr "доповідач"
+
+msgid "Total"
+msgstr "Всього"
+
+msgid "Payment confirmation"
+msgstr "Підтвердження платежаа"
+
+msgid "<conf> online payment"
+msgstr ""
+"Ваш онлайновий платіж за реєстрацію на конференції «%1» підтверджено.\n"
+"\ n"
+"Номер вашого замовлення: %2\n"
+"Дата платежу: %3 GMT\n"
+"Сума платежу: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "Рахунок №"
+
+msgid "Dated"
+msgstr "Дата"
+
+msgid "Printed on"
+msgstr "Надруковано"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Quantity"
+msgstr "Кількість"
+
+msgid "Unit Price"
+msgstr "Платіжна одиниця"
+
+msgid "<conf> registration"
+msgstr "Реєстрація на %1"
+
+msgid "Your order number:"
+msgstr "Номер вашого замовлення:"
+
+msgid "Total due"
+msgstr "Всього"
+
+msgid "Invoice"
+msgstr "Рахунок"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Роздрукуйте цю сторінку (надрукована тільки рахунок)."
+
+msgid "Printer friendly version"
+msgstr "Версія для друку"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Виставляння рахунку потребує вашої адреси."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Будь ласка, переконайтеся, що білінгова інформація вірна."
+
+msgid "Address"
+msgstr "Адреса"
+
+msgid "I confirm"
+msgstr "Я підтверджую"
+
+msgid "Submit/Edit a talk"
+msgstr "Додати або редагувати виступ"
+
+msgid "You must specify a user"
+msgstr "Ви повинні вказати користувача"
+
+msgid "You must enter a title for the talk"
+msgstr "У виступі має бути назва"
+
+msgid "You must provide an abstract"
+msgstr "Будь ласка, вкажіть анотацію"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "Неправильна адреса анотації"
+
+msgid "Talk URL is not a valid URL"
+msgstr "Неправильна адреса доповіді"
+
+msgid "Incorrect language"
+msgstr "Невірна мова"
+
+msgid "Delete this talk"
+msgstr "Видалити цей виступ"
+
+msgid "Track"
+msgstr "Трек"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Language:"
+msgstr "Мова:"
+
+msgid "Abstract URL"
+msgstr "Посилання на анотацію"
+
+msgid "Talk URL"
+msgstr "Посилання на виступ"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Стандартна тривалість на %1:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Якщо запропоновані тривалості не підходять для вашого виступу,\n"
+"будь-ласка, позначте у полі коментаря, скільки часу вам буде потрібно.\n"
+
+msgid "Comments"
+msgstr "Коментарі"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"Впишіть в це поле коментарі про свій виступ, що ви бажаєте\n"
+"повідомити організаторам.\n"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "accepted"
+msgstr "прийнято"
+
+msgid "confirmed"
+msgstr "підтверджено"
+
+msgid "Accepted"
+msgstr "Отримано"
+
+msgid "Pending"
+msgstr "Чекає обробки"
+
+msgid "Submit this talk"
+msgstr "Подати заявку на виступ"
+
+msgid "Talk submitted"
+msgstr "Заявка подана"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Дякуємо за те, ваша заявка на виступ записана: <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "Імпорт iCal"
+
+msgid "The following talks have been updated:"
+msgstr "Оновлені наступні виступу:"
+
+msgid "Old time"
+msgstr "Старий час"
+
+msgid "New time"
+msgstr "Новий час"
+
+msgid "title"
+msgstr "назва"
+
+msgid "Upload an iCal file"
+msgstr "Завантажити файл для iCal"
+
+msgid "Import"
+msgstr "Імпорт"
+
+msgid "List of talks"
+msgstr "Список доповідей"
+
+msgid "List of talks tagged <tag>"
+msgstr "Список доповідей з тегом «%1»"
+
+msgid "No talk was submitted yet."
+msgstr "Ще не зареєстровано ні одного виступу."
+
+msgid "Submitted talks:"
+msgstr "Подані доповіді:"
+
+msgid "Accepted talks:"
+msgstr "Прийняті доповіді:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Одобренние доповіді виділені <b>жирним шрифтом</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Загальна тривалість виступів:"
+
+msgid "hours"
+msgstr "ч"
+
+msgid "Accepted lightning talks:"
+msgstr "Одобренние блиц-струми:"
+
+msgid "Tracks"
+msgstr "Треки"
+
+msgid "No track"
+msgstr "Трек немає"
+
+msgid "lightning"
+msgstr "блиц"
+
+msgid "from"
+msgstr "з"
+
+msgid "Comment:"
+msgstr "Коментар:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Більш детальна інформація — на сайті доповідача:"
+
+msgid "Abstract:"
+msgstr "Анотація:"
+
+msgid "Talk:"
+msgstr "Доповідь:"
+
+msgid "Talk removed"
+msgstr "Доповідь було знищено"
+
+msgid "The Talk <title> has been removed."
+msgstr "Доповідь <b>%1</b> було знищено."
+
+msgid "Talk inserted"
+msgstr "Доповідь вставлено"
+
+msgid "Talk updated"
+msgstr "Доповідь було поновлено"
+
+msgid "Submitted by:"
+msgstr "Розміщено:"
+
+msgid "The following fields have been updated:"
+msgstr "Оновлені наступні поля:"
+
+msgid "By:"
+msgstr "Автор:"
+
+msgid "Remember me on this computer"
+msgstr "Запам'ятати мене на цьому комп'ютері"
+
+msgid "Billing"
+msgstr "Біллінг"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Наступну заявку схвалено. Будь ласка, перейдіть за посиланням нижче,\n"
+"визначте там відповідний чекбокс, щоб підтвердити свій виступ\n"
+"та збережіть запис про нього."
+
+msgid "News"
+msgstr "Новини"
+
+msgid "News Administration"
+msgstr "Адміністрування новин"
+
+msgid "Published"
+msgstr "Опубіковано"
+
+msgid "Create a new item"
+msgstr "Створити новий елемент"
+
+msgid "Edit a news item"
+msgstr "Редагувати новий елемент"
+
+msgid "You must enter a title"
+msgstr "Потрібно ввести назву"
+
+msgid "You must enter some text"
+msgstr "Потрібно написати хоч якийсь текст"
+
+msgid "Delete this item"
+msgstr "Видалити цей елемент"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "No news yet!"
+msgstr "Новин ще немає."
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Для форматування тексту використовуйте HTML. Текст, розділений пустими рядками, перетвориться в окремі абзаци"
+
+msgid "Add a new track"
+msgstr "Додати новий трек"
+
+msgid "Create/Edit a track"
+msgstr "Створити або редагувати трек"
+
+msgid "Delete this track"
+msgstr "Видалити цей трек"
+
+msgid "Submit this track"
+msgstr "Додати цей трек"
+
+msgid "You must enter a title for the track"
+msgstr "Потрібно ввести назву для треку"
+
+msgid "n talks"
+msgstr "%quant (%1, виступ, виступу)"
+
+msgid "n accepted"
+msgstr "%quant (%1, прийнято)"
+
+msgid "n confirmed"
+msgstr "%quant (%1, підтверджено, підтверджені)"
+
+msgid "Change Password"
+msgstr "Зміна пароля"
+
+msgid "Please type in your new password"
+msgstr "Будь ласка, вкажіть новий пароль"
+
+msgid "Passwords don't match"
+msgstr "Паролі не співпадають"
+
+msgid "New password"
+msgstr "Новий пароль"
+
+msgid "Enter your new password twice"
+msgstr "Двічі введіть новий пароль"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Вам відправлено листа. Перейдіть за посиланням у ньому, щоб\n"
+"отримати доступ до вашого профілю та встановити новий пароль.\n"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Tags:"
+msgstr "Теги:"
+
+msgid "add new tags:"
+msgstr "додати нові теги:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Для того, щоб разрегістріровать учасника <b>%1 %2</ b> з конференції «%3»,\n"
+"просто натисніть кнопку нижче.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Зареєструвати %1 %2 з \"%3\""
+
+msgid "unregister"
+msgstr "видалити реєстрацію"
+
+msgid "edit payment"
+msgstr "редагувати платіж"
+
+msgid "view invoice"
+msgstr "переглянути інвойс"
+
+msgid "create invoice"
+msgstr "створити інвойс"
+
+msgid "enter payment"
+msgstr "перейти до платежу"
+
+msgid "Your purchases"
+msgstr "Ваши покупки"
+
+msgid "Your <conf> order #<id>"
+msgstr "Замовлення № %2 на захід %1"
+
+msgid "make additional purchases"
+msgstr "зробити додаткові покупки"
+
+msgid "view all orders and invoices"
+msgstr "продивитись усі замовлення та рахунки"
+
+msgid "Product"
+msgstr "Продукт"
+
+msgid "Personal Schedule"
+msgstr "Особистий розклад"
+
+msgid "Attending talks"
+msgstr "Відвідувані доповіді"
+
+msgid "Promotion code"
+msgstr "Промо-код"
+
+msgid "add to personal schedule"
+msgstr "додати у особистий розклад"
+
+msgid "remove from personal schedule"
+msgstr "видалити з особистого розкладу"
+
+msgid "Attended by:"
+msgstr "Мають завітати:"
