@@ -9,7 +9,7 @@ use Act::Track;
 sub handler
 {
     # only for orgas
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_talks_admin) {
         $Request{status} = NOT_FOUND;
         return;
     }

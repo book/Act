@@ -45,13 +45,13 @@ sub handler
         }
         grep {    $Config->talks_show_all
                || $_->accepted
-               || ($Request{user} && (   $Request{user}->is_orga
+               || ($Request{user} && (   $Request{user}->is_talks_admin
                                       || $Request{user}->user_id == $_->user_id))
         } @$talks
     ];
 
     # accept / unaccept talks
-    if ($Request{user} && $Request{user}->is_orga && $Request{args}{ok}) {
+    if ($Request{user} && $Request{user}->is_talks_admin && $Request{args}{ok}) {
         for my $t (@$talks) {
             if ($t->accepted && !$Request{args}{$t->talk_id}) {
                 $t->update(accepted => 0 );

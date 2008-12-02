@@ -37,7 +37,7 @@
 [% END %]
 <table border="1" cellpadding="10" cellspacing="0"><tr><td>
 <table border="0" cellpadding="0" cellspacing="10">
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_talks_admin %]
 <tr>
   <td align="right">{{User}}</td>
   <td>&nbsp;</td>
@@ -82,7 +82,7 @@
   </td>
 </tr>
 [% IF tracks.size != 0 %]
-  [% IF global.request.user.is_orga %]
+  [% IF global.request.user.is_talks_admin %]
 <tr>
   <td align="right" valign="top">
   {{Track}}</td>
@@ -147,7 +147,7 @@
   <td align="right" valign="top">{{Duration}}</td>
   <td>&nbsp;</td>
   <td>
-  [% IF global.request.user.is_orga %]
+  [% IF global.request.user.is_talks_admin %]
     [% loc("Standard durations for <confname> are:", global.conference.name) %]
     <b>[% global.config.talks_durations.keys.nsort.join('</b>, <b>') %]</b> {{minutes}}
     <br />
@@ -199,7 +199,7 @@
   <td align="right" valign="top">{{Status}}</td>
   <td>&nbsp;</td>
   <td>
-    [% IF global.request.user.is_orga %]
+    [% IF global.request.user.is_talks_admin %]
     <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
     {{accepted}}<br />
     <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />

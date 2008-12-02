@@ -1,4 +1,4 @@
-[% IF global.config.talks_show_schedule OR global.request.user.is_orga %]
+[% IF global.config.talks_show_schedule OR global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('schedule') %]">
     {{Schedule}}
@@ -17,7 +17,7 @@
    [% END %]
    [% END %]
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('tracks') %]">
     {{Tracks}}
@@ -34,7 +34,7 @@
    </a>
    [% END %]
 [% END %]
-[% IF global.config.talks_submissions_open OR global.request.user.is_orga %]
+[% IF global.config.talks_submissions_open OR global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('newtalk') %]">
     {{Submit a talk proposal}}

@@ -24,7 +24,7 @@
  [% pversion = v.version %]
  [% END %]
 </table>
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_wiki_admin %]
   <hr />
   <a href="[% make_uri('wikiedit', 'action', 'delete', 'node', node) %]">{{Delete this page}}</a>
 [% END %]

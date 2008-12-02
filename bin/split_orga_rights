@@ -1,0 +1,44 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Act::Config;
+use DBI;
+
+my $dbh = DBI->connect(
+    $Config->database_dsn,
+    $Config->database_user,
+    $Config->database_passwd,
+    {   AutoCommit     => 0,
+        PrintError     => 0,
+        RaiseError     => 1,
+        pg_enable_utf8 => 1,
+    }
+) or die "can't connect to Act database " . $DBI::errstr;
+
+# SQL requests
+my %sth = (
+    get_user => 'SELECT user_id, conf_id FROM rights WHERE right_id=?',
+    set_right =>
+        'INSERT INTO rights (user_id, conf_id, right_id) VALUES (?,?,?)',
+    delete_right =>
+        'DELETE FROM rights WHERE user_id=? AND conf_id=? AND right_id=?',
+);
+
+# prepare them
+$sth{$_} = $dbh->prepare( $sth{$_} ) for keys %sth;
+
+# loop on the orgas
+$sth{get_user}->execute('orga');
+while ( my $row = $sth{get_user}->fetchrow_arrayref() ) {
+    my ( $user_id, $conf_id ) = @$row;
+
+    # add the new rights
+    $sth{set_right}->execute( $user_id, $conf_id, $_ )
+        for qw( talks_admin users_admin news_admin wiki_admin );
+
+    # remove the old one
+    $sth{delete_right}->execute( $user_id, $conf_id, 'orga' );
+}
+
+$dbh->commit;
+

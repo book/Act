@@ -17,7 +17,7 @@ use Act::Util;
 sub handler {
 
     # access control
-    unless ( $Request{user} && $Request{user}->is_orga
+    unless ( $Request{user} && $Request{user}->is_talks_admin
         || $Config->talks_show_schedule )
     {
         $Request{status} = FORBIDDEN;
@@ -83,7 +83,7 @@ sub _setup_calendar_obj {
 sub _viewable {
     my $ts = shift;
     return 0
-        unless ( $Request{user} && $Request{user}->is_orga )
+        unless ( $Request{user} && $Request{user}->is_talks_admin )
         || ( ( $ts->type ne 'Act::Talk' || $ts->{accepted} )
         && $ts->datetime
         && $ts->duration

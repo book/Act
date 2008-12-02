@@ -76,7 +76,7 @@ sub handler {
     # regular users can submit new talks when submissions_open
     # and edit existing talks when edition_open or submission_open
     #
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_talks_admin) {
         unless ( ($talk && $talk->user_id == $Request{user}->user_id
                         && ($Config->talks_edition_open || $Config->talks_submissions_open))
                 || $Config->talks_submissions_open )
@@ -103,11 +103,11 @@ sub handler {
         $fields = { accepted => 0, confirmed => 0, track_id => undef, %{$form->{fields}} };
 
         # organizer specifies user id
-        my $user_id = $Request{user}->is_orga
+        my $user_id = $Request{user}->is_talks_admin
                     ? $Request{args}{user_id}
                     : $Request{user}->user_id;
 
-        if ($Request{user}->is_orga) {
+        if ($Request{user}->is_talks_admin) {
             $fields->{user_id} = $user_id;
             # does the user participate?
             if ($user_id =~ /^\d+$/) {
@@ -245,7 +245,7 @@ sub handler {
                  ],
         rooms => $Config->rooms,
         tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
-    ) if $Request{user}->is_orga;
+    ) if $Request{user}->is_talks_admin;
     $template->process('talk/add');
 }
 

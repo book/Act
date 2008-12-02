@@ -290,7 +290,7 @@ sub get_config
 )
 EOF
                 push @values, $conf,
-                              $conf, 'orga', 'staff',
+                              $conf, 'staff',
                               $conf, 'paid';
             }
             my $sth = $Request{dbh}->prepare_cached($sql);

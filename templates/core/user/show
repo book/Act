@@ -58,7 +58,7 @@
          [% "<a href=\"${user.company_url}\">" IF user.company_url %][% user.company %][% '</a>' IF user.company_url %]
       </td>
 [% END %]
-[%- IF NOT user.email_hide OR global.request.user.is_orga %]
+[%- IF NOT user.email_hide OR global.request.user.is_users_admin %]
    </tr><tr>
       <td align="right">{{Email}}</td>
       <td>&nbsp;</td>

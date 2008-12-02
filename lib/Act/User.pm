@@ -9,7 +9,8 @@ use List::Util qw(first);
 use base qw( Act::Object );
 
 # rights
-our @Rights = qw( admin orga staff treasurer );
+our @Rights = qw( admin users_admin talks_admin news_admin wiki_admin
+    staff treasurer );
 
 # class data used by Act::Object
 our $table = 'users';
@@ -208,7 +209,13 @@ for my $meth (keys %methods) {
 }
 sub committed {
     my $self = shift;
-    return $self->has_paid || $self->has_accepted_talk || $self->is_orga || $self->is_staff;
+    return $self->has_paid
+        || $self->has_accepted_talk
+        || $self->is_staff
+        || $self->is_users_admin
+        || $self->is_talks_admin
+        || $self->is_news_admin
+        || $self->is_wiki_admin;
 }
 
 sub participations {
