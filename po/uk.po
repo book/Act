@@ -473,8 +473,17 @@ msgstr "Доступні наступні права:"
 msgid "Organizer"
 msgstr "Організатор"
 
+msgid "Organizer (news management)"
+msgstr "Організатор (управління новинами)"
+
 msgid "Organizer (talks management)"
 msgstr "Організатор (управління виступами)"
+
+msgid "Organizer (users management)"
+msgstr "Організатор (управління користувачами)"
+
+msgid "Organizer (wiki management)"
+msgstr "Організатор (управління вікі)"
 
 msgid "Treasurer (payment management)"
 msgstr "Бухгалтер (управління оплатою)"
