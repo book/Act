@@ -163,7 +163,7 @@ msgid "CSV export"
 msgstr "CSV export"
 
 msgid "Register a new user"
-msgstr "Een nieuwe gebruik registreren"
+msgstr "Een nieuwe gebruiker registreren"
 
 msgid "The schedule is not ready to be seen."
 msgstr "Het programmarooster is nog in ontwerp."
