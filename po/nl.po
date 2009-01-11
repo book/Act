@@ -4,83 +4,310 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "payment_means_CHQ"
+msgstr "Cheque"
+
+msgid "payment_means_CASH"
+msgstr "Contant"
+
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+msgid "payment_means_XFER"
+msgstr "Overmaken"
+
+msgid "payment_means_FREE"
+msgstr "Gratis"
+
+msgid "room_out"
+msgstr "Buiten"
+
+msgid "room_venue"
+msgstr "Locatie"
+
+msgid "salutation_1"
+msgstr "Dhr."
+
+msgid "salutation_2"
+msgstr "Mevr."
+
+msgid "salutation_3"
+msgstr "Mevr."
+
+msgid "salutation_4"
+msgstr "Dr."
+
+msgid "User information"
+msgstr "Gebruikersgegevens"
+
+msgid "Login"
+msgstr "Gebruikersnaam"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "City"
+msgstr "Stad"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Perl mongers group"
+msgstr "Perl-mongers-groep"
+
+msgid "Company"
+msgstr "Bedrijf"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Web page"
+msgstr "Webpagina"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "GPG-sleutel-ID"
+
+msgid "No photo"
+msgstr "Geen foto"
+
+msgid "Talk"
+msgstr "%numerate(%1,Presentatie)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Geaccepteerde presentatie)"
+
+msgid "minutes"
+msgstr "minuten"
+
+msgid "Lightning talk"
+msgstr "Lightning talk"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Other Act conferences:"
+msgstr "Andere Act-conferenties:"
+
+msgid "Main private page"
+msgstr "Belangrijkste privé-pagina"
+
+msgid "to <this conference>"
+msgstr "aan de %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Dit is uw persoonlijke pagina.\n"
+"Vanuit deze pagina kunt u alle gegevens beheren m.b.t. uw deelname\n"
+
+msgid "to Act-enabled conferences."
+msgstr "naar conferenties die met Act werken."
+
+msgid "You have purchased your conference ticket:"
+msgstr "U heeft uw inschrijfgeld betaald:"
+
+msgid "Order number"
+msgstr "Bestelnummer"
+
+msgid "Payment date"
+msgstr "Betaaldatum"
+
+msgid "Amount paid"
+msgstr "Betaald bedrag"
+
+msgid "Download your invoice"
+msgstr "Download <a href=\"%1\">uw factuur</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "U heeft uw conferentiebijdrage nog niet betaald."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Het verdient de voorkeur om dit via ons online-betaalsysteem te doen. "
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Wij verzoeken u dat te doen zodra ons online-betaalsysteem gereed is."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "U heeft uw deelname aan deze conferentie nog niet bevestigd."
+
+msgid "You did not register for this conference"
+msgstr ""
+"U heeft zich voor deze conferentie nog niet <a href=\"%1\">ingeschreven</a>.\n"
+"U wordt verzocht dit te doen als u de conferentie wilt bijwonen of een presentatie wilt geven.\n"
+
+msgid "You can:"
+msgstr "U kunt:"
+
+msgid "purchase your conference ticket"
+msgstr "inschrijfgeld voor de conferentie betalen"
+
+msgid "confirm your participation"
+msgstr "uw deelname bevestigen"
+
+msgid "register for this conference"
+msgstr "zich voor deze conferentie inschrijven"
+
+msgid "update your information"
+msgstr "uw gegevens bijwerken"
+
+msgid "manage your photo"
+msgstr "uw foto beheren"
+
+msgid "change your password"
+msgstr "uw wachtwoord wijzigen"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "uw presentaties bekijken (geaccepteerde presentaties worden <b>vet</b> weergegeven)"
+
+msgid "submit a talk"
+msgstr "een presentatie indienen"
+
+msgid "log out"
+msgstr "uitloggen"
+
+msgid "unregister from <this conference>"
+msgstr "zich voor %1 weer uitschrijven"
+
+msgid "(You were there)"
+msgstr "(U bent daar geweest)"
+
+msgid "(You are there)"
+msgstr "(U bent daar)"
+
+msgid "(You will be there)"
+msgstr "(U gaat daarheen)"
+
+msgid "Confirmation required"
+msgstr "Bevestiging vereist"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Voor deze handeling is een bevestiging vereist. Voer a.u.b. uw E-mail-adres in,\n"
+"u ontvangt dan een E-mail met een link om te bevestigen.\n"
+
 msgid "You must enter your email"
-msgstr "Gelieve Uw E-mail adres in te geven"
+msgstr "Gelieve uw E-mail-adres in te voeren"
 
 msgid "Your email address looks bogus."
-msgstr "Het E-mail adres is ongeldig."
+msgstr "Het E-mail-adres is ongeldig."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"Er is een E-mail naar <b>%1</b> verstuurd. Klik op de link in de E-mail om\n"
+"deze handeling te voltooien.\n"
+
+msgid "Confirmation email sent"
+msgstr "Bevestigings-E-mail verstuurd"
+
+msgid "In order to complete your operation"
+msgstr "Om deze handeling voor \"%1\" te voltooien, klik a.u.b. op de volgende link:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - bevestiging"
+
+msgid "Registration"
+msgstr "Aanmelding"
 
 msgid "Sorry, this conference is over."
 msgstr "Sorry, deze conferentie is beëindigd."
 
 msgid "Please create your user below."
-msgstr "U kan hieronder Uw gebruiker aanmaken."
+msgstr "U kan hieronder de nieuwe gebruiker aanmaken."
 
 msgid "Identifier is already in use. Please choose another."
-msgstr "De gebruiker %1 bestaat reeds. U gelieve een andere te kiezen."
+msgstr "De naam %1 is al in gebruik. Kies a.u.b. een andere naam."
 
 msgid "The address is already registered."
-msgstr "Het adres %1 werd reeds geregistreerd."
+msgstr "Het adres %1 is al geregistreerd."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Uw gebruiker moet minstens 3 alfanumerieke karakters bevatten (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Uw naam dient minimaal uit 3 tekens te bestaan en uitsluitend alfanumerieke tekens (<tt>[a-zA-Z0-9_]</tt>) zijn toegestaan"
 
 msgid "You must enter your first name"
-msgstr "Gelieve Uw voornaam in te geven"
+msgstr "Gelieve uw voornaam in te geven"
 
 msgid "You must enter your last name"
-msgstr "Gelieve Uw naam in te geven"
+msgstr "Gelieve uw naam in te geven"
 
 msgid "You must enter a country from the list"
 msgstr "Gelieve een land uit de lijst te selecteren"
 
 msgid "Accounts with similar information already exist."
-msgstr "Andere bestaande gebruikers zouden reeds jou kunnen zijn."
+msgstr "Andere bestaande gebruikers met dezelfde informatie bestaan reeds"
 
 msgid "A valid T-shirt size is required."
 msgstr "Gelieve een geldige T-shirt maat te geven."
 
 msgid "Use the links above to check if you are one of those."
-msgstr ""
-"Gebruik de bovenstaande links om na te zien of U reeds een rekening heeft.\n"
-"In dat geval kan U eenvoudig <a href=\"%1\">inloggen</a> met deze bestaande rekening.\n"
+msgstr "Ga met de bovenstaande links na of u één van die personen bent. In dat geval"
+"<a href=\"%1\">logt u gewoon in</a> door op uw bestaande account te klikken.\n"
 
 msgid "To register, you first need to create an account on the site."
 msgstr ""
-"Alvorens aan te melden moet U een rekening aanmaken. <b>Indien U reeds\n"
-"over een rekening beschikt voor een andere Act conferentie kan U via deze\n"
-"rekening <a href=\"%1\">aanmelden</a></b>.\n"
+"Om u in te schrijven, dient u eerst een account op de site aan te maken.\n"
+"<b>Als u al een account van een vorige Act-conferentie heeft,\n"
+"hoeft u geen nieuwe account aan te maken. U kunt gewoon\n"
+"met uw bestaande account<a href=\"%1\">inloggen</a>.</b>\n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"De verzamelde persoonlijke gegevens worden gebruikt voor de samenstelling\n"
-"van een <a href=\"%1\">deelnemerslijst</a>. Deze zijn nuttig om \n"
-"na de conferentie de contactgegevens van de deelnemers terug te vinden of om op voorhand\n"
-"de aanwezige goeroes te kennen.\n"
+"De hier verzamelde persoonlijke gegevens worden gebruikt om \n"
+"<a href=\"%1\">online een <i>Who is Who</i></a> van alle deelnemers samen te stellen.\n"
+"Dit kan na de conferentie erg nuttig zijn om met iemand in contact\n"
+"te komen die u op de conferentie heeft ontmoet. Of zelfs daarvoor al,\n"
+"als u wilt weten welke goeroes aanwezig zullen zijn.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
-"Eenmaal Uw rekening aangemaakt is, kan U via ons beveiligd betalingsplatform\n"
-"Uw toegangskaart aanschaffen. We merken op dat alles wat Uw bankrekening en\n"
-"kredietkaart betreft door de bank behandeld wordt.\n"
+"Zodra u een account heeft, kunt u ons veilige betaalsysteem\n"
+"gebruiken om uw inschrijfgeld voor de conferentie te betalen. Wij wijzen erop\n"
+"dat alle gegevens omtrent uw bankrekening en creditcard \n"
+"alleen door de bank worden verwerkt.\n"
 
 msgid "We do not have access to your credit card information"
 msgstr ""
-"<b>Op geen enkel moment hebben wij toegang tot Uw bankgegevens.</b>\n"
-"Wij beperken ons tot het ontvangen van het geld. <tt>;-)</tt>\n"
+"<b>Wij hebben op geen enkel tijdstip tijdens het\n"
+"betaalproces toegang tot uw bank- en creditcard-gegevens.</b>\n"
+"Wij krijgen alleen op het einde het geld... <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Zodra u een account heeft, kunt u uw deelname aan deze\n"
+"conferentie - kosteloos - bevestigen. "
 
 msgid "Please create the user below."
-msgstr "U kan hieronder Uw gebruiker aanmaken."
+msgstr "U kunt hieronder de gebruiker aanmaken."
 
 msgid "Use the links above to check if any of those users is the one you want to"
 msgstr ""
-"Gebruik de bovenstaande links om na te zien of de gebruiker die U wenst\n"
-"aan te maken reeds bestaat.\n"
-"In dat geval kan U eenvoudig het gepaste vakje aankruisen en dit formulier\n"
-"verzenden.\n"
+"Ga met de bovenstaande links na of één van die gebruikers degene is\n"
+"die u wilt aanmaken. In dat geval selecteert u gewoon de bijbehorende radio button,"
+"en\nverzendt u dit formulier.\n"
 
 msgid "Register"
-msgstr "Verzenden"
+msgstr "Aanmelden en inloggen"
+
+msgid "Registered!"
+msgstr "Gebruiker aangemaakt!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Gefeliciteerd, <b>%1</b>, u heeft uw account aangemaakt.\n"
+"Uw wachtwoord is <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Voornaam"
+
+msgid "Last Name"
+msgstr "Achternaam"
+
+msgid "T-Shirt"
+msgstr "T-Shirt"
+
+msgid "Join!"
+msgstr "Toevoegen!"
 
 msgid "edit"
 msgstr "wijzigen"
@@ -89,51 +316,57 @@ msgid "min"
 msgstr "min"
 
 msgid "Log in"
-msgstr "Aanmelden"
+msgstr "Inloggen"
 
 msgid "Password"
-msgstr "Paswoord"
+msgstr "Wachtwoord"
 
 msgid "Submit"
 msgstr "Invoeren"
 
 msgid "Forgot your password?"
-msgstr "Paswoord vergeten ? Klik <a href=\"%1\">hier</a>."
+msgstr "Wachtwoord vergeten ? Klik <a href=\"%1\">hier</a>."
 
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
-"Deze site gebruikt cookies voor het identificeren van gebruikers. \n"
-"Mogelijk moeten deze geactiveerd worden in uw browser voor het domein <b>%1</b>.\n"
+"Deze site gebruikt cookies om ingelogde gebruikers te authentificeren. Misschien moet u\n"
+"in uw browser instellen dat cookies van het domein <b>%1</b> worden geaccepteerd.\n"
+
+msgid "Incorrect login or password"
+msgstr "Verkeerde gebruikersnaam of wachtwoord"
 
 msgid "Logout"
-msgstr "Afmelden"
+msgstr "Uitloggen"
 
 msgid "You have been logged out and the cookie deleted from your browser."
-msgstr "U werd afgemeld en de cookie werd verwijderd van Uw browser."
+msgstr "U bent uitgelogd en de cookie is verwijderd van uw browser."
+
+msgid "Other conferences"
+msgstr "Andere conferenties"
 
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Rights management"
-msgstr "Rechtenmanagement"
+msgstr "Rechtenbeheer"
 
 msgid "Events"
 msgstr "Gebeurtenissen"
 
 msgid "Submit a new event"
-msgstr "Een nieuwe gebeurtenis voorleggen"
+msgstr "Gebeurtenis vastleggen"
 
 msgid "Schedule"
 msgstr "Programma"
 
 msgid "iCal export"
-msgstr "iCal export"
+msgstr "iCal-export"
 
 msgid "iCal import"
-msgstr "iCal import"
+msgstr "iCal-import"
 
 msgid "Submit a talk proposal"
-msgstr "Een presentatie voorleggen"
+msgstr "Presentatie indienen"
 
 msgid "Presentations"
 msgstr "Presentaties"
@@ -143,6 +376,9 @@ msgstr "Penningmeester"
 
 msgid "Payments"
 msgstr "Betalingen"
+
+msgid "Payment Details"
+msgstr "Betalingsgegevens"
 
 msgid "Edit profile"
 msgstr "Profiel wijzigen"
@@ -160,16 +396,16 @@ msgid "Statistics"
 msgstr "Statistieken"
 
 msgid "CSV export"
-msgstr "CSV export"
+msgstr "CSV-export"
 
 msgid "Register a new user"
-msgstr "Een nieuwe gebruiker registreren"
+msgstr "Gebruiker toevoegen"
 
 msgid "The schedule is not ready to be seen."
 msgstr "Het programmarooster is nog in ontwerp."
 
 msgid "The time and place of the following talks haven't been decided yet."
-msgstr "De datums en plaatsen voor deze presentaties werden nog niet vastgelegd."
+msgstr "De data en plaatsen voor deze presentaties werden nog niet vastgelegd."
 
 msgid "Speaker"
 msgstr "Spreker"
@@ -180,8 +416,20 @@ msgstr "Titel"
 msgid "Duration"
 msgstr "Duur"
 
+msgid "Target audience"
+msgstr "Doelgroep"
+
+msgid "Target audience:"
+msgstr "Doelgroep:"
+
+msgid "abstract (link)"
+msgstr "Samenvatting"
+
+msgid "talk (link)"
+msgstr "Presentatie"
+
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "De presentaties in het <b>vet</b> werden nog niet bevestigd door hun auteurs."
+msgstr "<b>Vet weergegeven</b> presentaties zijn door de betreffende sprekers bevestigd."
 
 msgid "Time"
 msgstr "Uur"
@@ -189,23 +437,35 @@ msgstr "Uur"
 msgid "Price"
 msgstr "Prijs"
 
+msgid "Donation"
+msgstr "Donatie"
+
 msgid "Buy now!"
 msgstr "Kopen"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"We merken op dat alles wat Uw bankrekening en kredietkaart betreft\n"
-"door de bank behandeld wordt. <b>Op geen enkel moment hebben wij\n"
-"toegang tot Uw bankgegevens.</b> Wij beperken ons tot het ontvangen\n"
-"van het geld. <tt>;-)</tt>\n"
+"Wij wijzen erop dat alle gegevens omtrent uw bankrekening en creditcard \n"
+"alleen door de bank worden verwerkt. <b>Wij hebben op geen enkel tijdstip tijdens het\n"
+"betaalproces toegang tot uw bank- en creditcard-gegevens.</b>\n"
+"Wij krijgen alleen op het einde het geld... <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Het totaalbedrag van uw bestelling is nul. U hoeft de eigenlijke betaling niet te doorlopen. De bestelling is afgerond."
+
+msgid "Online payment"
+msgstr "Online-betaling"
+
+msgid "Online payment (zero)"
+msgstr "Niets te betalen"
 
 msgid "Join"
 msgstr "Aanmelden"
 
 msgid "To register to the <name> conference"
 msgstr ""
-"Druk op de onderstaande knop om U in te schrijven\n"
-"voor de conferentie %1\n"
+"Om u voor de conferentie %1 in te schrijven,\n"
+"klikt u gewoon op de onderstaande knop.\n"
 
 msgid "The recognised rights are:"
 msgstr "De bestaande rechten zijn:"
@@ -213,23 +473,248 @@ msgstr "De bestaande rechten zijn:"
 msgid "Organizer"
 msgstr "Organisator"
 
+msgid "Organizer (news management)"
+msgstr "Organisator (nieuwsbeheer)"
+
 msgid "Organizer (talks management)"
-msgstr "Organisator (presentaties management)"
+msgstr "Organisator (beheer presentaties)"
+
+msgid "Organizer (users management)"
+msgstr "Organisator (gebruikersbeheer)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organisator (wikibeheer)"
 
 msgid "Treasurer (payment management)"
-msgstr "Penningmeester (Betalingsmanagement)"
+msgstr "Penningmeester (betalingsbeheer)"
 
 msgid "Administrator (rights management)"
-msgstr "Administrator (rechtenmanagement)"
+msgstr "Administrator (rechtenbeheer)"
+
+msgid "User rights"
+msgstr "Gebruikersrechten"
+
+msgid "Amount"
+msgstr "Bedrag"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Met een lege nickname kunt u niet alleen onder de nickname bekend zijn"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "De Perl-mongers-groep moet eindigen op <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "De URL van de Perl-mongers-groep moet met http:// beginnen"
+
+msgid "The company URL must start with http://"
+msgstr "De URL van het bedrijf moet met http:// beginnen"
+
+msgid "Your web site URL must start with http://"
+msgstr "De URL van uw website moet met http:// beginnen"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Uw perlmonks-ID moet een nummer zijn"
+
+msgid "Number of family members attending must be a number"
+msgstr "Het aantal meereizende familieleden moet een getal zijn"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Geen geldige ID van een GPG-sleutel: 8 hexadecimale cijfers verwacht"
+
+msgid "Salutation"
+msgstr "Aanspreekvorm"
+
+msgid "Nickname"
+msgstr "Nickname"
+
+msgid "Stay pseudonymous"
+msgstr "Alleen onder nickname gezien worden"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Hide email"
+msgstr "E-mail verbergen"
+
+msgid "Coming with"
+msgstr "Komt met"
+
+msgid "6 or more"
+msgstr "6 of meer"
+
+msgid "people (who will not attend the conference)"
+msgstr "mensen (die de conferentie niet bijwonen)"
+
+msgid "T-shirt size"
+msgstr "T-shirt maat"
+
+msgid "Full address"
+msgstr "Volledig adres"
+
+msgid "Timezone"
+msgstr "Tijdzone"
+
+msgid "Monger group"
+msgstr "Mongers-groep"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Plaats.pm</em>, plaatsnaam in het Engels, a.u.b.)"
+
+msgid "Monger group URL"
+msgstr "URL van de mongers-groep"
+
+msgid "VAT Number"
+msgstr "BTW-nummer"
+
+msgid "Company URL"
+msgstr "URL van het bedrijf"
+
+msgid "GPG public key ID"
+msgstr "ID van de publieke GPG-sleutel"
+
+msgid "(please fill at least this one)"
+msgstr "(vul a.u.b. tenminste deze in)"
+
+msgid "Update info"
+msgstr "Info bijwerken"
+
+msgid "Your information"
+msgstr "Uw informatie"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Dit is een simulatie. Bij een echte betaling zou u door verzenden\n"
+"van dit formulier op de website van de bank komen, waar u\n"
+"uw creditcard-gegevens zou invullen.<br /><br />\n"
+"Klik op de onderstaande knop om de betaling te simuleren\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Gecommitteerde gebruikers zijn <b>vet</b> weergegeven (degenen die\n"
+"hun inschrijfgeld hebben betaald of een presentatie geven).\n"
+
+msgid "Search for users"
+msgstr "Zoek gebruikers"
+
+msgid "Search form"
+msgstr "Zoekformulier"
+
+msgid "Any"
+msgstr "Alle"
+
+msgid "Your photo"
+msgstr "Uw foto"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Fotobestand kon niet gelezen worden. Upload uw foto in een van de volgende formaten:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Deze foto komt straks waarschijnlijk op de <i>Who is who</i> van de conferentie\n"
+"zodat andere mensen u kunnen herkennen als ze later nieuwsgierig zijn\n"
+"met wie ze op de conferentie toch zo'n prettig gesprek hadden.<br />\n"
+"Denk daar om bij het uploaden!\n"
+
+msgid "Delete Photo"
+msgstr "Foto verwijderen"
+
+msgid "Update Photo"
+msgstr "Foto wijzigen"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Iemand - waarschijnlijk u - heeft verzocht om uw wachtwoord te resetten.\n"
+"Om deze handeling te voltooien, klikt u op de volgende link:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Als u dit bericht ontvangt zonder daarom verzocht te hebben, komt dat\n"
+"doordat iemand geprobeerd heeft uw gebruikersnaam of E-mail-adres te gebruiken.\n"
+"Waarschijnlijk was dit een onschuldig foutje. Die persoon krijgt uw wachtwoord niet te zien.\n"
+"U kunt dit bericht daarom zonder gevaar negeren.\n"
+
+msgid "Reset Password"
+msgstr "Wachtwoord resetten"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Geef óf uw <B>gebruikersnaam</B> óf uw <B>E-mail-adres</B> op.\n"
+"U ontvangt een E-mail met instructies om het wachtwoord te resetten.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Er is geen gebruiker met deze gebruikersnaam of dit E-mail-adres gevonden"
+
+msgid "Specify your login or email address"
+msgstr "Geef uw gebruikersnaam of uw E-mail-adres op"
+
+msgid "Generate password"
+msgstr "Reset wachtwoord"
+
+msgid "<conf name> Statistics"
+msgstr "% Statistiek"
+
+msgid "There are n registered people"
+msgstr ""
+"Er zijn %1 deelnemers ingeschreven,\n"
+"afkomstig uit %quant(%2,land,landen)\n"
+"en %quant(%3,mongers-groep,mongers-groepen).\n"
+"Er zijn %4 gecommitteerde gebruikers,\n"
+"d.w.z. mensen die hun inschrijfgeld hebben betaald\n"
+"of een presentatie zullen geven.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"U kunt statistieken per <a href=\"%1\">land / mongers-groep</a>\n"
+"of <a href=\"%2\">plaats</a> bekijken."
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"Het aantal gecommitteerde gebruikers staat in de volgende tabel\n"
+"tussen haakjes."
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Klik op de links om de bijbehorende gebruikers te vinden!"
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Let op: het totaal per land is niet altijd gelijk aan het totaal per plaats.\n"
+"Of soms liggen de plaatsen niet in de bijbehorende landen.\n"
+"Dat ligt aan de gebruikers...!\n"
+
+msgid "Cities"
+msgstr "Plaatsen"
+
+msgid "No city information entered"
+msgstr "Geen plaats-informatie ingevoerd"
+
+msgid "Countries"
+msgstr "Landen"
+
+msgid "Monger groups"
+msgstr "Mongers-groepen"
+
+msgid "Un-Registration"
+msgstr "Inschrijving intrekken"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Om u voor %1 weer uit te schrijven\n"
+"klikt u gewoon op de onderstaande knop.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Voor %1 weer uitschrijven"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Voorstellen/wijzigen van een gebeurtenis"
+msgstr "Indienen/wijzigen van een gebeurtenis (behalve presentaties)"
 
 msgid "You must enter a title for the event"
 msgstr "Gelieve een titel in te geven"
 
 msgid "You must enter a short description for the event"
-msgstr "Gelieve een korte beschrijving in te geven"
+msgstr "Gelieve een korte beschrijving van de gebeurtenis in te geven"
 
 msgid "Please choose a duration"
 msgstr "Gelieve de duur te kiezen"
@@ -249,6 +734,9 @@ msgstr "De ingegeven URL is ongeldig"
 msgid "Incorrect room submitted"
 msgstr "De zaal is ongeldig"
 
+msgid "Please choose a target audience"
+msgstr "Kies a.u.b. een doelgroep"
+
 msgid "View"
 msgstr "Zie"
 
@@ -265,24 +753,24 @@ msgid "Room"
 msgstr "Zaal"
 
 msgid "Abstract"
-msgstr "Beschrijving"
+msgstr "Samenvatting"
 
 msgid "(plain text)"
-msgstr "(gewone tekst)"
+msgstr "(platte tekst)"
 
 msgid "External URL"
 msgstr "Externe URL"
 
 msgid "Submit this event"
-msgstr "Verzenden"
+msgstr "Deze gebeurtenis verzenden"
 
 msgid "Event submitted"
-msgstr "Gebeurtenis opgeslagen"
+msgstr "Gebeurtenis verzonden"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Dank U, de gebeurtenis werd opgeslagen als\n"
-"<b><a href=\"%1\">%2</a></b>.\n"
+"Bedankt, deze gebeurtenis is als\n"
+"<b><a href=\"%1\">%2</a></b> opgeslagen.\n"
 
 msgid "List of events"
 msgstr "Lijst van gebeurtenissen"
@@ -297,19 +785,55 @@ msgid "Event removed"
 msgstr "Gebeurtenis verwijderd"
 
 msgid "The event has been removed."
-msgstr "De gebeurtenis <b>%1</b> werd verwijderd."
+msgstr "De gebeurtenis <b>%1</b> is verwijderd."
 
 msgid "Date:"
 msgstr "Datum:"
 
 msgid "Not scheduled yet."
-msgstr "Werd nog niet gepland"
+msgstr "Werd nog niet gepland."
 
 msgid "Duration:"
 msgstr "Duur:"
 
 msgid "You can find more information on the following site:"
-msgstr "Meer informatie vindt U op de site:"
+msgstr "Meer informatie vindt u op de site:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - bewerk %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Iemand heeft wijzigingen aan deze node opgeslagen nadat u bent begonnen\n"
+"deze te bewerken. U zult uw wijzigingen handmatig tot één versie\n"
+"samen moeten voegen.\n"
+
+msgid "Current node contents:"
+msgstr "Huidige inhoud van de node"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Your proposed revision:"
+msgstr "Uw geplande wijziging:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - %1 Geschiedenis"
+
+msgid "Version"
+msgstr "Versie"
+
+msgid "Modified on"
+msgstr "Gewijzigd op"
+
+msgid "By"
+msgstr "Door"
 
 msgid "Wiki - <node>"
 msgstr "Wiki - %1"
@@ -318,10 +842,13 @@ msgid "version"
 msgstr "versie"
 
 msgid "saved on"
-msgstr "van"
+msgstr "opgeslagen op"
 
 msgid "Last modified:"
 msgstr "Laatste wijzigingen:"
+
+msgid "by"
+msgstr "door"
 
 msgid "new page"
 msgstr "nieuwe pagina"
@@ -329,8 +856,87 @@ msgstr "nieuwe pagina"
 msgid "Home"
 msgstr "Home"
 
+msgid "Revert to this version"
+msgstr "Terug naar deze versie"
+
+msgid "Edit this page"
+msgstr "Bewerk deze pagina"
+
+msgid "Delete this page"
+msgstr "Verwijder deze pagina"
+
+msgid "Recent changes"
+msgstr "Recente wijzigingen"
+
+msgid "History"
+msgstr "Geschiedenis"
+
+msgid "Wiki help"
+msgstr "Wiki-help"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Letteropmaak</h2>\n"
+"<ul>\n"
+"<li>Een item met drie enkele aanhalingstekens ervoor en erachter verschijnt <b>vet</b>.</li>\n"
+"<li>Een item met twee enkele aanhalingstekens ervoor en erachter verschijnt <i>cursief</i>.</li>\n"
+"<li>Elk woord in CamelCase wordt een link.</li>\n"
+"</ul>\n"
+"<h2>Alineaopmaak</h2>\n"
+"<ul>\n"
+"<li>Vier of meer streepjes aan het begin van een regel verschijnen als horizontale lijn.</li>\n"
+"<li>Nieuwe regels worden door de overeenkomstige tags vervangen.</li>\n"
+"<li>Headers worden gemaakt door gelijke aantallen gelijktekens om de tekst te plaatsen: het aantal gelijktekens is de rang van de header.</li>\n"
+"</ul>\n"
+"<h2>Opsommingen</h2>\n"
+"<ul>\n"
+"<li>Opsommingen worden gemaakt door de tekst in te laten springen, met een tab of vier spaties als default.</li>\n"
+"<li>In niet-genummerde opsommingen (met bullets als opsommingsteken) moet elk item aan het begin nog een sterretje (*) en een spatie hebben.</li>\n"
+"<li>Genummerde opsommingen worden aangegeven door na het inspringen nog een combinatie van één of meer alfanumerieke tekens gevolgd door een punt en optioneel een spatie in te voegen.</li>\n"
+"<li>Ook opsommingen binnen opsommingen zijn mogelijk.</li>\n"
+"</ul>\n"
+"<h2>Code</h2>\n"
+"<ul>\n"
+"<li>Elke ingesprongen tekst die niet als opsomming is opgemaakt is code en wordt ongewijzigd weergegeven.</li>\n"
+"</ul>\n"
+"<h2>Voorbeeld</h2>\n"
+"\n"
+"De volgende tekst is in geldig Wiki-formaat, met een uitgebreide link zoals aangegeven.\n"
+"<pre>\n"
+"\n"
+"        = mijn interessante tekst =\n"
+"\n"
+"        NormaleLink\n"
+"        [UitgebreideLink|laat de zon schijnen]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:voornaam achternaam]\n"
+"        [talk:id]\n"
+"        [page:index.html|Onze beginpagina]\n"
+"        [image:img/kameel.png|conferentie-logo]\n"
+"\n"
+"        == mijn interessante opsommingen ==\n"
+"\n"
+"            * regel 1 met bullet\n"
+"            * regel 2 met bullet\n"
+"\n"
+"            1. genummerde regel 1\n"
+"            2. genummerde regel 2\n"
+"                        a. opsomming binnen opsomming, regel een\n"
+"                        b. opsomming binnen opsomming, regel twee\n"
+"\n"
+"            coderegel een\n"
+"            coderegel twee\n"
+"\n"
+"        Eerste regel van een normale alinea.\n"
+"        Tweede regel van een normale alinea.\n"
+"</pre>\n"
+
 msgid "Wiki - Recent changes"
 msgstr "Wiki - Recente wijzigingen"
+
+msgid "Page"
+msgstr "Pagina"
 
 msgid "Changes in last"
 msgstr "Wijzigingen sinds"
@@ -344,20 +950,58 @@ msgstr "%quant(%1,week,weken)"
 msgid "<n> month(s)"
 msgstr "%quant(%1,maand,maanden)"
 
+msgid "Wiki tags"
+msgstr "Wiki-tags"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Wiki-pagina's met tag %1"
+
 msgid "Administrative tasks"
 msgstr "Administratieve taken"
 
 msgid "Talks & events"
-msgstr "Presentaties"
+msgstr "Presentaties &amp; gebeurtenissen"
 
 msgid "Credit card payment"
-msgstr "Betaling via kredietkaart"
+msgstr "Betaling per creditcard"
+
+msgid "Payment"
+msgstr "Betaling"
+
+msgid "Editing payment"
+msgstr "Betaling bewerken"
+
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "Payment means"
+msgstr "Wijze van betaling"
+
+msgid "or"
+msgstr "of"
+
+msgid "Update"
+msgstr "Bijwerken"
 
 msgid "speaker"
 msgstr "spreker"
 
+msgid "Total"
+msgstr "Totaal"
+
+msgid "Payment confirmation"
+msgstr "Betalingsbevestiging"
+
+msgid "<conf> online payment"
+msgstr ""
+"Uw online-betaling is goedgekeurd.\n"
+"\n"
+"Uw bestelnummer: %2\n"
+"Betaaldatum: %3 GMT\n"
+"Betaald bedrag: %4 %5\n"
+
 msgid "Invoice #"
-msgstr "Facture nr"
+msgstr "Factuur nr."
 
 msgid "Dated"
 msgstr "Datum"
@@ -366,7 +1010,7 @@ msgid "Printed on"
 msgstr "Afgedrukt op"
 
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Omschrijving"
 
 msgid "Quantity"
 msgstr "Aantal"
@@ -375,7 +1019,7 @@ msgid "Unit Price"
 msgstr "Eenheidsprijs"
 
 msgid "<conf> registration"
-msgstr "%1 Aanmelden"
+msgstr "Inschrijving voor %1"
 
 msgid "Your order number:"
 msgstr "Uw bestelnummer:"
@@ -384,19 +1028,19 @@ msgid "Total due"
 msgstr "Totaal te betalen"
 
 msgid "Invoice"
-msgstr "Faktuur"
+msgstr "Factuur"
 
 msgid "You can print this page: only the invoice below will be printed."
-msgstr "U kan deze pagina afdrukken: enkel de faktuur hieronder zal afgedrukt worden."
+msgstr "U kunt deze pagina afdrukken: alleen de onderstaande factuur zal afgedrukt worden."
 
 msgid "Printer friendly version"
 msgstr "Afdrukvriendelijke versie"
 
 msgid "Establishing your invoice requires your address."
-msgstr "Uw adres is vereist om een faktuur op te stellen."
+msgstr "Uw adres is vereist om een factuur op te stellen."
 
 msgid "Please make sure the billing information is correct."
-msgstr "Gelieve de fakturatiegegevens te controleren."
+msgstr "Gelieve de factuurgegevens te controleren."
 
 msgid "Address"
 msgstr "Adres"
@@ -404,6 +1048,328 @@ msgstr "Adres"
 msgid "I confirm"
 msgstr "Ik bevestig"
 
+msgid "Submit/Edit a talk"
+msgstr "Presentatie indienen/bewerken"
+
+msgid "You must specify a user"
+msgstr "U moet een gebruiker opgeven"
+
+msgid "You must enter a title for the talk"
+msgstr "U moet een titel voor de presentatie opgeven"
+
+msgid "You must provide an abstract"
+msgstr "U moet een samenvatting meegeven"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "URL van de samenvatting geen geldige URL"
+
+msgid "Talk URL is not a valid URL"
+msgstr "URL van de presentatie geen geldige URL"
+
+msgid "Incorrect language"
+msgstr "Verkeerde taal"
+
+msgid "Delete this talk"
+msgstr "Deze presentatie verwijderen"
+
+msgid "Track"
+msgstr "Track"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Language:"
+msgstr "Taal:"
+
+msgid "Abstract URL"
+msgstr "URL van samenvatting"
+
+msgid "Talk URL"
+msgstr "URL van presentatie"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Standaardlengtes voor %1 zijn:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Als de voorgestelde lengtes voor uw presentatie niet geschikt zijn,\n"
+"geef in het commentaarveld a.u.b. uw gewenste duur op"
+
+msgid "Comments"
+msgstr "Commentaar"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"In dit commentaarveld kunt u de organisatoren informatie\n"
+"over deze presentatie geven"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "geaccepteerd"
+
+msgid "confirmed"
+msgstr "bevestigd"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "Pending"
+msgstr "Nog niet beoordeeld"
+
+msgid "Submit this talk"
+msgstr "Deze presentatie indienen"
+
+msgid "Talk submitted"
+msgstr "Presentatie ingediend"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Bedankt, uw ingediende presentatie is opgeslagen als <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "iCal-import"
+
+msgid "The following talks have been updated:"
+msgstr "De volgende presentatie zijn bijgewerkt:"
+
+msgid "Old time"
+msgstr "Oude tijd"
+
+msgid "New time"
+msgstr "Nieuwe tijd"
+
+msgid "title"
+msgstr "titel"
+
+msgid "Upload an iCal file"
+msgstr "ical-bestand uploaden"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "List of talks"
+msgstr "Lijst van presentaties"
+
+msgid "List of talks tagged <tag>"
+msgstr "Lijst van presentaties met tag %1"
+
+msgid "No talk was submitted yet."
+msgstr "Nog geen presentatie ingediend."
+
+msgid "Submitted talks:"
+msgstr "Ingediende presentaties:"
+
+msgid "Accepted talks:"
+msgstr "Geaccepteerde presentaties:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Geaccepteerde presentaties zijn <b>vet</b> weergegeven."
+
+msgid "Total duration of accepted talks:"
+msgstr "Totale duur van geaccepteerde presentaties:"
+
+msgid "hours"
+msgstr "uren"
+
+msgid "Accepted lightning talks:"
+msgstr "Geaccepteerde lightning talks:"
+
+msgid "Tracks"
+msgstr "Tracks"
+
+msgid "No track"
+msgstr "Geen track"
+
+msgid "lightning"
+msgstr "bliksem"
+
+msgid "from"
+msgstr "van"
+
+msgid "Comment:"
+msgstr "Commentaar:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "U kunt meer informatie op de site van de spreker vinden:"
+
+msgid "Abstract:"
+msgstr "Samenvatting:"
+
+msgid "Talk:"
+msgstr "Presentatie"
+
+msgid "Talk removed"
+msgstr "Presentatie verwijderd"
+
+msgid "The Talk <title> has been removed."
+msgstr "De presentatie <b>%1</b> is verwijderd."
+
+msgid "Talk inserted"
+msgstr "Presentatie ingevoegd"
+
+msgid "Talk updated"
+msgstr "Presentatie bijgewerkt"
+
+msgid "Submitted by:"
+msgstr "Ingediend door:"
+
+msgid "The following fields have been updated:"
+msgstr "De volgende velden zijn bijgewerkt:"
+
+msgid "By:"
+msgstr "Door:"
+
+msgid "Remember me on this computer"
+msgstr "Onthoud mij op deze computer"
+
 msgid "Billing"
-msgstr "Afrekening"
+msgstr "Facturatie"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"De volgende ingediende presentaties zijn geaccepteerd. Klik op\n"
+"onderstaande link om uw presentatie te bevestigen.\n"
+
+msgid "News"
+msgstr "Nieuws"
+
+msgid "News Administration"
+msgstr "Nieuwsbeheer"
+
+msgid "Published"
+msgstr "Gepubliceerd"
+
+msgid "Create a new item"
+msgstr "Maak een nieuw item aan"
+
+msgid "Edit a news item"
+msgstr "Bewerk een nieuws-item"
+
+msgid "You must enter a title"
+msgstr "U moet een titel opgeven"
+
+msgid "You must enter some text"
+msgstr "U moet een tekst opgeven"
+
+msgid "Delete this item"
+msgstr "Verwijder het item"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "No news yet!"
+msgstr "Nog geen nieuws!"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Gebruik HTML om tekst te formatteren. Tekst op nieuwe regels wordt als alinea geformatteerd"
+
+msgid "Add a new track"
+msgstr "Nieuwe track toevoegen"
+
+msgid "Create/Edit a track"
+msgstr "Track aanmaken/bewerken"
+
+msgid "Delete this track"
+msgstr "Deze track verwijderen"
+
+msgid "Submit this track"
+msgstr "Deze track opslaan"
+
+msgid "You must enter a title for the track"
+msgstr "U moet een titel voor de track opgeven"
+
+msgid "n talks"
+msgstr "%quant(%1,presentatie)"
+
+msgid "n accepted"
+msgstr "%quant(%1,geaccepteerd)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,bevestigd)"
+
+msgid "Change Password"
+msgstr "Wachtwoord wijzigen"
+
+msgid "Please type in your new password"
+msgstr "Voor uw nieuwe wachtwoord in"
+
+msgid "Passwords don't match"
+msgstr "Wachtwoorden stemmen niet overeen"
+
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+msgid "Enter your new password twice"
+msgstr "Voer het nieuwe wachtwoord twee keer in"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Er is een E-mail aan u verzonden. Klik op de link in de E-mail\n"
+"om toegang tot uw account te krijgen en een nieuw wachtwoord in te stellen"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "add new tags:"
+msgstr "Nieuwe tags toevoegen:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Om <b>%1 %2</b> voor %3 weer\n"
+"uit te schrijven, klik op de onderstaande knop.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "%1 %2 uitschrijven voor %3"
+
+msgid "unregister"
+msgstr "uitschrijven"
+
+msgid "edit payment"
+msgstr "betaling bewerken"
+
+msgid "view invoice"
+msgstr "factuur bekijken"
+
+msgid "create invoice"
+msgstr "factuur aanmaken"
+
+msgid "enter payment"
+msgstr "betaling invoeren"
+
+msgid "Your purchases"
+msgstr "Uw aankopen"
+
+msgid "Your <conf> order #<id>"
+msgstr "Uw %1 bestelnr. %2"
+
+msgid "make additional purchases"
+msgstr "nog meer aankopen doen"
+
+msgid "view all orders and invoices"
+msgstr "alle bestellingen en facturen bekijken"
+
+msgid "Product"
+msgstr "Product"
+
+msgid "Personal Schedule"
+msgstr "Persoonlijk programma"
+
+msgid "Attending talks"
+msgstr "Bijgewoonde presentaties"
+
+msgid "Promotion code"
+msgstr "Promotie-code"
+
+msgid "add to personal schedule"
+msgstr "aan persoonlijk programma toevoegen"
+
+msgid "remove from personal schedule"
+msgstr "uit persoonlijk programma verwijderen"
+
+msgid "Attended by:"
+msgstr "Bijgewoond door:"
 
