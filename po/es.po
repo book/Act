@@ -1,0 +1,1366 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "Cheque"
+
+msgid "payment_means_CASH"
+msgstr "Efectivo"
+
+msgid "payment_means_ONLINE"
+msgstr "En línea"
+
+msgid "payment_means_XFER"
+msgstr "Transferencia"
+
+msgid "payment_means_FREE"
+msgstr "Gratis"
+
+msgid "room_out"
+msgstr "Exterior"
+
+msgid "room_venue"
+msgstr "Sede"
+
+msgid "salutation_1"
+msgstr "Sr."
+
+msgid "salutation_2"
+msgstr "Sra."
+
+msgid "salutation_3"
+msgstr "Srta."
+
+msgid "salutation_4"
+msgstr "Dr."
+
+msgid "User information"
+msgstr "Datos del usuario"
+
+msgid "Login"
+msgstr "Id. de usuario"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Perl mongers group"
+msgstr "Grupo de Perl mongers"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Web page"
+msgstr "Página web"
+
+msgid "IM"
+msgstr "IM"
+
+msgid "GPG key ID"
+msgstr "Id. de clave GPG"
+
+msgid "No photo"
+msgstr "Sin foto"
+
+msgid "Talk"
+msgstr "%numerate(%1,Charla,Charlas)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Charla aceptada,Charlas aceptadas)"
+
+msgid "minutes"
+msgstr "minutos"
+
+msgid "Lightning talk"
+msgstr "Charla relámpago"
+
+msgid "Bio"
+msgstr "Biografía"
+
+msgid "Other Act conferences:"
+msgstr "Otras conferencias gestionadas por Act:"
+
+msgid "Main private page"
+msgstr "Página privada principal"
+
+msgid "to <this conference>"
+msgstr "en %1."
+
+msgid "This is your personal page."
+msgstr ""
+"Ésta es su página personal.\n"
+"Desde aquí puede gestionar todos los datos relativos a su participación.\n"
+
+msgid "to Act-enabled conferences."
+msgstr "en conferencias gestionadas por Act."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Ha pagado su entrada para la conferencia:"
+
+msgid "Order number"
+msgstr "Número de compra"
+
+msgid "Payment date"
+msgstr "Fecha de pago"
+
+msgid "Amount paid"
+msgstr "Importe pagado"
+
+msgid "Download your invoice"
+msgstr "Descargar la <a href=\"%1\">factura</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Aún no ha pagado la entrada."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Para pagarla puede utilizar nuestro sistema de pago en línea."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Podrá hacerlo cuando nuestro sistema de pago en línea esté listo."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Aún no ha confirmado su participación en esta conferencia."
+
+msgid "You did not register for this conference"
+msgstr ""
+"No se ha <a href=\"%1\">inscrito en esta conferencia</a>.\n"
+"Debe inscribirse si pretende asistir o dar una charla.\n"
+
+msgid "You can:"
+msgstr "Puede:"
+
+msgid "purchase your conference ticket"
+msgstr "pagar su entrada para la conferencia"
+
+msgid "confirm your participation"
+msgstr "confirmar su participación"
+
+msgid "register for this conference"
+msgstr "inscribirse en esta conferencia"
+
+msgid "update your information"
+msgstr "actualizar sus datos"
+
+msgid "manage your photo"
+msgstr "gestionar su foto"
+
+msgid "change your password"
+msgstr "cambiar su contraseña"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "ver sus charlas (las charlas aceptadas se muestran en <b>negrita</b>)"
+
+msgid "submit a talk"
+msgstr "enviar una charla"
+
+msgid "log out"
+msgstr "cerrar la sesión"
+
+msgid "unregister from <this conference>"
+msgstr "cancelar la inscripción en %1"
+
+msgid "(You were there)"
+msgstr "(Asistió)"
+
+msgid "(You are there)"
+msgstr "(Asiste actualmente)"
+
+msgid "(You will be there)"
+msgstr "(Va a asistir)"
+
+msgid "Confirmation required"
+msgstr "Confirmación requerida"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Esta operación requiere confirmación. Escriba su dirección de correo electrónico.\n"
+"Recibirá un mensaje con un vínculo de confirmación.\n"
+
+msgid "You must enter your email"
+msgstr "Debe escribir su dirección de correo electrónico"
+
+msgid "Your email address looks bogus."
+msgstr "Su dirección de correo electrónico no parece válida."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"Se ha enviado un mensaje de correo electrónico a <b>%1</b>. Haga clic en\n"
+"el vínculo que contiene para completar esta operación.\n"
+
+msgid "Confirmation email sent"
+msgstr "Se le ha enviado un mensaje de confirmación"
+
+msgid "In order to complete your operation"
+msgstr "Para completar la operación en \"%1\", haga clic en el vínculo siguiente:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - confirmación"
+
+msgid "Registration"
+msgstr "Inscripción"
+
+msgid "Sorry, this conference is over."
+msgstr "Esta conferencia ya ha finalizado."
+
+msgid "Please create your user below."
+msgstr "Cree un usuario a continuación."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "El identificador %1 ya está asignado. Elija otro identificador."
+
+msgid "The address is already registered."
+msgstr "La dirección %1 ya está registrada."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "El identificador debe contener al menos 3 caracteres y sólo puede contener caracteres alfanuméricos (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Debe escribir su nombre"
+
+msgid "You must enter your last name"
+msgstr "Debe escribir sus apellidos"
+
+msgid "You must enter a country from the list"
+msgstr "Debe especificar un país de la lista"
+
+msgid "Accounts with similar information already exist."
+msgstr "Ya existen cuentas con información similar."
+
+msgid "A valid T-shirt size is required."
+msgstr "Debe especificar una talla de camiseta válida."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Use los vínculos anteriores para comprobar si es uno de estos usuarios. En caso afirmativo, sólo\n"
+"tiene que <a href=\"%1\">iniciar una sesión</a> con su cuenta existente.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Para inscribirse debe crear una cuenta en el sitio.\n"
+"<b>Si ya tiene una cuenta de alguna conferencia de Act anterior,\n"
+"no es necesario que vuelva a inscribirse; basta con que\n"
+"<a href=\"%1\">inicie una sesión</a> con su cuenta.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Los datos personales recopilados se usarán para crear\n"
+"una <a href=\"%1\"><i>lista de participantes</i> en línea</a> de todos los asistentes.\n"
+"Esto le resultará muy útil tras la conferencia, cuando desee\n"
+"ponerse en contacto con personas a las que conoció en la conferencia. O incluso antes,\n"
+"si desea saber qué gurús van a participar.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Cuando tenga una cuenta podrá usar nuestra plataforma de pago\n"
+"seguro para pagar su entrada a la conferencia. Tenga en cuenta que\n"
+"el banco se encarga de gestionar todos los aspectos relacionados con su\n"
+"cuenta bancaria y su número de tarjeta de crédito.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>No tendremos acceso a los datos de su\n"
+"tarjeta de crédito en ningún momento durante el proceso de pago.</b> Sólo\n"
+"recibiremos el dinero. <tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Cuando tenga una cuenta podrá confirmar su participación\n"
+"en esta conferencia, gratuitamente."
+
+msgid "Please create the user below."
+msgstr "Cree el usuario a continuación."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Use los vínculos anteriores para comprobar si alguno de estos usuarios es el que desea\n"
+"crear. En caso afirmativo, sólo tiene que activar el botón de opción correspondiente\n"
+"y enviar este formulario.\n"
+
+msgid "Register"
+msgstr "Inscribirse"
+
+msgid "Registered!"
+msgstr "¡Ya se ha inscrito!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Enhorabuena, <b>%1</b>, ya se ha inscrito.\n"
+"Su contraseña es <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Nombre"
+
+msgid "Last Name"
+msgstr "Apellidos"
+
+msgid "T-Shirt"
+msgstr "Camiseta"
+
+msgid "Join!"
+msgstr "Inscribirme"
+
+msgid "edit"
+msgstr "modificar"
+
+msgid "min"
+msgstr "min."
+
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Forgot your password?"
+msgstr "¿No recuerda su contraseña? Haga clic <a href=\"%1\">aquí</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Este sitio usa cookies para autenticar los usuarios que inician sesión. Es posible\n"
+"que tenga que configurar su navegador para que acepte cookies del dominio <b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "Identificador de usuario o contraseña incorrectos"
+
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Se ha cerrado la sesión y se ha eliminado la cookie del navegador."
+
+msgid "Other conferences"
+msgstr "Otras conferencias"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Gestión de derechos"
+
+msgid "Events"
+msgstr "Eventos"
+
+msgid "Submit a new event"
+msgstr "Enviar un evento nuevo"
+
+msgid "Schedule"
+msgstr "Programación"
+
+msgid "iCal export"
+msgstr "Exportar a iCal"
+
+msgid "iCal import"
+msgstr "Importar de iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Enviar propuesta de charla"
+
+msgid "Presentations"
+msgstr "Presentaciones"
+
+msgid "Treasurer"
+msgstr "Tesorero"
+
+msgid "Payments"
+msgstr "Pagos"
+
+msgid "Payment Details"
+msgstr "Datos del pago"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid "New user"
+msgstr "Nuevo usuario"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Statistics"
+msgstr "Estadísticas"
+
+msgid "CSV export"
+msgstr "Exportar a CSV"
+
+msgid "Register a new user"
+msgstr "Inscribir un usuario nuevo"
+
+msgid "The schedule is not ready to be seen."
+msgstr "La programación aún no está lista."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Aún no se ha decidido la hora y la ubicación de las charlas siguientes."
+
+msgid "Speaker"
+msgstr "Ponente"
+
+msgid "Talk title"
+msgstr "Título de la charla"
+
+msgid "Duration"
+msgstr "Duración"
+
+msgid "Target audience"
+msgstr "Público al que se dirige"
+
+msgid "Target audience:"
+msgstr "Público al que se dirige:"
+
+msgid "abstract (link)"
+msgstr "Resumen"
+
+msgid "talk (link)"
+msgstr "Charla"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Las charlas en <b>negrita</b> han sido confirmadas por sus respectivos ponentes."
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "Donation"
+msgstr "Donativo"
+
+msgid "Buy now!"
+msgstr "Comprar"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Tenga en cuenta que el banco se encarga de gestionar todo lo relativo a su cuenta bancaria\n"
+"y el número de su tarjeta de crédito. <b>No tendremos acceso a los datos de su tarjeta de crédito\n"
+"en ningún momento durante el proceso de pago.</b> Sólo recibiremos el dinero. <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Como el importe de su compra es cero, no tiene que realizar ningún pago. Ha completado la compra."
+
+msgid "Online payment"
+msgstr "Pago en línea"
+
+msgid "Online payment (zero)"
+msgstr "Nada que pagar"
+
+msgid "Join"
+msgstr "Inscribirme en"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"Para inscribirse en la conferencia %1\n"
+"sólo tiene que pulsar el botón siguiente.\n"
+
+msgid "The recognised rights are:"
+msgstr "Los derechos reconocidos son:"
+
+msgid "Organizer"
+msgstr "Organizador"
+
+msgid "Organizer (talks management)"
+msgstr "Organizador (gestión de charlas)"
+
+msgid "Treasurer (payment management)"
+msgstr "Tesorero (gestión de pagos)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrador (gestión de derechos)"
+
+msgid "User rights"
+msgstr "Derechos de usuario"
+
+msgid "Amount"
+msgstr "Importe"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "No puede permanecer en el anonimato sin un alias"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "El nombre del grupo de Perl mongers debe acabar en <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "La dirección URL del grupo de Perl mongers debe empezar por http://"
+
+msgid "The company URL must start with http://"
+msgstr "La dirección URL de su empresa debe empezar por http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "La dirección URL de su sitio web debe empezar por http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Su identificador de perlmonks debe ser un número"
+
+msgid "Number of family members attending must be a number"
+msgstr "Debe escribir un número en el campo de número de acompañantes"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "No es un id. de clave GPG válido: se esperan 8 dígitos hexadecimales"
+
+msgid "Salutation"
+msgstr "Tratamiento"
+
+msgid "Nickname"
+msgstr "Alias"
+
+msgid "Stay pseudonymous"
+msgstr "Permanecer en el anonimato"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Hide email"
+msgstr "Ocultar dirección de correo electrónico"
+
+msgid "Coming with"
+msgstr "Viene con"
+
+msgid "6 or more"
+msgstr "6 o más"
+
+msgid "people (who will not attend the conference)"
+msgstr "acompañantes (que no asistirán a la conferencia)"
+
+msgid "T-shirt size"
+msgstr "Talla de camiseta"
+
+msgid "Full address"
+msgstr "Dirección completa"
+
+msgid "Timezone"
+msgstr "Zona horaria"
+
+msgid "Monger group"
+msgstr "Grupo de mongers"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Ciudad.pm</em>, con el nombre de la ciudad en inglés)"
+
+msgid "Monger group URL"
+msgstr "URL del grupo de mongers"
+
+msgid "VAT Number"
+msgstr "Número de IVA"
+
+msgid "Company URL"
+msgstr "URL de la empresa"
+
+msgid "GPG public key ID"
+msgstr "Id. de clave pública GPG"
+
+msgid "(please fill at least this one)"
+msgstr "(rellene al menos este campo)"
+
+msgid "Update info"
+msgstr "Actualizar info."
+
+msgid "Your information"
+msgstr "Sus datos"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"Esto es una simulación. En una situación real, al enviar\n"
+"este formulario, se abrirá el sitio web del banco\n"
+"para que pueda especificar los datos de su tarjeta de crédito.<br /><br />\n"
+"Haga clic en Enviar para simular un pago.\n"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Los usuarios confirmados se muestran en <b>negrita</b> (han pagado\n"
+"su entrada o van a dar una charla).\n"
+
+msgid "Search for users"
+msgstr "Buscar usuarios"
+
+msgid "Search form"
+msgstr "Formulario de búsqueda"
+
+msgid "Any"
+msgstr "Todas"
+
+msgid "Your photo"
+msgstr "Su foto"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "No se pudo leer la imagen. Debe proporcionar una foto con uno de los formatos siguientes:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"Es probable que esta foto se incluya en la <i>lista de participantes</i> de la conferencia,\n"
+"para que los demás participantes puedan reconocerle cuando se pregunten quién era aquella persona\n"
+"tan agradable con la que charlaron cuando coincidieron con usted en la conferencia.<br />\n"
+"Téngalo en cuenta al enviar la foto.\n"
+
+msgid "Delete Photo"
+msgstr "Eliminar foto"
+
+msgid "Update Photo"
+msgstr "Actualizar foto"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Alguien (posiblemente usted) ha solicitado que se restablezca su contraseña.\n"
+"Para completar esta operación, haga clic en el vínculo siguiente:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Si ha recibido este mensaje sin haber solicitado esta operación, se debe\n"
+"a que alguien ha intentado utilizar su identificador de usuario o su dirección de correo electrónico.\n"
+"Posiblemente sea un error inocente y su contraseña no corre peligro,\n"
+"así que puede ignorar este mensaje.\n"
+
+msgid "Reset Password"
+msgstr "Restablecer contraseña"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Especifique su <B>identificador de usuario</B> o su <B>dirección de correo electrónico</B>.\n"
+"Recibirá un mensaje de correo electrónico con instrucciones para restablecer su contraseña.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "No se encontró ningún usuario con este identificador de usuario o dirección de correo electrónico"
+
+msgid "Specify your login or email address"
+msgstr "Especifique su identificador de usuario o su dirección de correo electrónico"
+
+msgid "Generate password"
+msgstr "Generar contraseña"
+
+msgid "<conf name> Statistics"
+msgstr "Estadísticas de %1"
+
+msgid "There are n registered people"
+msgstr ""
+"Hay %1 personas inscritas\n"
+"de %quant(%2,país,países)\n"
+"y %quant(%3,grupo,grupos) de mongers).\n"
+"Hay %4 usuarios confirmados\n"
+"(personas que han pagado su\n"
+"entrada a la conferencia o que darán una charla).\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Puede ver estadísticas de <a href=\"%1\">países / mongers</a>\n"
+"o de <a href=\"%2\">ciudades</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"El número de usuarios confirmados se muestra entre paréntesis\n"
+"en las tablas siguientes.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Haga clic en los distintos vínculos para ver los usuarios correspondientes."
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Nota: el total por país no siempre se corresponde con el total por ciudad.\n"
+"Y las ciudades pueden no estar en el país correspondiente.\n"
+"La culpa es de los usuarios...\n"
+
+msgid "Cities"
+msgstr "Ciudades"
+
+msgid "No city information entered"
+msgstr "No se ha encontrado ninguna ciudad"
+
+msgid "Countries"
+msgstr "Países"
+
+msgid "Monger groups"
+msgstr "Grupos de mongers"
+
+msgid "Un-Registration"
+msgstr "Cancelar inscripción"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"Para cancelar la inscripción en %1,\n"
+"sólo tiene que pulsar el botón de abajo.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Cancelar inscripción en %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Enviar/modificar un evento"
+
+msgid "You must enter a title for the event"
+msgstr "Debe escribir un título para el evento"
+
+msgid "You must enter a short description for the event"
+msgstr "Debe escribir una descripción breve del evento"
+
+msgid "Please choose a duration"
+msgstr "Elija una duración"
+
+msgid "The supplied date is invalid"
+msgstr "La fecha especificada no es válida"
+
+msgid "The supplied time is invalid"
+msgstr "La hora especificada no es válida"
+
+msgid "The date/time is out of range"
+msgstr "La fecha o la hora están fuera de los límites"
+
+msgid "Event URL is not a valid URL"
+msgstr "La dirección URL del evento no es válida"
+
+msgid "Incorrect room submitted"
+msgstr "Sala incorrecta"
+
+msgid "Please choose a target audience"
+msgstr "Elija el público al que se dirige"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Delete this event"
+msgstr "Eliminar este evento"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Room"
+msgstr "Sala"
+
+msgid "Abstract"
+msgstr "Resumen"
+
+msgid "(plain text)"
+msgstr "(texto sin formato)"
+
+msgid "External URL"
+msgstr "Dirección URL externa"
+
+msgid "Submit this event"
+msgstr "Enviar este evento"
+
+msgid "Event submitted"
+msgstr "Evento enviado"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Gracias. El evento se ha registrado como\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Lista de eventos"
+
+msgid "No event was submitted yet."
+msgstr "Aún no se ha enviado ningún evento."
+
+msgid "Event title"
+msgstr "Título del evento"
+
+msgid "Event removed"
+msgstr "Evento quitado"
+
+msgid "The event has been removed."
+msgstr "Se ha quitado el evento <b>%1</b>."
+
+msgid "Date:"
+msgstr "Fecha:"
+
+msgid "Not scheduled yet."
+msgstr "Aún no está programada."
+
+msgid "Duration:"
+msgstr "Duración:"
+
+msgid "You can find more information on the following site:"
+msgstr "Encontrará más información en el sitio siguiente:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - modificando %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Alguien ha modificado este nodo después de que usted empezara a editarlo.\n"
+"Tendrá que combinar manualmente los cambios en la nueva versión.\n"
+
+msgid "Current node contents:"
+msgstr "Contenido del nodo actual:"
+
+msgid "Help"
+msgstr "Ayuda"
+
+msgid "Preview"
+msgstr "Vista previa"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Your proposed revision:"
+msgstr "La revisión propuesta por Ud.:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - Historial de %1"
+
+msgid "Version"
+msgstr "Versión"
+
+msgid "Modified on"
+msgstr "Modificado el"
+
+msgid "By"
+msgstr "Por"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "versión"
+
+msgid "saved on"
+msgstr "guardado el"
+
+msgid "Last modified:"
+msgstr "Última modificación:"
+
+msgid "by"
+msgstr "por"
+
+msgid "new page"
+msgstr "página nueva"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Revert to this version"
+msgstr "Revertir a esta versión"
+
+msgid "Edit this page"
+msgstr "Editar esta página"
+
+msgid "Delete this page"
+msgstr "Eliminar esta página"
+
+msgid "Recent changes"
+msgstr "Cambios recientes"
+
+msgid "History"
+msgstr "Historial"
+
+msgid "Wiki help"
+msgstr "Ayuda del Wiki"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Formato de caracteres</h2>\n"
+"<ul>\n"
+"<li>Un elemento escrito entre tres comillas simples se mostrará en <b>negrita</b>.</li>\n"
+"<li>Un elemento escrito entre dos comillas simples se mostrará en <i>cursiva</i>.</li>\n"
+"<li>Cualquier palabra con varias LetrasMayúsculas se convertirá en un vínculo.</li>\n"
+"</ul>\n"
+"<h2>Formato de párrafos</h2>\n"
+"<ul>\n"
+"<li>Cuatro o más guiones al principio de una línea crean una línea horizontal.</li>\n"
+"<li>Los caracteres de nueva línea se convierte en las etiquetas apropiadas.</li>\n"
+"<li>Los encabezados se indican escribiendo el texto de encabezado entre signos igual (cuantos más signos, más pequeño será el encabezado).</li>\n"
+"</ul>\n"
+"<h2>Listas</h2>\n"
+"<ul>\n"
+"<li>Las listas se crean aplicando al texto una sangría consistente en una tabulación o cuatro espacios (de manera predeterminada).</li>\n"
+"<li>En las listas no ordenadas, donde cada elemento tiene su propia viñeta, hay que escribir un asterisco y un espacio antes de los elementos.</li>\n"
+"<li>Las listas ordenadas constan de elementos marcados con una combinación de uno o más caracteres alfanuméricos seguidos de un punto y un espacio opcional.</li>\n"
+"<li>Las listas se pueden anidar.</li>\n"
+"</ul>\n"
+"<h2>Código</h2>\n"
+"<ul>\n"
+"<li>Cualquier texto sangrado sin marcas de ningún tipo se considerará código, y se procesará literalmente. Puede anidar listas.</li>\n"
+"</ul>\n"
+"<h2>Ejemplo</h2>\n"
+"\n"
+"A continuación se muestra un ejemplo de formato de Wiki válido, con un vínculo extendido.\n"
+"<pre>\n"
+"\n"
+"        = texto muy interesante =\n"
+"\n"
+"        VínculoNormal\n"
+"        [VínculoExtendido|Que brille el sol]\n"
+"        [user:id]\n"
+"        [user:alias]\n"
+"        [user:nombre apellidos]\n"
+"        [talk:id]\n"
+"        [page:index.html|índice]\n"
+"        [image:images/logo.png|logotipo]\n"
+"\n"
+"        == listas muy interesantes ==\n"
+"\n"
+"            * elemento no ordenado uno\n"
+"            * elemento no ordenado dos\n"
+"\n"
+"            1. elemento ordenado uno\n"
+"            2. elemento ordenado dos\n"
+"                        a. elemento anidado uno\n"
+"                        b. elemento anidado dos\n"
+"\n"
+"            código uno\n"
+"            código dos\n"
+"\n"
+"        Primera línea de un párrafo normal.\n"
+"        Segunda línea de un párrafo normal.\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Cambios recientes"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Changes in last"
+msgstr "Cambios desde hace"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,día,días)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,semana,semanas)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,mes,meses)"
+
+msgid "Wiki tags"
+msgstr "Etiquetas del Wiki"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Páginas del Wiki con la etiqueta %1"
+
+msgid "Administrative tasks"
+msgstr "Tareas administrativas"
+
+msgid "Talks & events"
+msgstr "Charlas y eventos"
+
+msgid "Credit card payment"
+msgstr "Pago con tarjeta de crédito"
+
+msgid "Payment"
+msgstr "Pago"
+
+msgid "Editing payment"
+msgstr "Modificación del pago"
+
+msgid "User"
+msgstr "Usuario"
+
+msgid "Payment means"
+msgstr "Modo de pago"
+
+msgid "or"
+msgstr "o bien"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "speaker"
+msgstr "ponente"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Payment confirmation"
+msgstr "Confirmación del pago"
+
+msgid "<conf> online payment"
+msgstr ""
+"Se ha autorizado el pago en línea.\n"
+"\n"
+"Número de pedido: %2\n"
+"Fecha de pago: %3 GMT\n"
+"Importe pagado: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "Nº de factura"
+
+msgid "Dated"
+msgstr "Con fecha de"
+
+msgid "Printed on"
+msgstr "Impresa el"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+msgid "<conf> registration"
+msgstr "Inscripción en %1"
+
+msgid "Your order number:"
+msgstr "Número de pedido:"
+
+msgid "Total due"
+msgstr "Importe total"
+
+msgid "Invoice"
+msgstr "Factura"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Puede imprimir esta página; sólo se imprimirá la factura de abajo."
+
+msgid "Printer friendly version"
+msgstr "Versión para imprimir"
+
+msgid "Establishing your invoice requires your address."
+msgstr "La emisión de la factura requiere que especifique su dirección."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Asegúrese de que los datos de la factura son correctos."
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "I confirm"
+msgstr "Confirmar"
+
+msgid "Submit/Edit a talk"
+msgstr "Enviar/modificar una charla"
+
+msgid "You must specify a user"
+msgstr "Debe especificar un usuario"
+
+msgid "You must enter a title for the talk"
+msgstr "Debe escribir un título para la charla"
+
+msgid "You must provide an abstract"
+msgstr "Debe proporcionar un resumen"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "La dirección URL del resumen no es válida"
+
+msgid "Talk URL is not a valid URL"
+msgstr "La dirección URL de la charla no es válida"
+
+msgid "Incorrect language"
+msgstr "Idioma incorrecto"
+
+msgid "Delete this talk"
+msgstr "Eliminar esta charla"
+
+msgid "Track"
+msgstr "Tema"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Language:"
+msgstr "Idioma:"
+
+msgid "Abstract URL"
+msgstr "Dirección URL del resumen"
+
+msgid "Talk URL"
+msgstr "Dirección URL de la charla"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Las duraciones estándar para %1 son:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Si las duraciones propuestas no son las adecuadas para su charla\n"
+"use el campo de comentarios para indicar la duración requerida.\n"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"El campo de comentarios se utiliza para comunicar información sobre\n"
+"esta charla a los organizadores.\n"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "accepted"
+msgstr "aceptada"
+
+msgid "confirmed"
+msgstr "confirmada"
+
+msgid "Accepted"
+msgstr "Aceptada"
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "Submit this talk"
+msgstr "Enviar esta charla"
+
+msgid "Talk submitted"
+msgstr "Charla enviada"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Gracias. Su propuesta de charla se ha registrado como <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "Importación de iCal"
+
+msgid "The following talks have been updated:"
+msgstr "Se han actualizado las siguientes charlas:"
+
+msgid "Old time"
+msgstr "Horario antiguo"
+
+msgid "New time"
+msgstr "Horario nuevo"
+
+msgid "title"
+msgstr "título"
+
+msgid "Upload an iCal file"
+msgstr "Cargar un archivo iCal"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "List of talks"
+msgstr "Lista de charlas"
+
+msgid "List of talks tagged <tag>"
+msgstr "Lista de charlas con la etiqueta %1"
+
+msgid "No talk was submitted yet."
+msgstr "Aún no se ha enviado ninguna charla."
+
+msgid "Submitted talks:"
+msgstr "Charlas enviadas:"
+
+msgid "Accepted talks:"
+msgstr "Charlas aceptadas:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Las charlas aceptadas se muestran en <b>negrita</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Duración total de las charlas aceptadas:"
+
+msgid "hours"
+msgstr "horas"
+
+msgid "Accepted lightning talks:"
+msgstr "Charlas relámpago aceptadas:"
+
+msgid "Tracks"
+msgstr "Temas"
+
+msgid "No track"
+msgstr "Ningún tema"
+
+msgid "lightning"
+msgstr "relámpago"
+
+msgid "from"
+msgstr "de"
+
+msgid "Comment:"
+msgstr "Comentario:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Puede obtener más información en el sitio del ponente:"
+
+msgid "Abstract:"
+msgstr "Resumen:"
+
+msgid "Talk:"
+msgstr "Charla:"
+
+msgid "Talk removed"
+msgstr "Charla quitada"
+
+msgid "The Talk <title> has been removed."
+msgstr "Se ha quitado la charla <b>%1</b>."
+
+msgid "Talk inserted"
+msgstr "Charla insertada"
+
+msgid "Talk updated"
+msgstr "Charla actualizada"
+
+msgid "Submitted by:"
+msgstr "Enviada por:"
+
+msgid "The following fields have been updated:"
+msgstr "Se han actualizado los campos siguientes:"
+
+msgid "By:"
+msgstr "Por:"
+
+msgid "Remember me on this computer"
+msgstr "Recordarme en este ordenador"
+
+msgid "Billing"
+msgstr "Facturación"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Se ha aceptado la siguiente charla enviada. Haga clic\n"
+"en el vínculo siguiente para confirmar su presentación.\n"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "News Administration"
+msgstr "Gestión de noticias"
+
+msgid "Published"
+msgstr "Publicada"
+
+msgid "Create a new item"
+msgstr "Crear una noticia"
+
+msgid "Edit a news item"
+msgstr "Modificar una noticia"
+
+msgid "You must enter a title"
+msgstr "Debe escribir un título"
+
+msgid "You must enter some text"
+msgstr "Debe escribir algún texto"
+
+msgid "Delete this item"
+msgstr "Eliminar este elemento"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "No news yet!"
+msgstr "Aún no hay ninguna noticia."
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Use HTML como formato de texto. El texto entre caracteres de nueva línea se convertirá en párrafos"
+
+msgid "Add a new track"
+msgstr "Agregar un tema nuevo"
+
+msgid "Create/Edit a track"
+msgstr "Crear/modificar un tema"
+
+msgid "Delete this track"
+msgstr "Eliminar este tema"
+
+msgid "Submit this track"
+msgstr "Enviar este tema"
+
+msgid "You must enter a title for the track"
+msgstr "Debe escribir un título para el tema"
+
+msgid "n talks"
+msgstr "%quant(%1,charla,charlas)"
+
+msgid "n accepted"
+msgstr "%quant(%1,aceptada,aceptadas)"
+
+msgid "n confirmed"
+msgstr "%quant(%1,confirmada,confirmadas)"
+
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+msgid "Please type in your new password"
+msgstr "Escriba la nueva contraseña"
+
+msgid "Passwords don't match"
+msgstr "Las contraseñas no coinciden"
+
+msgid "New password"
+msgstr "Nueva contraseña"
+
+msgid "Enter your new password twice"
+msgstr "Confirme la nueva contraseña"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Se le ha enviado un mensaje de correo electrónico. Haga clic en el vínculo que contiene\n"
+"para tener acceso a su cuenta de usuario y establecer una contraseña nueva.\n"
+
+msgid "Tags"
+msgstr "Etiquetas"
+
+msgid "Tags:"
+msgstr "Etiquetas:"
+
+msgid "add new tags:"
+msgstr "agregar etiquetas nuevas:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"Para cancelar la inscripción <b>%1 %2</b> de %3,\n"
+"sólo tiene que pulsar el botón siguiente.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Cancelar la inscripción %1 %2 de %3"
+
+msgid "unregister"
+msgstr "cancelar inscripción"
+
+msgid "edit payment"
+msgstr "modificar pago"
+
+msgid "view invoice"
+msgstr "ver factura"
+
+msgid "create invoice"
+msgstr "crear factura"
+
+msgid "enter payment"
+msgstr "introducir pago"
+
+msgid "Your purchases"
+msgstr "Sus compras"
+
+msgid "Your <conf> order #<id>"
+msgstr "Su pedido de %1 nº%2"
+
+msgid "make additional purchases"
+msgstr "realizar compras adicionales"
+
+msgid "view all orders and invoices"
+msgstr "ver todos los pedidos y facturas"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "Personal Schedule"
+msgstr "Calendario personal"
+
+msgid "Attending talks"
+msgstr "Charlas a las que asistiré"
+
+msgid "Promotion code"
+msgstr "Código de promoción"
+
+msgid "add to personal schedule"
+msgstr "agregar al calendario personal"
+
+msgid "remove from personal schedule"
+msgstr "quitar del calendario personal"
+
+msgid "Attended by:"
+msgstr "Asistentes a la charla:"
+

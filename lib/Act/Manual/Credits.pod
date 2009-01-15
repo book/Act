@@ -76,6 +76,7 @@ conference...
 
   be: Andrei Protasovitski, Taras Ivanyukovich
   de: Thomas Klausner
+  es: Enrique Nell
   he: Uri Bruck
   hr: Vedran Vukotic, Vlatko Kosturjak
   hu: Gábor Szabó
