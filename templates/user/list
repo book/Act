@@ -7,7 +7,7 @@
  <th>{{City}}</th>
  <th>{{Country}}</th>
  <th>{{Monger group}}</th>
- [% IF global.request.user.is_orga %]
+ [% IF global.request.user.is_users_admin %]
  <th>{{Email}}</th>
  [% END %]
 </tr>
@@ -38,7 +38,7 @@
          &nbsp;
       [% END %]
    </td>
-   [% IF global.request.user.is_orga %]
+   [% IF global.request.user.is_users_admin %]
    <td>
     <a href="mailto:[% u.email %]">[% u.email %]</a>
    </td>

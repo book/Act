@@ -11,12 +11,12 @@
  {{Accepted talks:}} [% talks_accepted %]
  [% END %]
 </p>
-[% IF global.request.user.is_orga || global.request.user.has_talk %]
+[% IF global.request.user.is_talks_admin || global.request.user.has_talk %]
 <p>
  {{Accepted talks are shown in bold type.}}
 </p>
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_talks_admin %]
 <p>
  {{Total duration of accepted talks:}}
  [% talks_duration div 60 %] {{hours}}
@@ -46,7 +46,7 @@
        <li><a href="#[% tr.track_id %]">[% tr.title %]</a></li>
      [% END; IF first %]</ul>[% END %]
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_talks_admin %]
 <form method="POST" action="[% global.request.r.uri %]">
 [% END %]
 [% IF tracks.size != 0;
@@ -65,7 +65,7 @@
   ELSE;    
     PROCESS talk/talk_list talks = talks;
   END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_talks_admin %]
 <br />
  [% IF talks_total != 0 %]
 <input type="submit" name="ok" value="{{Update}}" />

@@ -15,7 +15,7 @@ use Act::Template::HTML;
 sub handler
 {
     # only for admins
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_talks_admin) {
         $Request{status} = NOT_FOUND;
         return;
     }

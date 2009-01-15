@@ -168,9 +168,6 @@ my @Optional = qw(
 # salutations
 our $Nb_salutations = 4;
 
-# rights
-our @Right_ids = qw( admin orga staff treasurer );
-
 # load configurations
 load_configs() unless $^C;
 
@@ -287,13 +284,13 @@ sub get_config
                 $sql .= <<EOF;
  AND (
      EXISTS(SELECT 1 FROM talks t WHERE t.user_id=p.user_id AND t.conf_id=? AND t.accepted IS TRUE)
-  OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=p.user_id AND r.conf_id=? AND r.right_id IN (?,?))
+  OR EXISTS(SELECT 1 FROM rights r WHERE r.user_id=p.user_id AND r.conf_id=? AND r.right_id IN (?,?,?))
   OR EXISTS(SELECT 1 FROM orders o, order_items i WHERE o.user_id=p.user_id AND o.conf_id=? AND o.status=?
                                                     AND o.order_id = i.order_id AND i.registration)
 )
 EOF
                 push @values, $conf,
-                              $conf, 'orga', 'staff',
+                              $conf, 'admin_users', 'admin_talks', 'staff',
                               $conf, 'paid';
             }
             my $sth = $Request{dbh}->prepare_cached($sql);

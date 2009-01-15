@@ -41,8 +41,17 @@
  <li><tt>staff</tt> -
   {{Organizer}}
  </li>
- <li><tt>orga</tt> -
+ <li><tt>users_admin</tt> -
+  {{Organizer (users management)}}
+ </li>
+ <li><tt>talks_admin</tt> -
   {{Organizer (talks management)}}
+ </li>
+ <li><tt>wiki_admin</tt> -
+  {{Organizer (wiki management)}}
+ </li>
+ <li><tt>news_admin</tt> -
+  {{Organizer (news management)}}
  </li>
  <li><tt>treasurer</tt> -
   {{Treasurer (payment management)}}

@@ -8,6 +8,10 @@ use Carp;
 use List::Util qw(first);
 use base qw( Act::Object );
 
+# rights
+our @Rights = qw( admin users_admin talks_admin news_admin wiki_admin
+    staff treasurer );
+
 # class data used by Act::Object
 our $table = 'users';
 our $primary_key = 'user_id';
@@ -69,23 +73,9 @@ sub rights {
 }
 
 # generate the is_right methods
-sub AUTOLOAD {
-
-    # don't DESTROY
-    return if $AUTOLOAD =~ /::DESTROY/;
-
-    # methods is_something regard the user rights
-    if( $AUTOLOAD =~ /::is_(\w+)$/ ) {
-        my $attr = $1;
-        no strict 'refs';
-    
-        # create the method and call it
-        *{$AUTOLOAD} = sub { $_[0]->rights()->{$attr} };
-        goto &{$AUTOLOAD};
-    }
-    
-    # die on error
-    croak "AUTOLOAD: Unknown method $AUTOLOAD";
+for my $right (@Rights) {
+    no strict 'refs';
+    *{"is_$right"} = sub { $_[0]->rights()->{$right} };
 }
 
 # This are pseudo fields!
@@ -219,7 +209,13 @@ for my $meth (keys %methods) {
 }
 sub committed {
     my $self = shift;
-    return $self->has_paid || $self->has_accepted_talk || $self->is_orga || $self->is_staff;
+    return $self->has_paid
+        || $self->has_accepted_talk
+        || $self->is_staff
+        || $self->is_users_admin
+        || $self->is_talks_admin
+        || $self->is_news_admin
+        || $self->is_wiki_admin;
 }
 
 sub participations {

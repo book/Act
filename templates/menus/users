@@ -12,7 +12,7 @@
  {{Statistics}}
 </a>
 [% END %]
-[% IF global.request.user.is_orga %]
+[% IF global.request.user.is_users_admin %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('export') %]">
  {{CSV export}}

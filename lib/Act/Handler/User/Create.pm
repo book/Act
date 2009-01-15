@@ -33,7 +33,7 @@ my $register_form = Act::Form->new(
 sub handler
 {
     # only orgas can run this
-    unless ( $Request{user}->is_orga ) {
+    unless ( $Request{user}->is_users_admin ) {
         $Request{status} = FORBIDDEN;
         return;
     }

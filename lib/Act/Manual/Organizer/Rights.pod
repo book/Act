@@ -6,9 +6,9 @@ Overview of Act's built-in rights and what powers they grant.
 
 Ability to grant and revoke rights.
 
-=head2 orga
+=head2 talks_admin
 
-C<orgas> can:
+C<talks_admin> can:
 
 =over 4
 
@@ -50,6 +50,18 @@ assign tracks to talks
 
 =item *
 
+manage events
+
+=back
+
+=head2 users_admin
+
+C<users_admin> can:
+
+=over 4
+
+=item s*
+
 create a new user
 
 =item *
@@ -58,19 +70,31 @@ register/unregister a user
 
 =item *
 
-manage events
-
-=item *
-
-manage news items
-
-=item *
-
 see users' email addresses regardless of users "hide email" setting
 
 =item *
 
 export users list in CSV format
+
+=back
+
+=head2 news_admin
+
+C<news_admin> can:
+
+=over 4
+
+=item *
+
+manage news items
+
+=back
+
+=head2 wiki_admin
+
+C<wiki_admin> can:
+
+=over 4
 
 =item *
 

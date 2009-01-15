@@ -27,7 +27,7 @@ my $form = Act::Form->new(
 sub handler
 {
     # orgas only
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_news_admin) {
         $Request{status} = NOT_FOUND;
         return;
     }

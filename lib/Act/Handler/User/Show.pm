@@ -47,7 +47,7 @@ sub handler
         talks => [
             grep { $_->accepted
                   || $Request{user}
-                  && ( $Request{user}->is_orga
+                  && ( $Request{user}->is_users_admin
                     || $Request{user}->user_id == $_->user_id )
               } @{ $user->talks(
                       $Request{conference}

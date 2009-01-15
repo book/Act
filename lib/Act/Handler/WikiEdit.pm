@@ -121,7 +121,7 @@ sub wiki_revert
 {
     my ($wiki, $template) = @_;
 
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_wiki_admin) {
         $Request{status} = FORBIDDEN;
         return;
     }
@@ -152,7 +152,7 @@ sub wiki_delete
 {
     my ($wiki, $template) = @_;
 
-    unless ($Request{user}->is_orga) {
+    unless ($Request{user}->is_wiki_admin) {
         $Request{status} = FORBIDDEN;
         return;
     }

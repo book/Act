@@ -474,8 +474,17 @@ msgstr "The recognised rights are:"
 msgid "Organizer"
 msgstr "Organizer"
 
+msgid "Organizer (news management)"
+msgstr "Organizer (news management)"
+
 msgid "Organizer (talks management)"
 msgstr "Organizer (talks management)"
+
+msgid "Organizer (users management)"
+msgstr "Organizer (users management)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organizer (wiki management)"
 
 msgid "Treasurer (payment management)"
 msgstr "Treasurer (payment management)"

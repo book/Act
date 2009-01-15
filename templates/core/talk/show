@@ -3,7 +3,7 @@
 <b>{{By}}</b>
 [% user_info(user) %]
 
-[% IF global.request.user.is_orga || global.request.user.user_id == user_id %]
+[% IF global.request.user.is_talks_admin || global.request.user.user_id == user_id %]
 (<a href="[% make_uri('edittalk', 'talk_id', talk_id) %]">{{edit}}</a>)
 [% END %]
 [% IF user.pm_group %]
@@ -20,7 +20,7 @@
   {{Lightning talk}} <br />
 [% ELSE %]
   <b>{{Date:}}</b>
-  [% IF datetime && ( global.config.talks_show_schedule || global.request.user.is_orga ); date_format(datetime, 'datetime_full') ; ELSE %]
+  [% IF datetime && ( global.config.talks_show_schedule || global.request.user.is_talks_admin ); date_format(datetime, 'datetime_full') ; ELSE %]
   {{Not scheduled yet.}}[% END %]<br />
 
 <b>{{Duration:}}</b> [% duration %]
@@ -37,7 +37,7 @@
   [% global.config.talks_languages.$lang %]<br />
 [% END %]
 
-[% IF ( global.request.user.is_orga || global.request.user.user_id == user_id)
+[% IF ( global.request.user.is_talks_admin || global.request.user.user_id == user_id)
       AND comment %]
 <b>{{Comment:}}</b>
 [% comment %]<br />

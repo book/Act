@@ -1,5 +1,5 @@
 [% INCLUDE js/mytalks.js %]
-[% UNLESS ( global.request.user.is_orga
+[% UNLESS ( global.request.user.is_talks_admin
          or global.request.user.is_staff
          or global.config.talks_show_schedule )
       AND (table.keys.size OR todo.size)

@@ -25,7 +25,7 @@ sub handler
     unless ($talk
             && ( $Config->talks_show_all
                  || $talk->accepted
-                 || ($Request{user} && $Request{user}->is_orga)
+                 || ($Request{user} && $Request{user}->is_talks_admin)
                  || ($Request{user} && $Request{user}->user_id == $talk->user_id) ) )
     {
         $Request{status} = NOT_FOUND;
@@ -40,7 +40,7 @@ sub handler
         && !$talk->{accepted}
         && !($Request{user}
              && ($Request{user}->user_id == $talk->user_id
-                 || $Request{user}->is_orga));
+                 || $Request{user}->is_talks_admin));
 
     # retrieve talk's speaker info
     my $user;

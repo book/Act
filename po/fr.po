@@ -480,8 +480,17 @@ msgstr "Les droits existants sont&nbsp;:"
 msgid "Organizer"
 msgstr "Organisateur"
 
+msgid "Organizer (news management)"
+msgstr "Organisateur (gestion des actualités)"
+
 msgid "Organizer (talks management)"
 msgstr "Organisateur (gestion des présentations)"
+
+msgid "Organizer (users management)"
+msgstr "Organisateur (gestion des utilisateurs)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organisateur (gestion du wiki)"
 
 msgid "Treasurer (payment management)"
 msgstr "Trésorier (gestion des paiements)"
