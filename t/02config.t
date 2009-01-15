@@ -57,7 +57,7 @@ if ($Config->general_dir_ttc) {
 isa_ok($Config->conferences, 'HASH', "general_conferences");
 isa_ok($Config->uris, 'HASH', "uris");
 my %payment_types;
-for my $conf (keys %{$Config->conferences}) {
+for my $conf (sort keys %{$Config->conferences}) {
     my $cfg = Act::Config::get_config($conf);
     # global config may be overridden
     _test_config($cfg, $conf);
