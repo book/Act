@@ -19,7 +19,7 @@ requires(
 'Digest::HMAC_SHA1' => 0, 
 'Email::Address' => 0, 
 'Email::Date' => 0, 
-'Email::MessageID' => 0, 
+'Email::MessageID' => 1.4,
 'Email::Send' => 0, 
 'Email::Send::Sendmail' => 0, 
 'Email::Simple::Creator' => 0, 
