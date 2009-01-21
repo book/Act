@@ -1,10 +1,10 @@
-<div align="center">
 <form method="POST" action="[% global.request.r.uri %]">
-<table>
+<div align="center">
+<table border="1" cellspacing="0" cellpadding="4">
  <tr>
-   <td>{{Name}}</td>
+   <th>{{Name}}</th>
    [% FOREACH r = right_list %]
-   <td>[% r %]</td>
+   <th>[% r %]</th>
    [% END %]
  </tr>
  [% FOREACH u = right %]
@@ -27,12 +27,11 @@
    [% END %]
 
 </table>
-
+</div>
+<br />
 <input type="submit" name="ok" value="{{Submit}}" />
-
 </form>
 
-</div>
 
 <p>
  {{The recognised rights are:}}
