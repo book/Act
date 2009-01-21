@@ -91,7 +91,7 @@ sub send
     push @headers,
         ( 'Content-Type' => "text/plain; charset=$charset",
           Date           => Email::Date::format_date(),
-          'Message-Id'   => Email::MessageID->new(),
+          'Message-Id'   => Email::MessageID->new->in_brackets,
           Sender         => $Config->email_sender_address,
           'X-Mailer'     => __PACKAGE__,
         );
