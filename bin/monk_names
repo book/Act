@@ -6,8 +6,8 @@ use LWP::Simple;
 use DBI;
 
 use Getopt::Std;
-our $opt_v;
-getopts("v") or die "There a single valid option, you dummy!";
+our %opts;
+getopts("nv", \%opts) or usage();
 
 # init the database handle
 $Request{dbh} = DBI->connect(
@@ -17,13 +17,28 @@ $Request{dbh} = DBI->connect(
   or die "can't connect to database: " . $DBI::errstr;
 
 # fetch all users
-my @users = grep { $_->monk_id && !$_->monk_name } @{ Act::User->get_items() };
+my @users = grep { $_->monk_id } @{ Act::User->get_items() };
 
-print "Updating monk ids...\n" if @users && $opt_v;
+print "Updating monk ids...\n" if @users && $opts{v};
 for my $u (@users) {
     my ($name) =
       get("http://perlmonks.org/index.pl?node_id=$u->{monk_id}") =~
       m!<title>([^<]*)</title>!;
-    print $u->monk_id, "\t", $name, "\n" if $opt_v;
-    $u->update( monk_name => $name ) if defined $name;
+    if ($name && (!$u->monk_name || $u->monk_name ne $name)) {
+        if ($opts{v}) {
+            print $u->monk_id, "\t";
+            print $u->monk_name, ' => ' if $u->monk_name;
+            print $name, "\n";
+        }
+        $u->update( monk_name => $name ) unless $opts{n};
+    }
+}
+sub usage
+{
+    die <<EOF;
+Usage: $0 [-nv]
+
+-n   dry run
+-v   verbose
+EOF
 }
