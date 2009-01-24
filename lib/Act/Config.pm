@@ -40,12 +40,19 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_date_short     => '%d/%m/%y',
             fmt_time           => '%H:%M',
           },
-    en => { name               => 'English',
-            fmt_datetime_full  => '%A %B %e, %Y %H:%M',
-            fmt_datetime_short => '%m/%d/%y %H:%M',
-            fmt_date_full      => '%A %B %e, %Y',
-            fmt_date_short     => '%m/%d/%y',
+    en_GB => { name               => 'English',
+            fmt_datetime_full  => '%A, %e %B %Y %H:%M',
+            fmt_datetime_short => '%d/%m/%y %H:%M',
+            fmt_date_full      => '%A, %e %B %Y',
+            fmt_date_short     => '%d/%m/%y',
             fmt_time           => '%H:%M',
+          },
+    en_US => { name               => 'English',
+            fmt_datetime_full  => '%A, %B %e, %Y %I:%M %p',
+            fmt_datetime_short => '%m/%d/%y %I:%M %p',
+            fmt_date_full      => '%A, %B %e, %Y',
+            fmt_date_short     => '%m/%d/%y',
+            fmt_time           => '%I:%M %p',
           },
     es => { name               => 'Español',
             fmt_datetime_full  => '%e %B %Y %Hh%M',
@@ -147,6 +154,8 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
             fmt_time           => '%H:%M',
           },
 );
+# defaults
+$Languages{en} = $Languages{'en_GB'};
 
 # image formats
 our %Image_formats = (
@@ -190,8 +199,19 @@ sub load_configs
         $ConfConfigs{$conf} = _init_config($home);
         _load_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
+
         # conference languages
-        _make_hash($ConfConfigs{$conf}, languages => $ConfConfigs{$conf}->general_languages);
+        my (%langs, %variants);
+        for my $lang (split /\s+/, $ConfConfigs{$conf}->general_languages) {
+            if ($lang =~ /^((\w+)_.*)$/) {    # $1 = en_US, $2 = en
+                $lang = $2;
+                $variants{$lang} = $1;
+            }
+            $langs{$lang} = 1;
+        }
+        $ConfConfigs{$conf}->set(languages => \%langs);
+        $ConfConfigs{$conf}->set(language_variants => \%variants);
+
         # talk durations
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
         # talk languages

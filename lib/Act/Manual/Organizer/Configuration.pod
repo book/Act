@@ -9,8 +9,11 @@ file F<act.ini>.
     full_uri = http://conferences.mongueurs.net/foo2004/
     
     # supported languages, and the default language
-    languages   = fr en                
-    default_language = fr
+    #    You can specify a language variant, e.g. en_US or en_GB.
+    #    If you do, specify it solely in the "languages" entry,
+    #    use the main language ("en") everywhere else.
+    languages   = fr en_US
+    default_language = en
     
     # name of the conference in each supported language
     name_en = The foo2004 conference
