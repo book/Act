@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 74 + 5 * NBPASS + 2;
+use Test::More tests => 78 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -18,8 +18,10 @@ $Request{r}->mock( uri       => sub { return $uri } );
 $Request{r}->mock( header_in => sub { return $headers{ $_[1] } } );
 
 # create a fake config object
+my %variants;
 $Config = Test::MockObject->new;
 $Config->mock( uri => sub { return $Request{conference} } );
+$Config->mock( language_variants => sub { return \%variants } );
 
 # make_uri
 my @t = (
@@ -73,11 +75,17 @@ for (1..NBPASS) {
 # date_format
 use utf8;
 $Request{language} = 'fr';
-my $dt = DateTime->new(year => 2007, month => 2, day => 15);
-is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 00h00', 'date_format fr');
+my $dt = DateTime->new(year => 2007, month => 2, day => 15, hour => 13);
+is(Act::Util::date_format($dt, 'datetime_full'), 'jeudi 15 février 2007 13h00', 'date_format fr');
 
 $Request{language} = 'ru';  # test genitive month name
-is(Act::Util::date_format($dt, 'datetime_full'), 'четверг, 15 февраля 2007 г., 00:00', 'date_format ru');
+is(Act::Util::date_format($dt, 'datetime_full'), 'четверг, 15 февраля 2007 г., 13:00', 'date_format ru');
+
+$Request{language} = 'en';
+$variants{en} = 'en_GB';
+is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:00', 'date_format en_GB');
+$variants{en} = 'en_US';
+is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, February 15, 2007 01:00 PM', 'date_format en_US');
 
 # normalize
 use charnames ();

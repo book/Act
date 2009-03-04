@@ -38,7 +38,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     my $fields;
     my $form = Act::Form->new( @form_params, 
-        optional => [qw(im salutation email_hide gpg_key_id im pause_id
+        optional => [qw(im salutation email_hide gpg_key_id pause_id
                         pseudonymous nick_name
                         monk_id pm_group pm_group_url timezone town web_page
                         company company_url vat address ),
@@ -96,7 +96,6 @@ sub handler
             $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
             $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
             $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
-            $form->{invalid}{web_page}     && push @errors, 'ERR_WEBPAGE';
             $form->{invalid}{pm_group_url} && push @errors, 'ERR_PM_URL';
             $form->{invalid}{company_url}  && push @errors, 'ERR_COMPANY_URL';
         }

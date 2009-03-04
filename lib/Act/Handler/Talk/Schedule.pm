@@ -193,7 +193,7 @@ sub compute_schedule {
             }
         
             my $global = 0;
-            my @row = ( $row->[0]->strftime('%H:%M') );
+            my @row = ( $row->[0] );
             $global++ if @{ $row->[2] };
             for( sort keys %room ) {
                 push @row, @{ $row->[1]{$_} };

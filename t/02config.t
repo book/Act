@@ -72,6 +72,9 @@ for my $conf (sort keys %{$Config->conferences}) {
     for my $lang (sort keys %{$cfg->languages}) {
         ok($Languages{$lang}, "$conf $lang is in %Languages");
     }
+    for my $lang (sort values %{$cfg->language_variants}) {
+        ok($Languages{$lang}, "$conf $lang is in %Languages");
+    }
     # names
     isa_ok($cfg->name, 'HASH', "$conf name");
     ok($cfg->name->{$_}, "$conf name $_")
