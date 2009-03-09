@@ -313,7 +313,7 @@ msgid "edit"
 msgstr "endre"
 
 msgid "min"
-msgstr "minimum"
+msgstr "min"
 
 msgid "Log in"
 msgstr "Logg inn"
