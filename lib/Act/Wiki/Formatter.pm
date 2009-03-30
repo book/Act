@@ -76,6 +76,14 @@ sub _make_link
             }
             return $link;
         }
+        elsif ($u->scheme eq 'news') {
+            my $news = Act::Abstract::expand_news(URI::Escape::uri_unescape($u->opaque));
+            if ($news) {
+                my $n = $formatter->new_chunk({ news => $news });
+                return "{% expand_news(chunks.$n) -%}\n";
+            }
+            return $link;
+        }
         elsif ($u->scheme eq 'page' ) {
             my $url = $u->opaque;
             if( $url =~ /^[-\/\w.#]+$/ )  {

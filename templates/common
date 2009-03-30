@@ -108,6 +108,11 @@
         user_info(c.user);
     END;
 
+    MACRO expand_news(c)
+    BLOCK;
+        %]<a href="[% make_uri_info('news', c.news.news_id) %]">[% c.news.title %]</a>
+[%      END;
+
     MACRO expand( chunks )
     BLOCK;
         FOREACH c = chunks;
