@@ -142,7 +142,7 @@ msgid "You can:"
 msgstr "Du kan:"
 
 msgid "purchase your conference ticket"
-msgstr "kjøpe din bilett til konferansen"
+msgstr "kjøpe din billett til konferansen"
 
 msgid "confirm your participation"
 msgstr "bekrefte din deltagelse
