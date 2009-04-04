@@ -38,8 +38,7 @@ sub authen_cred ($$\@)
     my $prefix = join ' ', map { "[$_]" }
         $r->server->server_hostname,
         $r->connection->remote_ip,
-        $login,
-        $sent_pw;
+        $login;
 
     # remove leading and trailing spaces
     for ($login, $sent_pw) {
