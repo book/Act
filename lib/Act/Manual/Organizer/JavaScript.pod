@@ -14,7 +14,7 @@ change submission.
 
 Alternatively, you can load jquery from Google's content delivery network.
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
 The benefits are Google's fast response time and a gzip-encoded response: currently
 about 17 KB as opposed to 55 KB when using Act's version.
