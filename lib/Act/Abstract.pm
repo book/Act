@@ -1,6 +1,7 @@
 package Act::Abstract;
 use strict;
 use Act::Config;
+use Act::Handler::News::Fetch;
 use Act::Talk;
 use Act::User;
 
@@ -76,7 +77,16 @@ sub expand_user
     }
     return Act::User->new(%args, conf_id => $Request{conference});
 }
-
+sub expand_news
+{
+    my $news_id = shift;
+    my $news;
+    if ($news_id && $news_id =~ /^\d+$/) {
+        $news = Act::Handler::News::Fetch::fetch(1, $news_id);
+        $news = $news->[0] if @$news;
+    }
+    return $news;
+}
 1;
 
 __END__
