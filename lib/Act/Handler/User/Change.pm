@@ -54,6 +54,13 @@ sub handler
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
 
+        # extract bio data
+        my %bio = map { $_ => '' } keys %{ $Config->languages };
+        for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
+        {
+            $bio{$lang} = delete $fields->{"bio_$lang"};
+        }
+
         # needs a nick_name if pseudonymous
         if( $fields->{pseudonymous} && !$fields->{nick_name} ) {
              $form->{invalid}{nick_name} = 1;
@@ -65,13 +72,6 @@ sub handler
             my %part;
             @part{@partfields} = delete @$fields{@partfields};
 
-            # extract bio data
-            my %bio = map { $_ => '' } keys %{ $Config->languages };
-            for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
-            {
-                $bio{$lang} = delete $fields->{"bio_$lang"};
-            }
-
             # check if the monk_id changed
             $fields->{monk_name} = ''
               if $fields->{monk_id} ne $Request{user}->monk_id;
@@ -80,7 +80,6 @@ sub handler
             $Request{user}->update(%$fields, participation => \%part,
                                              bio => \%bio);
             @$fields{@partfields} = @part{@partfields};
-            $fields->{bio} = \%bio;
         }
         else {
             # map errors
@@ -99,6 +98,7 @@ sub handler
             $form->{invalid}{pm_group_url} && push @errors, 'ERR_PM_URL';
             $form->{invalid}{company_url}  && push @errors, 'ERR_COMPANY_URL';
         }
+        $fields->{bio} = \%bio;
         $template->variables(errors => \@errors);
     }
     else {
