@@ -20,6 +20,7 @@ my %public_handlers = (
     changepwd       => 'Act::Handler::User::ChangePassword',
     event           => 'Act::Handler::Event::Show',
     events          => 'Act::Handler::Event::List',
+    favtalks        => 'Act::Handler::Talk::Favorites',
     login           => 'Act::Handler::Login',
     news            => 'Act::Handler::News::List',
     openid          => 'Act::Handler::OpenID',

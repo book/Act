@@ -1,0 +1,38 @@
+[% WRAPPER ui title = loc("Favorite Talks") %]
+
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+ <th>{{Stars}}</th>
+ <th>{{Speaker}}</th>
+ <th>{{Talk title}}</th>
+ <th>{{Duration}}</th>
+ [% IF global.request.user.is_talks_admin OR global.config.talks_show_schedule %]
+ <th>{{Date}}</th>
+ [% END %]
+</tr>
+
+[% FOREACH f = favs %]
+  <tr>
+    <td>[% f.count %]</td>
+    <td><a href="[% make_uri_info('user', f.user.user_id) %]">
+        [% user_info(f.user) %]
+    </a></td>
+    <td>[% talk_link(f.talk);
+           IF f.talk.track_id %] [<a href="[% make_uri('talks') %]#[% f.talk.track_id %]">[%
+               tracks.${f.talk.track_id}.title.split('\W').0 %]</a>][% END %]
+
+    </td>
+    <td nowrap="nowrap">[% IF f.talk.lightning %]
+          {{lightning}}
+        [% ELSE %]
+         [% f.talk.duration %] {{minutes}}
+        [% END %]
+    </td>
+    [% IF global.request.user.is_talks_admin OR global.config.talks_show_schedule %]
+    <td align="center" nowrap="nowrap">[% IF f.talk.datetime; date_format(f.talk.datetime, 'datetime_short');
+                                          ELSE; '&nbsp;'; END %]</td>
+    [% END %]
+  </tr>
+[% END %]
+</table>
+[% END %]
