@@ -1387,3 +1387,9 @@ msgstr "supprimer de l'emploi du temps personnel"
 msgid "Attended by:"
 msgstr "Assisté par:"
 
+msgid "Favorite Talks"
+msgstr "Présentations préférées"
+
+msgid "Stars"
+msgstr "Popularité"
+

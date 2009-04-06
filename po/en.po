@@ -1374,3 +1374,9 @@ msgstr "remove from personal schedule"
 msgid "Attended by:"
 msgstr "Attended by:"
 
+msgid "Favorite Talks"
+msgstr "Favorite Talks"
+
+msgid "Stars"
+msgstr "Stars"
+

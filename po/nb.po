@@ -1363,3 +1363,9 @@ msgstr "fjern fra din personlige tidsplan"
 msgid "Attended by:"
 msgstr "Deltok:"
 
+msgid "Favorite Talks"
+msgstr "Favoritt-foredrag"
+
+msgid "Stars"
+msgstr "Stjerner"
+

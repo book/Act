@@ -34,6 +34,7 @@ sub upgrade {
         $thing->{user}  = Act::User->new( user_id => $thing->user_id );
         $thing->{track} = Act::Track->new( track_id => $thing->track_id )
             if $thing->{track_id};
+        $thing->{stars} = $thing->stars;
     }
     $thing->{type} = ref $thing;
     $thing->{id}   = $thing->{talk_id} || $thing->{event_id};

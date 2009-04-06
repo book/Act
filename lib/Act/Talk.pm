@@ -33,6 +33,14 @@ sub delete {
     $Request{dbh}->commit;
 }
 
+sub stars {
+    my ($self, %args) = @_;
+    my $sth = sql('SELECT COUNT(*) FROM user_talks WHERE talk_id=?', $self->talk_id);
+    my ($count) = $sth->fetchrow_array();
+    $sth->finish;
+    return $count || 0;
+}
+
 =head1 NAME
 
 Act::Talk - An Act object representing a talk.
