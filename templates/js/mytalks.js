@@ -1,21 +1,25 @@
 <script type="text/javascript">
 if (window.act) {
+    var titles = [
+        [% FOREACH x IN ['remove from personal schedule', 'add to personal schedule'] %]
+            '[% loc(x).replace("'", "\\'") %]',
+        [% END %]
+    ];
     toggle_image = function(elem, talk_id, set) {
-        [% titles = [ loc('remove from personal schedule'), loc('add to personal schedule') ] %]
         var data = { img_name: set ? 'picked' : 'unpicked',
-                     title:    set ? '[% titles.0.replace("'", "\\'") %]' : '[% titles.1.replace("'", "\\'") %]',
+                     title:    titles[set ? 0 : 1 ],
                      talk_id:  talk_id,
                      set:      set
         };
-        $(elem).replaceWith( act.template("tpl_mtbutton", data) );
-        $("#my-"+talk_id+"-text").replaceWith( act.template("tpl_imgtitle", data) );
+        $(elem).replaceWith( act.template("tpl_mtbutton", data) ); [%# schedule page %]
+        $("#my-"+talk_id+"-text").replaceWith( act.template("tpl_mtlabel", data) ); [%# talk page %]
     };
     toggle_count = function(talk_id, set) {
         var elemcount = "#starcount-" + talk_id;
         $(elemcount).replaceWith(
             act.template("tpl_starcount",
                          { talk_id: talk_id,
-                           count: (parseInt($(elemcount + " > font").text()) || 0) + (set ? 1 : -1)
+                           count: (parseInt($(elemcount + " > .starcount").text()) || 0) + (set ? 1 : -1)
                          }
                         ));
     };
@@ -39,10 +43,10 @@ if (window.act) {
      onClick ="toggle_talk(this,<%=talk_id%>,<%=set%>);" />
 </script>
 
-<script type="text/html" id="tpl_imgtitle">
+<script type="text/html" id="tpl_mtlabel">
 <span id="my-<%=talk_id%>-text"><%=title%></span>
 </script>
 
 <script type="text/html" id="tpl_starcount">
-<span id="starcount-<%=talk_id%>" style="white-space:nowrap"><% if (count) { %><font size="-1"><%=count%></font><img style="vertical-align:middle" src="/images/picked.gif" /><% } %></span>
+<span id="starcount-<%=talk_id%>" style="white-space:nowrap"><% if (count) { %><span class="starcount"><%=count%></span><img style="vertical-align:middle" src="/images/picked.gif" /><% } %></span>
 </script>
