@@ -150,6 +150,12 @@ for my $type (sort keys %payment_types) {
     ok($plugin_type, "payment_type_$type: plugin type = $plugin_type");
     ok($Config->get($prefix . 'notify_bcc'), "payment_type_$type notify_bcc");
 }
+# api users
+if ($Config->api_users) {
+    for my $user (keys %{$Config->api_users}) {
+        ok($Config->get("api_user_${user}_key"), "api_user $user key");
+    }
+}
 
 sub _test_config
 {

@@ -172,6 +172,7 @@ my @Optional = qw(
   payment_prices payment_products payment_notify_address
   registration_open registration_max_attendees registration_gratis
   registration_gratis
+  api_users
 );
 
 # salutations
@@ -188,8 +189,7 @@ sub load_configs
     %Timestamps  = ();
 
     # load global configuration
-    _load_config($GlobalConfig, $home);
-    _make_hash  ($GlobalConfig, conferences => $GlobalConfig->general_conferences);
+    _load_global_config($GlobalConfig, $home);
 
     # load conference-specific configuration files
     # their content may override global config settings
@@ -197,7 +197,7 @@ sub load_configs
     for my $conf (keys %{$GlobalConfig->conferences}) {
         # load conference configuration
         $ConfConfigs{$conf} = _init_config($home);
-        _load_config($ConfConfigs{$conf}, $home);
+        _load_global_config($ConfConfigs{$conf}, $home);
         _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
 
         # conference languages
@@ -394,6 +394,23 @@ sub _load_config
             $Timestamps{$path} = (stat $fh)[9];
             close $fh;
         }
+    }
+}
+sub _load_global_config
+{
+    my ($cfg, $dir) = @_;
+    _load_config($cfg, $dir);
+
+    _make_hash  ($cfg, conferences => $cfg->general_conferences);
+    if ($cfg->api_users) {
+        _make_hash($cfg, api_users => $cfg->api_users);
+        $cfg->set(api_keys => { map { $cfg->get("api_user_${_}_key") => $_ }
+                                      keys %{$cfg->api_users}
+                                    }
+                 );
+    }
+    else {
+        $cfg->set($_ => {}) for qw(api_users api_keys);
     }
 }
 sub _make_hash
