@@ -122,7 +122,7 @@ sub _create_token
 
     my $digest = Digest::MD5->new;
     $digest->add(rand(9999), time(), $$, $email);
-    my $token = $digest->md5_hex();
+    my $token = $digest->hexdigest();
     $token =~ s/\W/-/g;
     return $token;
 }
