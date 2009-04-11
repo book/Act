@@ -41,6 +41,7 @@ use Act::Handler::User::Show;
 use Act::Handler::User::Stats;
 use Act::Handler::User::Unregister;
 use Act::Handler::User::UpdateMyTalks;
+use Act::Handler::WebAPI;
 use Act::Handler::Wiki;
 
 # preload DBD drivers

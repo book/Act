@@ -16,6 +16,7 @@ use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %public_handlers = (
+    api             => 'Act::Handler::WebAPI',
     atom            => 'Act::Handler::News::Atom',
     changepwd       => 'Act::Handler::User::ChangePassword',
     event           => 'Act::Handler::Event::Show',
