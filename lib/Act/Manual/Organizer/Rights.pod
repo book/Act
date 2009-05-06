@@ -60,7 +60,7 @@ C<users_admin> can:
 
 =over 4
 
-=item s*
+=item *
 
 create a new user
 
