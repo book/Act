@@ -1,0 +1,168 @@
+#!/usr/bin/perl
+use strict;
+use Act::Config;
+use Act::Util;
+use Getopt::Long    qw< :config no_auto_abbrev no_ignore_case >;
+
+
+# globals
+my %Rights = (
+    admin       => 1,
+    news_admin  => 1,
+    staff       => 1,
+    talks_admin => 1,
+    treasurer   => 1,
+    users_admin => 1,
+    wiki_admin  => 1,
+);
+
+#
+# main
+# ----
+MAIN: {
+    run() unless caller();
+}
+
+
+#
+# run()
+# ---
+sub run {
+    # get options
+    my %options;
+    
+    GetOptions(\%options, qw<
+        help|h!
+        conference|C=s  rights|r=s  user|u=s
+    >) or pod2usage();
+
+    pod2usage(2) if $options{help};
+
+    my ($conf_id, $user, $rights_str, @rights);
+
+    # see how the program was executed
+    if (exists $options{conference}) {
+        ($conf_id, $user, $rights_str) = @options{qw< conference user rights >};
+    }
+    elsif (@ARGV == 2 or @ARGV == 3) {
+        ($conf_id, $user, $rights_str) = @ARGV;
+    }
+    elsif (@ARGV == 5) {
+        my %args = ("rights", @ARGV);
+        ($conf_id, $user, $rights_str) = @args{qw< on to rights >};
+    }
+    else {
+        pod2usage(0);
+    }
+
+    die "error: Empty conference name\n"    unless length $conf_id;
+    die "error: Empty user name\n"          unless length $user;
+
+    @rights = split /,/, ($rights_str || "admin");
+
+    # check if the rights are valid
+    $Rights{$_} or die "error: Invalid right: $_\n" for @rights;
+
+    # check if the conference is actually known
+    die "error: Unknown conference name: $conf_id\n"
+        unless $Config->conferences->{$conf_id};
+
+    # connect to the database
+    my $dbh = Act::Util->db_connect();
+
+    # find the user ID
+    my $sql = q{ SELECT user_id FROM users WHERE login = ? };
+    my ($user_id) = $dbh->selectrow_array($sql, {}, $user);
+
+    # insert the rights
+    $sql = qq{ INSERT INTO rights VALUES ('admin', $conf_id, $user_id) };
+}
+
+
+#
+# pod2usage()
+# --------
+sub pod2usage {
+    my ($level) = @_;
+    require Pod::Usage;
+    Pod::Usage::pod2usage({ -verbose => $level, -exitval => 0 });
+}
+
+
+__END__
+
+=head1 NAME
+
+grant_rights - 
+
+=head1 SYNOPSIS
+
+    grant_rights --conference fpw2009 --user book --rights admin,staff,...
+    grant_rights admin,staff,... to book on fpw2009
+    grant_rights fpw2009 book [admin,staff,...]
+
+    grant_rights --help
+
+=head1 OPTIONS
+
+=over
+
+=item B<-C>, B<--conference> I<name>
+
+specify the conference name
+
+=item B<-r>, B<--rights> I<list>
+
+specify the rights as a colon-separated list;
+valid rights are 
+
+=item B<-u>, B<--user> I<name>
+
+specify the user name
+
+=item B<-h>, B<--help>
+
+print this help screen and exit
+
+=back
+
+=head1 DESCRIPTION
+
+B<grant_rights> allows you to give some conference rights to a user.
+
+=over
+
+=item *
+
+C<admin> - conference administrator, can grant and revoke rights to
+other users
+
+=item *
+
+C<news_admin> - can manage news items
+
+=item *
+
+C<staff> - staff member
+
+=item *
+
+C<talks_admin> - can manage all talks, tracks and events
+
+=item *
+
+C<treasurer> - can manage the payments
+
+=item *
+
+C<users_admin> - can manager user accounts
+
+=item *
+
+C<wiki_admin> - can manage the wiki
+
+=back
+
+=head1 SEE ALSO
+
+L<Act::Manual::Organizer::Rights>
