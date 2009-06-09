@@ -75,7 +75,12 @@ sub run {
     my ($user_id) = $dbh->selectrow_array($sql, {}, $user);
 
     # insert the rights
-    $sql = qq{ INSERT INTO rights VALUES ('admin', $conf_id, $user_id) };
+    $sql = qq{ INSERT INTO rights VALUES (?, ?, ?) };
+    my $insert_rights_sth = $dbh->prepare($sql);
+
+    for my $right (@rights) {
+        $insert_rights_sth->execute($right, $conf_id, $user_id);
+    }
 }
 
 
@@ -93,7 +98,7 @@ __END__
 
 =head1 NAME
 
-grant_rights - 
+grant_rights - Grant admin rights to conference users
 
 =head1 SYNOPSIS
 
@@ -109,16 +114,17 @@ grant_rights -
 
 =item B<-C>, B<--conference> I<name>
 
-specify the conference name
+specify the conference name I<(mandatory)>
 
 =item B<-r>, B<--rights> I<list>
 
-specify the rights as a colon-separated list;
-valid rights are 
+specify the rights as a colon-separated list I<(mandatory)>;
+valid rights are the ones listed in the documentation;
+defaults to C<"admin">
 
 =item B<-u>, B<--user> I<name>
 
-specify the user name
+specify the user name I<(mandatory)>
 
 =item B<-h>, B<--help>
 
@@ -166,3 +172,7 @@ C<wiki_admin> - can manage the wiki
 =head1 SEE ALSO
 
 L<Act::Manual::Organizer::Rights>
+
+=head1 AUTHOR
+
+SE<eacute>bastien Aperghis-Tramoni E<lt>sebastien@aperghis.netE<gt>
