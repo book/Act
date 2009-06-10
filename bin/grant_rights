@@ -73,6 +73,7 @@ sub run {
     # find the user ID
     my $sql = q{ SELECT user_id FROM users WHERE login = ? };
     my ($user_id) = $dbh->selectrow_array($sql, {}, $user);
+    die "error: No such user '$user'\n" unless $user_id;
 
     # insert the rights
     $sql = qq{ INSERT INTO rights VALUES (?, ?, ?) };
