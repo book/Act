@@ -69,6 +69,7 @@ sub run {
 
     # connect to the database
     my $dbh = Act::Util->db_connect();
+    $dbh->{RaiseError} = 1;
 
     # find the user ID
     my $sql = q{ SELECT user_id FROM users WHERE login = ? };
@@ -76,7 +77,7 @@ sub run {
     die "error: No such user '$user'\n" unless $user_id;
 
     # insert the rights
-    $sql = qq{ INSERT INTO rights VALUES (?, ?, ?) };
+    $sql = qq{ INSERT INTO rights (right_id, conf_id, user_id) VALUES (?, ?, ?) };
     my $insert_rights_sth = $dbh->prepare($sql);
 
     for my $right (@rights) {
