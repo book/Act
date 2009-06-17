@@ -83,6 +83,8 @@ sub run {
     for my $right (@rights) {
         $insert_rights_sth->execute($right, $conf_id, $user_id);
     }
+
+    $dbh->commit;
 }
 
 
