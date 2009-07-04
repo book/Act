@@ -48,6 +48,7 @@ my %private_handlers = (
     logout          => 'Act::Handler::Logout',
     main            => 'Act::Handler::User::Main',
     myschedule      => 'Act::Handler::Talk::MySchedule',
+    'myschedule.ics'=> 'Act::Handler::Talk::ExportMyIcal',
     newevent        => 'Act::Handler::Event::Edit',
     newsadmin       => 'Act::Handler::News::Admin',
     newsedit        => 'Act::Handler::News::Edit',

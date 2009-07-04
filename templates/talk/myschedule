@@ -1,5 +1,11 @@
 [% WRAPPER ui title = loc('Personal Schedule') %]
 
+[% IF table.keys.size %]
+   <a href="[% make_uri('myschedule.ics') %]">
+    {{iCal export}}
+   </a>
+[% END %]
+
 [% PROCESS core/talk/schedule %]
 
 [% END %]
