@@ -1,26 +1,36 @@
 #!/usr/bin/perl
 
 use strict;
-use Cwd;
-use FindBin qw($Bin);
+use DateTime;
+use DateTime::Format::Pg;
+use File::Spec::Functions qw(catfile);
 use Getopt::Std qw(getopts);
 
+use Act::Config;
+
 my %opts;
-getopts('v', \%opts);
+getopts('vn', \%opts) or die "$0 [-nv] [conf_id...]\n";
+$opts{v} = 1 if $opts{n};
 $|++; 
 
-for my $subdir (qw(actdocs wwwdocs)) {
-    my $dir = "$Bin/../$subdir";
-    opendir DH, $dir or die "Can't open $dir: $!\n";
-    my @dirs = grep { /^[^.]/ && -d "$dir/$_" && -d "$dir/$_/.svn" } readdir(DH);
-    closedir DH;
-    for my $d (@dirs) {
-        my $sdir = "$dir/$d";
-        print "$sdir\n" if $opts{v};
-        chdir($sdir)
-            or do { warn "Can't chdir to $sdir!\n"; return };
-        my $status = system("svn up -q --non-interactive");
-        warn "Fatal error when trying to run 'svn up' in $sdir: $!\n"
-            if $status == -1;
-   }
+my $now = DateTime->today;
+my $home = $Config->home;
+my @confs = @ARGV ? @ARGV : keys %{$Config->conferences};
+for my $conf_id (@confs) {
+    my $cfg = Act::Config::get_config($conf_id);
+    my ($begin, $end) = map DateTime::Format::Pg->parse_timestamp($_)->truncate(to => 'day'),
+                        $cfg->talks_start_date, $cfg->talks_end_date;
+    if (@ARGV || $end >= $now || $begin >= $now) {
+        for my $subdir (qw(actdocs wwwdocs)) {
+            my $dir = catfile($Config->home, $subdir, $conf_id);
+            print "$dir\n" if $opts{v};
+            unless ($opts{n}) {
+                chdir($dir)
+                    or do { warn "Can't chdir to $dir!\n"; return };
+                my $status = system("svn up -q --non-interactive");
+                warn "Fatal error when trying to run 'svn up' in $dir: $!\n"
+                    if $status == -1;
+            }
+        }
+    }
 }
