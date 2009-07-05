@@ -27,7 +27,7 @@ sub fetch
         ++$page;
         my $response = $api->execute_method('flickr.photos.search',
                                             { tags      => $Config->flickr_tags,
-                                              per_page  => 500,
+                                              per_page  => 50,
                                               page      => $page,
                                             });
         unless ($response->{success}) {
