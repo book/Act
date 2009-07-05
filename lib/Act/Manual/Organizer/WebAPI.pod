@@ -1,0 +1,86 @@
+=head1 Web API
+
+Act provides a web API so that external programs can interact with Act's database.
+Queries are made using HTTP requests. Responses are text/plain UTF-8 encoded in JSON.
+
+Web API queries are authenticated by an API key. API keys are configured in the
+conference's C<conf/act.ini> configuration file.
+
+  [api]
+  users = john mary
+  
+  [api_user_john]
+  key = bf149b9d326d1c3e2b146b7a1d78d697
+  [api_user_mary]
+  key = e203f297e8886702ac86d9bfc39dbeb8
+
+The Query URL format is
+
+  http://$host/$conf_id/api/$method?api_key=$api_key
+
+=head2 Methods
+
+=over
+
+=item get_attendees
+
+Returns an array of hashes, each representing an attendee
+
+  [
+    {
+      "email" : "jdoe@example.com",
+      "full_name" : "John Doe"
+    },
+  ]
+
+If a comma separated list of field names is supplied in the query string,
+those fields will be returned for each attendee:
+
+  http://$host/$conf_id/api/$method?api_key=$api_key&fields=user_id,town
+  
+  [
+    {
+      "town" : "Paris",
+      "user_id" : "438"
+    },
+  ]
+
+
+=item get_talks
+
+Returns an array of hashes, each representing a talk.
+Only accepted talks are returned.
+
+  [
+    {
+      "speaker" : "R Geoffrey Avery",
+      "title" : "Lightning Talks Round 1",
+      "room" : "McConomy",
+      "datetime" : 1245848400
+    },
+    {
+      "speaker" : "Leonard Miller",
+      "title" : "Object oriented perl -- everything you were too embarrassed to ask.",
+      "room" : "Rangos 3",
+      "datetime" : 1245838800
+    },
+  ]
+
+If a comma separated list of field names is supplied in the query string,
+those fields will be returned for each talk:
+
+  http://$host/$conf_id/api/$method?api_key=$api_key&fields=talk_id,title,track,confirmed
+  
+  [
+    {
+      "confirmed" : "1",
+      "track" : "Corporate Perl",
+      "talk_id" : "2079",
+      "title" : "Perl 6 Roles In Depth"
+    },
+  ]
+
+
+=back
+
+=cut

@@ -5,11 +5,37 @@ use JSON::XS ();
 
 use Act::Config;
 use Act::Talk;
+use Act::Track;
 use Act::User;
 
 my %Methods = (
-    get_attendees => \&_get_attendees,
-    get_talks     => \&_get_talks,
+    get_attendees   => { run => \&_get_attendees,
+                         fields  => {
+                            map( { $_ =>  0 }
+                                qw(user_id login
+                                   salutation first_name last_name full_name pseudonymous
+                                   country town web_page pm_group pause_id monk_id monk_name im email
+                                   language timezone
+                                   company address vat
+                                )),
+                         },
+                         default => [ qw(full_name email) ],
+                     },
+    get_talks       => { run => \&_get_talks,
+                         fields  => {
+                            map( { $_ => 0 }
+                                qw(talk_id user_id track_id
+                                   title abstract url_abstract url_talk duration lightning
+                                   accepted confirmed
+                                   level lang 
+                                )),
+                            datetime => \&_talk_datetime,
+                            room     => \&_talk_room,
+                            speaker  => \&_talk_speaker,
+                            track    => \&_talk_track,
+                         },
+                         default => [ qw(title speaker room datetime) ],
+                     },
 );
 my $json = JSON::XS->new->utf8->pretty(1);
 
@@ -20,10 +46,15 @@ sub handler
 
         # get method
         my $method = $Request{path_info};
-        if ($method && $Methods{$method}) {
+        if ($method && (my $m = $Methods{$method})) {
+
+            # fields
+            my @fields = $Request{args}{fields}
+                        ? split(/,/, $Request{args}{fields})
+                        : @{$m->{default}};
 
             # execute method
-            my $data = $Methods{$method}->();
+            my $data = $m->{run}->($m, \@fields);
 
             # send result as json
             $Request{r}->no_cache(1);
@@ -37,33 +68,66 @@ sub handler
 }
 sub _get_attendees
 {
+    my ($m, $fields) = @_;
+
     my $users = Act::User->get_items( conf_id => $Request{conference} );
     my @data;
-    for my $u (@$users) {
-        push @data, { map { $_ => $u->$_ } qw(full_name email) }
-            if $u->committed;
+    for my $user (@$users) {
+        push @data, _get_fields($m, $fields, $user)
+            if $user->committed;
     }
     return \@data;
 }
 sub _get_talks
 {
+    my ($m, $fields) = @_;
+
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
     my @data;
-    for my $t (@$talks) {
-        if ($Config->talks_show_all || $t->accepted) {
-            my $u = Act::User->new(user_id => $t->user_id);
-            my %talk_data = (
-                title   => $t->title,
-                speaker => $u->full_name,
-            );
-            if ($Config->talks_show_schedule) {
-                $talk_data{room}     = $Config->rooms->{ $t->room } if $t->room;
-                $talk_data{datetime} = $t->datetime->epoch          if $t->datetime;
-            }
-            push @data, \%talk_data;
-        }
+    for my $talk (@$talks) {
+        push @data, _get_fields($m, $fields, $talk)
+            if $Config->talks_show_all || $talk->accepted;
     }
     return \@data;
+}
+sub _get_fields
+{
+    my ($m, $fields, $object) = @_;
+
+    my %data;
+    for my $field (@$fields) {
+        my $value =
+                   $m->{fields}{$field} ? $m->{fields}{$field}->($object)
+          : exists $m->{fields}{$field} ? $object->$field
+          :                               undef;
+        $data{$field} = $value if defined $value;
+    }
+    return \%data;
+}
+sub _talk_datetime
+{
+    my $talk = shift;
+    return $Config->talks_show_schedule && $talk->datetime ? $talk->datetime->epoch : undef;
+}
+sub _talk_room
+{
+    my $talk = shift;
+    return $Config->talks_show_schedule && $talk->room ? $talk->room : undef;
+}
+sub _talk_speaker
+{
+    my $talk = shift;
+    my $user = Act::User->new(user_id => $talk->user_id);
+    return $user->full_name;
+}
+sub _talk_track
+{
+    my $talk = shift;
+    if ($talk->track_id) {
+        my $track = Act::Track->new(track_id => $talk->track_id);
+        return $track->title;
+    }
+    undef;
 }
 
 1;
