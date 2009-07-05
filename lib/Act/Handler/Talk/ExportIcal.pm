@@ -24,6 +24,11 @@ sub handler {
         return;
     }
     my $timeslots = _get_timeslots();
+    export($timeslots);
+}
+
+sub export {
+    my $timeslots = shift;
 
     # generate iCal events
     my $entry_defaults = _get_cal_entry_defaults();

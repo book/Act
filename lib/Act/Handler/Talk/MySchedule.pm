@@ -29,7 +29,7 @@ sub handler {
 
 =head1 NAME
 
-Act::Handler::Talk::MySchedule - Compute and display the user's personnal schedule
+Act::Handler::Talk::MySchedule - Compute and display the user's personal schedule
 
 =head1 DESCRIPTION
 
