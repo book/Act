@@ -135,6 +135,9 @@ for my $conf (sort keys %{$Config->conferences}) {
             }
         }
     }
+    # api keys
+    isa_ok($cfg->api_keys, 'HASH', "$conf api_keys");
+
     # remember payment type
     $payment_types{$cfg->payment_type} = 1;
 }
@@ -149,12 +152,6 @@ for my $type (sort keys %payment_types) {
     my $plugin_type = $Config->get($prefix . 'plugin');
     ok($plugin_type, "payment_type_$type: plugin type = $plugin_type");
     ok($Config->get($prefix . 'notify_bcc'), "payment_type_$type notify_bcc");
-}
-# api users
-if ($Config->api_users) {
-    for my $user (keys %{$Config->api_users}) {
-        ok($Config->get("api_user_${user}_key"), "api_user $user key");
-    }
 }
 
 sub _test_config

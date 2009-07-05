@@ -258,6 +258,8 @@ sub load_configs
         my $uri = $conf;
         $uris{$uri} = $conf;
         $ConfConfigs{$conf}->set(uri => $uri);
+        # api users
+        _merge_api_users($ConfConfigs{$conf});
         # general_conferences isn't overridable
         $ConfConfigs{$conf}->set(conferences => $GlobalConfig->conferences);
     }
@@ -402,15 +404,19 @@ sub _load_global_config
     _load_config($cfg, $dir);
 
     _make_hash  ($cfg, conferences => $cfg->general_conferences);
+    $cfg->set($_ => {}) for qw(api_keys);
+    _merge_api_users($cfg);
+}
+sub _merge_api_users
+{
+    my $cfg = shift;
     if ($cfg->api_users) {
-        _make_hash($cfg, api_users => $cfg->api_users);
-        $cfg->set(api_keys => { map { $cfg->get("api_user_${_}_key") => $_ }
-                                      keys %{$cfg->api_users}
-                                    }
-                 );
-    }
-    else {
-        $cfg->set($_ => {}) for qw(api_users api_keys);
+        my $api_keys  = $cfg->api_keys;
+        for my $user (split /\s+/, $cfg->api_users) {
+            my $key = $cfg->get("api_user_${user}_key");
+            $api_keys->{ $key } = $user;
+        }
+        $cfg->set(api_keys => $api_keys);
     }
 }
 sub _make_hash
