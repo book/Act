@@ -12,6 +12,9 @@ my %Sizes = (
     medium        => '',    # medium, 500 on longest side
 );
 
+use constant PHOTOS_PER_PAGE => 100;
+use constant MAX_PAGES       => 5;
+
 sub fetch
 {
     return [] unless $Config->flickr_apikey
@@ -27,7 +30,7 @@ sub fetch
         ++$page;
         my $response = $api->execute_method('flickr.photos.search',
                                             { tags      => $Config->flickr_tags,
-                                              per_page  => 50,
+                                              per_page  => PHOTOS_PER_PAGE,
                                               page      => $page,
                                             });
         unless ($response->{success}) {
@@ -55,7 +58,7 @@ sub fetch
             };
         }
         
-    } while (@photos);
+    } while (@photos && $page < MAX_PAGES);
 
     # return shuffled list
     @allphotos = shuffle @allphotos;
