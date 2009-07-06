@@ -336,6 +336,9 @@ msgstr ""
 msgid "Incorrect login or password"
 msgstr "Невірний логін або пароль"
 
+msgid "Logged as:"
+msgstr "Користувач:"
+
 msgid "Logout"
 msgstr "Вихід"
 
