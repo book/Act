@@ -50,7 +50,7 @@ my %required;
     ok( open( MAKEFILE, "Makefile.PL" ), "Opened Makefile.PL" );
     my $data = <MAKEFILE>;
     close(FILE);
-    while ( $data =~ /^\s*?(?:requires|recommends|).*?([\w:]+)'(?:\s*=>\s*['"]?([\d\.]+)['"]?).*?(?:#(.*))?$/gm ) {
+    while ( $data =~ /^\s*?(?:requires|recommends|).*?([\w:]+)'(?:\s*=>\s*['"]?([\d\._]+)['"]?).*?(?:#(.*))?$/gm ) {
         $required{$1} = $2;
         if ( defined $3 and length $3 ) {
             $required{$_} = undef for split ' ', $3;
@@ -75,7 +75,7 @@ for ( sort keys %required ) {
     if ( require_ok($_) ) {
         if (defined $required{$_}) {
             my $version = eval '$' . $_. '::VERSION';
-            cmp_ok( $version, 'ge', version->new($required{$_}),
+            cmp_ok( version->new($version), 'ge', version->new($required{$_}),
                 "$_ v. $version >= $required{$_}" );
         }
     }
