@@ -1396,3 +1396,18 @@ msgstr "Présentations préférées"
 msgid "Stars"
 msgstr "Popularité"
 
+msgid "Confirm Attendance"
+msgstr "Confirmer participation"
+
+msgid "Attendance confirmed for <user>"
+msgstr "Participation confirmée pour %1"
+
+msgid "You must enter an order ID."
+msgstr "Order ID obligatoire."
+
+msgid "Unknown order ID."
+msgstr "Order ID inconnu."
+
+msgid "User is not registered."
+msgstr "Utilisateur non inscrit."
+

@@ -39,6 +39,7 @@ my %private_handlers = (
     change          => 'Act::Handler::User::Change',
     create          => 'Act::Handler::User::Create',
     csv             => 'Act::Handler::CSV',
+    confirm_attend  => 'Act::Handler::User::ConfirmAttendance',
     editevent       => 'Act::Handler::Event::Edit',
     edittalk        => 'Act::Handler::Talk::Edit',
     export          => 'Act::Handler::User::Export',

@@ -32,6 +32,7 @@ use Act::Handler::Track::Edit;
 use Act::Handler::Track::List;
 use Act::Handler::User::Change;
 use Act::Handler::User::ChangePassword;
+use Act::Handler::User::ConfirmAttendance;
 use Act::Handler::User::Create;
 use Act::Handler::User::Export;
 use Act::Handler::User::Main;
