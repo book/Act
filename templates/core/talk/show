@@ -20,7 +20,7 @@
   {{Lightning talk}} <br />
 [% ELSE %]
   <b>{{Date:}}</b>
-  [% IF datetime && ( global.config.talks_show_schedule || global.request.user.is_talks_admin ); date_format(datetime, 'datetime_full') ; ELSE %]
+  [% IF datetime && ( global.config.talks_show_schedule || global.request.user.is_talks_admin ) %]<a href="[% make_uri( 'schedule?day=' _ date_format(datetime, 'date_iso') ) %]" >[% date_format(datetime, 'date_full') %]</a> [% date_format(datetime, 'time' ) ; ELSE %]
   {{Not scheduled yet.}}[% END %]<br />
 
 <b>{{Duration:}}</b> [% duration %]
