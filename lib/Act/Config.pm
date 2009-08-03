@@ -156,6 +156,7 @@ my ($GlobalConfig, %ConfConfigs, %Timestamps);
 );
 # defaults
 $Languages{en} = $Languages{'en_GB'};
+$Languages{$_}{fmt_date_iso} = '%Y-%m-%d' for keys %Languages;
 
 # image formats
 our %Image_formats = (
