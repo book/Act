@@ -8,9 +8,12 @@ use Act::Form;
 use Act::Template::HTML;
 use Act::User;
 use Act::Util;
+use Act::TwoStep;
+use Digest::MD5 ();
 
 my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
+  optional => [qw(oldpassword)],
   filters => {
      newpassword1 => sub { lc shift },
      newpassword2 => sub { lc shift },
@@ -54,16 +57,22 @@ sub handler
         # form has been submitted
         my @errors;
 
-        # must have a valid twostep token if not logged in
-        my ($token, $token_data);
-        unless ($Request{user}) {
-            ($token, $token_data) = Act::TwoStep::verify_form()
-                or return;
-        }
-
         # validate form fields
         my $ok = $form->validate($Request{args});
         $fields = $form->{fields};
+
+        my ($token, $token_data);
+        if ($Request{user}) { # 
+            # compare passwords
+            my $digest = Digest::MD5->new;
+            $digest->add(lc $fields->{oldpassword});
+            $digest->b64digest() eq $Request{user}{passwd}
+                or do { $ok = 0; $form->{invalid}{oldpassword} = 1; };
+        }
+        else { # must have a valid twostep token if not logged in
+            ($token, $token_data) = Act::TwoStep::verify_form()
+                or return;
+        }
 
         # both fields need to be the same
         if ( $fields->{newpassword1} ne $fields->{newpassword2} ) {
@@ -90,6 +99,7 @@ sub handler
         }
         else {
             # map errors
+            $form->{invalid}{oldpassword}  && push @errors, 'ERR_OLD_PASSWORD';
             $form->{invalid}{newpassword1} && push @errors, 'ERR_PASSWORD_1';
             $form->{invalid}{newpassword2} && push @errors, 'ERR_PASSWORD_2';
             $form->{invalid}{same}         && push @errors, 'ERR_SAME';
