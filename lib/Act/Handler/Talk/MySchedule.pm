@@ -12,6 +12,7 @@ sub handler {
       unless $Request{user}->has_registered;
 
     my @ts = map Act::TimeSlot::upgrade($_),
+             grep $_->{datetime},
              @{ Act::Event->get_events( conf_id => $Request{conference} ) },
              @{ $Request{user}->my_talks };
     my %schedule = Act::Handler::Talk::Schedule::compute_schedule(@ts);
