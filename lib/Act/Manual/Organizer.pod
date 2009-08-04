@@ -55,6 +55,10 @@ Display current and upcoming talks/events.
 
 Act is an OpenID server.
 
+=item L<Act::Manual::Organizer::WebAPI>
+
+Act's Web API.
+
 =back
 
 =cut
