@@ -972,7 +972,7 @@ msgstr "支払いの確認"
 
 msgid "<conf> online payment"
 msgstr ""
-"FIXME %1 参加費のオンライン決済が承認されました。\n"
+"%1 参加費のオンライン決済が承認されました。\n"
 "\n"
 "注文番号: %2\n"
 "支払日: %3 GMT\n"
