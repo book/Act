@@ -139,11 +139,11 @@ __END__
 
 =head1 NAME
 
-list_payments - 
+list_payments - Show recent payments
 
 =head1 SYNOPSIS
 
-    list_payments  --conference conf_id
+    list_payments  [--conference conf_id]  [--number N]
     list_payments  --help
 
 =head1 OPTIONS
@@ -154,6 +154,10 @@ list_payments -
 
 specify the conference name (optional)
 
+=item B<-n>, B<--number> I<integer>
+
+specify how many payments to show
+
 =item B<-h>, B<--help>
 
 print this help screen and exit
@@ -162,7 +166,10 @@ print this help screen and exit
 
 =head1 DESCRIPTION
 
-B<list_payments> 
+As one can guess by its name, B<list_payments> prints the recent payments
+of the Act conferences hosted by the current system. Unfinished recent
+(< 3 hours) payments are highlighted to warn that it might be problematic
+to restart the service.
 
 =head1 AUTHOR
 
