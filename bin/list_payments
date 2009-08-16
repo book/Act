@@ -11,7 +11,7 @@ use Term::ANSIColor qw< :constants >;
 # constants
 use constant {
     DEFAULT_NUMBER_PAYMENTS  =>  10,
-    RECENTNESS_THRESHOLD     =>  12, # hours
+    RECENTNESS_THRESHOLD     =>   3, # hours
     TIME_ZONE                => "UTC",
 };
 
