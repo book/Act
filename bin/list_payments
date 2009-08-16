@@ -1,0 +1,124 @@
+#!/usr/bin/perl
+use strict;
+use Act::Config;
+use Act::Util;
+use Getopt::Long    qw< :config no_auto_abbrev no_ignore_case >;
+
+
+#
+# main
+# ----
+MAIN: {
+    run() unless caller();
+}
+
+
+#
+# run()
+# ---
+sub run {
+    # get options
+    my %options;
+    
+    GetOptions(\%options, qw<
+        help|h!
+        conference|C=s
+    >) or pod2usage();
+
+    pod2usage(2) if $options{help};
+
+    # fetch args
+    my $conf_id = $options{conference};
+
+    # check if the conference is actually known
+    die "error: Unknown conference name: $conf_id\n"
+        if $conf_id and not $Config->conferences->{$conf_id};
+
+    # connect to the database
+    my $dbh = Act::Util->db_connect();
+
+    # fetch the list of users name & ID
+    my %user_login = map { @$_ } @{ $dbh->selectall_arrayref(q{
+            SELECT user_id, login FROM users
+    }) };
+
+    # fetch the payments
+    my $payments_sth;
+
+    if ($conf_id) {
+        my $sql 
+            = q{ SELECT * FROM orders ORDER BY order_id DESC WHERE conf_if=? };
+        $payments_sth = $dbh->prepare($sql);
+        $payments_sth->execute($conf_id);
+    }
+    else {
+        my $sql = q{ SELECT * FROM orders ORDER BY order_id DESC };
+        $payments_sth = $dbh->prepare($sql);
+        $payments_sth->execute;
+    }
+
+    # construct the output format
+    my @fields_order = qw<
+        order_id  conf_id  user_login  user_id  datetime  means  type
+        currency  status
+    >;
+    my @headers = (
+        "order", "conference", "login", "id", "date & time", "payment", "type",
+        "curr.", "state",
+    );
+    my $th_format = "%5s | %10s | %10s (%5s) | %19s | %7s %13s | %5s | %5s\n";
+    my $td_format = "%5d | %10s | %10s (%5d) | %19s | %6s %14s | %5s | %5s\n";
+
+    printf $th_format => @headers;
+
+    while (my $row = $payments_sth->fetchrow_hashref) {
+        $row->{user_login}  = $user_login{ $row->{user_id} };
+        $row->{means}       = lc $row->{means};
+        printf $td_format => @{$row}{@fields_order};
+    }
+}
+
+
+#
+# pod2usage()
+# --------
+sub pod2usage {
+    my ($level) = @_;
+    require Pod::Usage;
+    Pod::Usage::pod2usage({ -verbose => $level, -exitval => 0 });
+}
+
+
+__END__
+
+=head1 NAME
+
+list_payments - 
+
+=head1 SYNOPSIS
+
+    list_payments  
+    list_payments  --help
+
+=head1 OPTIONS
+
+=over
+
+=item B<-C>, B<--conference> I<name>
+
+specify the conference name (optional)
+
+=item B<-h>, B<--help>
+
+print this help screen and exit
+
+=back
+
+=head1 DESCRIPTION
+
+B<list_payments> 
+
+=head1 AUTHOR
+
+SE<eacute>bastien Aperghis-Tramoni E<lt>sebastien@aperghis.netE<gt>
+
