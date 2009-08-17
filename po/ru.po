@@ -1300,6 +1300,9 @@ msgstr "Укажите новый пароль"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
+msgid "Current password"
+msgstr "Пароль"
+
 msgid "New password"
 msgstr "Новый пароль"
 

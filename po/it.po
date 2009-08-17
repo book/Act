@@ -1290,6 +1290,9 @@ msgstr "Inserite la nuova password"
 msgid "Passwords don't match"
 msgstr "Le password non corrispondono"
 
+msgid "Current password"
+msgstr "Password"
+
 msgid "New password"
 msgstr "Nuova password"
 

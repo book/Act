@@ -616,6 +616,9 @@ msgstr ""
 "たいていの場合は単なる間違いで、あなたのパスワードを盗もうとしているわけでは\n"
 "ありませんので、無視していただいて結構です。\n"
 
+msgid "Current password"
+msgstr "パスワード"
+
 msgid "New password"
 msgstr "新しいパスワード"
 

@@ -1289,6 +1289,9 @@ msgstr "Escriba la nueva contraseña"
 msgid "Passwords don't match"
 msgstr "Las contraseñas no coinciden"
 
+msgid "Current password"
+msgstr "Contraseña"
+
 msgid "New password"
 msgstr "Nueva contraseña"
 

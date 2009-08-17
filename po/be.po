@@ -1270,6 +1270,9 @@ msgstr "Калі ласка, увяздіце новы пароль"
 msgid "Passwords don't match"
 msgstr "Паролі не супадаюць"
 
+msgid "Current password"
+msgstr "Пароль"
+
 msgid "New password"
 msgstr "Новы пароль"
 

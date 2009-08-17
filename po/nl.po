@@ -1298,6 +1298,9 @@ msgstr "Voor uw nieuwe wachtwoord in"
 msgid "Passwords don't match"
 msgstr "Wachtwoorden stemmen niet overeen"
 
+msgid "Current password"
+msgstr "Wachtwoord"
+
 msgid "New password"
 msgstr "Nieuw wachtwoord"
 

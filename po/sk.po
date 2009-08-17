@@ -1286,6 +1286,9 @@ msgstr "Prosím zadaj si nové heslo"
 msgid "Passwords don't match"
 msgstr "Heslá sa nezhodujú"
 
+msgid "Current password"
+msgstr "Heslo"
+
 msgid "New password"
 msgstr "Nové heslo"
 

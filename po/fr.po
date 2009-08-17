@@ -1314,6 +1314,9 @@ msgstr "Veuillez saisir votre nouveau mot de passe"
 msgid "Passwords don't match"
 msgstr "Les mots de passe saisis ne sont pas identiques"
 
+msgid "Current password"
+msgstr "Mot de passe actuel"
+
 msgid "New password"
 msgstr "Nouveau mot de passe"
 

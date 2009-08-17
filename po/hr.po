@@ -1267,6 +1267,9 @@ msgstr "Molimo unesite vašu novu lozinku"
 msgid "Passwords don't match"
 msgstr "Lozinke se ne podudaraju"
 
+msgid "Current password"
+msgstr "Lozinka"
+
 msgid "New password"
 msgstr "Nova lozinka"
 

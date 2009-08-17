@@ -1270,6 +1270,9 @@ msgstr "请输入您的新密码"
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
+msgid "Current password"
+msgstr "密码"
+
 msgid "New password"
 msgstr "新密码"
 
