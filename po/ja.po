@@ -617,7 +617,7 @@ msgstr ""
 "ありませんので、無視していただいて結構です。\n"
 
 msgid "Current password"
-msgstr "パスワード"
+msgstr "現在のパスワード"
 
 msgid "New password"
 msgstr "新しいパスワード"
@@ -1344,7 +1344,7 @@ msgid "Promotion code"
 msgstr "クーポン番号"
 
 msgid "Confirm Attendance"
-msgstr "来場確認"
+msgstr "チェックイン"
 
 msgid "Attendance confirmed for <user>"
 msgstr "%1 の来場を確認しました"
@@ -1358,3 +1358,5 @@ msgstr "記録にないオーダーIDです。"
 msgid "User is not registered."
 msgstr "登録されていません。"
 
+msgid "Order ID"
+msgstr "オーダーID"

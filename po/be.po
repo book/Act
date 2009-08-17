@@ -1271,7 +1271,7 @@ msgid "Passwords don't match"
 msgstr "Паролі не супадаюць"
 
 msgid "Current password"
-msgstr "Пароль"
+msgstr "Сучасны пароль"
 
 msgid "New password"
 msgstr "Новы пароль"
