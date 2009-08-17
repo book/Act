@@ -9,7 +9,8 @@ use Getopt::Std qw(getopts);
 use Act::Config;
 
 my %opts;
-getopts('vn', \%opts) or die "$0 [-nv] [conf_id...]\n";
+getopts('anv', \%opts) or usage();
+$opts{a} && @ARGV && usage();
 $opts{v} = 1 if $opts{n};
 $|++; 
 
@@ -20,7 +21,7 @@ for my $conf_id (@confs) {
     my $cfg = Act::Config::get_config($conf_id);
     my ($begin, $end) = map DateTime::Format::Pg->parse_timestamp($_)->truncate(to => 'day'),
                         $cfg->talks_start_date, $cfg->talks_end_date;
-    if (@ARGV || $end >= $now || $begin >= $now) {
+    if (@ARGV || $opts{a} || $end >= $now || $begin >= $now) {
         for my $subdir (qw(actdocs wwwdocs)) {
             my $dir = catfile($Config->home, $subdir, $conf_id);
             print "$dir\n" if $opts{v};
@@ -33,4 +34,18 @@ for my $conf_id (@confs) {
             }
         }
     }
+}
+
+sub usage
+{
+    die <<EOF;
+$0 [-nv]
+$0 [-nv] [conf_id...]
+$0 -a [-nv]
+
+-a     update all conferences
+-n     dry run
+-v     verbose
+
+EOF
 }
