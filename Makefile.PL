@@ -11,7 +11,7 @@ requires(
 'DBI' => 0, 
 'DBD::Pg' => 1.22,
 'Data::ICal::DateTime' => 0, 
-'Data::ICal' => '0.15_02', # Data::ICal::Entry::Event
+'Data::ICal' => '0.16', # Data::ICal::Entry::Event
 'DateTime::Format::Pg' => 0, 
 'DateTime::Locale' => 0, 
 'DateTime::TimeZone' => 0, 
