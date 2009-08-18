@@ -1,0 +1,177 @@
+#!/usr/bin/perl
+use strict;
+use Act::Config;
+use Act::Util;
+use Date::Parse;
+use DateTime;
+use Getopt::Long    qw< :config no_auto_abbrev no_ignore_case >;
+use Term::ANSIColor qw< :constants >;
+
+
+# constants
+use constant {
+    DEFAULT_NUMBER_PAYMENTS  =>  10,
+    RECENTNESS_THRESHOLD     =>   3, # hours
+    TIME_ZONE                => "UTC",
+};
+
+
+#
+# main
+# ----
+MAIN: {
+    run() unless caller();
+}
+
+
+#
+# run()
+# ---
+sub run {
+    # early initalisations
+    $|++;
+    $Term::ANSIColor::AUTORESET = 1;
+    my $now = DateTime->now(time_zone => TIME_ZONE);
+
+    # get options
+    my %options;
+    
+    GetOptions(\%options, qw<
+        help|h!
+        conference|C=s  number|n=i
+    >) or pod2usage();
+
+    pod2usage(2) if $options{help};
+
+    # fetch args
+    my $conf_id = $options{conference};
+    my $limit   = int($options{number}) || DEFAULT_NUMBER_PAYMENTS;
+
+    # check if the conference is actually known
+    die "error: Unknown conference name: $conf_id\n"
+        if $conf_id and not $Config->conferences->{$conf_id};
+
+    # connect to the database
+    my $dbh = Act::Util->db_connect();
+
+    # fetch the list of users name & ID
+    my %user_login = map { @$_ } @{ $dbh->selectall_arrayref(q{
+            SELECT user_id, login FROM users
+    }) };
+
+    # fetch the payments
+    my $payments_sth;
+
+    if ($conf_id) {
+        my $sql = qq{
+            SELECT  *
+            FROM    orders
+            WHERE   conf_if = ?
+            ORDER BY order_id DESC
+            LIMIT   $limit
+        };
+        $payments_sth = $dbh->prepare($sql);
+        $payments_sth->execute($conf_id);
+    }
+    else {
+        my $sql = qq{ SELECT * FROM orders ORDER BY order_id DESC LIMIT $limit };
+        $payments_sth = $dbh->prepare($sql);
+        $payments_sth->execute;
+    }
+
+    # construct the output format
+    my @fields_order = qw<
+        order_id  conf_id  user_login  user_id  datetime  means  type
+        currency  status
+    >;
+    my @headers = (
+        "order", "conference", "login", "id", "date & time", "payment", "type",
+        "curr.", "state",
+    );
+
+    my $th_format = "%5s | %-10s | %-10s (%5s) | %-19s | %-7s %-13s | %-5s | %-5s\n";
+    my $td_format = "%5d | %-10s | %-10s (%5d) | %-19s | %-6s %-14s | %-5s | %-5s\n";
+    $th_format =~ s/(%-?\d+s)/BOLD $1/eg;
+
+    printf $th_format => @headers;
+    print "-"x6, "+", "-"x12, "+", "-"x20, "+", "-"x21, "+", "-"x23, "+",
+          "-"x7, "+", "-"x6, $/;
+
+    while (my $row = $payments_sth->fetchrow_hashref) {
+        $row->{user_login}  = $user_login{ $row->{user_id} };
+        $row->{means}       = lc $row->{means};
+        my $must_warn       = 0;
+
+        # check for recent unfinished payments, and add color to inform the user
+        if ($row->{status} eq "init") {
+            my $date = DateTime->from_epoch(
+                epoch => str2time( $row->{datetime} ),
+                time_zone => TIME_ZONE,
+            );
+
+            my $dur   = $now - $date;
+            my $hours = $dur->delta_days * 24 + $dur->in_units("hours");
+
+            $must_warn = 1 if $hours < RECENTNESS_THRESHOLD;
+        }
+
+        if ($must_warn) {
+            print RED sprintf $td_format => @{$row}{@fields_order};
+        }
+        else {
+            printf $td_format => @{$row}{@fields_order};
+        }
+    }
+}
+
+
+#
+# pod2usage()
+# --------
+sub pod2usage {
+    my ($level) = @_;
+    require Pod::Usage;
+    Pod::Usage::pod2usage({ -verbose => $level, -exitval => 0 });
+}
+
+
+__END__
+
+=head1 NAME
+
+list_payments - Show recent payments
+
+=head1 SYNOPSIS
+
+    list_payments  [--conference conf_id]  [--number N]
+    list_payments  --help
+
+=head1 OPTIONS
+
+=over
+
+=item B<-C>, B<--conference> I<name>
+
+specify the conference name (optional)
+
+=item B<-n>, B<--number> I<integer>
+
+specify how many payments to show
+
+=item B<-h>, B<--help>
+
+print this help screen and exit
+
+=back
+
+=head1 DESCRIPTION
+
+As one can guess by its name, B<list_payments> prints the recent payments
+of the Act conferences hosted by the current system. Unfinished recent
+(< 3 hours) payments are highlighted to warn that it might be problematic
+to restart the service.
+
+=head1 AUTHOR
+
+SE<eacute>bastien Aperghis-Tramoni E<lt>sebastien@aperghis.netE<gt>
+
