@@ -342,6 +342,9 @@ msgstr ""
 msgid "Incorrect login or password"
 msgstr "Identifiant ou mot de passe incorrect"
 
+msgid "Logged as:"
+msgstr "Connecté comme :"
+
 msgid "Logout"
 msgstr "Déconnexion"
 
