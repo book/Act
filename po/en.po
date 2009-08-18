@@ -1301,6 +1301,9 @@ msgstr "Please type in your new password"
 msgid "Passwords don't match"
 msgstr "Passwords don't match"
 
+msgid "Current password"
+msgstr "Current password"
+
 msgid "New password"
 msgstr "New password"
 

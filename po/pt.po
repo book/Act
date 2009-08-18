@@ -1284,6 +1284,9 @@ msgstr "Escreva a sua nova Palavra-Chave"
 msgid "Passwords don't match"
 msgstr "As palavras-chave não são iguais"
 
+msgid "Current password"
+msgstr "Palavra-Chave"
+
 msgid "New password"
 msgstr "Nova Palavra-Chave"
 

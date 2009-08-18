@@ -506,6 +506,9 @@ msgstr ""
 "Jemand, wahrscheinlich Sie, haben verlangt, dass Ihr Passwort\n"
 "zurueckgesetzt wird. Das neue Passwort ist: %1\n"
 
+msgid "Current password"
+msgstr "Passwort"
+
 msgid "New password"
 msgstr "Neues Passwort"
 

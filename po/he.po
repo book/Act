@@ -1269,6 +1269,9 @@ msgstr "נא הקלד את הסיסמה החדשה"
 msgid "Passwords don't match"
 msgstr "הסיסמאות אינן תואמות"
 
+msgid "Current password"
+msgstr "סיסמה"
+
 msgid "New password"
 msgstr "סיסמה חדשה"
 

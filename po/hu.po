@@ -494,6 +494,9 @@ msgstr ""
 "Valaki új jelszó készítését kezdeményezte oldalunkon.\n"
 "Az új jelszó: %1\n"
 
+msgid "Current password"
+msgstr "Jelszó"
+
 msgid "New password"
 msgstr "Új jelszó"
 

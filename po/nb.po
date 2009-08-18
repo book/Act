@@ -1287,6 +1287,9 @@ msgstr "Vennligst skriv inn ditt nye passord"
 msgid "Passwords don't match"
 msgstr "Passordene er ulike"
 
+msgid "Current password"
+msgstr "Passord"
+
 msgid "New password"
 msgstr "Nytt passord"
 
