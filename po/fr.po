@@ -1391,7 +1391,7 @@ msgid "remove from personal schedule"
 msgstr "supprimer de l'emploi du temps personnel"
 
 msgid "Attended by:"
-msgstr "Assisté par:"
+msgstr "Présentation suivie par:"
 
 msgid "Favorite Talks"
 msgstr "Présentations préférées"
