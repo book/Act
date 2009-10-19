@@ -77,8 +77,8 @@ if (window.act) {
               <td><label for="promo-[% p %]">{{Promotion code}}</label></td>
               <td><input type="text" id="promo-[% p %]" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
            [% ELSE %]
-              <td><input type="radio" id="price-[% p %]" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
-                  <label for="price-[% p %]"> [% i.name %]</td>
+              <td><input type="radio" id="price-[% p %]-[% i.price_id %]" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+                  <label for="price-[% p %]-[% i.price_id %]"> [% i.name %]</td>
               <td align="right">[% i.amount %]</td>
            [% END %]
         <td>[% currency %]</td>
