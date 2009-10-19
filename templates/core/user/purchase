@@ -58,8 +58,8 @@ if (window.act) {
 [% FOREACH p IN productlist %]
     [% NEXT IF p == 'registration' AND global.request.user.has_paid %]
     <tr>
-        <td align="right"><input type="checkbox" value="[% p %]" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
-        <td>[% products.$p.name %]</td>
+        <td align="right"><input type="checkbox" value="[% p %]" id="product-[% p %]" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td><label for="product-[% p %]">[% products.$p.name %]</label></td>
 [% IF products.$p.prices.size == 1 %]
         <td align="right">[% products.$p.prices.0.amount %]</td>
         <td>[% currency %]</td>
@@ -74,11 +74,11 @@ if (window.act) {
         <tr>
             <td></td>
            [% IF i.promocode; ispromo = 1 %]
-              <td>{{Promotion code}}</td>
-              <td><input type="text" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
+              <td><label for="promo-[% p %]">{{Promotion code}}</label></td>
+              <td><input type="text" id="promo-[% p %]" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
            [% ELSE %]
-              <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
-                  [% i.name %]</td>
+              <td><input type="radio" id="price-[% p %]" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+                  <label for="price-[% p %]"> [% i.name %]</td>
               <td align="right">[% i.amount %]</td>
            [% END %]
         <td>[% currency %]</td>
