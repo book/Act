@@ -26,8 +26,8 @@
 [% FOREACH p IN productlist %]
     [% NEXT IF p == 'registration' AND user.has_paid %]
     <tr>
-        <td align="right"><input type="checkbox" name="product-[% p %]"[% ' checked="checked"' IF fields.products.$p.checked %] /></td>
-        <td>[% products.$p.name %]</td>
+        <td align="right"><input type="checkbox" id="product-[% p %]" name="product-[% p %]"[% ' checked="checked"' IF fields.products.$p.checked %] /></td>
+        <td><label for="product-[% p %]">[% products.$p.name %]</label></td>
   [% IF products.$p.prices.size == 1 %]
         <td>[% products.$p.prices.0.amount %] [% currency %]</td>
     </tr>
@@ -37,8 +37,8 @@
     [% FOREACH i IN products.$p.prices %]
     <tr>
         <td></td>
-        <td><input type="radio" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF fields.products.$p.prices.${i.price_id} %] />
-            [% i.name %]</td>
+        <td><input type="radio" id="price-[% p %]-[% i.price_id %]" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF fields.products.$p.prices.${i.price_id} %] />
+            <label for="price-[% p %]-[% i.price_id %]">[% i.name %]</label></td>
         <td>[% i.amount %] [% currency %]</td>
     </tr>
     [% END %]
