@@ -30,6 +30,9 @@ sub escape
     # recursively escape HTML entities
     my $self = shift;
 
+    if (ref $_[0] eq 'DateTime') {
+        return $_[0];
+    }
     if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
         $self->escape($_) for @{$_[0]};
     }
