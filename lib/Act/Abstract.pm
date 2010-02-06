@@ -43,7 +43,8 @@ sub chunked {
 
 sub expand_talk
 {
-    my $id = shift;
+    my $id = shift or return;
+    $id =~ /^\d+/ or return;
     my $talk = Act::Talk->new(
         talk_id => $id,
         conf_id => $Request{conference}
