@@ -980,6 +980,9 @@ msgstr "Présentations &amp; événements"
 msgid "Credit card payment"
 msgstr "Paiement par carte bancaire"
 
+msgid "Delayed payment"
+msgstr "Paiement différé"
+
 msgid "Payment"
 msgstr "Saisie d'un règlement"
 
