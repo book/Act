@@ -968,6 +968,9 @@ msgstr "Виступи та події"
 msgid "Credit card payment"
 msgstr "Оплата кредитною карткою"
 
+msgid "Delayed payment"
+msgstr "Відкладений платіж"
+
 msgid "Payment"
 msgstr "Оплата"
 
