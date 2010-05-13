@@ -14,7 +14,7 @@ msgid "payment_means_ONLINE"
 msgstr "Онлайн"
 
 msgid "payment_means_XFER"
-msgstr "Перевод"
+msgstr "Переказ"
 
 msgid "payment_means_FREE"
 msgstr "Безкоштовно"
@@ -32,10 +32,10 @@ msgid "salutation_2"
 msgstr "Пані"
 
 msgid "salutation_3"
-msgstr "Мисс"
+msgstr "Місс"
 
 msgid "salutation_4"
-msgstr "Д-р"
+msgstr "Пр."
 
 msgid "User information"
 msgstr "Інформація про користувача"
@@ -44,7 +44,7 @@ msgid "Login"
 msgstr "Логін"
 
 msgid "Name"
-msgstr "Им'я"
+msgstr "Им’я"
 
 msgid "City"
 msgstr "Місто"
@@ -83,7 +83,7 @@ msgid "minutes"
 msgstr "хвилин"
 
 msgid "Lightning talk"
-msgstr "Блиц-доповідь"
+msgstr "Бліц-доповідь"
 
 msgid "Bio"
 msgstr "Про себе"
@@ -100,13 +100,13 @@ msgstr "на «%1»."
 msgid "This is your personal page."
 msgstr ""
 "Це ваш Особистий кабінет.\n"
-"Тут зібрані усі налаштування та дані, пов'язані з вашою участю\n"
+"Тут зібрана вся інформація стосовно участі у конференції\n"
 
 msgid "to Act-enabled conferences."
 msgstr "на конференціях с Act-сайтом."
 
 msgid "You have purchased your conference ticket:"
-msgstr "Придбано квиток на конференцію:"
+msgstr "Квиток на конференцію вже маєте:"
 
 msgid "Order number"
 msgstr "Порядковий номер"
@@ -118,7 +118,7 @@ msgid "Amount paid"
 msgstr "Розмір платежу"
 
 msgid "Download your invoice"
-msgstr "Скачати <a href=\"%1\">рахунок</a>."
+msgstr "Завантажити <a href=\"%1\">рахунок</a>."
 
 msgid "You have not bought your conference ticket yet."
 msgstr "Квиток на конференцію ще не придбано."
@@ -127,7 +127,7 @@ msgid "Please consider doing so using our online payment system."
 msgstr "Ви можете скористатися нашою платіжною онлайновою системою."
 
 msgid "Please consider doing so once our online payment system is ready."
-msgstr "Будь ласка, скористайтеся нашою платіжною системою, тільки но вона буде готова."
+msgstr "Будь ласка, скористуйтесь нашою платіжною системою, як тільки вона буде готова."
 
 msgid "You have not confirmed your participation to this conference yet."
 msgstr "Ви ще не підтвердили свою участь на цій конференції."
@@ -151,31 +151,31 @@ msgid "register for this conference"
 msgstr "реєстрація на конференції"
 
 msgid "update your information"
-msgstr "оновлення інформації"
+msgstr "обновлення інформації"
 
 msgid "manage your photo"
 msgstr "завантаження фотографії"
 
 msgid "change your password"
-msgstr "зміна паролю"
+msgstr "заміна пароля"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "ваші виступи (схвалені виділені <b>жирним шрифтом</b>)"
+msgstr "ваші доповіді (схвалені виділені <b>жирним шрифтом</b>)"
 
 msgid "submit a talk"
-msgstr "заявка на виступ"
+msgstr "заявка на доповідь"
 
 msgid "log out"
 msgstr "вихід"
 
 msgid "unregister from <this conference>"
-msgstr "видалити реєстрацію %1"
+msgstr "скасувати реєстрацію %1"
 
 msgid "(You were there)"
 msgstr "(Ви тут були)"
 
 msgid "(You are there)"
-msgstr "(Ви там)"
+msgstr "(Ви тут)"
 
 msgid "(You will be there)"
 msgstr "(Ви там будете)"
@@ -196,11 +196,11 @@ msgstr "Адреса електронної пошти виглядає дивн
 
 msgid "An email has been sent to <email>. Click on the link in the email to"
 msgstr ""
-"Електронний лист надіслано на адресу <b>%1</b>. Перейдіть за посиланням у листі, \n"
+"Електронний лист вже надісланний на адресу <b>%1</b>. Перейдіть за посиланням у листі, \n"
 "щоб завершити операцію.\n"
 
 msgid "Confirmation email sent"
-msgstr "Підтверджуючий лист надіслано"
+msgstr "Підтверджуючий лист вже надісланний"
 
 msgid "In order to complete your operation"
 msgstr "Для того, щоб завершити операцію «%1», будь-ласка, перейдіть за посиланням:"
@@ -224,7 +224,7 @@ msgid "The address is already registered."
 msgstr "Адреса %1 вже зареєстрована."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Ваш ідентифікатор повинен складатися як мінімум з трьох символів і містити тільки латинські букви та цифри (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Ваш ідентифікатор повинен складатися як мінімум з трьох символів і містити тільки латинські літери та цифри (<tt>[a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Необхідно ввести ім'я"
@@ -251,19 +251,19 @@ msgstr ""
 "Для реєстрації необхідно спочатку створити обліковий запис на сайті.\n"
 "<b>Якщо ви вже реєструвалися на попередніх конференціях Act,\n"
 "реєструватися заново не потрібно, просто,\n"
-"будь ласка, <a href=\"%1\">увійдіть</a>, використовуючи свої реєстраційні дані.</b> \n"
+"будь ласка, <a href=\"%1\">зайдіть</a>, використовуючи свої реєстраційні дані.</b> \n"
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
 "Особисті дані, які ми збираємо, будуть використовуватися\n"
 "всіма учасниками у <a href=\"%1\">онлайн-каталозі <i>Хто є хто</i></ a>.\n"
 "Це може знадобитися, якщо після закінчення конференції ви захочете зв'язатися\n"
-"з кимось, з ким познайомилися під час її проведення. Або, навпаки,\n"
+"з ким-небудь, з ким познайомилися під час її проведення. Або, навпаки,\n"
 "коли <i>до</i> початку заходу ви захочете дізнатися, хто з гуру там буде.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
-"Як тільки ви створите обліковий запис, ви зможете скористатися нашою\n"
+"Як тільки ви створите обліковий запис, ви зможете скористуватися нашою\n"
 "захищеною платіжною системою для того, щоб придбати квиток на конференцію. Зверніть\n"
 "увагу, що всі дані по вашому банківському рахунку та номер кредитної картки\n"
 "обробляє безпосередньо банк.\n"
@@ -275,7 +275,7 @@ msgstr ""
 
 msgid "Once you have an account, you'll be able to register free of charge"
 msgstr ""
-"Як тільки ви створите обліковий запис, ви зможете подтвердити свою участь\n"
+"Як тільки ви створите обліковий запис, ви зможете підтвердити свою участь\n"
 "на цій конференції безкоштовно."
 
 msgid "Please create the user below."
@@ -283,7 +283,7 @@ msgstr "Будь-ласка, створіть користувача."
 
 msgid "Use the links above to check if any of those users is the one you want to"
 msgstr ""
-"Перевірте посилання вище - можливо, серед них є запис, який ви бажаєте\n"
+"Перевірьте посилання вище - можливо, серед них є запис, який ви бажаєте\n"
 "створити. Якщо такий запис є, просто виберіть відповідну радіокнопку\n"
 "та надішліть форму.\n"
 
@@ -355,7 +355,7 @@ msgid "Rights management"
 msgstr "Управління правами"
 
 msgid "Events"
-msgstr "Події"
+msgstr "Заходи"
 
 msgid "Submit a new event"
 msgstr "Новий запис"
@@ -382,7 +382,7 @@ msgid "Payments"
 msgstr "Оплата"
 
 msgid "Payment Details"
-msgstr "Деталі платежу"
+msgstr "Параметри платежу"
 
 msgid "Edit profile"
 msgstr "Редагування профілю"
@@ -406,7 +406,7 @@ msgid "Register a new user"
 msgstr "Реєстрація нового користувача"
 
 msgid "The schedule is not ready to be seen."
-msgstr "Розклад ще не складено."
+msgstr "Розкладу ще немає."
 
 msgid "The time and place of the following talks haven't been decided yet."
 msgstr "Час і місце наступних виступів ще не визначено."
@@ -433,7 +433,7 @@ msgid "talk (link)"
 msgstr "зміст"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
-msgstr "Промови, виділені <b>жирним</b>, підтверджені їх авторами."
+msgstr "Виділені <b>жирним</b> доповіді підтверджені їх авторами."
 
 msgid "Time"
 msgstr "Час"
@@ -449,15 +449,15 @@ msgstr "Купити!"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"Зверніть увагу на те, що всі дані про вашому банківському рахунку і номер кредитної\n"
+"Зверніть увагу на те, що всі дані по вашому банківському рахунку і номер кредитної\n"
 "карти обробляється банком. <b>У нас немає доступу до цієї інформації навіть під час\n"
-"проведення платежу.</b> Ми всього лише отримаємо гроші в підсумку. <tt>;-)</tt>\n"
+"проведення платежу.</b> Ми лише отримаємо гроші в підсумку. <tt>;-)</tt>\n"
 
 msgid "Nothing to pay, the order is already confirmed"
 msgstr "Оскільки загальна сума цього замовлення нульова, нічого сплачувати не потрібно. Замовлення оформлено"
 
 msgid "Online payment"
-msgstr "Онлайн-картку"
+msgstr "Онлайновий платіж"
 
 msgid "Online payment (zero)"
 msgstr "Безкоштовно"
@@ -471,7 +471,7 @@ msgstr ""
 "просто натисніть кнопку нижче.\n"
 
 msgid "The recognised rights are:"
-msgstr "Доступні наступні права:"
+msgstr "Доступні права:"
 
 msgid "Organizer"
 msgstr "Організатор"
@@ -501,10 +501,10 @@ msgid "Amount"
 msgstr "Сума"
 
 msgid "You cannot be pseudonymous with a blank nickname"
-msgstr "Псевдонім не повинен бути порожнім"
+msgstr "Нік не повинен бути порожнім"
 
 msgid "The Perl monger group must end with <tt>.pm</tt>"
-msgstr "Назва групи перл-монгеров повинно закінчуватися на <tt>.pm</tt>"
+msgstr "Назва групи перл-монгеров повинна закінчуватися на <tt>.pm</tt>"
 
 msgid "The Perl monger group URL must start with http://"
 msgstr "Адреса групи перл-монгеров повинен починатися з http://"
@@ -513,7 +513,7 @@ msgid "The company URL must start with http://"
 msgstr "Адреса веб-сайту компанії повинен починатися з http://"
 
 msgid "Your web site URL must start with http://"
-msgstr "Адреса вашого сайту повинен починатися з http://"
+msgstr "Адреса вашого сайту повинна починатися з http://"
 
 msgid "Your perlmonks id must be a number"
 msgstr "Ваш perlmonks-ідентифікатор має бути числом"
@@ -552,7 +552,7 @@ msgid "people (who will not attend the conference)"
 msgstr "людьми (які не відвідують конференцію)"
 
 msgid "T-shirt size"
-msgstr "Розмір футбоілкі"
+msgstr "Розмір футболки"
 
 msgid "Full address"
 msgstr "Повна адреса"
@@ -564,7 +564,7 @@ msgid "Monger group"
 msgstr "PM-група"
 
 msgid "(<em>City.pm</em>, city name in English, please)"
-msgstr "(<em>City.pm</em>, назву міста по-англійському)"
+msgstr "(<em>City.pm</em>, назву міста англійською мовою)"
 
 msgid "Monger group URL"
 msgstr "Адреса сайту PM-групи"
@@ -573,7 +573,7 @@ msgid "VAT Number"
 msgstr "ІПН"
 
 msgid "Company URL"
-msgstr "Адреса веб-сайту компанії"
+msgstr "Адреса сайту компанії"
 
 msgid "GPG public key ID"
 msgstr "ID публічного GPG-ключа"
@@ -582,7 +582,7 @@ msgid "(please fill at least this one)"
 msgstr "(будь ласка, заповніть хоча б це)"
 
 msgid "Update info"
-msgstr "Оновити дані"
+msgstr "Обновити дані"
 
 msgid "Your information"
 msgstr "Ваші дані"
@@ -590,7 +590,7 @@ msgstr "Ваші дані"
 msgid "This is a simulation. Under real circumstances, submitting"
 msgstr ""
 "Зараз перебуває в режимі емуляції. У реальних умовах відправлення цієї форми\n"
-"перенаправіт браузер на сайт платіжної системи, де буде необхідно\n"
+"перенаправить браузер на сайт платіжної системи, де буде необхідно\n"
 "ввести дані вашої кредитної картки.<br /> <br />\n"
 "Натисніть кнопку, щоб здійснити емуляцію платежу.\n"
 
@@ -619,23 +619,23 @@ msgstr ""
 "Фотографія, швидше за все, потрапить в розділ <i>Хто є хто</i>,\n"
 "щоб люди могли впізнати вас, коли захочуть з'ясувати, з ким вони приємно\n"
 "поспілкувались, коли знову зустрінуть вас на конференції.<br />\n"
-"Пам'ятайте про це, розміщуючи фотографію!\n"
+"Пам'ятайте про це!\n"
 
 msgid "Delete Photo"
 msgstr "Видалити фото"
 
 msgid "Update Photo"
-msgstr "Оновити фото"
+msgstr "Обновити фото"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Хтось, можливо ви, запросив зміну вашого пароля.\n"
+"Хтось, можливо ви, запросив заміну вашого пароля.\n"
 "Для того, щоб завершити операцію, натисніть на посилання нижче:\n"
 
 msgid "If you have received this message without having requested it, it is"
 msgstr ""
 "Якщо ви отримали цей лист, але не просили про зміну паролю,\n"
-"значить хтось намагається використовувати ваш псевдонім або адресу електронної пошти.\n"
+"значить хтось намагається скористатися вашим псевдонімом або адресою електронної пошти.\n"
 "Швидше за все, це сталося через помилку. У будь-якому випадку ваш пароль не потрапить\n"
 "в чужі руки, тому можете не хвилюватися і проігнорувати цей лист.\n"
 
@@ -645,10 +645,10 @@ msgstr "Змінити пароль"
 msgid "Specify either your login, or your email address."
 msgstr ""
 "Будь ласка, вкажіть ваш <b>логін</b> або <b>адресу електронної пошти</b>.\n"
-"Ви отримаєте лист з інструкціями по зміні паролю.\n"
+"Ви отримаєте лист з інструкціями по заміні пароля.\n"
 
 msgid "No user was found with this login or email address"
-msgstr "З таким іменем або адресою користувачів не знайдено"
+msgstr "З таким ім'ям або адресою користувачів не знайдено"
 
 msgid "Specify your login or email address"
 msgstr "Будь ласка, вкажіть логін або адресу електронної пошти"
@@ -662,15 +662,15 @@ msgstr "Статистика %1"
 msgid "There are n registered people"
 msgstr ""
 "%numerate(%1, Зареєстровано, Зарєєстровано, Зареєстровано) %1 %numerate(%1, учасник, учасника, учасників)\n"
-"з %2 %numerate(%2, країн, країн, країн)\n"
+"з %2 %numerate(%2, країни, країн, країн)\n"
 "і %3 %numerate(%3, PM-групи, PM-груп, PM-груп).\n"
-"Участь %4 %numerate(%4, людину, людина, людина) підтверджені,\n"
+"Участь %4 %numerate(%4, людини, людей, людей) підтверджені,\n"
 "іншими словами, ці люди або оплатили свою участь (якщо це було потрібно),\n"
 "або роблять доповідь.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"Подивіться на статистику <a href=\"%1\">по странам и PM-групам</a>\n"
+"Подивіться на статистику <a href=\"%1\">по країнам и PM-групам</a>\n"
 "або <a href=\"%2\">по містах</a>.\n"
 
 msgid "The number of committed users is listed between parentheses"
@@ -678,11 +678,11 @@ msgstr ""
 "Кількість схвалених користувачів показано в таблиці у дужках.\n"
 
 msgid "Click on the various links to find the corresponding users!"
-msgstr "Переходьте по посиланнях, щоб подивитися інформацію про учасників."
+msgstr "Переходьте за посиланнями, щоб подивитися інформацію про учасників."
 
 msgid "Note: the country total is not always equal to the city total."
 msgstr ""
-"Примітка: загальна кількість країн не обов'язково збігається з кількістю міст.\n"
+"Примітка: загальна кількість країн не обов'язково співподає з кількістю міст.\n"
 "А міста можуть бути записані у неправильні країни.\n"
 "У невідповідності винні самі учасники :-)\n"
 
@@ -690,7 +690,7 @@ msgid "Cities"
 msgstr "Міста"
 
 msgid "No city information entered"
-msgstr "Немає інформації про містах"
+msgstr "Немає інформації про міста"
 
 msgid "Countries"
 msgstr "Країни"
@@ -699,7 +699,7 @@ msgid "Monger groups"
 msgstr "PM-групи"
 
 msgid "Un-Registration"
-msgstr "Видалити реєстрацію"
+msgstr "Скасувати реєстрацію"
 
 msgid "To unregister from <conference>,"
 msgstr ""
@@ -771,23 +771,23 @@ msgstr "Подію додано"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Спасибі, подію збережено:\n"
+"Дякую, подію збережено:\n"
 "<b><a href=\"%1\">%2</a></b>.\n"
 
 msgid "List of events"
 msgstr "Список подій"
 
 msgid "No event was submitted yet."
-msgstr "Ще не додано ні однієї події."
+msgstr "Ще не додано жодної події."
 
 msgid "Event title"
 msgstr "Назва події"
 
 msgid "Event removed"
-msgstr "Подію вилучено"
+msgstr "Подію скасовано"
 
 msgid "The event has been removed."
-msgstr "Подію <b>%1</b> було знищено."
+msgstr "Подію <b>%1</b> було скасовано."
 
 msgid "Date:"
 msgstr "Дата:"
@@ -802,7 +802,7 @@ msgid "You can find more information on the following site:"
 msgstr "Подробиці дивіться на сайті:"
 
 msgid "Wiki - editing <node>"
-msgstr "Віки — редагування %1"
+msgstr "Вікі — редагування %1"
 
 msgid "Someone has committed changes to this node since you began editing."
 msgstr ""
@@ -825,7 +825,7 @@ msgid "Your proposed revision:"
 msgstr "Ваша ревізія:"
 
 msgid "Wiki - <node> History"
-msgstr "Віки — історія %1"
+msgstr "Вікі — історія %1"
 
 msgid "Version"
 msgstr "Версія"
@@ -837,7 +837,7 @@ msgid "By"
 msgstr "Автор:"
 
 msgid "Wiki - <node>"
-msgstr "Віки — %1"
+msgstr "Вікі — %1"
 
 msgid "version"
 msgstr "версія"
@@ -864,7 +864,7 @@ msgid "Edit this page"
 msgstr "Редагування сторінки"
 
 msgid "Delete this page"
-msgstr "Видалення цієї сторінки"
+msgstr "Скасування цієї сторінки"
 
 msgid "Recent changes"
 msgstr "Останні зміни"
@@ -879,60 +879,60 @@ msgid "<wiki help text>"
 msgstr ""
 "<h2>Форматування символів</h2>\n"
 "<ul>\n"
-"<li>Те, що оточено трьома поодинокими лапками, буде виділено <b>жирним</b>.</li>\n"
-"<li>Те, що оточено двома поодинокими лапками, буде виділено <i>курсивом</i>.</li>\n"
+"<li>Те, що виокремлено трьома поодинокими лапками, буде виділено <b>жирним</b>.</li>\n"
+"<li>Те, що виокремлено двома поодинокими лапками, буде виділено <i>курсивом</i>.</li>\n"
 "<li>Будь-яке слово, в якому є кілька заголовних букв (наприклад, StudlyCaps), стане посиланням.</li>\n"
 "</ul>\n"
 "<h2>Форматування абзаців</h2>\n"
 "<ul>\n"
-"<li>Чотири або більше дефісов на початку рядка створюють гонізонтальную лінію.</li>\n"
+"<li>Чотири або більше дефісов на початку рядка створюють горізонтальну лінію.</li>\n"
 "<li>Переклади строк перетворюються у відповідні теги.</li>\n"
-"<li>Текст заголовків повинен бути оточений знаками рівності. Чим більше знаків, тим глибше рівень заголовку.</li>\n"
+"<li>Текст заголовків повинен бути виокремленим знаками рівності. Чим більше знаків, тим глибше рівень заголовку.</li>\n"
 "</ul>\n"
 "<h2>Списки</h2>\n"
 "<ul>\n"
-"<li>Списки — це текст з відступом; по одному символу табуляції або по чотири пропуск на один рівень.</li>\n"
-"<li>В ненумерованних списках перед текстом повинні стояти зірочка і пробіл.</li>\n"
-"<li>Нумерованние списки складаються з елементів, позначених однієї або більше літерами\n"
-"або цифрами, за якими стоїть точка і необов'язковий пробіл.</li>\n"
+"<li>Списки — це текст з відступом; по одному символу табуляції або по чотири пропуски на один рівень.</li>\n"
+"<li>В непронумерованих списках перед текстом повинні стояти зірочка і пробіл.</li>\n"
+"<li>Нумеровані списки складаються з елементів, позначених однією або більше літерами\n"
+"або цифрами, за якими стоїть крапка і необов'язковий пробіл.</li>\n"
 "<li>Списки можуть бути вкладеними.</li>\n"
 "</ul>\n"
 "<h2>Код</h2>\n"
 "<ul>\n"
-"<li>Будь-який текст з відступом без будь-яких позначок копіюється буквально.</li>\n"
+"<li>Будь-який текст з відступом без жодних позначок копіюється буквально.</li>\n"
 "</ul>\n"
 "<h2>Приклад</h2>\n"
 "\n"
 "Далі показаний допустимий фрагмент з вікі-форматуванням, що містить зовнішнє посилання.\n"
 "<pre>\n"
 "\n"
-"= Мій цікавий текст =\n"
+"        = Мій цікавий текст =\n"
 "\n"
-"ЗвичайнеПосилання\n"
-"[ЗовнішнєПосилання | нехай завжди буде Сонце]\n"
-"[User: id]\n"
-"[User: nick_name]\n"
-"[User: first_name last_name]\n"
-"[Talk: id]\n"
-"[News: id]\n"
-"[Page: index.html | conference index]\n"
-"[Image: images / logo.png | conference logo]\n"
+"        ЗвичайнеПосилання\n"
+"        [ЗовнішнєПосилання | нехай завжди буде Сонце]\n"
+"        [User: id]\n"
+"        [User: nick_name]\n"
+"        [User: first_name last_name]\n"
+"        [Talk: id]\n"
+"        [News: id]\n"
+"        [Page: index.html | conference index]\n"
+"        [Image: images / logo.png | conference logo]\n"
 "\n"
-"== Мої цікаві списки ==\n"
+"        == Мої цікаві списки ==\n"
 "\n"
-"* Ненумерованний пункт 1\n"
-"* Ненумерованний пункт 2\n"
+"        * Непронумерований пункт 1\n"
+"        * Непронумерований пункт 2\n"
 "\n"
-"1. Перший нумерований\n"
-"2. Другий нумерований\n"
-"A. вкладений перший\n"
-"B. вкладений другий\n"
+"        1. Перший нумерований\n"
+"        2. Другий нумерований\n"
+"                A. вкладений перший\n"
+"                B. вкладений другий\n"
 "\n"
-"Це код\n"
-"Це теж код\n"
+"        Це код\n"
+"        Це теж код\n"
 "\n"
-"Перший рядок звичайного абзацу.\n"
-"Другий рядок звичайного абзацу. Ги.\n"
+"        Перший рядок звичайного абзацу.\n"
+"        Другий рядок звичайного абзацу. Ги.\n"
 "</pre>\n"
 
 msgid "Wiki - Recent changes"
@@ -942,22 +942,22 @@ msgid "Page"
 msgstr "Сторінка"
 
 msgid "Changes in last"
-msgstr "Зміни, внесені за останні"
+msgstr "Зміни, внесені за "
 
 msgid "<n> day(s)"
 msgstr "%1 %numerate(%1, день, дня, днів)"
 
 msgid "<n> week(s)"
-msgstr "%1 %numerate(%1, тиждень, тижня, тижня)"
+msgstr "%1 %numerate(%1, тиждень, тижня, тижнів)"
 
 msgid "<n> month(s)"
-msgstr "%1 %numerate(%1, місяць, місяця, місяців)"
+msgstr "%1 %numerate(%1, місяць, місяці, місяців)"
 
 msgid "Wiki tags"
 msgstr "Теги вікі"
 
 msgid "Wiki pages tagged <tag>"
-msgstr "Сторінки вікі, позначені тегом «%1»"
+msgstr "Сторінки вікі, позначені тегою «%1»"
 
 msgid "Administrative tasks"
 msgstr "Адміністративні завдання"
@@ -987,7 +987,7 @@ msgid "or"
 msgstr "або"
 
 msgid "Update"
-msgstr "Оновити"
+msgstr "Обновити"
 
 msgid "speaker"
 msgstr "доповідач"
@@ -996,7 +996,7 @@ msgid "Total"
 msgstr "Всього"
 
 msgid "Payment confirmation"
-msgstr "Підтвердження платежаа"
+msgstr "Підтвердження платежу"
 
 msgid "<conf> online payment"
 msgstr ""
@@ -1037,13 +1037,13 @@ msgid "Invoice"
 msgstr "Рахунок"
 
 msgid "You can print this page: only the invoice below will be printed."
-msgstr "Роздрукуйте цю сторінку (надрукована тільки рахунок)."
+msgstr "Роздрукуйте цю сторінку (надрукується тільки рахунок)."
 
 msgid "Printer friendly version"
 msgstr "Версія для друку"
 
 msgid "Establishing your invoice requires your address."
-msgstr "Виставляння рахунку потребує вашої адреси."
+msgstr "Для того, щоб виставити рахунок, потрібна ваша адреса."
 
 msgid "Please make sure the billing information is correct."
 msgstr "Будь ласка, переконайтеся, що білінгова інформація вірна."
@@ -1076,10 +1076,10 @@ msgid "Incorrect language"
 msgstr "Невірна мова"
 
 msgid "Delete this talk"
-msgstr "Видалити цей виступ"
+msgstr "Скасувати цей виступ"
 
 msgid "Track"
-msgstr "Трек"
+msgstr "Потік"
 
 msgid "Language"
 msgstr "Мова"
@@ -1106,8 +1106,8 @@ msgstr "Коментарі"
 
 msgid "The comment field is used for communicating information about"
 msgstr ""
-"Впишіть в це поле коментарі про свій виступ, що ви бажаєте\n"
-"повідомити організаторам.\n"
+"Впишіть в це поле коментарі до свого виступу, про що ви бажаєте\n"
+"повідомити організаторів.\n"
 
 msgid "Status"
 msgstr "Статус"
@@ -1119,7 +1119,7 @@ msgid "confirmed"
 msgstr "підтверджено"
 
 msgid "Accepted"
-msgstr "Отримано"
+msgstr "Прийнято"
 
 msgid "Pending"
 msgstr "Чекає обробки"
@@ -1131,13 +1131,13 @@ msgid "Talk submitted"
 msgstr "Заявка подана"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Дякуємо за те, ваша заявка на виступ записана: <b><a href=\"%1\">%2</a></b>."
+msgstr "Дякуємо, ваша заявка на виступ прийнята: <b><a href=\"%1\">%2</a></b>."
 
 msgid "iCal Import"
 msgstr "Імпорт iCal"
 
 msgid "The following talks have been updated:"
-msgstr "Оновлені наступні виступу:"
+msgstr "Обновлені наступні виступи:"
 
 msgid "Old time"
 msgstr "Старий час"
@@ -1158,10 +1158,10 @@ msgid "List of talks"
 msgstr "Список доповідей"
 
 msgid "List of talks tagged <tag>"
-msgstr "Список доповідей з тегом «%1»"
+msgstr "Список доповідей з тегою «%1»"
 
 msgid "No talk was submitted yet."
-msgstr "Ще не зареєстровано ні одного виступу."
+msgstr "Ще не зареєстровано жодного виступу."
 
 msgid "Submitted talks:"
 msgstr "Подані доповіді:"
@@ -1170,25 +1170,25 @@ msgid "Accepted talks:"
 msgstr "Прийняті доповіді:"
 
 msgid "Accepted talks are shown in bold type."
-msgstr "Одобренние доповіді виділені <b>жирним шрифтом</b>."
+msgstr "Одобрені доповіді виділені <b>жирним шрифтом</b>."
 
 msgid "Total duration of accepted talks:"
 msgstr "Загальна тривалість виступів:"
 
 msgid "hours"
-msgstr "ч"
+msgstr "г"
 
 msgid "Accepted lightning talks:"
-msgstr "Одобренние блиц-струми:"
+msgstr "Одобрені бліц-доповіді:"
 
 msgid "Tracks"
-msgstr "Треки"
+msgstr "Потоки"
 
 msgid "No track"
-msgstr "Трек немає"
+msgstr "Потока немає"
 
 msgid "lightning"
-msgstr "блиц"
+msgstr "бліц"
 
 msgid "from"
 msgstr "з"
@@ -1206,22 +1206,22 @@ msgid "Talk:"
 msgstr "Доповідь:"
 
 msgid "Talk removed"
-msgstr "Доповідь було знищено"
+msgstr "Доповідь скасовано"
 
 msgid "The Talk <title> has been removed."
-msgstr "Доповідь <b>%1</b> було знищено."
+msgstr "Доповідь <b>%1</b> скасовано."
 
 msgid "Talk inserted"
 msgstr "Доповідь вставлено"
 
 msgid "Talk updated"
-msgstr "Доповідь було поновлено"
+msgstr "Доповідь обновлено"
 
 msgid "Submitted by:"
 msgstr "Розміщено:"
 
 msgid "The following fields have been updated:"
-msgstr "Оновлені наступні поля:"
+msgstr "Обновлені наступні поля:"
 
 msgid "By:"
 msgstr "Автор:"
@@ -1245,7 +1245,7 @@ msgid "News Administration"
 msgstr "Адміністрування новин"
 
 msgid "Published"
-msgstr "Опубіковано"
+msgstr "Опубліковано"
 
 msgid "Create a new item"
 msgstr "Створити новий елемент"
@@ -1257,10 +1257,10 @@ msgid "You must enter a title"
 msgstr "Потрібно ввести назву"
 
 msgid "You must enter some text"
-msgstr "Потрібно написати хоч якийсь текст"
+msgstr "Потрібно написати будь-який текст"
 
 msgid "Delete this item"
-msgstr "Видалити цей елемент"
+msgstr "Скасувати цей елемент"
 
 msgid "Text"
 msgstr "Текст"
@@ -1269,22 +1269,22 @@ msgid "No news yet!"
 msgstr "Новин ще немає."
 
 msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
-msgstr "Для форматування тексту використовуйте HTML. Текст, розділений пустими рядками, перетвориться в окремі абзаци"
+msgstr "Для форматування тексту користуйтеся HTML. Текст, розділений пустими рядками, перетвориться в окремі абзаци"
 
 msgid "Add a new track"
-msgstr "Додати новий трек"
+msgstr "Додати новий потік"
 
 msgid "Create/Edit a track"
-msgstr "Створити або редагувати трек"
+msgstr "Створити або редагувати потік"
 
 msgid "Delete this track"
-msgstr "Видалити цей трек"
+msgstr "Скасувати цей потік"
 
 msgid "Submit this track"
-msgstr "Додати цей трек"
+msgstr "Додати цей потік"
 
 msgid "You must enter a title for the track"
-msgstr "Потрібно ввести назву для треку"
+msgstr "Потрібно ввести назву потоку"
 
 msgid "n talks"
 msgstr "%quant (%1, виступ, виступу)"
@@ -1296,7 +1296,7 @@ msgid "n confirmed"
 msgstr "%quant (%1, підтверджено, підтверджені)"
 
 msgid "Change Password"
-msgstr "Зміна пароля"
+msgstr "Заміна пароля"
 
 msgid "Please type in your new password"
 msgstr "Будь ласка, вкажіть новий пароль"
@@ -1305,7 +1305,7 @@ msgid "Passwords don't match"
 msgstr "Паролі не співпадають"
 
 msgid "Current password"
-msgstr "Cучасний пароль"
+msgstr "Теперішній пароль"
 
 msgid "New password"
 msgstr "Новий пароль"
@@ -1315,7 +1315,7 @@ msgstr "Двічі введіть новий пароль"
 
 msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
-"Вам відправлено листа. Перейдіть за посиланням у ньому, щоб\n"
+"Вам надіслано листа. Перейдіть за посиланням у ньому, щоб\n"
 "отримати доступ до вашого профілю та встановити новий пароль.\n"
 
 msgid "Tags"
@@ -1329,23 +1329,23 @@ msgstr "додати нові теги:"
 
 msgid "To unregister <name> from <conference>,"
 msgstr ""
-"Для того, щоб разрегістріровать учасника <b>%1 %2</ b> з конференції «%3»,\n"
+"Для того, щоб скасувати реєстрацію учасника <b>%1 %2</b> з конференції «%3»,\n"
 "просто натисніть кнопку нижче.\n"
 
 msgid "Unregister <name> from <conference>"
 msgstr "Зареєструвати %1 %2 з \"%3\""
 
 msgid "unregister"
-msgstr "видалити реєстрацію"
+msgstr "скасувати реєстрацію"
 
 msgid "edit payment"
 msgstr "редагувати платіж"
 
 msgid "view invoice"
-msgstr "переглянути інвойс"
+msgstr "переглянути рахунок"
 
 msgid "create invoice"
-msgstr "створити інвойс"
+msgstr "створити рахунок"
 
 msgid "enter payment"
 msgstr "перейти до платежу"
@@ -1360,7 +1360,7 @@ msgid "make additional purchases"
 msgstr "зробити додаткові покупки"
 
 msgid "view all orders and invoices"
-msgstr "продивитись усі замовлення та рахунки"
+msgstr "продивитісь усі замовлення та рахунки"
 
 msgid "Product"
 msgstr "Продукт"
@@ -1375,10 +1375,31 @@ msgid "Promotion code"
 msgstr "Промо-код"
 
 msgid "add to personal schedule"
-msgstr "додати у особистий розклад"
+msgstr "додати до особистого розкладу"
 
 msgid "remove from personal schedule"
 msgstr "видалити з особистого розкладу"
 
 msgid "Attended by:"
 msgstr "Мають завітати:"
+
+msgid "Favorite Talks"
+msgstr "Улюблені доповіді"
+
+msgid "Stars"
+msgstr "Зірки"
+
+msgid "Confirm Attendance"
+msgstr "Підтвердити участь"
+
+msgid "Attendance confirmed for <user>"
+msgstr "Участь підтверджено для %1"
+
+msgid "You must enter an order ID."
+msgstr "Треба вказати ID замовлення."
+
+msgid "Unknown order ID."
+msgstr "Невідомий ID замовлення."
+
+msgid "User is not registered."
+msgstr "Користувач не зареєстрований."
