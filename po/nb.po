@@ -335,6 +335,9 @@ msgstr ""
 msgid "Incorrect login or password"
 msgstr "Feil brukernavn eller passord"
 
+msgid "Logged as:"
+msgstr "Logget inn som:"
+
 msgid "Logout"
 msgstr "Logg ut"
 
@@ -472,8 +475,17 @@ msgstr "Rettighetene er:"
 msgid "Organizer"
 msgstr "Arrangør"
 
+msgid "Organizer (news management)"
+msgstr "Arrangør (nyheter)"
+
 msgid "Organizer (talks management)"
 msgstr "Arrangør (foredrag)"
+
+msgid "Organizer (users management)"
+msgstr "Organizer (brukere)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organizer (wiki)"
 
 msgid "Treasurer (payment management)"
 msgstr "Kasserer (betaling)"
@@ -955,6 +967,9 @@ msgstr "Foredrag &amp; begivenheter"
 msgid "Credit card payment"
 msgstr "Betaling med kredittkort"
 
+msgid "Delayed payment"
+msgstr "Utsatt betaling"
+
 msgid "Payment"
 msgstr "Betaling"
 
@@ -1371,4 +1386,19 @@ msgstr "Favoritt-foredrag"
 
 msgid "Stars"
 msgstr "Stjerner"
+
+msgid "Confirm Attendance"
+msgstr "Bekreft deltagelse"
+
+msgid "Attendance confirmed for <user>"
+msgstr "Deltagelse bekreftet for %1"
+
+msgid "You must enter an order ID."
+msgstr "Du må skrive inn et ordrenummer."
+
+msgid "Unknown order ID."
+msgstr "Ukjent ordrenummer."
+
+msgid "User is not registered."
+msgstr "Brukeren er ikke registrert."
 
