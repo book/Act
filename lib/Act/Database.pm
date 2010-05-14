@@ -71,6 +71,9 @@ my @SCHEMA_UPDATES = (
    );
    create index user_talks_idx on user_talks ( user_id, conf_id, talk_id );
   ",
+#10,
+  "alter table participations add column attended boolean default false;
+  ",
 );
 
 # returns ( current database schema version, required version )

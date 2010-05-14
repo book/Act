@@ -1386,3 +1386,18 @@ msgstr "Favorite Talks"
 msgid "Stars"
 msgstr "Stars"
 
+msgid "Confirm Attendance"
+msgstr "Confirm Attendance"
+
+msgid "Attendance confirmed for <user>"
+msgstr "Attendance confirmed for %1"
+
+msgid "You must enter an order ID."
+msgstr "You must enter an order ID."
+
+msgid "Unknown order ID."
+msgstr "Unknown order ID."
+
+msgid "User is not registered."
+msgstr "User is not registered."
+

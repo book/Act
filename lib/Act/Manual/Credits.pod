@@ -108,6 +108,7 @@ conference...
   Thomas Klausner
   Roland Lammel
   David Landgren
+  Daisuke Maki
   Tatsuhiko Miyagawa
   Jonas B. Nielsen
   Salve J Nilsen

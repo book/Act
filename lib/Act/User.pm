@@ -193,6 +193,10 @@ my %methods = (
         'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=?',
         sub { ( $_[0]->user_id, $Request{conference} ) },
     ],
+    has_attended => [
+        'SELECT count(*) FROM participations p WHERE p.user_id=? AND p.conf_id=? AND p.attended IS TRUE',
+        sub { ( $_[0]->user_id, $Request{conference} ) },
+    ],
 );
 
 for my $meth (keys %methods) {

@@ -19,6 +19,11 @@
 </a>
 [% END %]
 [% WRAPPER menus/item %]
+<a href="[% make_uri('confirm_attend') %]">
+ {{Confirm Attendance}}
+</a>
+[% END %]
+[% WRAPPER menus/item %]
 <a href="[% make_uri('create') %]">
  {{Register a new user}}
 </a>

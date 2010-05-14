@@ -1343,3 +1343,18 @@ msgstr "参加セッション"
 msgid "Promotion code"
 msgstr "クーポン番号"
 
+msgid "Confirm Attendance"
+msgstr "来場確認"
+
+msgid "Attendance confirmed for <user>"
+msgstr "%1 の来場を確認しました"
+
+msgid "You must enter an order ID."
+msgstr "オーダーIDを入力する必要があります。"
+
+msgid "Unknown order ID."
+msgstr "記録にないオーダーIDです。"
+
+msgid "User is not registered."
+msgstr "登録されていません。"
+

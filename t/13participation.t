@@ -19,6 +19,7 @@ is_deeply(
         nb_family   => '0',
         ip          => '127.0.0.1',
         datetime    => '2007-02-10 11:22:33',
+        attended    => 0,
     }, "Correct participation information"
 );
 
