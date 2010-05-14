@@ -967,6 +967,9 @@ msgstr "Выступления и события"
 msgid "Credit card payment"
 msgstr "Оплата кредитной картой"
 
+msgid "Delayed payment"
+msgstr "Отложенный платеж"
+
 msgid "Payment"
 msgstr "Оплата"
 

@@ -969,6 +969,9 @@ msgstr "Talks &amp; events"
 msgid "Credit card payment"
 msgstr "Credit card payment"
 
+msgid "Delayed payment"
+msgstr "Delayed payment"
+
 msgid "Payment"
 msgstr "Payment"
 
