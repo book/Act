@@ -87,7 +87,7 @@ conference...
   pt: Alberto Manuel Brandão Simões, Luis Motta Campos
   ru: Andrew Shitov
   sk: Jozef Kutej
-  uk: Anatoly Kochurkov
+  uk: Anatoly Kochurkov, Maria Semenenko
   zh: qiang, fayland
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
