@@ -677,7 +677,7 @@ msgstr "Zahlungsbestätigung"
 
 msgid "<conf> online payment"
 msgstr ""
-"FIXME Ihre Online-Zahlung für Ihre Registrierung bei der Veranstaltung\n"
+"Ihre Online-Zahlung für Ihre Registrierung bei der Veranstaltung\n"
 "\"%1\" wurde bestätigt.\n"
 "\n"
 "Ihre Bestellnummer: %2\n"
