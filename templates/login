@@ -50,9 +50,7 @@
 <p>[% loc('Forgot your password?', make_uri('changepwd')) %]</p>
 
 <p>
-<font size="-1">
  [% loc('This site uses cookies to authenticate logged in users.', domain) %]
-</font>
 </p>
 
 </center>
