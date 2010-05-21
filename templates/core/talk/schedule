@@ -11,12 +11,15 @@
  {{The time and place of the following talks haven't been decided yet.}}
 </p>
 <table>
+<thead>
  <tr>
   <th>{{Speaker}}</th>
   <th>{{Talk title}}</th>
   [% IF global.config.talks_languages %]<th>{{Language}}</th>[% END %]
   <th>{{Duration}}</th>
  </tr>
+</thead>
+<tbody>
  [% FOREACH t IN todo %]
  <tr>
   <td><a href="[% make_uri_info('user', t.user.user_id) %]">
@@ -35,6 +38,7 @@
   </td>
  </tr>
  [% END %]
+</tbody>
 </table>
 <hr />
 [% END %]
@@ -70,6 +74,7 @@
 [% d = day %]
 <h2>[% date_format(d.replace('$', ' 00:00:00' ), 'date_full') | ucfirst %]</h2>
 <table border="0">
+<thead>
  <tr class="header">
   <th>
    {{Time}}
@@ -80,6 +85,8 @@
      [% END %]
   [% END %]
  </tr>
+</thead>
+<tbody>
  [% FOREACH row IN table.$d %]
  <tr class="header">
   [% FOREACH col IN row %]
@@ -94,6 +101,7 @@
   [% END %]
  </tr>
  [% END %]
+</tbody>
 </table>
 [% IF global.request.user.has_registered %]
 <input type="hidden" name="day" value="[% day %]" />
