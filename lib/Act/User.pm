@@ -214,6 +214,7 @@ for my $meth (keys %methods) {
 sub committed {
     my $self = shift;
     return $self->has_paid
+        || $self->has_attended
         || $self->has_accepted_talk
         || $self->is_staff
         || $self->is_users_admin
