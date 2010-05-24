@@ -3,7 +3,8 @@
 [% IF news.size %]
  <div class="newsbox">
  [% FOREACH n = news %]
- <p><h3><a href="[% n.link %]">[% n.title %]</a></h3>
+ <h3><a href="[% n.link %]">[% n.title %]</a></h3>
+ <p>
     <em>[% date_format(n.datetime, 'datetime_short') %] {{by}} [% user_info(n.user) %]</em>
     <br />
    [% texts.${loop.index} %]

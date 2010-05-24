@@ -3,7 +3,7 @@
 
 <p>
 {{You have been logged out and the cookie deleted from your browser.}}
-</font>
+</p>
 
 </center>
 [% END %]
