@@ -13,15 +13,13 @@ sub handler {
                : undef;
 
     # search users
-    my $users = [];
-    if (%{$Request{args}}) {
-        $users = Act::User->get_users(
-            %{$Request{args}},
-            $Request{conference} ? ( conf_id => $Request{conference} ) : (),
-            limit => $limit + 1,
-            offset => $offset,
-        );
-    }
+    $Request{args} ||= { name => "*" };
+    my $users = Act::User->get_users(
+        %{$Request{args}},
+        $Request{conference} ? ( conf_id => $Request{conference} ) : (),
+        limit => $limit + 1,
+        offset => $offset,
+    );
 
     # offsets for potential previous/next pages
     my ($oprev, $onext);
