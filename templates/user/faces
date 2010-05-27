@@ -2,6 +2,7 @@
 
 [% IF users.size %]
 [% FOREACH u=users %]
+  [% NEXT UNLESS u.committed %]
   <div class="attendee-face">
     <div class="attendee-photo">
     [%- IF u.photo_name %]
