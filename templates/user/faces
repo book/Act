@@ -1,0 +1,31 @@
+[% WRAPPER ui title = loc("Committed attendees") %]
+
+[% IF users.size %]
+[% FOREACH u=users %]
+  <div class="attendee-face">
+    <div class="attendee-photo">
+    [%- IF u.photo_name %]
+      <img src="/[% global.config.general_dir_photos %]/[% u.photo_name %]" border="0" alt="[Photo]">
+    [%- ELSE %]
+      {{No photo}}
+    [% END %]
+    </div>
+
+    <div class="attendee-name">[% user_info(u) %]</div>
+  </div>
+[% END %]
+[% END %]
+
+<form method="POST" action="[% global.request.r.uri %]">
+[% IF prev %]
+  <input type="hidden" name="oprev" value="[% oprev %]" />
+  <input type="submit" name="prev"  value="&lt;&lt;" />
+[% END %]
+[% IF next %]
+[% "&nbsp;&nbsp;&nbsp;" IF oprev %]
+  <input type="hidden" name="onext" value="[% onext %]" />
+  <input type="submit" name="next"  value="&gt;&gt;" />
+[% END %]
+</form>
+
+[% END %]

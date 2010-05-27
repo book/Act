@@ -583,6 +583,9 @@ msgstr ""
 "para que pueda especificar los datos de su tarjeta de crédito.<br /><br />\n"
 "Haga clic en Enviar para simular un pago.\n"
 
+msgid "Committed attendees"
+msgstr "Participantes confirmados"
+
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Los usuarios confirmados se muestran en <b>negrita</b> (han pagado\n"

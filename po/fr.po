@@ -602,6 +602,9 @@ msgstr ""
 "numéro de carte bancaire.<br /><br />\n"
 "Cliquez sur le bouton pour simuler un paiement.\n"
 
+msgid "Committed attendees"
+msgstr "Participants confirmés"
+
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Les utilisateurs dont l'inscription est confirmée sont affichés\n"
