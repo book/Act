@@ -10,11 +10,11 @@
 /* styles for the attendees photobook */
 div.attendee-face {
     float: left;
+    max-width: 30%;
 }
 
 div.attendee-photo img { 
     border: 0px;
-    max-width:  100px;
-    max-height: 100px;
+    max-height: 200px;
 } 
 
