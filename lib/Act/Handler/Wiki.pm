@@ -139,6 +139,8 @@ sub wiki_diff
 
         $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
         $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
+        $v{content} .= "\n" if index($v{content}, "\n") == -1;
+
         $versions{$r} = \%v;
     }
 
