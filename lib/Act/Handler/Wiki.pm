@@ -142,19 +142,23 @@ sub wiki_diff
         $versions{$r} = \%v;
     }
 
+    my $diff = Text::Diff::diff(
+        \$versions{r1}{content},
+        \$versions{r2}{content},
+        {
+            FILENAME_A  => "$node v$Request{args}{r1}",
+            FILENAME_B  => "$node v$Request{args}{r2}",
+            FILENAME_PREFIX_A => "---",
+            FILENAME_PREFIX_B => "+++",
+        }
+    );
+
     $template->variables(
         node      => $node,
         r1        => $Request{args}{r1},
         r2        => $Request{args}{r2},
         versions  => \%versions,
-        diff      => Text::Diff::diff(\$versions{r1}{content}, \$versions{r2}{content},
-          {
-            FILENAME_A  => "$node v$Request{args}{r1}",
-            FILENAME_B  => "$node v$Request{args}{r2}",
-            FILENAME_PREFIX_A => "---",
-            FILENAME_PREFIX_B => "+++",
-          }
-        ),
+        diff      => $diff,
     );
 
     $template->process('wiki/diff');
