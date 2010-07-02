@@ -19,7 +19,25 @@
     <td>
         [% user_info(t.user) %]
     </td>
-    <td>[% talk_link(t) %]
+    <td>
+        [% IF global.request.user.has_registered %]
+        <form method="POST" action="[% make_uri('updatemytalks') %]" />
+        <input type="checkbox"
+               name="mt-[% t.talk_id %]"
+               value="[% t.talk_id %]"
+               [% IF global.request.user.is_my_talk(t.talk_id) %]
+                 title = "{{remove from personal schedule}}"
+                 checked = "checked"
+               [% ELSE %]
+                 title = "{{add to personal schedule}}"
+               [% END %]
+        />
+        <input type="hidden" name="talk_id" value="[% t.talk_id %]" />
+        <input type="submit" class="mytalks_submit" value="{{Submit}}" />
+        </form>
+        [% END %]
+
+        [% talk_link(t) %]
         [% talk_modify_link(t) %]
         [% IF t.url_abstract || t.url_talk %]<br />[[% END %]
         [% IF t.url_abstract %]
