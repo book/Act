@@ -1,0 +1,18 @@
+msgid ""                                                                                                                                                             
+msgstr ""                                                                                                                                                            
+"Content-Type: text/plain; charset=UTF-8\n"                                                                                                                          
+"Content-Transfer-Encoding: 8bit\n"                                                                                                                                  
+"Mime-Version: 1.0"                                                                                                                                                  
+"Last-Translator: Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 <daxim@cpan.org>\n"                                                                                                            
+"PO-Revision-Date: 2010-08-12 14:25+0200\n"                                                                                                                          
+"Project-Id-Version: \n"                                                                                                                                             
+"Language-Team: German <>\n"                                                                                                                                         
+"X-Generator: Lokalize 1.0\n"                                                                                                                                        
+"MIME-Version: 1.0\n"                                                                                                                                                
+"Plural-Forms: nplurals=2; plural=n != 1;\n"                                                                                                                         
+                                                                                                                                                                     
+msgid "Treasurer"                                                                                                                                                    
+msgstr "Kassier"                                                                                                                                                     
+                                                                                                                                                                     
+msgid "Treasurer (payment management)"                                                                                                                               
+msgstr "Kassier (Zahlungsverwaltung)"
