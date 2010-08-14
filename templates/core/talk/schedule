@@ -81,7 +81,7 @@
   </th>
   [% FOREACH r IN room.keys.sort %]
      [% IF width.$r.$d %]
-       <th colspan="[% width.$r.$d %]">[% global.config.rooms.$r %]</th>
+       <th colspan="[% width.$r.$d %]">[% r == 'sidetrack' ? loc('room_sidetrack') : global.config.rooms.$r %]</th>
      [% END %]
   [% END %]
  </tr>
