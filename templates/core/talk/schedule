@@ -52,7 +52,7 @@
      USE date;                              # default to today
      day = date.format(date.now, "%F");
      UNLESS table.$day.size;                # if not valid default to first day
-       day = table.keys.sort.0;
+       day = global.config.talks_schedule_default || table.keys.sort.0;
      END;
    END;
    IF table.keys.size > 1;
