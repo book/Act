@@ -111,8 +111,8 @@ while (my ($n, $dlist) = splice(@t, 0, 2)) {
 is (Act::Util::normalize('йéйè'), 'йeйe', charnames::viacode(ord('й')));
 
 # usort
-my @sorted = Act::Util::usort { $_ } qw(éb ec eà);
-is_deeply(\@sorted, [qw(eà éb ec)], 'usort');
+my @sorted = Act::Util::usort { $_->{foo} } ( { foo => 'éb' }, { foo => 'ec' }, { foo => 'eà' } );
+is_deeply(\@sorted, [ { foo => 'eà' }, { foo => 'éb' }, { foo => 'ec' } ], 'usort');
 
 # ua_isa_bot
 $headers{'User-Agent'} = 'Mozilla/4.76 [en] (X11; U; FreeBSD 4.4-STABLE i386)';

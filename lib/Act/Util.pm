@@ -240,7 +240,7 @@ sub usort(&@)
 
         return map  { $_->[1] }
                sort { $collator->cmp( $a->[0], $b->[0] ) }
-               map  { [ $getkey->($_->{name}), $_ ] }
+               map  { [ $getkey->($_), $_ ] }
                @_;
     };
     # fallback to normalize()
