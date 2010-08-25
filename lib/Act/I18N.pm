@@ -29,11 +29,17 @@ sub failure_handler
 {
     my ($self, $key, @params) = @_;
 
-    # look up in the default_language lexicon, then in the English lexicon,
+    # look up in the default_language lexicon,
+    # then in the superordinate (if variant, e.g; en_US => en)
+    # then in the English lexicon,
     # avoiding infinite recursion
     my $lang = $self->language_tag();
     if ($lang ne 'en') {
-        for my $fallback ($Config->general_default_language, 'en') {
+        my @fallbacks = ($Config->general_default_language, 'en');
+        if ($lang =~ /^((\w+)[-_].+)$/) {    # $1 = en_US, $2 = en
+            unshift @fallbacks, $2;
+        }
+        for my $fallback (@fallbacks) {
             if ($lang ne $fallback) {
                 return Act::I18N->get_handle($fallback)->maketext($key, @params);
             }
