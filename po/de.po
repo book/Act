@@ -3,6 +3,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 <daxim@cpan.org>\n"
+"PO-Revision-Date: 2010-08-10 15:37+0200\n"
+"Project-Id-Version: \n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Team: German <>\n"
 
 msgid "payment_means_CHQ"
 msgstr "Scheck"
@@ -14,7 +20,7 @@ msgid "payment_means_ONLINE"
 msgstr "Online"
 
 msgid "room_out"
-msgstr "Ausserhalb"
+msgstr "Außerhalb"
 
 msgid "room_venue"
 msgstr "Veranstaltungsort"
@@ -26,10 +32,10 @@ msgid "salutation_2"
 msgstr "Frau"
 
 msgid "User information"
-msgstr "Userinformationen"
+msgstr "Benutzerinformationen"
 
 msgid "Login"
-msgstr "Login-Name"
+msgstr "Benutzer-ID"
 
 msgid "Name"
 msgstr "Name"
@@ -41,7 +47,7 @@ msgid "Country"
 msgstr "Land"
 
 msgid "Perl mongers group"
-msgstr "Monger Gruppe"
+msgstr "Mongergruppe"
 
 msgid "Company"
 msgstr "Firma"
@@ -53,7 +59,7 @@ msgid "Web page"
 msgstr "Webseite"
 
 msgid "GPG key ID"
-msgstr "GPG key-ID"
+msgstr "GPG-Schlüssel-ID"
 
 msgid "No photo"
 msgstr "Kein Foto"
@@ -68,10 +74,10 @@ msgid "minutes"
 msgstr "Minuten"
 
 msgid "Lightning talk"
-msgstr "Lightning talk"
+msgstr "Lightningtalk"
 
 msgid "Other Act conferences:"
-msgstr "Andere Act Konferenzen:"
+msgstr "Andere Act-Konferenzen:"
 
 msgid "Main private page"
 msgstr "Private Seite"
@@ -104,18 +110,18 @@ msgid "You have not bought your conference ticket yet."
 msgstr "Sie haben noch nicht bezahlt."
 
 msgid "Please consider doing so using our online payment system."
-msgstr "Bitte verwenden Sie dazu unser online Zahlungssystem."
+msgstr "Bitte verwenden Sie dazu unser Onlinezahlungssystem."
 
 msgid "Please consider doing so once our online payment system is ready."
-msgstr "Bitte verwenden Sie dazu unser online Zahlungssystem, sobald es bereit steht."
+msgstr "Bitte verwenden Sie dazu unser Onlinezahlungssystem, sobald es bereit steht."
 
 msgid "You did not register for this conference"
 msgstr ""
-"Sie sind für diese Konferenz nicht angemeldet.\n"
+"Sie haben sich für diese Konferenz nicht angemeldet.\n"
 "<a href=\"%1\">Melden Sie sich an</a>, wenn Sie teilnehmen wollen.\n"
 
 msgid "You can:"
-msgstr "Sie können"
+msgstr "Sie können:"
 
 msgid "purchase your conference ticket"
 msgstr "Ihre Teilnahme bezahlen"
@@ -133,16 +139,16 @@ msgid "change your password"
 msgstr "Ihr Passwort ändern"
 
 msgid "see your talks (accepted talks are shown in bold type)"
-msgstr "Ihre Vortrage anzeigen (angenommen sind in <b>Fettdruck</b>)"
+msgstr "Ihre Vorträge anzeigen (angenommene sind <b>fettgedruckt</b>)"
 
 msgid "submit a talk"
-msgstr "Einen Vortrag einreichen"
+msgstr "Vortrag einreichen"
 
 msgid "log out"
 msgstr "ausloggen"
 
 msgid "unregister from <this conference>"
-msgstr "sich von der Konferenz %1 abmelden"
+msgstr "Teilnahme an der Konferenz %1 widerrufen"
 
 msgid "(You were there)"
 msgstr "(Sie waren dort)"
@@ -154,25 +160,25 @@ msgid "(You will be there)"
 msgstr "(Sie werden dort sein)"
 
 msgid "You must enter your email"
-msgstr "Bitte E-Mail Adresse eingeben"
+msgstr "Bitte E-Mailadresse eingeben"
 
 msgid "Your email address looks bogus."
-msgstr "Die E-Mail Adresse scheint ungütig zu sein."
+msgstr "Die E-Mailadresse scheint ungültig zu sein."
 
 msgid "Registration"
 msgstr "Anmeldung"
 
 msgid "Please create your user below."
-msgstr "Bitte füllen Sie das Formular aus, um einen User anzulegen."
+msgstr "Bitte füllen Sie das Formular aus, um einen Benutzer anzulegen."
 
 msgid "Identifier is already in use. Please choose another."
-msgstr "Login-Name %1 existiert bereits. Wählen Sie bitte einen anderen."
+msgstr "Benutzer-ID %1 existiert bereits. Wählen Sie bitte eine andere."
 
 msgid "The address is already registered."
 msgstr "Die Adresse %1 ist bereits registriert."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Der Login-Name muss mindestens 3 Zeichen enthalten und darf nur aus alphanumerischen Zeichen bestehen (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Die Benutzer-ID muss mindestens 3 Zeichen enthalten und darf nur aus alphanumerischen Zeichen bestehen (<tt>[a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Bitte Vornamen eingeben"
@@ -193,26 +199,26 @@ msgstr ""
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
 "Die gesammelten persönlichen Daten werden verwendet, um eine\n"
-"<a href=\"%1\">Liste</a> aller Teilnehmenden zu\n"
+"<a href=\"%1\">Liste</a> aller Teilnehmer zu\n"
 "erstellen. Diese kann nach der Konferenz verwendet werden, um\n"
-"Teilnehmende zu kontaktieren, oder auch vorher, um festzustellen, wer\n"
+"Teilnehmer zu kontaktieren, oder auch vorher, um festzustellen, wer\n"
 "teilnehmen wird.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
-"Sobald Sie einen Account haben, können Sie unsere sicheres\n"
-"Online-Bezahlungssystem verwenden, um den Teilnahmebeitrag zu bezahlen.\n"
-"Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,\n"
+"Sobald Sie einen Account haben, können Sie unser sicheres\n"
+"Onlinebezahlungssystem verwenden, um den Teilnahmebeitrag zu bezahlen.\n"
+"Bitte beachten Sie, dass alles, was Ihre Bankdaten/Kreditkarte betrifft,\n"
 "direkt von unserer Bank betreut wird.\n"
 
 msgid "We do not have access to your credit card information"
 msgstr ""
 "<b>Wir haben keinen Zugriff auf Ihre\n"
-"Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen\n"
+"Kreditkartennummer usw. während des Zahlungsvorgangs.</b> Wir bekommen\n"
 "lediglich das Geld...\n"
 
 msgid "Please create the user below."
-msgstr "Bitte füllen Sie das Formular aus, um einen User anzulegen."
+msgstr "Bitte füllen Sie das Formular aus, um einen Benutzer anzulegen."
 
 msgid "Register"
 msgstr "Anmelden"
@@ -222,8 +228,8 @@ msgstr "Angemeldet!"
 
 msgid "Congratulations, you are now registered"
 msgstr ""
-"Herzlich Wilkommen, <b>%1</b>, Sie sind hiermit angemeldet.\n"
-"Ihr Passwort ist: <b>%2</b> .\n"
+"Herzlich willkommen, <b>%1</b>, Sie sind hiermit angemeldet.\n"
+"Ihr Passwort lautet: <b>%2</b> .\n"
 
 msgid "First Name"
 msgstr "Vorname"
@@ -251,30 +257,30 @@ msgstr "Passwort vergessen? <a href=\"%1\">Hier</a> klicken."
 
 msgid "This site uses cookies to authenticate logged in users."
 msgstr ""
-"Diese Site verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen\n"
+"Dieses Webangebot verwendet Cookies, um Benutzer zu identifizieren. Bitte stellen\n"
 "Sie Ihren Browser so ein, dass er Cookies von der Domain <b>%1</b>\n"
 "akzeptiert.\n"
 
 msgid "Logout"
-msgstr "Logout"
+msgstr "Ausloggen"
 
 msgid "You have been logged out and the cookie deleted from your browser."
 msgstr "Sie wurden ausgeloggt. Ihr Cookie wurde gelöscht."
 
 msgid "Other conferences"
-msgstr "Andere Konferenzen"
+msgstr "andere Konferenzen"
 
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Rights management"
-msgstr "Rechtemanagement"
+msgstr "Rechteverwaltung"
 
 msgid "Events"
-msgstr "Events"
+msgstr "Ereignisse"
 
 msgid "Submit a new event"
-msgstr "Event anmelden"
+msgstr "Ereignis anmelden"
 
 msgid "Schedule"
 msgstr "Programm"
@@ -292,7 +298,7 @@ msgid "Presentations"
 msgstr "Vorträge"
 
 msgid "Treasurer"
-msgstr "Kassier"
+msgstr "Kassierer"
 
 msgid "Payments"
 msgstr "Zahlungen"
@@ -301,10 +307,10 @@ msgid "Edit profile"
 msgstr "Profil bearbeiten"
 
 msgid "New user"
-msgstr "Neue/r User/in"
+msgstr "Neuer Benutzer"
 
 msgid "Users"
-msgstr "UserInnen"
+msgstr "Benutzer"
 
 msgid "Search"
 msgstr "Suchen"
@@ -328,10 +334,10 @@ msgid "Duration"
 msgstr "Dauer"
 
 msgid "abstract (link)"
-msgstr "Weitere Infos"
+msgstr "Kurzfassung"
 
 msgid "talk (link)"
-msgstr "Vortrag (Slides etc)"
+msgstr "Vortrag (Slides, etc.)"
 
 msgid "Talks in bold type have been confirmed by their respective speakers."
 msgstr "Vorträge in <b>fett</b> wurden von den Vortragenden bestätigt."
@@ -347,13 +353,13 @@ msgstr "Jetzt bezahlen"
 
 msgid "Please note that everything regarding your bank account and credit card number"
 msgstr ""
-"Bitte beachten Sie, dass alles, was Ihre Bankdaten / Kreditkarte betrifft,\n"
+"Bitte beachten Sie, dass alles, was Ihre Bankdaten/Kreditkarte betrifft,\n"
 "direkt von unserer Bank betreut wird. <b>Wir haben keinen Zugriff auf Ihre\n"
-"Kreditkartennummer etc während des Zahlungsvorgangs.</b> Wir bekommen\n"
+"Kreditkartennummer usw. während des Zahlungsvorgangs.</b> Wir bekommen\n"
 "lediglich das Geld...\n"
 
 msgid "Online payment"
-msgstr "Online bezahlen"
+msgstr "Onlinezahlung"
 
 msgid "Join"
 msgstr "Anmelden"
@@ -370,49 +376,49 @@ msgid "Organizer"
 msgstr "Organisator"
 
 msgid "Organizer (talks management)"
-msgstr "Organisator (Vorträge verwalten)"
+msgstr "Organisator (Vortragsverwaltung)"
 
 msgid "Treasurer (payment management)"
-msgstr "Kassier (Zahlungsmanagement)"
+msgstr "Kassierer (Zahlungsverwaltung)"
 
 msgid "Administrator (rights management)"
-msgstr "Administrator (Rechtemanagement)"
+msgstr "Administrator (Rechteverwaltung)"
 
 msgid "User rights"
-msgstr "Userrechte"
+msgstr "Benutzerrechte"
 
 msgid "Amount"
 msgstr "Betrag"
 
 msgid "You cannot be pseudonymous with a blank nickname"
-msgstr "Bitte einen Nickname eingeben"
+msgstr "Bitte einen Spitznamen eingeben"
 
 msgid "The Perl monger group must end with <tt>.pm</tt>"
-msgstr "Die Perl Monger Gruppe muss mit <tt>.pm</tt> enden"
+msgstr "Die Perlmongergruppe muss mit <tt>.pm</tt> enden"
 
 msgid "The Perl monger group URL must start with http://"
-msgstr "Die URL der Perl Monger Gruppe muss mit <tt>http://</tt> beginnen"
+msgstr "Die URL der Perlmongergruppe muss mit <tt>http://</tt> beginnen"
 
 msgid "The company URL must start with http://"
-msgstr "Die URL der Frima muss mit <tt>http://</tt> beginnen"
+msgstr "Die URL der Firma muss mit <tt>http://</tt> beginnen"
 
 msgid "Your web site URL must start with http://"
 msgstr "Die URL Ihrer Website muss mit <tt>http://</tt> beginnen"
 
 msgid "Your perlmonks id must be a number"
-msgstr "Die Perlmonks ID muss eine Nummer sei"
+msgstr "Die Perlmonks-ID muss eine Zahl sein"
 
 msgid "Number of family members attending must be a number"
-msgstr "Nummer der Familienmitglieder muss eine Nummer sei"
+msgstr "Anzahl der Familienmitglieder muss eine Zahl sei"
 
 msgid "Salutation"
 msgstr "Anrede"
 
 msgid "Nickname"
-msgstr "Nickname"
+msgstr "Spitzname"
 
 msgid "Stay pseudonymous"
-msgstr "Echten Namen verstecken"
+msgstr "echten Namen verbergen"
 
 msgid "Yes"
 msgstr "Ja"
@@ -421,7 +427,7 @@ msgid "No"
 msgstr "Nein"
 
 msgid "Hide email"
-msgstr "Email verstecken"
+msgstr "Email verbergen"
 
 msgid "Coming with"
 msgstr "Ich komme mit"
@@ -430,40 +436,40 @@ msgid "6 or more"
 msgstr "6 oder mehr"
 
 msgid "people (who will not attend the conference)"
-msgstr "Personen, die die Konfernz nicht besuchen werden"
+msgstr "Personen, die an der Konferenz nicht teilnehmen werden"
 
 msgid "T-shirt size"
-msgstr "T-Shirt Grösse"
+msgstr "T-Shirtgröße"
 
 msgid "Full address"
-msgstr "Komplette Adresse"
+msgstr "komplette Adresse"
 
 msgid "Timezone"
 msgstr "Zeitzone"
 
 msgid "Monger group"
-msgstr "Perl Monger Gruppe"
+msgstr "Perlmongergruppe"
 
 msgid "(<em>City.pm</em>, city name in English, please)"
-msgstr "(<em>Stadt.pm</em>, Stadtname in Englisch, bittedanke!)"
+msgstr "(<em>Stadt.pm</em>, Stadtname bitte auf englisch)"
 
 msgid "Monger group URL"
-msgstr "URL der Monger Gruppe"
+msgstr "URL der Mongergruppe"
 
 msgid "VAT Number"
-msgstr "MwSt-Nummer"
+msgstr "Steuernummer"
 
 msgid "Company URL"
 msgstr "URL der Firma"
 
 msgid "GPG public key ID"
-msgstr "PGP public key"
+msgstr "GPG-Schlüssel-ID"
 
 msgid "(please fill at least this one)"
 msgstr "(bitte zumindest dieses Feld ausfüllen)"
 
 msgid "Update info"
-msgstr "Speichern"
+msgstr "Aktualisieren"
 
 msgid "Your information"
 msgstr "Ihre Informationen"
@@ -477,11 +483,11 @@ msgstr ""
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
-"Besucher, die sicher kommen werden (weil sie bereits bezahlt haben oder\n"
+"Bestätigte Teilnehmer (weil sie bereits bezahlt haben oder\n"
 "einen Vortrag halten werden), sind in <b>fett</b> aufgelistet.\n"
 
 msgid "Search for users"
-msgstr "User suchen"
+msgstr "Teilnehmer suchen"
 
 msgid "Search form"
 msgstr "Suchformular"
@@ -491,9 +497,9 @@ msgstr "Ihr Foto"
 
 msgid "This photo will probably end up on the conference who's who,"
 msgstr ""
-"Diese Foto wird in der Liste der KonferenzteilnehmerInnen angezeigt.\n"
-"Andere Teilnehmende können so nach der Konfernent rausfinden, mit wem\n"
-"sie so nett geplaudert etc haben...\n"
+"Dieses Foto wird in der Liste der Konferenzteilnehmer angezeigt.\n"
+"Andere Teilnehmer können so nach der Konferenz herausfinden, mit wem\n"
+"sie so nett geplaudert haben.\n"
 
 msgid "Delete Photo"
 msgstr "Foto löschen"
@@ -503,8 +509,8 @@ msgstr "Foto ändern"
 
 msgid "Someone, possibly you, has requested that your password be reset."
 msgstr ""
-"Jemand, wahrscheinlich Sie, haben verlangt, dass Ihr Passwort\n"
-"zurueckgesetzt wird. Das neue Passwort ist: %1\n"
+"Jemand, wahrscheinlich Sie, hat die Zurücksetzung Ihres Passworts\n"
+"angefordert. Das neue Passwort lautet: %1\n"
 
 msgid "Current password"
 msgstr "Passwort"
@@ -513,24 +519,24 @@ msgid "New password"
 msgstr "Neues Passwort"
 
 msgid "Reset Password"
-msgstr "Passwort zurücksetzten"
+msgstr "Passwort zurücksetzen"
 
 msgid "Your password has been reset and emailed to you."
 msgstr "Das neue Passwort wird per E-Mail an Sie geschickt."
 
 msgid "Specify either your login, or your email address."
 msgstr ""
-"Geben Sie bitte entweder Ihren <b>Login-Name</b> oder Ihre <b>E-Mail Adresse</b> an.\n"
+"Geben Sie bitte entweder Ihre <b>Benutzer-ID</b> oder Ihre <b>E-Mailadresse</b> an.\n"
 "Ein neues Passwort wird dann an Sie geschickt.\n"
 
 msgid "No user was found with this login or email address"
-msgstr "Kein User mit diesem Login-Name oder E-Mail Adresse"
+msgstr "Kein User mit dieser Benutzer-ID oder E-Mailadresse"
 
 msgid "Specify your login or email address"
-msgstr "Bitte entweder Login-Name oder E-Mail Adresse angeben"
+msgstr "Bitte entweder Benutzer-ID oder E-Mailadresse angeben"
 
 msgid "Generate password"
-msgstr "Passwort zurücksetzten"
+msgstr "Passwort erzeugen"
 
 msgid "<conf name> Statistics"
 msgstr "Statistiken für %1"
@@ -539,19 +545,19 @@ msgid "There are n registered people"
 msgstr ""
 "Es gibt %1 Anmeldungen aus %quant(%2,Land,Ländern) und\n"
 "%quant(%3,Monger Gruppe,Monger Gruppen). Es gibt\n"
-"%4 fixe Anmeldungen, also Leute, die entweder vortragen\n"
+"%4 bestätigte Anmeldungen, also Leute, die entweder vortragen\n"
 "oder ihren Beitrag bezahlt haben.\n"
 
 msgid "You can have a look at country / mongers or cities statistics."
 msgstr ""
-"Hier gibt es <a href=\"%1\">Land / Monger-</a> und\n"
+"Hier gibt es <a href=\"%1\">Land/Monger-</a> und\n"
 "<a href=\"%2\">Stadt-Statistiken</a>.\n"
 
 msgid "The number of committed users is listed between parentheses"
-msgstr "Die Nummer der fix angemeldeten TeilnehmerInnen steht in Klammern."
+msgstr "Die Anzahl der bestätigten Teilnehmer steht in Klammern."
 
 msgid "Click on the various links to find the corresponding users!"
-msgstr "Klicken Sie auf die jeweiligen Links, um die entsprechenden UserInnen zu finden!"
+msgstr "Klicken Sie auf die jeweiligen Links, um die entsprechenden Benutzer zu finden!"
 
 msgid "Cities"
 msgstr "Stadt"
@@ -563,19 +569,19 @@ msgid "Countries"
 msgstr "Länder"
 
 msgid "Monger groups"
-msgstr "Monger Gruppe"
+msgstr "Mongergruppe"
 
 msgid "Un-Registration"
-msgstr "Abmelden"
+msgstr "Teilnahme widerrufen"
 
 msgid "To unregister from <conference>,"
-msgstr "Um sich von der Konferenz %1 abzumelden, bitte unten klicken."
+msgstr "Um die Teilnahme an der Konferenz %1 zu widerrufen, bitte unten klicken."
 
 msgid "Unregister from <conference>"
-msgstr "Abmelden von %1"
+msgstr "Teilnahme an %1 widerrufen"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Eingeben/Bearbeiten eines Events (kein Vortrag)"
+msgstr "Ereignis einreichen/bearbeiten (kein Vortrag)"
 
 msgid "You must enter a title for the event"
 msgstr "Sie müssen einen Titel eingeben"
@@ -593,10 +599,10 @@ msgid "The supplied time is invalid"
 msgstr "Die angegebene Zeit ist ungültig"
 
 msgid "The date/time is out of range"
-msgstr "Das Datum bzw die Uhrzeit is ausserhalb des gültigen Zeitraums"
+msgstr "Das Datum bzw. die Uhrzeit ist außerhalb des gültigen Zeitraums"
 
 msgid "Event URL is not a valid URL"
-msgstr "Die URL ist nicht gültig"
+msgstr "Die URL für das Ereignis ist nicht gültig"
 
 msgid "Incorrect room submitted"
 msgstr "Falscher Veranstaltungsraum"
@@ -620,21 +626,21 @@ msgid "External URL"
 msgstr "Externe URL"
 
 msgid "Submit this event"
-msgstr "Event anmelden"
+msgstr "Ereignis einreichen"
 
 msgid "Event submitted"
-msgstr "Event angemeldet"
+msgstr "Ereignis eingereicht"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Danke, der Event wurde gespeichert als\n"
-"<b><a href=\"%1\">%2</a></b>.\n"
+"Danke, das Ereignis wurde als\n"
+"<b><a href=\"%1\">%2</a></b> gespeichert.\n"
 
 msgid "List of events"
-msgstr "Events"
+msgstr "Ereignisse"
 
 msgid "No event was submitted yet."
-msgstr "Es wurde noch kein Event eingereicht."
+msgstr "Es wurde noch kein Ereignis eingereicht."
 
 msgid "Event title"
 msgstr "Titel"
@@ -643,7 +649,7 @@ msgid "Date:"
 msgstr "Datum:"
 
 msgid "Not scheduled yet."
-msgstr "Noch nicht festgelegt."
+msgstr "Noch nicht im Programm aufgenommen."
 
 msgid "Duration:"
 msgstr "Dauer:"
@@ -658,7 +664,7 @@ msgid "Payment"
 msgstr "Bezahlung"
 
 msgid "User"
-msgstr "UserIn"
+msgstr "Benutzer-ID"
 
 msgid "Payment means"
 msgstr "Zahlungsart"
@@ -685,7 +691,7 @@ msgstr ""
 "Betrag: %4 %5\n"
 
 msgid "Invoice #"
-msgstr "Rechnung Nr."
+msgstr "Rechnungsnr."
 
 msgid "Dated"
 msgstr "Datum"
@@ -703,7 +709,7 @@ msgid "Unit Price"
 msgstr "Stückpreis"
 
 msgid "<conf> registration"
-msgstr "%1 Anmelden"
+msgstr "%1 anmelden"
 
 msgid "Your order number:"
 msgstr "Ihre Bestellnummer:"
@@ -718,10 +724,10 @@ msgid "You can print this page: only the invoice below will be printed."
 msgstr "Wenn diese Seite ausgedruckt wird, wird die Rechnung unten gedruckt."
 
 msgid "Printer friendly version"
-msgstr "Drucker-freundliche Version"
+msgstr "druckerfreundliche Version"
 
 msgid "Establishing your invoice requires your address."
-msgstr "Um die Rechnung anzulegen müssen Sie Ihre Adresse angeben."
+msgstr "Um die Rechnung anzulegen, müssen Sie Ihre Adresse angeben."
 
 msgid "Please make sure the billing information is correct."
 msgstr "Bitte überprüfen Sie, on die Rechnungsdaten stimmen."
@@ -733,10 +739,10 @@ msgid "I confirm"
 msgstr "Bestätigen"
 
 msgid "Submit/Edit a talk"
-msgstr "Vortrag eingeben/bearbeiten"
+msgstr "Vortrag einreichen/bearbeiten"
 
 msgid "You must specify a user"
-msgstr "Es muss eine UserIn angegeben werden"
+msgstr "Es muss eine Benutzer-ID angegeben werden"
 
 msgid "You must enter a title for the talk"
 msgstr "Titel des Vortrages fehlt"
@@ -745,16 +751,16 @@ msgid "You must provide an abstract"
 msgstr "Kurzbeschreibung fehlt"
 
 msgid "Abstract URL is not a valid URL"
-msgstr "Die URL weiter Infos ist nicht gültig"
+msgstr "Die URL für weitere Infos ist nicht gültig"
 
 msgid "Talk URL is not a valid URL"
-msgstr "Die URL Slides ist nicht gültig"
+msgstr "Die URL für Slides ist nicht gültig"
 
 msgid "Abstract URL"
-msgstr "URL weitere Infos"
+msgstr "URL für weitere Infos"
 
 msgid "Talk URL"
-msgstr "URL Slides etc"
+msgstr "URL für Slides usw."
 
 msgid "Standard durations for <confname> are:"
 msgstr "Standardlängen sind:"
@@ -794,13 +800,13 @@ msgid "Talk submitted"
 msgstr "Vortrag eingereicht"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Danke, Ihr Vortrag wurde gespeichert als <b><a href=\"%1\">%2</a></b>."
+msgstr "Danke, Ihr Vortrag wurde als <b><a href=\"%1\">%2</a></b> gespeichert."
 
 msgid "iCal Import"
 msgstr "Aus iCal importieren"
 
 msgid "The following talks have been updated:"
-msgstr "Die folgenden Vorträge wurden upgedated:"
+msgstr "Die folgenden Vorträge wurden aktualisiert:"
 
 msgid "Old time"
 msgstr "Alter Termin"
@@ -812,7 +818,7 @@ msgid "title"
 msgstr "Titel"
 
 msgid "Upload an iCal file"
-msgstr "iCal file raufladen"
+msgstr "iCal-Datei hochladen"
 
 msgid "Import"
 msgstr "Importieren"
@@ -839,10 +845,10 @@ msgid "hours"
 msgstr "Stunden"
 
 msgid "Accepted lightning talks:"
-msgstr "Angenommene Lightning Talks:"
+msgstr "Angenommene Lightningtalks:"
 
 msgid "lightning"
-msgstr "lightning talk"
+msgstr "Lightningtalk"
 
 msgid "from"
 msgstr "aus"
@@ -851,16 +857,16 @@ msgid "Comment:"
 msgstr "Kommentar:"
 
 msgid "You can find more information on the speaker's site:"
-msgstr "Mehr Informationen gibts auf der Seite des/der Vortragenden:"
+msgstr "Mehr Informationen gibt es auf der Seite des/der Vortragenden:"
 
 msgid "Abstract:"
 msgstr "Weitere Infos:"
 
 msgid "Talk:"
-msgstr "Vortrag (Slides etc):"
+msgstr "Vortrag (Slides usw.):"
 
 msgid "The Talk <title> has been removed."
-msgstr "Danke, der Vortrag <b>%1</b> wurde TRANSLATEME."
+msgstr "Danke, der Vortrag <b>%1</b> wurde entfernt."
 
 msgid "Talk inserted"
 msgstr "Vortrag eingegeben"
@@ -869,16 +875,16 @@ msgid "Talk updated"
 msgstr "Vortrag geändert"
 
 msgid "Submitted by:"
-msgstr "Eingegeben von:"
+msgstr "Eingereicht durch:"
 
 msgid "The following fields have been updated:"
 msgstr "Folgende Felder wurden geändert:"
 
 msgid "By:"
-msgstr "Vortragende:"
+msgstr "Vortrag durch:"
 
 msgid "Billing"
 msgstr "Abrechnung"
 
 msgid "Delayed payment"
-msgstr "Verbindlich Anmelden"
+msgstr "verbindlich anmelden"
