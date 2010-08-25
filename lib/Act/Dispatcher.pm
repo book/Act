@@ -207,6 +207,9 @@ sub _set_language
     # last resort, use our default language
     $language ||= $Config->general_default_language;
 
+    # use optional variant
+    $language = $Config->language_variants->{$language} || $language;
+
     # remember it for this request
     $Request{language} = $language;
 

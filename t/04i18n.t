@@ -25,9 +25,14 @@ our %Lexicon = ( 'jour' => '[quant,_1,jour]',
                  'flux' => '[quant,_1,flux,flux]',
                );
 
+package Act::I18N::xx_xx;
+use base 'Act::I18N';
+our %Lexicon = ( 'bar' => 'xxbar' );
+
 package main;
 my @tests = (
  #  request  default  id     expected
+ [ 'xx_XX',  'en',    'baz', 'xxfoo' ], # fallback to xx
  [ 'yy',     'xx',    'bar', 'yyfoo' ],
  [ 'yy',     'xx',    'baz', 'xxfoo' ],
  [ 'yy',     'xx',    'foo', 'enfoo' ],
@@ -38,6 +43,7 @@ my @tests = (
  [ 'xx',     'en',    'qux', 'TRANSLATEME' ],
  [ 'en',     'en',    'foo', 'enfoo' ],
  [ 'en',     'en',    'qux', 'TRANSLATEME' ],
+ [ 'xx_XX',  'en',    'bar', 'xxbar' ],
 );
 my @tests_fr = (
  [ 'jour', 0, '0 jour',  'fr - 0 is singular' ],
