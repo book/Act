@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 78 + 5 * NBPASS;
+use Test::More tests => 79 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -86,6 +86,9 @@ $variants{en} = 'en_GB';
 is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:00', 'date_format en_GB');
 $variants{en} = 'en_US';
 is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, February 15, 2007 01:00 PM', 'date_format en_US');
+
+$variants{en} = 'en_NZ';   # not in %Languages, fallback to 'en'
+is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:00', 'date_format en_NZ (aka en aka en_GB)');
 
 # normalize
 use charnames ();

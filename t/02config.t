@@ -73,7 +73,18 @@ for my $conf (sort keys %{$Config->conferences}) {
         ok($Languages{$lang}, "$conf $lang is in %Languages");
     }
     for my $lang (sort values %{$cfg->language_variants}) {
-        ok($Languages{$lang}, "$conf $lang is in %Languages");
+        if ($lang =~ /^((\w+)_.*)$/) {    # $1 = en_US, $2 = en
+            my ($variant, $lang) = ($1, $2);
+            if (exists $Languages{$variant}) {
+                ok($Languages{$variant}, "$conf $variant is in %Languages");
+            }
+            else {
+                ok($Languages{$lang}, "$conf $variant => $lang is in %Languages");
+            }
+        }
+        else {
+            ok($Languages{$lang}, "$conf $lang is in %Languages");
+        }
     }
     # names
     isa_ok($cfg->name, 'HASH', "$conf name");
