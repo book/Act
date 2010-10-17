@@ -23,6 +23,9 @@ msgstr "Gratis"
 msgid "room_out"
 msgstr "Utendørs"
 
+msgid "room_sidetrack"
+msgstr "Samtidig et annet sted"
+
 msgid "room_venue"
 msgstr "Lokale"
 
@@ -593,6 +596,9 @@ msgstr ""
 "av dette skjemaet sende deg videre til bankens webside hvor du\n"
 "ville lagt inn opplysninger om ditt kredittkort.<br /><br />\n"
 "Trykk på send for å simulere betaling.\n"
+
+msgid "Committed attendees"
+msgstr "Bekreftede deltagere"
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
