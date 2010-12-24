@@ -21,9 +21,9 @@ my @users = grep { $_->monk_id } @{ Act::User->get_items() };
 
 print "Updating monk ids...\n" if @users && $opts{v};
 for my $u (@users) {
-    my ($name) =
-      get("http://perlmonks.org/index.pl?node_id=$u->{monk_id}") =~
-      m!<title>([^<]*)</title>!;
+    my $page = get("http://perlmonks.org/index.pl?node_id=$u->{monk_id}") || "";
+    my ($name) = $page =~ m!<title>([^<]*)</title>!;
+
     if ($name && (!$u->monk_name || $u->monk_name ne $name)) {
         if ($opts{v}) {
             print $u->monk_id, "\t";
