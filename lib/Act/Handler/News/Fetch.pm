@@ -28,7 +28,9 @@ sub fetch
         next if $n->datetime > $now;
 
         # fetch title and text, if available in this language
-        my $item = $n->items->{$Request{language}};
+        my $lang = $Request{language};
+        $lang =~ s/_.*//;
+        my $item = $n->items->{$lang};
         next unless $item;
         @$n{keys %$item} = values %$item;
 
