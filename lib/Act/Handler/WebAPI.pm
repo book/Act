@@ -137,8 +137,52 @@ __END__
 
 Act::Handler::WebAPI
 
+
 =head1 DESCRIPTION
 
 See F<DEVDOC> for a complete discussion on handlers.
+
+
+=head1 REQUESTS
+
+=head2 Common arguments
+
+=over
+
+=item *
+
+C<api_key> (mandatory) - This argument must be passed with the API key given by the Act
+administrator.
+
+=item *
+
+C<fields> - Select which fields are to be returned by he handler.
+
+=back
+
+=head2 Handlers
+
+=over
+
+=item *
+
+C<get_attendees> - Returns the list of attendees for this conference.
+
+Valid fields: address, company, country, email, email, first_name, full_name, full_name,
+im, language, last_name, login, monk_id, monk_name, pause_id, pm_group, pseudonymous,
+salutation, timezone, town, user_id, vat, web_page
+
+Default fields: full_name, email
+
+=item *
+
+C<get_talks> - Returns the list of talks for this conference.
+
+Valid fields: abstract, accepted, confirmed, datetime, duration, lang, level, lightning,
+room, speaker, talk_id, title, track, track_id, url_abstract, url_talk, user_id
+
+Default fields: title speaker room datetime
+
+=back
 
 =cut
