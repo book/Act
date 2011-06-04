@@ -82,7 +82,13 @@ for my $right (@Rights) {
 sub full_name {
     ( $_[0]->first_name || '' ) . ' ' . ( $_[0]->last_name || '' );
 }
+
 sub country_name { Act::Country::CountryName( $_[0]->country ) }
+
+sub public_name {
+    return $_[0]->pseudonymous ? $_[0]->nick_name
+         : $_[0]->first_name." ".$_[0]->last_name;
+}
 
 
 sub bio {
