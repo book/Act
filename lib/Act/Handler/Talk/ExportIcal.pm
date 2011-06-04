@@ -75,6 +75,14 @@ sub _get_timeslots {
         map {
             $_->{type} = ref;
             $_->{id} = $_->{talk_id} || $_->{event_id};
+
+            if (ref $thing eq "Act::Talk") {
+                $_->{user}  = Act::User->new( user_id => $_->user_id );
+                $_->{track} = Act::Track->new( track_id => $_->track_id )
+                    if $_->{track_id};
+                $_->{stars} = $_->stars;
+            }
+
             bless $_, 'Act::TimeSlot';
         } @events, @talks
     ];
