@@ -168,6 +168,16 @@ sub _build_event {
     $event->add_properties( location => $Config->rooms->{ $ts->room } )
         if $ts->room;
 
+    # add the list of known attendees
+    my @attendees = Act::User->attendees($ts->talk_id);
+    $event->add_properties(comment => @attendees." attendees");
+
+    for my $user (@attendees) {
+        my $name = $user->pseudonymous ? $user->nick_name
+                 : join " ", $user->first_name, $user->last_name;
+        $event->add_properties(attendee => $name);
+    }
+
     return $event;
 }
 
