@@ -13,13 +13,13 @@ my %Methods = (
                          fields  => {
                             map( { $_ =>  0 }
                                 qw(user_id login
-                                   salutation first_name last_name full_name pseudonymous
+                                   salutation first_name last_name full_name public_name pseudonymous
                                    country town web_page pm_group pause_id monk_id monk_name im email
                                    language timezone
                                    company address vat
                                 )),
                          },
-                         default => [ qw(full_name email) ],
+                         default => [ qw(public_name email) ],
                      },
     get_talks       => { run => \&_get_talks,
                          fields  => {
@@ -118,7 +118,7 @@ sub _talk_speaker
 {
     my $talk = shift;
     my $user = Act::User->new(user_id => $talk->user_id);
-    return $user->full_name;
+    return $user->public_name;
 }
 sub _talk_track
 {
@@ -168,11 +168,11 @@ C<fields> - Select which fields are to be returned by he handler.
 
 C<get_attendees> - Returns the list of attendees for this conference.
 
-Valid fields: address, company, country, email, email, first_name, full_name, full_name,
-im, language, last_name, login, monk_id, monk_name, pause_id, pm_group, pseudonymous,
-salutation, timezone, town, user_id, vat, web_page
+Valid fields: address, company, country, email, email, first_name, full_name,
+im, language, last_name, login, monk_id, monk_name, pause_id, pm_group,
+public_name, pseudonymous, salutation, timezone, town, user_id, vat, web_page
 
-Default fields: full_name, email
+Default fields: public_name, email
 
 =item *
 
