@@ -184,7 +184,7 @@ sub _build_event {
         $event->add_properties(organizer => $ts->{user}->public_name);
 
         # add the list of known attendees
-        my @attendees = Act::User->attendees($ts->{id});
+        my @attendees = @{ Act::User->attendees($ts->{id}) };
         $event->add_properties(comment => @attendees." attendees");
 
         for my $user (@attendees) {
