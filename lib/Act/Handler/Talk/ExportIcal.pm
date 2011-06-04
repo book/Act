@@ -66,6 +66,9 @@ sub _output {
 # _get_timeslots()
 # --------------
 sub _get_timeslots {
+    my @events = @{ Act::Event->get_events( conf_id => $Request{conference} ) };
+    my @talks  = grep !$_->{lightning},
+        @{ Act::Talk->get_talks( conf_id => $Request{conference} ) };
 
     # get all talks/events
     my $timeslots = [
@@ -73,9 +76,7 @@ sub _get_timeslots {
             $_->{type} = ref;
             $_->{id} = $_->{talk_id} || $_->{event_id};
             bless $_, 'Act::TimeSlot';
-            } @{ Act::Event->get_events( conf_id => $Request{conference} ) },
-        grep !$_->{lightning},
-        @{ Act::Talk->get_talks( conf_id => $Request{conference} ) }
+        } @events, @talks
     ];
 
     return $timeslots;
