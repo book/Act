@@ -169,8 +169,7 @@ sub _build_event {
             map {
                   $_->{text} ? $_->{text}
                 : $_->{talk} ? $_->{talk}->title
-                : $_->{user} ? $_->{user}->pseudonymous && $_->{user}->nick_name
-                || join( ' ', $_->{user}->first_name, $_->{user}->last_name )
+                : $_->{user} ? $_->{user}->public_name
                 : undef
             } @{ Act::Abstract::chunked( $ts->abstract ) }
     );
