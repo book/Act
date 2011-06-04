@@ -144,6 +144,11 @@ sub _build_event {
     my $dtend   = $dtstart->clone;
     $dtend->add( minutes => $ts->duration );
 
+    # fetch the speaker's name
+    my $speaker = Act::User->new(user_id => $ts->user_id);
+    my $speaker_name = $speaker->pseudonymous ? $speaker->nick_name
+                     : join " ", $speaker->first_name, $speaker->last_name;
+
     # uid is used to identify this event
     # (see Act::Handler::Talk::Import)
     ( my $type = $ts->type ) =~ s/^Act:://;
@@ -151,6 +156,7 @@ sub _build_event {
     my $event = Data::ICal::Entry::Event->new();
     $event->start($dtstart);
     $event->end($dtend);
+
     $event->add_properties(
         summary     => $ts->title,
         uid         => $url,
