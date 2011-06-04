@@ -144,11 +144,6 @@ sub _build_event {
     my $dtend   = $dtstart->clone;
     $dtend->add( minutes => $ts->duration );
 
-    # fetch the speaker's name
-    my $speaker = Act::User->new(user_id => $ts->user_id);
-    my $speaker_name = $speaker->pseudonymous ? $speaker->nick_name
-                     : join " ", $speaker->first_name, $speaker->last_name;
-
     # uid is used to identify this event
     # (see Act::Handler::Talk::Import)
     ( my $type = $ts->type ) =~ s/^Act:://;
@@ -174,14 +169,23 @@ sub _build_event {
     $event->add_properties( location => $Config->rooms->{ $ts->room } )
         if $ts->room;
 
-    # add the list of known attendees
-    my @attendees = Act::User->attendees($ts->talk_id);
-    $event->add_properties(comment => @attendees." attendees");
+    # for a talk, add a few more properties
+    if ($ts->{type} eq "Act::Talk") {
+        # add the speaker's name
+        my $speaker = $ts->{user};
+        my $speaker_name = $speaker->pseudonymous ? $speaker->nick_name
+                         : join " ", $speaker->first_name, $speaker->last_name;
+        $event->add_properties(organizer => $speaker_name);
 
-    for my $user (@attendees) {
-        my $name = $user->pseudonymous ? $user->nick_name
-                 : join " ", $user->first_name, $user->last_name;
-        $event->add_properties(attendee => $name);
+        # add the list of known attendees
+        my @attendees = Act::User->attendees($ts->{id});
+        $event->add_properties(comment => @attendees." attendees");
+
+        for my $user (@attendees) {
+            my $name = $user->pseudonymous ? $user->nick_name
+                     : join " ", $user->first_name, $user->last_name;
+            $event->add_properties(attendee => $name);
+        }
     }
 
     return $event;
