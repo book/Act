@@ -14,8 +14,11 @@ use Act::Talk;
 use Act::TimeSlot;
 use Act::Util;
 
-sub handler {
 
+#
+# handler()
+# -------
+sub handler {
     # access control
     unless ( $Request{user} && $Request{user}->is_talks_admin
         || $Config->talks_show_schedule )
@@ -23,31 +26,45 @@ sub handler {
         $Request{status} = FORBIDDEN;
         return;
     }
+
     my $timeslots = _get_timeslots();
     export($timeslots);
 }
 
+
+#
+# export()
+# ------
 sub export {
     my $timeslots = shift;
 
     # generate iCal events
     my $entry_defaults = _get_cal_entry_defaults();
-
     my $cal = _setup_calendar_obj();
+
     for my $ts (@$timeslots) {
         next unless _viewable($ts);
         my $event = _build_event( $ts => $entry_defaults );
         $cal->add_entry($event);
     }
+
     _output($cal);
 }
 
+
+#
+# _output()
+# -------
 sub _output {
     my $cal = shift;
     $Request{r}->send_http_header('text/calendar; charset=UTF-8');
     $Request{r}->print( $cal->as_string() );
 }
 
+
+#
+# _get_timeslots()
+# --------------
 sub _get_timeslots {
 
     # get all talks/events
@@ -64,6 +81,10 @@ sub _get_timeslots {
     return $timeslots;
 }
 
+
+#
+# _get_cal_entry_defaults()
+# -----------------------
 sub _get_cal_entry_defaults {
     my %defaults = (
         datetime =>
@@ -71,12 +92,17 @@ sub _get_cal_entry_defaults {
         duration =>
             ( sort { $a <=> $b } keys %{ $Config->talks_durations } )[0],
     );
+
     return \%defaults;
 }
 
-sub _setup_calendar_obj {
 
+#
+# _setup_calendar_obj()
+# -------------------
+sub _setup_calendar_obj {
     my $cal = Data::ICal->new();
+
     $cal->add_properties(
         calscale       => 'GREGORIAN',
         'X-WR-CALNAME' => $Config->name->{ $Request{language} },
@@ -85,18 +111,27 @@ sub _setup_calendar_obj {
     return $cal;
 }
 
+
+#
+# _viewable()
+# ---------
 sub _viewable {
     my $ts = shift;
+
     return 0
         unless ( $Request{user} && $Request{user}->is_talks_admin )
         || ( ( $ts->type ne 'Act::Talk' || $ts->{accepted} )
         && $ts->datetime
         && $ts->duration
         && $ts->room );
-    return 1;
 
+    return 1;
 }
 
+
+#
+# _build_event()
+# ------------
 sub _build_event {
     my $ts             = shift;
     my $entry_defaults = shift;
@@ -121,7 +156,7 @@ sub _build_event {
         uid         => $url,
         url         => $url,
         description => join '',
-        map {
+            map {
                   $_->{text} ? $_->{text}
                 : $_->{talk} ? $_->{talk}->title
                 : $_->{user} ? $_->{user}->pseudonymous && $_->{user}->nick_name
@@ -129,10 +164,13 @@ sub _build_event {
                 : undef
             } @{ Act::Abstract::chunked( $ts->abstract ) }
     );
-    $event->add_properties( location => $Config->rooms->{ $ts->room }, )
+
+    $event->add_properties( location => $Config->rooms->{ $ts->room } )
         if $ts->room;
+
     return $event;
 }
+
 
 1;
 __END__
