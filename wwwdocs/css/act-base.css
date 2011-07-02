@@ -1,0 +1,21 @@
+/* 
+ * Act's base CSS
+ */
+
+/* generic styles */
+.boxed {
+    border: solid 1px #000000;
+}
+
+/* styles for the attendees photobook */
+div.attendee-face {
+    float: left;
+    margin: 0.5em;
+    max-width: 30%;
+}
+
+div.attendee-photo img { 
+    border: 0px;
+    max-height: 200px;
+} 
+

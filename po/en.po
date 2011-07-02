@@ -595,6 +595,9 @@ msgstr ""
 "would enter you credit card information.<br /><br />\n"
 "Click submit to simulate payment.\n"
 
+msgid "Committed attendees"
+msgstr "Committed attendees"
+
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
 "Committed users are listed in <b>bold</b> font (they have\n"
