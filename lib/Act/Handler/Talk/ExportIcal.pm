@@ -113,8 +113,10 @@ sub _setup_calendar_obj {
     my $cal = Data::ICal->new();
 
     $cal->add_properties(
-        calscale       => 'GREGORIAN',
-        'X-WR-CALNAME' => $Config->name->{ $Request{language} },
+        prodid         => "-//Act//Data::ICal $Data::ICal::VERSION//EN",
+        calscale       => "GREGORIAN",
+        "X-WR-CALNAME" => $Config->name->{ $Request{language} },
+        "X-WR-TIMEZONE"=> $Config->general_timezone,
     );
 
     return $cal;
@@ -148,8 +150,8 @@ sub _build_event {
     # set defaults
     $ts->{$_} ||= $entry_defaults->{$_} for keys %$entry_defaults;
 
-    # compute end time
-    my $dtstart = $ts->datetime;
+    # compute start and end time
+    my $dtstart = $ts->datetime->set_time_zone($Config->general_timezone);
     my $dtend   = $dtstart->clone;
     $dtend->add( minutes => $ts->duration );
 
