@@ -57,8 +57,15 @@ sub export {
 # -------
 sub _output {
     my $cal = shift;
+
+    # Data::ICal doesn't have support for property attributes,
+    # so we must fix the generated output
+    my $out = $cal->as_string;
+    $out =~ s/DTSTART:TZID/DTSTART;TZID/g;
+    $out =~ s/DTEND:TZID/DTEND;TZID/g;
+
     $Request{r}->send_http_header('text/calendar; charset=UTF-8');
-    $Request{r}->print( $cal->as_string() );
+    $Request{r}->print($out);
 }
 
 
