@@ -58,11 +58,7 @@ sub export {
 sub _output {
     my $cal = shift;
 
-    # Data::ICal doesn't have support for property attributes,
-    # so we must fix the generated output
     my $out = $cal->as_string;
-    $out =~ s/DTSTART:TZID/DTSTART;TZID/g;
-    $out =~ s/DTEND:TZID/DTEND;TZID/g;
 
     $Request{r}->send_http_header('text/calendar; charset=UTF-8');
     $Request{r}->print($out);
@@ -158,7 +154,8 @@ sub _build_event {
     $ts->{$_} ||= $entry_defaults->{$_} for keys %$entry_defaults;
 
     # compute start and end time
-    my $dtstart = $ts->datetime->set_time_zone($Config->general_timezone);
+    my $tz_name = $Config->general_timezone;
+    my $dtstart = $ts->datetime->set_time_zone($tz_name);
     my $dtend   = $dtstart->clone;
     $dtend->add( minutes => $ts->duration );
 
@@ -171,6 +168,12 @@ sub _build_event {
     $event->end($dtend);
 
     $event->add_properties(
+        dtstart     => [
+            $dtstart->ymd("") . "T" . $dtstart->hms(""), { tzid => $tz_name },
+        ],
+        dtend       => [
+            $dtend->ymd("") . "T" . $dtend->hms(""), { tzid => $tz_name },
+        ],
         summary     => $ts->title,
         uid         => $url,
         url         => $url,
