@@ -4,7 +4,6 @@ use strict;
 use Apache::Constants qw(FORBIDDEN);
 use DateTime::Format::Pg;
 use Data::ICal;
-use Data::ICal::DateTime;
 use Data::ICal::Entry::Event;
 
 use Act::Abstract;
@@ -164,8 +163,6 @@ sub _build_event {
     ( my $type = $ts->type ) =~ s/^Act:://;
     my $url = $Config->general_full_uri . join( '/', lc($type), $ts->{id} );
     my $event = Data::ICal::Entry::Event->new();
-    $event->start($dtstart);
-    $event->end($dtend);
 
     $event->add_properties(
         dtstart     => [
