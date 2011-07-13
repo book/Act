@@ -5,6 +5,7 @@ use Apache::Constants qw(FORBIDDEN);
 use DateTime::Format::Pg;
 use Data::ICal;
 use Data::ICal::Entry::Event;
+use Data::ICal::TimeZone;
 
 use Act::Abstract;
 use Act::Config;
@@ -113,13 +114,17 @@ sub _get_cal_entry_defaults {
 # -------------------
 sub _setup_calendar_obj {
     my $cal = Data::ICal->new();
+    my $tz_name = $Config->general_timezone;
 
     $cal->add_properties(
         prodid         => "-//Act//Data::ICal $Data::ICal::VERSION//EN",
         calscale       => "GREGORIAN",
         "X-WR-CALNAME" => $Config->name->{ $Request{language} },
-        "X-WR-TIMEZONE"=> $Config->general_timezone,
+        "X-WR-TIMEZONE"=> $tz_name,
     );
+
+    my $tzdef = Data::ICal::TimeZone->new(timezone => $tz_name);
+    $cal->add_entry($tzdef->definition);
 
     return $cal;
 }
