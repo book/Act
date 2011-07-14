@@ -4,8 +4,8 @@ use strict;
 use Apache::Constants qw(FORBIDDEN);
 use DateTime::Format::Pg;
 use Data::ICal;
-use Data::ICal::DateTime;
 use Data::ICal::Entry::Event;
+use Data::ICal::TimeZone;
 
 use Act::Abstract;
 use Act::Config;
@@ -57,8 +57,11 @@ sub export {
 # -------
 sub _output {
     my $cal = shift;
+
+    my $out = $cal->as_string;
+
     $Request{r}->send_http_header('text/calendar; charset=UTF-8');
-    $Request{r}->print( $cal->as_string() );
+    $Request{r}->print($out);
 }
 
 
@@ -111,11 +114,17 @@ sub _get_cal_entry_defaults {
 # -------------------
 sub _setup_calendar_obj {
     my $cal = Data::ICal->new();
+    my $tz_name = $Config->general_timezone;
 
     $cal->add_properties(
-        calscale       => 'GREGORIAN',
-        'X-WR-CALNAME' => $Config->name->{ $Request{language} },
+        prodid         => "-//Act//Data::ICal $Data::ICal::VERSION//EN",
+        calscale       => "GREGORIAN",
+        "X-WR-CALNAME" => $Config->name->{ $Request{language} },
+        "X-WR-TIMEZONE"=> $tz_name,
     );
+
+    my $tzdef = Data::ICal::TimeZone->new(timezone => $tz_name);
+    $cal->add_entry($tzdef->definition);
 
     return $cal;
 }
@@ -148,8 +157,9 @@ sub _build_event {
     # set defaults
     $ts->{$_} ||= $entry_defaults->{$_} for keys %$entry_defaults;
 
-    # compute end time
-    my $dtstart = $ts->datetime;
+    # compute start and end time
+    my $tz_name = $Config->general_timezone;
+    my $dtstart = $ts->datetime->set_time_zone($tz_name);
     my $dtend   = $dtstart->clone;
     $dtend->add( minutes => $ts->duration );
 
@@ -158,10 +168,14 @@ sub _build_event {
     ( my $type = $ts->type ) =~ s/^Act:://;
     my $url = $Config->general_full_uri . join( '/', lc($type), $ts->{id} );
     my $event = Data::ICal::Entry::Event->new();
-    $event->start($dtstart);
-    $event->end($dtend);
 
     $event->add_properties(
+        dtstart     => [
+            $dtstart->ymd("") . "T" . $dtstart->hms(""), { tzid => $tz_name },
+        ],
+        dtend       => [
+            $dtend->ymd("") . "T" . $dtend->hms(""), { tzid => $tz_name },
+        ],
         summary     => $ts->title,
         uid         => $url,
         url         => $url,

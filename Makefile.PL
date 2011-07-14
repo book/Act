@@ -10,8 +10,8 @@ requires(
 'Clone' => 0, 
 'DBI' => 0, 
 'DBD::Pg' => 1.22,
-'Data::ICal::DateTime' => 0, 
 'Data::ICal' => '0.16', # Data::ICal::Entry::Event
+'Data::ICal::TimeZone' => 0,
 'DateTime::Format::Pg' => 0, 
 'DateTime::Locale' => 0, 
 'DateTime::TimeZone' => 0, 
