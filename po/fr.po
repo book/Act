@@ -1171,6 +1171,9 @@ msgstr "Envoyer un fichier iCal"
 msgid "Import"
 msgstr "Importer"
 
+msgid "Proceedings"
+msgstr "Actes"
+
 msgid "List of talks"
 msgstr "Liste des présentations"
 
