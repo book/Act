@@ -1,0 +1,59 @@
+[% title = loc("Proceedings");
+   WRAPPER ui title = title %]
+[% INCLUDE js/mytalks.js %]
+
+[% IF global.request.user.is_talks_admin OR global.config.talks_show_schedule %]
+<div class="proceedings">
+  [% FOREACH t = talks %]
+  <dl class="talk">
+    <dd class="title">
+      [% IF global.request.user.has_registered %]
+      <input type="checkbox"
+             name="mt-[% t.talk_id %]"
+             value="[% t.talk_id %]"
+           [% IF global.request.user.is_my_talk(t.talk_id) %]
+             title="{{remove from personal schedule}}"
+             checked="checked"
+           [% ELSE %]
+             title="{{add to personal schedule}}"
+           [% END %]
+      />
+      [% END %]
+
+      [% talk_link(t) %]
+    </dd>
+
+    <dd class="speaker">
+      <a href="[% make_uri_info('user', t.user.user_id) %]"
+        class="name">[% user_info(t.user) %]</a>[% IF t.user.company %], 
+      <span class="company">[% t.user.company %]</span>[% END %]
+    </dd>
+
+    <dd class="info">
+      [% global.config.talks_languages.${t.lang}
+      || global.config.default_language %],
+      [% IF t.lightning %]
+        {{lightning}}
+      [% ELSE %]
+        [% t.duration %] {{minutes}}
+      [% END %]
+    </dd>
+
+    [% IF t.url_talk %]
+    <dd class="link_slides">
+      {{Talk:}} <a href="[% t.url_talk %]">[% t.url_talk %]</a>
+    </dd>
+    [% END %]
+
+    <dd class="abstract">
+      <blockquote>
+        [% expand(t.chunked_abstract) | html_line_break %]
+      </blockquote>
+    </dd>
+
+  </dl>
+  [% END %]
+</div>
+[% END %]
+
+[% END %]

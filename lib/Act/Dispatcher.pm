@@ -26,6 +26,7 @@ my %public_handlers = (
     login           => 'Act::Handler::Login',
     news            => 'Act::Handler::News::List',
     openid          => 'Act::Handler::OpenID',
+    proceedings     => 'Act::Handler::Talk::Proceedings',
     register        => 'Act::Handler::User::Register',
     schedule        => 'Act::Handler::Talk::Schedule',
     search          => 'Act::Handler::User::Search',
