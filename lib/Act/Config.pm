@@ -215,6 +215,7 @@ sub load_configs
 
         # talk durations
         _make_hash($ConfConfigs{$conf}, talks_durations => $ConfConfigs{$conf}->talks_durations);
+
         # talk languages
         if ($ConfConfigs{$conf}->talks_languages) {
             $ConfConfigs{$conf}->set(
@@ -222,6 +223,15 @@ sub load_configs
                                      split /\s+/, $ConfConfigs{$conf}->talks_languages
                                    });
         }
+        else {
+            $ConfConfigs{$conf}->set(
+                talks_languages => {
+                    map { $_ => Act::Language::name($_) }
+                        split /\s+/, $ConfConfigs{$conf}->general_default_language
+                }
+            );
+        }
+
         # room names
         my %rooms_names;
         _make_hash($ConfConfigs{$conf}, rooms_codes => $ConfConfigs{$conf}->rooms_rooms);
