@@ -30,7 +30,7 @@
     </dd>
 
     <dd class="info">
-      [% global.config.talks_languages.${t.lang} %],
+      [% IF t.lang %][% global.config.talks_languages.${t.lang} %],[% END %]
       [% IF t.lightning %]
         {{lightning}}
       [% ELSE %]
