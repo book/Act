@@ -17,9 +17,9 @@
 </tr>
 [% FOREACH t = talks %]
   <tr>
-    <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+    <td>
         [% user_info(t.user) %]
-    </a></td>
+    </td>
     <td>
         [% IF global.request.user.has_registered %]
         <input type="checkbox"
