@@ -16,9 +16,9 @@
 </tr>
 [% FOREACH t = talks %]
   <tr>
-    <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+    <td>
         [% user_info(t.user) %]
-    </a></td>
+    </td>
     <td>[% talk_link(t) %]
         [% talk_modify_link(t) %]
         [% IF t.url_abstract || t.url_talk %]<br />[[% END %]

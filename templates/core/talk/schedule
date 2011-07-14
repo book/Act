@@ -22,9 +22,9 @@
 <tbody>
  [% FOREACH t IN todo %]
  <tr>
-  <td><a href="[% make_uri_info('user', t.user.user_id) %]">
+  <td>
    [% user_info(t.user) %]
-  </a></td>
+  </td>
   <td>[% IF t.type == 'Act::Event' %]
          [% event_link(t) %]
          [% event_modify_link(t) %]
