@@ -9,7 +9,10 @@ use Act::User;
 sub handler {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
-    $_->{user} = Act::User->new( user_id => $_->user_id ) for @$talks;
+    for my $talk (@$talks) {
+       $talk->{chunked_abstract} = Act::Abstract::chunked( $talk->abstract );
+       $talk->{user} = Act::User->new( user_id => $talk->user_id );
+    }
 
     # sort talks
     $talks = [
