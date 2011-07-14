@@ -74,8 +74,10 @@ sub handler
         }
         Act::Util::redirect( $Request{r}->uri );
     }
+
     # process the template
     my $template = Act::Template::HTML->new();
+
     $template->variables(
         %$talk,
         chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
@@ -83,9 +85,11 @@ sub handler
         tags => \@tags,
         attendees => Act::User->attendees($talk_id),
     );
+
     $template->variables(
         level => $Config->talks_levels_names->[ $talk->level - 1 ],
     ) if $Config->talks_levels;
+
     $template->process('talk/show');
 }
 
