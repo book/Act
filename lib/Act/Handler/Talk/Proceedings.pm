@@ -17,8 +17,8 @@ sub handler {
        $talk->{user} = Act::User->new( user_id => $talk->user_id );
 
        # make a summary of the abstract (some people write long abstracts)
-       my $abstract = Act::Abstract::chunked( $talk->abstract );
-       $talk->{chunked_abstract} = text_summary($abstract, 400);
+       my $abstract = text_summary($talk->abstract, 400);
+       $talk->{chunked_abstract} = Act::Abstract::chunked($abstract);
     }
 
     # sort talks
