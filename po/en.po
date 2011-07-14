@@ -1158,6 +1158,9 @@ msgstr "Upload an iCal file"
 msgid "Import"
 msgstr "Import"
 
+msgid "Proceedings"
+msgstr "Proceedings"
+
 msgid "List of talks"
 msgstr "List of talks"
 
