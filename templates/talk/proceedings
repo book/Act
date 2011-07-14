@@ -24,8 +24,7 @@
     </dd>
 
     <dd class="speaker">
-      <a href="[% make_uri_info('user', t.user.user_id) %]"
-        class="name">[% user_info(t.user) %]</a>[% IF t.user.company %], 
+      <span class="name">[% user_info(t.user) %]</span>[% IF t.user.company %], 
       <span class="company">[% t.user.company %]</span>[% END %]
     </dd>
 
