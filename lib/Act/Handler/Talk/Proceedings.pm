@@ -6,12 +6,19 @@ use Act::Talk;
 use Act::User;
 
 
+#
+# handler()
+# -------
 sub handler {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
     for my $talk (@$talks) {
-       $talk->{chunked_abstract} = Act::Abstract::chunked( $talk->abstract );
+       # make the User object for the speaker
        $talk->{user} = Act::User->new( user_id => $talk->user_id );
+
+       # make a summary of the abstract (some people write long abstracts)
+       my $abstract = Act::Abstract::chunked( $talk->abstract );
+       $talk->{chunked_abstract} = text_summary($abstract, 400);
     }
 
     # sort talks
@@ -35,6 +42,34 @@ sub handler {
 
     $template->process("talk/proceedings");
 }
+
+
+#
+# text_summary()
+# ------------
+sub text_summary {
+    my ($text, $limit) = @_;
+
+    # extract the first paragraph
+    my $para = substr($text, 0, index($text, "\n"));
+
+    # if it's still too long, extract as many phrases as possible,
+    # while keeping below $limit characters
+    if (length($para) > $limit) {
+        my @chunks = split /([.?!] +|[.?!]\z)/, $para;
+        my $str = "";
+
+        while (@chunks and (length($str) + length($chunks[0])) < $limit) {
+            $str .= shift @chunks;
+            $str .= shift @chunks;
+        }
+
+        $para = "$str [...]";
+    }
+    
+    return $para
+}
+
 
 1;
 __END__
