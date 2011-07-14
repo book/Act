@@ -41,7 +41,7 @@
 
     [% IF t.url_talk %]
     <dd class="link_slides">
-      {{talk (link)}}: <a href="[% t.url_talk %]">[% t.url_talk %]</a>
+      {{Talk:}} <a href="[% t.url_talk %]">[% t.url_talk %]</a>
     </dd>
     [% END %]
 
