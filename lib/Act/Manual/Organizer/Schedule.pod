@@ -67,8 +67,8 @@ at the same time in the same place) in a nice way.
 
 The HTML table uses as many styles as you have rooms, plus three. Imagine
 you have three rooms, the table will use the following styles: C<header>,
-C<out>, C<venue>, C<r1>, C<r2>, C<r3> and C<r4>. (If you have five rooms, a
-style C<r5> will automatically be used, and so on.)
+C<out>, C<sidetrack>, C<venue>, C<r1>, C<r2>, C<r3> and C<r4>.
+(If you have five rooms, a style C<r5> will automatically be used, and so on.)
 
 You can either define those styles in your stylesheet, or simply load the
 style located at F</css/schedule.css> with
@@ -95,7 +95,7 @@ defined. It should gracefully show overlapping talks, so that you can detect
 there is a problem.
 
 Events are basically talks without a speaker. Only events can happen in
-rooms C<out> and C<venue>.
+rooms C<out>, C<venue> and C<sidetrack>.
 
 Rooms C<out> and C<venue> are special in the sense that events occuring
 there prevent talks from happening and actually "cut" any overlapping
@@ -103,6 +103,12 @@ talk in two. One part before the event (usually a coffee break) and
 the remaining time after.
 
 Only hour-long tutorials should be cut by events.
+
+Room C<sidetrack> is also special. Like C<out> and C<venue>, these are
+events happening outside of the standard rooms. They denotes events
+happening elsewhere, and in parallel (for example, a trip as part of the
+"partner program"). Obviously, it shouldn't be "cut" by anything happening
+in the C<out> and C<venue> rooms.
 
 There may be some cases for which Act does not display the schedule
 properly (this should not happen once your schedule is finished, since

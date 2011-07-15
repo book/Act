@@ -20,7 +20,7 @@ my $form = Act::Form->new(
      url_abstract => 'url',
      date         => 'date',
      time         => 'time',
-     room         => sub { exists $Config->rooms->{$_[0]} or $_[0] =~ /^(?:out|venue)$/},
+     room         => sub { exists $Config->rooms->{$_[0]} or $_[0] =~ /^(?:out|venue|sidetrack)$/},
   }
 );
 
@@ -127,7 +127,7 @@ sub handler {
         return_url => $Request{args}{return_url},
         dates => \@dates, defined $event ? ( %$event ) : ( %$fields ),
         rooms => { %{ $Config->rooms },
-                   map { $_ => localize("room_$_") } qw(venue out),
+                   map { $_ => localize("room_$_") } qw(venue out sidetrack),
                  },
     );
     $template->process('event/add');

@@ -31,7 +31,6 @@ sub compute_schedule {
     my (%table, %index, %room, %time); # helpful structures
     my ($todo, $globals) = ([],[]);    # events lists
 
- 
     # sort and separate global and normal items
     # compute the times to show in the chart
     for ( sort {
@@ -75,7 +74,7 @@ sub compute_schedule {
         my $dt  = $_->datetime;
         my $day = $dt->ymd;
         my $row = $table{$day};
-        
+
         # skip to find where to put this event
         $index{$day}++ while $row->[ $index{$day} ][0] < $dt;
         my $i = $index{$day};
@@ -111,7 +110,7 @@ sub compute_schedule {
         my $n = 1;
         while($i < @$row and $row->[$i][0] < $_->{end}) {
             # if a global talk starts in the middle
-            if( @{ $row->[$i][2] } ) {
+            if( @{ $row->[$i][2] } && $r ne 'sidetrack' ) {
                 # split the talk in two
                 my $new = bless { %$_, height => 1 }, 'Act::TimeSlot';
                 $new->{datetime} = $row->[$i][2][-1]->{end}->clone;
@@ -162,7 +161,8 @@ sub compute_schedule {
             $width{$r}{$day} = $max || 0;
         }
         $maxwidth{$day} = 0;
-        $maxwidth{$day} += $width{$_}{$day} for keys %room;
+        $maxwidth{$day} += $width{$_}{$day}
+            for grep { $_ ne 'sidetrack' } keys %room;
     }
 
     # finish line

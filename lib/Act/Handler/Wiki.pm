@@ -110,48 +110,62 @@ sub wiki_history
     );
     $template->process('wiki/history');
 }
+
 sub wiki_diff
 {
     my ($wiki, $template) = @_;
 
     my $node = $Request{args}{node};
+
     unless ($node && $Request{args}{r1} && $Request{args}{r2}) {
         $Request{status} = NOT_FOUND;
         return;
     }
+
     my %versions;
     for my $r (qw(r1 r2)) {
         my %v = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node), version => $Request{args}{$r});
+
         unless ($v{version} == $Request{args}{$r}) {
             $Request{status} = NOT_FOUND;
             return;
         }
+
         $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
         $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
+        $v{content} .= "\n" if index($v{content}, "\n") == -1;
+
         $versions{$r} = \%v;
     }
+
+    my $diff = Text::Diff::diff(
+        \$versions{r1}{content},
+        \$versions{r2}{content},
+        {
+            FILENAME_A  => "$node v$Request{args}{r1}",
+            FILENAME_B  => "$node v$Request{args}{r2}",
+            FILENAME_PREFIX_A => "---",
+            FILENAME_PREFIX_B => "+++",
+        }
+    );
 
     $template->variables(
         node      => $node,
         r1        => $Request{args}{r1},
         r2        => $Request{args}{r2},
         versions  => \%versions,
-        diff      => Text::Diff::diff(\$versions{r1}{content}, \$versions{r2}{content},
-          {
-            FILENAME_A  => "$node v$Request{args}{r1}",
-            FILENAME_B  => "$node v$Request{args}{r2}",
-            FILENAME_PREFIX_A => "---",
-            FILENAME_PREFIX_B => "+++",
-          }
-        ),
+        diff      => $diff,
     );
+
     $template->process('wiki/diff');
 }
+
 sub wiki_help
 {
     my ($wiki, $template) = @_;
     $template->process('wiki/help');
 }
+
 sub wiki_tags
 {
     my ($wiki, $template, $tag) = @_;
@@ -190,7 +204,9 @@ sub wiki_tags
     );
     $template->process('wiki/tags');
 }
+
 1;
+
 __END__
 
 =head1 NAME

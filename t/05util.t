@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 78 + 5 * NBPASS;
+use Test::More tests => 79 + 5 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -87,6 +87,9 @@ is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:
 $variants{en} = 'en_US';
 is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, February 15, 2007 01:00 PM', 'date_format en_US');
 
+$variants{en} = 'en_NZ';   # not in %Languages, fallback to 'en'
+is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:00', 'date_format en_NZ (aka en aka en_GB)');
+
 # normalize
 use charnames ();
 
@@ -108,8 +111,8 @@ while (my ($n, $dlist) = splice(@t, 0, 2)) {
 is (Act::Util::normalize('йéйè'), 'йeйe', charnames::viacode(ord('й')));
 
 # usort
-my @sorted = Act::Util::usort { $_ } qw(éb ec eà);
-is_deeply(\@sorted, [qw(eà éb ec)], 'usort');
+my @sorted = Act::Util::usort { $_->{foo} } ( { foo => 'éb' }, { foo => 'ec' }, { foo => 'eà' } );
+is_deeply(\@sorted, [ { foo => 'eà' }, { foo => 'éb' }, { foo => 'ec' } ], 'usort');
 
 # ua_isa_bot
 $headers{'User-Agent'} = 'Mozilla/4.76 [en] (X11; U; FreeBSD 4.4-STABLE i386)';
