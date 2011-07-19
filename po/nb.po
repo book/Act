@@ -1159,6 +1159,9 @@ msgstr "Last opp en fil i iCal-format"
 msgid "Import"
 msgstr "Import"
 
+msgid "Proceedings"
+msgstr "Foredragsoversikt"
+
 msgid "List of talks"
 msgstr "Foredragsliste"
 
