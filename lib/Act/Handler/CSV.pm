@@ -1,7 +1,7 @@
 package Act::Handler::CSV;
 use strict;
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
+use Plack::Request;
 use Text::xSV;
 
 my %CSV = (
@@ -44,32 +44,43 @@ SQL
 
 sub handler
 {
+    my ( $env ) = @_;
+
+    my $req = Plack::Request->new($env);
+    my $res = $req->new_response;
+
     # check csv request
-    unless ( exists $CSV{$Request{path_info}} ) {
-        $Request{status} = NOT_FOUND;
-        return;
+    unless( exists $CSV{$req->path_info} ) {
+        $res->status(404);
+        return $res->finalize;
     }
-    my $report = $CSV{$Request{path_info}};
+
+    my $report = $CSV{$req->path_info};
 
     # check rights
-    unless ($Request{user} && $report->[0]->($Request{user})) {
-        $Request{status} = FORBIDDEN;
-        return;
+    # XXX WARNING: $Request{user} used to be an object! This needs to be fixed!
+    unless ( $req->user && $report->[0]->($req->user)) {
+        $res->status(403);
+        return $res->finalize;
     }
 
     # retrieve the information
-    my $sth = $Request{dbh}->prepare( $report->[1] );
-    $sth->execute( $Request{conference}, @{$report->[2]} );
+    my $sth = $env->{'act.dbh'}->prepare( $report->[1] );
+    $sth->execute( $env->{'act.conference'}, @{$report->[2]} );
 
     # and spit out the xSV report
-    $Request{r}->send_http_header('text/csv; charset=UTF-8');
+    $res->content_type('text/csv; charset=UTF-8');
 
-    my $csv = Text::xSV->new;
-    print $csv->format_row( @{$sth->{NAME_lc}} );
+    my $csv  = Text::xSV->new;
+    my $body = '';
+    $body .= $csv->format_row( @{$sth->{NAME_lc}} );
     while( my $row = $sth->fetchrow_arrayref() ) {
-        print $csv->format_row(@$row);
+        $body .= $csv->format_row(@$row);
     }
 
+    $res->body($body);
+
+    return $res->finalize;
 }
 
 1;
