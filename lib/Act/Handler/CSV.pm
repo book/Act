@@ -59,8 +59,7 @@ sub handler
     my $report = $CSV{$req->path_info};
 
     # check rights
-    # XXX WARNING: $Request{user} used to be an object! This needs to be fixed!
-    unless ( $req->user && $report->[0]->($req->user)) {
+    unless ( $req->act_user && $report->[0]->($req->act_user)) {
         $res->status(403);
         return $res->finalize;
     }
