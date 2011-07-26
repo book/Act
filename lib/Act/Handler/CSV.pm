@@ -1,7 +1,7 @@
 package Act::Handler::CSV;
 use strict;
 use Act::Config;
-use Plack::Request;
+use Act::Request;
 use Text::xSV;
 use parent qw(Act::Handler);
 
@@ -47,7 +47,7 @@ sub handler
 {
     my ( $env ) = @_;
 
-    my $req = Plack::Request->new($env);
+    my $req = Act::Request->new($env);
     my $res = $req->new_response;
 
     # check csv request
