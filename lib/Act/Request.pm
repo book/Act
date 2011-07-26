@@ -4,6 +4,10 @@ use strict;
 use warnings;
 use parent 'Plack::Request';
 
+sub act_user {
+    my ( $self ) = @_;
+}
+
 1;
 
 __END__
