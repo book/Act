@@ -24,7 +24,6 @@ sub call {
         language    => $env->{'act.language'},
         loc         => Act::I18N->get_handle($env->{'act.language'}),
     );
-    Act::Config::finalize_config($env->{'act.config'}, $env->{'act.language'});
     $Config = $env->{'act.config'};
 
     $handler->($env);

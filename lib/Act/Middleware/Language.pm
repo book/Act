@@ -4,6 +4,7 @@ use warnings;
 
 use parent qw(Plack::Middleware);
 use Plack::Request;
+use Act::Config ();
 
 sub call {
     my $self = shift;
@@ -22,11 +23,21 @@ sub call {
     }
 
     # override in query string
-    my $redirect;
+    # redirect the user to remove the language query param
     my $force_language = $req->param('language');
     if ($force_language && $langs->{$force_language} ) {
-        $redirect = 1;
         $language = $s->{language} = $force_language;
+        my $uri = $req->uri;
+        my @query = $uri->query_form;
+        for (my $i; $i < @query; $i+=2 ) {
+            if ($query[$i] eq 'language') {
+                splice @query, $i, 2;
+            }
+        }
+        $uri->query_form(\@query);
+        my $resp = Plack::Response->new;
+        $resp->redirect($uri->as_string);
+        return $resp->finalize;
     }
 
     # otherwise try one of the browser's languages
@@ -58,19 +69,8 @@ sub call {
     # fetch localization handle
     $env->{'act.loc'} = Act::I18N->get_handle($language);
 
-    if ($redirect) {
-        my $uri = $req->uri;
-        my @query = $uri->query_form;
-        for (my $i; $i < @query; $i+=2 ) {
-            if ($query[$i] eq 'language') {
-                splice @query, $i, 2;
-            }
-        }
-        $uri->query_form(\@query);
-        my $resp = Plack::Response->new;
-        $resp->redirect($uri->as_string);
-        return $resp->finalize;
-    }
+    # finalize the config now that we have the language
+    Act::Config::finalize_config($config, $language);
 
     $self->app->($env);
 }
