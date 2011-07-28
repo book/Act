@@ -118,12 +118,12 @@ sub conference_app {
         for my $uri ( keys %public_handlers ) {
             my $handler = $public_handlers{$uri};
             _load($handler);
-            mount "/$uri/" => $handler->new;
+            mount "/$uri" => $handler->new;
         }
         for my $uri ( keys %private_handlers ) {
             my $handler = $private_handlers{$uri};
             _load($handler);
-            mount "/$uri/" => $handler->new(private => 1);
+            mount "/$uri" => $handler->new(private => 1);
         }
     };
 }
