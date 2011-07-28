@@ -3,6 +3,7 @@ use strict;
 use Act::Config;
 use Plack::Request;
 use Text::xSV;
+use parent qw(Act::Handler);
 
 my %CSV = (
     # report => [ auth_sub, sql, args ]
