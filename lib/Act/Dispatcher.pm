@@ -1,18 +1,12 @@
 use strict;
 package Act::Dispatcher;
 
-use Apache::Constants qw(:common);
-use Apache::Cookie ();
-use Apache::Request;
-use DBI;
 use Encode qw(decode_utf8);
+use Plack::Builder;
+use Plack::Request;
 
 use Act::Config;
-use Act::I18N;
-use Act::User;
 use Act::Util;
-
-use constant DEFAULT_PAGE => 'index.html';
 
 # main dispatch table
 my %public_handlers = (
@@ -71,170 +65,72 @@ my %private_handlers = (
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
 );
-my %dispatch = ( map( { $_ => { handler => $public_handlers{$_} } } keys %public_handlers),
-                 map( { $_ => { handler => $private_handlers{$_}, private => 1 } } keys %private_handlers)
-               );
 
-# translation handler
-sub trans_handler
-{
-    # the Apache request object
-    my $r = Apache::Request->instance(shift);
-
-    # break it up in components
-    my @c = grep $_, split '/', decode_utf8($r->uri);
-
-    # initialize our per-request variables
-    %Request = (
-        r         => $r,
-        path_info => join('/', @c),
-        base_url  => _base_url($r),
-    );
-
-    # reload configuration if needed
+sub to_app {
     Act::Config::reload_configs();
-
-    # connect to database
-    Act::Util::db_connect();
-
-    # URI must start with a conf name
-    unless (@c && (exists $Config->uris->{$c[0]} || exists $Config->conferences->{$c[0]})) {
-        return DECLINED;
-    }
-    # set the correct configuration
-    $Request{conference} = $Config->uris->{$c[0]} || $c[0];
-    shift @c;
-    $Request{path_info}  = join '/', @c;
-    $Config = Act::Config::get_config($Request{conference});
-
-    # default pages a la mod_dir
-    if (!@c && $r->uri =~ m!/$!) {
-        $r->uri(Act::Util::make_uri(DEFAULT_PAGE));
-        $Request{path_info} = DEFAULT_PAGE;
-    }
-    # pseudo-static pages
-    if ($r->uri =~ /\.html$/) {
-        return _dispatch($r, 'Act::Handler::Static');
-    }
-    # we're looking for /x/y where
-    # x is a conference name, and
-    # y is an action key in %dispatch
-    elsif (@c && $Request{conference} && exists $dispatch{$c[0]}) {
-        $Request{action}     = shift @c;
-        $Request{path_info}  = join '/', @c;
-        $Request{private} = $dispatch{$Request{action}}{private};
-        return _dispatch($r, 'Act::Dispatcher');
-    }
-    return DECLINED;
-}
-
-sub _dispatch
-{
-    my ($r, $handler) = @_;
-
-    # per-request initialization
-    $Request{args} = { map { scalar $_ => decode_utf8($r->param($_)) } $r->param };
-    _set_language();
-    Act::Config::finalize_config($Config, $Request{language});
-
-    # redirect language change requests
-    if (delete $Request{args}{language} && !Act::Util::ua_isa_bot()) {
-        return Act::Util::redirect(self_uri(%{$Request{args}}));
-    }
-    # set up content handler
-    $r->handler("perl-script");
-    $r->push_handlers(PerlHandler => $handler);
-    return OK;
-}    
-
-# response handler - it all starts here.
-sub handler
-{
-    # the Apache request object
-    $Request{r} = Apache::Request->instance(shift);
-
-    # dispatch
-    my $pkg = $dispatch{$Request{action}}{handler};
-    my @c = split '::', $pkg;
-    my $handler = 'handler';
-    if ($c[-1] =~ /handler$/) {
-        $handler = pop @c;
-    }
-    $pkg = join '::', @c;
-    eval "require $pkg;";
-    die "require $pkg failed!" if $@;
-
-    $pkg->$handler();
-    return $Request{status} || OK;
-}
-
-sub _set_language
-{
-    my $language = undef;
-    my $sendcookie = 1;
-
-    # see if we have a cookie
-    my $cookie_name = $Config->general_cookie_name;
-    my $cookies = Apache::Cookie->fetch;
-    if (my $c = $cookies->{$cookie_name}) {
-        my %v = $c->value;
-        if ($v{language} && $Config->languages->{$v{language}}) {
-            $language = $v{language};
-            $sendcookie = 0;
+    my $conference_app = conference_app();
+    my $app = builder {
+        enable sub {
+            my $app = shift;
+            sub {
+                my $env = shift;
+                my $req = Plack::Request->new($env);
+                $env->{'act.base_url'} = $req->base->as_string;
+                Act::Util::db_connect();
+                $app->($env);
+            };
+        };
+        my %confr = %{ $Config->uris }, map { $_ => $_ } %{ $Config->conferences };
+        for my $uri ( keys %confr ) {
+            my $conference = $confr{$uri};
+            mount "/$uri/" => sub {
+                my $env = shift;
+                $env->{'act.conference'} = $conference;
+                $env->{'act.config'} = Act::Config::get_config($conference);
+                $conference_app->($env);
+            };
         }
-    }
-
-    # language override supplied in query string
-    my $force_language = $Request{args}{language};
-    if ($force_language && $Config->languages->{$force_language}) {
-        $sendcookie = $force_language ne $language;
-        $language = $force_language;
-    }
-
-    # otherwise try one of the browser's languages
-    unless ($language) {
-        my $h = $Request{r}->header_in('Accept-Language') || '';
-        for (split /,/, $h) {
-            s/;.*$//;
-            s/-.*$//;
-            if ($_ && $Config->languages->{$_}) {
-                $language = $_;
-                $sendcookie = 1;
-                last;
-            }
-        }
-    }
-    # last resort, use our default language
-    $language ||= $Config->general_default_language;
-
-    # use optional variant
-    $language = $Config->language_variants->{$language} || $language;
-
-    # remember it for this request
-    $Request{language} = $language;
-
-    # fetch localization handle
-    $Request{loc} = Act::I18N->get_handle($Request{language});
-
-    # send the cookie if needed
-    if ($sendcookie) {
-        my $cookie = Apache::Cookie->new(
-        $Request{r},
-            -name    =>  $cookie_name,
-            -value   =>  { language => $language },
-            -expires =>  '+6M',
-            -path    =>  '/',
-        );
-        $cookie->bake;
-    }
+        mount "/" => sub {
+            [404, [], []];
+        };
+    };
+    return $app;
 }
 
-sub _base_url
-{
-    my $r = shift;
-    my $url = 'http://' . $r->server->server_hostname;
-    $url .= ':' . $r->server->port if $r->server->port != 80;
-    return $url;
+sub conference_app {
+    my $static_app = Act::Handler::Static->new;
+    builder {
+        enable '+Act::Middleware::Language';
+        enable sub {
+            my $app = shift;
+            sub {
+                for ( $_[0]->{'PATH_INFO'} ) {
+                    if ( s{^/?$}{index.html} || /\.html$/ ) {
+                        return $static_app->(@_);
+                    }
+                    else {
+                        return $app->(@_);
+                    }
+                }
+            };
+        };
+        for my $uri ( keys %public_handlers ) {
+            my $handler = $public_handlers{$uri};
+            _load($handler);
+            mount "/$uri/" => $handler->new;
+        }
+        for my $uri ( keys %private_handlers ) {
+            my $handler = $private_handlers{$uri};
+            _load($handler);
+            mount "/$uri/" => $handler->new(private => 1);
+        }
+    };
+}
+
+sub _load {
+    my $package = shift;
+    (my $module = "$package.pm") =~ s{::|'}{/}g;
+    require $module;
 }
 
 1;
