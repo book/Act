@@ -44,6 +44,12 @@ sub send_http_header {
     $self->response->content_type($content_type);
 }
 
+sub upload {
+    my ( $self ) = @_;
+
+    # XXX returned value must support fh method (return psgi.input? but that only supports readline...)
+}
+
 1;
 
 __END__
