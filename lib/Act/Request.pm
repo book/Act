@@ -4,14 +4,15 @@ use strict;
 use warnings;
 use parent 'Plack::Request';
 
-use Plack::Util::Accessor qw(response);
+use Plack::Util::Accessor qw(response _body);
 
 sub new {
     my ( $class ) = @_;
 
     my $self = Plack::Request::new(@_);
 
-    $self->response($self->new_response);
+    $self->_body([]);
+    $self->response($self->new_response(200, [], $self->_body));
 
     return $self;
 }
@@ -27,6 +28,12 @@ sub no_cache {
         $self->response->header('Cache-Control' => 'no-cache');
         $self->response->header('Pragma'        => 'no-cache');
     }
+}
+
+sub print {
+    my ( $self, $content ) = @_;
+
+    push @{ $self->_body }, $content;
 }
 
 1;
