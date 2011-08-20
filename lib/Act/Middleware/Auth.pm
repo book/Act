@@ -14,7 +14,7 @@ sub call {
 
     my $req = Plack::Request->new($env);
 
-    if ($req->path_info eq 'LOGIN') {
+    if ($req->path_info eq 'LOGIN' || $req->path_info eq '/LOGIN') {
         return $self->check_login($req);
     }
 
