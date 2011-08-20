@@ -1,7 +1,7 @@
 package Act::Handler::Wiki;
 
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use DateTime;
 use DateTime::Format::Pg;

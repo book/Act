@@ -1,6 +1,6 @@
 package Act::Handler::User::UpdateMyTalks;
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Act::Talk;
 use Act::User;

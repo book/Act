@@ -1,6 +1,6 @@
 package Act::Handler::User::Purchase;
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use JSON::XS ();
 use List::Util qw(first);

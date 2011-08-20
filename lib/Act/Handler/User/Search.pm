@@ -1,6 +1,6 @@
 package Act::Handler::User::Search;
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;

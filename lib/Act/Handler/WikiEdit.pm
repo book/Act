@@ -1,7 +1,7 @@
 package Act::Handler::WikiEdit;
 
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Tag;
