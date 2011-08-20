@@ -6,13 +6,13 @@ use parent 'Plack::Component';
 use Act::Config;
 use Act::Util;
 use Act::I18N;
-use Plack::Request;
+use Act::Request;
 use Plack::Util::Accessor qw(private);
 
 sub call {
     my $self = shift;
     my $env = shift;
-    my $req = Plack::Request->new($env);
+    my $req = Act::Request->new($env);
     my $handler = $self->can('handler');
     %Request = (
         r           => $req,
