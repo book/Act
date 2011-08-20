@@ -1,7 +1,7 @@
 use strict;
 package Act::Handler::News::Admin;
 
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::News;
@@ -12,7 +12,7 @@ sub handler
 {
     # orgas only
     unless ($Request{user}->is_news_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -32,6 +32,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(news => $news);
     $template->process('news/admin');
+    return;
 }
 
 1;
