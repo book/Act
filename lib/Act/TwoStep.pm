@@ -141,7 +141,7 @@ sub _send_email
     $template->variables(
         email => $email,
         token => $token,
-        link  => $Request{base_url} . join('/', self_uri(), $token),
+        link  => join('/', self_uri(), $token),
     );
     $template->process($email_body_file, \$body);
 
