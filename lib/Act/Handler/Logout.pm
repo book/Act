@@ -1,6 +1,7 @@
 package Act::Handler::Logout;
 
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Util;
@@ -24,6 +25,7 @@ sub handler
     # display the logout page
     my $template = Act::Template::HTML->new();
     $template->process('logout');
+    return;
 }
 1;
 __END__
