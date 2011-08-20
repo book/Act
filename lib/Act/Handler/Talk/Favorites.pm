@@ -1,5 +1,6 @@
 package Act::Handler::Talk::Favorites;
 use strict;
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;
@@ -38,6 +39,7 @@ sub handler
         tracks => \%tracks,
     );
     $template->process('talk/favorites');
+    return;
 }
 
 1;
