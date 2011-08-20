@@ -1,3 +1,6 @@
 # vi/vim swap file
 *.swp
 *.swo
+/META.yml
+/Makefile
+/inc
