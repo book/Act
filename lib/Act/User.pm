@@ -381,7 +381,7 @@ sub set_password {
     my $self = shift;
     my $password = shift;
     my $crypted = $self->_crypt_password($password);
-    $Request{user}->update( passwd => "{BCRYPT}$crypted" );
+    $Request{user}->update( passwd => $crypted );
     return 1;
 }
 
@@ -390,7 +390,7 @@ sub _crypt_password {
     my $pass = shift;
     my $cost = $Config->bcrypt_cost;
     my $salt = $Config->bcrypt_salt;
-    return Crypt::Eksblowfish::Bcrypt::en_base64(
+    return '{BCRYPT}' . Crypt::Eksblowfish::Bcrypt::en_base64(
         Crypt::Eksblowfish::Bcrypt::bcrypt_hash({
             key_nul => 1,
             cost => $cost,
