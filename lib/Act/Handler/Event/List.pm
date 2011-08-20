@@ -1,6 +1,6 @@
 package Act::Handler::Event::List;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Event;
@@ -16,6 +16,7 @@ sub handler
         events => [ sort { $a->datetime cmp $b->datetime } @$events ],
     ); 
     $template->process('event/list');
+    return;
 }
 
 1;
