@@ -121,23 +121,29 @@ sub conference_app {
             builder {
                 enable '+Act::Middleware::Auth';
                 for my $uri ( keys %public_handlers ) {
-                    my $handler = $public_handlers{$uri};
-                    _load($handler);
-                    mount "/$uri" => $handler->new;
+                    mount "/$uri" => _handler_app($public_handlers{$uri});
                 }
                 mount '/' => sub { [99, [], []] };
             },
             builder {
                 enable '+Act::Middleware::Auth', private => 1;
                 for my $uri ( keys %private_handlers ) {
-                    my $handler = $private_handlers{$uri};
-                    _load($handler);
-                    mount "/$uri" => $handler->new;
+                    mount "/$uri" => _handler_app($private_handlers{$uri});
                 }
                 mount '/' => sub { [404, [], []] };
             }
         ] );
     };
+}
+
+sub _handler_app {
+    my $handler = shift;
+    my $subhandler;
+    if ($handler =~ s/::(\w*handler)$//) {
+        my $subhandler = $1;
+    }
+    _load($handler);
+    return $handler->new(subhandler => $subhandler);
 }
 
 sub _load {
