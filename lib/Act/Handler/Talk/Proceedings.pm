@@ -1,5 +1,6 @@
 package Act::Handler::Talk::Proceedings;
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Talk;
@@ -44,6 +45,7 @@ sub handler {
     ); 
 
     $template->process("talk/proceedings");
+    return;
 }
 
 
