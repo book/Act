@@ -3,7 +3,6 @@ package Act::Handler::User::ChangePassword;
 use strict;
 use parent 'Act::Handler';
 
-use Act::Auth; 
 use Act::Config;
 use Act::Form;
 use Act::Template::HTML;
@@ -11,6 +10,8 @@ use Act::User;
 use Act::Util;
 use Act::TwoStep;
 use Digest::MD5 ();
+use Try::Tiny;
+use Act::Middleware::Auth;
 
 my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
@@ -65,17 +66,13 @@ sub handler
         my ($token, $token_data);
         if ($Request{user}) { # 
             # compare passwords
-            my $digest = Digest::MD5->new;
-            $digest->add($fields->{oldpassword});
-            if ( $digest->b64digest() ne $Request{user}{passwd} ) {
-                # compare lc passwords (r1549)
-                $digest->reset;
-                $digest->add(lc $fields->{oldpassword});
-                if ( $digest->b64digest() ne $Request{user}{passwd} ) {
-                    $ok = 0;
-                    $form->{invalid}{oldpassword} = 1;
-                }
+            try {
+                $Request{user}->check_password(lc $fields->{oldpassword});
             }
+            catch {
+                $ok = 0;
+                $form->{invalid}{oldpassword} = 1;
+            };
         }
         else { # must have a valid twostep token if not logged in
             ($token, $token_data) = Act::TwoStep::verify_form()
@@ -94,13 +91,11 @@ sub handler
                 my $user = Act::User->new(user_id => $token_data)
                     or die "unknown user_id: $token_data\n";
                 my $sid = Act::Util::create_session($user);
-                Act::Auth->send_cookie($sid);
+                Act::Middleware::Auth::set_session($Request{r}->response, $sid);
                 Act::TwoStep::remove($token);
             }
             # update user
-            $Request{user}->update(
-                passwd => Act::Util::crypt_password( $fields->{newpassword1} )
-            );
+            $Request{user}->set_password( $fields->{newpassword1} );
 
             # redirect to user's main page
             return Act::Util::redirect(make_uri('main'));

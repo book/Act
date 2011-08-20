@@ -4,6 +4,7 @@ package Act::Dispatcher;
 use Encode qw(decode_utf8);
 use Plack::Builder;
 use Plack::Request;
+use Plack::App::Cascade;
 
 use Act::Config;
 use Act::Handler::Static;
@@ -116,16 +117,26 @@ sub conference_app {
                 }
             };
         };
-        for my $uri ( keys %public_handlers ) {
-            my $handler = $public_handlers{$uri};
-            _load($handler);
-            mount "/$uri" => $handler->new;
-        }
-        for my $uri ( keys %private_handlers ) {
-            my $handler = $private_handlers{$uri};
-            _load($handler);
-            mount "/$uri" => $handler->new(private => 1);
-        }
+        Plack::App::Cascade->new( catch => [99], apps => [
+            builder {
+                enable '+Act::Middleware::Auth';
+                for my $uri ( keys %public_handlers ) {
+                    my $handler = $public_handlers{$uri};
+                    _load($handler);
+                    mount "/$uri" => $handler->new;
+                }
+                mount '/' => sub { [99, [], []] };
+            },
+            builder {
+                enable '+Act::Middleware::Auth', private => 1;
+                for my $uri ( keys %private_handlers ) {
+                    my $handler = $private_handlers{$uri};
+                    _load($handler);
+                    mount "/$uri" => $handler->new;
+                }
+                mount '/' => sub { [404, [], []] };
+            }
+        ] );
     };
 }
 

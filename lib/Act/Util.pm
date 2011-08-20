@@ -142,15 +142,9 @@ sub gen_password
 {
     my $clear_passwd = $pass[ rand @pass ];
     $clear_passwd =~ s/([vc])/$grams{$1}[rand@{$grams{$1}}]/g;
-    return ($clear_passwd, crypt_password( $clear_passwd ));
+    return $clear_passwd;
 }
 
-sub crypt_password
-{
-    my $digest = Digest::MD5->new;
-    $digest->add(shift);
-    return $digest->b64digest();
-}
 sub create_session
 {
     my $user = shift;
