@@ -7,6 +7,7 @@ use Act::Config;
 use Act::Util;
 use Act::I18N;
 use Act::Request;
+use Encode qw(decode_utf8);
 use Plack::Util::Accessor qw(subhandler);
 
 sub call {
