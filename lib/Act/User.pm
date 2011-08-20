@@ -436,15 +436,14 @@ sub check_password {
     my $self = shift;
     my $check_pass = shift;
 
-    my $user = $Request{user};
-    my $pw_hash = $user->{passwd};
+    my $pw_hash = $self->{passwd};
     my ($scheme, $hash) = $pw_hash =~ /^(?:{(\w+)})?(.*)$/;
     $scheme ||= 'MD5';
 
     if ($scheme eq 'MD5') {
         my $digest = Digest::MD5->new;
         $digest->add(lc $check_pass);
-        $digest->b64digest eq $user->{passwd}
+        $digest->b64digest eq $self->{passwd}
             or die 'Bad password';
         # upgrade hash
         $self->set_password($check_pass);
