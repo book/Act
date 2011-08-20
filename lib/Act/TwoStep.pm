@@ -1,7 +1,6 @@
 package Act::TwoStep;
 use strict;
 
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Digest::MD5;
 
 use Act::Config;
@@ -22,7 +21,7 @@ sub verify_uri
         # yes, see if it exists in the database
         unless (_exists($token)) {
             # invalid token
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
         # valid auth token
@@ -78,7 +77,7 @@ sub verify_form
         my $data = _exists($token);
         return ($token, $$data) if $data;
     }
-    $Request{status} = FORBIDDEN;
+    $Request{status} = 403;
     return;
 }
 
