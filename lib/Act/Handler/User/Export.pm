@@ -1,7 +1,7 @@
 package Act::Handler::User::Export;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
 use Text::xSV;
 
 use Act::Config;
@@ -18,7 +18,7 @@ sub handler
 {
     # only for orgas
     unless ($Request{user}->is_users_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # get user information
@@ -42,6 +42,7 @@ sub handler
             ($Request{user}->is_treasurer ? map($u->$_, @TROWS) : ()),
         ));
     }
+    return;
 }
 
 1;
