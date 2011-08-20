@@ -1,5 +1,6 @@
 package Act::Handler::Talk::MySchedule;
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::TimeSlot;
 use Act::Template::HTML;
@@ -24,6 +25,7 @@ sub handler {
         todo     => [],
     );
     $template->process('talk/myschedule');
+    return;
 }
 
 1;
