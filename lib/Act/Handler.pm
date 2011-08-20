@@ -26,9 +26,14 @@ sub call {
     );
     $Config = $env->{'act.config'};
 
-    $handler->($env);
+    my $status = $handler->($env);
 
-    return $req->response->finalize;
+    if(ref $status) { # we're acting like a PSGI app!
+        return $status;
+    } else { # we're acting like an Apache handler
+        $req->response->status($status);
+        return $req->response->finalize;
+    }
 }
 
 1;
