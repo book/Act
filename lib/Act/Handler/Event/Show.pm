@@ -1,6 +1,5 @@
 package Act::Handler::Event::Show;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
 use Act::Config;
 use Act::Template::HTML;
 use Act::Event;
@@ -11,7 +10,7 @@ sub handler
     # retrieve event_id
     my $event_id = $Request{path_info};
     unless ($event_id =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -22,7 +21,7 @@ sub handler
     );
 
     if ( ! defined $event ) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -30,6 +29,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables( %$event, chunked_abstract => Act::Abstract::chunked( $event->abstract ) );
     $template->process('event/show');
+    return;
 }
 
 1;
