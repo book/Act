@@ -27,6 +27,8 @@ sub call {
     $Config = $env->{'act.config'};
 
     $handler->($env);
+
+    return $req->response->finalize;
 }
 
 1;
