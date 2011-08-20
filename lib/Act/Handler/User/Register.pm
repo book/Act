@@ -1,5 +1,6 @@
 package Act::Handler::User::Register;
 use strict;
+use 'Act::Handler';
 
 use Act::Config;
 use Act::Country;
@@ -9,7 +10,6 @@ use Act::TwoStep;
 use Act::User;
 use Act::Util;
 
-use Apache::Constants qw(FORBIDDEN);
 use DateTime;
 use DateTime::Format::Pg;
 
@@ -42,7 +42,7 @@ my $form = Act::Form->new(
 sub handler {
     # conference is closed
     if ($Config->closed) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
 
@@ -180,6 +180,7 @@ sub handler {
         end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
     );
     $template->process('user/add');
+    return;
 }
 
 1;
