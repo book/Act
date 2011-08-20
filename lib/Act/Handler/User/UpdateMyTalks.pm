@@ -1,6 +1,6 @@
 package Act::Handler::User::UpdateMyTalks;
 use strict;
-use Apache::Constants qw( HTTP_NO_CONTENT );
+use 'Act::Handler';
 
 use Act::Talk;
 use Act::User;
@@ -32,6 +32,7 @@ sub handler
     }
     return Act::Util::redirect(make_uri('schedule'));
 }
+
 sub ajax_handler
 {
     if ($Request{user}->has_registered && $Request{args}{talk_id}) {
@@ -44,7 +45,8 @@ sub ajax_handler
         );
     }
 
-    $Request{status} = HTTP_NO_CONTENT;
+    $Request{status} = 204;
+    return;
 }
 
 1;
