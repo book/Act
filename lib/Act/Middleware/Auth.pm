@@ -66,10 +66,10 @@ sub check_login {
 
     my $params = $req->parameters;
 
-    my $login   = $params->get_one('login');
-    my $sent_pw = $params->get_one('password');
-    my $remember_me = $params->get_one('remember_me');
-    my $dest    = $params->get_one('destination');
+    my $login   = $params->get('login');
+    my $sent_pw = $params->get('password');
+    my $remember_me = $params->get('remember_me');
+    my $dest    = $params->get('destination');
 
     # remove leading and trailing spaces
     for ($login, $sent_pw) {
