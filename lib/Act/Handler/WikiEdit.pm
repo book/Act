@@ -1,7 +1,7 @@
 package Act::Handler::WikiEdit;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
+use 'Act::Handler';
 
 use Act::Config;
 use Act::Tag;
@@ -20,12 +20,13 @@ sub handler
 {
     my $action = $Request{args}{action};
     unless (exists $actions{$action}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $wiki = Act::Wiki->new();
     my $template = Act::Template::HTML->new();
     $actions{$action}->($wiki, $template);
+    return;
 }
 sub wiki_edit
 {
@@ -33,7 +34,7 @@ sub wiki_edit
 
     my $node = $Request{args}{node};
     unless ($node) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my %data = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node));
@@ -56,7 +57,7 @@ sub wiki_commit
 
     my $node = $Request{args}{node};
     unless ($node) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # preview
@@ -122,12 +123,12 @@ sub wiki_revert
     my ($wiki, $template) = @_;
 
     unless ($Request{user}->is_wiki_admin) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
     my ($node, $version) = map $Request{args}{$_}, qw(node version);
     unless ($node && $version) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve checksum of latest version
@@ -153,12 +154,12 @@ sub wiki_delete
     my ($wiki, $template) = @_;
 
     unless ($Request{user}->is_wiki_admin) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
     my $node = $Request{args}{node};
     unless ($node) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # delete node
