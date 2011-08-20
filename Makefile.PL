@@ -35,6 +35,7 @@ requires(
 'Net::OpenID::Server' => 0, 
 'Pod::POM' => 0, 
 'Plack'    => 0,
+'Plack::Middleware::Session::Cookie' => 0,
 'Template' => 2.16, # Template::Constants
 'Template::Multilingual::Parser' => 0, 
 'Term::ReadKey' => 0, 
