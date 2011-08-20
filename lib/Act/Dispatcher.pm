@@ -77,7 +77,7 @@ sub to_app {
                 my $env = shift;
                 my $req = Plack::Request->new($env);
                 $env->{'act.base_url'} = $req->base->as_string;
-                Act::Util::db_connect();
+                $env->{'act.dbh'} = Act::Util::db_connect();
                 $app->($env);
             };
         };
