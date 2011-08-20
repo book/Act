@@ -6,6 +6,7 @@ use parent qw(Plack::Middleware);
 use Plack::Request;
 use Act::Config ();
 use Try::Tiny;
+use Plack::Util::Accessor qw(private);
 
 sub call {
     my $self = shift;
@@ -19,22 +20,44 @@ sub call {
 
     my $session_id = $req->cookies->{'Act_session_id'};
 
-    my $user = Act::User->new( session_id => $session_id );
+    $env->{'act.auth.login'} = \&_login;
+    $env->{'act.auth.logout'} = \&_logout;
+    $env->{'act.auth.set_session'} = \&_set_session;
+
+    my $user = Act::User->new( session_id => $sid );
     if ($user) {
         $env->{'act.user'} = $user;
     }
     elsif ($self->private) {
         return Act::Handler::Login->new->call($env);
     }
-    $env->{'act.logout'} = sub {
-        my $resp = shift;
-        $resp->cookies->{'Act_session_id'} = {
-            value => '',
-            expires => 1,
-        };
-    };
-
     $self->app->($env);
+}
+
+sub _login {
+    my $resp = shift;
+    my $user = shift;
+    my $sid = Act::Util::create_session($user);
+    $resp->cookies->{'Act_session_id'} = {
+        value => $sid,
+        expires => 1,
+    };
+}
+sub _logout {
+    my $resp = shift;
+    $resp->cookies->{'Act_session_id'} = {
+        value => '',
+        expires => 1,
+    };
+}
+sub _set_session {
+    my $resp = shift;
+    my $sid = shift;
+    my $remember_me = shift;
+    $resp->cookies->{Act_session_id} = {
+        value => $sid,
+        $remember_me ? ( expires => time + 6*30*24*60*60 ) : (),
+    };
 }
 
 sub check_login {
@@ -77,10 +100,7 @@ sub check_login {
         my $sid = Act::Util::create_session($user);
         my $resp = Plack::Response->new;
         $resp->redirect($dest);
-        $resp->cookies->{Act_session_id} = {
-            value => $sid,
-            $remember_me ? ( expires => time + 6*30*24*60*60 ) : (),
-        };
+        _set_session($resp, $sid, $remember_me);
         return $resp->finalize;
     }
     catch {

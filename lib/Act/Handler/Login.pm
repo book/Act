@@ -2,7 +2,6 @@ package Act::Handler::Login;
 
 use strict;
 use parent 'Act::Handler';
-use Apache::Constants qw(DONE);
 use Act::Config;
 use Act::Template::HTML;
 use Act::Util;
