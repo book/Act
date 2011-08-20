@@ -2,7 +2,6 @@ use strict;
 use utf8;
 package Act::Util;
 
-use Apache::Constants qw(M_GET REDIRECT);
 use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
@@ -133,15 +132,10 @@ sub redirect
 {
     my $location = shift;
     my $r = $Request{r} or return;
-    if ($r->method eq 'POST') {
-        $r->method("GET");
-        $r->method_number(M_GET);
-        $r->headers_in->unset("Content-length");
-    }
-    $r->headers_out->set(Location => $location);
-    $r->status(REDIRECT);
+    $r->headers->header(Location => $location);
+    $r->status(302);
     $r->send_http_header;
-    return REDIRECT;
+    return 302;
 }
 
 sub gen_password
