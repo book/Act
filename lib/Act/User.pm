@@ -1,4 +1,6 @@
 package Act::User;
+use strict;
+
 use Act::Config;
 use Act::Object;
 use Act::Talk;
@@ -207,6 +209,8 @@ my %methods = (
 );
 
 for my $meth (keys %methods) {
+    no strict 'refs';
+
     *{$meth} = sub {
         my $self = shift;
         return $self->{$meth} if exists $self->{$meth};
@@ -281,7 +285,7 @@ sub create {
 
     my $part = delete $args{participation};
     my $password = delete $args{password};
-    $args{passwd} = $self->_crypt_password($password)
+    $args{passwd} = $class->_crypt_password($password)
         if defined $password;
     my $user = $class->SUPER::create(%args);
     if ($user && $part && $Request{conference}) {
@@ -399,6 +403,7 @@ sub check_password {
     my $self = shift;
     my $check_pass = shift;
 
+    my $user = $Request{user};
     my $pw_hash = $user->{passwd};
     my ($scheme, $hash) = $pw_hash =~ /^(?:{(\w+)})?(.*)$/;
     $scheme ||= 'MD5';
