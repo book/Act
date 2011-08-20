@@ -1,5 +1,8 @@
 package Act::Handler::Payment::Unregister;
 
+use strict;
+use parent 'Act::Handler';
+
 use Act::Template::HTML;
 use Act::User;
 use Act::Config;
@@ -10,11 +13,11 @@ sub handler
     # for treasurers only
     unless ($Request{user} && $Request{user}->is_treasurer)
     {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     unless ($Request{args}{user_id} =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $user = Act::User->new(
@@ -22,7 +25,7 @@ sub handler
         conf_id => $Request{conference},
     );
     unless ($user) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # user logged in and registered
