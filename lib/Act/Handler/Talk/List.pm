@@ -1,6 +1,6 @@
 package Act::Handler::Talk::List;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Tag;
@@ -102,6 +102,7 @@ sub handler
         tag            => $tag,
     ); 
     $template->process('talk/list');
+    return;
 }
 
 1;
