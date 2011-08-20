@@ -1,7 +1,7 @@
 package Act::Handler::Talk::Import;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
 use DateTime;
 use Data::ICal;
 use Data::ICal::DateTime;
@@ -16,7 +16,7 @@ sub handler
 {
     # only for admins
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new;
@@ -62,6 +62,7 @@ sub handler
     }
     # display results
     $template->process('talk/import');
+    return;
 }
 1;
 __END__
