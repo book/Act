@@ -36,7 +36,11 @@ requires(
 'Net::OpenID::Server' => 0, 
 'Pod::POM' => 0, 
 'Plack'    => 0,
+'Plack::App::Cascade' => 0,
+'Plack::Builder' => 0,
 'Plack::Middleware::Session::Cookie' => 0,
+'Plack::Request' => 0,
+'Plack::Util::Accessor' => 0,
 'Template' => 2.16, # Template::Constants
 'Template::Multilingual::Parser' => 0, 
 'Term::ReadKey' => 0, 
@@ -44,10 +48,12 @@ requires(
 'Text::Diff' => 0, 
 'Text::WikiFormat' => 0, 
 'Text::xSV' => 0, 
+'Try::Tiny' => 0,
 'URI::Escape' => 0, 
 'URI' => 1.31, 
 'Wiki::Toolkit' => 0, # Wiki::Toolkit::Formatter::Default Wiki::Toolkit::Store::Pg
 'XML::Atom' => '0.20',   # XML::Atom::Entry XML::Atom::Feed XML::Atom::Link
+'parent' => 0,
 'version' => 0,
 );
 auto_install();
