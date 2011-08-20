@@ -4,5 +4,9 @@ use strict;
 use warnings;
 
 use Act::Dispatcher;
+use Plack::Builder;
 
-Act::Dispatcher->to_app;
+builder {
+    enable 'Session::Cookie';
+    Act::Dispatcher->to_app;
+};
