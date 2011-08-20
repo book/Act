@@ -4,6 +4,7 @@ use strict;
 use HTML::Entities;
 use Template::Constants qw(CHOMP_COLLAPSE);
 use base 'Act::Template';
+use Scalar::Util qw(blessed);
 
 use Act::Config;
 
@@ -33,14 +34,14 @@ sub escape
     if (ref $_[0] eq 'DateTime') {
         return $_[0];
     }
-    if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
+    if ($_[0] && blessed $_[0]) {
+        return $_[0];
+    }
+    elsif ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
         $self->escape($_) for @{$_[0]};
     }
     elsif ($_[0] && UNIVERSAL::isa($_[0],'HASH')) {
         $self->escape($_[0]{$_}) for keys %{$_[0]};
-    }
-    elsif (ref $_[0]) {
-        return $_[0];
     }
     elsif (defined $_[0]) {
         return HTML::Entities::encode($_[0], '<>&"');
