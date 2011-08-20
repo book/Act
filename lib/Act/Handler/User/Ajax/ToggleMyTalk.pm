@@ -1,7 +1,7 @@
 package Act::Handler::User::Ajax::ToggleMyTalk;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw( HTTP_NO_CONTENT );
 use Act::Talk;
 use Act::User;
 use Act::Config;
@@ -19,7 +19,8 @@ sub handler
         );
     }
 
-    $Request{status} = HTTP_NO_CONTENT;
+    $Request{status} = 204;
+    return;
 }
 1;
 
