@@ -32,6 +32,10 @@ sub print {
     push @{ $self->_body }, @_;
 }
 
+sub auth_type {
+    my ( $self ) = @_;
+}
+
 1;
 
 __END__
