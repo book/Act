@@ -17,10 +17,6 @@ sub new {
     return $self;
 }
 
-sub act_user {
-    my ( $self ) = @_;
-}
-
 sub no_cache {
     my ( $self, $dont_cache ) = @_;
 

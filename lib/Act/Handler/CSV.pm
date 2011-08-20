@@ -59,7 +59,7 @@ sub handler
     my $report = $CSV{$req->path_info};
 
     # check rights
-    unless ( $req->act_user && $report->[0]->($req->act_user)) {
+    unless ( $Request{user} && $report->[0]->($Request{user})) {
         $res->status(403);
         return $res->finalize;
     }
