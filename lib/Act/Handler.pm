@@ -35,7 +35,7 @@ sub call {
     } elsif(defined($status)) { # we're acting like an Apache handler
         $req->response->status($status);
     } else {
-        $req->response->status($Request{'status'});
+        $req->response->status($Request{'status'}) if $Request{'status'};
     }
     return $req->response->finalize;
 }
