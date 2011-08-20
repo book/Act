@@ -7,13 +7,13 @@ use Act::Config;
 use Act::Util;
 use Act::I18N;
 use Act::Request;
-use Plack::Util::Accessor qw(private);
+use Plack::Util::Accessor qw(private subhandler);
 
 sub call {
     my $self = shift;
     my $env = shift;
     my $req = Act::Request->new($env);
-    my $handler = $self->can('handler');
+    my $handler = $self->can( $self->subhandler || 'handler' );
     %Request = (
         dbh         => $env->{'act.dbh'},
         r           => $req,
