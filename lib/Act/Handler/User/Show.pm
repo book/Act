@@ -1,6 +1,7 @@
 package Act::Handler::User::Show;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use 'Act::Handler';
+
 use Act::Config;
 use Act::Country;
 use Act::Template::HTML;
@@ -12,7 +13,7 @@ sub handler
     # retrieve user_id
     my $user_id = $Request{path_info};
     unless ($user_id =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve user
@@ -29,7 +30,7 @@ sub handler
             $Request{conference} ? ( conf_id => $Request{conference} ) : (),
           )
           or do {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
           };
     }
@@ -60,6 +61,7 @@ sub handler
         mytalks => $user->my_talks,
     );
     $template->process('user/show');
+    return;
 }
 
 1;
