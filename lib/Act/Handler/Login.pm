@@ -8,7 +8,8 @@ use Act::Util;
 
 sub handler
 {
-    my $r = $Request{r};
+    my $r   = $Request{r};
+    my $env = $r->env;
 
     # disable client-side caching
     $r->no_cache(1);

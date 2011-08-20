@@ -374,7 +374,7 @@ sub most_recent_participation {
 }
 
 sub set_password {
-    my $self = shift
+    my $self = shift;
     my $password = shift;
     my $crypted = $self->_crypt_password($password);
     $Request{user}->update( passwd => "{BCRYPT}$crypted" );
