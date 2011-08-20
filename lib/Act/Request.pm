@@ -22,6 +22,11 @@ sub act_user {
 
 sub no_cache {
     my ( $self, $dont_cache ) = @_;
+
+    if($dont_cache) {
+        $self->response->header('Cache-Control' => 'no-cache');
+        $self->response->header('Pragma'        => 'no-cache');
+    }
 }
 
 1;
