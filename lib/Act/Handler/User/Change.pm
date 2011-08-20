@@ -1,6 +1,7 @@
 package Act::Handler::User::Change;
 
 use strict;
+use parent 'Act::Handler';
 use DateTime::TimeZone;
  
 use Act::Config;
@@ -119,6 +120,7 @@ sub handler
         %$fields
     );
     $template->process('user/change');
+    return;
 }
 
 1;
