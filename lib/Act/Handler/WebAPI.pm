@@ -1,6 +1,6 @@
 package Act::Handler::WebAPI;
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use JSON::XS ();
 

@@ -1,7 +1,7 @@
 package Act::Handler::User::Orders;
 
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;

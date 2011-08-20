@@ -1,7 +1,7 @@
 package Act::Handler::User::Main;
 
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use List::Util qw(first);
 

@@ -1,5 +1,6 @@
 package Act::Handler::Event::Show;
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Event;

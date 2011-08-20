@@ -1,6 +1,6 @@
 package Act::Handler::User::Register;
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Country;

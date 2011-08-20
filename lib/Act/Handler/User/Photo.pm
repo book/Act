@@ -1,7 +1,7 @@
 package Act::Handler::User::Photo;
 
 use strict;
-use 'Act::Handler';
+use parent 'Act::Handler';
 
 use Digest::MD5 qw(md5_hex);
 use File::Spec::Functions qw(catfile);
