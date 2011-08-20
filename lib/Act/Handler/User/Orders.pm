@@ -1,7 +1,7 @@
 package Act::Handler::User::Orders;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;
@@ -11,7 +11,7 @@ sub handler
 {
     # registered users only
     unless ($Request{user}->has_registered() && $Config->payment_type ne 'NONE') {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # get his orders
@@ -31,6 +31,7 @@ sub handler
         orders => $orders,
     );
     $template->process('user/orders');
+    return;
 }
 
 1;
