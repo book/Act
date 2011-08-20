@@ -2,10 +2,6 @@ use inc::Module::Install;
 all_from 'lib/Act.pm';
 
 requires(
-'Apache::AuthCookie' => 3.05, 
-'Apache::Constants' => 0, 
-'Apache::Cookie' => 0, 
-'Apache::Request' => 0, 
 'AppConfig' => 0, 
 'Clone' => 0, 
 'DBI' => 0, 
@@ -37,6 +33,7 @@ requires(
 'Locale::Maketext::Lexicon' => 0, 
 'Net::OpenID::Server' => 0, 
 'Pod::POM' => 0, 
+'Plack'    => 0,
 'Template' => 2.16, # Template::Constants
 'Template::Multilingual::Parser' => 0, 
 'Term::ReadKey' => 0, 
