@@ -2,7 +2,6 @@ use strict;
 use utf8;
 package Act::Util;
 
-use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
@@ -160,12 +159,6 @@ sub create_session
     $user->update(session_id => $sid, language => $Request{language});
 
     return $sid;
-}
-sub login
-{
-    my $user = shift;
-    my $sid = create_session($user);
-    Apache::AuthCookie->send_cookie($sid);
 }
 sub get_user_info
 {

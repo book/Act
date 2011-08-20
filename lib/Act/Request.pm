@@ -32,9 +32,17 @@ sub print {
     push @{ $self->_body }, @_;
 }
 
+sub login {
+    my ( $self ) = @_;
+    $self->env->{'act.auth.login'}->($self->response, $user);
+}
 sub logout {
     my ( $self ) = @_;
-    $self->env->{'act.logout'}->($self->response);
+    $self->env->{'act.auth.logout'}->($self->response);
+}
+sub set_session {
+    my ( $self, $sid, $remember_me ) = @_;
+    $self->env->{'act.auth.set_session'}->($self->response, $sid, $remember_me);
 }
 
 sub send_http_header {

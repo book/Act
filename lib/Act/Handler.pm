@@ -7,7 +7,7 @@ use Act::Config;
 use Act::Util;
 use Act::I18N;
 use Act::Request;
-use Plack::Util::Accessor qw(private subhandler);
+use Plack::Util::Accessor qw(subhandler);
 
 sub call {
     my $self = shift;

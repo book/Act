@@ -90,8 +90,7 @@ sub handler
             unless ($Request{user}) {
                 my $user = Act::User->new(user_id => $token_data)
                     or die "unknown user_id: $token_data\n";
-                my $sid = Act::Util::create_session($user);
-                Act::Middleware::Auth::set_session($Request{r}->response, $sid);
+                $Request{r}->login($user);
                 Act::TwoStep::remove($token);
             }
             # update user
