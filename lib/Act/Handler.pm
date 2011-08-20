@@ -26,6 +26,7 @@ sub call {
         loc         => Act::I18N->get_handle($env->{'act.language'}),
         user        => $env->{'act.user'},
     );
+    $Request{path_info} =~ s{^/}{};
     $Config = $env->{'act.config'};
 
     my $status = $handler->($env);
