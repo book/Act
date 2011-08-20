@@ -1,7 +1,8 @@
 package Act::Handler::Wiki;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use 'Act::Handler';
+
 use DateTime;
 use DateTime::Format::Pg;
 use Encode;
@@ -37,12 +38,13 @@ sub handler
         $action = $Request{args}{action} || 'display';
     }
     unless (exists $actions{$action}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $wiki     = Act::Wiki->new();
     my $template = Act::Template::HTML->new();
     $actions{$action}->($wiki, $template, @args);
+    return;
 }
 
 # display a specific node (wiki page)
@@ -95,7 +97,7 @@ sub wiki_history
 
     my $node = $Request{args}{node};
     unless ($node) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -118,7 +120,7 @@ sub wiki_diff
     my $node = $Request{args}{node};
 
     unless ($node && $Request{args}{r1} && $Request{args}{r2}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -127,7 +129,7 @@ sub wiki_diff
         my %v = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node), version => $Request{args}{$r});
 
         unless ($v{version} == $Request{args}{$r}) {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
 
