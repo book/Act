@@ -1,7 +1,6 @@
 package Act::Handler::Talk::ExportMyIcal;
 use strict;
-
-use Apache::Constants qw(FORBIDDEN);
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Event;
@@ -21,6 +20,7 @@ sub handler
              @{ $Request{user}->my_talks };
 
     Act::Handler::Talk::ExportIcal::export(\@timeslots);
+    return;
 }
 
 1;
