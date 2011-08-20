@@ -1,6 +1,7 @@
 package Act::Handler::OpenID::Trust;
 
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Util;
 use URI::Escape;
