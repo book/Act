@@ -4,6 +4,7 @@ use Act::TimeSlot;
 use Act::Template::HTML;
 use List::Util qw( sum );
 use strict;
+use parent 'Act::Handler';
 
 sub handler {
     # pick up talks and events
@@ -24,6 +25,7 @@ sub handler {
         todo     => \@undecided,
     );
     $template->process('talk/schedule');
+    return;
 }
 
 sub compute_schedule {
