@@ -1,4 +1,6 @@
 package Act::Handler::User::Search;
+use strict;
+use 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;
@@ -67,7 +69,7 @@ sub handler {
         next          => defined($onext), 
     );
     $template->process('user/search_form');
-
+    return;
 }
 
 1;
