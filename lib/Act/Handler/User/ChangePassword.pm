@@ -1,6 +1,7 @@
 package Act::Handler::User::ChangePassword;
 
 use strict;
+use parent 'Act::Handler';
 
 use Act::Auth; 
 use Act::Config;
@@ -138,6 +139,7 @@ sub handler
     }
     # display form
     $template->process('user/change_password');
+    return;
 }
 
 1;
