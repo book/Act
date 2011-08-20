@@ -1,7 +1,7 @@
 package Act::Handler::Talk::ExportCSV;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
 use DateTime;
 use DateTime::Format::Pg;
 use Text::xSV;
@@ -38,7 +38,7 @@ sub handler
 {
     # only for orgas
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # get talks
@@ -62,6 +62,7 @@ sub handler
             map($talk->$_, @TROWS),
         ));
     }
+    return;
 }
 
 1;
