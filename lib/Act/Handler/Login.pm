@@ -1,6 +1,7 @@
 package Act::Handler::Login;
 
 use strict;
+use parent 'Act::Handler';
 use Apache::Constants qw(DONE);
 use Act::Config;
 use Act::Template::HTML;
@@ -27,6 +28,7 @@ sub handler
     );
     $template->process('login');
     $Request{status} = 200;
+    return;
 }
 1;
 __END__
