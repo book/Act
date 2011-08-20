@@ -52,7 +52,7 @@ sub handler
 
                 # store picture
                 my $filename = $digest . $Act::Config::Image_formats{$format};
-                my $pathname = catfile($Request{r}->document_root,
+                my $pathname = catfile($Config->root,
                                        $Config->general_dir_photos,
                                        $filename);
                 $img->write(file => $pathname, type => $format)
@@ -91,7 +91,7 @@ sub handler
 
 sub _delete_photo()
 {
-    unlink catfile($Request{r}->document_root,
+    unlink catfile($Config->root,
                    $Config->general_dir_photos,
                    $Request{user}{photo_name})
         if $Request{user}{photo_name};
