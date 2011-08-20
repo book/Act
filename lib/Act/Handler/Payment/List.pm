@@ -1,6 +1,6 @@
 package Act::Handler::Payment::List;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use DateTime;
 use List::Util qw(first);
 
@@ -44,7 +44,7 @@ sub handler
     # for treasurers only
     unless ($Request{user} && $Request{user}->is_treasurer)
     {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve users and their payment info
@@ -95,6 +95,7 @@ sub handler
         extra       => $extra,
     ); 
     $template->process('payment/list');
+    return;
 }
 
 1;
