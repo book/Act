@@ -1,6 +1,6 @@
 package Act::Handler::User::Rights;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;
@@ -12,7 +12,7 @@ sub handler
 {
     # this is for admins only
     unless ($Request{user}->is_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -99,6 +99,7 @@ sub handler
                   ],
     );
     $template->process('user/rights');
+    return;
 }
 
 1;
