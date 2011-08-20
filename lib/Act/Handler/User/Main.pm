@@ -1,6 +1,8 @@
 package Act::Handler::User::Main;
 
 use strict;
+use 'Act::Handler';
+
 use List::Util qw(first);
 
 use Act::Config;
@@ -48,6 +50,7 @@ sub handler {
                        && !$Request{user}->has_talk(),
     );
     $template->process('user/main');
+    return;
 }
 
 1;
