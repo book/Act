@@ -101,7 +101,7 @@ sub escape
 sub process
 {
     my ($self, $filename, $output) = @_;
-    my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Apache');
+    my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Act::Request');
 
     # set global variables
     my %global = (
