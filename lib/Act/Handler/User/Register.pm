@@ -117,7 +117,7 @@ sub handler {
                     participation => {
                         tshirt_size => $fields->{tshirt},
                         datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
-                        ip          => $Request{r}->connection->remote_ip,
+                        ip          => $Request{r}->address,
                     },
                 );
 
