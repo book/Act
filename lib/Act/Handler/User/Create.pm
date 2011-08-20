@@ -1,7 +1,7 @@
 package Act::Handler::User::Create;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(FORBIDDEN);
 use Act::Config;
 use Act::Country;
 use Act::Form;
@@ -34,7 +34,7 @@ sub handler
 {
     # only orgas can run this
     unless ( $Request{user}->is_users_admin ) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
 
@@ -147,6 +147,7 @@ sub handler
         errors     => \@errors,
     );
     $template->process('user/create');
+    return;
 }
 
 1;
