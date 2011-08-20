@@ -65,7 +65,7 @@ sub handler
     }
 
     # retrieve the information
-    my $sth = $env->{'act.dbh'}->prepare( $report->[1] );
+    my $sth = $Request{'dbh'}->prepare( $report->[1] );
     $sth->execute( $env->{'act.conference'}, @{$report->[2]} );
 
     # and spit out the xSV report
