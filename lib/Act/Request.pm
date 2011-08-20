@@ -27,9 +27,9 @@ sub no_cache {
 }
 
 sub print {
-    my ( $self, $content ) = @_;
+    my $self = shift;
 
-    push @{ $self->_body }, $content;
+    push @{ $self->_body }, @_;
 }
 
 1;
