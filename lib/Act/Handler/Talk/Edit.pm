@@ -1,7 +1,7 @@
 package Act::Handler::Talk::Edit;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
+use parent 'Act::Handler';
 use DateTime::Format::Pg ();
 use Text::Diff ();
  
@@ -62,7 +62,7 @@ sub handler {
         );
         unless ($talk) {
             # cannot edit non-existent talk
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
         # retrieve tags
@@ -81,7 +81,7 @@ sub handler {
                         && ($Config->talks_edition_open || $Config->talks_submissions_open))
                 || $Config->talks_submissions_open )
         {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
     }
@@ -247,6 +247,7 @@ sub handler {
         tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
     ) if $Request{user}->is_talks_admin;
     $template->process('talk/add');
+    return;
 }
 
 # optional email notification when a talk is inserted or updated
