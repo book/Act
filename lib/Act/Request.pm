@@ -4,6 +4,18 @@ use strict;
 use warnings;
 use parent 'Plack::Request';
 
+use Plack::Util::Accessor qw(response);
+
+sub new {
+    my ( $class ) = @_;
+
+    my $self = Plack::Request::new(@_);
+
+    $self->response($self->new_response);
+
+    return $self;
+}
+
 sub act_user {
     my ( $self ) = @_;
 }
