@@ -1,6 +1,7 @@
 package Act::Handler::User::Purchase;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use 'Act::Handler';
+
 use JSON::XS ();
 use List::Util qw(first);
 
@@ -27,7 +28,7 @@ sub handler
 
     # shouldn't get here unless online payment is open
     unless ($Config->payment_type ne 'NONE' && $Config->payment_open) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -154,6 +155,7 @@ sub handler
         %$fields,
     );
     $template->process('user/purchase');
+    return;
 }
 
 1;
