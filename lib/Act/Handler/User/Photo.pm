@@ -1,6 +1,8 @@
 package Act::Handler::User::Photo;
 
 use strict;
+use 'Act::Handler';
+
 use Digest::MD5 qw(md5_hex);
 use File::Spec::Functions qw(catfile);
 use Imager;
@@ -84,6 +86,7 @@ sub handler
                     ),
     );
     $template->process('user/photo');
+    return;
 }
 
 sub _delete_photo()
