@@ -22,7 +22,7 @@ sub call {
         base_url    => $env->{'act.base_url'},
         conference  => $env->{'act.conference'},
         private     => $self->private,
-        args        => { map { scalar $_ => decode_utf8($r->param($_)) } $r->param };
+        args        => { map { scalar $_ => decode_utf8($req->param($_)) } $req->param },
         language    => $env->{'act.language'},
         loc         => Act::I18N->get_handle($env->{'act.language'}),
     );

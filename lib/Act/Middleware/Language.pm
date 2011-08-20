@@ -50,7 +50,7 @@ sub call {
                 $v =~ s/;.*$//;
                 $v =~ s/-.*$//;
                 if ($v && $langs->{$v}) {
-                    $language = $c->{language} = $v;
+                    $language = $s->{language} = $v;
                     die [];
                 }
             });
@@ -75,4 +75,4 @@ sub call {
     $self->app->($env);
 }
 
-
+1;
