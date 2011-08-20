@@ -19,7 +19,7 @@ sub call {
 
     my $session_id = $req->cookies->{'Act_session_id'};
 
-    my $user = Act::User->new( session_id => $sid );
+    my $user = Act::User->new( session_id => $session_id );
     if ($user) {
         $env->{'act.user'} = $user;
     }
@@ -79,11 +79,13 @@ sub check_login {
         $resp->redirect($dest);
         $resp->cookies->{Act_session_id} = {
             value => $sid,
-            $remenber_me ? ( expires => time + 6*30*24*60*60 ) : (),
+            $remember_me ? ( expires => time + 6*30*24*60*60 ) : (),
         };
         return $resp->finalize;
     }
     catch {
+        my $env = $req->env;
+
         my $error = $_->[0];
         my $full_error = join ' ', map { "[$_]" }
             $env->{SERVER_NAME},
