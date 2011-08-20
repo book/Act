@@ -15,6 +15,8 @@ sub call {
     my $req = Act::Request->new($env);
     my $handler = $self->can('handler');
     %Request = (
+        %Request,
+        dbh         => $env->{'act.dbh'},
         r           => $req,
         path_info   => $req->path_info,
         base_url    => $env->{'act.base_url'},
