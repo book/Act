@@ -33,7 +33,7 @@ sub print {
 }
 
 sub login {
-    my ( $self ) = @_;
+    my ( $self, $user ) = @_;
     $self->env->{'act.auth.login'}->($self->response, $user);
 }
 sub logout {

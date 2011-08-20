@@ -24,7 +24,7 @@ sub call {
     $env->{'act.auth.logout'} = \&_logout;
     $env->{'act.auth.set_session'} = \&_set_session;
 
-    my $user = Act::User->new( session_id => $sid );
+    my $user = Act::User->new( session_id => $session_id );
     if ($user) {
         $env->{'act.user'} = $user;
     }
