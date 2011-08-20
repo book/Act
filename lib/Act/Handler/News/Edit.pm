@@ -1,7 +1,7 @@
 use strict;
 package Act::Handler::News::Edit;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
 use DateTime;
 use DateTime::Format::Pg;
 
@@ -28,7 +28,7 @@ sub handler
 {
     # orgas only
     unless ($Request{user}->is_news_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new();
@@ -42,7 +42,7 @@ sub handler
         );
         unless ($news) {
             # cannot edit non-existent item
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
     }
@@ -149,7 +149,9 @@ sub handler
     # display the news item submission form
     $template->variables( %$fields );
     $template->process('news/edit');
+    return;
 }
+
 sub _trim
 {
     my $s = shift;
