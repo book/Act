@@ -48,7 +48,7 @@ sub handler
     my ( $env ) = @_;
 
     my $req = Act::Request->new($env);
-    my $res = $req->new_response;
+    my $res = $req->response;
 
     # check csv request
     unless( exists $CSV{$req->path_info} ) {
