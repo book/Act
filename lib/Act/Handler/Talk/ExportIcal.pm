@@ -1,7 +1,7 @@
 package Act::Handler::Talk::ExportIcal;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(FORBIDDEN);
 use DateTime::Format::Pg;
 use Data::ICal;
 use Data::ICal::Entry::Event;
@@ -23,12 +23,13 @@ sub handler {
     unless ( $Request{user} && $Request{user}->is_talks_admin
         || $Config->talks_show_schedule )
     {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
 
     my $timeslots = _get_timeslots();
     export($timeslots);
+    return;
 }
 
 
