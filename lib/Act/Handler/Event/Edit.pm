@@ -1,9 +1,9 @@
 package Act::Handler::Event::Edit;
 
 use strict;
+use parent 'Act::Handler';
 use DateTime::TimeZone;
  
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
 use Act::Form;
 use Act::Template::HTML;
@@ -27,7 +27,7 @@ my $form = Act::Form->new(
 sub handler {
 
     unless ( $Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new();
@@ -47,7 +47,7 @@ sub handler {
 
     # cannot edit non-existent events
     if( exists $Request{args}{event_id} and not defined $event ) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -131,6 +131,7 @@ sub handler {
                  },
     );
     $template->process('event/add');
+    return;
 }
 
 1;
