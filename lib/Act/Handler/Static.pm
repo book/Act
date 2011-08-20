@@ -3,7 +3,7 @@
 package Act::Handler::Static;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use File::Spec;
 
 use Act::Config;
@@ -26,8 +26,9 @@ sub handler
         $template->process($Request{path_info});
     }
     else {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
     }
+    return;
 }
 1;
 __END__
