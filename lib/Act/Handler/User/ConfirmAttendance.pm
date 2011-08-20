@@ -1,6 +1,6 @@
 package Act::Handler::User::ConfirmAttendance;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Form;
@@ -14,7 +14,7 @@ my $form = Act::Form->new(
 sub handler
 {
    unless ($Request{user}->is_users_admin ) {
-      $Request{status} = NOT_FOUND;
+      $Request{status} = 404;
       return;
    }
    my $template = Act::Template::HTML->new();
@@ -60,6 +60,7 @@ sub handler
       %$fields,
    );
    $template->process('user/confirm_attendance');
+   return;
 }
 
 1;
