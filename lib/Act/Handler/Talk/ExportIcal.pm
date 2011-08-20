@@ -23,7 +23,7 @@ sub handler {
     unless ( $Request{user} && $Request{user}->is_talks_admin
         || $Config->talks_show_schedule )
     {
-        $Request{status} = 403;
+        $Request{status} = 404;
         return;
     }
 
