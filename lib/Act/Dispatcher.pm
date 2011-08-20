@@ -6,6 +6,7 @@ use Plack::Builder;
 use Plack::Request;
 
 use Act::Config;
+use Act::Handler::Static;
 use Act::Util;
 
 # main dispatch table
