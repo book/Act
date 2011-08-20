@@ -1,5 +1,7 @@
 package Act::Handler::User::Faces;
 use strict;
+use 'Act::Handler';
+
 use Act::Config;
 use Act::Template::HTML;
 use Act::User;
@@ -40,6 +42,7 @@ sub handler {
     );
 
     $template->process("user/faces");
+    return;
 }
 
 1;
