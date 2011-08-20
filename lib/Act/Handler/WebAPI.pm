@@ -2,7 +2,6 @@ package Act::Handler::WebAPI;
 use strict;
 use 'Act::Handler';
 
-use Apache::Constants qw(BAD_REQUEST);
 use JSON::XS ();
 
 use Act::Config;
