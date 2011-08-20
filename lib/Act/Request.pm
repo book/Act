@@ -8,6 +8,10 @@ sub act_user {
     my ( $self ) = @_;
 }
 
+sub no_cache {
+    my ( $self, $dont_cache ) = @_;
+}
+
 1;
 
 __END__
