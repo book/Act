@@ -50,6 +50,10 @@ sub upload {
     # XXX returned value must support fh method (return psgi.input? but that only supports readline...)
 }
 
+sub document_root {
+    my ( $self ) = @_;
+}
+
 1;
 
 __END__
