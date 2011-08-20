@@ -30,10 +30,12 @@ sub call {
 
     if(ref $status) { # we're acting like a PSGI app!
         return $status;
-    } else { # we're acting like an Apache handler
+    } elsif(defined($status)) { # we're acting like an Apache handler
         $req->response->status($status);
-        return $req->response->finalize;
+    } else {
+        $req->response->status($Request{'status'});
     }
+    return $req->response->finalize;
 }
 
 1;
