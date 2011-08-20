@@ -7,6 +7,7 @@ use Act::Util;
 use Carp;
 use List::Util qw(first);
 use base qw( Act::Object );
+use Crypt::Eksblowfish::Bcrypt;
 
 # rights
 our @Rights = qw( admin users_admin talks_admin news_admin wiki_admin
@@ -279,6 +280,9 @@ sub create {
     $class->init();
 
     my $part = delete $args{participation};
+    my $password = delete $args{password};
+    $args{passwd} = $self->_crypt_password($password)
+        if defined $password;
     my $user = $class->SUPER::create(%args);
     if ($user && $part && $Request{conference}) {
         @$part{qw(conf_id user_id)} = ($Request{conference}, $user->{user_id});
@@ -367,6 +371,54 @@ sub most_recent_participation {
     $chosen->{url} = Act::Config::get_config($chosen->{conf_id})->general_full_uri
         if $chosen->{conf_id};
     $self->{most_recent_participation} = $chosen;
+}
+
+sub set_password {
+    my $self = shift
+    my $password = shift;
+    my $crypted = $self->_crypt_password($password);
+    $Request{user}->update( passwd => "{BCRYPT}$crypted" );
+    return 1;
+}
+
+sub _crypt_password {
+    my $class = shift;
+    my $pass = shift;
+    my $cost = $Config->bcrypt_cost;
+    my $salt = $Config->bcrypt_salt;
+    return Crypt::Eksblowfish::Bcrypt::en_base64(
+        Crypt::Eksblowfish::Bcrypt::bcrypt_hash({
+            key_nul => 1,
+            cost => $cost,
+            salt => $salt,
+        }, $pass)
+    );
+}
+
+sub check_password {
+    my $self = shift;
+    my $check_pass = shift;
+
+    my $pw_hash = $user->{passwd};
+    my ($scheme, $hash) = $pw_hash =~ /^(?:{(\w+)})?(.*)$/;
+    $scheme ||= 'MD5';
+
+    if ($scheme eq 'MD5') {
+        my $digest = Digest::MD5->new;
+        $digest->add(lc $check_pass);
+        $digest->b64digest eq $user->{passwd}
+            or die 'Bad password';
+        # upgrade hash
+        $self->set_password($check_pass);
+    }
+    elsif ($scheme eq 'BCRYPT') {
+        my $check_hash = $self->_crypt_password($check_pass);
+        $check_hash eq $pw_hash
+            or die 'Bad password';
+    }
+    else {
+        die 'Bad user data';
+    }
 }
 
 1;

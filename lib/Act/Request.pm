@@ -32,8 +32,9 @@ sub print {
     push @{ $self->_body }, @_;
 }
 
-sub auth_type {
+sub logout {
     my ( $self ) = @_;
+    $self->env->{'act.logout'}->($self->response);
 }
 
 sub send_http_header {

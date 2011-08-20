@@ -17,7 +17,7 @@ sub handler
     $Request{user}->update(session_id => undef);
 
     # remove the session cookie
-    $r->auth_type->logout($r);
+    $r->logout;
 
     # we're no longer authenticated
     undef $Request{user};

@@ -76,8 +76,8 @@ sub handler
             	$fields->{timezone} = $Config->general_timezone;
 
                 # generate a random password
-                my ($clear_passwd, $crypt_passwd) = Act::Util::gen_password();
-                $fields->{passwd} = $crypt_passwd;
+                my $clear_passwd = Act::Util::gen_password();
+                $fields->{password} = $clear_passwd;
 
                 # insert user in database
                 # and participation to this conference
