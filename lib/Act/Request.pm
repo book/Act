@@ -36,6 +36,14 @@ sub auth_type {
     my ( $self ) = @_;
 }
 
+sub send_http_header {
+    my ( $self, $content_type ) = @_;
+
+    return unless $content_type;
+
+    $self->response->content_type($content_type);
+}
+
 1;
 
 __END__
