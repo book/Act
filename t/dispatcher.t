@@ -6,25 +6,6 @@ use Test::More;
 use Act::Config;
 use Act::Util;
 
-# Apache::Constants doesn't work offline
-BEGIN {
-    my %ac = (
-        OK        => 0,
-        DECLINED  => 403,
-        REDIRECT  => 302,
-    );
-    {
-        require Exporter;
-        $INC{'Apache/Constants'} = 1;
-        @Apache::Constants::ISA = 'Exporter';
-        @Apache::Constants::EXPORT = keys %ac;
-        while (my ($k, $v) = each %ac) {
-            no strict 'refs';
-            *{"Apache::Constants::$k"} = sub { $v };
-        }
-        Apache::Constants->import;
-    }
-}
 my %uris = (
     foo => 'foo',
     bar => 'bar',
@@ -161,7 +142,7 @@ $r->set_always(server      => $s)
   ->mock(header_in     => sub { $vin{headers_in}{$_[1]} })
   ->mock(param         => sub { @_ > 1 ? $vin{args}{$_[1]} : keys %{$vin{args}} });
 
-Test::MockObject->fake_module('Apache::Request', instance => sub { $r });
+Test::MockObject->fake_module('Act::Request', instance => sub { $r });
 
 use_ok('Act::Dispatcher');
 

@@ -66,7 +66,7 @@ is(Act::News->content($fetched->text), $expected_content, "content as class meth
 $Request{r} = Test::MockObject->new;
 $Request{r}->set_true(qw(send_http_header))
            ->set_always(method => 'GET')
-           ->set_isa('Apache');
+           ->set_isa('Act::Request');
 $Config->set(languages => {});
 $Config->set(name => { en => 'foobar' });
 
