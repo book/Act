@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
-use warnings;
 use strict;
+use warnings;
 use Act::Config;
 use Act::PMGroup;
 use LWP::Simple;
