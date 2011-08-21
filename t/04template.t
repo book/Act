@@ -352,7 +352,7 @@ sub _ttest
         $Request{r} = Test::MockObject->new;
         $Request{r}->set_true(qw(send_http_header))
                    ->set_always(method => 'GET')
-                   ->set_isa('Apache');
+                   ->set_isa('Act::Request');
         $Request{args} = {};
     }
     else {
