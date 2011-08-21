@@ -2,6 +2,8 @@
 
 use strict;
 use utf8;
+use Test::Builder;
+use Test::Deep::NoTest qw(cmp_details deep_diag);
 use Test::MockObject;
 
 use Act::Config;
@@ -288,7 +290,7 @@ my @html_templates = (
     },
 );
 use Test::More;
-plan tests => 3 * (@templates + @html_templates) + 14;
+plan tests => (@templates + @html_templates) + 13;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
@@ -319,7 +321,7 @@ ok($template->process(\$junk,\$junk),
 $template->clear;
 
 for my $t (@templates) {
-    _ttest($template, $t);
+    _ttest($template, $t) || diag("template is $t->{name}");
 }
 ##### Act::Template::HTML
 require_ok('Act::Template::HTML');
@@ -327,7 +329,7 @@ $template = Act::Template::HTML->new;
 ok($template, "new HTML template");
 
 for my $t (@html_templates) {
-    _ttest($template, $t);
+    _ttest($template, $t) || diag("template is $t->{name}");
 }
 
 #####
@@ -364,10 +366,26 @@ sub _ttest
         $Request{r} = undef;
     }
 
+    my $tb = Test::Builder->new;
     my $output;
-    ok($template->process(\$t->{in}, \$output), "$t->{name} process");
-    is($output, $t->{out}, "$t->{name} output");
-    is_deeply($template->{PARSER}->sections, $t->{sections}, "$t->{name} sections");
+    my $diag;
+    my $ok = 1;
+
+    for(;;) {
+        $diag = "Template processing did not succeed";
+        $ok &&= $template->process(\$t->{in}, \$output);
+        last unless $ok;
+
+        $diag = "Template output was not correct\n  got: $output\n  expected: $t->{out}";
+        $ok &&= ($output eq $t->{out});
+        last unless $ok;
+
+        my $stack;
+        ( $ok, $stack ) = cmp_details($template->{PARSER}->sections, $t->{sections});
+        $diag = deep_diag($stack) unless $ok;
+        last;
+    }
+    return $tb->ok($ok) || diag($diag);
 }
 
 __END__
