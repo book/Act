@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 79 + 5 * NBPASS;
+use Test::More tests => 79 + 3 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -65,12 +65,10 @@ while (my ($u, $args, $expected) = splice(@t, 0, 3)) {
 # gen_password
 my %seen;
 for (1..NBPASS) {
-    my ($clear, $crypted) = Act::Util::gen_password();
+    my $clear  = Act::Util::gen_password();
     ok($clear);
     ok(!$seen{$clear}++);
-    ok($crypted);
     like($clear,   qr/^[a-z]+$/);
-    like($crypted, qr/^\S+$/);
 }
 # date_format
 use utf8;
