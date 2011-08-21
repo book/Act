@@ -41,6 +41,7 @@ requires(
 'Plack::Middleware::Session::Cookie' => 0,
 'Plack::Request' => 0,
 'Plack::Util::Accessor' => 0,
+'Plack::Test' => 0,
 'Template' => 2.16, # Template::Constants
 'Template::Multilingual::Parser' => 0, 
 'Term::ReadKey' => 0, 
