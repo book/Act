@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use lib 'lib';
 
 use Act::Dispatcher;
 use Plack::Builder;
