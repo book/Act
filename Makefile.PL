@@ -44,8 +44,7 @@ requires(
 'Template' => 2.16, # Template::Constants
 'Template::Multilingual::Parser' => 0, 
 'Term::ReadKey' => 0, 
-'Test::Builder' => 0,
-'Test::Deep' => 0,
+'Test::Deep::NoTest' => 0,
 'Test::MockObject' => 0, 
 'Text::Diff' => 0, 
 'Text::WikiFormat' => 0, 
