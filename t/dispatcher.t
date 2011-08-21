@@ -5,6 +5,8 @@ use Test::MockObject;
 use Test::More;
 use Act::Config;
 use Act::Util;
+use HTTP::Request::Common;
+use Plack::Test;
 
 my %uris = (
     foo => 'foo',
@@ -31,43 +33,43 @@ my @tests = (
  { # input
    request_uri => '/',
    # output
-   status      => DECLINED,
+   status      => 404,
  },
  { # input
    request_uri => '/page',
    # output
-   status      => DECLINED,
+   status      => 404,
    path_info   => 'page',
  },
  { # input
    request_uri => '/foo',
    # output
-   status      => DECLINED,
+   status      => 404,
    conf        => 'foo',
  },
  { # input
    request_uri => '/bar',
    # output
-   status      => DECLINED,
+   status      => 404,
    conf        => 'bar',
  },
  { # input
    request_uri => '/baz',
    # output
-   status      => DECLINED,
+   status      => 404,
    conf        => 'foo',
  },
  { # input
    request_uri => '/foo/',
    # output
-   status      => DECLINED,
+   status      => 404,
    conf        => 'foo',
    path_info   => 'index.html',
  },
  { # input
    request_uri => '/foo/index.html',
    # output
-   status      => OK,
+   status      => 200,
    conf        => 'foo',
    path_info   => 'index.html',
    handler     => 'Act::Handler::Static',
@@ -76,7 +78,7 @@ my @tests = (
    request_uri => '/foo/index.html',
    args        => { language => 'fr' },
    # output
-   status      => REDIRECT,
+   status      => 302,
    conf        => 'foo',
    path_info   => 'index.html',
    headers_out => { Location => '/foo/index.html' },
@@ -86,7 +88,7 @@ my @tests = (
    args        => { language => 'fr' },
    headers_in  => { 'User-Agent' => 'googlebot' },
    # output
-   status      => OK,
+   status      => 200,
    conf        => 'foo',
    path_info   => 'index.html',
    handler     => 'Act::Handler::Static',
@@ -95,7 +97,7 @@ my @tests = (
    request_uri => '/foo/login',
    host        => 'aa',
    # output
-   status      => OK,
+   status      => 200,
    conf        => 'foo',
    handler     => 'Act::Dispatcher',
    action      => 'login',
@@ -106,7 +108,7 @@ my @tests = (
    host        => 'bb',
    port        => 81,
    # output
-   status      => OK,
+   status      => 200,
    conf        => 'foo',
    handler     => 'Act::Dispatcher',
    action      => 'logout',
@@ -155,22 +157,29 @@ use_ok('Act::Dispatcher');
 }
 $Config = $cfg;
 
-# trans handler tests
-for my $t (@tests) {
-    %vin = map { $_ => $t->{$_} || $default{input}{$_} } keys %{$default{input}};
-    %vout = ();
-    $t->{$_} ||= $default{output}{$_} for keys %{$default{output}};
+my $app = Act::Dispatcher->to_app;
 
-    my $uri = $t->{request_uri};
-    is(Act::Dispatcher::trans_handler(), $t->{status}, "$uri status");
-    is($Request{conference},  $t->{conf},      "$uri conf");
-    is($Request{path_info},   $t->{path_info}, "$uri path_info");
-    is($Request{action},      $t->{action},    "$uri action");
-    is($Request{private},     $t->{private},   "$uri private");
-    is($Request{base_url},    $t->{base_url},  "$uri base_url");
+test_psgi $app, sub {
+    my ( $cb ) = @_;
 
-    is($vout{pushed_handler}, $t->{handler},   "$uri handler");
-    is_deeply($vout{headers_out}, $t->{headers_out}, "$uri headers_out");
-}
+    for my $t (@tests) {
+        %vin = map { $_ => $t->{$_} || $default{input}{$_} } keys %{$default{input}};
+        %vout = ();
+        $t->{$_} ||= $default{output}{$_} for keys %{$default{output}};
+
+        my $uri = $t->{request_uri};
+        my $res = $cb->(GET $uri);
+
+        is($res->code, $t->{status}, "$uri status");
+        is($Request{conference},  $t->{conf},      "$uri conf");
+        is($Request{path_info},   $t->{path_info}, "$uri path_info");
+        is($Request{action},      $t->{action},    "$uri action");
+        is($Request{private},     $t->{private},   "$uri private");
+        is($Request{base_url},    $t->{base_url},  "$uri base_url");
+
+        is($vout{pushed_handler}, $t->{handler},   "$uri handler");
+        is_deeply($vout{headers_out}, $t->{headers_out}, "$uri headers_out");
+    }
+};
 
 __END__
