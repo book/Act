@@ -1,9 +1,9 @@
 #!/usr/bin/env perl
+use lib 'lib';
 use strict;
-use DBI;
-
 use Act::Config;
 use Act::Database;
+use DBI;
 
 my $version = Act::Database::required_version();
 my (undef, $driver) = DBI->parse_dsn( $Config->database_dsn );
