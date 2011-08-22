@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use parent 'Plack::Request';
 
+use Encode qw(encode_utf8);
 use Plack::Util::Accessor qw(response _body);
 
 sub new {
@@ -29,7 +30,7 @@ sub no_cache {
 sub print {
     my $self = shift;
 
-    push @{ $self->_body }, @_;
+    push @{ $self->_body }, map { encode_utf8($_) } @_;
 }
 
 sub login {
