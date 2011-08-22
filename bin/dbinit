@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+use strict;
+use lib 'lib';
+
 use Act::Database;
 
 my $version = Act::Database::required_version();
