@@ -22,9 +22,11 @@ sub handler {
         return;
     }
 
+    my $req = $Request{r};
+
     my $nos = Net::OpenID::Server->new(
-        get_args      => $Request{r},
-        post_args     => $Request{r},
+        get_args      => sub { $req->query_parameters->get($_[0]) },
+        post_args     => sub { $req->body_parameters->get($_[0]) },
         server_secret => sub { $_[0] },
         get_user      => sub { $Request{user} },
         is_identity   => sub { is_identity(@_) },
