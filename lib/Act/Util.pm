@@ -131,7 +131,7 @@ sub redirect
 {
     my $location = shift;
     my $r = $Request{r} or return;
-    $r->headers->header(Location => $location);
+    $r->response->headers->header(Location => $location);
     $r->response->status(302);
     $r->send_http_header;
     return 302;
