@@ -5,6 +5,7 @@ use Encode qw(decode_utf8);
 use Plack::Builder;
 use Plack::Request;
 use Plack::App::Cascade;
+use Plack::App::File;
 
 use Act::Config;
 use Act::Handler::Static;
@@ -118,6 +119,21 @@ sub conference_app {
             };
         };
         Plack::App::Cascade->new( catch => [99], apps => [
+            builder {
+                # XXX ugly, but functional for now
+                enable sub {
+                    my ( $app ) = @_;
+
+                    return sub {
+                        my ( $env ) = @_;
+
+                        my $res = $app->($env);
+                        $res->[0] = 99 if $res->[0] == 404;
+                        return $res;
+                    };
+                };
+                Plack::App::File->new(root => $Config->general_root)->to_app;
+            },
             builder {
                 enable '+Act::Middleware::Auth';
                 for my $uri ( keys %public_handlers ) {
