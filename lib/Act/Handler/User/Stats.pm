@@ -46,16 +46,20 @@ sub handler {
     }
 
     # sort the towns for each country
-    $towns->{$_} =
-      [ sort { $b->{count} <=> $a->{count} } values %{ $towns->{$_} } ]
+    $towns->{$_} = [ sort { $b->{count} <=> $a->{count}
+                         || $b->{committed} <=> $a->{committed}
+                     } values %{ $towns->{$_} } ]
       for keys %$towns;
 
     # update the stats information
     $stats->{users}     = scalar @$users;
-    $stats->{countries} =
-      [ sort { $b->{count} <=> $a->{count} } values %$countries ];
+    $stats->{countries} = [ sort { $b->{count}     <=> $a->{count}
+                                || $b->{committed} <=> $a->{committed}
+                            } values %$countries ];
     $stats->{towns} = $towns;
-    $stats->{pm}    = [ sort { $b->{count} <=> $a->{count} } values %$pm ];
+    $stats->{pm}    = [ sort { $b->{count} <=> $a->{count}
+                            || $b->{committed} <=> $a->{committed}
+                        } values %$pm ];
 
     my $template = Act::Template::HTML->new();
     $template->variables( stats => $stats );
