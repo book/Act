@@ -118,16 +118,13 @@ sub _build_uri
 {
     my ($uri, %params) = @_;
 
-    my $base_uri = $Request{'r'}->uri;
-
     if (%params) {
         $uri .= '?'
              . join '&',
                map "$_=" . URI::Escape::uri_escape_utf8($params{$_}),
                sort keys %params;
     }
-    $base_uri->path($uri);
-    return $base_uri;
+    return $uri;
 }
 
 sub redirect
