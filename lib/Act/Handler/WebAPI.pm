@@ -17,6 +17,7 @@ my %Methods = (
                                    country town web_page pm_group pause_id monk_id monk_name im email
                                    language timezone
                                    company address vat
+                                   registered
                                 )),
                          },
                          default => [ qw(public_name email) ],
@@ -69,12 +70,14 @@ sub handler
 sub _get_attendees
 {
     my ($m, $fields) = @_;
+    my %fields = map { $_ => 1 } @$fields;
+    my @fields = grep { !/registered/ } @$fields;
 
     my $users = Act::User->get_items( conf_id => $Request{conference} );
     my @data;
     for my $user (@$users) {
-        push @data, _get_fields($m, $fields, $user)
-            if $user->committed;
+        push @data, _get_fields($m, \@fields, $user)
+            if($user->committed || ($user->has_registered && $fields{registered}});
     }
     return \@data;
 }
