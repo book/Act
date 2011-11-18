@@ -45,6 +45,12 @@ sub handler
     # conference is closed
     if ($Config->closed) {
         $Request{status} = 403;
+        my $template = Act::Template::HTML->new();
+        $template->variables(
+            closed   => 1,
+            end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+        );
+        $template->process('user/register');
         return;
     }
     # special case of logged in users!
