@@ -23,6 +23,9 @@ file F<act.ini>.
     default_country  = fr
     timezone  = Europe/Paris
     
+    # pager limit for the user search page
+    searchlimit = 25
+    
     [registration]
     open = 1
     # optional maximum number of attendees
