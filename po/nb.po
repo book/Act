@@ -128,10 +128,10 @@ msgid "You have not bought your conference ticket yet."
 msgstr "Du har foreløpig ikke kjøpt din billett til konferansen."
 
 msgid "Please consider doing so using our online payment system."
-msgstr "Tenk om ikke du skal gjøre dette ved å bruke vårt online-betalingssystem."
+msgstr "Vurder å bruke vårt online-betalingssystem."
 
 msgid "Please consider doing so once our online payment system is ready."
-msgstr "Tenk om ikke du skal gjøre dette når vårt online-betalingssystem er klart for bruk."
+msgstr "Vurder å bruke vårt online-betalingssystem når det er klart for bruk."
 
 msgid "You have not confirmed your participation to this conference yet."
 msgstr "Du har ikke ennå bekreftet din deltagelse på denne konferansen."
@@ -148,7 +148,7 @@ msgid "purchase your conference ticket"
 msgstr "kjøpe din billett til konferansen"
 
 msgid "confirm your participation"
-msgstr "bekrefte din deltagelse
+msgstr "bekrefte din deltagelse"
 
 msgid "register for this conference"
 msgstr "registrere deg for denne konferansen"
@@ -1322,7 +1322,7 @@ msgstr "Skriv inn ditt nye passord to ganger"
 
 msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
-"En epost er blitt sendt til deg. Klikk på linken i denne eposten for\n"
+"En epost er sendt til deg. Klikk på linken i denne eposten for\n"
 "å få tilgang til din deltagerkonto, hvor du kan sette et nytt passord.\n"
 
 msgid "Tags"
