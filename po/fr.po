@@ -1388,7 +1388,7 @@ msgid "Personal Schedule"
 msgstr "Emploi du temps personnel"
 
 msgid "Attending talks"
-msgstr "Assite à"
+msgstr "Assiste à"
 
 msgid "Promotion code"
 msgstr "Code promotionnel"
