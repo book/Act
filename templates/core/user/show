@@ -77,11 +77,11 @@
 [%- IF user.pause_id %]
    </tr><tr>
       <td align="right">
-         Pause id
+         <a href="https://pause.perl.org/">PAUSE</a> id
       </td>
       <td>&nbsp;</td>
       <td align="left">
-         <a href="http://search.cpan.org/author/[% user.pause_id %]/" >[% user.pause_id %]</a>
+         <a href="https://metacpan.org/author/[% user.pause_id %]/" >[% user.pause_id %]</a>
       </td>
 [% END %]
 [%- IF user.monk_id %]
