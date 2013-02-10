@@ -104,7 +104,7 @@ msgstr "w %1."
 msgid "This is your personal page."
 msgstr ""
 "To jest Twoja własna strona główna.\n"
-"Możesz tu zarządzać wszystkim, co dotyczy Twojego udziału\n"
+"Możesz tu zarządzać wszystkim, co dotyczy uczestnictwa\n"
 
 msgid "to Act-enabled conferences."
 msgstr "w konferencjach korzystających z Act."
@@ -258,18 +258,12 @@ msgstr ""
 
 msgid "The personal data that will be gathered here will be used to create"
 msgstr ""
-"The personal data that will be gathered here will be used to create\n"
-"an <a href=\"%1\">online <i>who's who</i></a> of all the attendees.\n"
-"This will be very useful after the conference, when you'll want to get\n"
-"in touch with someone you met during the conference. Or even before,\n"
-"if you want to know which gurus will be there.\n"
 "Zbierane tutaj dane użytkowników zostaną wykorzystane do utworzenia\n"
 "listy <a href=\"%1\"><i>who is who</i></a> wszystkich uczestników\n"
 "konferencji, dostępnej online. Po zakończeniu konferencji, umożliwi to\n"
-"skontaktowanie się z innymi uczestnikami poznanymi na miejscu.\n"
-"Ponadto, przed rozpoczęciem konferencji 
-
-"uczestnikami poznanymi na konferencji.  lub na zorientowanie się 
+"kontakt z innymi uczestnikami poznanymi na miejscu.\n"
+"Ponadto, przed rozpoczęciem konferencji będzie można dzięki temu\n"
+"sprawdzić, które ze znanych osób będą w niej uczestniczyć.\n"
 
 msgid "Once you have an account, you'll be able to use our secure payment"
 msgstr ""
@@ -666,7 +660,7 @@ msgid "No user was found with this login or email address"
 msgstr "Nie znaleziono użytkownika o tej nazwie lub z takim adresem e-mail"
 
 msgid "Specify your login or email address"
-msgstr "Podaj swó̉j login lub adres e-mail"
+msgstr "Podaj swój login lub adres e-mail"
 
 msgid "Generate password"
 msgstr "Zresetuj hasło"
@@ -726,13 +720,13 @@ msgid "Unregister from <conference>"
 msgstr "Anuluj rejestrację na %1"
 
 msgid "Submit/Edit a non-talk event"
-msgstr "Zgłoś/edytuj zdarzenie inne niż prezentacja"
+msgstr "Zgłoś/edytuj wydarzenie inne niż prezentacja"
 
 msgid "You must enter a title for the event"
-msgstr "Tytuł zdarzenia musi zostać podany"
+msgstr "Tytuł wydarzenia musi zostać podany"
 
 msgid "You must enter a short description for the event"
-msgstr "Krótki opis zdarzenia musi zostać wprowadzony"
+msgstr "Krótki opis wydarzenia musi zostać wprowadzony"
 
 msgid "Please choose a duration"
 msgstr "Proszę określić czas trwania"
@@ -750,674 +744,675 @@ msgid "Event URL is not a valid URL"
 msgstr "Podany URL jest nieprawidłowy"
 
 msgid "Incorrect room submitted"
-msgstr "Incorrect room submitted"
+msgstr "Podane pomieszczenie jest nieprawidłowe"
 
 msgid "Please choose a target audience"
-msgstr "Please choose a target audience"
+msgstr "Proszę określić odbiorców"
 
 msgid "View"
-msgstr "View"
+msgstr "Podgląd"
 
 msgid "Delete this event"
-msgstr "Delete this event"
+msgstr "Usuń to wydarzenie"
 
 msgid "Title"
-msgstr "Title"
+msgstr "Tytuł"
 
 msgid "Date"
-msgstr "Date"
+msgstr "Data"
 
 msgid "Room"
-msgstr "Room"
+msgstr "Pomieszczenie"
 
 msgid "Abstract"
-msgstr "Abstract"
+msgstr "Streszczenie"
 
 msgid "(plain text)"
-msgstr "(plain text)"
+msgstr "(zwykły tekst)"
 
 msgid "External URL"
-msgstr "External URL"
+msgstr "URL zewnętrzny"
 
 msgid "Submit this event"
-msgstr "Submit this event"
+msgstr "Wyślij wydarzenie"
 
 msgid "Event submitted"
-msgstr "Event submitted"
+msgstr "Wydarzenie zostało wysłane"
 
 msgid "Thanks, the event has been recorded as"
 msgstr ""
-"Thanks, the event has been recorded as\n"
+"Dziękujemy, wydarzenie zostało zapisane jako\n"
 "<b><a href=\"%1\">%2</a></b>.\n"
 
 msgid "List of events"
-msgstr "List of events"
+msgstr "Lista wydarzeń"
 
 msgid "No event was submitted yet."
-msgstr "No event was submitted yet."
+msgstr "Nie zgłoszono jeszcze żadnych wydarzeń."
 
 msgid "Event title"
-msgstr "Event title"
+msgstr "Tytuł wydarzenia"
 
 msgid "Event removed"
-msgstr "Event removed"
+msgstr "Wydarzenie usunięte"
 
 msgid "The event has been removed."
-msgstr "The event <b>%1</b> has been removed."
+msgstr "Wydarzenie <b>%1</b> zostało usunięte."
 
 msgid "Date:"
-msgstr "Date:"
+msgstr "Data:"
 
 msgid "Not scheduled yet."
-msgstr "Not scheduled yet."
+msgstr "Nie określono terminu."
 
 msgid "Duration:"
-msgstr "Duration:"
+msgstr "Czas trwania:"
 
 msgid "You can find more information on the following site:"
-msgstr "You can find more information on the following site:"
+msgstr "Więcej informacji można znaleźć na poniższej stronie:"
 
 msgid "Wiki - editing <node>"
-msgstr "Wiki - editing %1"
+msgstr "Wiki - edycja %1"
 
 msgid "Someone has committed changes to this node since you began editing."
 msgstr ""
-"Someone has committed changes to this node since you began editing.\n"
-"You will need to manually merge your changes into the new version.\n"
+"Ktoś zapisał zmiany w tym obiekcie w czasie, gdy był on zmieniany przez\n"
+"Ciebie. Konieczne będzie ręczne połączenie wprowadzonych zmian w nowej\n"
+"wersji.\n".
 
 msgid "Current node contents:"
-msgstr "Current node contents:"
+msgstr "Obecna zawartość obiektu:"
 
 msgid "Help"
-msgstr "Help"
+msgstr "Pomoc"
 
 msgid "Preview"
-msgstr "Preview"
+msgstr "Podgląd"
 
 msgid "Save"
-msgstr "Save"
+msgstr "Zapisz"
 
 msgid "Your proposed revision:"
-msgstr "Your proposed revision:"
+msgstr "Proponowane zmiany:"
 
 msgid "Wiki - <node> History"
-msgstr "Wiki - %1 History"
+msgstr "Wiki - historia %1"
 
 msgid "Version"
-msgstr "Version"
+msgstr "Wersja"
 
 msgid "Modified on"
-msgstr "Modified on"
+msgstr "Data modyfikacji"
 
 msgid "By"
-msgstr "By"
+msgstr "Autor zmian"
 
 msgid "Wiki - <node>"
 msgstr "Wiki - %1"
 
 msgid "version"
-msgstr "version"
+msgstr "wersja"
 
 msgid "saved on"
-msgstr "saved on"
+msgstr "zapisana"
 
 msgid "Last modified:"
-msgstr "Last modified:"
+msgstr "Ostatnio zmieniana:"
 
 msgid "by"
-msgstr "by"
+msgstr "przez"
 
 msgid "new page"
-msgstr "new page"
+msgstr "nowa strona"
 
 msgid "Home"
-msgstr "Home"
+msgstr "Start"
 
 msgid "Revert to this version"
-msgstr "Revert to this version"
+msgstr "Przywróć tę wersję"
 
 msgid "Edit this page"
-msgstr "Edit this page"
+msgstr "Edytuj tę stronę"
 
 msgid "Delete this page"
-msgstr "Delete this page"
+msgstr "Usuń tę stronę"
 
 msgid "Recent changes"
-msgstr "Recent changes"
+msgstr "Ostatnie zmiany"
 
 msgid "History"
-msgstr "History"
+msgstr "Historia"
 
 msgid "Wiki help"
-msgstr "Wiki help"
+msgstr "Pomoc Wiki"
 
 msgid "<wiki help text>"
 msgstr ""
-"<h2>Character formatting</h2>\n"
+"<h2>Formatowanie znaków</h2>\n"
 "<ul>\n"
-"<li>An item wrapped in three single quotes is <b>strong</b>.</li>\n"
-"<li>An item wrapped in two single quotes is <i>emphasized</i>.</li>\n"
-"<li>Any word with multiple CapitalLetters (e. g., StudlyCaps) will become a link.</li>\n"
+"<li>Tekst w potrójnych apostrofach zostanie <b>pogrubiony</b>.</li>\n"
+"<li>Tekst w podwójnych apostrofach zostanie <i>wyróżniony</i>.</li>\n"
+"<li>Słowa zawierające więcej niż jedną WielkąLiterę zostaną zamienione na odnośniki.</li>\n"
 "</ul>\n"
-"<h2>Paragraph formatting</h2>\n"
+"<h2>Formatowanie akapitów</h2>\n"
 "<ul>\n"
-"<li>Four or more hyphen characters at the start of a line create a horizontal line.</li>\n"
-"<li>Newlines turn into the appropriate tags.</li>\n"
-"<li>Headers are matching equals signs around the header text -- the more signs, the lesser the header.</li>\n"
+"<li>Seria czterech lub więcej myślników na początku wiersza utworzy poziomą linię.</li>\n"
+"<li>Znaki nowego wiersza zostaną zamienione na odpowiednie znaczniki.</li>\n"
+"<li>Nagłówki tworzy się przez umieszczenie znaków równości przed tekstem i po nim; im więcej znaków równości, tym mniej znaczący nagłówek.</li>\n"
 "</ul>\n"
-"<h2>Lists</h2>\n"
+"<h2>Listy</h2>\n"
 "<ul>\n"
-"<li>Lists are indented text, by one tab or four spaces by default.</li>\n"
-"<li>In unordered lists, where each item has its own bullet point, each item needs a leading asterisk and space.</li>\n"
-"<li>Ordered lists consist of items marked with combination of one or more alphanumeric characters followed by a period and an optional space.</li>\n"
-"<li>Lists can be nested.</li>\n"
+"<li>Listy są tworzone przez wcięcie tekstu, domyślnie jednym znakiem tabulacji lub czterema spacjami.</li>\n"
+"<li>W przypadku list nienumerowanych, gdzie każda pozycja ma własny symbol wypunktowania, przed tekstem pozycji należy umieścić znak gwiazdki i spację.</li>\n"
+"<li>Pozycje list numerowanych oznaczone są co najmniej jedną cyfrą lub literą, po której występuje znak kropki i (opcjonalnie) spacja.</li>\n"
+"<li>Listy mogą być zagnieżdżane.</li>\n"
 "</ul>\n"
-"<h2>Code</h2>\n"
+"<h2>Kod źródłowy</h2>\n"
 "<ul>\n"
-"<li>Any indented text without either marking is code, handled literally. You can nest lists.</li>\n"
+"<li>Tekst poprzedzony wcięciem, bez znaków charakterystycznych dla list, jest traktowany jak kod źródłowy.</li>\n"
 "</ul>\n"
-"<h2>Example</h2>\n"
+"<h2>Przykład</h2>\n"
 "\n"
-"The following is valid Wiki formatting, with an extended link as marked.\n"
+"Oto przykład formatowania Wiki:\n"
 "<pre>\n"
 "\n"
 "        = my interesting text =\n"
 "\n"
-"        NormalLink\n"
-"        [AnExtendedLink|let the Sun shine]\n"
+"        ZwykłyLink\n"
+"        [RozszerzonyLink|niech zawsze świeci słońce]\n"
 "        [user:id]\n"
 "        [user:nick_name]\n"
-"        [user:first_name last_name]\n"
+"        [user:imię nazwisko]\n"
 "        [talk:id]\n"
 "        [news:id]\n"
-"        [page:index.html|conference index]\n"
-"        [image:images/logo.png|conference logo]\n"
+"        [page:index.html|strona konferencji]\n"
+"        [image:images/logo.png|logo konferencji]\n"
 "\n"
-"        == my interesting lists ==\n"
+"        == kilka ciekawych list ==\n"
 "\n"
-"            * unordered one\n"
-"            * unordered two\n"
+"            * nienumerowana jeden\n"
+"            * nienumerowana dwa\n"
 "\n"
-"            1. ordered one\n"
-"            2. ordered two\n"
-"                        a. nested one\n"
-"                        b. nested two\n"
+"            1. numerowana jeden\n"
+"            2. numerowana dwa\n"
+"                        a. zagnieżdżona jeden\n"
+"                        b. zagnieżdżona dwa\n"
 "\n"
-"            code one\n"
-"            code two\n"
+"            kod źródłowy jeden\n"
+"            kod źródłowy dwa\n"
 "\n"
-"        The first line of a normal paragraph.\n"
-"        The second line of a normal paragraph.  Whee.\n"
+"        Pierwszy wiersz zwykłego akapitu.\n"
+"        Drugi wiersz zwykłego akapitu. Hopsasa!\n"
 "</pre>\n"
 
 msgid "Wiki - Recent changes"
-msgstr "Wiki - Recent changes"
+msgstr "Wiki - Ostatnie zmiany"
 
 msgid "Page"
-msgstr "Page"
+msgstr "Strona"
 
 msgid "Changes in last"
-msgstr "Changes in last"
+msgstr "Zmiany w czasie"
 
 msgid "<n> day(s)"
-msgstr "%quant(%1,day)"
+msgstr "%quant(%1,dnia,dni)"
 
 msgid "<n> week(s)"
-msgstr "%quant(%1,week)"
+msgstr "%quant(%1,tygodnia,tygodni)"
 
 msgid "<n> month(s)"
-msgstr "%quant(%1,month)"
+msgstr "%quant(%1,miesiąca,miesięcy)"
 
 msgid "Wiki tags"
-msgstr "Wiki tags"
+msgstr "Tagi Wiki"
 
 msgid "Wiki pages tagged <tag>"
-msgstr "Wiki pages tagged %1"
+msgstr "Strony Wiki oznaczone tagiem %1"
 
 msgid "Administrative tasks"
-msgstr "Administrative tasks"
+msgstr "Administracja"
 
 msgid "Talks & events"
-msgstr "Talks &amp; events"
+msgstr "Prezentacje i wydarzenia"
 
 msgid "Credit card payment"
-msgstr "Credit card payment"
+msgstr "Płatność kartą kredytową"
 
 msgid "Delayed payment"
-msgstr "Delayed payment"
+msgstr "Płatność opóźniona"
 
 msgid "Payment"
-msgstr "Payment"
+msgstr "Płatność"
 
 msgid "Editing payment"
-msgstr "Editing payment"
+msgstr "Edycja płatności"
 
 msgid "User"
-msgstr "User"
+msgstr "Użytkownik"
 
 msgid "Payment means"
-msgstr "Payment means"
+msgstr "Metoda płatności"
 
 msgid "or"
-msgstr "or"
+msgstr "lub"
 
 msgid "Update"
-msgstr "Update"
+msgstr "Zapisz"
 
 msgid "speaker"
-msgstr "speaker"
+msgstr "prowadzący"
 
 msgid "Total"
-msgstr "Total"
+msgstr "Razem"
 
 msgid "Payment confirmation"
-msgstr "Payment confirmation"
+msgstr "Potwierdzenie płatności"
 
 msgid "<conf> online payment"
 msgstr ""
-"Your online payment has been approved.\n"
+"Płatność online została potwierdzona.\n"
 "\n"
-"Your order number: %2\n"
-"Payment date: %3 GMT\n"
-"Amount paid: %4 %5\n"
+"Numer zamówienia: %2\n"
+"Data płatności: %3 GMT\n"
+"Zapłacona kwota: %4 %5\n"
 
 msgid "Invoice #"
-msgstr "Invoice #"
+msgstr "Nr faktury"
 
 msgid "Dated"
-msgstr "Dated"
+msgstr "Data"
 
 msgid "Printed on"
-msgstr "Printed on"
+msgstr "Data wydruku"
 
 msgid "Description"
-msgstr "Description"
+msgstr "Opis"
 
 msgid "Quantity"
-msgstr "Quantity"
+msgstr "Ilość"
 
 msgid "Unit Price"
-msgstr "Unit Price"
+msgstr "Cena jednostkowa"
 
 msgid "<conf> registration"
-msgstr "%1 registration"
+msgstr "Rejestracja na %1"
 
 msgid "Your order number:"
-msgstr "Your order number:"
+msgstr "Numer zamówienia:"
 
 msgid "Total due"
-msgstr "Total due"
+msgstr "Kwota razem"
 
 msgid "Invoice"
-msgstr "Invoice"
+msgstr "Faktura"
 
 msgid "You can print this page: only the invoice below will be printed."
-msgstr "You can print this page: only the invoice below will be printed."
+msgstr "Możesz wydrukować tę stronę - wydrukowana zostanie jedynie poniższa faktura."
 
 msgid "Printer friendly version"
-msgstr "Printer friendly version"
+msgstr "Wersja do druku"
 
 msgid "Establishing your invoice requires your address."
-msgstr "Establishing your invoice requires your address."
+msgstr "Do przygotowania faktury potrzebny jest Twój adres."
 
 msgid "Please make sure the billing information is correct."
-msgstr "Please make sure the billing information is correct."
+msgstr "Proszę sprawdzić, czy dane na fakturze są poprawne."
 
 msgid "Address"
-msgstr "Address"
+msgstr "Adres"
 
 msgid "I confirm"
-msgstr "I confirm"
+msgstr "Potwierdzam"
 
 msgid "Submit/Edit a talk"
-msgstr "Submit/Edit a talk"
+msgstr "Zgłoś/edytuj prezentację"
 
 msgid "You must specify a user"
-msgstr "You must specify a user"
+msgstr "Proszę wskazać użytkownika"
 
 msgid "You must enter a title for the talk"
-msgstr "You must enter a title for the talk"
+msgstr "Proszę wpisać tytuł prezentacji"
 
 msgid "You must provide an abstract"
-msgstr "You must provide an abstract"
+msgstr "Proszę wpisać streszczenie"
 
 msgid "Abstract URL is not a valid URL"
-msgstr "Abstract URL is not a valid URL"
+msgstr "URL streszczenia jest nieprawidłowy"
 
 msgid "Talk URL is not a valid URL"
-msgstr "Talk URL is not a valid URL"
+msgstr "URL prezentacji jest nieprawidłowy"
 
 msgid "Incorrect language"
-msgstr "Incorrect language"
+msgstr "Nieprawidłowy język"
 
 msgid "Delete this talk"
-msgstr "Delete this talk"
+msgstr "Usuń tę prezentację"
 
 msgid "Track"
-msgstr "Track"
+msgstr "Ścieżka"
 
 msgid "Language"
-msgstr "Language"
+msgstr "Język"
 
 msgid "Language:"
-msgstr "Language:"
+msgstr "Język:"
 
 msgid "Abstract URL"
-msgstr "Abstract URL"
+msgstr "URL streszczenia"
 
 msgid "Talk URL"
-msgstr "Talk URL"
+msgstr "URL prezentacji"
 
 msgid "Standard durations for <confname> are:"
-msgstr "Standard durations for %1 are:"
+msgstr "Zakładane czasy trwania prezentacji podczas %1 to:"
 
 msgid "If the proposed durations do not quite fit your talk, please"
 msgstr ""
-"If the proposed durations do not quite fit your talk, please\n"
-"use the comment field to indicate the preferred duration.\n"
+"Jeśli proponowane czasy trwania nie pasują do Twojej prezentacji, określ\n"
+"preferowany czas w uwagach.\n"
 
 msgid "Comments"
-msgstr "Comments"
+msgstr "Uwagi"
 
 msgid "The comment field is used for communicating information about"
 msgstr ""
-"The comment field is used for communicating information about\n"
-"this talk to the organisers.\n"
+"W polu \"uwagi\" można przekazać dodatkowe informacje dotyczące prezentacji\n"
+"przeznaczone dla organizatorów konferencji.\n"
 
 msgid "Status"
 msgstr "Status"
 
 msgid "accepted"
-msgstr "accepted"
+msgstr "przyjęty"
 
 msgid "confirmed"
-msgstr "confirmed"
+msgstr "potwierdzony"
 
 msgid "Accepted"
-msgstr "Accepted"
+msgstr "Przyjęty"
 
 msgid "Pending"
-msgstr "Pending"
+msgstr "Oczekuje"
 
 msgid "Submit this talk"
-msgstr "Submit this talk"
+msgstr "Zgłoś tę prezentację"
 
 msgid "Talk submitted"
-msgstr "Talk submitted"
+msgstr "Prezentacja zgłoszona"
 
 msgid "Thanks, your talk submission has been recorded as"
-msgstr "Thanks, your talk submission has been recorded as <b><a href=\"%1\">%2</a></b>."
+msgstr "Dziękujęmy, zgłoszenie prezentacji zostało zapisane jako <b><a href=\"%1\">%2</a></b>."
 
 msgid "iCal Import"
-msgstr "iCal Import"
+msgstr "Import z pliku iCal"
 
 msgid "The following talks have been updated:"
-msgstr "The following talks have been updated:"
+msgstr "Następujące prezentacje zostały zaktuzalizowane:"
 
 msgid "Old time"
-msgstr "Old time"
+msgstr "Poprzedni termin"
 
 msgid "New time"
-msgstr "New time"
+msgstr "Nowy termin"
 
 msgid "title"
-msgstr "title"
+msgstr "tytuł"
 
 msgid "Upload an iCal file"
-msgstr "Upload an iCal file"
+msgstr "Wyślij plik iCal"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Importuj"
 
 msgid "Proceedings"
-msgstr "Proceedings"
+msgstr "Prezentacje"
 
 msgid "List of talks"
-msgstr "List of talks"
+msgstr "Lista prezentacji"
 
 msgid "List of talks tagged <tag>"
-msgstr "List of talks tagged %1"
+msgstr "Lista prezentacji z tagiem %1"
 
 msgid "No talk was submitted yet."
-msgstr "No talk was submitted yet."
+msgstr "Nie zgłoszono jeszcze żadnych prezentacji."
 
 msgid "Submitted talks:"
-msgstr "Submitted talks:"
+msgstr "Zgłoszone prezentacje:"
 
 msgid "Accepted talks:"
-msgstr "Accepted talks:"
+msgstr "Przyjęte prezentacje:"
 
 msgid "Accepted talks are shown in bold type."
-msgstr "Accepted talks are shown in <b>bold type</b>."
+msgstr "Przyjęte prezentacje są zapisane <b>pogrubionym tekstem</b>."
 
 msgid "Total duration of accepted talks:"
-msgstr "Total duration of accepted talks:"
+msgstr "Łączny czas trwania przyjętych prezentacji:"
 
 msgid "hours"
-msgstr "hours"
+msgstr "godz."
 
 msgid "Accepted lightning talks:"
-msgstr "Accepted lightning talks:"
+msgstr "Przyjęte szybkie prezentacje:"
 
 msgid "Tracks"
-msgstr "Tracks"
+msgstr "Ścieżki"
 
 msgid "No track"
-msgstr "No track"
+msgstr "Brak ścieżki"
 
 msgid "lightning"
-msgstr "lightning"
+msgstr "szybka"
 
 msgid "from"
-msgstr "from"
+msgstr "z"
 
 msgid "Comment:"
-msgstr "Comment:"
+msgstr "Uwagi:"
 
 msgid "You can find more information on the speaker's site:"
-msgstr "You can find more information on the speaker's site:"
+msgstr "Więcej informacji można znaleźć na stronie prowadzącego:"
 
 msgid "Abstract:"
-msgstr "Abstract:"
+msgstr "Streszczenie:"
 
 msgid "Talk:"
-msgstr "Talk:"
+msgstr "Prezentacja:"
 
 msgid "Talk removed"
-msgstr "Talk removed"
+msgstr "Prezentacja usunięta"
 
 msgid "The Talk <title> has been removed."
-msgstr "The Talk <b>%1</b> has been removed."
+msgstr "Prezentacja <b>%1</b> została usunięta."
 
 msgid "Talk inserted"
-msgstr "Talk inserted"
+msgstr "Prezentacja dodana"
 
 msgid "Talk updated"
-msgstr "Talk updated"
+msgstr "Prezentacja zaktualizowana"
 
 msgid "Submitted by:"
-msgstr "Submitted by:"
+msgstr "Zgłaszający:"
 
 msgid "The following fields have been updated:"
-msgstr "The following fields have been updated:"
+msgstr "Następujące pola zostały zaktualizowane:"
 
 msgid "By:"
-msgstr "By:"
+msgstr "Prowadzący:"
 
 msgid "Remember me on this computer"
-msgstr "Remember me on this computer"
+msgstr "Zapamiętaj mnie na tym komputerze"
 
 msgid "Billing"
-msgstr "Billing"
+msgstr "Płatności"
 
 msgid "The following submission has been accepted"
 msgstr ""
-"The following submission has been accepted. Please click\n"
-"on the link below to confirm your presentation.\n"
+"Następujące zgłoszenie zostało przyjęte. Proszę odwiedzić\n"
+"poniższy link, by potwierdzić swoją prezentację.\n"
 
 msgid "News"
-msgstr "News"
+msgstr "Aktualności"
 
 msgid "News Administration"
-msgstr "News Administration"
+msgstr "Zarządzanie aktualnościami"
 
 msgid "Published"
-msgstr "Published"
+msgstr "Zamieszczone"
 
 msgid "Create a new item"
-msgstr "Create a new item"
+msgstr "Dodaj nową informację"
 
 msgid "Edit a news item"
-msgstr "Edit a news item"
+msgstr "Edytuj informację"
 
 msgid "You must enter a title"
-msgstr "You must enter a title"
+msgstr "Proszę podać tytuł"
 
 msgid "You must enter some text"
-msgstr "You must enter some text"
+msgstr "Proszę wprowadzić treść"
 
 msgid "Delete this item"
-msgstr "Delete this item"
+msgstr "Usuń tę informację"
 
 msgid "Text"
-msgstr "Text"
+msgstr "Treść"
 
 msgid "No news yet!"
-msgstr "No news yet!"
+msgstr "Brak aktualności"
 
 msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
-msgstr "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Do formatowania tekstu używaj HTMLa. Tekst oddzielony znakami nowego wiersza zostanie zamieniony na akapity."
 
 msgid "Add a new track"
-msgstr "Add a new track"
+msgstr "Dodaj nową ścieżkę"
 
 msgid "Create/Edit a track"
-msgstr "Create/Edit a track"
+msgstr "Utwórz/edytuj ścieżkę"
 
 msgid "Delete this track"
-msgstr "Delete this track"
+msgstr "Usuń tę ścieżkę"
 
 msgid "Submit this track"
-msgstr "Submit this track"
+msgstr "Zapisz tę ścieżkę"
 
 msgid "You must enter a title for the track"
-msgstr "You must enter a title for the track"
+msgstr "Proszę podać tytuł ścieżki"
 
 msgid "n talks"
-msgstr "%quant(%1,talk)"
+msgstr "%1 %numerate(%1,prezentacja,prezentacje,prezentacji)"
 
 msgid "n accepted"
-msgstr "%quant(%1,accepted,accepted)"
+msgstr "%1 %numerate(%1,przyjęta,przyjęte,przyjętych)"
 
 msgid "n confirmed"
-msgstr "%quant(%1,confirmed,confirmed)"
+msgstr "%1 %numerate(%1,potwierdzona,potwierdzone,potwierdzonych)"
 
 msgid "Change Password"
-msgstr "Change Password"
+msgstr "Zmień hasło"
 
 msgid "Please type in your new password"
-msgstr "Please type in your new password"
+msgstr "Proszę wpisać nowe hasło"
 
 msgid "Passwords don't match"
-msgstr "Passwords don't match"
+msgstr "Hasła różnią się"
 
 msgid "Current password"
-msgstr "Current password"
+msgstr "Obecne hasło"
 
 msgid "New password"
-msgstr "New password"
+msgstr "Nowe hasło"
 
 msgid "Enter your new password twice"
-msgstr "Enter your new password twice"
+msgstr "Wprowadź nowe hasło dwukrotnie"
 
 msgid "An email has been sent to you. Click on the link in the email to"
 msgstr ""
-"An email has been sent to you. Click on the link in the email to\n"
-"access your user account and set a new password.\n"
+"Została do Ciebie wysłana wiadomość. Użyj zawartego w niej linku,\n"
+"by ustawić nowe hasło dla swojego konta użytkownika.\n"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Tagi"
 
 msgid "Tags:"
-msgstr "Tags:"
+msgstr "Tagi:"
 
 msgid "add new tags:"
-msgstr "add new tags:"
+msgstr "dodaj nowe tagi:"
 
 msgid "To unregister <name> from <conference>,"
 msgstr ""
-"To unregister <b>%1 %2</b> from %3,\n"
-"simply push the button below.\n"
+"By anulować rejestrację uczestnika <b>%1 %2</b> z %3,\n"
+"użyj poniższego przycisku.\n"
 
 msgid "Unregister <name> from <conference>"
-msgstr "Unregister %1 %2 from %3"
+msgstr "Anuluj rejestrację uczestnika %1 %2 z %3"
 
 msgid "unregister"
-msgstr "unregister"
+msgstr "anuluj rejestrację"
 
 msgid "edit payment"
-msgstr "edit payment"
+msgstr "edytuj dane płatności"
 
 msgid "view invoice"
-msgstr "view invoice"
+msgstr "zobacz fakturę"
 
 msgid "create invoice"
-msgstr "create invoice"
+msgstr "utwórz fakturę"
 
 msgid "enter payment"
-msgstr "enter payment"
+msgstr "wprowadź dane płatności"
 
 msgid "Your purchases"
-msgstr "Your purchases"
+msgstr "Twoje zamówienia"
 
 msgid "Your <conf> order #<id>"
-msgstr "Your %1 order #%2"
+msgstr "Zamówienie nr %2 w %1"
 
 msgid "make additional purchases"
-msgstr "make additional purchases"
+msgstr "dokonaj kolejnego zamówienia"
 
 msgid "view all orders and invoices"
-msgstr "view all orders and invoices"
+msgstr "zobacz wszystkie zamówienia i faktury"
 
 msgid "Product"
-msgstr "Product"
+msgstr "Produkt"
 
 msgid "Personal Schedule"
-msgstr "Personal Schedule"
+msgstr "Twój harmonogram"
 
 msgid "Attending talks"
-msgstr "Attending talks"
+msgstr "Uczestniczy w prezentacjach"
 
 msgid "Promotion code"
-msgstr "Promotion code"
+msgstr "Kod promocyjny"
 
 msgid "add to personal schedule"
-msgstr "add to personal schedule"
+msgstr "dodaj do swojego harmonogramu"
 
 msgid "remove from personal schedule"
-msgstr "remove from personal schedule"
+msgstr "usuń ze swojego harmonogramu"
 
 msgid "Attended by:"
-msgstr "Attended by:"
+msgstr "Uczestnicy:"
 
 msgid "Favorite Talks"
-msgstr "Favorite Talks"
+msgstr "Wybrane prezentacje"
 
 msgid "Stars"
-msgstr "Stars"
+msgstr "Popularność"
 
 msgid "Confirm Attendance"
-msgstr "Confirm Attendance"
+msgstr "Potwierdź uczestnictwo"
 
 msgid "Attendance confirmed for <user>"
-msgstr "Attendance confirmed for %1"
+msgstr "Uczestnictwo potwierdzone - %1"
 
 msgid "You must enter an order ID."
-msgstr "You must enter an order ID."
+msgstr "Musisz podać numer zamówienia."
 
 msgid "Unknown order ID."
-msgstr "Unknown order ID."
+msgstr "Nieznany numer zamówienia."
 
 msgid "User is not registered."
-msgstr "User is not registered."
+msgstr "Użytkownik nie jest zarejestrowany."
 
