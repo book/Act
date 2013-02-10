@@ -138,7 +138,7 @@ msgstr "Udział w konferencji nie został jeszcze przez Ciebie potwierdzony."
 
 msgid "You did not register for this conference"
 msgstr ""
-"Dokonaj <a href=\"%1\">rejestracji na tę konferencję</a>,\n" 
+"Dokonaj <a href=\"%1\">rejestracji na tę konferencję</a>,\n"
 "jeśli masz zamiar w niej uczestniczyć lub prowadzić prezentację.\n"
 
 msgid "You can:"
@@ -818,7 +818,7 @@ msgid "Someone has committed changes to this node since you began editing."
 msgstr ""
 "Ktoś zapisał zmiany w tym obiekcie w czasie, gdy był on zmieniany przez\n"
 "Ciebie. Konieczne będzie ręczne połączenie wprowadzonych zmian w nowej\n"
-"wersji.\n".
+"wersji.\n"
 
 msgid "Current node contents:"
 msgstr "Obecna zawartość obiektu:"
