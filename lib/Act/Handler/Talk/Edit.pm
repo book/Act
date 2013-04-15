@@ -336,9 +336,11 @@ sub notify
             }
             $template->process("talk/notify_$slot", \$output{$slot});
         }
+
         # send the notification email
+        my ($from) = split /,/, $Config->talks_submissions_notify_address;
         Act::Email::send(
-            from     => $Config->talks_submissions_notify_address,
+            from     => $from,
             to       => $Config->talks_submissions_notify_address,
             xheaders => {
                 'X-Act' => join(
