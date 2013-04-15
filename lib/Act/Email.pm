@@ -46,7 +46,11 @@ sub send
 
     my @headers;
 
-    my $from = Email::Address->new( ref $args{from} ? ( @{ $args{from} }{ 'name', 'email' } ) : ( '', $args{from} ) );
+    my @from = ref $args{from}
+             ? ( @{ $args{from} }{ 'name', 'email' } )
+             : ( '', (split /,/, $args{from})[0] );
+
+    my $from = Email::Address->new(@from);
     push @headers, ( From => $from->format() );
     chomp $args{subject};
 
