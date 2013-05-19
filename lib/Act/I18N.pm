@@ -81,6 +81,9 @@ sub numerate
 package Act::I18N::be;
 *numerate = \&Act::I18N::ru::numerate;
 
+package Act::I18N::pl;
+*numerate = \&Act::I18N::ru::numerate;
+
 1;
 
 __END__
