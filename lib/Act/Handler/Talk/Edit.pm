@@ -170,7 +170,7 @@ sub handler {
             if( defined $talk ) { 
                 if( $fields->{delete} ) {
                     # optional email notification ?
-                    # notify('delete', $talk); # FIXME
+                    notify('delete', $talk);
                     _update_tags($talk, \@tags, '');
                     $talk->delete;
                     $template->variables(%$fields);
@@ -254,10 +254,11 @@ sub notify
 {
     if ($Config->talks_submissions_notify_address) {
         my ($op, $tbefore, $talk) = @_;
-        if ($op eq 'insert') {
+        if ($op eq 'insert' or $op eq 'delete') {
             $talk = $tbefore;
             undef $tbefore;
         }
+
         # user giving this talk
         my $user = Act::User->new(user_id => $talk->user_id);
 
