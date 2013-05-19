@@ -1,0 +1,1418 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "payment_means_CHQ"
+msgstr "Czek"
+
+msgid "payment_means_CASH"
+msgstr "Gotówka"
+
+msgid "payment_means_ONLINE"
+msgstr "Online"
+
+msgid "payment_means_XFER"
+msgstr "Przelew"
+
+msgid "payment_means_FREE"
+msgstr "Bez opłaty"
+
+msgid "room_out"
+msgstr "Na zewnątrz"
+
+msgid "room_sidetrack"
+msgstr "W tym czasie, gdzie indziej"
+
+msgid "room_venue"
+msgstr "Miejsce"
+
+msgid "salutation_1"
+msgstr "Pan"
+
+msgid "salutation_2"
+msgstr "Pani"
+
+msgid "salutation_3"
+msgstr "Pani"
+
+msgid "salutation_4"
+msgstr "Dr"
+
+msgid "User information"
+msgstr "Dane użytkownika"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "City"
+msgstr "Miasto"
+
+msgid "Country"
+msgstr "Kraj"
+
+msgid "Perl mongers group"
+msgstr "Grupa Perl Mongers"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Web page"
+msgstr "Strona WWW"
+
+msgid "IM"
+msgstr "Komunikator"
+
+msgid "GPG key ID"
+msgstr "ID klucza GPG"
+
+msgid "No photo"
+msgstr "Brak zdjęcia"
+
+msgid "Talk"
+msgstr "%numerate(%1,Prezentacja,Prezentacje,Prezentacji)"
+
+msgid "Accepted Talk"
+msgstr "%numerate(%1,Przyjęta prezentacja,Przyjęte prezentacje,Przyjętych prezentacji)"
+
+msgid "minutes"
+msgstr "min"
+
+msgid "Lightning talk"
+msgstr "Szybka prezentacja"
+
+msgid "Bio"
+msgstr "Notka biograficzna"
+
+msgid "Other Act conferences:"
+msgstr "Inne konferencje Act:"
+
+msgid "Main private page"
+msgstr "Własna strona główna"
+
+msgid "to <this conference>"
+msgstr "w %1."
+
+msgid "This is your personal page."
+msgstr ""
+"To jest Twoja własna strona główna.\n"
+"Możesz tu zarządzać wszystkim, co dotyczy uczestnictwa\n"
+
+msgid "to Act-enabled conferences."
+msgstr "w konferencjach korzystających z Act."
+
+msgid "You have purchased your conference ticket:"
+msgstr "Wykupiony przez Ciebie bilet na konferencję:"
+
+msgid "Order number"
+msgstr "Numer zamówienia"
+
+msgid "Payment date"
+msgstr "Data płatności"
+
+msgid "Amount paid"
+msgstr "Zapłacona kwota"
+
+msgid "Download your invoice"
+msgstr "Pobierz <a href=\"%1\">fakturę</a>."
+
+msgid "You have not bought your conference ticket yet."
+msgstr "Bilet na konferencję nie został jeszcze przez Ciebie kupiony."
+
+msgid "Please consider doing so using our online payment system."
+msgstr "Możesz dokonać zakupu za pomocą systemu płatności online."
+
+msgid "Please consider doing so once our online payment system is ready."
+msgstr "Dokonanie zakupu będzie możliwe po uruchomieniu naszego systemu płatności online."
+
+msgid "You have not confirmed your participation to this conference yet."
+msgstr "Udział w konferencji nie został jeszcze przez Ciebie potwierdzony."
+
+msgid "You did not register for this conference"
+msgstr ""
+"Dokonaj <a href=\"%1\">rejestracji na tę konferencję</a>,\n"
+"jeśli masz zamiar w niej uczestniczyć lub prowadzić prezentację.\n"
+
+msgid "You can:"
+msgstr "Możesz:"
+
+msgid "purchase your conference ticket"
+msgstr "wykupić bilet na konferencję"
+
+msgid "confirm your participation"
+msgstr "potwierdzić udział"
+
+msgid "register for this conference"
+msgstr "zarejestrować się na tę konferencję"
+
+msgid "update your information"
+msgstr "dokonać zmiany swoich danych"
+
+msgid "manage your photo"
+msgstr "dodać lub zmienić zdjęcie"
+
+msgid "change your password"
+msgstr "zmienić hasło"
+
+msgid "see your talks (accepted talks are shown in bold type)"
+msgstr "zobaczyć wybrane prezentacje (<b>pogrubiony tekst</b> oznacza przyjęte prezentacje)"
+
+msgid "submit a talk"
+msgstr "zgłosić prezentację"
+
+msgid "log out"
+msgstr "wylogować się"
+
+msgid "unregister from <this conference>"
+msgstr "anulować rejestrację na %1"
+
+msgid "(You were there)"
+msgstr "(Brałeś/aś udział)"
+
+msgid "(You are there)"
+msgstr "(Bierzesz udział)"
+
+msgid "(You will be there)"
+msgstr "(Będziesz brać udział)"
+
+msgid "Confirmation required"
+msgstr "Wymagane potwierdzenie"
+
+msgid "This operation requires a confirmation. Please enter your email address,"
+msgstr ""
+"Ta operacja wymaga potwierdzenia. Proszę podać adres e-mail,\n"
+"zostanie na niego wysłana wiadomość z linkiem potwierdzającym.\n"
+
+msgid "You must enter your email"
+msgstr "Adres e-mail musi zostać podany"
+
+msgid "Your email address looks bogus."
+msgstr "Adres e-mail jest nieprawidłowy."
+
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr ""
+"Wiadomość została wysłana na adres <b>%1</b>. Skorzystaj z linku zawartego w wiadomości,\n"
+"by dokończyć tę operację.\n"
+
+msgid "Confirmation email sent"
+msgstr "Wiadomość potwierdzająca została wysłana"
+
+msgid "In order to complete your operation"
+msgstr "Aby dokończyć rozpoczętą operację w związku z konferencją \"%1\", proszę skorzystać z linku:"
+
+msgid "<conf_id> confirmation"
+msgstr "%1 - potwierdzenie"
+
+msgid "Registration"
+msgstr "Rejestracja"
+
+msgid "Sorry, this conference is over."
+msgstr "Przepraszamy, ta konferencja jest już zakończona."
+
+msgid "Please create your user below."
+msgstr "Proszę wprowadzić dane użytkownika poniżej."
+
+msgid "Identifier is already in use. Please choose another."
+msgstr "Nazwa \"%1\" jest już zajęta. Proszę wybrać inną."
+
+msgid "The address is already registered."
+msgstr "Adres %1 jest już zarejestrowany."
+
+msgid "Your identifier must contain at least 3 characters"
+msgstr "Nazwa musi mieć przynajmniej 3 znaki i składać się jedynie ze znaków alfanumerycznych (<tt>[a-zA-Z0-9_]</tt>)"
+
+msgid "You must enter your first name"
+msgstr "Imię musi być podane"
+
+msgid "You must enter your last name"
+msgstr "Nazwisko musi być podane"
+
+msgid "You must enter a country from the list"
+msgstr "Kraj musi być wybrany z listy"
+
+msgid "Accounts with similar information already exist."
+msgstr "Istnieją już konta użytkowników o podobnych danych."
+
+msgid "A valid T-shirt size is required."
+msgstr "Należy wybrać rozmiar koszulki."
+
+msgid "Use the links above to check if you are one of those."
+msgstr ""
+"Korzystając z powyższych linków, sprawdź, czy któreś z nich nie należy do Ciebie. Jeśli tak,\n"
+"<a href=\"%1\">zaloguj się</a> na istniejące konto.\n"
+
+msgid "To register, you first need to create an account on the site."
+msgstr ""
+"Aby się zarejestrować, konieczne jest utworzenie konta na tej stronie.\n"
+"<b>Jeśli masz już konto założone przy jednej z poprzednich konferencji Act,\n"
+"ponowne założenie nie jest potrzebne, możesz\n"
+"<a href=\"%1\">zalogować się</a> na istniejące konto.</b>\n"
+
+msgid "The personal data that will be gathered here will be used to create"
+msgstr ""
+"Zbierane tutaj dane użytkowników zostaną wykorzystane do utworzenia\n"
+"listy <a href=\"%1\"><i>who is who</i></a> wszystkich uczestników\n"
+"konferencji, dostępnej online. Po zakończeniu konferencji, umożliwi to\n"
+"kontakt z innymi uczestnikami poznanymi na miejscu.\n"
+"Ponadto, przed rozpoczęciem konferencji będzie można dzięki temu\n"
+"sprawdzić, które ze znanych osób będą w niej uczestniczyć.\n"
+
+msgid "Once you have an account, you'll be able to use our secure payment"
+msgstr ""
+"Po założeniu konta, będziesz mieć możliwość skorzystania z bezpiecznego\n"
+"systemu płatności i wykupienia biletu na konferencję. Proszę pamiętać, że\n"
+"wszelkie operacje dotyczące danych konta bankowego i karty kredytowej\n"
+"przeprowadza bank.\n"
+
+msgid "We do not have access to your credit card information"
+msgstr ""
+"<b>Nie mamy dostępu do danych karty kredytowej na żadnym etapie procesu\n"
+"płatności.</b> Po jego zakończeniu jedynie dostajemy pieniądze.\n"
+"<tt>;-)</tt>\n"
+
+msgid "Once you have an account, you'll be able to register free of charge"
+msgstr ""
+"Po założeniu konta, będziesz mieć możliwość potwierdzenia swojego\n"
+"uczestnictwa w tej konferencji, bezpłatnie."
+
+msgid "Please create the user below."
+msgstr "Proszę wprowadzić dane użytkownika poniżej."
+
+msgid "Use the links above to check if any of those users is the one you want to"
+msgstr ""
+"Skorzystaj z powyższych linków i sprawdź, czy którykolwiek z tych\n"
+"użytkowników jest tym, którego zamierzasz utworzyć. Jeśli tak, zaznacz\n"
+"odpowiadające mu pole i wyślij formularz.\n"
+
+msgid "Register"
+msgstr "Rejestracja"
+
+msgid "Registered!"
+msgstr "Rejestracja dokonana!"
+
+msgid "Congratulations, you are now registered"
+msgstr ""
+"Gratulujemy, <b>%1</b>, Twoja rejestracja została dokonana.\n"
+"Twoje hasło to <b>%2</b> .\n"
+
+msgid "First Name"
+msgstr "Imię"
+
+msgid "Last Name"
+msgstr "Nazwisko"
+
+msgid "T-Shirt"
+msgstr "Koszulka"
+
+msgid "Join!"
+msgstr "Zapisz się!"
+
+msgid "edit"
+msgstr "edycja"
+
+msgid "min"
+msgstr "min"
+
+msgid "Log in"
+msgstr "Logowanie"
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Submit"
+msgstr "Wyślij"
+
+msgid "Forgot your password?"
+msgstr "Nie pamiętasz hasła? Kliknij <a href=\"%1\">tutaj</a>."
+
+msgid "This site uses cookies to authenticate logged in users."
+msgstr ""
+"Ta strona wykorzystuje pliki cookie do uwierzytelniania użytkowników.\n"
+"Upewnij się, czy Twoja przeglądarka przyjmuje pliki cookie z domeny\n"
+"<b>%1</b>.\n"
+
+msgid "Incorrect login or password"
+msgstr "Nieprawidłowa nazwa użytkownika lub hasło"
+
+msgid "Logged as:"
+msgstr "Zalogowany jako:"
+
+msgid "Logout"
+msgstr "Wyloguj się"
+
+msgid "You have been logged out and the cookie deleted from your browser."
+msgstr "Nastąpiło wylogowanie i plik cookie został usunięty z przeglądarki."
+
+msgid "Other conferences"
+msgstr "Inne konferencje"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Rights management"
+msgstr "Zarządzanie uprawnieniami"
+
+msgid "Events"
+msgstr "Wydarzenia"
+
+msgid "Submit a new event"
+msgstr "Zgłoszenie nowego wydarzenia"
+
+msgid "Schedule"
+msgstr "Harmonogram"
+
+msgid "iCal export"
+msgstr "Eksport do pliku iCal"
+
+msgid "iCal import"
+msgstr "Import z pliku iCal"
+
+msgid "Submit a talk proposal"
+msgstr "Wysłanie propozycji prezentacji"
+
+msgid "Presentations"
+msgstr "Prezentacje"
+
+msgid "Treasurer"
+msgstr "Skarbnik"
+
+msgid "Payments"
+msgstr "Płatności"
+
+msgid "Payment Details"
+msgstr "Szczegóły płatności"
+
+msgid "Edit profile"
+msgstr "Edycja profilu"
+
+msgid "New user"
+msgstr "Nowy użytkownik"
+
+msgid "Users"
+msgstr "Użytkownicy"
+
+msgid "Search"
+msgstr "Wyszukiwanie"
+
+msgid "Statistics"
+msgstr "Statystyki"
+
+msgid "CSV export"
+msgstr "Eksport do pliku CSV"
+
+msgid "Register a new user"
+msgstr "Rejestracja nowego użytkownika"
+
+msgid "The schedule is not ready to be seen."
+msgstr "Harmonogram nie jest jeszcze gotowy do pokazania."
+
+msgid "The time and place of the following talks haven't been decided yet."
+msgstr "Czas i miejsce poniższych prezentacji nie zostały jeszcze ustalone."
+
+msgid "Speaker"
+msgstr "Prowadzący"
+
+msgid "Talk title"
+msgstr "Tytuł prezentacji"
+
+msgid "Duration"
+msgstr "Czas trwania"
+
+msgid "Target audience"
+msgstr "Odbiorcy"
+
+msgid "Target audience:"
+msgstr "Odbiorcy:"
+
+msgid "abstract (link)"
+msgstr "Streszczenie"
+
+msgid "talk (link)"
+msgstr "Prezentacja"
+
+msgid "Talks in bold type have been confirmed by their respective speakers."
+msgstr "Prezentacje zapisane <b>pogrubionym tekstem</b> zostały potwierdzone przez prowadzących."
+
+msgid "Time"
+msgstr "Czas"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Donation"
+msgstr "Darowizna"
+
+msgid "Buy now!"
+msgstr "Kup teraz!"
+
+msgid "Please note that everything regarding your bank account and credit card number"
+msgstr ""
+"Prosimy mieć na uwadze, że informacje dotyczące konta bankowego i karty kredytowej\n"
+"są przetwarzane przez właściwy bank. <b>Nie mamy dostępu do danych karty kredytowej\n"
+"na żadnym etapie procesu płatności.</b> Po jego zakończeniu jedynie dostajemy pieniądze. <tt>;-)</tt>\n"
+
+msgid "Nothing to pay, the order is already confirmed"
+msgstr "Ponieważ kwota do zapłaty jest zerowa, nie ma potrzeby przechodzenia procesu płatności. Zamówienie zostało już zrealizowane."
+
+msgid "Online payment"
+msgstr "Płatność online"
+
+msgid "Online payment (zero)"
+msgstr "Płatność zbędna"
+
+msgid "Join"
+msgstr "Wyślij zgłoszenie"
+
+msgid "To register to the <name> conference"
+msgstr ""
+"By zarejestrować się na konferencję %1,\n"
+"użyj poniższego przycisku.\n"
+
+msgid "The recognised rights are:"
+msgstr "Dostępne uprawnienia to:"
+
+msgid "Organizer"
+msgstr "Organizator"
+
+msgid "Organizer (news management)"
+msgstr "Organizator (odpowiedzialny za aktualności)"
+
+msgid "Organizer (talks management)"
+msgstr "Organizator (odpowiedzialny za prezentacje)"
+
+msgid "Organizer (users management)"
+msgstr "Organizator (odpowiedzialny za użytkowników)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organizator (odpowiedzialny za wiki)"
+
+msgid "Treasurer (payment management)"
+msgstr "Skarbnik (odpowiedzialny za płatności)"
+
+msgid "Administrator (rights management)"
+msgstr "Administrator (odpowiedzialny za uprawnienia)"
+
+msgid "User rights"
+msgstr "Uprawnienia użytkowników"
+
+msgid "Amount"
+msgstr "Kwota"
+
+msgid "You cannot be pseudonymous with a blank nickname"
+msgstr "Nie można wybrać opcji występowania pod pseudonimem bez podania pseudonimu"
+
+msgid "The Perl monger group must end with <tt>.pm</tt>"
+msgstr "Nazwa grupy Perl Mongers musi mieć na końcu <tt>.pm</tt>"
+
+msgid "The Perl monger group URL must start with http://"
+msgstr "Adres strony grupy Perl Mongers musi zaczynać się od http://"
+
+msgid "The company URL must start with http://"
+msgstr "Adres strony firmowej musi zaczynać się od http://"
+
+msgid "Your web site URL must start with http://"
+msgstr "Adres strony WWW musi zaczynać się od http://"
+
+msgid "Your perlmonks id must be a number"
+msgstr "Perlmonks ID musi być liczbą"
+
+msgid "Number of family members attending must be a number"
+msgstr "Liczba członków rodziny musi być liczbą"
+
+msgid "Not a valid GPG key ID: 8 hexadecimal digits expected"
+msgstr "Identyfikator klucza GPG powinien składać się z 8 cyfr szesnastkowych"
+
+msgid "Salutation"
+msgstr "Tytuł"
+
+msgid "Nickname"
+msgstr "Pseudonim"
+
+msgid "Stay pseudonymous"
+msgstr "Występuj tylko pod pseudonimem"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Hide email"
+msgstr "Email ukryty"
+
+msgid "Coming with"
+msgstr "Liczba osób towarzyszących"
+
+msgid "6 or more"
+msgstr "6 lub więcej"
+
+msgid "people (who will not attend the conference)"
+msgstr "(nie biorących udziału w konferencji)"
+
+msgid "T-shirt size"
+msgstr "Rozmiar koszulki"
+
+msgid "Full address"
+msgstr "Pełny adres"
+
+msgid "Timezone"
+msgstr "Strefa czasowa"
+
+msgid "Monger group"
+msgstr "Grupa Perl Mongers"
+
+msgid "(<em>City.pm</em>, city name in English, please)"
+msgstr "(<em>Miasto.pm</em>, z nazwą miasta zapisaną po angielsku)"
+
+msgid "Monger group URL"
+msgstr "Adres strony grupy Perl Mongers"
+
+msgid "VAT Number"
+msgstr "Numer VAT"
+
+msgid "Company URL"
+msgstr "Adres strony firmowej"
+
+msgid "GPG public key ID"
+msgstr "ID klucza publicznego GPG"
+
+msgid "(please fill at least this one)"
+msgstr "(proszę wypełnić przynajmniej tę część)"
+
+msgid "Update info"
+msgstr "Zapisz dane"
+
+msgid "Your information"
+msgstr "Twoje dane"
+
+msgid "This is a simulation. Under real circumstances, submitting"
+msgstr ""
+"To jest symulacja. W normalnych warunkach, wysłanie tego formularza\n"
+"spowodowałoby przejście na stronę banku, na której zostałyby wprowadzone\n"
+"dane karty kredytowej.<br /><br />\n"
+"Proszę kliknąć Wyślij, by zasymulować płatność."
+
+msgid "Committed attendees"
+msgstr "Potwierdzeni uczestnicy"
+
+msgid "Committed users are listed in <b>bold</b> type"
+msgstr ""
+"Potwierdzeni użytkownicy są wyróżnieni <b>pogrubionym</b> tekstem\n"
+"(dokonali opłaty lub będą prowadzić prezentację).\n"
+
+msgid "Search for users"
+msgstr "Wyszukiwanie użytkowników"
+
+msgid "Search form"
+msgstr "Formularz wyszukiwania"
+
+msgid "Any"
+msgstr "Dowolne"
+
+msgid "Your photo"
+msgstr "Twoje zdjęcie"
+
+msgid "Image couldn't be read. Please upload your picture in one of the following formats:"
+msgstr "Błąd podczas odczytu pliku z obrazkiem. Proszę przesłać obrazek w jednym z poniższych formatów:"
+
+msgid "This photo will probably end up on the conference who's who,"
+msgstr ""
+"To zdjęcie znajdzie się prawdopodobnie w <i>who is who</i> konferencji,\n"
+"dzięki czemu inni uczestnicy będą mogli rozpoznać Cię, gdy będą chcieli\n"
+"sprawdzić, z kim mieli przyjemność rozmawiać w czasie konferencji.<br />\n"
+"Weź to pod uwagę wysyłając zdjęcie!\n"
+
+msgid "Delete Photo"
+msgstr "Usuń zdjęcie"
+
+msgid "Update Photo"
+msgstr "Zapisz zdjęcie"
+
+msgid "Someone, possibly you, has requested that your password be reset."
+msgstr ""
+"Ktoś (prawdopodobnie Ty) wysłał prośbę o zresetowanie Twojego hasła.\n"
+"Aby to zrobić, kliknij poniższy link:\n"
+
+msgid "If you have received this message without having requested it, it is"
+msgstr ""
+"Jeśli prośba o zmianę hasła nie była przez Ciebie wysyłana, oznacza\n"
+"to, że ktoś użył Twojej nazwy użytkownika lub adresu e-mail.\n"
+"Prawdopodobnie stało się to przez pomyłkę, Twoje hasło nie dostanie\n"
+"się w niepowołane ręce, więc możesz bez obaw zignorować tę wiadomość.\n"
+
+msgid "Reset Password"
+msgstr "Zresetuj hasło"
+
+msgid "Specify either your login, or your email address."
+msgstr ""
+"Podaj swój <B>login</B> lub <B>adres e-mail</B>.\n"
+"Otrzymasz wiadomość z informacją, w jaki sposób zresetować hasło.\n"
+
+msgid "No user was found with this login or email address"
+msgstr "Nie znaleziono użytkownika o tej nazwie lub z takim adresem e-mail"
+
+msgid "Specify your login or email address"
+msgstr "Podaj swój login lub adres e-mail"
+
+msgid "Generate password"
+msgstr "Zresetuj hasło"
+
+msgid "<conf name> Statistics"
+msgstr "Statystyki %1"
+
+msgid "There are n registered people"
+msgstr ""
+"Jest %quant(%1,zarejestrowany uczestnik,zarejestrowanych uczestników)\n"
+"%numerate(%1,pochodzący,pochodzących) z %quant(%2,kraju,krajów)\n"
+"i %quant(%3,grupy Perl Mongers,grup Perl Mongers).\n"
+"Jest %quant(%4,potwierdzony uczestnik,potwierdzonych uczestników),\n"
+"czyli takich, którzy albo zapłacili za uczestnictwo,\n"
+"albo będą prowadzić prezentację.\n"
+
+msgid "You can have a look at country / mongers or cities statistics."
+msgstr ""
+"Dostępne są statystyki dla <a href=\"%1\">krajów i grup Perl Mongers</a>\n"
+"oraz <a href=\"%2\">miast</a>.\n"
+
+msgid "The number of committed users is listed between parentheses"
+msgstr ""
+"W poniższych tabelach, w nawiasie umieszczona jest liczba potwierdzonych\n"
+"uczestników.\n"
+
+msgid "Click on the various links to find the corresponding users!"
+msgstr "Pod odpowiednimi linkami znajdziesz informacje o uczestnikach."
+
+msgid "Note: the country total is not always equal to the city total."
+msgstr ""
+"Uwaga: łączna liczba uczestników dla krajów może być inna niż łączna liczba\n"
+"dla miast. Poza tym, miasta mogą być w niewłaściwych krajach.\n"
+"To wina użytkowników!\n"
+
+msgid "Cities"
+msgstr "Miasta"
+
+msgid "No city information entered"
+msgstr "Brak danych o miastach"
+
+msgid "Countries"
+msgstr "Kraje"
+
+msgid "Monger groups"
+msgstr "Grupy Perl Mongers"
+
+msgid "Un-Registration"
+msgstr "Anulowanie rejestracji"
+
+msgid "To unregister from <conference>,"
+msgstr ""
+"By anulować rejestrację na %1,\n"
+"skorzystaj z przycisku poniżej.\n"
+
+msgid "Unregister from <conference>"
+msgstr "Anuluj rejestrację na %1"
+
+msgid "Submit/Edit a non-talk event"
+msgstr "Zgłoś/edytuj wydarzenie inne niż prezentacja"
+
+msgid "You must enter a title for the event"
+msgstr "Tytuł wydarzenia musi zostać podany"
+
+msgid "You must enter a short description for the event"
+msgstr "Krótki opis wydarzenia musi zostać wprowadzony"
+
+msgid "Please choose a duration"
+msgstr "Proszę określić czas trwania"
+
+msgid "The supplied date is invalid"
+msgstr "Wprowadzona data jest nieprawidłowa"
+
+msgid "The supplied time is invalid"
+msgstr "Wprowadzony czas jest nieprawidłowy"
+
+msgid "The date/time is out of range"
+msgstr "Data/czas wykracza poza zakres"
+
+msgid "Event URL is not a valid URL"
+msgstr "Podany URL jest nieprawidłowy"
+
+msgid "Incorrect room submitted"
+msgstr "Podane pomieszczenie jest nieprawidłowe"
+
+msgid "Please choose a target audience"
+msgstr "Proszę określić odbiorców"
+
+msgid "View"
+msgstr "Podgląd"
+
+msgid "Delete this event"
+msgstr "Usuń to wydarzenie"
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Room"
+msgstr "Pomieszczenie"
+
+msgid "Abstract"
+msgstr "Streszczenie"
+
+msgid "(plain text)"
+msgstr "(zwykły tekst)"
+
+msgid "External URL"
+msgstr "URL zewnętrzny"
+
+msgid "Submit this event"
+msgstr "Wyślij wydarzenie"
+
+msgid "Event submitted"
+msgstr "Wydarzenie zostało wysłane"
+
+msgid "Thanks, the event has been recorded as"
+msgstr ""
+"Dziękujemy, wydarzenie zostało zapisane jako\n"
+"<b><a href=\"%1\">%2</a></b>.\n"
+
+msgid "List of events"
+msgstr "Lista wydarzeń"
+
+msgid "No event was submitted yet."
+msgstr "Nie zgłoszono jeszcze żadnych wydarzeń."
+
+msgid "Event title"
+msgstr "Tytuł wydarzenia"
+
+msgid "Event removed"
+msgstr "Wydarzenie usunięte"
+
+msgid "The event has been removed."
+msgstr "Wydarzenie <b>%1</b> zostało usunięte."
+
+msgid "Date:"
+msgstr "Data:"
+
+msgid "Not scheduled yet."
+msgstr "Nie określono terminu."
+
+msgid "Duration:"
+msgstr "Czas trwania:"
+
+msgid "You can find more information on the following site:"
+msgstr "Więcej informacji można znaleźć na poniższej stronie:"
+
+msgid "Wiki - editing <node>"
+msgstr "Wiki - edycja %1"
+
+msgid "Someone has committed changes to this node since you began editing."
+msgstr ""
+"Ktoś zapisał zmiany w tym obiekcie w czasie, gdy był on zmieniany przez\n"
+"Ciebie. Konieczne będzie ręczne połączenie wprowadzonych zmian w nowej\n"
+"wersji.\n"
+
+msgid "Current node contents:"
+msgstr "Obecna zawartość obiektu:"
+
+msgid "Help"
+msgstr "Pomoc"
+
+msgid "Preview"
+msgstr "Podgląd"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Your proposed revision:"
+msgstr "Proponowane zmiany:"
+
+msgid "Wiki - <node> History"
+msgstr "Wiki - historia %1"
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "Modified on"
+msgstr "Data modyfikacji"
+
+msgid "By"
+msgstr "Autor zmian"
+
+msgid "Wiki - <node>"
+msgstr "Wiki - %1"
+
+msgid "version"
+msgstr "wersja"
+
+msgid "saved on"
+msgstr "zapisana"
+
+msgid "Last modified:"
+msgstr "Ostatnio zmieniana:"
+
+msgid "by"
+msgstr "przez"
+
+msgid "new page"
+msgstr "nowa strona"
+
+msgid "Home"
+msgstr "Start"
+
+msgid "Revert to this version"
+msgstr "Przywróć tę wersję"
+
+msgid "Edit this page"
+msgstr "Edytuj tę stronę"
+
+msgid "Delete this page"
+msgstr "Usuń tę stronę"
+
+msgid "Recent changes"
+msgstr "Ostatnie zmiany"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Wiki help"
+msgstr "Pomoc Wiki"
+
+msgid "<wiki help text>"
+msgstr ""
+"<h2>Formatowanie znaków</h2>\n"
+"<ul>\n"
+"<li>Tekst w potrójnych apostrofach zostanie <b>pogrubiony</b>.</li>\n"
+"<li>Tekst w podwójnych apostrofach zostanie <i>wyróżniony</i>.</li>\n"
+"<li>Słowa zawierające więcej niż jedną WielkąLiterę zostaną zamienione na odnośniki.</li>\n"
+"</ul>\n"
+"<h2>Formatowanie akapitów</h2>\n"
+"<ul>\n"
+"<li>Seria czterech lub więcej myślników na początku wiersza utworzy poziomą linię.</li>\n"
+"<li>Znaki nowego wiersza zostaną zamienione na odpowiednie znaczniki.</li>\n"
+"<li>Nagłówki tworzy się przez umieszczenie znaków równości przed tekstem i po nim; im więcej znaków równości, tym mniej znaczący nagłówek.</li>\n"
+"</ul>\n"
+"<h2>Listy</h2>\n"
+"<ul>\n"
+"<li>Listy są tworzone przez wcięcie tekstu, domyślnie jednym znakiem tabulacji lub czterema spacjami.</li>\n"
+"<li>W przypadku list nienumerowanych, gdzie każda pozycja ma własny symbol wypunktowania, przed tekstem pozycji należy umieścić znak gwiazdki i spację.</li>\n"
+"<li>Pozycje list numerowanych oznaczone są co najmniej jedną cyfrą lub literą, po której występuje znak kropki i (opcjonalnie) spacja.</li>\n"
+"<li>Listy mogą być zagnieżdżane.</li>\n"
+"</ul>\n"
+"<h2>Kod źródłowy</h2>\n"
+"<ul>\n"
+"<li>Tekst poprzedzony wcięciem, bez znaków charakterystycznych dla list, jest traktowany jak kod źródłowy.</li>\n"
+"</ul>\n"
+"<h2>Przykład</h2>\n"
+"\n"
+"Oto przykład formatowania Wiki:\n"
+"<pre>\n"
+"\n"
+"        = my interesting text =\n"
+"\n"
+"        ZwykłyLink\n"
+"        [RozszerzonyLink|niech zawsze świeci słońce]\n"
+"        [user:id]\n"
+"        [user:nick_name]\n"
+"        [user:imię nazwisko]\n"
+"        [talk:id]\n"
+"        [news:id]\n"
+"        [page:index.html|strona konferencji]\n"
+"        [image:images/logo.png|logo konferencji]\n"
+"\n"
+"        == kilka ciekawych list ==\n"
+"\n"
+"            * nienumerowana jeden\n"
+"            * nienumerowana dwa\n"
+"\n"
+"            1. numerowana jeden\n"
+"            2. numerowana dwa\n"
+"                        a. zagnieżdżona jeden\n"
+"                        b. zagnieżdżona dwa\n"
+"\n"
+"            kod źródłowy jeden\n"
+"            kod źródłowy dwa\n"
+"\n"
+"        Pierwszy wiersz zwykłego akapitu.\n"
+"        Drugi wiersz zwykłego akapitu. Hopsasa!\n"
+"</pre>\n"
+
+msgid "Wiki - Recent changes"
+msgstr "Wiki - Ostatnie zmiany"
+
+msgid "Page"
+msgstr "Strona"
+
+msgid "Changes in last"
+msgstr "Zmiany w czasie"
+
+msgid "<n> day(s)"
+msgstr "%quant(%1,dnia,dni)"
+
+msgid "<n> week(s)"
+msgstr "%quant(%1,tygodnia,tygodni)"
+
+msgid "<n> month(s)"
+msgstr "%quant(%1,miesiąca,miesięcy)"
+
+msgid "Wiki tags"
+msgstr "Tagi Wiki"
+
+msgid "Wiki pages tagged <tag>"
+msgstr "Strony Wiki oznaczone tagiem %1"
+
+msgid "Administrative tasks"
+msgstr "Administracja"
+
+msgid "Talks & events"
+msgstr "Prezentacje i wydarzenia"
+
+msgid "Credit card payment"
+msgstr "Płatność kartą kredytową"
+
+msgid "Delayed payment"
+msgstr "Płatność opóźniona"
+
+msgid "Payment"
+msgstr "Płatność"
+
+msgid "Editing payment"
+msgstr "Edycja płatności"
+
+msgid "User"
+msgstr "Użytkownik"
+
+msgid "Payment means"
+msgstr "Metoda płatności"
+
+msgid "or"
+msgstr "lub"
+
+msgid "Update"
+msgstr "Zapisz"
+
+msgid "speaker"
+msgstr "prowadzący"
+
+msgid "Total"
+msgstr "Razem"
+
+msgid "Payment confirmation"
+msgstr "Potwierdzenie płatności"
+
+msgid "<conf> online payment"
+msgstr ""
+"Płatność online została potwierdzona.\n"
+"\n"
+"Numer zamówienia: %2\n"
+"Data płatności: %3 GMT\n"
+"Zapłacona kwota: %4 %5\n"
+
+msgid "Invoice #"
+msgstr "Nr faktury"
+
+msgid "Dated"
+msgstr "Data"
+
+msgid "Printed on"
+msgstr "Data wydruku"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Quantity"
+msgstr "Ilość"
+
+msgid "Unit Price"
+msgstr "Cena jednostkowa"
+
+msgid "<conf> registration"
+msgstr "Rejestracja na %1"
+
+msgid "Your order number:"
+msgstr "Numer zamówienia:"
+
+msgid "Total due"
+msgstr "Kwota razem"
+
+msgid "Invoice"
+msgstr "Faktura"
+
+msgid "You can print this page: only the invoice below will be printed."
+msgstr "Możesz wydrukować tę stronę - wydrukowana zostanie jedynie poniższa faktura."
+
+msgid "Printer friendly version"
+msgstr "Wersja do druku"
+
+msgid "Establishing your invoice requires your address."
+msgstr "Do przygotowania faktury potrzebny jest Twój adres."
+
+msgid "Please make sure the billing information is correct."
+msgstr "Proszę sprawdzić, czy dane na fakturze są poprawne."
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "I confirm"
+msgstr "Potwierdzam"
+
+msgid "Submit/Edit a talk"
+msgstr "Zgłoś/edytuj prezentację"
+
+msgid "You must specify a user"
+msgstr "Proszę wskazać użytkownika"
+
+msgid "You must enter a title for the talk"
+msgstr "Proszę wpisać tytuł prezentacji"
+
+msgid "You must provide an abstract"
+msgstr "Proszę wpisać streszczenie"
+
+msgid "Abstract URL is not a valid URL"
+msgstr "URL streszczenia jest nieprawidłowy"
+
+msgid "Talk URL is not a valid URL"
+msgstr "URL prezentacji jest nieprawidłowy"
+
+msgid "Incorrect language"
+msgstr "Nieprawidłowy język"
+
+msgid "Delete this talk"
+msgstr "Usuń tę prezentację"
+
+msgid "Track"
+msgstr "Ścieżka"
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Language:"
+msgstr "Język:"
+
+msgid "Abstract URL"
+msgstr "URL streszczenia"
+
+msgid "Talk URL"
+msgstr "URL prezentacji"
+
+msgid "Standard durations for <confname> are:"
+msgstr "Zakładane czasy trwania prezentacji podczas %1 to:"
+
+msgid "If the proposed durations do not quite fit your talk, please"
+msgstr ""
+"Jeśli proponowane czasy trwania nie pasują do Twojej prezentacji, określ\n"
+"preferowany czas w uwagach.\n"
+
+msgid "Comments"
+msgstr "Uwagi"
+
+msgid "The comment field is used for communicating information about"
+msgstr ""
+"W polu \"uwagi\" można przekazać dodatkowe informacje dotyczące prezentacji\n"
+"przeznaczone dla organizatorów konferencji.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "accepted"
+msgstr "przyjęty"
+
+msgid "confirmed"
+msgstr "potwierdzony"
+
+msgid "Accepted"
+msgstr "Przyjęty"
+
+msgid "Pending"
+msgstr "Oczekuje"
+
+msgid "Submit this talk"
+msgstr "Zgłoś tę prezentację"
+
+msgid "Talk submitted"
+msgstr "Prezentacja zgłoszona"
+
+msgid "Thanks, your talk submission has been recorded as"
+msgstr "Dziękujęmy, zgłoszenie prezentacji zostało zapisane jako <b><a href=\"%1\">%2</a></b>."
+
+msgid "iCal Import"
+msgstr "Import z pliku iCal"
+
+msgid "The following talks have been updated:"
+msgstr "Następujące prezentacje zostały zaktuzalizowane:"
+
+msgid "Old time"
+msgstr "Poprzedni termin"
+
+msgid "New time"
+msgstr "Nowy termin"
+
+msgid "title"
+msgstr "tytuł"
+
+msgid "Upload an iCal file"
+msgstr "Wyślij plik iCal"
+
+msgid "Import"
+msgstr "Importuj"
+
+msgid "Proceedings"
+msgstr "Prezentacje"
+
+msgid "List of talks"
+msgstr "Lista prezentacji"
+
+msgid "List of talks tagged <tag>"
+msgstr "Lista prezentacji z tagiem %1"
+
+msgid "No talk was submitted yet."
+msgstr "Nie zgłoszono jeszcze żadnych prezentacji."
+
+msgid "Submitted talks:"
+msgstr "Zgłoszone prezentacje:"
+
+msgid "Accepted talks:"
+msgstr "Przyjęte prezentacje:"
+
+msgid "Accepted talks are shown in bold type."
+msgstr "Przyjęte prezentacje są zapisane <b>pogrubionym tekstem</b>."
+
+msgid "Total duration of accepted talks:"
+msgstr "Łączny czas trwania przyjętych prezentacji:"
+
+msgid "hours"
+msgstr "godz."
+
+msgid "Accepted lightning talks:"
+msgstr "Przyjęte szybkie prezentacje:"
+
+msgid "Tracks"
+msgstr "Ścieżki"
+
+msgid "No track"
+msgstr "Brak ścieżki"
+
+msgid "lightning"
+msgstr "szybka"
+
+msgid "from"
+msgstr "z"
+
+msgid "Comment:"
+msgstr "Uwagi:"
+
+msgid "You can find more information on the speaker's site:"
+msgstr "Więcej informacji można znaleźć na stronie prowadzącego:"
+
+msgid "Abstract:"
+msgstr "Streszczenie:"
+
+msgid "Talk:"
+msgstr "Prezentacja:"
+
+msgid "Talk removed"
+msgstr "Prezentacja usunięta"
+
+msgid "The Talk <title> has been removed."
+msgstr "Prezentacja <b>%1</b> została usunięta."
+
+msgid "Talk inserted"
+msgstr "Prezentacja dodana"
+
+msgid "Talk updated"
+msgstr "Prezentacja zaktualizowana"
+
+msgid "Submitted by:"
+msgstr "Zgłaszający:"
+
+msgid "The following fields have been updated:"
+msgstr "Następujące pola zostały zaktualizowane:"
+
+msgid "By:"
+msgstr "Prowadzący:"
+
+msgid "Remember me on this computer"
+msgstr "Zapamiętaj mnie na tym komputerze"
+
+msgid "Billing"
+msgstr "Płatności"
+
+msgid "The following submission has been accepted"
+msgstr ""
+"Następujące zgłoszenie zostało przyjęte. Proszę odwiedzić\n"
+"poniższy link, by potwierdzić swoją prezentację.\n"
+
+msgid "News"
+msgstr "Aktualności"
+
+msgid "News Administration"
+msgstr "Zarządzanie aktualnościami"
+
+msgid "Published"
+msgstr "Zamieszczone"
+
+msgid "Create a new item"
+msgstr "Dodaj nową informację"
+
+msgid "Edit a news item"
+msgstr "Edytuj informację"
+
+msgid "You must enter a title"
+msgstr "Proszę podać tytuł"
+
+msgid "You must enter some text"
+msgstr "Proszę wprowadzić treść"
+
+msgid "Delete this item"
+msgstr "Usuń tę informację"
+
+msgid "Text"
+msgstr "Treść"
+
+msgid "No news yet!"
+msgstr "Brak aktualności"
+
+msgid "Use HTML to format text. Text between newlines will be turned into paragraphs"
+msgstr "Do formatowania tekstu używaj HTMLa. Tekst oddzielony znakami nowego wiersza zostanie zamieniony na akapity."
+
+msgid "Add a new track"
+msgstr "Dodaj nową ścieżkę"
+
+msgid "Create/Edit a track"
+msgstr "Utwórz/edytuj ścieżkę"
+
+msgid "Delete this track"
+msgstr "Usuń tę ścieżkę"
+
+msgid "Submit this track"
+msgstr "Zapisz tę ścieżkę"
+
+msgid "You must enter a title for the track"
+msgstr "Proszę podać tytuł ścieżki"
+
+msgid "n talks"
+msgstr "%1 %numerate(%1,prezentacja,prezentacje,prezentacji)"
+
+msgid "n accepted"
+msgstr "%1 %numerate(%1,przyjęta,przyjęte,przyjętych)"
+
+msgid "n confirmed"
+msgstr "%1 %numerate(%1,potwierdzona,potwierdzone,potwierdzonych)"
+
+msgid "Change Password"
+msgstr "Zmień hasło"
+
+msgid "Please type in your new password"
+msgstr "Proszę wpisać nowe hasło"
+
+msgid "Passwords don't match"
+msgstr "Hasła różnią się"
+
+msgid "Current password"
+msgstr "Obecne hasło"
+
+msgid "New password"
+msgstr "Nowe hasło"
+
+msgid "Enter your new password twice"
+msgstr "Wprowadź nowe hasło dwukrotnie"
+
+msgid "An email has been sent to you. Click on the link in the email to"
+msgstr ""
+"Została do Ciebie wysłana wiadomość. Użyj zawartego w niej linku,\n"
+"by ustawić nowe hasło dla swojego konta użytkownika.\n"
+
+msgid "Tags"
+msgstr "Tagi"
+
+msgid "Tags:"
+msgstr "Tagi:"
+
+msgid "add new tags:"
+msgstr "dodaj nowe tagi:"
+
+msgid "To unregister <name> from <conference>,"
+msgstr ""
+"By anulować rejestrację uczestnika <b>%1 %2</b> z %3,\n"
+"użyj poniższego przycisku.\n"
+
+msgid "Unregister <name> from <conference>"
+msgstr "Anuluj rejestrację uczestnika %1 %2 z %3"
+
+msgid "unregister"
+msgstr "anuluj rejestrację"
+
+msgid "edit payment"
+msgstr "edytuj dane płatności"
+
+msgid "view invoice"
+msgstr "zobacz fakturę"
+
+msgid "create invoice"
+msgstr "utwórz fakturę"
+
+msgid "enter payment"
+msgstr "wprowadź dane płatności"
+
+msgid "Your purchases"
+msgstr "Twoje zamówienia"
+
+msgid "Your <conf> order #<id>"
+msgstr "Zamówienie nr %2 w %1"
+
+msgid "make additional purchases"
+msgstr "dokonaj kolejnego zamówienia"
+
+msgid "view all orders and invoices"
+msgstr "zobacz wszystkie zamówienia i faktury"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Personal Schedule"
+msgstr "Twój harmonogram"
+
+msgid "Attending talks"
+msgstr "Uczestniczy w prezentacjach"
+
+msgid "Promotion code"
+msgstr "Kod promocyjny"
+
+msgid "add to personal schedule"
+msgstr "dodaj do swojego harmonogramu"
+
+msgid "remove from personal schedule"
+msgstr "usuń ze swojego harmonogramu"
+
+msgid "Attended by:"
+msgstr "Uczestnicy:"
+
+msgid "Favorite Talks"
+msgstr "Wybrane prezentacje"
+
+msgid "Stars"
+msgstr "Popularność"
+
+msgid "Confirm Attendance"
+msgstr "Potwierdź uczestnictwo"
+
+msgid "Attendance confirmed for <user>"
+msgstr "Uczestnictwo potwierdzone - %1"
+
+msgid "You must enter an order ID."
+msgstr "Musisz podać numer zamówienia."
+
+msgid "Unknown order ID."
+msgstr "Nieznany numer zamówienia."
+
+msgid "User is not registered."
+msgstr "Użytkownik nie jest zarejestrowany."
+
