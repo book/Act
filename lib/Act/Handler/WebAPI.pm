@@ -77,7 +77,7 @@ sub _get_attendees
     my @data;
     for my $user (@$users) {
         push @data, _get_fields($m, \@fields, $user)
-            if($user->committed || ($user->has_registered && $fields{registered}});
+            if($user->committed || ($user->has_registered && $fields{registered}));
     }
     return \@data;
 }
