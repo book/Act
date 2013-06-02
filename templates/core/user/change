@@ -270,9 +270,9 @@
 <tr>
    <td align="right">
       [%- IF pause_id %]
-         <a href="http://search.cpan.org/author/[% pause_id %]/" >
+         <a href="https://metacpan.org/author/[% pause_id %]/" >
       [% END %]
-      Pause id
+      <a href="https://pause.perl.org/">PAUSE</a> id
       [%- IF pause_id %]
          </a>
       [% END %]
