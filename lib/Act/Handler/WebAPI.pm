@@ -9,39 +9,41 @@ use Act::Track;
 use Act::User;
 
 my %Methods = (
-    get_attendees   => { run => \&_get_attendees,
-                         fields  => {
-                            map( { $_ =>  0 }
-                                qw(user_id login
-                                   salutation first_name last_name full_name public_name pseudonymous
-                                   country town web_page pm_group pause_id monk_id monk_name im email
-                                   language timezone
-                                   company address vat
-                                   registered
-                                )),
-                         },
-                         default => [ qw(public_name email) ],
-                     },
-    get_talks       => { run => \&_get_talks,
-                         fields  => {
-                            map( { $_ => 0 }
-                                qw(talk_id user_id track_id
-                                   title abstract url_abstract url_talk duration lightning
-                                   accepted confirmed
-                                   level lang 
-                                )),
-                            datetime => \&_talk_datetime,
-                            room     => \&_talk_room,
-                            speaker  => \&_talk_speaker,
-                            track    => \&_talk_track,
-                         },
-                         default => [ qw(title speaker room datetime) ],
-                     },
+    get_attendees => {
+        run => \&_get_attendees,
+        fields  => {
+           map( { $_ =>  0 }
+               qw(user_id login
+                  salutation first_name last_name full_name public_name pseudonymous
+                  country town web_page pm_group pause_id monk_id monk_name im email
+                  language timezone
+                  company address vat
+                  registered
+               )),
+        },
+        default => [ qw(public_name email) ],
+    },
+    get_talks => {
+        run => \&_get_talks,
+        fields  => {
+           map( { $_ => 0 }
+               qw(talk_id user_id track_id
+                  title abstract url_abstract url_talk duration lightning
+                  accepted confirmed
+                  level lang 
+               )),
+           datetime => \&_talk_datetime,
+           room     => \&_talk_room,
+           speaker  => \&_talk_speaker,
+           track    => \&_talk_track,
+        },
+        default => [ qw(title speaker room datetime) ],
+    },
 );
 my $json = JSON::XS->new->utf8->pretty(1);
 
-sub handler
-{
+
+sub handler {
     # authenticate
     if ( $Request{args}{api_key} && $Config->api_keys->{ $Request{args}{api_key} } ) {
 
@@ -67,8 +69,9 @@ sub handler
     }
     $Request{status} = BAD_REQUEST;
 }
-sub _get_attendees
-{
+
+
+sub _get_attendees {
     my ($m, $fields) = @_;
     my %fields = map { $_ => 1 } @$fields;
     my @fields = grep { !/registered/ } @$fields;
@@ -81,8 +84,9 @@ sub _get_attendees
     }
     return \@data;
 }
-sub _get_talks
-{
+
+
+sub _get_talks {
     my ($m, $fields) = @_;
 
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
@@ -93,8 +97,9 @@ sub _get_talks
     }
     return \@data;
 }
-sub _get_fields
-{
+
+
+sub _get_fields {
     my ($m, $fields, $object) = @_;
 
     my %data;
@@ -107,24 +112,28 @@ sub _get_fields
     }
     return \%data;
 }
-sub _talk_datetime
-{
+
+
+sub _talk_datetime {
     my $talk = shift;
     return $Config->talks_show_schedule && $talk->datetime ? $talk->datetime->epoch : undef;
 }
-sub _talk_room
-{
+
+
+sub _talk_room {
     my $talk = shift;
     return $Config->talks_show_schedule && $talk->room ? $talk->room : undef;
 }
-sub _talk_speaker
-{
+
+
+sub _talk_speaker {
     my $talk = shift;
     my $user = Act::User->new(user_id => $talk->user_id);
     return $user->public_name;
 }
-sub _talk_track
-{
+
+
+sub _talk_track {
     my $talk = shift;
     if ($talk->track_id) {
         my $track = Act::Track->new(track_id => $talk->track_id);
