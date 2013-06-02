@@ -48,6 +48,7 @@ my %Methods = (
            room     => \&_talk_room,
            speaker  => \&_talk_speaker,
            track    => \&_talk_track,
+           attendees=> \&_talk_attendees,
         },
         default => [ qw(title speaker room datetime) ],
     },
@@ -133,6 +134,13 @@ sub _get_fields {
         $data{$field} = $value if defined $value;
     }
     return \%data;
+}
+
+
+sub _talk_attendees {
+    my $talk = shift;
+    my $attendees = Act::User->attendees($talk->talk_id);
+    return join ",", map $_->user_id, @$attendees
 }
 
 
