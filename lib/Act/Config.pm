@@ -398,7 +398,7 @@ sub _get
 sub _load_config
 {
     my ($cfg, $dir) = @_;
-    for my $file qw(act local) {
+    for my $file (qw< act local >) {
         my $path = catfile($dir, 'conf', "$file.ini");
         if (-e $path) {
             open my $fh, '<:encoding(UTF-8)', $path
