@@ -4,6 +4,7 @@ use Apache::Constants qw(OK BAD_REQUEST);
 use JSON::XS ();
 
 use Act::Config;
+use Act::Event;
 use Act::Talk;
 use Act::Track;
 use Act::User;
@@ -23,6 +24,17 @@ my %Methods = (
         },
         default => [ qw(public_name email) ],
     },
+
+    get_events => {
+        run => \&_get_events,
+        fields  => {
+           map({ $_ => 0 } qw< event_id title abstract url_abstract duration >),
+           datetime => \&_talk_datetime,
+           room     => \&_talk_room,
+        },
+        default => [ qw(title speaker room datetime) ],
+    },
+
     get_talks => {
         run => \&_get_talks,
         fields  => {
@@ -83,6 +95,16 @@ sub _get_attendees {
             if($user->committed || ($user->has_registered && $fields{registered}));
     }
     return \@data;
+}
+
+
+sub _get_events {
+    my ($m, $fields) = @_;
+
+    my $events = Act::Event->get_events( conf_id => $Request{conference} );
+    my @data = map { _get_fields($m, $fields, $_) } @$events;
+
+    return \@data
 }
 
 
