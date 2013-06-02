@@ -32,7 +32,7 @@ my %Methods = (
            datetime => \&_talk_datetime,
            room     => \&_talk_room,
         },
-        default => [ qw(title speaker room datetime) ],
+        default => [qw< title room datetime >],
     },
 
     get_talks => {
