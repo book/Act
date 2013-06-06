@@ -30,7 +30,7 @@ sub compute_schedule {
     my @ts = @_;
     my (%table, %index, %room, %time); # helpful structures
     my ($todo, $globals) = ([],[]);    # events lists
- 
+
     # sort and separate global and normal items
     # compute the times to show in the chart
     for ( sort {

@@ -14,7 +14,6 @@ use Act::User;
 use Act::Util;
 use Act::Wiki;
 
-
 my %actions = (
     display => \&wiki_display,
     recent  => \&wiki_recent,
@@ -23,7 +22,6 @@ my %actions = (
     help    => \&wiki_help,
     tags    => \&wiki_tags,
 );
-
 
 sub handler
 {
@@ -47,7 +45,6 @@ sub handler
     $actions{$action}->($wiki, $template, @args);
 }
 
-
 # display a specific node (wiki page)
 sub wiki_display
 {
@@ -55,7 +52,6 @@ sub wiki_display
     my $node = $Request{args}{node} || 'HomePage';
     Act::Wiki::display_node($wiki, $template, $node, $Request{args}{version});
 }
-
 
 # list of recent changes
 sub wiki_recent
@@ -92,7 +88,6 @@ sub wiki_recent
     $template->process('wiki/recent');
 }
 
-
 # page history
 sub wiki_history
 {
@@ -115,7 +110,6 @@ sub wiki_history
     );
     $template->process('wiki/history');
 }
-
 
 sub wiki_diff
 {
@@ -166,13 +160,11 @@ sub wiki_diff
     $template->process('wiki/diff');
 }
 
-
 sub wiki_help
 {
     my ($wiki, $template) = @_;
     $template->process('wiki/help');
 }
-
 
 sub wiki_tags
 {
@@ -213,9 +205,7 @@ sub wiki_tags
     $template->process('wiki/tags');
 }
 
-
 1;
-
 
 __END__
 
