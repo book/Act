@@ -4,6 +4,7 @@ use Act::Object;
 use Act::Talk;
 use Act::Country;
 use Act::Util;
+use Digest::MD5 qw( md5_hex );
 use Carp;
 use List::Util qw(first);
 use base qw( Act::Object );
@@ -103,6 +104,11 @@ sub bio {
     }
     $sth->finish();
     return $self->{bio};
+}
+
+sub md5_email {
+    my $self = shift;
+    return $self->{md5_email} ||= md5_hex( lc $self->email );
 }
 
 sub talks {
