@@ -79,7 +79,7 @@ sub handler {
     unless ($Request{user}->is_talks_admin) {
         unless ( ($talk && $talk->user_id == $Request{user}->user_id
                         && ($Config->talks_edition_open || $Config->talks_submissions_open))
-                || $Config->talks_submissions_open )
+                || (!$talk && $Config->talks_submissions_open ))
         {
             $Request{status} = NOT_FOUND;
             return;
