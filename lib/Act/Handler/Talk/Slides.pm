@@ -35,7 +35,7 @@ sub handler {
             || $_->accepted
             || ($Request{user} && ( $Request{user}->is_talks_admin
                                  || $Request{user}->user_id == $_->user_id))
-        } @$talks
+        } @filtered_talks
     ];
 
     # process the template
@@ -44,34 +44,7 @@ sub handler {
         talks   => $talks,
     ); 
 
-    $template->process("talk/proceedings");
-}
-
-
-#
-# text_summary()
-# ------------
-sub text_summary {
-    my ($text, $limit) = @_;
-
-    # extract the first paragraph
-    my $para = substr($text, 0, index($text, "\n"));
-
-    # if it's still too long, extract as many phrases as possible,
-    # while keeping below $limit characters
-    if (length($para) > $limit) {
-        my @chunks = split /([.?!] +|[.?!]\z)/, $para;
-        my $str = "";
-
-        while (@chunks and (length($str) + length($chunks[0])) < $limit) {
-            $str .= shift @chunks;
-            $str .= shift @chunks;
-        }
-
-        $para = "$str [...]";
-    }
-    
-    return $para
+    $template->process("talk/slides");
 }
 
 
