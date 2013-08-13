@@ -823,6 +823,12 @@ msgstr "iCal-Datei hochladen"
 msgid "Import"
 msgstr "Importieren"
 
+msgid "Proceedings"
+msgstr "Proceedings"
+
+msgid "Slides"
+msgstr "Folien"
+
 msgid "List of talks"
 msgstr "Liste der Vorträge"
 
