@@ -1164,6 +1164,9 @@ msgstr "Import"
 msgid "Proceedings"
 msgstr "Proceedings"
 
+msgid "Slides"
+msgstr "Slides"
+
 msgid "List of talks"
 msgstr "List of talks"
 

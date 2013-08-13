@@ -1174,6 +1174,9 @@ msgstr "Importer"
 msgid "Proceedings"
 msgstr "Actes"
 
+msgid "Slides"
+msgstr "Diapositives"
+
 msgid "List of talks"
 msgstr "Liste des présentations"
 
