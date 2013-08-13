@@ -16,7 +16,7 @@
     </dd>
 
     <dd class="link_slides">
-      {{Slides:}} <a href="[% t.url_talk %]">[% t.url_talk %]</a>
+      ➢ <a href="[% t.url_talk %]">[% t.url_talk %]</a>
     </dd>
 
   </dl>
