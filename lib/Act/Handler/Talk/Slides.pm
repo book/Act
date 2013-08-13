@@ -12,16 +12,17 @@ use Act::User;
 sub handler {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
+    my @filtered_talks;
     for my $talk (@$talks) {
+       next unless $talk->{url_talk}; # TODO this should move into get_talks
+
        # make the User object for the speaker
        $talk->{user} = Act::User->new( user_id => $talk->user_id );
 
        # default language
        $talk->{lang} ||= $Config->general_default_language;
 
-       # make a summary of the abstract (some people write long abstracts)
-       my $abstract = text_summary($talk->abstract, 400);
-       $talk->{chunked_abstract} = Act::Abstract::chunked($abstract);
+       push(@filtered_talks,$talk);
     }
 
     # sort talks
