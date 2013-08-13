@@ -12,6 +12,7 @@ use Act::User;
 sub handler {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
+
     for my $talk (@$talks) {
        # make the User object for the speaker
        $talk->{user} = Act::User->new( user_id => $talk->user_id );

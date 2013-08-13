@@ -13,6 +13,7 @@ sub handler {
     # retrieve talks and speaker info
     my $talks = Act::Talk->get_talks( conf_id => $Request{conference} );
     my @filtered_talks;
+
     for my $talk (@$talks) {
        next unless $talk->{url_talk}; # TODO this should move into get_talks
 
@@ -22,7 +23,7 @@ sub handler {
        # default language
        $talk->{lang} ||= $Config->general_default_language;
 
-       push(@filtered_talks,$talk);
+       push @filtered_talks, $talk;
     }
 
     # sort talks
@@ -53,11 +54,11 @@ __END__
 
 =head1 NAME
 
-Act::Handler::Talk::Proceedings - show proceedings
+Act::Handler::Talk::Slides - show proceedings
 
 =head1 DESCRIPTION
 
-Show proceedings: all talks in a big list, with the useful details.
+Show slides: all talks with linked slides in a big list
 
 See F<DEVDOC> for a complete discussion on handlers.
 
