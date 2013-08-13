@@ -1,0 +1,27 @@
+[% title = loc("Slides");
+   WRAPPER ui title = title %]
+[% INCLUDE js/mytalks.js %]
+
+[% IF global.request.user.is_talks_admin OR global.config.talks_show_schedule %]
+<div class="proceedings">
+  [% FOREACH t = talks %]
+  <dl class="talk">
+    <dd class="title">
+      [% talk_link(t) %]
+    </dd>
+
+    <dd class="speaker">
+      <span class="name">[% user_info(t.user) %]</span>[% IF t.user.company %], 
+      <span class="company">[% t.user.company %]</span>[% END %]
+    </dd>
+
+    <dd class="link_slides">
+      {{Slides:}} <a href="[% t.url_talk %]">[% t.url_talk %]</a>
+    </dd>
+
+  </dl>
+  [% END %]
+</div>
+[% END %]
+
+[% END %]
