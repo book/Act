@@ -110,7 +110,7 @@ msgid "country_bw"
 msgstr "Botswana"
 
 msgid "country_by"
-msgstr "Weißrußland"
+msgstr "Weißrussland"
 
 msgid "country_bz"
 msgstr "Belize"
@@ -401,7 +401,7 @@ msgid "country_lt"
 msgstr "Litauen"
 
 msgid "country_lu"
-msgstr "Luxenbourg"
+msgstr "Luxemburg"
 
 msgid "country_lv"
 msgstr "Lettland"
@@ -476,7 +476,7 @@ msgid "country_my"
 msgstr "Malaya"
 
 msgid "country_mz"
-msgstr "Moçambique"
+msgstr "Mosambik"
 
 msgid "country_na"
 msgstr "Namibia"
@@ -572,7 +572,7 @@ msgid "country_rs"
 msgstr "Serbien"
 
 msgid "country_ru"
-msgstr "Rußland"
+msgstr "Russland"
 
 msgid "country_rw"
 msgstr "Ruanda"
@@ -734,7 +734,7 @@ msgid "country_yt"
 msgstr "Mayotte"
 
 msgid "country_za"
-msgstr "Republik Südarfika"
+msgstr "Republik Südafrika"
 
 msgid "country_zm"
 msgstr "Sambia"

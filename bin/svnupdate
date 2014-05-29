@@ -8,6 +8,7 @@ use Getopt::Std qw(getopts);
 
 use Act::Config;
 
+
 my %opts;
 getopts('anv', \%opts) or usage();
 $opts{a} && @ARGV && usage();
@@ -17,17 +18,20 @@ $|++;
 my $now = DateTime->today;
 my $home = $Config->home;
 my @confs = @ARGV ? @ARGV : keys %{$Config->conferences};
+
 for my $conf_id (@confs) {
     my $cfg = Act::Config::get_config($conf_id);
     my ($begin, $end) = map DateTime::Format::Pg->parse_timestamp($_)->truncate(to => 'day'),
                         $cfg->talks_start_date, $cfg->talks_end_date;
+    $end->add(weeks => 1);
+
     if (@ARGV || $opts{a} || $end >= $now || $begin >= $now) {
         for my $subdir (qw(actdocs wwwdocs)) {
             my $dir = catfile($Config->home, $subdir, $conf_id);
             print "$dir\n" if $opts{v};
+
             unless ($opts{n}) {
-                chdir($dir)
-                    or do { warn "Can't chdir to $dir!\n"; return };
+                chdir $dir or do { warn "Can't chdir to $dir!\n"; return };
                 my $status = system("svn up -q --non-interactive");
                 warn "Fatal error when trying to run 'svn up' in $dir: $!\n"
                     if $status == -1;
