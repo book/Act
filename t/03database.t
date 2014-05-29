@@ -1,7 +1,7 @@
 use strict;
 use Act::Config;
 use DBI;
-use Test::More tests => 15;
+use Test::More tests => 16;
 
 my @databases = (
     [ 'main',
@@ -32,7 +32,13 @@ for my $d (@databases) {
                               pg_enable_utf8 => 1,
                             }
                           );
-    ok($dbh, "$name connect");
+
+    if (not ok $dbh, "$name connect") {
+        SKIP: {
+            skip "connect failed; following tests can't be run", 4
+        }
+        next
+    }
 
     SKIP: {
         skip "tests specific to PostgreSQL", 2 unless $is_pg;
@@ -40,12 +46,14 @@ for my $d (@databases) {
         cmp_ok($dbh->{pg_lib_version}, '>=', 80000, "$name library version");
     }
 
-    unless ($name eq 'wiki') {
+    SKIP: {
+        skip "irrelevent", 1 if $name eq 'wiki';
         my ($version, $required) = Act::Database::get_versions($dbh);
         is ($version, $required, "$name schema is up to date");
     }
 
-    ok($dbh->disconnect, "$name disconnect");
+    eval { $dbh->disconnect };
+    is $@, "", "$name disconnect";
 }
 
 __END__
