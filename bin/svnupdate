@@ -23,6 +23,7 @@ for my $conf_id (@confs) {
     my $cfg = Act::Config::get_config($conf_id);
     my ($begin, $end) = map DateTime::Format::Pg->parse_timestamp($_)->truncate(to => 'day'),
                         $cfg->talks_start_date, $cfg->talks_end_date;
+    $end->add(weeks => 1);
 
     if (@ARGV || $opts{a} || $end >= $now || $begin >= $now) {
         for my $subdir (qw(actdocs wwwdocs)) {
