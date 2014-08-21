@@ -17,7 +17,7 @@ my %Methods = (
                qw(user_id login
                   salutation first_name last_name full_name public_name pseudonymous
                   country town web_page pm_group pause_id monk_id monk_name im email
-                  language timezone
+                  email_hide language timezone
                   company address vat
                   registered
                )),
