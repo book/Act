@@ -31,6 +31,6 @@
 Act is a set of modules to handle several conferences with the
 help of Apache, mod_perl and Template-Toolkit.
 
-More documentation is available in pod, under doc/.
+More documentation is available in pod, under lib/Act/Manual/.
 All the documentation is also mirrored on http://act.mongueurs.net/
 
