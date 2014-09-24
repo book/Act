@@ -114,6 +114,7 @@ sub wiki_history
 sub wiki_diff
 {
     my ($wiki, $template) = @_;
+$Request{status} = NOT_FOUND; return;  # disable wikidiff the hard way
 
     my $node = $Request{args}{node};
 
