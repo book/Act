@@ -1,13 +1,18 @@
 #!/usr/bin/perl
+use strict;
+use DBI;
 
+use Act::Config;
 use Act::Database;
 
 my $version = Act::Database::required_version();
+my (undef, $driver) = DBI->parse_dsn( $Config->database_dsn );
+my $cascade = $driver =~ /^(?:mysql|Oracle|Pg)$/ ? "CASCADE" : "";
 
-print <<EOF;
+print <<"EOF";
 /*** schema version ***/
 
-DROP   TABLE schema CASCADE;
+DROP   TABLE schema $cascade;
 CREATE TABLE schema
 (
     current_version integer NOT NULL
@@ -17,7 +22,7 @@ INSERT INTO schema VALUES ($version);
 /*** users' related tables ***/
 
 /* users */
-DROP   TABLE users CASCADE;
+DROP   TABLE users $cascade;
 CREATE TABLE users
 (
     user_id     serial     NOT NULL  PRIMARY KEY,
@@ -83,7 +88,7 @@ CREATE TABLE rights
 CREATE INDEX rights_idx ON rights (conf_id);
 
 /* invoice numer */
-DROP   TABLE invoice_num CASCADE;
+DROP   TABLE invoice_num $cascade;
 CREATE TABLE invoice_num
 (
     conf_id     text       NOT NULL PRIMARY KEY,
@@ -108,7 +113,7 @@ CREATE INDEX participations_idx ON participations (conf_id, user_id);
 
 /*** Talks related tables ***/
 /* tracks */
-DROP   TABLE tracks CASCADE;
+DROP   TABLE tracks $cascade;
 CREATE TABLE tracks
 (   
     track_id    serial     NOT NULL    PRIMARY KEY,
@@ -119,7 +124,7 @@ CREATE TABLE tracks
 CREATE INDEX tracks_idx ON tracks ( conf_id );
 
 /* talks */
-DROP   TABLE talks CASCADE;
+DROP   TABLE talks $cascade;
 CREATE TABLE talks
 (
     talk_id    serial    NOT NULL    PRIMARY KEY,
@@ -152,7 +157,7 @@ CREATE TABLE talks
 CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
 
 /* events */
-DROP   TABLE events CASCADE;
+DROP   TABLE events $cascade;
 CREATE TABLE events
 (
     event_id   serial    NOT NULL    PRIMARY KEY,
@@ -167,7 +172,7 @@ CREATE TABLE events
 CREATE INDEX events_idx ON events ( event_id, conf_id );
 
 /* my schedule */
-DROP   TABLE user_talks CASCADE;
+DROP   TABLE user_talks $cascade;
 CREATE TABLE user_talks
 (
     user_id     integer   NOT NULL,
@@ -179,7 +184,7 @@ CREATE TABLE user_talks
 CREATE INDEX user_talks_idx ON user_talks ( user_id, talk_id );
 
 /* orders */
-DROP   TABLE orders CASCADE;
+DROP   TABLE orders $cascade;
 CREATE TABLE orders
 (
     order_id   serial    NOT NULL    PRIMARY KEY,
@@ -196,7 +201,7 @@ CREATE TABLE orders
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 
-DROP   TABLE order_items CASCADE;
+DROP   TABLE order_items $cascade;
 CREATE TABLE order_items
 (
     item_id    serial    NOT NULL    PRIMARY KEY,
@@ -209,7 +214,7 @@ CREATE TABLE order_items
 );
 
 /* invoices */
-DROP   TABLE invoices CASCADE;
+DROP   TABLE invoices $cascade;
 CREATE TABLE invoices
 (
     /* invoice info */
@@ -260,7 +265,7 @@ CREATE TABLE news_items
 );
 
 /* perl mongers groups */
-DROP   TABLE pm_groups CASCADE;
+DROP   TABLE pm_groups $cascade;
 CREATE TABLE pm_groups
 (
     group_id      serial     NOT NULL  PRIMARY KEY,
@@ -274,7 +279,7 @@ CREATE TABLE pm_groups
 CREATE INDEX pm_groups_idx ON pm_groups ( xml_group_id );
 
 /* two-step handlers */
-DROP   TABLE twostep CASCADE;
+DROP   TABLE twostep $cascade;
 CREATE TABLE twostep
 (
     token         char(32) NOT NULL PRIMARY KEY,
@@ -284,7 +289,7 @@ CREATE TABLE twostep
 );
 
 /* tags */
-DROP   TABLE tags CASCADE;
+DROP   TABLE tags $cascade;
 CREATE TABLE tags
 (
     tag_id        serial NOT NULL PRIMARY KEY,
