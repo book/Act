@@ -1,6 +1,6 @@
 package Act::Schema::Result::Bio;
 use utf8;
-use 'DBIx::Class::Candy';
+use 'Act::Schema::Candy';
 
 =head1 NAME
 
