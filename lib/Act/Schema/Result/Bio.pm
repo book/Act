@@ -1,53 +1,47 @@
-use utf8;
 package Act::Schema::Result::Bio;
-
-# Created by DBIx::Class::Schema::Loader
-# DO NOT MODIFY THE FIRST PART OF THIS FILE
+use utf8;
+use 'DBIx::Class::Candy';
 
 =head1 NAME
 
 Act::Schema::Result::Bio
 
-=cut
-
-use strict;
-use warnings;
-
-use base 'DBIx::Class::Core';
-
 =head1 TABLE: C<bios>
 
 =cut
-
-__PACKAGE__->table("bios");
 
 =head1 ACCESSORS
 
 =head2 user_id
 
-  data_type: 'integer'
-  is_nullable: 1
+=cut
+
+column user_id => {
+    data_type   => 'integer',
+    is_nullable => 1,
+};
 
 =head2 lang
 
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 bio
-
-  data_type: 'text'
-  is_nullable: 1
+Language identifier as definend in ....
 
 =cut
 
-__PACKAGE__->add_columns(
-  "user_id",
-  { data_type => "integer", is_nullable => 1 },
-  "lang",
-  { data_type => "text", is_nullable => 1 },
-  "bio",
-  { data_type => "text", is_nullable => 1 },
-);
+column lang => {
+    data_type   => 'text',
+    is_nullable => 1,
+};
+
+=head2 bio
+
+Descriptive text for a specific language.
+
+=cut
+
+column bio => {
+    data_type   => 'text',
+    is_nullable => 1,
+};
 
 =head1 UNIQUE CONSTRAINTS
 
@@ -63,12 +57,24 @@ __PACKAGE__->add_columns(
 
 =cut
 
-__PACKAGE__->add_unique_constraint("bios_idx", ["user_id", "lang"]);
+unique_constraint "bios_idx" => ["user_id", "lang"];
 
+=head1 RELATIONS
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-11-18 10:52:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:JIXk+QL4y0RFU15pjqrBtQ
+=for improvements head2 user
+ 
+belongs_to L<Act::Schema::Result::User>
+ 
+=cut
 
+# belongs_to "user" => "Act::Schema::Result::User",
+#     { user_id => "user_id" },
+#     { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
+=head1 COPYRIGHT
+
+(c) 2014 - Th.J. van Hoesel - THEMA-MEDIA NL
+
+=cut
+
 1;
