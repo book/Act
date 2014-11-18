@@ -6,6 +6,11 @@ use 'DBIx::Class::Candy';
 
 Act::Schema::Result::Bio
 
+=head1 DESCRIPTION
+
+Act allows users to have their bio's in as much languages as they self like to
+provide. These are shared among all community events.
+
 =head1 TABLE: C<bios>
 
 =cut
