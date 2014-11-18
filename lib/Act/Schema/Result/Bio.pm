@@ -15,6 +15,8 @@ provide. These are shared among all community events.
 
 =cut
 
+table "bios";
+
 =head1 ACCESSORS
 
 =head2 user_id
