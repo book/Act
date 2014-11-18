@@ -23,7 +23,7 @@ table "bios";
 
 =cut
 
-column user_id => {
+column "user_id" => {
     data_type          => 'integer',
     is_nullable        => 1,
 };
@@ -34,7 +34,7 @@ Language identifier as definend in ....
 
 =cut
 
-column lang => {
+column "lang" => {
     data_type          => 'text',
     is_nullable        => 1,
 };
@@ -45,7 +45,7 @@ Descriptive text for a specific language.
 
 =cut
 
-column bio => {
+column "bio" => {
     data_type          => 'text',
     is_nullable        => 1,
 };
