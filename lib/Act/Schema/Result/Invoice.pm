@@ -1,124 +1,158 @@
-use utf8;
 package Act::Schema::Result::Invoice;
-
-# Created by DBIx::Class::Schema::Loader
-# DO NOT MODIFY THE FIRST PART OF THIS FILE
+use utf8;
+use 'Act::Schema::Candy';
 
 =head1 NAME
 
 Act::Schema::Result::Invoice
 
+=head1 DESCRIPTION
+
+...
+
 =cut
-
-use strict;
-use warnings;
-
-use base 'DBIx::Class::Core';
 
 =head1 TABLE: C<invoices>
 
 =cut
 
-__PACKAGE__->table("invoices");
+table "invoices";
 
 =head1 ACCESSORS
 
 =head2 invoice_id
 
-  data_type: 'integer'
-  is_auto_increment: 1
-  is_nullable: 0
-  sequence: 'invoices_invoice_id_seq'
-
-=head2 order_id
-
-  data_type: 'integer'
-  is_foreign_key: 1
-  is_nullable: 0
-
-=head2 datetime
-
-  data_type: 'timestamp'
-  is_nullable: 0
-
-=head2 invoice_no
-
-  data_type: 'integer'
-  is_nullable: 0
-
-=head2 amount
-
-  data_type: 'integer'
-  is_nullable: 0
-
-=head2 means
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 currency
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 first_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 last_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 company
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 address
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 vat
-
-  data_type: 'text'
-  is_nullable: 1
+Primary Key
 
 =cut
 
-__PACKAGE__->add_columns(
-  "invoice_id",
-  {
-    data_type         => "integer",
-    is_auto_increment => 1,
-    is_nullable       => 0,
-    sequence          => "invoices_invoice_id_seq",
-  },
-  "order_id",
-  { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
-  "datetime",
-  { data_type => "timestamp", is_nullable => 0 },
-  "invoice_no",
-  { data_type => "integer", is_nullable => 0 },
-  "amount",
-  { data_type => "integer", is_nullable => 0 },
-  "means",
-  { data_type => "text", is_nullable => 1 },
-  "currency",
-  { data_type => "text", is_nullable => 1 },
-  "first_name",
-  { data_type => "text", is_nullable => 1 },
-  "last_name",
-  { data_type => "text", is_nullable => 1 },
-  "company",
-  { data_type => "text", is_nullable => 1 },
-  "address",
-  { data_type => "text", is_nullable => 1 },
-  "vat",
-  { data_type => "text", is_nullable => 1 },
-);
+column "invoice_id" => {
+    data_type          => 'integer',
+    is_auto_increment  => 1,
+    is_nullable        => 0,
+    sequence           => 'invoices_invoice_id_seq',
+};
+
+=head2 order_id
+
+The ID of the L<Act::Schema::Result::Order>. Note, not every order has an
+Invoice.
+
+=cut
+
+column "order_id" => {
+    data_type          => 'integer',
+    is_foreign_key     => 1,
+    is_nullable        => 0,
+};
+
+=head2 datetime
+
+Date and time when the Invoice has been created.
+
+=cut
+
+column "datetime" => {
+    data_type          => 'timestamp',
+    is_nullable        => 0,
+};
+
+=head2 invoice_no
+
+Invoice numbers come from L<Act::Schema::Result::InvoiceNum> and are Community
+Event specific.
+
+=cut
+
+column "invoice_no" => {
+    data_type          => 'integer',
+    is_nullable        => 0,
+};
+
+=head2 amount
+
+The amount being paid
+
+=cut
+
+column "amount" => {
+      data_type        => 'integer',
+      is_nullable      => 0,
+};
+
+=head2 means
+
+Payment Methode
+
+=cut
+
+column "means" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 currency
+
+The currency in which the invoice has been made, ussualy defined in the config.
+
+=cut
+
+column "currency" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 first_name
+
+First Name of the attendee.
+
+=cut
+
+column "first_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 last_name
+
+Last Name of the attendee.
+
+=cut
+
+column "last_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 company
+
+Company Name.
+
+=cut
+
+column "company" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 address
+
+Address to where the Invoice should be sent to (if it would be sent).
+
+=cut
+
+column "address" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 vat
+
+=cut
+column "vat" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
 
 =head1 PRIMARY KEY
 
@@ -130,7 +164,7 @@ __PACKAGE__->add_columns(
 
 =cut
 
-__PACKAGE__->set_primary_key("invoice_id");
+primary_key "invoice_id";
 
 =head1 UNIQUE CONSTRAINTS
 
@@ -144,29 +178,24 @@ __PACKAGE__->set_primary_key("invoice_id");
 
 =cut
 
-__PACKAGE__->add_unique_constraint("invoices_idx", ["order_id"]);
+unique_constraint "invoices_idx" => ["order_id"];
 
 =head1 RELATIONS
 
 =head2 order
 
-Type: belongs_to
-
-Related object: L<Act::Schema::Result::Order>
+belongs_to L<Act::Schema::Result::Order>
 
 =cut
 
-__PACKAGE__->belongs_to(
-  "order",
-  "Act::Schema::Result::Order",
+belongs_to "order" => "Act::Schema::Result::Order",
   { order_id => "order_id" },
-  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" },
-);
+  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
 
+=head1 COPYRIGHT
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-11-18 10:52:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:xtOcu1p5LCWYOspxl6tzXw
+(c) 2014 - Th.J. van Hoesel - THEMA-MEDIA NL
 
+=cut
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
