@@ -1,95 +1,112 @@
-use utf8;
 package Act::Schema::Result::Event;
-
-# Created by DBIx::Class::Schema::Loader
-# DO NOT MODIFY THE FIRST PART OF THIS FILE
+use utf8;
+use 'Act::Schema::Candy';
 
 =head1 NAME
 
 Act::Schema::Result::Event
 
-=cut
+=head DESCRIPTION
 
-use strict;
-use warnings;
-
-use base 'DBIx::Class::Core';
+Scheduled Events are the moments in a schedule that are not a user talk. These
+are ussually used to indicate coffee breaks, registration and others. See the
+manuals on about "Schedule" how it exactly works.
 
 =head1 TABLE: C<events>
 
 =cut
 
-__PACKAGE__->table("events");
+table "events";
 
 =head1 ACCESSORS
 
 =head2 event_id
 
-  data_type: 'integer'
-  is_auto_increment: 1
-  is_nullable: 0
-  sequence: 'events_event_id_seq'
+=cut
+
+column "event_id" => {
+    data_type         => 'integer',
+    is_auto_increment => 1,
+    is_nullable       => 0,
+    sequence          => 'events_event_id_seq',
+};
 
 =head2 conf_id
 
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 title
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 abstract
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 url_abstract
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 room
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 duration
-
-  data_type: 'integer'
-  is_nullable: 1
-
-=head2 datetime
-
-  data_type: 'timestamp'
-  is_nullable: 1
+Community Event ID
 
 =cut
 
-__PACKAGE__->add_columns(
-  "event_id",
-  {
-    data_type         => "integer",
-    is_auto_increment => 1,
-    is_nullable       => 0,
-    sequence          => "events_event_id_seq",
-  },
-  "conf_id",
-  { data_type => "text", is_nullable => 0 },
-  "title",
-  { data_type => "text", is_nullable => 0 },
-  "abstract",
-  { data_type => "text", is_nullable => 1 },
-  "url_abstract",
-  { data_type => "text", is_nullable => 1 },
-  "room",
-  { data_type => "text", is_nullable => 1 },
-  "duration",
-  { data_type => "integer", is_nullable => 1 },
-  "datetime",
-  { data_type => "timestamp", is_nullable => 1 },
-);
+column "conf_id" => {
+    data_type            => 'text',
+    is_nullable          => 0,
+};
+
+=head2 title
+
+Title of the Scheduled Event.
+
+=cut
+
+column "title" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 abstract
+
+Short descriotion of the Scheduled Event
+
+=cut
+
+column "abstract" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 url_abstract
+
+URL leading to more information about this particular Scheduled Event.
+
+=cut
+
+column "url_abstract" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 room
+
+The identifier of the room, wich is either "out", "sidetrack" or "venue".
+
+=cut
+
+column "room" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+}.
+
+=head2 duration
+
+Duration of the Scheduled Event in ...
+
+=cut
+
+column "duration" => {
+    data_type          => 'integer',
+    is_nullable        => 1,
+};
+
+=head2 datetime
+
+Start date and time of the Scheduled Event.
+
+=cut
+
+column "datetime" => {
+    data_type          => 'timestamp',
+    is_nullable        => 1,
+};
 
 =head1 PRIMARY KEY
 
@@ -101,12 +118,12 @@ __PACKAGE__->add_columns(
 
 =cut
 
-__PACKAGE__->set_primary_key("event_id");
+primary_key "event_id";
 
+=head1 COPYRIGHT
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-11-18 10:52:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:NLOTDXVl8O2TnEBCFWd1sA
+(c) 2014 - Th.J. van Hoesel - THEMA-MEDIA NL
 
+=cut
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
