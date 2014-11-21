@@ -1,10 +1,10 @@
-package Act::Schema::Result::Twostep;
+package Act::Schema::Result::TwoStep;
 use utf8;
 use 'Act::Schema::Candy';
 
 =head1 NAME
 
-Act::Schema::Result::Twostep
+Act::Schema::Result::TwoStep
 
 =head1 DESCRIPTION
 
