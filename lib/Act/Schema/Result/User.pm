@@ -1,237 +1,334 @@
-use utf8;
 package Act::Schema::Result::User;
-
-# Created by DBIx::Class::Schema::Loader
-# DO NOT MODIFY THE FIRST PART OF THIS FILE
+use utf8;
+use 'Act::Schema::Candy';
 
 =head1 NAME
 
 Act::Schema::Result::User
 
-=cut
+The User has aboiut all and every piece of data and many columns for personal
+details.
 
-use strict;
-use warnings;
-
-use base 'DBIx::Class::Core';
+Yes, this certainly could use an overhaul.
 
 =head1 TABLE: C<users>
 
 =cut
 
-__PACKAGE__->table("users");
+table "users";
 
 =head1 ACCESSORS
 
 =head2 user_id
 
-  data_type: 'integer'
-  is_auto_increment: 1
-  is_nullable: 0
-  sequence: 'users_user_id_seq'
-
-=head2 login
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 passwd
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 session_id
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 salutation
-
-  data_type: 'integer'
-  is_nullable: 1
-
-=head2 first_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 last_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 nick_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 pseudonymous
-
-  data_type: 'boolean'
-  default_value: false
-  is_nullable: 1
-
-=head2 country
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 town
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 web_page
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 pm_group
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 pm_group_url
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 email
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 email_hide
-
-  data_type: 'boolean'
-  default_value: true
-  is_nullable: 0
-
-=head2 gpg_key_id
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 pause_id
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 monk_id
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 monk_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 im
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 photo_name
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 language
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 timezone
-
-  data_type: 'text'
-  is_nullable: 0
-
-=head2 company
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 company_url
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 address
-
-  data_type: 'text'
-  is_nullable: 1
-
-=head2 vat
-
-  data_type: 'text'
-  is_nullable: 1
+Primary Key of this L<Act::Schema::Result::User> object.
 
 =cut
 
-__PACKAGE__->add_columns(
-  "user_id",
-  {
-    data_type         => "integer",
-    is_auto_increment => 1,
-    is_nullable       => 0,
-    sequence          => "users_user_id_seq",
-  },
-  "login",
-  { data_type => "text", is_nullable => 0 },
-  "passwd",
-  { data_type => "text", is_nullable => 0 },
-  "session_id",
-  { data_type => "text", is_nullable => 1 },
-  "salutation",
-  { data_type => "integer", is_nullable => 1 },
-  "first_name",
-  { data_type => "text", is_nullable => 1 },
-  "last_name",
-  { data_type => "text", is_nullable => 1 },
-  "nick_name",
-  { data_type => "text", is_nullable => 1 },
-  "pseudonymous",
-  { data_type => "boolean", default_value => \"false", is_nullable => 1 },
-  "country",
-  { data_type => "text", is_nullable => 0 },
-  "town",
-  { data_type => "text", is_nullable => 1 },
-  "web_page",
-  { data_type => "text", is_nullable => 1 },
-  "pm_group",
-  { data_type => "text", is_nullable => 1 },
-  "pm_group_url",
-  { data_type => "text", is_nullable => 1 },
-  "email",
-  { data_type => "text", is_nullable => 0 },
-  "email_hide",
-  { data_type => "boolean", default_value => \"true", is_nullable => 0 },
-  "gpg_key_id",
-  { data_type => "text", is_nullable => 1 },
-  "pause_id",
-  { data_type => "text", is_nullable => 1 },
-  "monk_id",
-  { data_type => "text", is_nullable => 1 },
-  "monk_name",
-  { data_type => "text", is_nullable => 1 },
-  "im",
-  { data_type => "text", is_nullable => 1 },
-  "photo_name",
-  { data_type => "text", is_nullable => 1 },
-  "language",
-  { data_type => "text", is_nullable => 1 },
-  "timezone",
-  { data_type => "text", is_nullable => 0 },
-  "company",
-  { data_type => "text", is_nullable => 1 },
-  "company_url",
-  { data_type => "text", is_nullable => 1 },
-  "address",
-  { data_type => "text", is_nullable => 1 },
-  "vat",
-  { data_type => "text", is_nullable => 1 },
-);
+column "user_id" => {
+    data_type          => 'integer',
+    is_auto_increment  => 1,
+    is_nullable        => 0,
+    sequence           => 'users_user_id_seq',
+};
+
+=head2 login
+
+User Login ID
+
+=cut
+
+column "login" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 passwd
+
+User login password
+
+=cut
+
+columnn "passwd" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 session_id
+
+TODO: session_id keeps track of
+
+=cut
+
+column "sesion_id" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 salutation
+
+Salutation like 'Mr.', 'Mrs.', 'Ms.' or 'Dr.'.
+
+=cut
+
+column "salutation" => {
+    data_type          => 'integer',
+    is_nullable        => 1,
+};
+
+=head2 first_name
+
+User's First Name.
+
+=cut
+
+column "first_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 last_name
+
+User's Last Name.
+
+=cut
+
+column "last_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 nick_name
+
+User's Nick Name.
+
+=cut
+
+column "nick_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 pseudonymous
+
+Flag to indicate wether or not to use 'Nick Name' or 'Real Name'.
+
+=cut
+
+column "pseudonymous" => {
+    data_type          => 'boolean',
+    default_value      => \"false",
+    is_nullable        => 1,
+};
+
+=head2 country
+
+User's country of residence.
+
+=cut
+
+column "country" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 town
+
+User's town of residenc.
+
+=cut
+
+column "town" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 web_page
+
+URL of the personal web page.
+
+=cut
+
+column "web_page" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 pm_group
+
+Comma seperated list of Perl Monger groups.
+
+=cut
+column "pm_group" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 pm_group_url
+
+URL of main Perl Mongers group.
+
+=cut
+
+column "pm_group_url" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 email
+
+User's e-mail address for Act communication.
+
+=cut
+
+column "email" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 email_hide
+
+Flag to indicate if this email address can be shared with the public or not.
+
+=cut
+
+column "email_hide" => {
+    data_type          => 'boolean',
+    default_value      => \"true",
+    is_nullable        => 0,
+};
+
+=head2 gpg_key_id
+
+GPG public key ID.
+
+=cut
+
+column "gpg_key_id" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 pause_id
+
+User's PAUSE ID on CPAN.
+
+=cut
+
+column "pause_id" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 monk_id
+
+The Perl Monk ID for this user. See L<Perl Monks|http://www.perlmonks.org>.
+
+=cut
+
+column "monk_id" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 monk_name
+
+The Perl Monk name as the user goes by. (manually entered).
+
+=cut
+
+column "monk_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 im
+
+Any Instant Messaging ID's
+
+=cut
+
+column "im" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 photo_name
+
+The name of the file being used to display a profile picture.
+
+=cut
+
+column "photo_name" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 language
+
+TODO:
+
+=cut
+
+column "language" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 timezone
+
+The user's Timezone of residence.
+
+=cut
+
+column "timezone" => {
+    data_type          => 'text',
+    is_nullable        => 0,
+};
+
+=head2 company
+
+The company the user works for.
+
+=cut
+
+column "company" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 company_url
+
+The URL for the company.
+
+=cut
+
+column "company_url" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 address
+
+User's full address, multi line value.
+
+=cut
+
+column "address" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
+
+=head2 vat
+
+VAT Number for those that have buisiness tax rules.
+
+=cut
+
+column "vat" => {
+    data_type          => 'text',
+    is_nullable        => 1,
+};
 
 =head1 PRIMARY KEY
 
@@ -243,7 +340,7 @@ __PACKAGE__->add_columns(
 
 =cut
 
-__PACKAGE__->set_primary_key("user_id");
+primary_key "user_id";
 
 =head1 UNIQUE CONSTRAINTS
 
@@ -257,7 +354,7 @@ __PACKAGE__->set_primary_key("user_id");
 
 =cut
 
-__PACKAGE__->add_unique_constraint("users_login", ["login"]);
+unique_constraint "users_login" => ["login"];
 
 =head2 C<users_session_id>
 
@@ -269,89 +366,64 @@ __PACKAGE__->add_unique_constraint("users_login", ["login"]);
 
 =cut
 
-__PACKAGE__->add_unique_constraint("users_session_id", ["session_id"]);
+unique_constraint "users_session_id" => ["session_id"];
 
 =head1 RELATIONS
 
 =head2 orders
 
-Type: has_many
-
-Related object: L<Act::Schema::Result::Order>
+has_many related object: L<Act::Schema::Result::Order>
 
 =cut
 
-__PACKAGE__->has_many(
-  "orders",
-  "Act::Schema::Result::Order",
+has_many "orders" => "Act::Schema::Result::Order",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 },
-);
+  { cascade_copy => 0, cascade_delete => 0 };
 
 =head2 participations
 
-Type: has_many
-
-Related object: L<Act::Schema::Result::Participation>
+has_many related object: L<Act::Schema::Result::Participation>
 
 =cut
 
-__PACKAGE__->has_many(
-  "participations",
-  "Act::Schema::Result::Participation",
+has_many "participations" => "Act::Schema::Result::Participation",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 },
-);
+  { cascade_copy => 0, cascade_delete => 0 };
 
 =head2 rights
 
-Type: has_many
-
-Related object: L<Act::Schema::Result::Right>
+has_many related object: L<Act::Schema::Result::Right>
 
 =cut
 
-__PACKAGE__->has_many(
-  "rights",
-  "Act::Schema::Result::Right",
+has_many "rights" => "Act::Schema::Result::Right",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 },
-);
+  { cascade_copy => 0, cascade_delete => 0 };
 
 =head2 talks
 
-Type: has_many
-
-Related object: L<Act::Schema::Result::Talk>
+has_many related object: L<Act::Schema::Result::Talk>
 
 =cut
 
-__PACKAGE__->has_many(
-  "talks",
-  "Act::Schema::Result::Talk",
+has_many "talks" => "Act::Schema::Result::Talk",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 },
-);
+  { cascade_copy => 0, cascade_delete => 0 };
 
 =head2 user_talks
 
-Type: has_many
-
-Related object: L<Act::Schema::Result::UserTalk>
+has_many related object: L<Act::Schema::Result::UserTalk>
 
 =cut
 
-__PACKAGE__->has_many(
-  "user_talks",
-  "Act::Schema::Result::UserTalk",
+has_many "user_talks" => "Act::Schema::Result::UserTalk",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 },
-);
+  { cascade_copy => 0, cascade_delete => 0 );
 
+=head1 COPYRIGHT
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-11-18 10:52:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bMLIN8msVToziWBS9aaCYg
+(c) 2014 - Th.J. van Hoesel - THEMA-MEDIA NL
 
+=cut
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
