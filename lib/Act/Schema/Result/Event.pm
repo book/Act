@@ -1,6 +1,6 @@
 package Act::Schema::Result::Event;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 
@@ -84,7 +84,7 @@ The identifier of the room, wich is either "out", "sidetrack" or "venue".
 column "room" => {
     data_type          => 'text',
     is_nullable        => 1,
-}.
+};
 
 =head2 duration
 

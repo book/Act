@@ -1,6 +1,6 @@
 package Act::Schema::Result::Talk;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 

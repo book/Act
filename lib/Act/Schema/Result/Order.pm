@@ -1,6 +1,6 @@
 package Act::Schema::Result::Order;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 
@@ -108,7 +108,7 @@ Type
 column "type" => {
     data_type          => 'text',
     is_nullable        => 1,
-}
+};
 
 =cut
 

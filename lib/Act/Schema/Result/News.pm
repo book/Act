@@ -1,6 +1,6 @@
 package Act::Schema::Result::News;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 
@@ -48,8 +48,8 @@ Date and Time of this News publication.
 
 =cut
 
-colunm "datetime" => {
-    data_typei         => 'timestamp',
+column "datetime" => {
+    data_type          => 'timestamp',
     is_nullable        => 0,
 };
 

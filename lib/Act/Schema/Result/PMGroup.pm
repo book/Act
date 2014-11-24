@@ -1,10 +1,10 @@
-package Act::Schema::Result::PmGroup;
+package Act::Schema::Result::PMGroup;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 
-Act::Schema::Result::PmGroup
+Act::Schema::Result::PMGroup
 
 Representaion of a Perl Mongers group
 
@@ -46,7 +46,7 @@ Name of the PM Group, usually the name of the city
 
 =cut
 
-column => "name" {
+column "name" => {
     data_type          => 'text',
     is_nullable        => 1,
 };
@@ -58,7 +58,7 @@ inactive after some while.
 
 =cut
 
-column "status" {
+column "status" => {
     data_type          => 'text',
     is_nullable        => 1,
 };

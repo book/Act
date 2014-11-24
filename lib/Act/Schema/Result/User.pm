@@ -1,6 +1,6 @@
 package Act::Schema::Result::User;
 use utf8;
-use 'Act::Schema::Candy';
+use Act::Schema::Candy;
 
 =head1 NAME
 
@@ -49,7 +49,7 @@ User login password
 
 =cut
 
-columnn "passwd" => {
+column "passwd" => {
     data_type          => 'text',
     is_nullable        => 0,
 };
@@ -60,7 +60,7 @@ TODO: session_id keeps track of
 
 =cut
 
-column "sesion_id" => {
+column "session_id" => {
     data_type          => 'text',
     is_nullable        => 1,
 };
@@ -418,7 +418,7 @@ has_many related object: L<Act::Schema::Result::UserTalk>
 
 has_many "user_talks" => "Act::Schema::Result::UserTalk",
   { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 );
+  { cascade_copy => 0, cascade_delete => 0 };
 
 =head1 COPYRIGHT
 
