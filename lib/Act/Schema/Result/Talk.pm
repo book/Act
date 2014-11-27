@@ -60,7 +60,6 @@ The title of this talk
 
 column "title" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 abstract

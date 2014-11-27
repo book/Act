@@ -81,7 +81,6 @@ User's First Name.
 
 column "first_name" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 last_name
@@ -115,7 +114,6 @@ Flag to indicate wether or not to use 'Nick Name' or 'Real Name'.
 column "pseudonymous" => {
     data_type          => 'boolean',
     default_value      => \"false",
-    is_nullable        => 1,
 };
 
 =head2 country

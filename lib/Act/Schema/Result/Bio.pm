@@ -25,7 +25,6 @@ table "bios";
 
 column "user_id" => {
     data_type          => 'integer',
-    is_nullable        => 1,
 };
 
 =head2 lang
@@ -36,7 +35,6 @@ Language identifier as definend in ....
 
 column "lang" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 bio
@@ -47,7 +45,6 @@ Descriptive text for a specific language.
 
 column "bio" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head1 UNIQUE CONSTRAINTS

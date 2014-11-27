@@ -36,7 +36,6 @@ XML ID as being used in the Perl Mongers Group data-file
 
 column "xml_group_id" => {
     data_type          => 'integer',
-    is_nullable        => 1,
 };
 
 =head2 name
@@ -47,7 +46,6 @@ Name of the PM Group, usually the name of the city
 
 column "name" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 status
@@ -59,7 +57,6 @@ inactive after some while.
 
 column "status" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 continent
@@ -70,7 +67,6 @@ The conitnent where the group is located.
 
 column "continent" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 country
@@ -81,7 +77,6 @@ The country where the group is located.
 
 column "country" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 state
@@ -92,7 +87,6 @@ The state where the group is located.
 
 column "state" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head1 PRIMARY KEY

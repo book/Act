@@ -58,7 +58,6 @@ Short description of the specific Order Item
 
 column "name" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 registration

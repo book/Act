@@ -69,7 +69,6 @@ Payment Methode
 
 column "means" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 currency
@@ -80,7 +79,6 @@ The currency in which the invoice has been made, ussualy defined in the config.
 
 column "currency" => {
     data_type          => 'text',
-    is_nullable        => 1,
 };
 
 =head2 status
