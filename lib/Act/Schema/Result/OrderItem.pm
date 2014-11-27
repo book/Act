@@ -100,7 +100,8 @@ belongs_to ~elated object: L<Act::Schema::Result::Order>
 
 belongs_to "order" => "Act::Schema::Result::Order",
     { order_id => "order_id" },
-    { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+    {},
+;
 
 =head1 COPYRIGHT
 

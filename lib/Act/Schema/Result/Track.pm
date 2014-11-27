@@ -85,8 +85,9 @@ has_many related object: L<Act::Schema::Result::Talk>
 =cut
 
 has_many "talks" => "Act::Schema::Result::Talk",
-  { "foreign.track_id" => "self.track_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.track_id" => "self.track_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 

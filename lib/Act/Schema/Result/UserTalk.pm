@@ -59,8 +59,9 @@ belongs_to related object: L<Act::Schema::Result::Talk>
 =cut
 
 belongs_to "talk" => "Act::Schema::Result::Talk",
-  { talk_id => "talk_id" },
-  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+    { talk_id => "talk_id" },
+    {},
+;
 
 =head2 user
 
@@ -69,8 +70,9 @@ belongs_to related object: L<Act::Schema::Result::User>
 =cut
 
 belongs_to "user" => "Act::Schema::Result::User",
-  { user_id => "user_id" },
-  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+    { user_id => "user_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 

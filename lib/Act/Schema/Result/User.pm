@@ -377,8 +377,9 @@ has_many related object: L<Act::Schema::Result::Order>
 =cut
 
 has_many "orders" => "Act::Schema::Result::Order",
-  { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
 
 =head2 participations
 
@@ -387,8 +388,9 @@ has_many related object: L<Act::Schema::Result::Participation>
 =cut
 
 has_many "participations" => "Act::Schema::Result::Participation",
-  { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
 
 =head2 rights
 
@@ -397,8 +399,9 @@ has_many related object: L<Act::Schema::Result::Right>
 =cut
 
 has_many "rights" => "Act::Schema::Result::Right",
-  { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
 
 =head2 talks
 
@@ -407,8 +410,9 @@ has_many related object: L<Act::Schema::Result::Talk>
 =cut
 
 has_many "talks" => "Act::Schema::Result::Talk",
-  { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
 
 =head2 user_talks
 
@@ -417,8 +421,9 @@ has_many related object: L<Act::Schema::Result::UserTalk>
 =cut
 
 has_many "user_talks" => "Act::Schema::Result::UserTalk",
-  { "foreign.user_id" => "self.user_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 

@@ -113,8 +113,9 @@ belongs_to L<Act::Schema::Result::News>
 =cut
 
 belongs_to "news" => "Act::Schema::Result::News",
-  { news_id => "news_id" },
-  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+    { news_id => "news_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 

@@ -76,7 +76,8 @@ belongs_to L<Act::Schema::Result::User>
 
 # belongs_to "user" => "Act::Schema::Result::User",
 #     { user_id => "user_id" },
-#     { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+#     {},
+#;
 
 =head1 COPYRIGHT
 

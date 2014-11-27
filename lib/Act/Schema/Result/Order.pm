@@ -133,8 +133,9 @@ might_have related object: L<Act::Schema::Result::Invoice>
 =cut
 
 might_have "invoice" => "Act::Schema::Result::Invoice",
-  { "foreign.order_id" => "self.order_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.order_id" => "self.order_id" },
+    {},
+;
 
 =head2 order_items
 
@@ -143,8 +144,9 @@ has_many related object: L<Act::Schema::Result::OrderItem>
 =cut
 
 has_many "order_items" => "Act::Schema::Result::OrderItem",
-  { "foreign.order_id" => "self.order_id" },
-  { cascade_copy => 0, cascade_delete => 0 };
+    { "foreign.order_id" => "self.order_id" },
+    {},
+;
 
 =head2 user
 
@@ -153,8 +155,9 @@ belongs_to related object: L<Act::Schema::Result::User>
 =cut
 
 belongs_to "user" => "Act::Schema::Result::User",
-  { user_id => "user_id" },
-  { is_deferrable => 0, on_delete => "NO ACTION", on_update => "NO ACTION" };
+    { user_id => "user_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 
