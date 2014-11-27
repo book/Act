@@ -101,6 +101,11 @@ has_many "news_items" => "Act::Schema::Result::NewsItem",
     {},
 ;
 
+belongs_to "user" => "Act::Schema::Result::User",
+    { "foreign.user_id" => "self.user_id" },
+    {},
+;
+
 =head1 COPYRIGHT
 
 (c) 2014 - Th.J. van Hoesel - THEMA-MEDIA NL

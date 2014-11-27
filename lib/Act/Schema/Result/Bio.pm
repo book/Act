@@ -74,10 +74,10 @@ belongs_to L<Act::Schema::Result::User>
  
 =cut
 
-# belongs_to "user" => "Act::Schema::Result::User",
-#     { user_id => "user_id" },
-#     {},
-#;
+belongs_to "user" => "Act::Schema::Result::User",
+    { user_id => "user_id" },
+    {},
+;
 
 =head1 COPYRIGHT
 
