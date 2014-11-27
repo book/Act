@@ -26,7 +26,6 @@ Cummunity Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 user_id
@@ -37,8 +36,6 @@ Foreign Key to L<Act::Schema::Result::User>
 
 column "user_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 tshirt_size

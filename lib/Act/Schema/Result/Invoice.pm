@@ -29,7 +29,6 @@ Primary Key
 column "invoice_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'invoices_invoice_id_seq',
 };
 
@@ -42,8 +41,6 @@ Invoice.
 
 column "order_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 datetime
@@ -54,7 +51,6 @@ Date and time when the Invoice has been created.
 
 column "datetime" => {
     data_type          => 'timestamp',
-    is_nullable        => 0,
 };
 
 =head2 invoice_no
@@ -66,7 +62,6 @@ Event specific.
 
 column "invoice_no" => {
     data_type          => 'integer',
-    is_nullable        => 0,
 };
 
 =head2 amount
@@ -76,8 +71,7 @@ The amount being paid
 =cut
 
 column "amount" => {
-      data_type        => 'integer',
-      is_nullable      => 0,
+    data_type        => 'integer',
 };
 
 =head2 means

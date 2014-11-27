@@ -27,7 +27,6 @@ table "events";
 column "event_id" => {
     data_type         => 'integer',
     is_auto_increment => 1,
-    is_nullable       => 0,
     sequence          => 'events_event_id_seq',
 };
 
@@ -39,7 +38,6 @@ Community Event ID
 
 column "conf_id" => {
     data_type            => 'text',
-    is_nullable          => 0,
 };
 
 =head2 title
@@ -50,7 +48,6 @@ Title of the Scheduled Event.
 
 column "title" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 abstract

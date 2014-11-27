@@ -26,7 +26,6 @@ Cummunity Event ID.
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 next_num
@@ -37,7 +36,6 @@ Invoice sequence number per Cumminity Event.
 
 column "next_num" => {
     data_type          => 'integer',
-    is_nullable        => 0,
 };
 
 =head1 PRIMARY KEY

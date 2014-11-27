@@ -29,7 +29,6 @@ Primary Key
 column "talk_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'talks_talk_id_seq',
 };
 
@@ -41,7 +40,6 @@ Community Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 user_id
@@ -52,8 +50,6 @@ Foreign Key for L<Act::Schema::Result::User>.
 
 column "user_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 title
@@ -121,7 +117,6 @@ own entry in the schedule.
 column "lightning" => {
     data_type          => 'boolean',
     default_value      => \"false",
-    is_nullable        => 0,
 };
 
 =head2 accepted
@@ -133,7 +128,6 @@ Flag to indicate if this talk has been accepted by the 'talks admin'.
 column "accepted" => {
     data_type          => 'boolean',
     default_value      => \"false",
-    is_nullable        => 0,
 };
 
 =head2 confirmed
@@ -146,7 +140,6 @@ acceptance
 column "confirmed" => {
     data_type          => 'boolean',
     default_value      => \"false",
-    is_nullable        => 0,
 };
 
 =head2 comment
@@ -190,7 +183,6 @@ Foreign Key for L<Act::Schema::Result::Track>. Presentations can be part of a 't
 
 column "track_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
     is_nullable        => 1,
 };
 

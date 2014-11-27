@@ -25,7 +25,6 @@ A 'Privilege' as described in the manuals, currently there are: 'admin',
 
 column "right_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 conf_id
@@ -36,7 +35,6 @@ Cumminity Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 user_id
@@ -47,8 +45,6 @@ Foreign Key for L<Act::Schema::Result::User>
 
 column "user_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head1 RELATIONS

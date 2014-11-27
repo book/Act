@@ -28,7 +28,6 @@ Primary Key ID
 column "order_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'orders_order_id_seq',
 };
 
@@ -40,7 +39,6 @@ Cummunity Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 user_id
@@ -51,8 +49,6 @@ User ID of the author of this News publication
 
 column "user_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 datetime
@@ -63,7 +59,6 @@ Date and time when the Invoice has been created.
 
 column "datetime" => {
     data_type          => 'timestamp',
-    is_nullable        => 0,
 };
 
 =head2 means
@@ -96,7 +91,6 @@ Status
 
 column "status" => {
     data_type          => 'text',
-    is_nullable        => 0,
 }; 
 
 =head2 type

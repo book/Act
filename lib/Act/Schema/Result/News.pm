@@ -27,7 +27,6 @@ Primary key, News ID
 column "news_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'news_news_id_seq',
 };
 
@@ -39,7 +38,6 @@ Cummunity Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 datetime
@@ -50,7 +48,6 @@ Date and Time of this News publication.
 
 column "datetime" => {
     data_type          => 'timestamp',
-    is_nullable        => 0,
 };
 
 =head2 user_id
@@ -61,7 +58,6 @@ User ID of the author of this News publication
 
 column "user_id" => {
     data_type          => 'integer',
-    is_nullable        => 0,
 };
 
 =head2 published
@@ -73,7 +69,6 @@ Flag to indicate wether or not a News article is already published or not.
 column "published" => {
     data_type          => 'boolean',
     default_value      => \"false",
-    is_nullable        => 0,
 };
 
 =head1 PRIMARY KEY

@@ -24,7 +24,6 @@ Holds the actual latest version of the Act Database Schema
 
 column "current_version" => {
     data_type          => 'integer',
-    is_nullable        => 0,
 };
 
 =head1 COPYRIGHT

@@ -22,8 +22,6 @@ Foreign Key for L<Act::Schema::Result::User>.
 
 column "user_id" => {
     data_type          => 'integer',
-    is_foreign_ke      => 1,
-    is_nullable        => 0,
 };
 
 =head2 conf_id
@@ -34,7 +32,6 @@ Community Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 talk_id
@@ -45,8 +42,6 @@ Foreign Key for L<Act::Schema::Result::Talk>.
 
 column "talk_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 

@@ -27,7 +27,6 @@ Primary Key for language specific translations for News publications
 column "news_item_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'news_items_news_item_id_seq',
 };
 
@@ -39,8 +38,6 @@ L<Act::Schema::Result::News> ID
 
 column "news_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 lang
@@ -51,7 +48,6 @@ ISO language identifier
 
 column "lang" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 title
@@ -61,8 +57,7 @@ Language specific title for the News publication
 =cut
 
 column "title" => {
-      data_type        => 'text',
-      is_nullable      => 0,
+    data_type          => 'text',
 };
 
 =head2 text
@@ -73,7 +68,6 @@ Language specific text for the News publication
 
 column "text" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head1 PRIMARY KEY

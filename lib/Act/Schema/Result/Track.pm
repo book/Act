@@ -27,7 +27,6 @@ Primary Key
 column "track_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'tracks_track_id_seq',
 };
 
@@ -39,7 +38,6 @@ Cummunity Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 title
@@ -50,7 +48,6 @@ Track Title
 
 column "title" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 description

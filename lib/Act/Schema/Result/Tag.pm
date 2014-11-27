@@ -23,7 +23,6 @@ Primary Key
 column "tag_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'tags_tag_id_seq',
 };
 
@@ -35,7 +34,6 @@ Community Event ID
 
 column "conf_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 tag
@@ -46,7 +44,6 @@ TODO:
 
 column "tag" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 type
@@ -57,7 +54,6 @@ TODO:
 
 column "type" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 tagged_id
@@ -68,7 +64,6 @@ TODO:
 
 column "tagged_id" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head1 PRIMARY KEY

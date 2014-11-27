@@ -28,7 +28,6 @@ Primary Key of this L<Act::Schema::Result::User> object.
 column "user_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'users_user_id_seq',
 };
 
@@ -40,7 +39,6 @@ User Login ID
 
 column "login" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 passwd
@@ -51,7 +49,6 @@ User login password
 
 column "passwd" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 session_id
@@ -129,7 +126,6 @@ User's country of residence.
 
 column "country" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 town
@@ -183,7 +179,6 @@ User's e-mail address for Act communication.
 
 column "email" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 email_hide
@@ -195,7 +190,6 @@ Flag to indicate if this email address can be shared with the public or not.
 column "email_hide" => {
     data_type          => 'boolean',
     default_value      => \"true",
-    is_nullable        => 0,
 };
 
 =head2 gpg_key_id
@@ -283,7 +277,6 @@ The user's Timezone of residence.
 
 column "timezone" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 company

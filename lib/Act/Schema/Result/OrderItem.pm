@@ -27,7 +27,6 @@ Primary Key for L<Act::Schema::Result::OrderItem>s
 column "item_id" => {
     data_type          => 'integer',
     is_auto_increment  => 1,
-    is_nullable        => 0,
     sequence           => 'order_items_item_id_seq',
 };
 
@@ -39,8 +38,6 @@ Foreign Key for L<Act::Schema::Result::Order>
 
 column "order_id" => {
     data_type          => 'integer',
-    is_foreign_key     => 1,
-    is_nullable        => 0,
 };
 
 =head2 amount
@@ -51,7 +48,6 @@ Amount for this specific Order Item
 
 column "amount" => {
     data_type          => 'integer',
-    is_nullable        => 0,
 };
 
 =head2 name
@@ -74,7 +70,6 @@ Registration flag that indicates if this Order Item will be treated as a
 
 column "registration" => {
     data_type          => 'boolean',
-    is_nullable        => 0,
 };
 
 

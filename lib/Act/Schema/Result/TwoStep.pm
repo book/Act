@@ -25,7 +25,6 @@ TODO:
 =cut
 column "token" => {
     data_type          => 'char',
-    is_nullable        => 0,
     size               => 32,
 };
 
@@ -37,7 +36,6 @@ TODO:
 
 column "email" => {
     data_type          => 'text',
-    is_nullable        => 0,
 };
 
 =head2 datetime
