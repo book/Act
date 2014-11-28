@@ -13,7 +13,7 @@ use Act::Database;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_uri_info self_uri localize);
+@EXPORT = qw(make_uri make_abs_uri make_uri_info self_uri localize);
 
 # password generation data
 my %grams = (
@@ -94,6 +94,14 @@ sub make_uri
             ? join('/', '', $Config->uri, $action)
             : "/$action";
     return _build_uri($uri, %params);
+}
+
+sub make_abs_uri {
+    my ( $action, %params ) = @_;
+
+    my $uri = $Request{r}->uri;
+    $uri->path(make_uri(@_));
+    return $uri;
 }
 
 # create a uri pathinfo-style
@@ -347,6 +355,10 @@ else.
 Returns an URI that points to I<action>, with an optional query string
 built from I<%params>. For more details on actions, refer to the
 Act::Dispatcher documentation.
+
+=item make_abs_uri(I<$action>, I<%params>)
+
+Similar to L<make_uri/"">, but returns an absolute URI.
 
 =item self_uri(I<%params>)
 

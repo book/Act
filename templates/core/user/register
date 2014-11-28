@@ -3,6 +3,10 @@
 <p>
  {{Sorry, this conference is over.}}
 </p>
+[% ELSIF closed %]
+<p>
+ {{Sorry, registration for this conference has been closed.}}
+</p>
 [% ELSE %]
 
 <p>
