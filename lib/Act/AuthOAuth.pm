@@ -7,6 +7,8 @@ use Act::Config;
 use Act::User;
 use Act::Util;
 
+use Act::TwoStep;
+
 use JSON::XS;
 use LWP::UserAgent;
 use MIME::Base64;
@@ -101,18 +103,30 @@ sub oauth_login_callback ($$)
 
     # Match with ACT user
     my $user = Act::User->new( email => lc $email );
-    $user or do { $r->log_error("Unknown user"); return $self->login_form; };
 
-    $r->log_error("User found with email $email");
+    my $destination;
 
-    # user is authenticated - create a session
-    my $sid = Act::Util::create_session($user);
+    if ($user) {
+        $r->log_error("User found with email $email");
 
-    $self->send_cookie($sid);
+        # user is authenticated - create a session
+        my $sid = Act::Util::create_session($user);
 
-    $self->handle_cache;
+        $self->send_cookie($sid);
 
-    my $destination = $state || "/";
+        $self->handle_cache;
+
+        $destination = $state || "/";
+    }
+
+    # No corresponding account, redirect on register page
+    my $token = Act::TwoStep->_create_token($email);
+    my $data;
+    my $sth = $Request{dbh}->prepare_cached('INSERT INTO twostep (token, email, datetime, data) VALUES (?, ?, NOW(), ?)');
+    $sth->execute($token, $email, $data);
+    $Request{dbh}->commit;
+
+    $destination = "register/$token";
 
     $r->header_out("Location" => $destination);
 
@@ -135,7 +149,7 @@ This module allows to log user on an OpenID Connect provider.
 
 User click on a link on the login page and is redirected to OpenID Connect Provider. He must
 accept to share his information with Act, and is then redirected back. If a user account with
-the corresponding email is found in Act, the user is logged in.
+the corresponding email is found in Act, the user is logged in. If not, he gets a register form.
 
 =head2 Add the link
 
