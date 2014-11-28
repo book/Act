@@ -1,7 +1,7 @@
 use strict;
 use Act::Config;
 use DBI;
-use Test::More tests => 15;
+use Test::More tests => 16;
 
 my @databases = (
     [ 'main',
@@ -24,20 +24,36 @@ my @databases = (
 require_ok('Act::Database');
 for my $d (@databases) {
     my ($name, @c) = @$d;
+    my $is_pg = $c[1] =~ /Pg:/ ? 1 : 0;
+
     my $dbh = DBI->connect(@c,
                             { AutoCommit => 0,
                               PrintError => 0,
                               pg_enable_utf8 => 1,
                             }
                           );
-    ok($dbh, "$name connect");
-    cmp_ok($dbh->{pg_server_version}, '>=', 80000, "$name server version");
-    cmp_ok($dbh->{pg_lib_version}, '>=', 80000, "$name library version");
-    unless ($name eq 'wiki') {
+
+    if (not ok $dbh, "$name connect") {
+        SKIP: {
+            skip "connect failed; following tests can't be run", 4
+        }
+        next
+    }
+
+    SKIP: {
+        skip "tests specific to PostgreSQL", 2 unless $is_pg;
+        cmp_ok($dbh->{pg_server_version}, '>=', 80000, "$name server version");
+        cmp_ok($dbh->{pg_lib_version}, '>=', 80000, "$name library version");
+    }
+
+    SKIP: {
+        skip "irrelevent", 1 if $name eq 'wiki';
         my ($version, $required) = Act::Database::get_versions($dbh);
         is ($version, $required, "$name schema is up to date");
     }
-    ok($dbh->disconnect, "$name disconnect");
+
+    eval { $dbh->disconnect };
+    is $@, "", "$name disconnect";
 }
 
 __END__
