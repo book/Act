@@ -8,6 +8,7 @@ requires(
 'Apache::Request' => 0, 
 'AppConfig' => 0, 
 'Clone' => 0, 
+'Crypt::SSLeay' => 0,
 'DBI' => 0, 
 'DBD::Pg' => 1.22,
 'Data::ICal' => '0.16', # Data::ICal::Entry::Event
