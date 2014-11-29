@@ -44,9 +44,9 @@
 [% END %]
 
 [% showtags(tags, 'talks') %]
-
 </p>
-[% IF url_abstract || url_talk %]
+
+[% IF !hide_info && (url_abstract || url_talk) %]
 <p> {{You can find more information on the speaker's site:}}</p>
  <ul>
   [% IF url_abstract %]
@@ -63,9 +63,11 @@
 [% END %]
 
 <hr />
-<p>
-[% expand(chunked_abstract) | html_line_break %]
-</p>
+[% IF hide_info %]
+<p>[% expand(chunked_teaser) | html_line_break %]</p>
+[% ELSE %]
+<p>[% expand(chunked_abstract) | html_line_break %]</p>
+[% END %]
 
 [% IF attendees.size %]
 <b>{{Attended by:}}</b>
