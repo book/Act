@@ -46,7 +46,7 @@
 [% showtags(tags, 'talks') %]
 </p>
 
-[% IF !hide_info && (url_abstract || url_talk) %]
+[% IF !hide_details && (url_abstract || url_talk) %]
 <p> {{You can find more information on the speaker's site:}}</p>
  <ul>
   [% IF url_abstract %]
@@ -62,7 +62,7 @@
  </ul>
 [% END %]
 
-[% IF !hide_info && (url_video1 || url_video2 || url_video3) %]
+[% IF !hide_details && (url_video1 || url_video2 || url_video3) %]
 <p> {{Video recording:}}</p>
  <ul>
   [% IF url_video1 %]
@@ -79,7 +79,7 @@
 
 <hr />
 
-[% IF hide_info %]
+[% IF hide_details %]
 <p>[% expand(chunked_teaser) | html_line_break %]</p>
 [% ELSE %]
 <p>[% expand(chunked_abstract) | html_line_break %]</p>
