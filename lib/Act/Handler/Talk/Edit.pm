@@ -20,10 +20,13 @@ use Act::Handler::Talk::Util;
 
 # form
 my $form = Act::Form->new(
-  required => [qw(title abstract)],
-  optional => [qw(url_abstract url_talk comment duration is_lightning
-                  accepted confirmed date time room delete track_id level lang
-                  tags )],
+  required => [qw< title abstract >],
+  optional => [qw<
+      url_abstract url_talk url_video1 url_video2 url_video3
+      teaser comment duration is_lightning
+      accepted confirmed hide_details allow_record
+      date time room delete track_id level lang tags
+  >],
   filters  => {
      track_id => sub { $_[0] || undef },
      tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
