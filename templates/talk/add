@@ -52,6 +52,7 @@
     </select>
   </td>
 </tr>
+
 <tr>
   <td align="right">{{Date}}</td>
   <td>&nbsp;</td>
@@ -74,6 +75,7 @@
    </td>
 </tr>
 [% END %]
+
 <tr>
   <td align="right">{{Title}}</td>
   <td>&nbsp;</td>
@@ -81,6 +83,7 @@
     <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
+
 [% IF tracks.size != 0 %]
   [% IF global.request.user.is_talks_admin %]
 <tr>
@@ -100,6 +103,7 @@
    <input type="hidden" name="track_id" value="[% track_id %]" />
   [% END %]
 [% END %]
+
 <tr>
  <td align="right" valign="top">
  {{Tags}}</td>
@@ -108,6 +112,7 @@
     <input type="text" name="tags" value="[% tags %]" size="51" maxlength="100" />
   </td>
 </tr>
+
 [% IF global.config.talks_languages %]
 <tr>
   <td align="right" valign="top">
@@ -121,6 +126,7 @@
   </select></td>
 </tr>
 [% END %]
+
 <tr>
   <td align="right" valign="top">
   {{Abstract}}<br />{{(plain text)}}</td>
@@ -129,6 +135,7 @@
     <textarea name="abstract" cols="50" rows="10">[% abstract | form_unescape %]</textarea>
   </td>
 </tr>
+
 <tr>
   <td align="right">{{Abstract URL}}</td>
   <td>&nbsp;</td>
@@ -136,6 +143,7 @@
     <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
   </td>
 </tr>
+
 <tr>
   <td align="right">{{Talk URL}}</td>
   <td>&nbsp;</td>
@@ -143,6 +151,7 @@
     <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
   </td>
 </tr>
+
 <tr>
   <td align="right" valign="top">{{Duration}}</td>
   <td>&nbsp;</td>
@@ -176,6 +185,7 @@
     </select>
   </td>
 </tr>
+
 [% IF global.config.talks_levels %]
 <tr>
   <td align="right" valign="top">{{Target audience}}</td>
@@ -187,6 +197,7 @@
   </td>
 </tr>
 [% END %]
+
 <tr>
   <td align="right" valign="top">{{Comments}}</td>
   <td>&nbsp;</td>
@@ -195,6 +206,7 @@
     <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
   </td>
 </tr>
+
 <tr>
   <td align="right" valign="top">{{Status}}</td>
   <td>&nbsp;</td>
@@ -215,6 +227,7 @@
     [% END %]
    </td>
 </tr>
+
 <tr>
    <td colspan="3" align="right">
       <input type="submit" name="submit" value="{{Submit this talk}}" />
