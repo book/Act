@@ -128,6 +128,24 @@
 [% END %]
 
 <tr>
+  <td align="right">{{Hide details}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="checkbox" name="hide_details"[% ' checked' IF hide_details %] />
+    {{Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens.}}
+  </td>
+</tr>
+
+<tr>
+  <td align="right" valign="top">
+  {{Teaser}}<br />{{(plain text)}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="teaser" cols="50" rows="10">[% teaser | form_unescape %]</textarea>
+  </td>
+</tr>
+
+<tr>
   <td align="right" valign="top">
   {{Abstract}}<br />{{(plain text)}}</td>
   <td>&nbsp;</td>

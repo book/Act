@@ -764,6 +764,15 @@ msgstr "Data"
 msgid "Room"
 msgstr "Pomieszczenie"
 
+#msgid "Hide details"
+#msgstr "Hide details"
+
+#msgid "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+#msgstr "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+
+#msgid "Teaser"
+#msgstr "Teaser"
+
 msgid "Abstract"
 msgstr "Streszczenie"
 

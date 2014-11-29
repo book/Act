@@ -770,6 +770,15 @@ msgstr "Date"
 msgid "Room"
 msgstr "Salle"
 
+msgid "Hide details"
+msgstr "Masquer les détails"
+
+msgid "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+msgstr "Cochez la case pour masquer la description complète et les URL, et ne montrer que la description d'annonce, jusqu'à ce que cette présentation soit effectuée."
+
+msgid "Teaser"
+msgstr "Description d'annonce"
+
 msgid "Abstract"
 msgstr "Description"
 
