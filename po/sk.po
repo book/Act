@@ -1079,6 +1079,15 @@ msgstr "URL abstraktu"
 msgid "Talk URL"
 msgstr "URL prednášky"
 
+#msgid "Allow recording"
+#msgstr "Allow recording"
+
+#msgid "Check the box to indicate you agree for this talk to be recorded."
+#msgstr "Check the box to indicate you agree for this talk to be recorded."
+
+#msgid "Video URLs"
+#msgstr "Video URLs"
+
 msgid "Standard durations for <confname> are:"
 msgstr "Štandardná dĺžka trvania pre %1 je:"
 

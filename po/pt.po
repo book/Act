@@ -1077,6 +1077,15 @@ msgstr "URL do resumo"
 msgid "Talk URL"
 msgstr "URL da apresentação"
 
+#msgid "Allow recording"
+#msgstr "Allow recording"
+
+#msgid "Check the box to indicate you agree for this talk to be recorded."
+#msgstr "Check the box to indicate you agree for this talk to be recorded."
+
+#msgid "Video URLs"
+#msgstr "Video URLs"
+
 msgid "Standard durations for <confname> are:"
 msgstr "As durações standard para a %1 são:"
 

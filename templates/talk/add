@@ -153,6 +153,25 @@
 </tr>
 
 <tr>
+  <td align="right">{{Allow recording}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="checkbox" name="allow_record"[% ' checked' IF allow_record %] />
+    {{Check the box to indicate you agree for this talk to be recorded.}}
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Video URLs}}</td>
+  <td>&nbsp;</td>
+  <td>
+    1. <input type="text" name="url_video1" value="[% url_video1 %]" size="51" maxlength="256" /> <br />
+    2. <input type="text" name="url_video2" value="[% url_video2 %]" size="51" maxlength="256" /> <br />
+    3. <input type="text" name="url_video3" value="[% url_video3 %]" size="51" maxlength="256" /> <br />
+  </td>
+</tr>
+
+<tr>
   <td align="right" valign="top">{{Duration}}</td>
   <td>&nbsp;</td>
   <td>

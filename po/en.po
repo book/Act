@@ -1103,6 +1103,15 @@ msgstr "Abstract URL"
 msgid "Talk URL"
 msgstr "Talk URL"
 
+msgid "Allow recording"
+msgstr "Allow recording"
+
+msgid "Check the box to indicate you agree for this talk to be recorded."
+msgstr "Check the box to indicate you agree for this talk to be recorded."
+
+msgid "Video URLs"
+msgstr "Video URLs"
+
 msgid "Standard durations for <confname> are:"
 msgstr "Standard durations for %1 are:"
 
