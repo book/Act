@@ -146,6 +146,7 @@ CREATE TABLE talks
     /* for the organisers */
     accepted     boolean DEFAULT false NOT NULL,
     confirmed    boolean DEFAULT false NOT NULL,
+    hide_details boolean DEFAULT false NOT NULL,
     allow_record boolean DEFAULT true  NOT NULL,
     comment      text,
 

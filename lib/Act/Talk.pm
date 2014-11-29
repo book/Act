@@ -21,7 +21,7 @@ our %sql_mapping = (
     map( { ($_, "(t.$_=?)") } qw<
             talk_id user_id conf_id duration room
             lightning accepted confirmed track_id
-            allow_record
+            allow_record hide_details
         >
     )
 );
