@@ -790,6 +790,9 @@ msgstr "Doba trvania:"
 msgid "You can find more information on the following site:"
 msgstr "Na nasledujúcej stránke môžeš nájsť viac informácií:"
 
+msgid "Video:"
+msgstr "Video:"
+
 msgid "Wiki - editing <node>"
 msgstr "Wiki - úprava %1"
 

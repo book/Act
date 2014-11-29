@@ -657,6 +657,9 @@ msgstr "Dauer:"
 msgid "You can find more information on the following site:"
 msgstr "Mehr Informationen:"
 
+msgid "Video:"
+msgstr "Video:"
+
 msgid "Credit card payment"
 msgstr "Zahlung mit Kreditkarte"
 

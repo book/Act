@@ -63,7 +63,7 @@
 [% END %]
 
 [% IF !hide_details && (url_video1 || url_video2 || url_video3) %]
-<p> {{Video recording:}}</p>
+<p> {{Video:}}</p>
  <ul>
   [% IF url_video1 %]
       <li><a href="[% url_video1 %]">[% url_video1 %]</a></li>

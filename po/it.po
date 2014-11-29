@@ -791,6 +791,9 @@ msgstr "Durata:"
 msgid "You can find more information on the following site:"
 msgstr "Potete trovare ulteriori informazioni sul sito:"
 
+msgid "Video:"
+msgstr "Video:"
+
 msgid "Wiki - editing <node>"
 msgstr "Wiki - modifica di %1"
 

@@ -807,6 +807,9 @@ msgstr "Varighet:"
 msgid "You can find more information on the following site:"
 msgstr "Du du kan finne mer informasjon på følgende webside:"
 
+msgid "Video:"
+msgstr "Video:"
+
 msgid "Wiki - editing <node>"
 msgstr "Wiki - redigerer %1"
 
