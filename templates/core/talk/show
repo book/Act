@@ -78,19 +78,20 @@
 [% END %]
 
 <hr />
+
 [% IF hide_info %]
 <p>[% expand(chunked_teaser) | html_line_break %]</p>
 [% ELSE %]
 <p>[% expand(chunked_abstract) | html_line_break %]</p>
 [% END %]
 
+<hr />
+
 [% IF attendees.size %]
 <b>{{Attended by:}}</b>
-<ul>
 [% FOREACH u IN attendees %]
-  <li>[% user_info(u) %]</li>
+  [% user_info(u) %],
 [% END %]
-</ul>
 [% END %]
 
 [% IF global.request.user.has_registered %]
