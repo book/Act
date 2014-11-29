@@ -62,6 +62,21 @@
  </ul>
 [% END %]
 
+[% IF !hide_info && (url_video1 || url_video2 || url_video3) %]
+<p> {{Video recording:}}</p>
+ <ul>
+  [% IF url_video1 %]
+      <li><a href="[% url_video1 %]">[% url_video1 %]</a></li>
+  [% END %]
+  [% IF url_video2 %]
+      <li><a href="[% url_video2 %]">[% url_video2 %]</a></li>
+  [% END %]
+  [% IF url_video3 %]
+      <li><a href="[% url_video3 %]">[% url_video3 %]</a></li>
+  [% END %]
+ </ul>
+[% END %]
+
 <hr />
 [% IF hide_info %]
 <p>[% expand(chunked_teaser) | html_line_break %]</p>
