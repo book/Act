@@ -134,7 +134,6 @@ sub handler
     else {
         if (exists $Request{args}{news_id}) {
             $fields = { %$news };
-            $fields->{items} = $news->items;
             $fields->{title} = $news->{items}{ $Request{language} }{title};
         }
         else {
