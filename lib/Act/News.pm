@@ -19,6 +19,9 @@ our %sql_mapping = (
 );
 our %sql_opts    = ( 'order by' => 'datetime desc' );
 
+sub title { $_[0]{title} }
+sub text  { $_[0]{text}  }
+
 sub items
 {
     my $self = shift;
