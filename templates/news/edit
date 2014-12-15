@@ -58,7 +58,7 @@ END %]
   <td align="right"><label for="form-title">{{Title}}</label></td>
   <td>&nbsp;</td>
   <td>
-    <input type="text" name="title_[% lang %]" id="form-title" value="[% items.$lang.title %]" size="51" maxlength="100" />
+    <input type="text" name="title_[% lang %]" id="form-title" value="[% title %]" size="51" maxlength="100" />
   </td>
 </tr>
 <tr>
@@ -67,7 +67,7 @@ END %]
   <td>&nbsp;</td>
   <td>
     <font size="-1">{{Use HTML to format text. Text between newlines will be turned into paragraphs}}</font><br />
-    <textarea name="text_[% lang %]" cols="60" rows="10">[% items.$lang.text | form_unescape %]</textarea>
+    <textarea name="text_[% lang %]" cols="60" rows="10">[% text | form_unescape %]</textarea>
   </td>
 </tr>
 [% END %]
