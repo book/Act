@@ -11,11 +11,13 @@ opendir my $dh, $root;
 my @repos = readdir $dh;
 closedir $dh;
 
-for my $repo (@repos) {
-    my $dir = catdir($root, $repo);
-    next unless -d catdir($dir, ".git");
-    chdir $dir;
-    my $r = system @cmd;
-    warn "error while running '@cmd' in " if $r != 0;
+for my $branch (qw< test prod >) {
+    for my $repo (@repos) {
+        my $dir = catdir($root, $repo);
+        next unless -d catdir($dir, ".git");
+        chdir $dir;
+        my $r = system @cmd;
+        warn "error while running '@cmd' in " if $r != 0;
+    }
 }
 
