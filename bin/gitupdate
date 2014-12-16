@@ -7,13 +7,13 @@ use File::Spec::Functions;
 my @cmd  = qw< git pull --quiet >;
 my $root = "/home/apache/repositories";
 
-opendir my $dh, $root;
-my @repos = readdir $dh;
-closedir $dh;
-
 for my $branch (qw< test prod >) {
+    opendir my $dh, catdir($root, $branch);
+    my @repos = readdir $dh;
+    closedir $dh;
+
     for my $repo (@repos) {
-        my $dir = catdir($root, $repo);
+        my $dir = catdir($root, $branch, $repo);
         next unless -d catdir($dir, ".git");
         chdir $dir;
         my $r = system @cmd;
