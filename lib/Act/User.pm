@@ -127,7 +127,7 @@ sub register_participation {
         LIMIT 1
   });
                                 
-  $sth->execute( $Request{user}->user_id );
+  $sth->execute( $self->user_id );
   my ($tshirt_size) = $sth->fetchrow_array;
   $sth->finish;
                                 
