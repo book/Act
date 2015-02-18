@@ -54,32 +54,7 @@ sub handler {
 
         # user logged in but not registered (yet)
         if ($Request{args}{join}) {
-            # fetch this user's latest t-shirt size
-            my $sth = $Request{dbh}->prepare_cached(q{
-                SELECT  tshirt_size
-                FROM    participations
-                WHERE   user_id = ?
-                    AND tshirt_size is not null
-                ORDER BY datetime DESC
-                LIMIT 1
-            });
-
-            $sth->execute( $Request{user}->user_id );
-            my ($tshirt_size) = $sth->fetchrow_array;
-            $sth->finish;
-
-            # create a new participation to this conference
-            $sth = $Request{dbh}->prepare_cached(q{
-                INSERT INTO participations
-                        (user_id, conf_id, datetime, ip, tshirt_size)
-                VALUES  (?,?, NOW(), ?, ?)
-            });
-
-            $sth->execute( $Request{user}->user_id, $Request{conference},
-                           $Request{r}->connection->remote_ip, $tshirt_size );
-            $sth->finish();
-            $Request{dbh}->commit;
-
+            $Request{user}->register_participation();
             return Act::Util::redirect(make_uri('main'))
         }
         else {
@@ -151,6 +126,9 @@ sub handler {
 
                 # log the user in
                 Act::Util::login($user);
+                
+                # Add the user to the current conference
+                $user->register_participation();
 
                 # display "added page"
                 $template->variables(
