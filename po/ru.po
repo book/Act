@@ -224,7 +224,7 @@ msgid "The address is already registered."
 msgstr "Адрес %1 уже зарегистрирован."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Ваш идентификатор должен состоять как минимум из трех символов и содержать только латинские буквы и цифры (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Ваш идентификатор должен состоять как минимум из трех символов и содержать только латинские буквы и цифры (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Необходимо ввести имя"

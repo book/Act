@@ -223,7 +223,7 @@ msgid "The address is already registered."
 msgstr "O endereço %1 já está registado."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "O seu identificador deve conter pelo menos 3 caracteres, e apenas caracteres alfanuméricos (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "O seu identificador deve conter pelo menos 3 caracteres, e apenas caracteres alfanuméricos (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "O seu nome é obrigatório"

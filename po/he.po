@@ -217,7 +217,7 @@ msgid "The address is already registered."
 msgstr "התכובת %1 כבר רשומה."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "השם המזהה חייב להכיל לפחות 3 תווים ועל כולם להיות תווים אלפאנומריים (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "השם המזהה חייב להכיל לפחות 3 תווים ועל כולם להיות תווים אלפאנומריים (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "יש להזין את השם הפרטי"

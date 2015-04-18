@@ -224,7 +224,7 @@ msgid "The address is already registered."
 msgstr "Táto adresa %1 je už zaregistrovaná."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Tvoja identifikácia musí obsahovať aspoň 3 a iba alfanumerické znaky (<tt>[a-zA-Z0-9_]{3,}</tt>)"
+msgstr "Tvoja identifikácia musí obsahovať aspoň 3 a iba alfanumerické znaky (<tt>[-a-zA-Z0-9_]{3,}</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Musíš zadať svoje meno"

@@ -178,7 +178,7 @@ msgid "The address is already registered."
 msgstr "Die Adresse %1 ist bereits registriert."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Die Benutzer-ID muss mindestens 3 Zeichen enthalten und darf nur aus alphanumerischen Zeichen bestehen (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Die Benutzer-ID muss mindestens 3 Zeichen enthalten und darf nur aus alphanumerischen Zeichen bestehen (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Bitte Vornamen eingeben"

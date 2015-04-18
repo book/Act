@@ -223,7 +223,7 @@ msgid "The address is already registered."
 msgstr "アドレス %1 はすでに登録されています。"
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "ID は3文字以上の半角英数字でお願いします。 (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "ID は3文字以上の半角英数字でお願いします。 (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "ファーストネーム(名)を入力してください"

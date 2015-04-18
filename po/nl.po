@@ -223,7 +223,7 @@ msgid "The address is already registered."
 msgstr "Het adres %1 is al geregistreerd."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Uw naam dient minimaal uit 3 tekens te bestaan en uitsluitend alfanumerieke tekens (<tt>[a-zA-Z0-9_]</tt>) zijn toegestaan"
+msgstr "Uw naam dient minimaal uit 3 tekens te bestaan en uitsluitend alfanumerieke tekens (<tt>[-a-zA-Z0-9_]</tt>) zijn toegestaan"
 
 msgid "You must enter your first name"
 msgstr "Gelieve uw voornaam in te geven"

@@ -165,7 +165,7 @@ msgid "The address is already registered."
 msgstr "%1 email cím már foglalt."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Az azonosítónak legalább 3 betûbõl kell állnia és csak alfanumerikus karaktereket tartalmazhat (<tt>[a-zA-Z0-9_]</tt>)."
+msgstr "Az azonosítónak legalább 3 betûbõl kell állnia és csak alfanumerikus karaktereket tartalmazhat (<tt>[-a-zA-Z0-9_]</tt>)."
 
 msgid "You must enter your first name"
 msgstr "A keresztnév megadása kötelezõ."

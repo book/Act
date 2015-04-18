@@ -19,7 +19,7 @@ my $form = Act::Form->new(
      tshirt   => sub { uc shift },
   },
   constraints => {
-     login => sub { $_[0] =~ /^[A-Za-z0-9_]{3,}$/ },
+     login => sub { $_[0] =~ /^[-A-Za-z0-9_]{3,}$/ },
      email => 'email',
      tshirt => sub { $_[0] =~ /^(?:X?S|M|[456]?X{0,3}LT?)(?: \(W\))?$/ },
   }

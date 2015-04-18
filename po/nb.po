@@ -226,7 +226,7 @@ msgid "The address is already registered."
 msgstr "Adressen %1 er allerede registrert."
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Brukernavnet ditt må inneholde minst tre tegn og bestå av alfanumeriske tegn (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Brukernavnet ditt må inneholde minst tre tegn og bestå av alfanumeriske tegn (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Du må oppgi ditt fornavn"

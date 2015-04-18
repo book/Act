@@ -228,7 +228,7 @@ msgstr "L'indirizzo %1 è già iscritto."
 msgid "Your identifier must contain at least 3 characters"
 msgstr ""
 "L'identificativo deve essere composto da almeno 3 caratteri alfanumerici\n"
-"(<tt>[a-zA-Z0-9_]</tt>)\n"
+"(<tt>[-a-zA-Z0-9_]</tt>)\n"
 
 msgid "You must enter your first name"
 msgstr "Il nome è obbligatorio"

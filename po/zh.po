@@ -223,7 +223,7 @@ msgid "The address is already registered."
 msgstr "该地址 %1 已注册。"
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "ID 必须是3个以上半角英文字符。 (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "ID 必须是3个以上半角英文字符。 (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "您必须输入您的名"

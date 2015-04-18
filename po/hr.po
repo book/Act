@@ -221,7 +221,7 @@ msgid "The address is already registered."
 msgstr "Adresa %1 je već registrirana"
 
 msgid "Your identifier must contain at least 3 characters"
-msgstr "Vaša oznaka mora sadržavati najmanje tri slova i može sadržavati samo alfanumerike (<tt>[a-zA-Z0-9_]</tt>)"
+msgstr "Vaša oznaka mora sadržavati najmanje tri slova i može sadržavati samo alfanumerike (<tt>[-a-zA-Z0-9_]</tt>)"
 
 msgid "You must enter your first name"
 msgstr "Morate unijeti vaše ime"
