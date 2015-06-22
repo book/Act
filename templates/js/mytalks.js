@@ -31,7 +31,7 @@ if (window.act) {
     $(function() {
         $(".mytalks_submit").remove();
         $(":checkbox").each(function() {
-            toggle_image(this, $(this).val(), $(this).attr("checked"));
+            toggle_image(this, $(this).val(), $(this).prop("checked"));
         });
     });
 }
