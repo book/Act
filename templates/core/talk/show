@@ -1,4 +1,5 @@
 [% INCLUDE js/mytalks.js %]
+<h1>[% title %]</h1>
 <p>
 <b>{{By}}</b>
 [% user_info(user) %]
@@ -44,9 +45,9 @@
 [% END %]
 
 [% showtags(tags, 'talks') %]
-
 </p>
-[% IF url_abstract || url_talk %]
+
+[% IF !hide_details && (url_abstract || url_talk) %]
 <p> {{You can find more information on the speaker's site:}}</p>
  <ul>
   [% IF url_abstract %]
@@ -62,18 +63,36 @@
  </ul>
 [% END %]
 
+[% IF !hide_details && (url_video1 || url_video2 || url_video3) %]
+<p> {{Video:}}</p>
+ <ul>
+  [% IF url_video1 %]
+      <li><a href="[% url_video1 %]">[% url_video1 %]</a></li>
+  [% END %]
+  [% IF url_video2 %]
+      <li><a href="[% url_video2 %]">[% url_video2 %]</a></li>
+  [% END %]
+  [% IF url_video3 %]
+      <li><a href="[% url_video3 %]">[% url_video3 %]</a></li>
+  [% END %]
+ </ul>
+[% END %]
+
 <hr />
-<p>
-[% expand(chunked_abstract) | html_line_break %]
-</p>
+
+[% IF hide_details %]
+<p>[% expand(chunked_teaser) | html_line_break %]</p>
+[% ELSE %]
+<p>[% expand(chunked_abstract) | html_line_break %]</p>
+[% END %]
+
+<hr />
 
 [% IF attendees.size %]
 <b>{{Attended by:}}</b>
-<ul>
 [% FOREACH u IN attendees %]
-  <li>[% user_info(u) %]</li>
+  [% user_info(u) %],
 [% END %]
-</ul>
 [% END %]
 
 [% IF global.request.user.has_registered %]

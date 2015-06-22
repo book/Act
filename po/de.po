@@ -616,6 +616,15 @@ msgstr "Datum"
 msgid "Room"
 msgstr "Veranstaltungsraum"
 
+#msgid "Hide details"
+#msgstr "Hide details"
+
+#msgid "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+#msgstr "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+
+#msgid "Teaser"
+#msgstr "Teaser"
+
 msgid "Abstract"
 msgstr "Kurzbeschreibung"
 
@@ -656,6 +665,9 @@ msgstr "Dauer:"
 
 msgid "You can find more information on the following site:"
 msgstr "Mehr Informationen:"
+
+msgid "Video:"
+msgstr "Video:"
 
 msgid "Credit card payment"
 msgstr "Zahlung mit Kreditkarte"
@@ -761,6 +773,15 @@ msgstr "URL für weitere Infos"
 
 msgid "Talk URL"
 msgstr "URL für Slides usw."
+
+#msgid "Allow recording"
+#msgstr "Allow recording"
+
+#msgid "Check the box to indicate you agree for this talk to be recorded."
+#msgstr "Check the box to indicate you agree for this talk to be recorded."
+
+#msgid "Video URLs"
+#msgstr "Video URLs"
 
 msgid "Standard durations for <confname> are:"
 msgstr "Standardlängen sind:"

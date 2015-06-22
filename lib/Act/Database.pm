@@ -74,6 +74,15 @@ my @SCHEMA_UPDATES = (
 #10,
   "alter table participations add column attended boolean default false;
   ",
+#11
+  q{
+    alter table talks add column teaser       text;
+    alter table talks add column url_video1   text;
+    alter table talks add column url_video2   text;
+    alter table talks add column url_video3   text;
+    alter table talks add column hide_details boolean DEFAULT false NOT NULL;
+    alter table talks add column allow_record boolean DEFAULT true  NOT NULL;
+  },
 );
 
 # returns ( current database schema version, required version )

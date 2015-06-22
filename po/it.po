@@ -744,6 +744,15 @@ msgstr "Data"
 msgid "Room"
 msgstr "Stanza"
 
+#msgid "Hide details"
+#msgstr "Hide details"
+
+#msgid "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+#msgstr "Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens."
+
+#msgid "Teaser"
+#msgstr "Teaser"
+
 msgid "Abstract"
 msgstr "Descrizione"
 
@@ -790,6 +799,9 @@ msgstr "Durata:"
 
 msgid "You can find more information on the following site:"
 msgstr "Potete trovare ulteriori informazioni sul sito:"
+
+msgid "Video:"
+msgstr "Video:"
 
 msgid "Wiki - editing <node>"
 msgstr "Wiki - modifica di %1"
@@ -1078,6 +1090,15 @@ msgstr "URL dell'abstract"
 
 msgid "Talk URL"
 msgstr "URL dell'intervento"
+
+#msgid "Allow recording"
+#msgstr "Allow recording"
+
+#msgid "Check the box to indicate you agree for this talk to be recorded."
+#msgstr "Check the box to indicate you agree for this talk to be recorded."
+
+#msgid "Video URLs"
+#msgstr "Video URLs"
 
 msgid "Standard durations for <confname> are:"
 msgstr "Le durate previste per %1 sono:"
