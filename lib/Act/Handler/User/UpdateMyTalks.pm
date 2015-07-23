@@ -47,6 +47,27 @@ sub ajax_handler
     $Request{status} = HTTP_NO_CONTENT;
 }
 
+# same as ajax_handler but not toggle: accept 'state' direct parameter
+sub ajax_stateful_handler
+{
+    if( $Request{user}->has_registered && $Request{args}{talk_id} ) {
+
+        my $talk = Act::Talk->new(
+            talk_id => $Request{args}{talk_id},
+            conf_id => $Request{conference} );
+
+        my $my_talks = $Request{user}->my_talks;
+
+        $Request{user}->update_my_talks(
+            # pre-remove selected talk, if it exists:
+            grep({ $_->talk_id != $talk->talk_id } @$my_talks),
+            # and add it back, or don't add, depending from 'state' argument:
+            ($Request{args}{state} ? $talk : ()) );
+    }
+
+    $Request{status} = HTTP_NO_CONTENT;
+}
+
 1;
 
 =head1 NAME

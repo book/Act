@@ -69,6 +69,7 @@ my %private_handlers = (
     tracks          => 'Act::Handler::Track::List',
     updatemytalks   => 'Act::Handler::User::UpdateMyTalks',
     updatemytalks_a => 'Act::Handler::User::UpdateMyTalks::ajax_handler',
+    updatemytalks_as => 'Act::Handler::User::UpdateMyTalks::ajax_stateful_handler',
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
 );
