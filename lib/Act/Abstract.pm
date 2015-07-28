@@ -64,7 +64,7 @@ sub expand_user
     my $user_info = shift or return;
     my $user;
     my %args;
-    if ($user_info =~ /^\d+/) {
+    if ($user_info =~ /^\d+\b/) {
         %args = (user_id => $user_info);
     }
     else {
