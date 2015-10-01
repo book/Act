@@ -88,7 +88,7 @@ sub handler
             }
             # update user
             $Request{user}->update(
-                passwd => Act::Util::crypt_password( $fields->{newpassword1} )
+                passwd => Act::Util::crypt_password( $fields->{newpassword1}, Act::Util::gen_salt() )
             );
 
             # redirect to user's main page
