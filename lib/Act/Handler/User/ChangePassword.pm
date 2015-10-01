@@ -9,7 +9,6 @@ use Act::Template::HTML;
 use Act::User;
 use Act::Util;
 use Act::TwoStep;
-use Digest::MD5 ();
 
 my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
@@ -64,9 +63,7 @@ sub handler
         my ($token, $token_data);
         if ($Request{user}) { # 
             # compare passwords
-            my $digest = Digest::MD5->new;
-            $digest->add(lc $fields->{oldpassword});
-            $digest->b64digest() eq $Request{user}{passwd}
+            Act::Util::verify_password(lc $fields->{oldpassword}, $Request{user}{passwd})
                 or do { $ok = 0; $form->{invalid}{oldpassword} = 1; };
         }
         else { # must have a valid twostep token if not logged in

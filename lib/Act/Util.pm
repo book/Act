@@ -157,6 +157,13 @@ sub crypt_password
     $digest->add(shift);
     return $digest->b64digest();
 }
+
+sub verify_password
+{
+    my ($clear_passwd, $crypt_passwd) = @_;
+    return crypt_password( $clear_passwd ) eq $crypt_passwd;
+}
+
 sub create_session
 {
     my $user = shift;
