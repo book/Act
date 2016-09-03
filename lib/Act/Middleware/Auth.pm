@@ -117,7 +117,7 @@ sub check_login {
             $login,
             $error;
 
-        $req->logger->({ level => 'error', $full_error });
+        $req->logger->({ level => 'error', message => $full_error });
 
         $env->{'act.login.destination'} = $dest;
         $env->{'act.login.error'} = 1;
