@@ -1,8 +1,7 @@
 #!/usr/bin/env perl
-
 use strict;
 use warnings;
-use lib 'lib';
+use lib::abs 'lib';
 
 use Act::Dispatcher;
 use Plack::Builder;
