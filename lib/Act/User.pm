@@ -414,7 +414,7 @@ sub set_password {
     my $self = shift;
     my $password = shift;
     my $crypted = $self->_crypt_password($password);
-    $Request{user}->update( passwd => $crypted );
+    $self->update( passwd => $crypted );
     return 1;
 }
 
