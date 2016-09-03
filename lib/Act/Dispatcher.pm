@@ -101,7 +101,7 @@ sub to_app {
 }
 
 sub conference_app {
-    my $static_app = Act::Handler::Static->new;
+    my $static_app = Act::Handler::Static->new->to_app;
     builder {
         enable '+Act::Middleware::Language';
         enable sub {
@@ -158,7 +158,7 @@ sub _handler_app {
         my $subhandler = $1;
     }
     _load($handler);
-    return $handler->new(subhandler => $subhandler);
+    return $handler->new(subhandler => $subhandler)->to_app;
 }
 
 sub _load {
