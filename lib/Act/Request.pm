@@ -60,6 +60,10 @@ sub upload {
     # XXX returned value must support fh method (return psgi.input? but that only supports readline...)
 }
 
+sub header_in {
+    shift->header(@_);
+}
+
 1;
 
 __END__
