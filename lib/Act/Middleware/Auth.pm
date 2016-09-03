@@ -4,6 +4,7 @@ use warnings;
 
 use parent qw(Plack::Middleware);
 use Plack::Request;
+use Plack::Response;
 use Act::Config ();
 use Try::Tiny;
 use Plack::Util::Accessor qw(private);
@@ -110,7 +111,7 @@ sub check_login {
     catch {
         my $env = $req->env;
 
-        my $error = $_->[0];
+        my $error = $_;
         my $full_error = join ' ', map { "[$_]" }
             $env->{SERVER_NAME},
             $req->address,
