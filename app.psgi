@@ -9,7 +9,7 @@ use Plack::Builder;
 builder {
     enable 'Session::Cookie',
         session_key => 'yapcrussia',
-        expires     => 3600,
+        expires     => 3600 * 24, # 24 hours
 	secret      => 'abcddcba';
     enable "SimpleLogger", level => "warn";
     Act::Dispatcher->to_app;
