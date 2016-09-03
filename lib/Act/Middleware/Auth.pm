@@ -97,7 +97,7 @@ sub check_login {
             $user->check_password($sent_pw);
         }
         catch {
-            die ['Bad password'];
+            die ["Bad password. (Error: $_)"];
         };
 
         # user is authenticated - create a session
