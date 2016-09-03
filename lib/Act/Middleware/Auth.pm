@@ -113,7 +113,7 @@ sub check_login {
 
         my $error = ref $_ eq 'ARRAY' ? $_->[0] : $_;
         my $full_error = join ' ', map { "[$_]" }
-            $env->{SERVER_NAME},
+            $env->{HTTP_HOST},
             $req->address,
             $login,
             $error;

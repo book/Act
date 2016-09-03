@@ -23,7 +23,7 @@ sub handler
         error       => $env->{'act.login.error'},
         destination => $uri,
         action      => join('/', '', $Request{conference}, 'LOGIN'),
-        domain      => join('.', (split /\./, $r->env->{SERVER_NAME})[-2, -1]),
+        domain      => join('.', (split /\./, $r->env->{HTTP_HOST})[-2, -1]),
     );
     $template->process('login');
     $Request{status} = 200;
