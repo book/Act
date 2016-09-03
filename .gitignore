@@ -4,3 +4,11 @@
 /META.yml
 /Makefile
 /inc
+*.bak
+*.old
+*.log
+var
+wwwdocs
+actdocs
+github-hook
+conf
