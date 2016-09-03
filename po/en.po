@@ -62,8 +62,14 @@ msgstr "Perl mongers group"
 msgid "Company"
 msgstr "Company"
 
+msgid "Position"
+msgstr "Position"
+
 msgid "Email"
 msgstr "Email"
+
+msgid "Phone"
+msgstr "Phone"
 
 msgid "Web page"
 msgstr "Web page"

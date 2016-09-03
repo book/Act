@@ -58,8 +58,14 @@ msgstr "PM-группа"
 msgid "Company"
 msgstr "Компания"
 
+msgid "Position"
+msgstr "Должность"
+
 msgid "Email"
 msgstr "Электронная почта"
+
+msgid "Phone"
+msgstr "Телефон"
 
 msgid "Web page"
 msgstr "Сайт"
