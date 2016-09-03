@@ -15,4 +15,14 @@ sub check_and_write_node
     $self->write_node_post_locking( %args );
     return 1;
 }
+
+sub _get_dbh_connect_attr {
+    my ($self) = @_;
+
+    return {
+        %{ $self->SUPER::_get_dbh_connect_attr() },
+        pg_enable_utf8 => 0,
+    };
+}
+
 1;
