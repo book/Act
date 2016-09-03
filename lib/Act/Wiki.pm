@@ -14,9 +14,11 @@ use Act::Wiki::Store;
 sub new
 {
     return Wiki::Toolkit->new(
-        store     => Act::Wiki::Store->new(charset => 'UTF-8',
-                                           map { $_ => $Config->get("wiki_$_") }
-                                           qw(dbname dbuser dbpass)),
+        store     => Act::Wiki::Store->new(
+            charset => 'UTF-8',
+            map { $_ => $Config->get("wiki_$_") }
+                qw(dbhost dbname dbuser dbpass)
+        ),
         formatter => Act::Wiki::Formatter->new(),
     );
 }
