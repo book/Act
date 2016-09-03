@@ -31,6 +31,7 @@ requires(
 'JSON::XS' => 0, 
 'LWP::Simple' => 0, 
 'LWP::UserAgent' => 0, 
+'lib::abs' => '0.93',
 'List::Pairwise' => 0, 
 'Locale::Maketext::Lexicon' => 0, 
 'Net::OpenID::Server' => 0, 
