@@ -37,6 +37,7 @@ sub call {
         $uri->query_form(\@query);
         my $resp = Plack::Response->new;
         $resp->redirect($uri->as_string);
+        $env->{'psgix.session'}->{'act'}->{language} = $language;
         return $resp->finalize;
     }
 
