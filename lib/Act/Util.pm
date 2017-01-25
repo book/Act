@@ -195,7 +195,7 @@ sub date_format
     my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
     my $lang = $Request{language} || $Config->general_default_language;
     my $variant = $Config->language_variants->{$lang} || $lang;
-    $dt->set(locale => $variant);
+    $dt->set_locale($variant);
 
     if ($variant =~ /^((\w+)_.*)$/) {    # $1 = en_US, $2 = en
         $variant = $2 unless exists $Act::Config::Languages{$variant};
