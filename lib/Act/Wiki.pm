@@ -25,7 +25,7 @@ sub format_node
     my ($wiki, $template, $content) = @_;
 
     my %metadata;
-    my $cooked = eval { $wiki->format($content, \%metadata) } // "";
+    my $cooked = eval { $wiki->format($content, \%metadata) } || "";
 
     if ($metadata{chunks}) {
         $cooked = '[% TAGS {% %} %]' . $cooked;
