@@ -41,7 +41,10 @@ sub display_node
 {
     my ($wiki, $template, $node, $version) = @_;
 
-    my %data = $wiki->retrieve_node(name => make_node_name($node), version => $version);
+    my %data = eval {
+        $wiki->retrieve_node(name => make_node_name($node), version => $version)
+    };
+
     $data{last_modified} = DateTime::Format::Pg->parse_datetime($data{last_modified})
         if $data{last_modified};
     undef $version if $version && $data{version} != $version;
