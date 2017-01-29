@@ -593,7 +593,7 @@ msgstr ""
 
 msgid "Committed users are listed in <b>bold</b> type"
 msgstr ""
-"Gecommitteerde gebruikers zijn <b>vet</b> weergegeven (degenen die\n"
+"Bevestigde deelnemers zijn <b>vet</b> weergegeven (degenen die\n"
 "hun inschrijfgeld hebben betaald of een presentatie geven).\n"
 
 msgid "Search for users"
@@ -661,7 +661,7 @@ msgstr ""
 "Er zijn %1 deelnemers ingeschreven,\n"
 "afkomstig uit %quant(%2,land,landen)\n"
 "en %quant(%3,mongers-groep,mongers-groepen).\n"
-"Er zijn %4 gecommitteerde gebruikers,\n"
+"Er zijn %4 bevestigde deelnemers,\n"
 "d.w.z. mensen die hun inschrijfgeld hebben betaald\n"
 "of een presentatie zullen geven.\n"
 
@@ -672,7 +672,7 @@ msgstr ""
 
 msgid "The number of committed users is listed between parentheses"
 msgstr ""
-"Het aantal gecommitteerde gebruikers staat in de volgende tabel\n"
+"Het aantal bevestigde deelnemers staat in de volgende tabel\n"
 "tussen haakjes."
 
 msgid "Click on the various links to find the corresponding users!"

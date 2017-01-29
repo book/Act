@@ -30,7 +30,9 @@ my $form = Act::Form->new(
   filters  => {
      track_id => sub { $_[0] || undef },
      tags     => sub { join ' ',  Act::Tag->split_tags( $_[0] ) },
-     map { $_ => sub { $_[0] ? 1 : 0 } } qw(accepted confirmed is_lightning)
+     map { $_ => sub { $_[0] ? 1 : 0 } } qw<
+         accepted confirmed is_lightning hide_details allow_record
+     >
   },
   constraints => {
      duration     => sub { $_[0] =~ /^(lightning|\d+)$/ },
