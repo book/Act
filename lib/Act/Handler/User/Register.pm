@@ -127,9 +127,6 @@ sub handler {
                 # log the user in
                 Act::Util::login($user);
                 
-                # Add the user to the current conference
-                $user->register_participation();
-
                 # display "added page"
                 $template->variables(
                     clear_passwd => $clear_passwd,
