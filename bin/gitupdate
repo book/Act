@@ -5,7 +5,7 @@ use File::Spec::Functions;
 
 sub git_it
 {
-    my $origin = ($_[0] eq 'test') ? 'origin/master' : 'origin/prod';
+    my $origin = ($_[0] eq 'test') ? 'origin/master' : 'origin/production';
     open my $fh, '-|', 'git fetch --quiet';
     #open my $fh, '-|', 'git fetch ';
     warn $_ while (<$fh>);
