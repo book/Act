@@ -1,20 +1,23 @@
 #!/usr/bin/env perl
 use strict;
-use autodie;
 use File::Spec::Functions;
 
 sub git_it
 {
     my $origin = ($_[0] eq 'test') ? 'origin/master' : 'origin/production';
-    open my $fh, '-|', 'git fetch --quiet';
+    open my $fh, '-|', 'git fetch --quiet' or do { warn "Cannot run git fetch --quiet in "; return ; };
     #open my $fh, '-|', 'git fetch ';
     warn $_ while (<$fh>);
     close $fh;
     warn "error while running git fetch in " if $? != 0;
-    open $fh, '-|', 'git reset --quiet --hard ' . $origin;
+    open $fh, '-|', 'git rev-list --branches ' . $origin . ' > /dev/null 2>&1 ' or do { warn "Cannot run git rev-list --branches $origin in "; return ; };
+    while (<$fh>) { ; }
+    close $fh;
+    return if $? != 0;
+    open $fh, '-|', 'git reset --quiet --hard ' . $origin or do { warn "Cannot run git reset --hard $origin in "; return ; };
     warn $_ while (<$fh>);
     close $fh;
-    warn "error while running git reset --hard in " if $? != 0;
+    warn "error while running git reset --hard $origin in " if $? != 0;
 }
 my @cmd  = qw< git pull --quiet >;
 my $root = "/home/apache/repositories";
