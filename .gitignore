@@ -10,3 +10,4 @@ actdocs
 git
 github-hook
 conf
+*.sw[p-z]
