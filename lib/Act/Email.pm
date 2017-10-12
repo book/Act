@@ -4,7 +4,7 @@ use strict;
 package Act::Email;
 
 use Encode ();
-use List::Pairwise qw(mapp);
+#use List::Pairwise qw(mapp);
 
 use Act::Config;
 use Email::Address;
@@ -104,7 +104,7 @@ sub send
         push @headers, %{ $_ } for ref $xh eq 'ARRAY' ? @{ $xh } : $xh;
     }
     # Email::Simple doesn't (yet?) q-encode the headers
-    mapp { $b = _encode_header($b) } @headers;
+	#mapp { $b = _encode_header($b) } @headers;
 
     my $email = Email::Simple->create( header => \@headers, body => Encode::encode_utf8($args{body}) );
     my $return = $sender->send($email);
