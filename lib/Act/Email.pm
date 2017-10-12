@@ -11,7 +11,7 @@ use Email::Address;
 use Email::Date;
 use Email::MessageID;
 use Email::Send ();
-use Email::Send::Sendmail;
+#use Email::Send::Sendmail;
 use Email::Simple;
 use Email::Simple::Creator;
 
@@ -37,7 +37,9 @@ use Email::Simple::Creator;
 my $sender;
 unless ($^C) {
     $Email::Send::Sendmail::SENDMAIL = $Config->email_sendmail;
-    $sender = Email::Send->new( { mailer => 'Sendmail' } );
+    #$sender = Email::Send->new( { mailer => 'Sendmail' } );
+    $sender = Email::Send->new( { mailer => 'SMTP' } );
+    $sender->mailer_args([Host => "127.0.0.1"]);
 }
 
 sub send
@@ -104,9 +106,10 @@ sub send
         push @headers, %{ $_ } for ref $xh eq 'ARRAY' ? @{ $xh } : $xh;
     }
     # Email::Simple doesn't (yet?) q-encode the headers
-	#mapp { $b = _encode_header($b) } @headers;
+    #mapp { $b = _encode_header($b) } @headers;
 
     my $email = Email::Simple->create( header => \@headers, body => Encode::encode_utf8($args{body}) );
+#print STDERR "- - -\n", $email->as_string, "- - -\n";
     my $return = $sender->send($email);
     warn $return unless $return;
 }
