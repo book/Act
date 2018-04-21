@@ -1,0 +1,68 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Act::Config;
+use Act::Util;
+
+use LWP::Simple qw( mirror is_error );
+use YAML qw( LoadFile );
+use JSON;
+
+# collect conference information
+my $rc = mirror( 'http://www.yapceurope.org/events/conferences.yml',
+    my $yaml = 'conferences.yml' );
+die "Failed to update $yaml: HTTP status = $rc" if is_error($rc);
+
+my %conf = map +( $_->{conf_id} => $_ ), @{ LoadFile($yaml) };
+
+# connect to database
+Act::Util::db_connect();
+
+# select conference participation/speaking for users with a PAUSE id
+my $sth = $Request{dbh}->prepare( << 'SQL' );
+SELECT UPPER(u.pause_id), p.conf_id, count(t.talk_id) > 0 AS speaker
+FROM users u
+LEFT JOIN participations p ON p.user_id = u.user_id
+LEFT JOIN talks t ON t.user_id=u.user_id and t.conf_id=p.conf_id and t.accepted=true
+WHERE u.pause_id <> ''
+  AND p.conf_id IS NOT NULL
+GROUP BY u.user_id, p.conf_id
+ORDER BY u.user_id, p.conf_id
+SQL
+
+$sth->execute;
+
+my ( %conferences, %participations );
+
+# PAUSE id, conf id, is_speaker?
+while ( my @row = $sth->fetchrow_array ) {
+    push @{ $participations{ $row[0] }{ $row[2] ? 'spoke' : 'attended' } },
+      $row[1];
+    $conferences{ $row[1] } ||= do {
+        my $conf = $conf{ $row[1] };
+        {
+            name  => $conf->{name},
+            url   => $conf->{url},
+            begin =>
+              join( '-', reverse $conf->{begin} =~ m{ (\d\d)/(\d\d)/(\d\d\d\d)} ),
+            end =>
+              join( '-', reverse $conf->{end} =~ m{ (\d\d)/(\d\d)/(\d\d\d\d)} ),
+        };
+    };
+}
+
+# sort participation by confernce date
+for my $user ( keys %participations ) {
+    $participations{$user}{$_} =
+      [ sort { $conferences{$a}{begin} cmp $conferences{$b}{begin} }
+          @{ $participations{$user}{$_} } ]
+      for qw( attended spoke );
+}
+
+print JSON->new->pretty->encode(
+    {
+        conferences    => \%conferences,
+        participations => \%participations
+    }
+);
