@@ -10,7 +10,7 @@ use YAML qw( LoadFile );
 use JSON;
 
 # collect conference information
-my $rc = mirror( 'http://www.yapceurope.org/events/conferences.yml',
+my $rc = mirror( 'https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml',
     my $yaml = 'conferences.yml' );
 die "Failed to update $yaml: HTTP status = $rc" if is_error($rc);
 
