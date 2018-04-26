@@ -56,7 +56,7 @@ while ( my @row = $sth->fetchrow_array ) {
 for my $user ( keys %participations ) {
     $participations{$user}{$_} =
       [ sort { $conferences{$a}{begin} cmp $conferences{$b}{begin} }
-          @{ $participations{$user}{$_} } ]
+          @{ $participations{$user}{$_} || [] } ]
       for qw( attended spoke );
 }
 
