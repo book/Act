@@ -9,9 +9,13 @@ use LWP::Simple qw( mirror is_error );
 use YAML qw( LoadFile );
 use JSON;
 
+
+# paths
+my $json = "/home/apache/htdocs/conferences/wwwdocs/pause-act-conferences.json";
+my $yaml = "/home/apache/htdocs/conferences/wwwdocs/conferences.yml";
+
 # collect conference information
-my $rc = mirror( 'https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml',
-    my $yaml = 'conferences.yml' );
+my $rc = mirror( "https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml", $yaml );
 die "Failed to update $yaml: HTTP status = $rc" if is_error($rc);
 
 my %conf = map +( $_->{conf_id} => $_ ), @{ LoadFile($yaml) };
@@ -60,9 +64,12 @@ for my $user ( keys %participations ) {
       for qw( attended spoke );
 }
 
-print JSON->new->pretty->encode(
+open my $fh, ">", $json or die "can't write file '$json': $!\n";
+print {$fh} JSON->new->pretty->encode(
     {
         conferences    => \%conferences,
         participations => \%participations
     }
 );
+
+close $fh;
