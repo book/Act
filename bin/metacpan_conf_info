@@ -5,7 +5,7 @@ use warnings;
 use Act::Config;
 use Act::Util;
 
-use LWP::Simple qw( mirror is_error );
+#use LWP::Simple qw( mirror is_error );
 use YAML qw( LoadFile );
 use JSON;
 
@@ -15,8 +15,10 @@ my $json = "/home/apache/htdocs/conferences/wwwdocs/pause-act-conferences.json";
 my $yaml = "/home/apache/htdocs/conferences/wwwdocs/conferences.yml";
 
 # collect conference information
-my $rc = mirror( "https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml", $yaml );
-die "Failed to update $yaml: HTTP status = $rc" if is_error($rc);
+#my $rc = mirror( "https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml", $yaml );
+#die "Failed to update $yaml: HTTP status = $rc" if is_error($rc);
+system "curl -s https://raw.githubusercontent.com/yapceurope/perl-events/master/conferences.yml > $yaml";
+die "failed to fetch conferences.yml\n" if not -s $yaml;
 
 my %conf = map +( $_->{conf_id} => $_ ), @{ LoadFile($yaml) };
 
