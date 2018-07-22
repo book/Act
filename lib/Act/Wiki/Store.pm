@@ -1,7 +1,7 @@
 package Act::Wiki::Store;
 
 use strict;
-use base qw(Wiki::Toolkit::Store::Pg);
+use base qw(Act::Wiki::Store::Pg);
 
 sub check_and_write_node
 {
