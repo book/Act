@@ -59,11 +59,13 @@ sub dbdump
         or die "Cannot spawn: $!\n";
 
     # wait for password prompt, but not forever
-    if ($Config->database_dump_needs_password) {
-        $e->expect(TIMEOUT, 'Password: ')
-            or die "Timeout waiting for password prompt\n";
-        $e->send($args{passwd}, "\n");
-    }
+    # LBO>>> to uncomment if DB have a password in a next version
+    #if ($Config->database_dump_needs_password) {
+    #    $e->expect(TIMEOUT, 'Password: ')
+    #        or die "Timeout waiting for password prompt\n";
+    #    $e->send($args{passwd}, "\n");
+    #}
+    # <<<LBO
     # let it be
     $e->expect(undef);
 }
