@@ -79,7 +79,11 @@ sub to_app {
             sub {
                 my $env = shift;
                 my $req = Plack::Request->new($env);
-                $env->{'act.base_url'} = $req->base->as_string;
+
+                # Make sure there is no trailing slash in base_url
+                my $base_url = $req->base->as_string;
+                $base_url =~ s{/$}{};
+                $env->{'act.base_url'} = $base_url;
                 $env->{'act.dbh'} = Act::Util::db_connect();
                 $app->($env);
             };
