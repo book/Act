@@ -1,3 +1,5 @@
+=encoding UTF-8
+
 =head1 Managing the talk schedule with Act
 
 Act automatically creates a schedule web page from the talks information.

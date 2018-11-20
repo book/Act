@@ -1,3 +1,5 @@
+=encoding UTF-8
+
 =head1 The Act configuration file
 
 Most of the configuration items for your conference are stored in the

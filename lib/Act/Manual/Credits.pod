@@ -1,3 +1,5 @@
+=encoding UTF-8
+
 =head1 The people behind Act
 
 This section provides a brief history of Act and details the primary
