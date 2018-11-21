@@ -38,7 +38,7 @@ our %sql_mapping = (
     map( { ($_, "(lower(u.$_)=lower(?))") }
       qw( first_name last_name) ),
     # user can have multiple entries in pm_group
-    pm_group => "position(? in u.pm_group) > 0",
+    pm_group => "position(lower(?) in lower(u.pm_group)) > 0",
     # standard stuff
     map( { ($_, "(u.$_=?)") }
       qw( user_id session_id login email country ) )

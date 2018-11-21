@@ -1,4 +1,4 @@
-use Test::More tests => 51;
+use Test::More tests => 52;
 use strict;
 use Act::User;
 use t::Util;   # load the test database
@@ -56,6 +56,10 @@ is_deeply( Act::User->get_users( name => 'baz' ), [ $user ], "Found a pseudonymo
 # use a * in the search field
 $user = Act::User->new( login => 'test2' );
 is_deeply( Act::User->get_users( name => 'b*' ), [ $user ], "Found a user with a glob" );
+
+# fetch a user by PM group case-insensitively
+$user = Act::User->new( login => 'test2' );
+is_deeply( Act::User->get_users( pm_group => 'Paris.PM' ), [ $user ], "Found a user by case insensitive pm_group" );
 
 # update a user
 $user = Act::User->new( login => 'test' );
