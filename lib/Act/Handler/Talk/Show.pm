@@ -81,7 +81,7 @@ sub handler
     $template->variables(
         %$talk,
         chunked_abstract => Act::Abstract::chunked( $talk->abstract ),
-        chunked_teaser   => Act::Abstract::chunked( $talk->teaser ),
+        chunked_teaser   => Act::Abstract::chunked( eval { $talk->teaser } ),
         user => $user,
         tags => \@tags,
         attendees => Act::User->attendees($talk_id),

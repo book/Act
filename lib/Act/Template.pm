@@ -140,8 +140,8 @@ sub process
                 conf_id => $conf_id,
                 url     => $cfg->general_full_uri,
                 name    => $cfg->name->{ $Request{language} },
-                begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date)->truncate(to => 'day'),
-                end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date )->truncate(to => 'day'),
+                begin   => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date)->truncate(to => 'day') },
+                end     => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date )->truncate(to => 'day') },
             };
             my $when;
             if    ( $conf->{end} < $now )   { $when = 'past'; }
