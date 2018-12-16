@@ -78,7 +78,11 @@ sub to_app {
             sub {
                 my $env = shift;
                 my $req = Plack::Request->new($env);
-                $env->{'act.base_url'} = $req->base->as_string;
+
+                # Make sure there is no trailing slash in base_url
+                my $base_url = $req->base->as_string;
+                $base_url =~ s{/$}{};
+                $env->{'act.base_url'} = $base_url;
                 $env->{'act.dbh'} = Act::Util::db_connect();
                 $app->($env);
             };
@@ -101,7 +105,10 @@ sub to_app {
 }
 
 sub conference_app {
-    my $static_app = Act::Handler::Static->new;
+    my $static_app = builder {
+        enable '+Act::Middleware::Auth';
+        Act::Handler::Static->new->to_app;
+    };
     builder {
         enable '+Act::Middleware::Language';
         enable sub {
@@ -158,7 +165,7 @@ sub _handler_app {
         my $subhandler = $1;
     }
     _load($handler);
-    return $handler->new(subhandler => $subhandler);
+    return $handler->new(subhandler => $subhandler)->to_app;
 }
 
 sub _load {

@@ -57,5 +57,5 @@
 [% talk.abstract %]
 
 
-{{Comments:}}
+{{Comments}}:
 [% talk.comment %]

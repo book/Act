@@ -29,7 +29,7 @@ sub call {
         $language = $s->{language} = $force_language;
         my $uri = $req->uri;
         my @query = $uri->query_form;
-        for (my $i; $i < @query; $i+=2 ) {
+        for (my $i = 0; $i < @query; $i += 2 ) {
             if ($query[$i] eq 'language') {
                 splice @query, $i, 2;
             }
@@ -37,6 +37,7 @@ sub call {
         $uri->query_form(\@query);
         my $resp = Plack::Response->new;
         $resp->redirect($uri->as_string);
+        $env->{'psgix.session'}->{'act'}->{language} = $language;
         return $resp->finalize;
     }
 

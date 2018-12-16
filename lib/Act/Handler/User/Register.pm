@@ -66,7 +66,7 @@ sub handler
                 "INSERT INTO participations (user_id, conf_id, datetime, ip) VALUES (?,?, NOW(), ?);"
             );
             $sth->execute( $Request{user}->user_id, $Request{conference},
-                           $Request{r}->connection->remote_ip );
+                           $Request{r}->address );
             $sth->finish();
             $Request{dbh}->commit;
             return Act::Util::redirect(make_uri('main'))

@@ -342,8 +342,9 @@ sub possible_duplicates {
     for my $attr (qw( login email nick_name full_name last_name )) {
         push @twins, grep { !$seen{ $_->user_id }++ }
             map {@$_}
-            Act::User->get_items( $attr => map { s/([.*(){}^$?])/\\$1/g; $_ }
-                $self->$attr() )
+            Act::User->get_items(
+                $attr => map { s/([.*(){}^\$?])/\\$1/g; $_ } $self->$attr()
+            )
             if $self->$attr();
     }
     $_->most_recent_participation() for @twins;
@@ -381,7 +382,7 @@ sub set_password {
     my $self = shift;
     my $password = shift;
     my $crypted = $self->_crypt_password($password);
-    $Request{user}->update( passwd => $crypted );
+    $self->update( passwd => $crypted );
     return 1;
 }
 
