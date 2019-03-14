@@ -101,7 +101,7 @@ sub to_app {
 }
 
 sub conference_app {
-    my $static_app = Act::Handler::Static->new;
+    my $static_app = Act::Handler::Static->new->to_app;
     builder {
         enable '+Act::Middleware::Language';
         enable sub {
