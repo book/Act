@@ -321,7 +321,7 @@ my %genitive_monthnames = (
 sub genitive_month
 {
     my $self = shift;
-    my $lang = (split/::/, ref $self->locale)[-1];
+    my $lang = $self->locale->language_id;
     return exists $genitive_monthnames{$lang}
                 ? $genitive_monthnames{$lang}[$self->month_0]
                 : undef;
