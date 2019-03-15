@@ -41,6 +41,7 @@ requires(
 'Plack::Builder' => 0,
 'Plack::Middleware::Session::Cookie' => 0,
 'Plack::Request' => 0,
+'Plack::Response' => 0,
 'Plack::Util::Accessor' => 0,
 'Plack::Test' => 0,
 'Template' => 2.16, # Template::Constants
@@ -50,7 +51,9 @@ requires(
 'Test::MockObject' => 0, 
 'Text::Diff' => 0, 
 'Text::WikiFormat' => 0, 
-'Text::xSV' => 0, 
+'Text::xSV' => 0,
+'Time::Piece' => 0,
+'Time::Seconds' => 0,
 'Try::Tiny' => 0,
 'URI::Escape' => 0, 
 'URI' => 1.31, 
