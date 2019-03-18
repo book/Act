@@ -26,7 +26,8 @@ sub call {
     # redirect the user to remove the language query param
     my $force_language = $req->param('language');
     if ($force_language && $langs->{$force_language} ) {
-        $language = $s->{language} = $force_language;
+        $language = $force_language;
+        $env->{'psgix.session'}->{'act'}->{language} = $language;
         my $uri = $req->uri;
         my @query = $uri->query_form;
         for (my $i; $i < @query; $i+=2 ) {
