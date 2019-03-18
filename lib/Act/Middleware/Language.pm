@@ -30,7 +30,7 @@ sub call {
         $env->{'psgix.session'}->{'act'}->{language} = $language;
         my $uri = $req->uri;
         my @query = $uri->query_form;
-        for (my $i; $i < @query; $i+=2 ) {
+        for (my $i = 0; $i < @query; $i+=2 ) {
             if ($query[$i] eq 'language') {
                 splice @query, $i, 2;
             }
