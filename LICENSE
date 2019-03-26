@@ -25,12 +25,3 @@
     to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
     Boston, MA 02111-1307, USA or visit their web page on the internet
     at http://www.gnu.org/copyleft/gpl.html.
-
---------------------------------------------------------------------------
-
-Act is a set of modules to handle several conferences with the
-help of Apache, mod_perl and Template-Toolkit.
-
-More documentation is available in pod, under lib/Act/Manual/.
-All the documentation is also mirrored on http://act.mongueurs.net/
-

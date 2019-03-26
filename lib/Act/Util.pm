@@ -60,11 +60,18 @@ sub search_expression
 {
     return join '', map { $chartab{$_} || $_ } split '', shift;
 }
+
+# TODO: Move to Act::Database?
 # connect to the database
 sub db_connect
 {
+    my $dsn = $Config->database_dsn;
+    if ($Config->database_host) {
+        $dsn .= ";host=" . $Config->database_host;
+    }
+
     $Request{dbh} = DBI->connect_cached(
-        $Config->database_dsn,
+        $dsn,
         $Config->database_user,
         $Config->database_passwd,
         { AutoCommit => 0,
@@ -75,14 +82,23 @@ sub db_connect
     ) or die "can't connect to database: " . $DBI::errstr;
 
     # check schema version
-    my ($version, $required) = Act::Database::get_versions($Request{dbh});
+    if ($Config->database_version_check // 1) {
+        _check_db_version($Request{dbh});
+    }
+    return $Request{dbh};
+}
+
+# TODO: Move to Act::Database?
+sub _check_db_version {
+    my $dh = shift;
+    my ($version, $required) = Act::Database::get_versions($dh);
+
     if ($version > $required) {
         die "database schema version $version is too recent: this code runs version $required\n";
     }
     if ($version < $required) {
         die "database schema version $version is too old: version $required is required. Run bin/dbupdate\n";
     }
-    return $Request{dbh};
 }
 
 # create a uri for an action with args
@@ -196,7 +212,10 @@ sub date_format
 # translate a string
 sub localize
 {
-    return $Request{loc}->maketext(@_);
+    if ($Request{loc}) {
+        return $Request{loc}->maketext(@_);
+    }
+    return;
 }
 
 # normalize a string for sorting

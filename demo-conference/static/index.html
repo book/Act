@@ -1,0 +1,44 @@
+[% WRAPPER ui title = global.conference.name %]
+
+<p>
+Welcome to Our Conference web site.
+</p>
+
+<p>
+consequatur veniam voluptatem quod tempor modi atque amet voluptatum
+maxime voluptas reprehenderit duis animi cupidatat commodi incididunt
+rerum unde magna delectus dolor alias ab iste corporis vel natus saepe
+</p>
+
+<p>
+Watch this space for updates, or check the <a href="[% global.request.base_url %][% make_uri_info( 'atom', global.request.language ) %].xml">feed</a>.
+</p>
+
+[% news = global.news(3);
+   IF news.size > 2;
+     more = news.pop;
+   END;
+ %]
+
+[% IF news.size %]
+<h2>Latest News</h2>
+[% FOREACH item = news %]
+<div class="news-entry">
+ <h3 class="news-header">
+  <span class="news-date">[% date_format(item.datetime, 'date_short') %]</span>
+  <span class="news-title">[% item.title %]</span>
+ </h3>
+ <div class="news-text">
+  [% item.content %]
+ </div>
+</div>
+[% END %]
+[% END %]
+
+[% IF more %]
+<p>
+ <a href="[% make_uri('news') %]" class="news-link">Older announcements</a>
+</p>
+[% END %]
+
+[% END %]

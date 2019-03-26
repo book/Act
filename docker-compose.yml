@@ -1,0 +1,52 @@
+version: '3.6'
+services:
+    act:
+        build:
+            context: "."
+            dockerfile: "Dockerfile"
+        depends_on:
+            - "database"
+        networks:
+            - "default"
+        ports:
+            - "5000:5000"
+        expose:
+            - "5000"
+        user: "root"
+        command:
+          - "plackup"
+          - "-r"
+          - "app.psgi"
+        environment:
+          - "ACTHOME=/opt/acthome"
+        volumes:
+            - "./etc/act.ini:/opt/acthome/conf/act.ini"
+            - "./demo-conference:/opt/acthome/actdocs/demo"
+            - "./templates:/opt/acthome/templates"
+            - "./:/opt/act"
+            - "filestore:/opt/filestore"
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "200k"
+                max-file: "10"
+    database:
+        image: "postgres:11"
+        ports:
+            - "5432:5432"
+        networks:
+            - "default"
+        environment:
+            - "POSTGRES_USER=act"
+            - "POSTGRES_PASSWORD=act123"
+            - "POSTGRES_DB=act"
+        volumes:
+            - "dbdata:/var/lib/postgresql/data"
+            - "./db:/opt/act/db"
+            - "./db/initial:/docker-entrypoint-initdb.d"
+            - "./db/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+volumes:
+    dbdata:
+    filestore:
+networks:
+    default:

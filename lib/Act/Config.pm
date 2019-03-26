@@ -10,7 +10,7 @@ use Act::Language;
 
 use AppConfig qw(:expand :argcount);
 use DateTime;
-use DateTime::Format::Pg;
+use DateTime::Format::HTTP;
 use File::Spec::Functions qw(catfile);
 
 # our configs
@@ -312,7 +312,7 @@ sub get_config
         my $closed = !$ConfConfigs{$conf}->registration_open;
         # past conference's closing date
         unless ($closed) {
-            my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
+            my $enddate = DateTime::Format::HTTP->parse_datetime($ConfConfigs{$conf}->talks_end_date);
             $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
             $closed = ( DateTime->now() > $enddate );
         }
