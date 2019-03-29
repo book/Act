@@ -144,6 +144,9 @@ $r->set_always(server      => $s)
   ->mock(header_in     => sub { $vin{headers_in}{$_[1]} })
   ->mock(param         => sub { @_ > 1 ? $vin{args}{$_[1]} : keys %{$vin{args}} });
 
+TODO:
+$TODO = "Dispatcher tests are not yet adapted to PSGI engines";
+
 Test::MockObject->fake_module('Act::Request', instance => sub { $r });
 
 use_ok('Act::Dispatcher');
