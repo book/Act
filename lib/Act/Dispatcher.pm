@@ -6,6 +6,7 @@ use Act::Handler::Static;
 use Act::Util;
 
 use Encode qw(decode_utf8);
+use File::Spec::Functions qw(catfile);
 use List::Util qw(first);
 use Module::Pluggable::Object;
 use Plack::App::Cascade;
@@ -148,6 +149,23 @@ sub conference_app {
                     };
                 };
                 Plack::App::File->new(root => $Config->general_root)->to_app;
+            },
+            builder {
+                enable sub {
+                    my ( $app ) = @_;
+
+                    return sub {
+                        my ( $env ) = @_;
+
+                        my $conf = $env->{'act.conference'};
+                        my $path = catfile($Config->home, $conf, 'wwwdocs');
+                        my $files = Plack::App::File->new(root => $path)->to_app;
+                        my $res = $files->($env);
+                        $res->[0] = 99 if $res->[0] == 404;
+                        return $res;
+                    };
+                };
+
             },
             builder {
                 enable '+Act::Middleware::Auth';
