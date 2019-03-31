@@ -173,14 +173,14 @@ our %Image_formats = (
 
 # optional variables
 my @Optional = qw(
-  talks_show_all talks_notify_accept talks_levels talks_languages
-  talks_submissions_notify_address talks_submissions_notify_language
-  database_debug general_dir_ttc
-  flickr_apikey flickr_tags
-  payment_prices payment_products payment_notify_address
-  registration_open registration_max_attendees registration_gratis
-  registration_gratis
-  api_users
+    talks_show_all talks_notify_accept talks_levels talks_languages
+    talks_submissions_notify_address talks_submissions_notify_language
+    database_debug general_dir_ttc
+    flickr_apikey flickr_tags
+    payment_prices payment_products payment_notify_address
+    registration_open registration_max_attendees registration_gratis
+    registration_gratis
+    api_users
 );
 
 # salutations
@@ -191,13 +191,20 @@ load_configs() unless $^C;
 
 sub load_configs
 {
-    my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
+    my $home = $ENV{ACTHOME} // $ENV{ACT_HOME};
+    die "ACT_HOME environment variable isn't set\n" unless $home;
     $GlobalConfig = _init_config($home);
     %ConfConfigs = ();
     %Timestamps  = ();
 
     # load global configuration
     _load_global_config($GlobalConfig, $home);
+
+    # Sanity checking
+    foreach (qw(general_dir_photos general_root)) {
+        my $dir =$GlobalConfig->$_;
+        die "Unable to find directory $dir for $_" unless -d $dir;
+    }
 
     # load conference-specific configuration files
     # their content may override global config settings

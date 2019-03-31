@@ -26,6 +26,7 @@ services:
             # is less specific, directories override mounts and/or existing
             # files
             - "./conferences:/opt/acthome"
+            - "./conferences/nlpw2018/wwwdocs:/opt/acthome/wwwdocs/nlpw2018"
             - "./templates:/opt/acthome/templates"
             - "./etc/act.ini:/opt/acthome/conf/act.ini"
         logging:
