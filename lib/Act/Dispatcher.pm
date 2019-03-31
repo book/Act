@@ -3,6 +3,7 @@ package Act::Dispatcher;
 
 use Encode qw(decode_utf8);
 use Plack::Builder;
+use Plack::Middleware::Debug;
 use Plack::Request;
 use Plack::App::Cascade;
 use Plack::App::File;
@@ -73,7 +74,10 @@ my %private_handlers = (
 sub to_app {
     Act::Config::reload_configs();
     my $conference_app = conference_app();
-    my $app = builder {
+    my $app            = builder {
+        enable 'Debug', panels => [split(/\s+/, $ENV{ACT_DEBUG})]
+            if $ENV{ACT_DEBUG};
+
         enable sub {
             my $app = shift;
             sub {
@@ -84,12 +88,13 @@ sub to_app {
                 my $base_url = $req->base->as_string;
                 $base_url =~ s{/$}{};
                 $env->{'act.base_url'} = $base_url;
-                $env->{'act.dbh'} = Act::Util::db_connect();
+                $env->{'act.dbh'}      = Act::Util::db_connect();
                 $app->($env);
             };
         };
-        my %confr = %{ $Config->uris }, map { $_ => $_ } %{ $Config->conferences };
-        for my $uri ( keys %confr ) {
+        my %confr = %{ $Config->uris },
+            map { $_ => $_ } %{ $Config->conferences };
+        for my $uri (keys %confr) {
             my $conference = $confr{$uri};
             mount "/$uri/" => sub {
                 my $env = shift;

@@ -18,7 +18,8 @@ services:
           - "-r"
           - "app.psgi"
         environment:
-          - "ACTHOME=/opt/acthome"
+          - "ACT_HOME=/opt/acthome"
+          - "ACT_DEBUG=Environment Response DBITrace Memory Timer"
         volumes:
             - "./:/opt/act"
             - "filestore:/opt/filestore"
