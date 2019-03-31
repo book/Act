@@ -20,11 +20,14 @@ services:
         environment:
           - "ACTHOME=/opt/acthome"
         volumes:
-            - "./etc/act.ini:/opt/acthome/conf/act.ini"
-            - "./demo-conference:/opt/acthome/actdocs/demo"
-            - "./templates:/opt/acthome/templates"
             - "./:/opt/act"
             - "filestore:/opt/filestore"
+            # Order is important as docker will override any mount point that
+            # is less specific, directories override mounts and/or existing
+            # files
+            - "./conferences:/opt/acthome"
+            - "./templates:/opt/acthome/templates"
+            - "./etc/act.ini:/opt/acthome/conf/act.ini"
         logging:
             driver: "json-file"
             options:

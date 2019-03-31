@@ -15,3 +15,5 @@ github-hook
 conf
 *.sw[p-z]
 /etc/act.ini
+/conferences/*
+!conferences/demo/

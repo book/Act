@@ -2,7 +2,8 @@
 
 Welcome to the repository of Act. This README will hopefully help you to get
 going with development of Act or to create your own conference in a dummy
-playground on your local machine.
+playground on your local machine. This version of Act uses psgi instead of
+Apache.
 
 # Running the development environment
 
@@ -37,11 +38,6 @@ You can (re)create all the containers by running this:
 # Rebuild all the containers
 ./dev-bin/docker-maintenance.sh
 ```
-
-## macOS
-
-For macOS it is advised that you configure docker to to have at least 8Gb
-of memory. Otherwise you may end up with build errors.
 
 ## Generate configuration files
 
@@ -81,3 +77,11 @@ docker-compose start <container>
 # Or just
 docker-compose up -d <container>
 ```
+
+# Getting started with Act
+
+Everything in the conferences directory gets mounted in the /opt/acthome
+directory of the container. You should place your conference directory in here.
+
+The old installation type is also possible, but requires more work on the
+docker-compose.yml file.

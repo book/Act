@@ -3,17 +3,19 @@ use utf8;
 package Act::Util;
 
 use DateTime::Format::Pg;
+use DateTime::Format::HTTP;
 use DBI;
 use Digest::MD5 ();
 use Unicode::Normalize ();
 use URI::Escape ();
+use Try::Tiny;
 
 use Act::Config;
 use Act::Database;
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);
-@EXPORT = qw(make_uri make_abs_uri make_uri_info self_uri localize);
+@EXPORT = qw(make_uri make_abs_uri make_uri_info self_uri localize format_datetime_string);
 
 # password generation data
 my %grams = (
@@ -99,6 +101,20 @@ sub _check_db_version {
     if ($version < $required) {
         die "database schema version $version is too old: version $required is required. Run bin/dbupdate\n";
     }
+}
+
+sub format_datetime_string {
+    my $string = shift;
+
+    # TODO: Maybe use bless and check for DT object?
+    return $string if ref($string);
+    return try {
+        return  DateTime::Format::HTTP->parse_datetime($string);
+    }
+    catch {
+        warn "Unable to parse $string to datetime\n";
+        die $_;
+    };
 }
 
 # create a uri for an action with args
@@ -197,7 +213,8 @@ sub get_user_info
 sub date_format
 {
     my ($s, $fmt) = @_;
-    my $dt = ref $s ? $s : DateTime::Format::Pg->parse_timestamp($s);
+    my $dt = format_datetime_string($s);
+
     my $lang = $Request{language} || $Config->general_default_language;
     my $variant = $Config->language_variants->{$lang} || $lang;
     $dt->set_locale($variant);
@@ -209,13 +226,17 @@ sub date_format
     return $dt->strftime($Act::Config::Languages{$variant}{"fmt_$fmt"} || $fmt);
 }
 
-# translate a string
-sub localize
-{
-    if ($Request{loc}) {
-        return $Request{loc}->maketext(@_);
-    }
-    return;
+=head2 localize
+
+Localize a text, returns the original input if nothing can be localized (Request->{loc} is missing).
+
+=cut
+
+sub localize {
+    return $Request{loc}->maketext(@_) if defined $Request{loc};
+    #    require Carp;
+    #    Carp::cluck("no Request{loc} to be found");
+    return join("$/", @_);
 }
 
 # normalize a string for sorting

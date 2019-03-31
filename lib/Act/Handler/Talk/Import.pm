@@ -48,7 +48,7 @@ sub handler
                 my $dt2 = $event->start;
                 # update talk with new datetime
                 if ($dt2 && (!$dt1 || DateTime->compare($dt1, $dt2))) {
-                    $e->update(datetime => DateTime::Format::Pg->format_datetime($dt2));
+                    $e->update(datetime => format_datetime_string($dt2));
                     push @timeslots, { 
                         %$e,
                         %timeslot,

@@ -3,12 +3,12 @@ use strict;
 use parent 'Act::Handler';
 
 use DateTime;
-use DateTime::Format::Pg;
 use Text::xSV;
 
 use Act::Config;
 use Act::Talk;
 use Act::User;
+use Act::Util qw(format_datetime_string);
 
 my @UROWS = qw(
  user_id
@@ -51,7 +51,7 @@ sub handler
 
     for my $talk (@$talks) {
         # convert datetime
-        $talk->{datetime} = DateTime::Format::Pg->format_datetime($talk->datetime)
+        $talk->{datetime} = format_datetime_string($talk->datetime)
             if ($talk->datetime);
         # fetch user
         my $user = Act::User->new(user_id => $talk->user_id);

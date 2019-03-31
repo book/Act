@@ -4,7 +4,6 @@ use strict;
 use Carp;
 use Clone qw(clone);
 use DateTime;
-use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Flickr;
@@ -59,6 +58,11 @@ sub _init
         # conference-specific template dirs
         push @path, map join('/', $Config->home, 'actdocs', $Request{conference}, $_), TEMPLATE_DIRS
             if $Request{conference};
+
+        # Dockerized
+        push @path, map join('/', $Config->home, $Request{conference}, 'actdocs', $_), TEMPLATE_DIRS
+            if $Request{conference};
+
         # global template dirs
         push @path, map join('/', $Config->home, $_), TEMPLATE_DIRS;
         $options->{INCLUDE_PATH} = \@path;
@@ -140,8 +144,10 @@ sub process
                 conf_id => $conf_id,
                 url     => $cfg->general_full_uri,
                 name    => $cfg->name->{ $Request{language} },
-                begin   => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date)->truncate(to => 'day') },
-                end     => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date )->truncate(to => 'day') },
+                begin   => format_datetime_string($cfg->talks_start_date)
+                    ->truncate(to => 'day'),
+                end => format_datetime_string($cfg->talks_end_date)
+                    ->truncate(to => 'day'),
             };
             my $when;
             if    ( $conf->{end} < $now )   { $when = 'past'; }

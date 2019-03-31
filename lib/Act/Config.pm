@@ -206,7 +206,11 @@ sub load_configs
         # load conference configuration
         $ConfConfigs{$conf} = _init_config($home);
         _load_global_config($ConfConfigs{$conf}, $home);
+
         _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
+
+        # dockerize
+        _load_config($ConfConfigs{$conf}, catfile($home, $conf, 'actdocs'));
 
         # conference languages
         my (%langs, %variants);
@@ -416,6 +420,7 @@ sub _load_config
         }
     }
 }
+
 sub _load_global_config
 {
     my ($cfg, $dir) = @_;
@@ -425,6 +430,7 @@ sub _load_global_config
     $cfg->set($_ => {}) for qw(api_keys);
     _merge_api_users($cfg);
 }
+
 sub _merge_api_users
 {
     my $cfg = shift;
