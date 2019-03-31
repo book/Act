@@ -5,7 +5,8 @@ services:
             context: "."
             dockerfile: "Dockerfile"
         depends_on:
-            - "database"
+            - "act-db"
+            - "act-wiki-db"
         networks:
             - "default"
         ports:
@@ -35,7 +36,7 @@ services:
             options:
                 max-size: "200k"
                 max-file: "10"
-    database:
+    act-db:
         image: "postgres:11"
         ports:
             - "5432:5432"
@@ -46,13 +47,28 @@ services:
             - "POSTGRES_PASSWORD=act123"
             - "POSTGRES_DB=act"
         volumes:
-            - "dbdata:/var/lib/postgresql/data"
-            - "./db:/opt/act/db"
-            - "./db/initial:/docker-entrypoint-initdb.d"
-            - "./db/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
-            - "./db/template-wiki.sql:/docker-entrypoint-initdb.d/01_init_wiki_db.sql"
+            - "act_db:/var/lib/postgresql/data"
+            - "./db/act:/opt/act/db"
+            - "./db/act/initial:/docker-entrypoint-initdb.d"
+            - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+    act-wiki-db:
+        image: "postgres:11"
+        ports:
+            - "5433:5432"
+        networks:
+            - "default"
+        environment:
+            - "POSTGRES_USER=act"
+            - "POSTGRES_PASSWORD=act123"
+            - "POSTGRES_DB=act_wiki"
+        volumes:
+            - "act_wiki_db:/var/lib/postgresql/data"
+            - "./db/wiki:/opt/act/db"
+            - "./db/wiki/initial:/docker-entrypoint-initdb.d"
+            - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
 volumes:
-    dbdata:
+    act_db:
+    act_wiki_db:
     filestore:
 networks:
     default:
