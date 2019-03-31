@@ -62,7 +62,7 @@ You can connect to the development environment on http://localhost:5000/ now.
 In case you want to override certain `docker-compose.yml` entries but you
 don't want to check them you can make use of the
 `docker-compose.overide.yml` file, you can find a working example in
-`docker-compose.overide.example`.
+`docker-compose.overide.dist`.
 
 After editting this file you need to recreate the containers:
 ```

@@ -14,13 +14,8 @@ services:
         expose:
             - "5000"
         user: "root"
-        command:
-          - "plackup"
-          - "-r"
-          - "app.psgi"
         environment:
           - "ACT_HOME=/opt/acthome"
-          - "ACT_DEBUG=Environment Response DBITrace Memory Timer"
         volumes:
             - "./:/opt/act"
             - "filestore:/opt/filestore"
@@ -28,14 +23,8 @@ services:
             # is less specific, directories override mounts and/or existing
             # files
             - "./conferences:/opt/acthome"
-            - "./conferences/nlpw2018/wwwdocs:/opt/acthome/wwwdocs/nlpw2018"
             - "./templates:/opt/acthome/templates"
             - "./etc/act.ini:/opt/acthome/conf/act.ini"
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "200k"
-                max-file: "10"
     act-db:
         image: "postgres:11"
         ports:

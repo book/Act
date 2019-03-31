@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+    act:
+        command:
+          - "plackup"
+          - "-r"
+          - "app.psgi"
+        environment:
+          - "ACT_DEBUG=Environment Response DBITrace Memory Timer"
+networks:
+    default:
