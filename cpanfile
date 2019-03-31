@@ -4,6 +4,7 @@ requires 'Clone'                      => 0;
 requires 'Crypt::SaltedHash'          => 0;
 requires 'DBD::Pg'                    => 1.22;
 requires 'DBI'                        => 0;
+requires 'Data::ICal'                 => 0;
 requires 'Data::ICal::DateTime'       => 0;
 requires 'Data::ICal::Entry::Event'   => '0.16';
 requires 'Data::ICal::TimeZone'       => 0;
