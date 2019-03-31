@@ -35,6 +35,7 @@ requires(
 'lib::abs' => '0.93',
 'List::Pairwise' => 0, 
 'Locale::Maketext::Lexicon' => 0, 
+'Module::Pluggable::Object' => 0,
 'Net::OpenID::Server' => 0, 
 'Pod::POM' => 0, 
 'Plack'    => 0,

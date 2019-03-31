@@ -31,6 +31,7 @@ requires 'LWP::UserAgent'             => 0;
 requires 'lib::abs'                   => '0.93';
 requires 'List::Pairwise'             => 0;
 requires 'Locale::Maketext::Lexicon'  => 0;
+requires 'Module::Pluggable::Object   => 0;
 requires 'Net::OpenID::Server'        => 0;
 requires 'Pod::POM'                   => 0;
 requires 'Plack'                      => 0;

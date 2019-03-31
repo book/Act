@@ -1,16 +1,18 @@
 use strict;
 package Act::Dispatcher;
 
-use Encode qw(decode_utf8);
-use Plack::Builder;
-use Plack::Middleware::Debug;
-use Plack::Request;
-use Plack::App::Cascade;
-use Plack::App::File;
-
 use Act::Config;
 use Act::Handler::Static;
 use Act::Util;
+
+use Encode qw(decode_utf8);
+use List::Util qw(first);
+use Module::Pluggable::Object;
+use Plack::App::Cascade;
+use Plack::App::File;
+use Plack::Builder;
+use Plack::Middleware::Debug;
+use Plack::Request;
 
 # main dispatch table
 my %public_handlers = (
@@ -36,6 +38,7 @@ my %public_handlers = (
     user            => 'Act::Handler::User::Show',
     wiki            => 'Act::Handler::Wiki',
 );
+
 my %private_handlers = (
     change          => 'Act::Handler::User::Change',
     create          => 'Act::Handler::User::Create',
@@ -164,20 +167,42 @@ sub conference_app {
     };
 }
 
-sub _handler_app {
-    my $handler = shift;
-    my $subhandler;
-    if ($handler =~ s/::(\w*handler)$//) {
-        my $subhandler = $1;
+
+{
+    my @HANDLERS;
+    my $search_path = 'Act::Handler';
+    sub _load_handler_plugins {
+        if (!@HANDLERS) {
+            my $finder = Module::Pluggable::Object->new(
+                search_path => $search_path,
+                require     => 1,
+            );
+            @HANDLERS = $finder->plugins;
+        }
     }
-    _load($handler);
-    return $handler->new(subhandler => $subhandler)->to_app;
+
+    sub _get_handler_plugin {
+        my ($handler) = @_;
+
+        my $subhandler;
+        if ($handler =~ s/::(\w+_handler)$//) {
+            $subhandler = $1;
+        }
+
+        _load_handler_plugins;
+        if (my $plugin = first { $handler eq $_ } @HANDLERS) {
+            return $handler->new(subhandler => $subhandler) if defined $subhandler;
+            return $handler->new();
+        }
+        die sprintf("Unable to load '%s', not found in search path: '%s'!\n",
+            $handler, $search_path);
+    }
 }
 
-sub _load {
-    my $package = shift;
-    (my $module = "$package.pm") =~ s{::|'}{/}g;
-    require $module;
+
+sub _handler_app {
+    my ($handler) = @_;
+    return _get_handler_plugin($handler)->to_app;
 }
 
 1;
