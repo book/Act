@@ -17,3 +17,4 @@ conf
 /etc/act.ini
 /conferences/*
 !conferences/demo/
+/db/initial/0?_*

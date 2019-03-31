@@ -11,9 +11,13 @@ use Try::Tiny;
 use URI::Escape ();
 use Unicode::Normalize ();
 
-use vars qw(@ISA @EXPORT %Languages);
+use vars qw(@ISA @EXPORT @EXPORT_OK %Languages);
 @ISA    = qw(Exporter);
 @EXPORT = qw(make_uri make_abs_uri make_uri_info self_uri localize format_datetime_string);
+
+@EXPORT_OK = qw (
+    usort
+);
 
 # password generation data
 my %grams = (

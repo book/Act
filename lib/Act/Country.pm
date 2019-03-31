@@ -2,7 +2,7 @@ package Act::Country;
 use strict;
 use Act::Config;
 use Act::I18N;
-use Act::Util;
+use Act::Util qw(usort);
 
 # http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1-semic.txt
 my @COUNTRY_CODES = qw(
@@ -34,14 +34,15 @@ my @COUNTRY_CODES = qw(
 );
 
 my %Cache;
+my %lh_cache;
 
 sub CountryNames {
     return $Cache{ $Request{language} } if $Cache{ $Request{language} };
 
-    my $lh = Act::I18N->get_handle($Request{language});
+    my $lh = _get_I18N_handle($Request{language});
     unless ($lh) {
-        warn "Unable to determine request langue $Request{language}";
-        return;
+        $Cache{ $Request{language} } = [];
+        return [];
     }
 
     $Cache{ $Request{language} } = [
@@ -52,11 +53,13 @@ sub CountryNames {
     return $Cache{ $Request{language} };
 }
 
-sub CountryName
-{
-   my $code = shift;
-   my $lh = Act::I18N->get_handle($Request{language});
-   return $lh->maketext("country_$code") || $code;
+sub CountryName {
+    my $code = shift;
+
+    my $lh = _get_I18N_handle($Request{language});
+    return $code unless $lh;
+
+    return $lh->maketext("country_$code") || $code;
 }
 
 sub TopTen
@@ -76,6 +79,20 @@ sub TopTen
       return \@topten;
 }
 
+sub _get_I18N_handle {
+    my $language = shift;
+
+    return $lh_cache{$language} if exists $lh_cache{$language};
+
+    my $lh = Act::I18N->get_handle($language);
+    $lh_cache{$language} = $lh;
+    return $lh if $lh;
+
+    warn "Unable to determine request langue '$language'";
+    return;
+
+}
+
 1;
 
 __END__
@@ -90,5 +107,19 @@ Act::Country - get country information
     my $countries = Act::Country::CountryNames;
     my $topten = Act::Country::TopTen;
     my $country_name = Act::Country::CountryName($iso_code);
+
+=cut
+
+=head1 METHODS
+
+=head2 CountryNames
+
+Get the country names by request language.
+
+=cut
+
+=head2 CountryName
+
+Get the country name by request language.
 
 =cut

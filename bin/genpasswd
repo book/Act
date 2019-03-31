@@ -1,7 +1,11 @@
 #!/usr/bin/env perl
-
 use strict;
-use Act::Util;
 
+BEGIN {
+    print "If installed, try using the command line util pwgen", $/;
+    print "pwgen -s 32", $/;
+}
+
+use Act::Util;
 my $clear  = Act::Util::gen_password();
 print "$clear\n";
