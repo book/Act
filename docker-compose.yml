@@ -48,6 +48,7 @@ services:
             - "./db:/opt/act/db"
             - "./db/initial:/docker-entrypoint-initdb.d"
             - "./db/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+            - "./db/template-wiki.sql:/docker-entrypoint-initdb.d/01_init_wiki_db.sql"
 volumes:
     dbdata:
     filestore:

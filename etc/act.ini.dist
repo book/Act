@@ -22,9 +22,10 @@ test        = 0
 sender_address = FIXME
 
 [wiki]
-dbname      = actwiki
-dbuser      = foo
-dbpass      = foo
+dbname      = act_wiki
+dbuser      = act
+dbpass      = act123
+dbhost      = database
 
 [payment]
 open      = 0
