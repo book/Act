@@ -121,7 +121,7 @@ sub talks {
 }
 sub register_participation {
   my ( $self ) = @_;
-  
+
   my $sth = $Request{dbh}->prepare_cached(q{
         SELECT  tshirt_size
         FROM    participations
@@ -130,20 +130,20 @@ sub register_participation {
         ORDER BY datetime DESC
         LIMIT 1
   });
-                                
+
   $sth->execute( $self->user_id );
   my ($tshirt_size) = $sth->fetchrow_array;
   $sth->finish;
-                                
+
   # create a new participation to this conference
   $sth = $Request{dbh}->prepare_cached(q{
         INSERT INTO participations
           (user_id, conf_id, datetime, ip, tshirt_size)
         VALUES  (?,?, NOW(), ?, ?)
   });
-  
-  $sth->execute( $self->user_id, $Request{conference},
-    $Request{r}->connection->remote_ip, $tshirt_size );
+
+  $sth->execute($self->user_id, $Request{conference},
+    $Request{r}->address, $tshirt_size);
   $sth->finish();
   $Request{dbh}->commit;
 }
