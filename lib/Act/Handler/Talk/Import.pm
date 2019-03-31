@@ -2,15 +2,15 @@ package Act::Handler::Talk::Import;
 use strict;
 use parent 'Act::Handler';
 
-use DateTime;
-use Data::ICal;
-use Data::ICal::DateTime;
-use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Event;
 use Act::Talk;
 use Act::Template::HTML;
+use Act::Util qw(format_datetime_string);
+use Data::ICal::DateTime;
+use Data::ICal;
+use DateTime;
 
 sub handler
 {

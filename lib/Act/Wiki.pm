@@ -1,15 +1,13 @@
 package Act::Wiki;
-
 use strict;
-use Wiki::Toolkit;
-use Wiki::Toolkit::Formatter::Default;
-use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Tag;
 use Act::Util;
 use Act::Wiki::Formatter;
 use Act::Wiki::Store;
+use Wiki::Toolkit::Formatter::Default;
+use Wiki::Toolkit;
 
 sub new
 {
@@ -43,11 +41,8 @@ sub display_node
 {
     my ($wiki, $template, $node, $version) = @_;
 
-    my %data = eval {
-        $wiki->retrieve_node(name => make_node_name($node), version => $version)
-    };
-
-    $data{last_modified} = DateTime::Format::Pg->parse_datetime($data{last_modified})
+    my %data = $wiki->retrieve_node(name => make_node_name($node), version => $version);
+    $data{last_modified} = format_datetime_string($data{last_modified})
         if $data{last_modified};
     undef $version if $version && $data{version} != $version;
 

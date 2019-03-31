@@ -85,7 +85,7 @@ sub handler
                     %$fields,
                     participation => {
                         tshirt_size => $fields->{tshirt},
-                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
+                        datetime    => format_datetime_string(DateTime->now()),
                         ip          => $Request{r}->address,
                     },
                 );

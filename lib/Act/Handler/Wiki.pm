@@ -3,17 +3,15 @@ package Act::Handler::Wiki;
 use strict;
 use parent 'Act::Handler';
 
-use DateTime;
-use DateTime::Format::Pg;
-use Encode;
-use Text::Diff ();
-
 use Act::Config;
-use Act::Template::HTML;
 use Act::Tag;
+use Act::Template::HTML;
 use Act::User;
 use Act::Util;
 use Act::Wiki;
+use DateTime;
+use Encode;
+use Text::Diff ();
 
 my %actions = (
     display => \&wiki_display,
@@ -77,7 +75,7 @@ sub wiki_recent
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
         $node->{name} = Act::Wiki::split_node_name(Encode::decode_utf8($node->{name}));
-        $node->{last_modified} = DateTime::Format::Pg->parse_datetime($node->{last_modified});
+        $node->{last_modified} = format_datetime_string($node->{last_modified});
     }
     $template->variables(
         nodes  => \@nodes,
@@ -104,7 +102,7 @@ sub wiki_history
     my @versions = $wiki->list_node_all_versions(name => Act::Wiki::make_node_name($node), with_metadata => 1);
     for my $v (@versions) {
         $v->{user} = Act::User->new(user_id => $v->{metadata}{user_id});
-        $v->{last_modified} = DateTime::Format::Pg->parse_datetime($v->{last_modified});
+        $v->{last_modified} = format_datetime_string($v->{last_modified});
     }
     $template->variables(
         node     => $node,
@@ -134,8 +132,9 @@ sub wiki_diff
         }
 
         $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
-        $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
-        $v{content} =~ s/\n?$/\n/s;
+        $v{last_modified} = format_datetime_string($v{last_modified});
+        $v{content} .= "\n" if index($v{content}, "\n") == -1;
+
         $versions{$r} = \%v;
     }
 
@@ -185,7 +184,7 @@ sub wiki_tags
             my %node = $wiki->retrieve_node(name => $name);
             $node{user} = Act::User->new( user_id => $node{metadata}{user_id}[0]);
             $node{name} = $node;
-            $node{last_modified} = DateTime::Format::Pg->parse_datetime($node{last_modified});
+            $node{last_modified} = format_datetime_string($node{last_modified});
             push @nodes, \%node;
         }
         $template->variables(

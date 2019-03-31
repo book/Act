@@ -2,16 +2,14 @@ use strict;
 use utf8;
 package Act::Util;
 
-use DateTime::Format::Pg;
-use DateTime::Format::HTTP;
-use DBI;
-use Digest::MD5 ();
-use Unicode::Normalize ();
-use URI::Escape ();
-use Try::Tiny;
-
 use Act::Config;
 use Act::Database;
+use DBI;
+use DateTime::Format::HTTP;
+use Digest::MD5 ();
+use Try::Tiny;
+use URI::Escape ();
+use Unicode::Normalize ();
 
 use vars qw(@ISA @EXPORT %Languages);
 @ISA    = qw(Exporter);

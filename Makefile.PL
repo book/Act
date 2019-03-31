@@ -10,7 +10,7 @@ requires(
 'Data::ICal' => '0.16', # Data::ICal::Entry::Event
 'Data::ICal::DateTime' => 0,
 'Data::ICal::TimeZone' => 0,
-'DateTime::Format::Pg' => 0, 
+'DateTime::Format::HTTP' => 0,
 'DateTime::Locale' => 0, 
 'DateTime::TimeZone' => 0, 
 'DateTime' => 0, 

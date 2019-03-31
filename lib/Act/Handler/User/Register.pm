@@ -9,9 +9,7 @@ use Act::Template::HTML;
 use Act::TwoStep;
 use Act::User;
 use Act::Util;
-
 use DateTime;
-use DateTime::Format::Pg;
 
 # twostep form
 my $twostep_form = Act::Form->new(
@@ -46,7 +44,7 @@ sub handler {
         my $template = Act::Template::HTML->new();
         $template->variables(
             closed   => 1,
-            end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+            end_date => format_datetime_string($Config->talks_end_date)->epoch,
         );
         $template->process('user/register');
         return;
@@ -66,7 +64,7 @@ sub handler {
         else {
             my $template = Act::Template::HTML->new();
             $template->variables(
-                end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+                end_date => format_datetime_string($Config->talks_end_date)->epoch,
             );
             $template->process('user/register');
             return;
@@ -122,7 +120,7 @@ sub handler {
                     %$fields,
                     participation => {
                         tshirt_size => $fields->{tshirt},
-                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
+                        datetime    => format_datetime_string(DateTime->now()),
                         ip          => $Request{r}->address,
                     },
                 );
@@ -183,7 +181,7 @@ sub handler {
         topten    => Act::Country::TopTen(),
         %$fields,
         duplicates => $duplicates,
-        end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+        end_date => format_datetime_string($Config->talks_end_date)->epoch,
     );
     $template->process('user/add');
     return;

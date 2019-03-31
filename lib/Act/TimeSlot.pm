@@ -5,9 +5,8 @@ use Act::Event;
 use Act::Talk;
 use Act::Track;
 use Act::User;
-
+use Act::Util qw(format_datetime_string);
 use DateTime;
-use DateTime::Format::Pg;
 use List::Util qw(first);
 
 sub get_items {
@@ -60,7 +59,7 @@ sub get_current
     my $now = shift;
     if ($now) {
         # convert from string to DateTime object
-        $now = DateTime::Format::Pg->parse_timestamp_without_time_zone($now);
+        $now = format_datetime_string($now);
     }
     else {
         # current time in conference timezone

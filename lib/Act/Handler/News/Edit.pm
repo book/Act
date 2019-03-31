@@ -2,15 +2,13 @@ use strict;
 package Act::Handler::News::Edit;
 use parent 'Act::Handler';
 
-use DateTime;
-use DateTime::Format::Pg;
-
 use Act::Config;
 use Act::Form;
 use Act::I18N;
 use Act::News;
 use Act::Template::HTML;
 use Act::Util;
+use DateTime;
 
 my $form = Act::Form->new(
   required => [ qw(date time) ],
@@ -77,7 +75,7 @@ sub handler
         # at least one language must be provided
         $ok = 0 unless $ngood;
         if ($ok) {
-            $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+            $fields->{datetime} = format_datetime_string("$fields->{date} $fields->{time}:00");
             if ($Request{args}{preview}) {
                 my %preview;
                 for my $lang (keys %items) {

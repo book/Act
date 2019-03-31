@@ -6,7 +6,6 @@ requires 'DBD::Pg'                    => 1.22;
 requires 'Data::ICal'                 => '0.16';    # Data::ICal::Entry::Event
 requires 'Data::ICal::DateTime'       => 0;
 requires 'Data::ICal::TimeZone'       => 0;
-requires 'DateTime::Format::Pg'       => 0;
 requires 'DateTime::Format::HTTP'     => 0;
 requires 'DateTime::Locale'           => 0;
 requires 'DateTime::TimeZone'         => 0;

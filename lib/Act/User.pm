@@ -1,16 +1,16 @@
 package Act::User;
 use strict;
+use base qw( Act::Object );
 
 use Act::Config;
+use Act::Country;
 use Act::Object;
 use Act::Talk;
-use Act::Country;
 use Act::Util;
 use Digest::MD5 qw( md5_hex );
 use Carp;
-use List::Util qw(first);
-use base qw( Act::Object );
 use Crypt::Eksblowfish::Bcrypt;
+use List::Util qw(first);
 
 # rights
 our @Rights = qw( admin users_admin talks_admin news_admin wiki_admin
@@ -290,8 +290,8 @@ sub conferences {
             conf_id => $conf_id,
             url     => $cfg->general_full_uri,
             name    => $cfg->name->{$Request{language}},
-            begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
-            end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
+            begin   => format_datetime_string( $cfg->talks_start_date ),
+            end     => format_datetime_string( $cfg->talks_end_date ),
             participation => 0,
             # opened => ?
         };

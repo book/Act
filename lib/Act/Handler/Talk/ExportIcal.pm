@@ -2,18 +2,15 @@ package Act::Handler::Talk::ExportIcal;
 use strict;
 use parent 'Act::Handler';
 
-use DateTime::Format::Pg;
-use Data::ICal;
-use Data::ICal::Entry::Event;
-use Data::ICal::TimeZone;
-
 use Act::Abstract;
 use Act::Config;
 use Act::Event;
 use Act::Talk;
 use Act::TimeSlot;
 use Act::Util;
-
+use Data::ICal::Entry::Event;
+use Data::ICal::TimeZone;
+use Data::ICal;
 
 #
 # handler()
@@ -101,7 +98,7 @@ sub _get_timeslots {
 sub _get_cal_entry_defaults {
     my %defaults = (
         datetime =>
-            DateTime::Format::Pg->parse_timestamp( $Config->talks_start_date ),
+            format_datetime_string( $Config->talks_start_date ),
         duration =>
             ( sort { $a <=> $b } keys %{ $Config->talks_durations } )[0],
     );
