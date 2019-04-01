@@ -83,14 +83,6 @@ docker-compose start <container>
 docker-compose up -d <container>
 ```
 
-# Getting started with Act
-
-Everything in the conferences directory gets mounted in the /opt/acthome
-directory of the container. You should place your conference directory in here.
-
-The old installation type is also possible, but requires more work on the
-docker-compose.yml file.
-
 # Docker infrastructure
 
 This repo uses docker to do things. It is now possible to create a test
