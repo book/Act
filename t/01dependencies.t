@@ -10,13 +10,12 @@ Makefile.PL as dependencies.
 
 =cut
 
-use Test::More;
+use Test::More 0.96;
 use File::Find;
 use version;
+
 eval 'use Module::CoreList';
 if ($@) { plan skip_all => 'Module::CoreList not installed' }
-
-plan 'no_plan';
 
 my %used;
 find( \&wanted, qw/ lib t / );
@@ -68,21 +67,28 @@ for ( sort keys %used ) {
         or diag( "used in ", join ", ", sort keys %{ $used{$_} } );
 }
 
-for ( sort keys %required ) {
-    my $first_in = Module::CoreList->first_release( $_, $required{$_} );
+for (sort keys %required) {
+    my $first_in = Module::CoreList->first_release($_, $required{$_});
     fail("Required module $_ (v. $required{$_}) is in core since $first_in")
         if defined $first_in and $first_in <= 5.008003;
-    if ( require_ok($_) ) {
+    if (require_ok($_)) {
         if (defined $required{$_}) {
-            my $version = eval '$' . $_. '::VERSION';
-            cmp_ok( version->new($version), 'ge', version->new($required{$_}),
-                "$_ v. $version >= $required{$_}" );
+            my $version = eval '$' . $_ . '::VERSION';
+            next unless $version;
+            cmp_ok(
+                version->new($version),
+                'ge',
+                version->new($required{$_}),
+                "$_ v. $version >= $required{$_}"
+            );
         }
     }
     else {
-        fail("$_ (v. $required{$_}) not installed, version check failed" );
+        fail("$_ (v. $required{$_}) not installed, version check failed");
     }
 }
+
+done_testing;
 
 1;
 
