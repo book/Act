@@ -1,5 +1,7 @@
 =head1 Managing the talk schedule with Act
 
+=encoding utf8
+
 Act automatically creates a schedule web page from the talks information.
 The schedule is also made available in the ICal format.
 

@@ -1,5 +1,7 @@
 =head1 The Act configuration file
 
+=encoding utf8
+
 Most of the configuration items for your conference are stored in the
 file F<act.ini>.
 

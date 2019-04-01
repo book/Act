@@ -1,5 +1,7 @@
 =head1 The people behind Act
 
+=encoding utf8
+
 This section provides a brief history of Act and details the primary
 authors and numerous other people who have contributed to it.
 

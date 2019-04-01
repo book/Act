@@ -1,5 +1,7 @@
 =head1 The layout of a conference repository
 
+=encoding utf8
+
 An Act-enabled conference web site uses two subdirectories:
 
 =over 4
