@@ -145,8 +145,8 @@ variable. It is injected into Plack's debug module and you can define all your
 debug panels from this environment variable. See the
 `docker-compose.override.dist` for more information.
 
-[//]: # TODO: Create a setup which has Apache and/or NginX in front of Plack by 
-[//]: # using FCGI or other means.
+TODO: Create a setup which has Apache and/or NginX in front of Plack by using
+FCGI or other means.
 
 ## Files
 
@@ -155,11 +155,11 @@ This location is a volume, so data doesn't get lost between restarts of the
 container. More work is required if people want to use Swift, S3 or any other
 kind of remote file storage.
 
-[//]: # TODO: Still needs to be implemented
+TODO: Still needs to be implemented
 
 ## Mail
 
 Act sends out mail to users, therefore a simple mailserver has been created.
 
-[//]: # TODO: Still needs to be implemented
+TODO: Still needs to be implemented
 
