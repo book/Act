@@ -5,7 +5,7 @@ requires(
     'AppConfig'                          => 0,
     'Authen::Passphrase'                 => 0,
     'Clone'                              => 0,
-    'Crypt::SaltedHash'                  => 0,
+    'Crypt::Eksblowfish::Bcrypt'         => 0,
     'DBD::Pg'                            => '1.22',
     'DBI'                                => 0,
     'Data::ICal'                         => '0.16',

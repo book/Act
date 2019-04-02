@@ -9,8 +9,7 @@ use Act::Talk;
 use Act::Util;
 use Digest::MD5 qw( md5_hex );
 use Carp;
-use Authen::Passphrase;
-use Crypt::SaltedHash;
+use Crypt::Eksblowfish::Bcrypt;
 use List::Util qw(first);
 
 # rights
@@ -413,35 +412,50 @@ sub most_recent_participation {
 }
 
 sub set_password {
-    my ($self, $password) = @_;
-    my $crypted  = $self->_crypt_password($password);
-    $self->update(passwd => $crypted);
+    my $self = shift;
+    my $password = shift;
+    my $crypted = $self->_crypt_password($password);
+    $self->update( passwd => $crypted );
     return 1;
 }
 
 sub _crypt_password {
     my $class = shift;
-    my $pass  = shift;
-
-    if ($pass =~ /^\{S?SHA\}/) {
-        return $pass;
-    }
-    my $csh = Crypt::SaltedHash->new(algorithm => 'SHA-1');
-    $csh->add($pass);
-    return $csh->generate();
+    my $pass = shift;
+    my $cost = $Config->bcrypt_cost;
+    my $salt = $Config->bcrypt_salt;
+    return '{BCRYPT}' . Crypt::Eksblowfish::Bcrypt::en_base64(
+        Crypt::Eksblowfish::Bcrypt::bcrypt_hash({
+            key_nul => 1,
+            cost => $cost,
+            salt => $salt,
+        }, $pass)
+    );
 }
 
 sub check_password {
-    my ($self, $check_pass) = @_;
+    my $self = shift;
+    my $check_pass = shift;
 
     my $pw_hash = $self->{passwd};
-    my $ppr = Authen::Passphrase->from_rfc2307($self->{passwd});
+    my ($scheme, $hash) = $pw_hash =~ /^(?:{(\w+)})?(.*)$/;
+    $scheme ||= 'MD5';
 
-    if ($ppr->match($check_pass)) {
-        return 1;
+    if ($scheme eq 'MD5') {
+        my $digest = Digest::MD5->new;
+        $digest->add(lc $check_pass);
+        $digest->b64digest eq $hash
+            or die 'Bad password';
+        # upgrade hash
+        $self->set_password($check_pass);
+    }
+    elsif ($scheme eq 'BCRYPT') {
+        my $check_hash = $self->_crypt_password($check_pass);
+        $check_hash eq $pw_hash
+            or die 'Bad password';
     }
     else {
-        die "Bad password";
+        die 'Bad user data';
     }
 }
 
