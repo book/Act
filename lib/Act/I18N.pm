@@ -41,7 +41,7 @@ sub failure_handler
         }
         for my $fallback (@fallbacks) {
             if ($lang ne $fallback) {
-                return $self->get_handle($fallback)->maketext($key, @params);
+                return Act::I18N->get_handle($fallback)->maketext($key, @params);
             }
         }
     }
