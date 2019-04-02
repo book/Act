@@ -1,7 +1,8 @@
 use Test::More tests => 7;
 use Act::Event;
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 # manually insert an event
 my $sth = $Request{dbh}->prepare_cached("INSERT INTO events (conf_id,duration,title,abstract) VALUES(?,?,?,?)");

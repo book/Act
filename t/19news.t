@@ -7,7 +7,8 @@ use Act::News;
 use Act::Template;
 
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 $Config->set(general_full_uri => 'http://example.com/conf/');
 

@@ -60,7 +60,7 @@ my %required;
 for ( sort keys %used ) {
     my $first_in = Module::CoreList->first_release($_);
     next if defined $first_in and $first_in <= 5.00803;
-    next if /^(Act|inc|t)(::|$)/;
+    next if /^(Act|inc|Test::Act)(::|$)/;
 
     #warn $_;
     ok( exists $required{$_}, "$_ in Makefile.PL" )

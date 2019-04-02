@@ -2,7 +2,8 @@ use Test::More tests => 8;
 use Act::Event;
 use Act::Talk;
 use Act::TimeSlot;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 db_add_users;
 db_add_talks;

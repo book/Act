@@ -1,6 +1,7 @@
 use Test::More tests => 16;
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 use Act::Order;
 use Act::User;
 

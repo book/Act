@@ -72,6 +72,7 @@ requires(
 );
 
 test_requires(
+    'Test::Lib'   => 0,
     'Test::More'  => '0.96',
     'Plack::Test' => 0,
 );

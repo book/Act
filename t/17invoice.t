@@ -1,7 +1,8 @@
 use Test::More tests => 5;
 use strict;
 use DateTime;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 use Act::Invoice;
 use Act::Order;
 use Act::User;

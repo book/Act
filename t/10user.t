@@ -1,7 +1,8 @@
 use Test::More tests => 52;
 use strict;
 use Act::User;
-use t::Util;   # load the test database
+use Test::Lib;
+use Test::Act::Util;   # load the test database
 
 my ($user, $user2);
 

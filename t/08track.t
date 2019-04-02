@@ -4,7 +4,8 @@ use Test::More tests => 7;
 use Act::Track;
 use strict;
 use lib $ENV{ACTHOME};
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 # manually insert a track
 my $sth = $Request{dbh}->prepare_cached("INSERT INTO tracks (conf_id,title,description) VALUES(?,?,?)");

@@ -1,7 +1,8 @@
 #!perl -w
 use Test::More tests => 2;
 use strict;
-use t::Util;   # load the test database
+use Test::Lib;
+use Test::Act::Util;   # load the test database
 
 $Request{dbh}->do('CREATE TABLE foo ( bar boolean DEFAULT false )');
 $Request{dbh}->commit;

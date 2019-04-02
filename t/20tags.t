@@ -4,7 +4,8 @@ use Act::Config;
 use Act::Tag;
 
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 # create an empty tag
 my $tag = Act::Tag->new();
