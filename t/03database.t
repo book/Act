@@ -24,7 +24,7 @@ my @databases = (
 require_ok('Act::Database');
 for my $d (@databases) {
     my ($name, @c) = @$d;
-    my $is_pg = $c[1] =~ /Pg:/ ? 1 : 0;
+    my $is_pg = $c[0] =~ /Pg:/ ? 1 : 0;
 
     my $dbh = DBI->connect(@c,
                             { AutoCommit => 0,
