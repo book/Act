@@ -16,3 +16,4 @@ github-hook
 var
 /conferences/*
 !conferences/demo/
+!conferences/README.md
