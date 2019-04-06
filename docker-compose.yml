@@ -24,6 +24,7 @@ services:
             # files
             - "./conferences:/opt/acthome/conferences"
             - "./templates:/opt/acthome/templates"
+            - "./po:/opt/acthome/po"
             - "./etc/act.ini:/opt/acthome/conf/act.ini"
     act-db:
         image: "postgres:11"
