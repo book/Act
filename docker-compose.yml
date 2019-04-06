@@ -22,7 +22,7 @@ services:
             # Order is important as docker will override any mount point that
             # is less specific, directories override mounts and/or existing
             # files
-            - "./conferences:/opt/acthome"
+            - "./conferences:/opt/acthome/conferences"
             - "./templates:/opt/acthome/templates"
             - "./etc/act.ini:/opt/acthome/conf/act.ini"
     act-db:

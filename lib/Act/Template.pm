@@ -10,6 +10,7 @@ use Act::Flickr;
 use Act::Template::Parser;
 use Act::TimeSlot;
 use Act::Util;
+use File::Spec::Functions qw(catfile);
 
 use base qw(Template);
 
@@ -56,12 +57,20 @@ sub _init
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs
-        push @path, map join('/', $Config->home, 'actdocs', $Request{conference}, $_), TEMPLATE_DIRS
-            if $Request{conference};
+        if ($Request{conference}) {
 
-        # Dockerized
-        push @path, map join('/', $Config->home, $Request{conference}, 'actdocs', $_), TEMPLATE_DIRS
-            if $Request{conference};
+            push @path,
+                map
+                join('/', $Config->home, 'actdocs', $Request{conference}, $_),
+                TEMPLATE_DIRS;
+
+            # Dockerized
+            my $path = catfile($Config->general_dir_conferences,
+                $Request{conference}, 'actdocs');
+
+            push(@path, map { catfile($path, $_) } TEMPLATE_DIRS);
+
+        }
 
         # global template dirs
         push @path, map join('/', $Config->home, $_), TEMPLATE_DIRS;

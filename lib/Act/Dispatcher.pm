@@ -107,6 +107,14 @@ sub to_app {
                 $conference_app->($env);
             };
         };
+        #for my $dir (qw(js css images)) {
+        #    my $path = $Config->general_dir_static;
+        #    mount "/$dir/" => sub {
+        #        my $env  = shift;
+        #        my $files = Plack::App::File->new(root => catfile($path, $dir))->to_app;
+        #        return $files->($env);
+        #    };
+        #}
         mount '/userphoto/' => sub {
             my $env  = shift;
             my $path = $Config->general_dir_photos;
@@ -114,7 +122,9 @@ sub to_app {
             return $files->($env);
         };
         mount "/" => sub {
-            [404, [], []];
+            my $env  = shift;
+            my $files = Plack::App::File->new(root => $Config->general_dir_static)->to_app;
+            return $files->($env);
         };
     };
     return $app;
@@ -151,7 +161,7 @@ sub conference_app {
                         my ( $env ) = @_;
 
                         my $conf = $env->{'act.conference'};
-                        my $path = catfile($Config->home, $conf, 'wwwdocs');
+                        my $path = catfile($Config->general_dir_conferences, $conf, 'wwwdocs');
                         my $files = Plack::App::File->new(root => $path)->to_app;
                         my $res = $files->($env);
                         $res->[0] = 99 if $res->[0] == 404;

@@ -4,6 +4,7 @@ all_from 'lib/Act.pm';
 requires(
     'AppConfig'                          => 0,
     'Authen::Passphrase'                 => 0,
+    'Authen::Passphrase::BlowfishCrypt'  => 0,
     'Clone'                              => 0,
     'Crypt::Eksblowfish::Bcrypt'         => 0,
     'DBD::Pg'                            => '1.22',
@@ -17,6 +18,8 @@ requires(
     'DateTime::Locale'                   => 0,
     'DateTime::TimeZone'                 => 0,
     'Digest::HMAC_SHA1'                  => 0,
+    'Digest::MD5'                        => 0,
+    'Digest::SHA'                        => 0,
     'Email::Address'                     => 0,
     'Email::Date'                        => 0,
     'Email::MessageID'                   => '1.4',

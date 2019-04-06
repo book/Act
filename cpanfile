@@ -1,4 +1,6 @@
 requires 'AppConfig'                  => 0;
+requires 'Authen::Passphrase'         => 0,
+requires 'Authen::Passphrase::BlowfishCrypt' => 0,
 requires 'Clone'                      => 0;
 requires 'Crypt::Eksblowfish::Bcrypt' => 0;
 requires 'DBI'                        => 0;
@@ -12,6 +14,8 @@ requires 'DateTime'                   => 0;
 requires 'DateTime::Format::HTTP'     => 0;
 requires 'DateTime::Locale'           => 0;
 requires 'DateTime::TimeZone'         => 0;
+requires 'Digest::MD5'                => 0;
+requires 'Digest::SHA'                => 0;
 requires 'Digest::HMAC_SHA1'          => 0;
 requires 'Email::Address'             => 0;
 requires 'Email::Date'                => 0;
