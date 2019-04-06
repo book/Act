@@ -24,15 +24,13 @@ sub _resize_photo {
     my $img = shift;
     my ($w, $h) = map $img->$_, qw(getwidth getheight);
     my ($wmax, $hmax) = split /\D+/, $Config->general_max_imgsize;
-    if ($w > $wmax || $h > $hmax) {
-        # image needs resizing
-        if ($w / $h > $wmax / $hmax) {
-            $img = $img->scale(xpixels => $wmax);
-        }
-        else {
-            $img = $img->scale(ypixels => $hmax);
-        }
+    if ($w > $wmax) {
+        $img = $img->scale(xpixels => $wmax);
     }
+    if ($h > $hmax) {
+        $img = $img->scale(ypixels => $hmax);
+    }
+    return $img;
 }
 
 sub _read_photo {
@@ -71,7 +69,7 @@ sub _upload_photo {
     my $img    = _read_photo($upload->tempname);
     my $format = _assert_format($img);
 
-    _resize_photo($img);
+    $img = _resize_photo($img);
 
     my $digest = _get_digest($img, $format);
     my $filename = $digest . $Act::Config::Image_formats{$format};
@@ -92,7 +90,7 @@ sub handler {
             if (my $uploads = $request->uploads) {
                 die "Multiple uploads found!\n" if keys %$uploads != 1;
                 my ($upload) = values %$uploads;
-                _upload_photo($upload);
+                return _upload_photo($upload);
             }
             else {
                 die "No uploads found!\n";
@@ -103,7 +101,7 @@ sub handler {
         };
     }
     elsif ($params->{delete}) {
-        delete_photo();
+        _delete_photo();
         $Request{user}->update(photo_name => undef);
     }
 
@@ -112,7 +110,7 @@ sub handler {
     $template->variables(
         error     => $error,
         formats   => [sort keys %Act::Config::Image_formats],
-        photo_uri => join ('/', undef, $Request{user}{photo_name}),
+        photo_uri => join ('/', undef, 'userphoto', $Request{user}{photo_name}),
     );
     $template->process('user/photo');
     return;

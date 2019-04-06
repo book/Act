@@ -106,7 +106,13 @@ sub to_app {
                 $env->{'act.config'} = Act::Config::get_config($conference);
                 $conference_app->($env);
             };
-        }
+        };
+        mount '/userphoto/' => sub {
+            my $env  = shift;
+            my $path = $Config->general_dir_photos;
+            my $files = Plack::App::File->new(root => $path)->to_app;
+            return $files->($env);
+        };
         mount "/" => sub {
             [404, [], []];
         };
@@ -126,30 +132,17 @@ sub conference_app {
             sub {
                 for ( $_[0]->{'PATH_INFO'} ) {
                     if ( s{^/?$}{index.html} || /\.html$/ ) {
+                        warn "$_[0]->{PATH_INFO} to static";
                         return $static_app->(@_);
                     }
                     else {
+                        warn "$_[0]->{PATH_INFO} to app";
                         return $app->(@_);
                     }
                 }
             };
         };
         Plack::App::Cascade->new( catch => [99], apps => [
-            builder {
-                # XXX ugly, but functional for now
-                enable sub {
-                    my ( $app ) = @_;
-
-                    return sub {
-                        my ( $env ) = @_;
-
-                        my $res = $app->($env);
-                        $res->[0] = 99 if $res->[0] == 404;
-                        return $res;
-                    };
-                };
-                Plack::App::File->new(root => $Config->general_root)->to_app;
-            },
             builder {
                 enable sub {
                     my ( $app ) = @_;
@@ -180,7 +173,7 @@ sub conference_app {
                     mount "/$uri" => _handler_app($private_handlers{$uri});
                 }
                 mount '/' => sub { [404, [], []] };
-            }
+            },
         ] );
     };
 }
