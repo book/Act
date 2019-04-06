@@ -34,8 +34,70 @@ my @form_params = (
   }
 );
 
-sub handler
-{
+sub _update_user_information {
+    my %opts = @_;
+    my $template = $opts{template};
+    my $params   = $opts{params};
+    my $form     = $opts{form};
+
+    # form has been submitted
+    my @errors;
+
+    # validate form fields
+    my $ok = $form->validate($params);
+    my $fields = $form->{fields};
+
+    # extract bio data
+    my %bio = map { $_ => '' } keys %{ $Config->languages };
+    for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
+    {
+        $bio{$lang} = delete $fields->{"bio_$lang"};
+    }
+
+    # needs a nick_name if pseudonymous
+    if( $fields->{pseudonymous} && !$fields->{nick_name} ) {
+         $form->{invalid}{nick_name} = 1;
+         $ok = 0;
+    }
+
+
+    if ($ok) {
+        # extract participation data
+        my %part;
+        @part{@partfields} = delete @$fields{@partfields};
+
+        # check if the monk_id changed
+        $fields->{monk_name} = ''
+          if $fields->{monk_id} ne $Request{user}->monk_id;
+
+        # update user
+        $Request{user}->update(%$fields, participation => \%part,
+                                         bio => \%bio);
+        @$fields{@partfields} = @part{@partfields};
+    }
+    else {
+        # map errors
+        $form->{invalid}{first_name} && push @errors, 'ERR_FIRST_NAME';
+        $form->{invalid}{last_name}  && push @errors, 'ERR_LAST_NAME';
+        $form->{invalid}{country}    && push @errors, 'ERR_COUNTRY';
+        $form->{invalid}{nick_name}  && push @errors, 'ERR_NICK';
+        $form->{invalid}{pm_group}   && push @errors, 'ERR_PMGROUP';
+        $form->{invalid}{web_page}   && push @errors, 'ERR_WEBPAGE';
+        $form->{invalid}{monk_id}    && push @errors, 'ERR_MONKID';
+        $form->{invalid}{gpg_key_id} && push @errors, 'ERR_GPG_KEY_ID';
+        $form->{invalid}{nb_family}  && push @errors, 'ERR_NBFAMILY';
+        $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
+        $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
+        $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
+        $form->{invalid}{pm_group_url} && push @errors, 'ERR_PM_URL';
+        $form->{invalid}{company_url}  && push @errors, 'ERR_COMPANY_URL';
+    }
+    $fields->{bio} = \%bio;
+    $template->variables(errors => \@errors);
+    return $fields;
+}
+
+sub handler {
     my $template = Act::Template::HTML->new();
     my $fields;
     my $form = Act::Form->new( @form_params, 
@@ -47,60 +109,14 @@ sub handler
                         map { "bio_$_" } keys %{ $Config->languages } ]
     );
 
-    if ($Request{args}{join}) {
-        # form has been submitted
-        my @errors;
+    my $request = %Request{r};
 
-        # validate form fields
-        my $ok = $form->validate($Request{args});
-        $fields = $form->{fields};
-
-        # extract bio data
-        my %bio = map { $_ => '' } keys %{ $Config->languages };
-        for my $lang ( map { /^bio_(.*)/; $1 ? ($1) : () } keys %$fields )
-        {
-            $bio{$lang} = delete $fields->{"bio_$lang"};
-        }
-
-        # needs a nick_name if pseudonymous
-        if( $fields->{pseudonymous} && !$fields->{nick_name} ) {
-             $form->{invalid}{nick_name} = 1;
-             $ok = 0;
-        }
-
-        if ($ok) {
-            # extract participation data
-            my %part;
-            @part{@partfields} = delete @$fields{@partfields};
-
-            # check if the monk_id changed
-            $fields->{monk_name} = ''
-              if $fields->{monk_id} ne $Request{user}->monk_id;
-
-            # update user
-            $Request{user}->update(%$fields, participation => \%part,
-                                             bio => \%bio);
-            @$fields{@partfields} = @part{@partfields};
-        }
-        else {
-            # map errors
-            $form->{invalid}{first_name} && push @errors, 'ERR_FIRST_NAME';
-            $form->{invalid}{last_name}  && push @errors, 'ERR_LAST_NAME';
-            $form->{invalid}{country}    && push @errors, 'ERR_COUNTRY';
-            $form->{invalid}{nick_name}  && push @errors, 'ERR_NICK';
-            $form->{invalid}{pm_group}   && push @errors, 'ERR_PMGROUP';
-            $form->{invalid}{web_page}   && push @errors, 'ERR_WEBPAGE';
-            $form->{invalid}{monk_id}    && push @errors, 'ERR_MONKID';
-            $form->{invalid}{gpg_key_id} && push @errors, 'ERR_GPG_KEY_ID';
-            $form->{invalid}{nb_family}  && push @errors, 'ERR_NBFAMILY';
-            $form->{invalid}{tshirt_size} && push @errors, 'ERR_TSHIRT';
-            $form->{invalid}{email} eq 'required' && push @errors, 'ERR_EMAIL';
-            $form->{invalid}{email} eq 'email'    && push @errors, 'ERR_EMAIL_SYNTAX';
-            $form->{invalid}{pm_group_url} && push @errors, 'ERR_PM_URL';
-            $form->{invalid}{company_url}  && push @errors, 'ERR_COMPANY_URL';
-        }
-        $fields->{bio} = \%bio;
-        $template->variables(errors => \@errors);
+    if ($request->body_parameters->{join}) {
+        $fields = _update_user_information(
+            template => $template,
+            form     => $form,
+            params   => $request->body_parameters,
+        );
     }
     else {
         # deep copy bios to avoid double encoding issue
@@ -112,6 +128,7 @@ sub handler
             @$fields{@partfields} = @$part{@partfields};
         }
     }
+
     # display form
     $template->variables(
         salutations => $Act::Config::Nb_salutations,
@@ -124,6 +141,7 @@ sub handler
 }
 
 1;
+
 __END__
 
 =head1 NAME
