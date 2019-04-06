@@ -22,7 +22,7 @@ INSERT INTO users
 VALUES
     (
         'demo',
-        '{SSHA}QB9ZznyvO/ytdu1+pqUoW7DlXD/M2YlQ', -- demo
+        '{CRYPT}$2a$12$Zy4mKVTd3/W3wcJ1Fid7e.O/7z.kGFxscytuDcSQb4nuiW67j3hnC', -- demo
         1,
         'Demo',
         'User',

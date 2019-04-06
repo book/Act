@@ -21,6 +21,12 @@ passwd      = act123
 # Disable version checking, defaults to true
 #version_check = 0
 
+[bcrypt]
+# The default cost is 8
+#cost = 8
+# Salt is only needed in old legacy systems
+#salt = foo
+
 [email]
 sendmail    = /usr/sbin/sendmail
 test        = 0

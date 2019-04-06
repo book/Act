@@ -7,7 +7,8 @@ use Act::Country;
 use Act::Object;
 use Act::Talk;
 use Act::Util;
-use Digest::MD5 qw( md5_hex );
+use Digest::MD5 qw(md5_hex);
+use Digest::SHA qw(sha512);
 use Carp;
 use Authen::Passphrase::BlowfishCrypt;
 use Authen::Passphrase;
@@ -413,32 +414,82 @@ sub most_recent_participation {
 }
 
 sub set_password {
-    my $self = shift;
-    my $password = shift;
-    my $crypted = $self->_crypt_password($password);
-    $self->update( passwd => $crypted );
+    my ($self, $password) = @_;
+    $self->update(passwd => $self->_crypt_password($password));
     return 1;
 }
 
+sub check_password {
+    my ($self, $pass) = @_;
+
+    my $ppr = Authen::Passphrase->from_rfc2307($self->{passwd});
+    return 1 if $ppr->match($self->_sha_pass($pass));
+    return 1 if $self->_check_legacy_password($pass);
+    die 'Bad password';
+}
+
+
+sub _sha_pass {
+    my ($self, $pass) = @_;
+    return sha512($pass);
+}
+
 sub _crypt_password {
-    my $class = shift;
-    my $pass = shift;
+    my ($self, $pass) = @_;
 
     my $ppr = Authen::Passphrase::BlowfishCrypt->new(
-        cost        => 8,
+        cost        => $Config->bcrypt_cost // 8,
         salt_random => 1,
-        passphrase  => $pass,
+        passphrase  => $self->_sha_pass($pass),
     );
     return $ppr->as_rfc2307;
 }
 
-sub check_password {
-    my $self = shift;
-    my $check_pass = shift;
+sub _check_legacy_password {
+    my ($self, $check_pass) = @_;
+    my $pw_hash = $self->{passwd};
+    my ($scheme, $hash) = $pw_hash =~ /^(?:{(\w+)})?(.*)$/;
 
-    my $ppr = Authen::Passphrase->from_rfc2307($self->{passwd});
-    return 1 if !$ppr->match($check_pass);
-    die 'Bad password';
+    if (!$scheme || $scheme eq 'MD5') {
+        my $digest = Digest::MD5->new;
+        $digest->add(lc $check_pass);
+        my $digest_hash = $digest->b64digest;
+        return 0 if $digest_hash ne $hash;
+        # upgrade hash
+        $self->set_password($check_pass);
+        return 1;
+    }
+    else {
+        my $check_hash = $self->_crypt_legacy_password($check_pass);
+        return 0 if $check_hash ne $pw_hash;
+        # upgrade hash
+        $self->set_password($check_pass);
+        return 1;
+    }
+    return 0;
+}
+
+sub _crypt_legacy_password {
+    my $class = shift;
+    my $pass  = shift;
+    my $cost  = $Config->bcrypt_cost;
+    my $salt  = $Config->bcrypt_salt;
+
+    if (!$cost || !$salt) {
+        die "Unable to continue, need cost and salt configured in [bcrypt]";
+    }
+
+    return '{BCRYPT}'
+        . Crypt::Eksblowfish::Bcrypt::en_base64(
+        Crypt::Eksblowfish::Bcrypt::bcrypt_hash(
+            {
+                key_nul => 1,
+                cost    => $cost,
+                salt    => $salt,
+            },
+            $pass
+        )
+        );
 }
 
 1;

@@ -5,7 +5,7 @@
 *.sw[a-z]
 /META.yml
 /Makefile
-/db/initial/*/00_*
+/db/initial/**
 /docker-compose.override.yml
 /etc/act.ini
 /inc
