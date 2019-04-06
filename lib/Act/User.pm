@@ -438,7 +438,7 @@ sub _crypt_password {
     my ($self, $pass) = @_;
 
     my $ppr = Authen::Passphrase::BlowfishCrypt->new(
-        cost        => $Config->bcrypt_cost // 8,
+        cost        => 8,
         salt_random => 1,
         passphrase  => $self->_sha_pass($pass),
     );
