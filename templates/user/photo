@@ -15,7 +15,6 @@
 <tr>
    <td align="center">
       [%- IF global.request.user.photo_name %]
-         [% photo_uri %]</br>
          <img src="[% photo_uri %]" border="0">
       [%- ELSE %]
          {{No photo}}
