@@ -15,6 +15,7 @@ RUN cpanm -n IPC::System::Simple \
 COPY conferences /opt/acthome/conferences
 COPY wwwdocs     /opt/acthome/wwwdocs
 COPY templates   /opt/acthome/templates
+COPY po          /opt/acthome/po
 COPY . .
 
 
