@@ -11,6 +11,7 @@ Apache.
 
 ```
 ./dev-bin/docker-maintenance.sh
+docker-compose up
 ```
 
 Create your conference in the `conferences` directory. A somewhat working
@@ -147,11 +148,10 @@ This location is a volume, so data doesn't get lost between restarts of the
 container. More work is required if people want to use Swift, S3 or any other
 kind of remote file storage.
 
-TODO: Still needs to be implemented
-
 ## Mail
 
-Act sends out mail to users, therefore a simple mailserver has been created.
-
-TODO: Still needs to be implemented
+Act sends out mail to users, therefore a simple mailserver has been created
+based on the mailhog image. This mailserver has webUI available on port
+http://localhost:8025 so you can see what kind of mails you have send. It uses
+a memory backend so all the mails are lost after a restart.
 
