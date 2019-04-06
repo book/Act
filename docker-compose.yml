@@ -1,64 +1,72 @@
 version: '3.6'
 services:
-    act:
-        build:
-            context: "."
-            dockerfile: "Dockerfile"
-        depends_on:
-            - "act-db"
-            - "act-wiki-db"
-        networks:
-            - "default"
-        ports:
-            - "5000:5000"
-        expose:
-            - "5000"
-        user: "root"
-        environment:
-          - "ACT_HOME=/opt/acthome"
-        volumes:
-            - "./:/opt/act"
-            - "filestore:/opt/filestore"
-            # Order is important as docker will override any mount point that
-            # is less specific, directories override mounts and/or existing
-            # files
-            - "./conferences:/opt/acthome/conferences"
-            - "./templates:/opt/acthome/templates"
-            - "./po:/opt/acthome/po"
-            - "./etc/act.ini:/opt/acthome/conf/act.ini"
-    act-db:
-        image: "postgres:11"
-        ports:
-            - "5432:5432"
-        networks:
-            - "default"
-        environment:
-            - "POSTGRES_USER=act"
-            - "POSTGRES_PASSWORD=act123"
-            - "POSTGRES_DB=act"
-        volumes:
-            - "act_db:/var/lib/postgresql/data"
-            - "./db/act:/opt/act/db"
-            - "./db/act/initial:/docker-entrypoint-initdb.d"
-            - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
-    act-wiki-db:
-        image: "postgres:11"
-        ports:
-            - "5433:5432"
-        networks:
-            - "default"
-        environment:
-            - "POSTGRES_USER=act"
-            - "POSTGRES_PASSWORD=act123"
-            - "POSTGRES_DB=act_wiki"
-        volumes:
-            - "act_wiki_db:/var/lib/postgresql/data"
-            - "./db/wiki:/opt/act/db"
-            - "./db/wiki/initial:/docker-entrypoint-initdb.d"
-            - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+  act:
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    depends_on:
+      - "act-db"
+      - "act-wiki-db"
+    networks:
+      - "default"
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    user: "root"
+    environment:
+      - "ACT_HOME=/opt/acthome"
+      - "SMTP_HOST=smtpd"
+      - "SMTP_PORT=1025"
+    volumes:
+      - "./:/opt/act"
+      - "filestore:/opt/filestore"
+      # Order is important as docker will override any mount point that
+      # is less specific, directories override mounts and/or existing
+      # files
+      - "./conferences:/opt/acthome/conferences"
+      - "./templates:/opt/acthome/templates"
+      - "./po:/opt/acthome/po"
+      - "./etc/act.ini:/opt/acthome/conf/act.ini"
+  act-db:
+    image: "postgres:11"
+    ports:
+      - "5432:5432"
+    networks:
+      - "default"
+    environment:
+      - "POSTGRES_USER=act"
+      - "POSTGRES_PASSWORD=act123"
+      - "POSTGRES_DB=act"
+    volumes:
+      - "act_db:/var/lib/postgresql/data"
+      - "./db/act:/opt/act/db"
+      - "./db/act/initial:/docker-entrypoint-initdb.d"
+      - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+  act-wiki-db:
+    image: "postgres:11"
+    ports:
+      - "5433:5432"
+    networks:
+      - "default"
+    environment:
+      - "POSTGRES_USER=act"
+      - "POSTGRES_PASSWORD=act123"
+      - "POSTGRES_DB=act_wiki"
+    volumes:
+      - "act_wiki_db:/var/lib/postgresql/data"
+      - "./db/wiki:/opt/act/db"
+      - "./db/wiki/initial:/docker-entrypoint-initdb.d"
+      - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+  smtpd:
+    image: mailhog/mailhog:v1.0.0
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
 volumes:
-    act_db:
-    act_wiki_db:
-    filestore:
+  act_db:
+  act_wiki_db:
+  filestore:
 networks:
-    default:
+  default:

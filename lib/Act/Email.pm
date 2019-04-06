@@ -4,14 +4,12 @@ use strict;
 package Act::Email;
 
 use Encode ();
-#use List::Pairwise qw(mapp);
 
 use Act::Config;
 use Email::Address;
 use Email::Date;
 use Email::MessageID;
 use Email::Send ();
-#use Email::Send::Sendmail;
 use Email::Simple;
 use Email::Simple::Creator;
 
@@ -36,10 +34,13 @@ use Email::Simple::Creator;
 
 my $sender;
 unless ($^C) {
-    $Email::Send::Sendmail::SENDMAIL = $Config->email_sendmail;
-    #$sender = Email::Send->new( { mailer => 'Sendmail' } );
     $sender = Email::Send->new( { mailer => 'SMTP' } );
-    $sender->mailer_args([Host => "127.0.0.1"]);
+    $sender->mailer_args(
+        [
+            Host => $ENV{SMTP_HOST} // $Config->email_hostname,
+            Port => $ENV{SMTP_PORT} // $Config->email_port,
+        ]
+    );
 }
 
 sub send

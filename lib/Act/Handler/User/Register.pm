@@ -45,6 +45,7 @@ sub handler {
         $template->variables(
             closed   => 1,
             end_date => format_datetime_string($Config->talks_end_date)->epoch,
+            end_date_fo => format_datetime_string($Config->talks_end_date),
         );
         $template->process('user/register');
         return;
