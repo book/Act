@@ -28,9 +28,10 @@ passwd      = act123
 #salt = foo
 
 [email]
-sendmail    = /usr/sbin/sendmail
-test        = 0
-sender_address = FIXME
+# These are defined in the docker-compose.yml file as environment vars
+# host = localhost
+# port = 25
+sender_address = test@example.com
 
 [wiki]
 dbname      = act_wiki
