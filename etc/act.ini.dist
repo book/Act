@@ -1,12 +1,12 @@
 [general]
-
 conferences = demo
 cookie_name = act
 searchlimit = 20
 
-dir_photos  = /opt/filestore/
-dir_ttc     = $(home)/var
-root        = $(home)
+dir_conferences = $(home)/conferences
+dir_photos      = /opt/filestore/
+dir_ttc         = $(home)/var
+root            = $(home)
 
 max_imgsize = 320x200
 default_language = en
@@ -19,7 +19,7 @@ host        = act-db
 user        = act
 passwd      = act123
 # Disable version checking, defaults to true
-#version_check = 0
+version_check = 0
 
 # The bcrypt section is only needed for older systems which haven't
 # fully upgraded to the newest password crypting logic
