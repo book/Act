@@ -15,6 +15,10 @@ A list of resources available to developers.
 
 Installing Act.
 
+=item L<Act::Manual::Developer::UrlsAndFiles>
+
+Which URLs Act will serve, and how you should organize your files.
+
 =item L<Act::Manual::Developer::Translation>
 
 How to write a new language translation for Act.
