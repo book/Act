@@ -1,0 +1,118 @@
+=head1 URL and File Hierarchies in Act
+
+In this section we describe the appearance of an Act installation in
+URL-space, and how it is mapped to templates and files.
+
+Disclaimer: This document is written while several volunteers attempt
+to modernize the Act software.  It is intended to keep the URL
+hierarchy unchanged throughout this process.  The author has, however,
+no idea about the directory structure on the "original" server
+L<https://act.yapc.eu/>: The layout described here is one which fits
+with some of the current PSGI-based implementations.
+
+Throughout this document, we use L<https://act.yapc.eu/> as the base
+URL, though Act software has been used on other servers, too.
+
+=head2 URLs served by Act
+
+=over
+
+=item The Root URL L<https://act.yapc.eu/>
+
+Right now the root URL points to a conference selected by the
+operators - typically the most recent European Perl Conference.
+
+Developer installations might chose to display a list of test
+conferences they've included in their dataset.  This is yet to be
+implemented.
+
+=item The Distribution Statics
+
+Act comes with a set of static files: Style sheets, Images, and
+JavaScript sources.  These are served in the paths C</css>,
+C</images>, and C</js>, respectively.  Example:
+L<http://act.yapc.eu/images/picked.gif>.  These files are located in
+the C</wwwdocs> directory of the Act software distribution.
+
+A reverse proxy could chose to serve these URLs directly, not using
+Act software at all.
+
+=item The Conference Homepages
+
+Each conference running their website on Act has a homepage in the
+root directory L<http://act.yapc.eu>/>,
+e.g. L<https://act.yapc.eu/gpw2019/> for the German Perl Workshop
+2019.  Some conferences use their own DNS entry,
+e.g. L<http://act.qa-hackathon.org/pts2019/> or
+L<http://act.perl-workshop.ch/spw2019/>, but the paths still are
+directly connected to the conferences.
+
+You'll note that the conference and the distribution statics share the
+same URL base.  Just don't name your conference C<images> and you're
+safe.
+
+The contents of the conference homepages is identical to that served
+for the URL with C</index,html> appended.
+
+=item The Conference HTML pages
+
+URLs of Conference HTML pages start with the URL of the conference
+homepage and end in C<.html>.  Beyond C<index.html>, each conference
+can have its own set of URLs.
+
+=item The Conference Statics
+
+Each conference may have its own set of images, style sheets, and
+JavaScript sources - and probably more.  They are served from
+subdirectories directly below the conference homepage.  So, they share
+the paths with the conference HTML pages.  Act uses the convention
+that paths ending in C<.html> are conference HTML pages, all the
+others are static pages which are just passed through from
+corresponding files.  These files are provided in the directory
+C<wwwdocs> of the conference repositories on GitHub.
+
+=item Act Services for Conferences
+
+A third set of URLs directly below the conference homepages is
+occupied by Act services like e.g. C<register> to register a new user,
+C<talks> to see the talks for this conference, and many more.  These
+services directly collide with the namespace of conference statics,
+and the author has not yet tried which one takes precedence if there's
+e.g. a directory C<users> under C</wwwdocs>.
+
+=back
+
+=head2 Files provided by Act
+
+In addition to the Act software, the distribution contains a set of
+directories from which pages are either served directly, or constructed.
+
+=over
+
+=item C<conferences>
+
+This directory came up with the attempt to dockerize Act and may not
+be present in your installation.
+
+=item C<templates>
+
+This directory holds the templates for
+L<Template Toolkit|http://tt2.org> which is used by Act to convert the
+texts provided by the conferences into full-blowm web pages.
+
+See L<Act::Manual::Developer::Templates> for more information.
+
+=item C<wwwdocs>
+
+These directories under C<wwwdocs> are served directly under the root
+path, without further processing.  They contain some images, a pretty
+outdated version of jquery, and some stylesheets.
+
+Conference organisers may use these documents, or commit their own,
+using the appropriate links.
+
+=back
+
+=head2 Files provided by Act conferences
+
+See L<Act::Manual::Organiser::Layout>!
