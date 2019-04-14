@@ -89,11 +89,6 @@ directories from which pages are either served directly, or constructed.
 
 =over
 
-=item C<conferences>
-
-This directory came up with the dockerized Act implementation and may
-not be present in your installation.
-
 =item C<templates>
 
 This directory holds the templates for
@@ -142,13 +137,6 @@ The configuration files for each conference are expected under
 C<"$ACTHOME/actdocs/$conference/conf/act.ini"> and
 C<"$ACTHOME/actdocs/$conference/conf/local.ini">. Both are evaluated in
 that order.
-
-I<Note:> In branches prepared for dockerization, they are also looked
-for under the paths C<"$ACTHOME/$conference/actdocs/conf/act.ini"> and
-C<"$ACTHOME/$conference/actdocs/conf/local.ini">.  This allows to have
-all files provided by a conference under one directory
-C<"$ACTHOME/$conference/">, in a layout equal to that of a conference
-repository on GitHub.
 
 If any of the conference config file changes (identified by its
 modification time), then I<all> configuration files, including the
