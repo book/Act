@@ -130,24 +130,24 @@ productive Act server.  The following description is based on the PSGI
 based implementation, so may be inaccurate.
 
 Act has a "home" directory which is passed as a mandatory environment
-variable C<ACTHOME> to the engine.  All paths are calculated from there.
-We are writing C<"$home"> here for this directory.  Every conference
-has its own subdirectory, denoted as C<"$conference">.
+variable C<ACTHOME> to the engine.  All paths are calculated from
+there.  Every conference has its own subdirectory, denoted as
+C<"$conference">.
 
 =over
 
 =item Configuration files
 
 The configuration files for each conference are expected under
-C<"$home/actdocs/$conference/conf/act.ini"> and
-C<"$home/actdocs/$conference/conf/local.ini">. Both are evaluated in
+C<"$ACTHOME/actdocs/$conference/conf/act.ini"> and
+C<"$ACTHOME/actdocs/$conference/conf/local.ini">. Both are evaluated in
 that order.
 
 I<Note:> In branches prepared for dockerization, they are also looked
-for under the paths C<"$home/$conference/actdocs/conf/act.ini"> and
-C<"$home/$conference/actdocs/conf/local.ini">.  This allows to have
+for under the paths C<"$ACTHOME/$conference/actdocs/conf/act.ini"> and
+C<"$ACTHOME/$conference/actdocs/conf/local.ini">.  This allows to have
 all files provided by a conference under one directory
-C<"$home/$conference/">, in a layout equal to that of a conference
+C<"$ACTHOME/$conference/">, in a layout equal to that of a conference
 repository on GitHub.
 
 If any of the conference config file changes (identified by its
@@ -163,10 +163,10 @@ top of the list, so there are no "directory-local links".
 
 The list looks like this:
 
-       "$home/actdocs/$conference/static",
-       "$home/actdocs/$conference/templates",
-       "$home/static",
-       "$home/templates"
+       "$ACTHOME/actdocs/$conference/static",
+       "$ACTHOME/actdocs/$conference/templates",
+       "$ACTHOME/static",
+       "$ACTHOME/templates"
 
 So, templates provided by the conference organizers take precedence
 over those provided by Act (or added by the people who run the Act
@@ -183,9 +183,9 @@ L<Act::Manual::Organizer::Templates>.
 
 Images, style sheets, javascript libraries and the like for URLs
 containing a conference name are searched for under
-C<"$home/$conference/wwwdocs">.  So, an URL
+C<"$ACTHOME/$conference/wwwdocs">.  So, an URL
 C<"/$conference/images/logo.png"> is translated into
-C<"$home/$conference/wwwdocs/images/logo.png">.
+C<"$ACTHOME/$conference/wwwdocs/images/logo.png">.
 
 =back
 
