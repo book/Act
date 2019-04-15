@@ -288,7 +288,7 @@ my @html_templates = (
     },
 );
 use Test::More;
-plan tests => 3 * (@templates + @html_templates) + 13;
+plan tests => 3 * (@templates + @html_templates) + 14;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
@@ -310,6 +310,13 @@ ok(eq_hash($template->variables(), \%h), "variables get hash");
 $template->clear;
 is($template->variables($_), undef, "clear $_") for keys %h;
 ok(eq_hash($template->variables(), {}), "clear");
+
+# compile 'common' template PREPROCESSed by Act::Template
+my $junk = '';
+$Request{language} = 'fr';
+ok($template->process(\$junk,\$junk),
+   "compile PREPROCESSed templates");
+$template->clear;
 
 for my $t (@templates) {
     _ttest($template, $t);
