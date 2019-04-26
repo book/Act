@@ -105,7 +105,9 @@ sub handler {
 
         # validate form fields
         my $ok = $form->validate($Request{args});
-        $fields = { accepted => 0, confirmed => 0, track_id => undef, %{$form->{fields}} };
+        $fields = { accepted => 0, confirmed => 0,
+                    hide_details => 0, allow_record => 0, # pre-set checkboxes
+                    track_id => undef, %{$form->{fields}} };
 
         # organizer specifies user id
         my $user_id = $Request{user}->is_talks_admin
