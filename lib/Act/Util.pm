@@ -7,6 +7,7 @@ use Apache::AuthCookie;
 use DateTime::Format::Pg;
 use DBI;
 use Digest::MD5 ();
+use Crypt::Eksblowfish::Bcrypt qw(bcrypt en_base64);
 use Unicode::Normalize ();
 use URI::Escape ();
 
@@ -148,15 +149,47 @@ sub gen_password
 {
     my $clear_passwd = $pass[ rand @pass ];
     $clear_passwd =~ s/([vc])/$grams{$1}[rand@{$grams{$1}}]/g;
-    return ($clear_passwd, crypt_password( $clear_passwd ));
+    return ($clear_passwd, crypt_password( $clear_passwd, gen_salt() ));
+}
+
+sub gen_salt
+{
+    # bcrypt cost is between 1 and 31
+    my $cost = 10;
+
+    # salt must be 16 bytes long at most.
+    my $salt;
+    $salt .= ('.', '/', 0..9, 'A'..'Z', 'a'..'z')[rand 64] for 1..16;
+
+    # bcrypt uses a non-standard base64 encoding and cost is padded
+    return join('$', '', '2a', sprintf("%02d", $cost), en_base64($salt));
 }
 
 sub crypt_password
 {
-    my $digest = Digest::MD5->new;
-    $digest->add(shift);
-    return $digest->b64digest();
+    my ($plaintext, $salt) = @_;
+
+    # crypt using MD5 digest for old passwords
+    if (!defined $salt || $salt !~ /^\$\d/) {
+        my $digest = Digest::MD5->new;
+        $digest->add($plaintext);
+        return $digest->b64digest();
+    }
+
+    # Eksblowfish
+    return bcrypt($plaintext, $salt)
+        if $salt =~ /^\$2a?\$\d+\$/;
+
+    # crypt(3)
+    return crypt($plaintext, $salt);
 }
+
+sub verify_password
+{
+    my ($clear_passwd, $crypt_passwd) = @_;
+    return crypt_password( $clear_passwd, $crypt_passwd ) eq $crypt_passwd;
+}
+
 sub create_session
 {
     my $user = shift;

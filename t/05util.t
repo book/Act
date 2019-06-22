@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 79 + 5 * NBPASS;
+use Test::More tests => 80 + (6+2) * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -62,7 +62,7 @@ while (my ($u, $args, $expected) = splice(@t, 0, 3)) {
     is(self_uri(%$args), $expected);
 }
 
-# gen_password
+# gen_password and verify_password
 my %seen;
 for (1..NBPASS) {
     my ($clear, $crypted) = Act::Util::gen_password();
@@ -70,8 +70,21 @@ for (1..NBPASS) {
     ok(!$seen{$clear}++);
     ok($crypted);
     like($clear,   qr/^[a-z]+$/);
-    like($crypted, qr/^\S+$/);
+    like($crypted, qr/^\$\S+\$\S+$/);
+    ok( Act::Util::verify_password($clear, $crypted) );
 }
+
+# gen_salt
+%seen = ();
+for (1..NBPASS) {
+    my $salt = Act::Util::gen_salt();
+    ok($salt);
+    ok(!$seen{$salt}++);
+}
+
+# verify_password and crypt_password without salt
+ok( Act::Util::verify_password('f00bar', Act::Util::crypt_password('f00bar')) );
+
 # date_format
 use utf8;
 $Request{language} = 'fr';
