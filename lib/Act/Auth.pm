@@ -56,9 +56,16 @@ sub authen_cred ($$\@)
 
     # compare passwords
     my $digest = Digest::MD5->new;
-    $digest->add(lc $sent_pw);
-    $digest->b64digest() eq $user->{passwd}
-        or do { $r->log_error("$prefix Bad password"); return undef; };
+    $digest->add($sent_pw);
+    if ( $digest->b64digest() ne $user->{passwd} ) {
+        # compare lc passwords (r1549)
+    	$digest->reset;
+        $digest->add(lc $sent_pw);
+        if ( $digest->b64digest() ne $user->{passwd} ) {
+            $r->log_error("$prefix Bad password");
+            return undef;
+        }
+    }
 
     # user is authenticated - create a session
     my $sid = Act::Util::create_session($user);

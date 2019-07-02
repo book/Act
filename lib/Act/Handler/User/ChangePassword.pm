@@ -15,8 +15,8 @@ my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
   optional => [qw(oldpassword)],
   filters => {
-     newpassword1 => sub { lc shift },
-     newpassword2 => sub { lc shift },
+     newpassword1 => sub { shift },
+     newpassword2 => sub { shift },
   },
 );
 # twostep form
@@ -65,9 +65,16 @@ sub handler
         if ($Request{user}) { # 
             # compare passwords
             my $digest = Digest::MD5->new;
-            $digest->add(lc $fields->{oldpassword});
-            $digest->b64digest() eq $Request{user}{passwd}
-                or do { $ok = 0; $form->{invalid}{oldpassword} = 1; };
+            $digest->add($fields->{oldpassword});
+            if ( $digest->b64digest() ne $Request{user}{passwd} ) {
+                # compare lc passwords (r1549)
+                $digest->reset;
+                $digest->add(lc $fields->{oldpassword});
+                if ( $digest->b64digest() ne $Request{user}{passwd} ) {
+                    $ok = 0;
+                    $form->{invalid}{oldpassword} = 1;
+                }
+            }
         }
         else { # must have a valid twostep token if not logged in
             ($token, $token_data) = Act::TwoStep::verify_form()
