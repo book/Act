@@ -17,6 +17,8 @@ sub handler {
     my $pm        = {};
     my $stats     = {};
 
+    $stats->{committed} = 0;
+
     for my $u (@$users) {
         my ( $c, $t, $p ) = ( $u->country, $u->town, $u->pm_group );
         $countries->{$c}{count}++ || do {
