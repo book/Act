@@ -730,7 +730,7 @@ msgid "Establishing your invoice requires your address."
 msgstr "Um die Rechnung anzulegen, müssen Sie Ihre Adresse angeben."
 
 msgid "Please make sure the billing information is correct."
-msgstr "Bitte überprüfen Sie, on die Rechnungsdaten stimmen."
+msgstr "Bitte überprüfen Sie, ob die Rechnungsdaten stimmen."
 
 msgid "Address"
 msgstr "Adresse"
@@ -888,3 +888,12 @@ msgstr "Abrechnung"
 
 msgid "Delayed payment"
 msgstr "verbindlich anmelden"
+
+msgid "make additional purchases"
+msgstr "Weitere Einkäufe tätigen"
+
+msgid "view all orders and invoices"
+msgstr "Alle Bestellungen und Rechnungen ansehen"
+
+msgid "Logged as:"
+msgstr "Eingeloggt als:"
