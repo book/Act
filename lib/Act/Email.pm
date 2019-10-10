@@ -3,7 +3,7 @@
 use strict;
 package Act::Email;
 
-use Encode ();
+use Encode qw(encode);
 #use List::Pairwise qw(mapp);
 
 use Act::Config;
@@ -67,9 +67,10 @@ sub send
                       );
         $args{body} = $dump . $args{body};
 
-        push @headers, ( To => Email::Address->new('Act tester', $Config->email_test)->format(),
-                         Subject => "[TEST] $args{subject}",
-                       );
+        push @headers,
+            (To => Email::Address->new('Act tester', $Config->email_test)
+                ->format());
+        $args{subject} = "[TEST] $args{subject}";
     }
     else {
         for my $header ( grep { exists $args{$_} } qw( to cc bcc ) )
@@ -81,8 +82,8 @@ sub send
             push @headers,
                 ( ucfirst $header => join ', ', map { $_->format() } @recips );
         }
-        push @headers, ( Subject => $args{subject} );
     }
+    push @headers, ( Subject => encode('MIME-Header', $args{subject} ));
 
     my $charset;
     if ( $args{body} =~ /^\p{InBasicLatin}+$/ ) {
