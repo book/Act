@@ -71,8 +71,8 @@ sub check_login {
 
     my $params = $req->parameters;
 
-    my $login   = $params->get('login');
-    my $sent_pw = $params->get('password');
+    my $login   = $params->get('login') // $params->get('credential_0');
+    my $sent_pw = $params->get('password') // $params->get('credential_1');
     my $remember_me = $params->get('remember_me');
     my $dest    = $params->get('destination');
 
