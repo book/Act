@@ -40,7 +40,7 @@ sub handler
     my %bio = %{$user->bio};  # deep copy avoid double encoding bug
     ( exists $Config->languages->{$_} && $bio{$_} !~ /^\s*$/ )
     || delete $bio{$_} for keys %bio;
-    
+
     $template->variables(
         %$user, # for backwards compatibility
         user => $user,
@@ -59,6 +59,7 @@ sub handler
         bio => \%bio,
         conferences => [ grep { $_->{participation} } @{$user->conferences()} ],
         mytalks => $user->my_talks,
+        photo_uri => join ('/', undef, 'userphoto', $user->photo_name),
     );
     $template->process('user/show');
     return;
