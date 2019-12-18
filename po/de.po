@@ -933,3 +933,51 @@ msgstr "Alle Bestellungen und Rechnungen ansehen"
 
 msgid "Logged as:"
 msgstr "Eingeloggt als:"
+
+msgid "Personal Schedule"
+msgstr "Persönliches Programm"
+
+msgid "Promotion code"
+msgstr "Gutscheincode"
+
+msgid "add to personal schedule"
+msgstr "zum persönlichen Programm hinzufügen"
+
+msgid "remove from personal schedule"
+msgstr "vom persönlichen Programm entfernen"
+
+msgid "Attended by:"
+msgstr "Teilnehmende:"
+
+msgid "Favorite Talks"
+msgstr "Lieblingsvorträge"
+
+msgid "Donation"
+msgstr "Spende"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Language:"
+msgstr "Sprache:"
+
+msgid "News Administration"
+msgstr "News-Verwaltung"
+
+msgid "Confirm Attendance"
+msgstr "Teilnahme bestätigen"
+
+msgid "Register a new user"
+msgstr "Einen neuen Benutzer registrieren"
+
+msgid "Payment Details"
+msgstr "Zahlungsdetails"
+
+msgid "You must enter an order ID."
+msgstr "Du musst eine Bestell-ID eingeben."
+
+msgid "Unknown order ID."
+msgstr "Unbekannte Bestell-ID."
+
+msgid "User is not registered."
+msgstr "Benutzer ist nicht registriert."
