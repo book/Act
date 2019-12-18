@@ -378,6 +378,15 @@ msgstr "Organisator"
 msgid "Organizer (talks management)"
 msgstr "Organisator (Vortragsverwaltung)"
 
+msgid "Organizer (users management)"
+msgstr "Organisator (Benutzerverwaltung)"
+
+msgid "Organizer (wiki management)"
+msgstr "Organisator (Wiki-Verwaltung)"
+
+msgid "Organizer (news management)"
+msgstr "Organisator (News-Verwaltung)"
+
 msgid "Treasurer (payment management)"
 msgstr "Kassierer (Zahlungsverwaltung)"
 
