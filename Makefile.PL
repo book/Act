@@ -32,6 +32,7 @@ requires(
 'HTTP::Request::Common' => 0, 
 'Imager' => 0, 
 'JSON::XS' => 0, 
+'LWP::Protocol::https' => 0, 
 'LWP::Simple' => 0, 
 'LWP::UserAgent' => 0, 
 'List::Pairwise' => 0, 
