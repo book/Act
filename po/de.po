@@ -165,6 +165,9 @@ msgstr "Bitte E-Mailadresse eingeben"
 msgid "Your email address looks bogus."
 msgstr "Die E-Mailadresse scheint ungültig zu sein."
 
+msgid "An email has been sent to <email>. Click on the link in the email to"
+msgstr "Eine Email wurde an <email> geschickt. Klicke auf den Link in der Mail um"
+
 msgid "Registration"
 msgstr "Anmeldung"
 
