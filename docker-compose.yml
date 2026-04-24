@@ -19,15 +19,20 @@ services:
       - "SMTP_HOST=smtpd"
       - "SMTP_PORT=1025"
     volumes:
-      - "./:/opt/act"
+      - "./:/opt/act:z"
       - "filestore:/opt/filestore"
       # Order is important as docker will override any mount point that
       # is less specific, directories override mounts and/or existing
       # files
-      - "./conferences:/opt/acthome/conferences"
-      - "./templates:/opt/acthome/templates"
-      - "./po:/opt/acthome/po"
-      - "./etc:/opt/acthome/conf"
+      - "./conferences:/opt/acthome/conferences:z"
+      - "./templates:/opt/acthome/templates:z"
+      - "./po:/opt/acthome/po:z"
+      - "./etc:/opt/acthome/conf:z"
+    #LBO >
+    # one-shot to "migrate" Act db from "pre-psgi" ages
+    #entrypoint: "bin/dbupdate"
+    #command: "main"
+    #< LBO
   act-db:
     image: "postgres:11"
     networks:
@@ -40,9 +45,9 @@ services:
       - "POSTGRES_DB=act"
     volumes:
       - "act_db:/var/lib/postgresql/data"
-      - "./db/act:/opt/act/db"
-      - "./db/act/initial:/docker-entrypoint-initdb.d"
-      - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+      - "./db/act:/opt/act/db:z"
+      - "./db/act/initial:/docker-entrypoint-initdb.d:z"
+      - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql:z"
   act-wiki-db:
     image: "postgres:11"
     networks:
@@ -55,9 +60,9 @@ services:
       - "POSTGRES_DB=act_wiki"
     volumes:
       - "act_wiki_db:/var/lib/postgresql/data"
-      - "./db/wiki:/opt/act/db"
-      - "./db/wiki/initial:/docker-entrypoint-initdb.d"
-      - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
+      - "./db/wiki:/opt/act/db:z"
+      - "./db/wiki/initial:/docker-entrypoint-initdb.d:z"
+      - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql:z"
   smtpd:
     image: mailhog/mailhog:v1.0.0
     expose:
