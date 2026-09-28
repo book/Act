@@ -22,7 +22,6 @@ separate containers for Act, the database, and a mail server: This is
 already included in the Act repository.  Read on how to setup and
 maintain it.
 
-
 ## TL;DR
 
 ```
@@ -62,6 +61,13 @@ You can (re)create all the containers by running this:
 ./dev-bin/docker-maintenance.sh
 ```
 
+If you prefer `podman` over `docker`, the `Dockerfile` and `docker-compose.yml`
+are compliant:
+
+```
+podman-compose up
+```
+
 ## Generate configuration files
 
 While `docker-maintenance.sh` already generates all the configuration files
@@ -74,8 +80,11 @@ You can now start your development environment by running:
 
 ```
 $ docker-compose up
-# or..
+# or...
 $ docker-compose start
+# or...
+$ podman-compose up
+# or...
 ```
 
 You can now connect to the development environment on http://localhost:5000/.
@@ -141,6 +150,29 @@ docker container ps -a | grep act | grep db | awk '{print $1}' | \
 xargs -r docker container rm
 docker volume ls | grep act | grep db | awk '{print $NF}' | \
 xargs -r docker volume rm
+```
+
+## If prefer one database server
+
+If you prefer a single container for both Act DB and wiki DB, use
+`docker-compose-1db.yml` instead:
+
+```
+docker-compose -f docker-compose-1db.yml up
+# ...
+docker-compose -f docker-compose-1db.yml down
+```
+
+Note that at first run, when the DBs need to be initialized, Act may 
+crashes as it tries to interact with a DB that is not ready yet.
+If it happens, just stop and restart the pod:
+
+```
+docker-compose -f docker-compose-1db.yml down
+docker-compose -f docker-compose-1db.yml up
+# or...
+podman-compose -f docker-compose-1db.yml down
+podman-compose -f docker-compose-1db.yml up
 ```
 
 ### Local access

@@ -16,7 +16,7 @@ RUN cpanm --notest IPC::System::Simple \
 COPY wwwdocs     /opt/acthome/wwwdocs
 COPY templates   /opt/acthome/templates
 COPY po          /opt/acthome/po
-COPY conferences /opt/acthome/conferences
+#bind it at run: COPY conferences /opt/acthome/conferences
 COPY . .
 
 ENTRYPOINT [ "/opt/act/docker-entrypoint.sh" ]

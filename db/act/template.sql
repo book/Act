@@ -1,4 +1,6 @@
 -- Create an act database from scratch
+\getenv actdb ACTDB
+\c :actdb
 
 CREATE TABLE schema (
     current_version integer NOT NULL

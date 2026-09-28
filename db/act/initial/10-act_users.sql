@@ -1,5 +1,5 @@
-
-\c act
+\getenv actdb ACTDB
+\c :actdb
 
 INSERT INTO users
     (
