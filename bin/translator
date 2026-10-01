@@ -11,7 +11,7 @@ use Tie::IxHash;
 use Getopt::Long;
 
 my %conf = (
-    acthome => catfile( $ENV{ACTHOME} || '.' ),
+    acthome => catfile( $ENV{ACT_HOME} || '.' ),
 );
 GetOptions( \%conf, 'rev=i', 'acthome=s' ) or die usage();
 

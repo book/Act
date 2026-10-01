@@ -1,22 +1,22 @@
 package Act::Handler::Talk::Import;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
-use DateTime;
-use Data::ICal;
-use Data::ICal::DateTime;
-use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Event;
 use Act::Talk;
 use Act::Template::HTML;
+use Act::Util qw(format_datetime_string);
+use Data::ICal::DateTime;
+use Data::ICal;
+use DateTime;
 
 sub handler
 {
     # only for admins
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new;
@@ -48,7 +48,7 @@ sub handler
                 my $dt2 = $event->start;
                 # update talk with new datetime
                 if ($dt2 && (!$dt1 || DateTime->compare($dt1, $dt2))) {
-                    $e->update(datetime => DateTime::Format::Pg->format_datetime($dt2));
+                    $e->update(datetime => format_datetime_string($dt2));
                     push @timeslots, { 
                         %$e,
                         %timeslot,
@@ -62,6 +62,7 @@ sub handler
     }
     # display results
     $template->process('talk/import');
+    return;
 }
 1;
 __END__

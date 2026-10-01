@@ -1,7 +1,7 @@
-
-    Act - A Conference Toolkit
+Act - A Conference Toolkit
 
     Copyright (C) 2004-2007, by Philippe Bruhat and Éric Cholet
+    Copyright (C) 2019 Harald Jörg
 
     This program is free software distributed under the same terms as
     Perl itself; you can redistribute it and/or modify it under the
@@ -26,11 +26,12 @@
     Boston, MA 02111-1307, USA or visit their web page on the internet
     at http://www.gnu.org/copyleft/gpl.html.
 
---------------------------------------------------------------------------
+----
 
-Act is a set of modules to handle several conferences with the
-help of Apache, mod_perl and Template-Toolkit.
+The component lib/Wiki/Toolkit/Store/Database.pm has been taken and
+modified from the Wiki-Toolkit distriution at CPAN:
 
-More documentation is available in pod, under lib/Act/Manual/.
-All the documentation is also mirrored on http://act.mongueurs.net/
+  https://metacpan.org/release/Wiki-Toolkit
 
+  Copyright (C) 2002-2004 Kake Pugh.  All Rights Reserved.
+  Copyright (C) 2006-2013 the Wiki::Toolkit team. All Rights Reserved.

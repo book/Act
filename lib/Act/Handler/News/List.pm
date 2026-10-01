@@ -1,7 +1,6 @@
 use strict;
 package Act::Handler::News::List;
-
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Handler::News::Fetch;
@@ -14,12 +13,12 @@ sub handler
     my $news_id = $Request{path_info};
     if ($news_id) {
         unless ($news_id =~ /^\d+$/) {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
         $news = Act::Handler::News::Fetch::fetch(1, $news_id);
         unless (@$news) {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
     }
@@ -37,6 +36,7 @@ sub handler
     $template->variables_raw(texts => [ map $_->content, @$news ]);
     $template->variables(news => $news);
     $template->process('news/list');
+    return;
 }
 
 1;

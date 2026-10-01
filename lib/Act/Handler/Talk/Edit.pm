@@ -1,22 +1,21 @@
 package Act::Handler::Talk::Edit;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
-use DateTime::Format::Pg ();
-use Text::Diff ();
- 
+use parent 'Act::Handler';
+
 use Act::Config;
 use Act::Email;
 use Act::Form;
+use Act::Handler::Talk::Util;
 use Act::I18N;
 use Act::Tag;
 use Act::Talk;
-use Act::Template;
 use Act::Template::HTML;
+use Act::Template;
 use Act::Track;
 use Act::User;
 use Act::Util;
-use Act::Handler::Talk::Util;
+use Text::Diff ();
 
 # form
 my $form = Act::Form->new(
@@ -48,12 +47,27 @@ my $form = Act::Form->new(
   }
 );
 
+# orgas can submit/edit talks anytime
+# regular users can submit new talks when submissions_open
+# and edit existing talks when edition_open or submission_open
+sub _talk_open_for_submission {
+    my ($user, $talk) = @_;
+    return 1 if $user->is_talks_admin;
+    return 1 if !$talk and $Config->talks_edition_open || $Config->talks_submissions_open;
+    if ($Config->talks_edition_open || $Config->talks_submissions_open
+        and $talk && $talk->user_id == $user->user_id)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 sub handler {
 
     my $template = Act::Template::HTML->new();
     my $fields;
-    my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
-    my $edate = DateTime::Format::Pg->parse_timestamp($Config->talks_end_date);
+    my $sdate = format_datetime_string($Config->talks_start_date);
+    my $edate = format_datetime_string($Config->talks_end_date);
     my @dates = ($sdate->clone->truncate(to => 'day' ));
     push @dates, $_
         while (($_ = $dates[-1]->clone->add( days => 1 ) ) < $edate );
@@ -67,7 +81,7 @@ sub handler {
         );
         unless ($talk) {
             # cannot edit non-existent talk
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
         # retrieve tags
@@ -77,22 +91,16 @@ sub handler {
                     tagged_id   => $talk->talk_id,
                 );
     }
-    # orgas can submit/edit talks anytime
-    # regular users can submit new talks when submissions_open
-    # and edit existing talks when edition_open or submission_open
-    #
-    unless ($Request{user}->is_talks_admin) {
-        unless ( ($talk && $talk->user_id == $Request{user}->user_id
-                        && ($Config->talks_edition_open || $Config->talks_submissions_open))
-                || (!$talk && $Config->talks_submissions_open ))
-        {
-            $Request{status} = NOT_FOUND;
-            return;
-        }
-    }
+
     # not registered!
-    return Act::Util::redirect(make_uri('register'))
-      unless $Request{user}->has_registered;
+    if (!$Request{user}->has_registered && !$Request{user}->is_talks_admin) {
+        return Act::Util::redirect(make_uri('register'))
+    }
+
+    if (!_talk_open_for_submission($Request{user}, $talk)) {
+        # TODO: Redirect to talk/closed?
+        return Act::Util::redirect(make_uri('register'))
+    }
 
     # automatically compute the return URL
     my $referer = $Request{r}->header_in('Referer');
@@ -129,7 +137,7 @@ sub handler {
                   or ! $fields->{time}
                   or exists $form->{invalid}{date}
                   or exists $form->{invalid}{time} ) {
-                $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+                $fields->{datetime} = format_datetime_string("$fields->{date} $fields->{time}:00");
                 if ( $fields->{datetime} > $edate or
                      $fields->{datetime} < $sdate ) {
                     $form->{invalid}{period} = 'invalid';
@@ -254,6 +262,7 @@ sub handler {
         tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
     ) if $Request{user}->is_talks_admin;
     $template->process('talk/add');
+    return;
 }
 
 # optional email notification when a talk is inserted or updated

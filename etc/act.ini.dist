@@ -1,0 +1,56 @@
+[general]
+conferences = demo
+searchlimit = 20
+
+dir_conferences = $(home)/conferences
+dir_photos      = /opt/filestore/
+dir_static      = $(home)/wwwdocs
+dir_ttc         = $(home)/var
+root            = $(home)
+
+max_imgsize = 320x200
+default_language = en
+languages = nl
+
+[database]
+name        = act
+dsn         = dbi:Pg:dbname=$(database_name)
+host        = act-db
+user        = act
+passwd      = act123
+
+test_dsn         = dbi:Pg:dbname=act_test
+test_host        = act-db
+test_user        = act
+test_passwd      = act123
+
+pg_dump     = 1
+dump_file   = /tmp/db_dump
+
+# Disable version checking, defaults to true
+version_check = 0
+
+[email]
+# These are defined in the docker-compose.yml file as environment vars
+# host = localhost
+# port = 25
+sender_address = test@example.com
+
+[wiki]
+dbname      = act_wiki
+dbuser      = act
+dbpass      = act123
+dbhost      = act-wiki-db
+
+[payment]
+open      = 0
+invoices  = 0
+type        = Fake
+notify_bcc  = FIXME
+
+[payment_type_Fake]
+plugin = Fake
+
+[flickr]
+# see http://www.flickr.com/services/api/
+apikey  = 0123456789ABCDEF0123456789ABCDEF

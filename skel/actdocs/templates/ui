@@ -46,7 +46,7 @@
 
   <div id="footer">
     Powered by <a href="http://act.mongueurs.net/">Act</a> — A Conference Toolkit
-  | Running on <a href="http://www.freebsd.org">FreeBSD</a>
+  | Running on ... <em>whatever platform you prefer</em>
   </div>
 
 </div>

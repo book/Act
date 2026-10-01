@@ -1,9 +1,10 @@
 package Act::Object;
 use strict;
+
 use Act::Config;
+use Act::Util qw(format_datetime_string);
 use Carp;
 use DBI qw(:sql_types);
-use DateTime::Format::Pg;
 
 use constant DEBUG => !$^C && $Config->database_debug;
 use vars qw(@ISA @EXPORT );
@@ -13,7 +14,7 @@ use vars qw(@ISA @EXPORT );
 sub inflate_datetime { # timestamp without time zone
     my $dt = shift;
     ref $dt eq 'DateTime'
-        ? DateTime::Format::Pg->format_timestamp_without_time_zone($dt)
+        ? format_datetime_string($dt)
         : $dt;
 }
 
@@ -21,7 +22,7 @@ sub deflate_datetime { # timestamp without time zone
     my $dt = shift;
     ref $dt eq 'DateTime'
         ? $dt
-        : DateTime::Format::Pg->parse_timestamp_without_time_zone($dt);
+        : format_datetime_string($dt);
 }
 
 my %normalize = (

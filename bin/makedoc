@@ -9,6 +9,7 @@ package MyView;
 use base 'Pod::POM::View::HTML';
 
 my $prefix = 'Act::';
+my $CPAN_base = 'https://metacpan.org/pod';
 
 sub page_depth
 {
@@ -24,6 +25,127 @@ sub view_pod
     my ($self, $pod) = @_;
     return $pod->content->present($self);
 }
+sub view_seq_text {
+     my ($self, $text) = @_;
+
+     my $HTML_PROTECT = 0;
+     my $urls = '(' . join ('|',
+                            qw{
+                                  http
+                                  https
+                                  telnet
+                                  mailto
+                                  news
+                                  gopher
+                                  file
+                                  wais
+                                  ftp
+                          } ) . ')';
+
+     my $ltrs = '\w';
+     my $gunk = '/#~:.?+=&%@!\-';
+     my $punc = '.:!?\-;';
+     my $any  = "${ltrs}${gunk}${punc}";
+
+     unless ($HTML_PROTECT) {
+         for ($text) {
+             s/&/&amp;/g;
+             s/</&lt;/g;
+             s/>/&gt;/g;
+         }
+     }
+
+     $text =~ s{
+        \b                           # start at word boundary
+        (?<!\|)                      # but not immediately after a |
+         (                           # begin $1 {
+           $urls     :               # need resource and a colon
+           (?!:)                     # Ignore File::, among others.
+           [$any] +?                 # followed by one or more of any valid
+                                     #   character, but be conservative and
+                                     #   take only what you need to....
+         )                           # end   $1  }
+         (?=                         # look-ahead non-consumptive assertion
+                 [$punc]*            # either 0 or more punctuation followed
+                 (?:                 #   followed
+                     [^$any]         #   by a non-url char
+                     |               #   or
+                     $               #   end of the string
+                 )                   #
+             |                       # or else
+                 $                   #   then end of the string
+         )
+       }{<a href="$1">$1</a>}igox;
+
+     return $text;
+}
+sub view_seq_link {
+    my ($self, $link) = @_;
+
+    # view_seq_text has already taken care of L<http://example.com/>
+    if ($link =~ /^<a href=/ ) {
+        return $link;
+    }
+
+    # full-blown URL's are emitted as-is
+    if ($link =~ m{^\w+://}s ) {
+        return make_href($link);
+    }
+
+    $link =~ s/\n/ /g;   # undo line-wrapped tags
+
+    my $orig_link = $link;
+    my $linktext;
+    # strip the sub-title and the following '|' char
+    if ( $link =~ s/^ ([^|]+) \| //x ) {
+        $linktext = $1;
+    }
+
+    # make sure sections start with a /
+    $link =~ s|^"|/"|;
+
+    my $page;
+    my $section;
+    if ($link =~ m{^\w+://}s ) { # L<Perl homepage|https://www.perl.org/>
+        return make_href($link,$linktext);
+    }
+    elsif ($link =~ m|^ (.*?) / "? (.*?) "? $|x) { # [name]/"section"
+        ($page, $section) = ($1, $2);
+    }
+    elsif ($link =~ /\s/) {  # this must be a section with missing quotes
+        ($page, $section) = ('', $link);
+    }
+    else {
+        ($page, $section) = ($link, '');
+    }
+
+    # warning; show some text.
+    $linktext = $orig_link unless defined $linktext;
+
+    my $url = '';
+    if (defined $page && length $page) {
+        $url = $self->view_seq_link_transform_path($page);
+    }
+
+    # append the #section if exists
+    $url .= "#$section" if defined $url and
+        defined $section and length $section;
+
+    return make_href($url, $linktext);
+}
+sub make_href {
+    my($url, $title) = @_;
+
+    if (!defined $url) {
+        return defined $title ? "<i>$title</i>"  : '';
+    }
+
+    $title = $url unless defined $title;
+    #print "$url, $title\n";
+    return qq{<a href="$url">$title</a>};
+}
+
+
 sub view_seq_link_transform_path
 {
     my ($self, $page) = @_;
@@ -32,6 +154,12 @@ sub view_seq_link_transform_path
         $page =~ s/^$prefix//;
         $page =~ s|::|/|g;
         return '../' x $self->page_depth . $page . '.html';
+    }
+    elsif ($page =~ /^http/) {
+        return $page;
+    }
+    elsif ($page =~ /::/) {
+        return "$CPAN_base/$page";
     }
     warn "unknown link: $page\n";
     return;
@@ -65,7 +193,7 @@ pod2usage(1) if $help;
 $acthome ||= "$Bin/..";
 $baseurl ||= '';
 my $srcdir  = catfile($acthome, "lib/Act");
--d $srcdir or pod2usage("Can't determine ACTHOME");
+-d $srcdir or pod2usage("Can't determine ACT_HOME");
 my $destdir = shift or pod2usage("You must specify a destination directory!");
 
 # create POD parser and view and template objects
@@ -153,7 +281,7 @@ makedoc - build HTML tree from Act's POD documenation (Act::Manual)
 makedoc [options] destination_directory
 
  Options:
-   -a, --acthome <acthome>     specify alternate ACTHOME
+   -a, --acthome <acthome>     specify alternate ACT_HOME
    --baseurl <url>             specify static resource root URL
    -f, --force                 force rebuild (ignore timestamps)
    -h, --help                  prints brief help text
@@ -196,9 +324,9 @@ Example:
 Build the HTML docs as a subdirectory the root of an Act checkout, and use the supplied static
 resources (images and stylesheets) files in F<mandocs/>:
 
-  act% bin/makedocs --baseurl=${PWD}/mandocs docs
+  act% bin/makedoc --baseurl=${PWD}/mandocs docs
 
-This will create an HTML tree suitable for local (C<file://) viewing.
+This will create an HTML tree suitable for local (C<file://>) viewing.
 
 =item B<--verbose>
 

@@ -4,13 +4,13 @@ use strict;
 use Carp;
 use Clone qw(clone);
 use DateTime;
-use DateTime::Format::Pg;
 
 use Act::Config;
 use Act::Flickr;
 use Act::Template::Parser;
 use Act::TimeSlot;
 use Act::Util;
+use File::Spec::Functions qw(catfile);
 
 use base qw(Template);
 
@@ -57,8 +57,21 @@ sub _init
     unless ($options->{INCLUDE_PATH}) {
         my @path;
         # conference-specific template dirs
-        push @path, map join('/', $Config->home, 'actdocs', $Request{conference}, $_), TEMPLATE_DIRS
-            if $Request{conference};
+        if ($Request{conference}) {
+
+            push @path,
+                map
+                join('/', $Config->home, 'actdocs', $Request{conference}, $_),
+                TEMPLATE_DIRS;
+
+            # Dockerized
+            my $path = catfile($Config->general_dir_conferences,
+                $Request{conference}, 'actdocs');
+
+            push(@path, map { catfile($path, $_) } TEMPLATE_DIRS);
+
+        }
+
         # global template dirs
         push @path, map join('/', $Config->home, $_), TEMPLATE_DIRS;
         $options->{INCLUDE_PATH} = \@path;
@@ -93,6 +106,7 @@ sub variables
     }
 }
 
+
 sub escape
 {
     return $_[1];   # no default escaping
@@ -101,13 +115,17 @@ sub escape
 sub process
 {
     my ($self, $filename, $output) = @_;
-    my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Apache');
+    my $web = $Request{r} && ref($Request{r}) && $Request{r}->isa('Act::Request');
 
     # set global variables
     my %global = (
          config  => $Config,
          request => { map { $_ => $Request{$_} } grep { $_ ne 'dbh' } keys %Request },
     );
+    # TODO: This is a horrible kludge, as a supplement to two lines
+    # before, to make sure that the database handle doesn't sneak in
+    # from another place.  Only required for PSGI, of course.
+    delete $global{request}{r}{env}{'act.dbh'};
     $Request{language_info} = $Languages{$Request{language}};
     if ($web) {
          my %lparams = $Request{r}->method eq 'POST' ? () : %{$Request{args}};
@@ -140,8 +158,10 @@ sub process
                 conf_id => $conf_id,
                 url     => $cfg->general_full_uri,
                 name    => $cfg->name->{ $Request{language} },
-                begin   => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date)->truncate(to => 'day') },
-                end     => eval { DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date )->truncate(to => 'day') },
+                begin   => format_datetime_string($cfg->talks_start_date)
+                    ->truncate(to => 'day'),
+                end => format_datetime_string($cfg->talks_end_date)
+                    ->truncate(to => 'day'),
             };
             my $when;
             if    ( $conf->{end} < $now )   { $when = 'past'; }

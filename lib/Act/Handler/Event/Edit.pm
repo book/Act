@@ -1,15 +1,14 @@
 package Act::Handler::Event::Edit;
 
 use strict;
+use parent 'Act::Handler';
 use DateTime::TimeZone;
- 
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
+use Act::Event;
 use Act::Form;
 use Act::Template::HTML;
-use Act::Util;
-use Act::Event;
 use Act::Template;
+use Act::Util;
 
 # form
 my $form = Act::Form->new(
@@ -27,13 +26,13 @@ my $form = Act::Form->new(
 sub handler {
 
     unless ( $Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new();
     my $fields;
-    my $sdate = DateTime::Format::Pg->parse_timestamp($Config->talks_start_date);
-    my $edate = DateTime::Format::Pg->parse_timestamp($Config->talks_end_date);
+    my $sdate = format_datetime_string($Config->talks_start_date);
+    my $edate = format_datetime_string($Config->talks_end_date);
     my @dates = ($sdate->clone->truncate(to => 'day' ));
     push @dates, $_
         while (($_ = $dates[-1]->clone->add( days => 1 ) ) < $edate );
@@ -47,7 +46,7 @@ sub handler {
 
     # cannot edit non-existent events
     if( exists $Request{args}{event_id} and not defined $event ) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -72,7 +71,7 @@ sub handler {
               or ! $fields->{time}
               or exists $form->{invalid}{date}
               or exists $form->{invalid}{time} ) {
-            $fields->{datetime} = DateTime::Format::Pg->parse_timestamp("$fields->{date} $fields->{time}:00");
+            $fields->{datetime} = format_datetime_string("$fields->{date} $fields->{time}:00");
             if ( $fields->{datetime} > $edate or
                  $fields->{datetime} < $sdate ) {
                 $form->{invalid}{period} = 'invalid';
@@ -131,6 +130,7 @@ sub handler {
                  },
     );
     $template->process('event/add');
+    return;
 }
 
 1;

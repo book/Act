@@ -1,6 +1,6 @@
 package Act::Handler::Track::List;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Talk;
@@ -10,7 +10,7 @@ sub handler
 {
     # only for orgas
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve tracks
@@ -32,6 +32,7 @@ sub handler
     my $template = Act::Template::HTML->new();
     $template->variables(tracks => $tracks);
     $template->process('track/list');
+    return;
 }
 
 1;

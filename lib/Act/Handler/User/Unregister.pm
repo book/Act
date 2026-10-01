@@ -1,5 +1,8 @@
 package Act::Handler::User::Unregister;
 
+use strict;
+use parent 'Act::Handler';
+
 use Act::Template::HTML;
 use Act::User;
 use Act::Config;

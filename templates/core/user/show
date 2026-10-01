@@ -115,11 +115,12 @@
 </table>
 
 </td>
+
 <td valign="top" align="left">
 
    <table border="1" cellpadding="10" cellspacing="0"><tr><td>
       [%- IF user.photo_name %]
-         <img src="/[% global.config.general_dir_photos %]/[% user.photo_name %]" border="0" alt="Photo">
+         <img src="[% photo_uri %]" border="0" alt="Photo">
       [%- ELSE %]
          <img src="http://www.gravatar.com/avatar/[% user.md5_email %]?s=100&d=404" border="0" alt="Photo">
       [% END %]

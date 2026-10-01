@@ -1,14 +1,14 @@
 package Act::Handler::Talk::ExportCSV;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND);
 use DateTime;
-use DateTime::Format::Pg;
 use Text::xSV;
 
 use Act::Config;
 use Act::Talk;
 use Act::User;
+use Act::Util qw(format_datetime_string);
 
 my @UROWS = qw(
  user_id
@@ -38,7 +38,7 @@ sub handler
 {
     # only for orgas
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # get talks
@@ -51,7 +51,7 @@ sub handler
 
     for my $talk (@$talks) {
         # convert datetime
-        $talk->{datetime} = DateTime::Format::Pg->format_datetime($talk->datetime)
+        $talk->{datetime} = format_datetime_string($talk->datetime)
             if ($talk->datetime);
         # fetch user
         my $user = Act::User->new(user_id => $talk->user_id);
@@ -62,6 +62,7 @@ sub handler
             map($talk->$_, @TROWS),
         ));
     }
+    return;
 }
 
 1;

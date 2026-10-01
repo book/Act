@@ -1,0 +1,188 @@
+=head1 The central Act configuration file
+
+=encoding utf8
+
+The central Act configuration file is a Windows .ini-style file.  It
+contains settings which are relevant for all conferences hosted on
+I<this> installation of Act.  It is organized in several sections.
+For each of the sections, we show an example configuration followed by
+a description of the individual items, at least for I<some> of the
+sections.
+
+=head2 Section C<general>
+
+  [general]
+  conferences = tpc-2018-glasgow lpw2019 ....
+  searchlimit = 20
+  dir_static  = $($home)/wwwdocs
+  dir_photos  = photos
+  dir_ttc     = $(home)/var
+  max_imgsize = 320x200
+  root        = $(home)
+
+=over
+
+=item C<conferences>
+
+A space-separated list of conferences served by this installation.
+
+=item C<searchlimit>
+
+The limit of entries produced on one screen by a user search.
+
+=item C<dir_photos>
+
+Where user photos are stored.  This directory must exist.  If this is
+a relative path, it is taken relative to the C<ACT_HOME> environment
+variable.
+
+This is a global variable because Act's authentication scheme is
+per-installation and not per-conference.
+
+=item C<dir_static>
+
+The directory where static files provided by Act are located.
+Providers must drop files which are to be served under a "root URL",
+e.g. C<robots.txt>, under this directory.
+
+=item C<dir_ttc>
+
+Directory for compiled templates.  This directory must exist.
+
+=item C<max_imgsize>
+
+The maximum width and height for user photos in pixels, given as
+I<width>C<x>I<height>.  If users upload larger photos, they will be
+resized, keeping the aspect ratio, so that they comply with both
+limits.
+
+=item C<root>
+
+This is the internal value for Act's root directory, usually provided
+externally with the environment variable C<ACT_HOME> which gets
+translated to the conffiguration variable C<home>.
+
+FIXME: The consequences of having C<root> different from C<home> are
+pretty unclear.  So don't do that.
+
+=back
+
+=head2 Section C<database>
+
+  [database]
+  name        = act
+  dsn         = dbi:Pg:dbname=$(database_name)
+  user        = dbuser
+  passwd      = dbpass
+  test_dsn    = dbi:Pg:dbname=acttest
+  test_user   = dbuser
+  test_passwd = dbpass
+  pg_dump     = 1
+  dump_file   = /tmp/dbdump
+  version_check = 1
+  host = 0
+
+=over
+
+=item C<name>
+
+The name of the Act database.
+
+=item C<dsn>, C<user>, C<password>
+
+Connection parameters for the database.
+
+=item C<test_dsn>, C<test_user>, C<test_password>
+
+The tests can be run against a different database.
+
+=item C<pg_dump>, C<dump_file>
+
+The command and the target file for the database backup (PostgreSQL
+only).  A false value for C<pg_dump> prohibits backups with
+F<bin/dbbackup>.
+
+=item C<version_check>
+
+If true, Act will check at compile time whether the schema version
+of database and code match.
+
+=item C<host>
+
+The host where the database is running.  Set to C<0> if Act is using a
+C<local> connection to a database server running on the same host.
+
+=back
+
+=head2 Section C<email>
+
+  [email]
+  test        = 0
+  sender_address = root@localhost
+  hostname = localhost
+  port = 25
+
+=over
+
+=item C<test>
+
+If true, then it should be a mail address of a tester who receives
+copies of all outgoing mails.
+
+=item C<sender_address>
+
+This is used as the "From" address for outgoing mails.  Usually this
+setting is overridden by organizers for their own conference, but
+sometimes Act might want to send mails without a conference context.
+
+=item C<hostname> and C<port>
+
+Hostname and port of the SMTP server which is used for sending mail.
+Both settings are mandatory.
+
+For docker deployments and for testing, the settings can be overridden
+by the environment variables C<SMTP_HOST> and C<SMTP_PORT>,
+respectively.
+
+=back
+
+
+=head2 Section C<wiki>
+  [wiki]
+  dbname      = actwiki
+  dbuser      = dbuser
+  dbpass      = dbpass
+  dbhost      = 0
+
+As above, these are the settings for the wiki database.
+Note that there's no DSN parameter: The Act wiki assumes
+a PostGreSQL database.  For C<dbhost>, a value of C<0>
+is used for a C<local> connection to a database server
+running on the same host.
+
+=head2 Section C<payment>
+
+[payment]
+  open      = 0
+  invoices  = 0
+  type        = Fake
+  notify_bcc  = tester@localhost
+
+Hopefully you understand the documentation in
+L<Act::Manual::Provider::Payment>, because I don't.
+
+=head2 Section C<payment_type_*>
+
+  [payment_type_Fake]
+  plugin = Fake
+
+Every payment type as chosen in the previous sections has its own
+parameters, to be implemented as a Plugin.
+
+=head2 Section C<flickr>
+
+  [flickr]
+  # see http://www.flickr.com/services/api/
+  apikey  = 0123456789ABCDEF0123456789ABCDEF
+
+See L<Act::Manual::Organizer::Photos> for a description.

@@ -13,12 +13,13 @@
   <div id="ft">
     <div id="authors">
       <h3>Authors</h3>
-      Philippe Bruhat, Éric Cholet
+      Philippe Bruhat, Éric Cholet, Harald Jörg
     </div>
     <div id="copyright">
       <h3>Copyright</h3>
-      Copyright (C) 2004-2008, by Philippe Bruhat and Éric Cholet.
-      All Rights Reserved.
+      <p>Copyright &copy; 2004-2008, by Philippe Bruhat and Éric Cholet.</p>
+      <p>Copyright &copy; 2019 Harald Jörg &lt;haj@posteo.de&gt;</p>
+      <p>All Rights Reserved.</p>
     </div>
     <div id="license">
       <h3>License</h3>

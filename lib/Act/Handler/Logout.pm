@@ -1,12 +1,16 @@
 package Act::Handler::Logout;
 
 use strict;
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Util;
 
+use Plack::Session;
+
 sub handler
 {
+    my ($env) = @_;
     my $r = $Request{r};
 
     # disable client-side caching
@@ -16,7 +20,7 @@ sub handler
     $Request{user}->update(session_id => undef);
 
     # remove the session cookie
-    $r->auth_type->logout($r);
+    Plack::Session->new($env)->expire;
 
     # we're no longer authenticated
     undef $Request{user};
@@ -24,6 +28,7 @@ sub handler
     # display the logout page
     my $template = Act::Template::HTML->new();
     $template->process('logout');
+    return;
 }
 1;
 __END__

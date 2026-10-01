@@ -193,7 +193,9 @@ parameter. It also expects a B<C<destination>> uri to be passed in case you
 need to redirect the user to another page upon authentication).
 
 It will provide two fields for collecting credentials: B<C<credential_0>> for
-username and B<C<credential_1>> for password.
+username and B<C<credential_1>> for password, and a checkbox
+B<C<credential_2>> to record whether a login should be remembered on the client
+computer.
 
 The template will also provide a true value for the B<C<join>> parameter,
 meaning that the user pressed the submit button.

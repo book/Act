@@ -1,8 +1,9 @@
 package Act::Handler::CSV;
 use strict;
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
+use Act::Request;
 use Text::xSV;
+use parent qw(Act::Handler);
 
 my %CSV = (
     # report => [ auth_sub, sql, args ]
@@ -44,32 +45,42 @@ SQL
 
 sub handler
 {
+    my ( $env ) = @_;
+
+    my $req = Act::Request->new($env);
+    my $res = $req->response;
     # check csv request
-    unless ( exists $CSV{$Request{path_info}} ) {
-        $Request{status} = NOT_FOUND;
-        return;
+    my $type = $req->path_info;
+    $type =~ s!^/!!;
+    unless( exists $CSV{$type} ) {
+        $res->status(404);
+        return $res->finalize;
     }
-    my $report = $CSV{$Request{path_info}};
+    my $report = $CSV{$type};
 
     # check rights
-    unless ($Request{user} && $report->[0]->($Request{user})) {
-        $Request{status} = FORBIDDEN;
-        return;
+    unless ( $Request{user} && $report->[0]->($Request{user})) {
+        $res->status(403);
+        return $res->finalize;
     }
 
     # retrieve the information
-    my $sth = $Request{dbh}->prepare( $report->[1] );
-    $sth->execute( $Request{conference}, @{$report->[2]} );
+    my $sth = $Request{'dbh'}->prepare( $report->[1] );
+    $sth->execute( $env->{'act.conference'}, @{$report->[2]} );
 
     # and spit out the xSV report
-    $Request{r}->send_http_header('text/csv; charset=UTF-8');
+    $res->content_type('text/csv; charset=UTF-8');
 
-    my $csv = Text::xSV->new;
-    print $csv->format_row( @{$sth->{NAME_lc}} );
+    my $csv  = Text::xSV->new;
+    my $body = '';
+    $body .= $csv->format_row( @{$sth->{NAME_lc}} );
     while( my $row = $sth->fetchrow_arrayref() ) {
-        print $csv->format_row(@$row);
+        $body .= $csv->format_row(@$row);
     }
 
+    utf8::encode($body);
+    $res->body($body);
+    return $res->finalize;
 }
 
 1;

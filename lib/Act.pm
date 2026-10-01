@@ -1,6 +1,6 @@
 package Act;
 
-our $VERSION = '1.00';
+our $VERSION = '2.00';
 
 1;
 
@@ -94,6 +94,8 @@ Act is sometimes B<erroneously> spelled "ACT".
 
 =head1 HISTORY OF THE SOFTWARE
 
+=head2 Origin and Early Years
+
 In 2003, when the French Perl Mong(u)e(u)rs began organising their
 YAPC::Europe in Paris, they thought about the web site and what they
 wanted to do with it. Starting from Sylvain Lhullier's prototype,
@@ -137,6 +139,49 @@ it will increase visibility and acceptance.
 
 Act currently supports 6 languages: English, French, Italian, Portuguese,
 German and Hungarian. A Hebrew version is in the works.
+
+=head2 A New Decade
+
+...But then, everything fell silent.  Until today, Act is not on CPAN.
+The software worked just fine, so why bother?  Over the years the
+environment evolved.  Apache 1 was superseded with Apache 2, also
+bringing a completely new version of mod_perl.  New alternatives to
+mod_perl were born, making mod_perl look a bit old-fashioned.  Act
+continued to run on Apache 1 and mod_perl 1.
+
+There were several activities to re-vitalize Act.  Details are lost
+(Pull Requests welcome), but some what's still visible is the relics
+are available:
+
+=over 4
+
+=item *
+
+At some point, the Act software was published on GitHub at
+L<https://github.com/book/Act>.  Development continued on SVN, but
+occasionally the changes would be merged to GitHub.
+
+=item *
+
+Rob Hoelz and Graham Knop started to port Act to the new L<PSGI>, but
+activities stopped.
+
+=item *
+
+The L<Act-Voyager repository on
+GitHub|https://github.com/Act-Voyager>, driven by Theo van Hoesel with
+many contributors, saw a lot of activity until about 2013.
+
+=back
+
+=head2 Restarting ... Again
+
+In 2018, some attendees of the German Perl Workshop noticed that the
+Act wiki didn't handle German umlauts correctly.  They found it hard
+to believe that the Perl community would not be able to fix that, dug
+into the code, and started a new activity.  This is still work in
+progress.
+
 
 =head1 COPYRIGHT
 

@@ -1,7 +1,7 @@
 package Act::Handler::User::Create;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(FORBIDDEN);
 use Act::Config;
 use Act::Country;
 use Act::Form;
@@ -34,7 +34,7 @@ sub handler
 {
     # only orgas can run this
     unless ( $Request{user}->is_users_admin ) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
 
@@ -76,8 +76,8 @@ sub handler
             	$fields->{timezone} = $Config->general_timezone;
 
                 # generate a random password
-                my ($clear_passwd, $crypt_passwd) = Act::Util::gen_password();
-                $fields->{passwd} = $crypt_passwd;
+                my $clear_passwd = Act::Util::gen_password();
+                $fields->{password} = $clear_passwd;
 
                 # insert user in database
                 # and participation to this conference
@@ -85,8 +85,8 @@ sub handler
                     %$fields,
                     participation => {
                         tshirt_size => $fields->{tshirt},
-                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
-                        ip          => $Request{r}->connection->remote_ip,
+                        datetime    => format_datetime_string(DateTime->now()),
+                        ip          => $Request{r}->address,
                     },
                 );
 
@@ -147,6 +147,7 @@ sub handler
         errors     => \@errors,
     );
     $template->process('user/create');
+    return;
 }
 
 1;

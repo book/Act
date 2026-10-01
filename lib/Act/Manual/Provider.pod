@@ -9,6 +9,10 @@ It is divided in several subsections:
 
 =over 4
 
+=item L<Act::Manual::Provider::Configuration>
+
+A description of the global configuration items.
+
 =item L<Act::Manual::Provider::Payment>
 
 The online payment architecture in Act.
@@ -17,7 +21,10 @@ The online payment architecture in Act.
 
 Some performance hints for running Act on your system.
 
+=item L<Act::Manual::Provider::Templates>
+
+Templates which can be customized by an Act provider
+
 =back
 
 =cut
-

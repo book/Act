@@ -1,13 +1,19 @@
 package Act::User;
+use strict;
+use base qw( Act::Object );
+
+use Act::Auth::Password;
 use Act::Config;
+use Act::Country;
 use Act::Object;
 use Act::Talk;
-use Act::Country;
 use Act::Util;
-use Digest::MD5 qw( md5_hex );
+use Encode qw(encode);
+use Digest::MD5 qw(md5_hex);
+use Digest::SHA qw(sha512);
 use Carp;
 use List::Util qw(first);
-use base qw( Act::Object );
+use Try::Tiny;
 
 # rights
 our @Rights = qw( admin users_admin talks_admin news_admin wiki_admin
@@ -117,7 +123,7 @@ sub talks {
 }
 sub register_participation {
   my ( $self ) = @_;
-  
+
   my $sth = $Request{dbh}->prepare_cached(q{
         SELECT  tshirt_size
         FROM    participations
@@ -126,20 +132,20 @@ sub register_participation {
         ORDER BY datetime DESC
         LIMIT 1
   });
-                                
+
   $sth->execute( $self->user_id );
   my ($tshirt_size) = $sth->fetchrow_array;
   $sth->finish;
-                                
+
   # create a new participation to this conference
   $sth = $Request{dbh}->prepare_cached(q{
         INSERT INTO participations
           (user_id, conf_id, datetime, ip, tshirt_size)
         VALUES  (?,?, NOW(), ?, ?)
   });
-  
-  $sth->execute( $self->user_id, $Request{conference},
-    $Request{r}->connection->remote_ip, $tshirt_size );
+
+  $sth->execute($self->user_id, $Request{conference},
+    $Request{r}->address, $tshirt_size);
   $sth->finish();
   $Request{dbh}->commit;
 }
@@ -239,6 +245,8 @@ my %methods = (
 );
 
 for my $meth (keys %methods) {
+    no strict 'refs';
+
     *{$meth} = sub {
         my $self = shift;
         return $self->{$meth} if exists $self->{$meth};
@@ -285,8 +293,8 @@ sub conferences {
             conf_id => $conf_id,
             url     => $cfg->general_full_uri,
             name    => $cfg->name->{$Request{language}},
-            begin   => DateTime::Format::Pg->parse_timestamp( $cfg->talks_start_date ),
-            end     => DateTime::Format::Pg->parse_timestamp( $cfg->talks_end_date ),
+            begin   => format_datetime_string( $cfg->talks_start_date ),
+            end     => format_datetime_string( $cfg->talks_end_date ),
             participation => 0,
             # opened => ?
         };
@@ -312,6 +320,9 @@ sub create {
     $class->init();
 
     my $part = delete $args{participation};
+    my $password = delete $args{password};
+    $args{passwd} = Act::Auth::Password::_crypt_password($password)
+        if defined $password;
     my $user = $class->SUPER::create(%args);
     if ($user && $part && $Request{conference}) {
         @$part{qw(conf_id user_id)} = ($Request{conference}, $user->{user_id});
@@ -367,8 +378,9 @@ sub possible_duplicates {
     for my $attr (qw( login email nick_name full_name last_name )) {
         push @twins, grep { !$seen{ $_->user_id }++ }
             map {@$_}
-            Act::User->get_items( $attr => map { s/([.*(){}^$?])/\\$1/g; $_ }
-                $self->$attr() )
+            Act::User->get_items(
+                $attr => map { s/([.*(){}^\$?])/\\$1/g; $_ } $self->$attr()
+            )
             if $self->$attr();
     }
     $_->most_recent_participation() for @twins;

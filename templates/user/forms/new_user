@@ -30,7 +30,6 @@
   <td>
     <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
   </td>
-    <input type="hidden" name="ignore_duplicates" value="[% ignore_duplicates %]" />
 </tr>
 <tr>
   <td align="right">{{Country}}</td>
@@ -66,6 +65,7 @@
 </tr>
 <tr>
    <td colspan="3" align="right">
+      <input type="hidden" name="ignore_duplicates" value="[% ignore_duplicates %]" />
       <input type="submit" name="join" value="{{Join!}}" />
    </td>
 </tr>

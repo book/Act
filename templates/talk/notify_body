@@ -12,18 +12,24 @@
 [% IF diff;
    # field name to i18n id mapping
    fields = {
+     accepted       => "accepted"
+     allow_record   => "Allow recording"
+     audience       => "Target audience"
+     comment        => "Comments"
+     confirmed      => "confirmed"
+     datetime       => "Date"
+     duration       => "Duration"
+     hide_details   => "Hide details"
+     is_lightning   => "Lightning talk"
+     room           => "Room"
+     teaser         => "Teaser"
      title          => "Title"
+     track          => "Track"
      url_abstract   => "Abstract URL"
      url_talk       => "Talk URL"
-     comment        => "Comments"
-     duration       => "Duration"
-     is_lightning   => "Lightning talk"
-     accepted       => "accepted"
-     confirmed      => "confirmed"
-     datetime       => "Date",
-     room           => "Room"
-     track          => "Track"
-     audience       => "Target audience"
+     url_video1     => "Video URLs"
+     url_video2     => "Video URLs"
+     url_video3     => "Video URLs"
    };
    FOREACH d=diff %]
 -[% loc(fields.$d) %]: [% IF d == 'datetime'; datetime(tbefore); ELSE; tbefore.$d; END %]
@@ -57,5 +63,5 @@
 [% talk.abstract %]
 
 
-{{Comments:}}
+{{Comments}}:
 [% talk.comment %]

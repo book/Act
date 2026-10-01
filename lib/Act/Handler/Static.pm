@@ -3,7 +3,7 @@
 package Act::Handler::Static;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use File::Spec;
 
 use Act::Config;
@@ -26,8 +26,13 @@ sub handler
         $template->process($Request{path_info});
     }
     else {
-        $Request{status} = NOT_FOUND;
+        my $log = $Request{r}->env->{'psgi.errors'};
+        print $log "Unable to find template '$file'\n";
+        print $log "Searched under:\n";
+        print $log "  $_\n" foreach  @{ $template->{INCLUDE_PATH} };
+        $Request{status} = 404;
     }
+    return;
 }
 1;
 __END__

@@ -1,8 +1,9 @@
 package Act::Handler::User::ChangePassword;
 
 use strict;
+use parent 'Act::Handler';
 
-use Act::Auth; 
+use Act::Auth::Password;
 use Act::Config;
 use Act::Form;
 use Act::Template::HTML;
@@ -10,6 +11,9 @@ use Act::User;
 use Act::Util;
 use Act::TwoStep;
 use Digest::MD5 ();
+use Plack::Session;
+use Try::Tiny;
+
 
 my $form = Act::Form->new(
   required => [qw(newpassword1 newpassword2)],
@@ -51,6 +55,7 @@ my $twostep_template = 'user/twostep_change_password';
 
 sub handler
 {
+    my ($env) = @_;
     my $template = Act::Template::HTML->new();
     my $fields;
     if ($Request{args}{ok}) {
@@ -62,19 +67,19 @@ sub handler
         $fields = $form->{fields};
 
         my ($token, $token_data);
-        if ($Request{user}) { # 
+        my $login;
+        if ($Request{user}) { #
+            $login = $Request{user}->login;
             # compare passwords
-            my $digest = Digest::MD5->new;
-            $digest->add($fields->{oldpassword});
-            if ( $digest->b64digest() ne $Request{user}{passwd} ) {
-                # compare lc passwords (r1549)
-                $digest->reset;
-                $digest->add(lc $fields->{oldpassword});
-                if ( $digest->b64digest() ne $Request{user}{passwd} ) {
-                    $ok = 0;
-                    $form->{invalid}{oldpassword} = 1;
-                }
+            try {
+                Act::Auth::Password->check_password(
+                    $login,$fields->{oldpassword}
+                );
             }
+            catch {
+                $ok = 0;
+                $form->{invalid}{oldpassword} = 1;
+            };
         }
         else { # must have a valid twostep token if not logged in
             ($token, $token_data) = Act::TwoStep::verify_form()
@@ -92,14 +97,13 @@ sub handler
             unless ($Request{user}) {
                 my $user = Act::User->new(user_id => $token_data)
                     or die "unknown user_id: $token_data\n";
-                my $sid = Act::Util::create_session($user);
-                Act::Auth->send_cookie($sid);
                 Act::TwoStep::remove($token);
+                $login = $user->login;
+                Plack::Session->new($env)->set(login => $user->login);
             }
             # update user
-            $Request{user}->update(
-                passwd => Act::Util::crypt_password( $fields->{newpassword1} )
-            );
+            Act::Auth::Password->set_password( $login,
+                                               $fields->{newpassword1} );
 
             # redirect to user's main page
             return Act::Util::redirect(make_uri('main'));
@@ -138,6 +142,7 @@ sub handler
     }
     # display form
     $template->process('user/change_password');
+    return;
 }
 
 1;

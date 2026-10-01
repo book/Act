@@ -1,7 +1,7 @@
 package Act::Handler::Track::Edit;
 use strict;
+use parent 'Act::Handler';
 
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
 use Act::Config;
 use Act::Form;
 use Act::Template::HTML;
@@ -17,7 +17,7 @@ my $form = Act::Form->new(
 sub handler {
 
     unless ($Request{user}->is_talks_admin) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $template = Act::Template::HTML->new();
@@ -32,7 +32,7 @@ sub handler {
 
     # cannot edit non-existent track
     if (exists $Request{args}{track_id} and not defined $track) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -89,6 +89,7 @@ sub handler {
     # display the track submission form
     $template->variables(defined $track ? %$track : %$fields);
     $template->process('track/edit');
+    return;
 }
 
 1;

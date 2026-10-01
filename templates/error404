@@ -1,0 +1,34 @@
+[% DEFAULT title = 'This page does not exist.' -%]
+<!DOCTYPE html>
+<html lang="[% global.request.language %]">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="[% make_uri_info('css', 'act-base.css') %]" />
+    <title>[% title  %]</title>
+  </head>
+  <body>
+    <h1>[% title  %]</h1>
+
+    <p>There is no page at <tt>[% path_info %]</tt>.</p>
+
+    <p>This server is providing Act - A conference toolkit.
+      Act has been created by
+      <a href="http://act.mongueurs.net/">French Perl Mongers</a>
+      and is now developed by volunteers from all over Europe.
+      <em>This</em> installation runs on a
+      <a href="https://github.com/act-psgi/Act">fork</a> of the
+      original software.
+    </p>
+    <p>A developer installation should have the
+      <a href="/demo/">Demo conference</a> available.
+    </p>
+    <p>You might also want to have a look at the
+      <a href="/manual/Manual.html">Act Manual</a> for this fork.
+    </p>
+    <p>Site admins may override this error page by creating a
+      directory <tt>$ACT_HOME/static</tt> and creating a
+      template <tt>error404</tt> in that directory.
+    </p>
+
+  </body>
+</html>

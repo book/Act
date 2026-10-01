@@ -1,18 +1,17 @@
 package Act::Handler::Wiki;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
-use DateTime;
-use DateTime::Format::Pg;
-use Encode;
-use Text::Diff ();
+use parent 'Act::Handler';
 
 use Act::Config;
-use Act::Template::HTML;
 use Act::Tag;
+use Act::Template::HTML;
 use Act::User;
 use Act::Util;
 use Act::Wiki;
+use DateTime;
+use Encode qw( decode );
+use Text::Diff ();
 
 my %actions = (
     display => \&wiki_display,
@@ -29,20 +28,30 @@ sub handler
     if ($Request{path_info}) {
         my ($type, $tag) = split '/', $Request{path_info};
         if ($type eq 'tag' && $tag) {
-            $action = 'tags';
-            @args = ( $tag );
+            eval {
+                $tag = decode('UTF-8',$tag,Encode::FB_CROAK);
+            };
+            if ($@) {
+                # Invalid encoding isn't allowed to find anything
+                $action = 'display';
+            }
+            else {
+                $action = 'tags';
+                @args = ( $tag );
+            }
         }
     }
     else {
         $action = $Request{args}{action} || 'display';
     }
     unless (exists $actions{$action}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     my $wiki     = Act::Wiki->new();
     my $template = Act::Template::HTML->new();
     $actions{$action}->($wiki, $template, @args);
+    return;
 }
 
 # display a specific node (wiki page)
@@ -74,8 +83,8 @@ sub wiki_recent
                 $wiki->list_recent_changes(since => $date->epoch);
     for my $node (@nodes) {
         $node->{user} = Act::User->new( user_id => $node->{metadata}{user_id}[0]);
-        $node->{name} = Act::Wiki::split_node_name(Encode::decode_utf8($node->{name}));
-        $node->{last_modified} = DateTime::Format::Pg->parse_datetime($node->{last_modified});
+        $node->{name} = Act::Wiki::split_node_name($node->{name});
+        $node->{last_modified} = format_datetime_string($node->{last_modified});
     }
     $template->variables(
         nodes  => \@nodes,
@@ -95,14 +104,14 @@ sub wiki_history
 
     my $node = $Request{args}{node};
     unless ($node) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
     my @versions = $wiki->list_node_all_versions(name => Act::Wiki::make_node_name($node), with_metadata => 1);
     for my $v (@versions) {
         $v->{user} = Act::User->new(user_id => $v->{metadata}{user_id});
-        $v->{last_modified} = DateTime::Format::Pg->parse_datetime($v->{last_modified});
+        $v->{last_modified} = format_datetime_string($v->{last_modified});
     }
     $template->variables(
         node     => $node,
@@ -118,7 +127,7 @@ sub wiki_diff
     my $node = $Request{args}{node};
 
     unless ($node && $Request{args}{r1} && $Request{args}{r2}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -127,13 +136,14 @@ sub wiki_diff
         my %v = $wiki->retrieve_node(name => Act::Wiki::make_node_name($node), version => $Request{args}{$r});
 
         unless ($v{version} == $Request{args}{$r}) {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
         }
 
         $v{user} = Act::User->new(user_id => $v{metadata}{user_id}[0]);
-        $v{last_modified} = DateTime::Format::Pg->parse_datetime($v{last_modified});
+        $v{last_modified} = format_datetime_string($v{last_modified});
         $v{content} =~ s/\n?$/\n/s;
+
         $versions{$r} = \%v;
     }
 
@@ -171,7 +181,6 @@ sub wiki_tags
 
     # searching by tag
     if ($tag) {
-        $tag = Act::Util::normalize($tag);
         my @names = Act::Tag->find_tagged(
             conf_id     => $Request{conference},
             type        => 'wiki',
@@ -183,7 +192,7 @@ sub wiki_tags
             my %node = $wiki->retrieve_node(name => $name);
             $node{user} = Act::User->new( user_id => $node{metadata}{user_id}[0]);
             $node{name} = $node;
-            $node{last_modified} = DateTime::Format::Pg->parse_datetime($node{last_modified});
+            $node{last_modified} = format_datetime_string($node{last_modified});
             push @nodes, \%node;
         }
         $template->variables(

@@ -62,8 +62,14 @@ msgstr "Perl mongers group"
 msgid "Company"
 msgstr "Company"
 
+msgid "Position"
+msgstr "Position"
+
 msgid "Email"
 msgstr "Email"
+
+msgid "Phone"
+msgstr "Phone"
 
 msgid "Web page"
 msgstr "Web page"
@@ -1437,3 +1443,5 @@ msgstr "Unknown order ID."
 msgid "User is not registered."
 msgstr "User is not registered."
 
+msgid "Sorry, registration for this conference has been closed."
+msgstr "Sorry, registration for this conference has been closed."

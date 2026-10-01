@@ -1,19 +1,24 @@
 #!/usr/bin/env perl
 use strict;
+
+use lib::abs '/opt/act/lib';
+
 use DBI;
 use Act::Config;
 use Act::Database;
 use Getopt::Std qw(getopts);
 
 my %databases = (
-    main => [ $Config->database_dsn,
-              $Config->database_user,
-              $Config->database_passwd,
-            ],
-    test => [ $Config->database_test_dsn,
-              $Config->database_test_user,
-              $Config->database_test_passwd,
-            ],
+    main => { dsn    => $Config->database_dsn,
+              user   => $Config->database_user,
+              passwd => $Config->database_passwd,
+              host   => $Config->database_host,
+            },
+    test => { dsn    => $Config->database_test_dsn,
+              user   => $Config->database_test_user,
+              passwd => $Config->database_test_passwd,
+              host   => $Config->database_test_host,
+            },
 );
 
 # command line options
@@ -22,7 +27,12 @@ getopts('n', \%opts) or usage();
 
 my $database = shift || 'main';
 my $c = $databases{$database} or usage();
-my $dbh = DBI->connect(@$c,
+
+if ( $c->{host} ) {
+    $c->{dsn} .= ";host=" . $c->{host};
+}
+
+my $dbh = DBI->connect($c->{dsn}, $c->{user}, $c->{passwd},
                         { AutoCommit => 0,
                           PrintError => 0,
                           RaiseError => 1,

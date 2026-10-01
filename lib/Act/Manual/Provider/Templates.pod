@@ -1,0 +1,26 @@
+=head1 Templates for Act Providers
+
+=head2 Custom 404 response
+
+Whenever an user request a page from the Act server, this is responded
+to with a C<404 Not Found> status code.  Many providers use this
+opportunity to enhance this status code with their own content.
+
+Act comes with its own template for 404 pages, but it is a good idea
+to override this with a custom response.
+
+To do so, perform the following steps:
+
+=over 4
+
+=item Create a directory C<static> under $ACT_HOME.
+
+=item In that directory, write your content to a file F<error404>.
+
+=back
+
+So, the full path to your custom template is
+F<$ACT_HOME/static/error404>.  This template is processed with Act's
+Template Toolkit, therefore you can use the templates in the
+F<$ACT_HOME/templates> directory, but it has I<no access> to
+configuration data nor to templates customized for a conference.

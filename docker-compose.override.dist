@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  act:
+    command:
+      - "plackup"
+      - "-r"
+      - "app.psgi"
+    environment:
+      - "ACT_DEBUG=Environment Response DBITrace Memory Timer"
+  act-db:
+    ports:
+      - "5432:5432"
+  act-wiki-db:
+    ports:
+      - "5433:5432"
+  smtpd:
+    ports:
+      - "8025:8025"
+
+networks:
+    default:

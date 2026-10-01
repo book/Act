@@ -1,6 +1,6 @@
 package Act::Handler::Payment::Edit;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Invoice;
 use Act::Order;
@@ -11,7 +11,8 @@ use Act::Util;
 
 sub handler
 {
-    _handler() or $Request{status} = NOT_FOUND;
+    _handler() or $Request{status} = 404;
+    return;
 }
 sub _handler
 {

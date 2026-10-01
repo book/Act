@@ -1,5 +1,17 @@
 Changes in Act
 
+2019/05/09 stage1 Second developer release
+                  * Unicode for wiki and tags (including tags for talks)
+                  * New documentation pages: Debugging, Provider/Configuration
+                  * 404 handling with a customizable template
+                  * A dozen or so bugfixes
+
+2019/04/17 stage0 End of hiatus!
+                  This is an easy-to-start developer installation which
+                  uses PSGI to communicate with web servers - and it passes
+                  all tests in the distribution.
+                  See the release notes or the Git history for details.
+
 [main changes only -- see http://svnweb.mongueurs.net/Act/log/branches/stable for full list]
 
 2008/08/09 r1992 personal schedule

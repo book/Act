@@ -17,12 +17,19 @@ In your C<handler> subroutine:
 
 =item *
 
-Figure out what to do, based on the query's arguments C<$Request{args}>
-or maybe using C<$Request{path_info}>.
+Figure out what to do, based on the PSGI environment C<$env> given in
+C<@_>.  During the refactoring process, there's still the global
+C<$Request> which also provides the query's arguments
+C<$Request{args}> and C<$Request{path_info}>.
 
 =item *
 
-Do it. You might need to query the database with C<$Request{dbh}>.
+Do it.  You can get access to the database with
+C<< Act::Store::Database->instance->schema >>, which is the
+L<DBiX::Class> schema for Act.
+
+Old handlers use C<$Request{dbh}> to work directly with the database
+handler.
 
 =item *
 

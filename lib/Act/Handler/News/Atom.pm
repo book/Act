@@ -1,6 +1,8 @@
 use strict;
 package Act::Handler::News::Atom;
 
+use parent 'Act::Handler';
+
 use DateTime;
 use XML::Atom::Feed;
 use XML::Atom::Entry;
@@ -65,6 +67,7 @@ sub handler
     }
     $Request{r}->send_http_header('application/atom+xml; charset=UTF-8');
     $Request{r}->print($feed->as_xml);
+    return;
 }
 
 sub rfc3339 { shift->iso8601 . 'Z' }

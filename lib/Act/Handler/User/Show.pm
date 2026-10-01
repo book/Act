@@ -1,6 +1,7 @@
 package Act::Handler::User::Show;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
+
 use Act::Config;
 use Act::Country;
 use Act::Template::HTML;
@@ -12,7 +13,7 @@ sub handler
     # retrieve user_id
     my $user_id = $Request{path_info};
     unless ($user_id =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve user
@@ -29,7 +30,7 @@ sub handler
             $Request{conference} ? ( conf_id => $Request{conference} ) : (),
           )
           or do {
-            $Request{status} = NOT_FOUND;
+            $Request{status} = 404;
             return;
           };
     }
@@ -39,7 +40,7 @@ sub handler
     my %bio = %{$user->bio};  # deep copy avoid double encoding bug
     ( exists $Config->languages->{$_} && $bio{$_} !~ /^\s*$/ )
     || delete $bio{$_} for keys %bio;
-    
+
     $template->variables(
         %$user, # for backwards compatibility
         user => $user,
@@ -58,8 +59,10 @@ sub handler
         bio => \%bio,
         conferences => [ grep { $_->{participation} } @{$user->conferences()} ],
         mytalks => $user->my_talks,
+        photo_uri => join ('/', undef, 'photos', $user->photo_name),
     );
     $template->process('user/show');
+    return;
 }
 
 1;

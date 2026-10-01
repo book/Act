@@ -7,6 +7,7 @@ use HTML::TagCloud;
 use URI::Escape;
 
 use Act::Config;
+use Act::Util qw( usort );
 
 # class data used by Act::Object
 our $table       = 'tags';
@@ -90,7 +91,7 @@ sub get_cloud
     my $cloud = HTML::TagCloud->new;
     for my $t (@$tags) {
         my ($tag, $count) = @$t;
-        my $url = join '/', $Request{r}->uri, 'tag', URI::Escape::uri_escape_utf8($tag);
+        my $url = join '/', $Request{r}->script_name, 'tag', URI::Escape::uri_escape_utf8($tag);
         $cloud->add($tag, $url, $count);
     }
     return $cloud->html_and_css;
@@ -99,10 +100,9 @@ sub split_tags
 {
     my ($class, $string) = @_;
     my %seen;
-    return sort
-           map Act::Util::normalize($_),
+    return usort { $_ }
            grep $_ && !$seen{$_}++,
-           split /[^\w.:]+/, $string;
+           split /\s+/, $string;
 }
 
 =head1 NAME

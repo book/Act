@@ -1,11 +1,6 @@
 package Act::Handler::Talk::ExportIcal;
 use strict;
-
-use Apache::Constants qw(FORBIDDEN);
-use DateTime::Format::Pg;
-use Data::ICal;
-use Data::ICal::Entry::Event;
-use Data::ICal::TimeZone;
+use parent 'Act::Handler';
 
 use Act::Abstract;
 use Act::Config;
@@ -13,7 +8,9 @@ use Act::Event;
 use Act::Talk;
 use Act::TimeSlot;
 use Act::Util;
-
+use Data::ICal::Entry::Event;
+use Data::ICal::TimeZone;
+use Data::ICal;
 
 #
 # handler()
@@ -23,12 +20,13 @@ sub handler {
     unless ( $Request{user} && $Request{user}->is_talks_admin
         || $Config->talks_show_schedule )
     {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 404;
         return;
     }
 
     my $timeslots = _get_timeslots();
     export($timeslots);
+    return;
 }
 
 
@@ -100,7 +98,7 @@ sub _get_timeslots {
 sub _get_cal_entry_defaults {
     my %defaults = (
         datetime =>
-            DateTime::Format::Pg->parse_timestamp( $Config->talks_start_date ),
+            format_datetime_string( $Config->talks_start_date ),
         duration =>
             ( sort { $a <=> $b } keys %{ $Config->talks_durations } )[0],
     );
@@ -124,6 +122,7 @@ sub _setup_calendar_obj {
     );
 
     my $tzdef = Data::ICal::TimeZone->new(timezone => $tz_name);
+    $tzdef  or  die($tzdef->error_message);
     $cal->add_entry($tzdef->definition);
 
     return $cal;

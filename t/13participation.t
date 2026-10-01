@@ -1,6 +1,7 @@
-use Test::More tests => 6;
+use Test::More tests => 7;
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 use Act::Talk;
 use Act::User;
 

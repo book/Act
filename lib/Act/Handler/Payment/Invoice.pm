@@ -1,7 +1,6 @@
 package Act::Handler::Payment::Invoice;
 use strict;
-
-use Apache::Constants qw(NOT_FOUND FORBIDDEN);
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Form;
@@ -20,27 +19,27 @@ sub handler
 {
     # invoices must be enabled
     unless ($Config->payment_invoices || $Request{user}->is_treasurer) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
     # retrieve order_id
     my $order_id = $Request{path_info} || $Request{args}{order_id};
     unless ($order_id =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
     # get the order
     my $order   = Act::Order->new(   order_id => $order_id );
     unless ($order) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
     # only a treasurer or the client can see the invoice
     unless ($Request{user}->user_id == $order->user_id || $Request{user}->is_treasurer) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
         return;
     }
 
@@ -105,6 +104,7 @@ sub handler
         printer_uri      => self_uri(printer => 1),
     );
     $template->process('payment/invoice');
+    return;
 }
 
 1;

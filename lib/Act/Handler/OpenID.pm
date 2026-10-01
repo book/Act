@@ -1,7 +1,7 @@
 package Act::Handler::OpenID;
 
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Net::OpenID::Server;
 
 use Act::Config;
@@ -18,13 +18,15 @@ sub handler {
     $action = $Request{args}{action} || 'openid';
 
     unless (exists $actions{$action}) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
+    my $req = $Request{r};
+
     my $nos = Net::OpenID::Server->new(
-        get_args      => $Request{r},
-        post_args     => $Request{r},
+        get_args      => sub { $req->query_parameters->get($_[0]) },
+        post_args     => sub { $req->body_parameters->get($_[0]) },
         server_secret => sub { $_[0] },
         get_user      => sub { $Request{user} },
         is_identity   => sub { is_identity(@_) },
@@ -33,6 +35,7 @@ sub handler {
     );
 
     $actions{$action}->($nos, @args);
+    return;
 }
 
 sub is_identity {

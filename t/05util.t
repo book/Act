@@ -5,7 +5,7 @@ use utf8;
 use DateTime;
 use Test::MockObject;
 use constant NBPASS => 100;
-use Test::More tests => 79 + 5 * NBPASS;
+use Test::More tests => 24 + 3 * NBPASS;
 use Act::Config;
 
 BEGIN { use_ok('Act::Util') }
@@ -65,12 +65,10 @@ while (my ($u, $args, $expected) = splice(@t, 0, 3)) {
 # gen_password
 my %seen;
 for (1..NBPASS) {
-    my ($clear, $crypted) = Act::Util::gen_password();
+    my $clear  = Act::Util::gen_password();
     ok($clear);
     ok(!$seen{$clear}++);
-    ok($crypted);
     like($clear,   qr/^[a-z]+$/);
-    like($crypted, qr/^\S+$/);
 }
 # date_format
 use utf8;
@@ -89,26 +87,6 @@ is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, February 15, 2007 01
 
 $variants{en} = 'en_NZ';   # not in %Languages, fallback to 'en'
 is(Act::Util::date_format($dt, 'datetime_full'), 'Thursday, 15 February 2007 13:00', 'date_format en_NZ (aka en aka en_GB)');
-
-# normalize
-use charnames ();
-
-@t = (  a => [ qw(à á â ã ä å À Á Â Ã Ä Å) ],
-        c => [ qw(ç Ç) ],
-        e => [ qw(è é ê ë È É Ê Ë) ],
-        i => [ qw(ì í î ï Ì Í Î Ï) ],
-        n => [ qw(ñ Ñ) ],
-        o => [ qw(ò ó ô õ ö Ò Ó Ô Õ Ö) ],
-        u => [ qw(ù ú û ü Ù Ú Û Ü) ],
-        y => [ qw(ý ÿ Ý Ÿ) ],
-     );
-while (my ($n, $dlist) = splice(@t, 0, 2)) {
-    for my $chr (@$dlist) {
-        is (Act::Util::normalize($chr), $n, charnames::viacode(ord($chr)));
-    }
-}
-# normalize exceptions
-is (Act::Util::normalize('йéйè'), 'йeйe', charnames::viacode(ord('й')));
 
 # usort
 my @sorted = Act::Util::usort { $_->{foo} } ( { foo => 'éb' }, { foo => 'ec' }, { foo => 'eà' } );

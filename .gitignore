@@ -1,3 +1,30 @@
 # vi/vim swap file
-*.swp
-*.swo
+*.bak
+*.log
+*.old
+*.sw[a-z]
+/META.yml
+/Makefile
+/db/initial/**
+/docker-compose.override.yml
+/etc/act.ini
+/inc
+actdocs
+conf
+git
+github-hook
+var
+/conferences/*
+!conferences/demo/
+!conferences/README.md
+
+## Build artifacts
+# dzil intermediate
+/.build
+# dzil build result
+/Act-*
+# Test coverage results
+/cover_db
+# Act manual
+/wwwdocs/manual
+/wwwdocs/mandocs

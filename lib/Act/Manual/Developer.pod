@@ -11,9 +11,9 @@ area of the Act internals:
 
 A list of resources available to developers.
 
-=item L<Act::Manual::Developer::Installation>
+=item L<Act::Manual::Developer::DeveloperInstall>
 
-Installing Act.
+Installing Act for development.
 
 =item L<Act::Manual::Developer::UrlsAndFiles>
 
@@ -42,6 +42,10 @@ How to write handlers.
 =item L<Act::Manual::Developer::Database>
 
 Act's database usage.
+
+=item L<Act::Manual::Developer::Debugging>
+
+What Act is providing to help you finding bugs.
 
 =back
 

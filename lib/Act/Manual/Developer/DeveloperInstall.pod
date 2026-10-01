@@ -1,0 +1,242 @@
+=head1 Installing Act for Development
+
+B<Caution:> This installation guide works for branches which have been
+migrated from Apache/mod_perl to PSGI as their engine.  That's why
+this guide will never appear at the master branch of the original Act
+repository.
+
+For Debian systems, the following description has been implemented in the
+L<act-starter-debian|https://github.com/act-psgi/act-starter-debian>
+toolkit.  The description and the toolkit might occasionally be in
+sync.
+
+=head2 Installing System Packages
+
+For a developer installation, install the following packages:
+
+=over
+
+=item I<Git> - fast, scalable, distributed revision control system
+
+Debian package: git
+
+=item I<GNU C compiler> for XS modules installed with cpan(m)
+
+Debian package: gcc
+
+=item I<GNU make> also required by cpanm
+
+Debian: package: make
+
+=item I<GMP (Gnu Multiple Precision Arithmetic Library) headers> for installing Crypt::DH::GMP, a dependency of Net::OpenID::Server
+
+Debian package: libgmp-dev
+
+=item I<Development files for the GNOME XML library> for installing XML::LibXML with cpanm
+
+Debian package: libxml2-dev
+
+=item I<Perl interface to the libxml2 library> XML::LibXML
+
+Debian package: libxml-libxml-2.  This I<could> be installed with cpanm because we already installed the headers, but due to the version dependencies between libxml2 and XML::LibXML I prefer to use the package from the distribution.
+
+=item I<PostgreSQL> - a nice database engine
+
+Debian package: postgresql
+
+=item I<Development headers for PostgreSQL> to build the Perl database driver with cpanm
+
+Debian package: postgresql-server-dev-all
+
+=item I<PNG library headers> for building the Imager modules with cpanm
+
+Debian package: libpng-dev
+
+=item I<JPEG library headers> for building the Imager modules with cpanm
+
+Debian package: libjpeg-dev
+
+=item I<cpanminus> - get the cpanm command.
+
+Debian package: cpanminus
+
+=back
+
+Extra packages to consider for some features:
+
+=over
+
+=item I<Exim> - to send mail
+
+Any program able to send mail will do, all of them are sort of ugly.
+
+Debian package: exim4
+
+=back
+
+=head2 Get Act and Setup the Directory Structure
+
+=over
+
+=item 1. Chose a directory for the source.
+
+Inspired by the L<Linux Filesystem Hierarchy Standard|https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard>,
+C</opt/Act> would be a suitable location for the software.  If you don't want to use root privileges, you can chose C<~/opt/Act> or any other place.
+
+Create the chosen directory path I<without> the trailing C</Act>.
+
+=item 2. Get Act
+
+The original repository resides at L<https://github.com/book/Act>.  In
+addition, there are about 65 forks on GitHub to chose from, in various
+states of activity.  You need to pick a branch which incorporates the
+changes made by Rob Hoelz, Graham Knop and others in 2011 to make Act
+work with PSGI servers.
+
+Clone the repository to your target directory I<without> the trailing
+C</Act> like in the following example:
+
+  cd ~/opt
+  git clone https://github.com/act-psgi/Act.git
+
+=item 3. Create a directory for the data
+
+Usually it is a good idea to keep data which might change outside of
+the source tree.  In production, admins might want to customize the
+distribution templates or change translations which should not get
+lost after a software update.
+
+Following the FHS, you can chose C</var/opt/Act>, or C<~/var/opt/Act>
+(or whereever you like).  Create this directory.  This directory will
+be made known to Act as C<$ENV{ACT_HOME}> later.
+
+  mkdir --parents ~/var/opt/Act
+
+Link the translations and templates from the source tree to the data
+directory: During development, you I<want> to be able to change the
+distributed stuff.
+
+  ln --symbolic ~/opt/Act/templates ~/var/opt/Act/templates
+  ln --symbolic ~/opt/Act/po        ~/var/opt/Act/po
+  mkdir ~/var/opt/Act/photos
+
+=item 4. Create a conference ("demo" in this case)
+
+This files are copied because they are likely changed during tests.
+If you want to make changes to the skel files, you need to copy them
+back to the checkout area.
+
+  cp -r ~/opt/Act/skel/actdocs ~/var/opt/Act/actdocs/demo
+  cp -r ~/opt/Act/skel/wwwdocs ~/var/opt/Act/wwwdocs/demo
+
+=back
+
+=head2 Install the Perl Modules
+
+Thanks to Ilya Chesnokov's psgi_fixes many Act branches now come with
+a C<cpanfile>, which makes installation of the required modules a
+one-liner:
+
+  cd ~/opt/Act
+  cpanm --installdeps .
+
+You might want to add the C<--notest> option if you don't want to wait
+for about 15 minutes for this step to complete.
+
+For running the tests, an extra module is suggested:
+
+  cpanm Test::Pod
+
+=head2 Prepare the Databases
+
+=over
+
+=item 1. Create a database user
+
+PostgreSQL comes with a command line utility C<createuser>.
+The easiest way is to answer this utility's questions:
+
+  createuser --interactive
+
+A good name for the database user is C<act>.
+
+I<Note:> In older versions of PostgreSQL, C<--interactive> was I<on>
+by default, this is why older installation recipes don't mention it.
+
+The recommended settings are: User is no superuser, and may create
+databases.
+
+=item 2. Patch the PostgreSQL authentication config
+
+PostgreSQL stores its authentication setup in a file C<pg_hba.conf> in
+a directory lile C</etc/postgresql/9.6/main> (9.6 is the Pg version).
+In this file, find the following lines:
+
+  # "local" is for Unix domain socket connections only
+  local   all             all                            peer
+
+...and change by inserting one line like this:
+
+  # "local" is for Unix domain socket connections only
+  local   all             act                            trust
+  local   all             all                            peer
+
+This allows to use the database user (act in this case) from the
+commandline without a password.  After the change, restart the service:
+
+  sudo service postgresql restart
+
+I<Note:> Following the original installation guide the act user was
+created with administrative rights, and I<all> connections were opened up
+without a password.  This isn't required, and slightly dangerous,
+should you ever use PostgreSQL for other purposes.
+
+=back
+
+=head2 Fix the config.ini files
+
+The main config file is expected to be in C<$ACT_HOME/conf/act.ini>.  Copy
+the template from the checkout file C<etc/act.ini.dist> to that place
+and fix everything where you find C<FIXME> as a value.  Add the database
+user and password as provided in the previous step (we don't open
+everything up, remember?).
+
+Also fix all FIXMEs in the conference configuration under
+C<$ACT_HOME/conferences/demo/actdocs/act.ini>.
+
+=head2 Create the databases and tables
+
+=over
+
+=item 1. Create the databases
+
+You can now create the databases using your database user name from
+the commandline:
+
+  createdb --username=act --encoding=UTF8 --owner=act act
+  createdb --username=act --encoding=UTF8 --owner=act acttest
+  createdb --username=act --encoding=UTF8 --owner=act actwiki
+
+=item 2. Create the tables
+
+From the checkout area, run:
+
+  bin/dbinit | psql -U act act
+  bin/dbinit | psql -U act acttest
+  wiki-toolkit-setupdb --type postgres --name actwiki \
+                       --user act --pass your_password_here
+
+=back
+
+I<Note:> Recent changes in the code require the configuration to be
+fixed for C<dbinit> to run.  This is why this step appears much later
+in this recipe than in the original installation guide.
+
+=head2 Enjoy!
+
+You may now try to run the tests from the checkout area:
+
+  prove -lv -I.
+
+If they don't pass, then you either found a bug in the code, or in
+this recipe.  Don't hesitate to complain!

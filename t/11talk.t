@@ -1,6 +1,7 @@
-use Test::More tests => 21;
+use Test::More tests => 22;
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 use Act::Talk;
 use Act::User;
 use DateTime;
@@ -65,13 +66,19 @@ is_deeply( Act::Talk->new( user_id => $user2->user_id ),
    url_talk     => undef,
    url_abstract => undef,
    abstract     => undef,
+   teaser       => undef,
    room         => undef,
    lang         => undef,
    comment      => undef,
+   url_video1   => undef,
+   url_video2   => undef,
+   url_video3   => undef,
    # boolean values
    lightning    => 1,
    accepted     => 1,
    confirmed    => 0,
+   hide_details => 0,
+   allow_record => 1,
    },
   "User 2's talk" );
 

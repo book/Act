@@ -201,7 +201,7 @@ Fully redundant, backed up.
 
 =item *
 
-Runs under your own domain name.
+Runs under your own domain name, or on act.yapc.eu.
 
 =item *
 
@@ -209,7 +209,8 @@ Development / staging server.
 
 =item *
 
-Subversion repository for your conference site.
+Git repository for your conference site
+at L<https://github.com/Act-Conferences>
 
 =back
 

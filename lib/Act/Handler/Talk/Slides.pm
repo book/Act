@@ -1,10 +1,11 @@
 package Act::Handler::Talk::Slides;
 use strict;
+use parent 'Act::Handler';
+
 use Act::Config;
 use Act::Template::HTML;
 use Act::Talk;
 use Act::User;
-
 
 #
 # handler()

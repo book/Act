@@ -4,6 +4,7 @@ use strict;
 use HTML::Entities;
 use Template::Constants qw(CHOMP_COLLAPSE);
 use base 'Act::Template';
+use Scalar::Util qw(blessed);
 
 use Act::Config;
 
@@ -33,14 +34,14 @@ sub escape
     if (ref $_[0] eq 'DateTime') {
         return $_[0];
     }
-    if ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
+    if ($_[0] && blessed $_[0]) {
+        return $_[0];
+    }
+    elsif ($_[0] && UNIVERSAL::isa($_[0],'ARRAY')) {
         $self->escape($_) for @{$_[0]};
     }
     elsif ($_[0] && UNIVERSAL::isa($_[0],'HASH')) {
         $self->escape($_[0]{$_}) for keys %{$_[0]};
-    }
-    elsif (ref $_[0]) {
-        return $_[0];
     }
     elsif (defined $_[0]) {
         return HTML::Entities::encode($_[0], '<>&"');
@@ -64,7 +65,7 @@ sub process
 
     # set Content-Type and send HTTP headers if not already done
     my $r = $Request{r};
-    if ($r && ref($r) && $r->isa('Apache') && !$Request{sent_http_header}++) {
+    if ($r && ref($r) && $r->isa('Act::Request')) {
         $r->send_http_header('text/html; charset=UTF-8');
     }
     return $self->SUPER::process(@_);

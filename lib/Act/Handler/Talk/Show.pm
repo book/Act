@@ -1,6 +1,6 @@
 package Act::Handler::Talk::Show;
 use strict;
-use Apache::Constants qw(NOT_FOUND);
+use parent 'Act::Handler';
 use Act::Config;
 use Act::Template::HTML;
 use Act::Tag;
@@ -12,7 +12,7 @@ sub handler
     # retrieve talk_id
     my $talk_id = $Request{path_info};
     unless ($talk_id =~ /^\d+$/) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
     # retrieve talk
@@ -28,7 +28,7 @@ sub handler
                  || ($Request{user} && $Request{user}->is_talks_admin)
                  || ($Request{user} && $Request{user}->user_id == $talk->user_id) ) )
     {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     }
 
@@ -48,7 +48,7 @@ sub handler
         if $talk;
 
     unless ($talk && $user) {
-        $Request{status} = NOT_FOUND;
+        $Request{status} = 404;
         return;
     };
 
@@ -92,6 +92,7 @@ sub handler
     ) if $Config->talks_levels;
 
     $template->process('talk/show');
+    return;
 }
 
 1;

@@ -1,4 +1,6 @@
 package Act::Handler::User::Search;
+use strict;
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Template::HTML;
@@ -47,7 +49,7 @@ sub handler {
     $sth = $Request{dbh}->prepare_cached( $SQL );
     $sth->execute( $Request{conference} );
     %seen = ();
-    $pm_groups = [ Act::Util::usort { $_ }
+    my $pm_groups = [ Act::Util::usort { $_ }
                    grep !$seen{lc $_}++,
                    map { split /\s*[^\w. -]\s*/, $_->[0] }
                    @{$sth->fetchall_arrayref()}
@@ -67,7 +69,7 @@ sub handler {
         next          => defined($onext), 
     );
     $template->process('user/search_form');
-
+    return;
 }
 
 1;

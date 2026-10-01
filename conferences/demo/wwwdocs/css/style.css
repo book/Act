@@ -1,0 +1,37 @@
+body {
+	background-color: white;
+	color: black;
+	font-family: sans-serif;
+	margin: 0pt auto;
+}
+
+#wrapper {
+	margin: 0pt auto;
+	width: 850px;
+}
+
+#menu {
+	float: left;
+	font-size: 90%;
+	width: 150px;
+}
+
+#menu h2 {
+	font-size: 110%;
+}
+
+#menu li {
+    margin-left: 1em;
+    list-style-type: none;
+}
+
+#content {
+	float: right;
+	width: 700px;
+}
+
+#footer {
+	clear: both;
+	font-size: 80%;
+	text-align: right;
+}

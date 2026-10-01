@@ -10,7 +10,7 @@ use Act::Language;
 
 use AppConfig qw(:expand :argcount);
 use DateTime;
-use DateTime::Format::Pg;
+use DateTime::Format::HTTP;
 use File::Spec::Functions qw(catfile);
 
 # our configs
@@ -173,14 +173,14 @@ our %Image_formats = (
 
 # optional variables
 my @Optional = qw(
-  talks_show_all talks_notify_accept talks_levels talks_languages
-  talks_submissions_notify_address talks_submissions_notify_language
-  database_debug general_dir_ttc
-  flickr_apikey flickr_tags
-  payment_prices payment_products payment_notify_address
-  registration_open registration_max_attendees registration_gratis
-  registration_gratis
-  api_users
+    talks_show_all talks_notify_accept talks_levels talks_languages
+    talks_submissions_notify_address talks_submissions_notify_language
+    talks_schedule_default
+    database_debug general_dir_ttc
+    flickr_apikey flickr_tags
+    payment_prices payment_products payment_notify_address
+    registration_open registration_max_attendees registration_gratis
+    api_users
 );
 
 # salutations
@@ -191,13 +191,27 @@ load_configs() unless $^C;
 
 sub load_configs
 {
-    my $home = $ENV{ACTHOME} or die "ACTHOME environment variable isn't set\n";
+    my $home = $ENV{ACT_HOME};
+    # Check for deprecated ACTHOME environment variable
+    if (! defined $home  &&
+            defined $ENV{ACTHOME}  &&  -d $ENV{ACTHOME}) {
+        warn "Environment variable ACTHOME is deprecated." .
+            " Use ACT_HOME instead.";
+        $home = $ENV{ACTHOME};
+    }
+    die "ACT_HOME environment variable isn't set\n" unless $home;
     $GlobalConfig = _init_config($home);
     %ConfConfigs = ();
     %Timestamps  = ();
 
     # load global configuration
     _load_global_config($GlobalConfig, $home);
+
+    # Sanity checking - disable for now, breaks testing
+    #foreach (qw(general_dir_photos general_root)) {
+    #    my $dir =$GlobalConfig->$_;
+    #    die "Unable to find directory $dir for $_" unless -d $dir;
+    #}
 
     # load conference-specific configuration files
     # their content may override global config settings
@@ -206,7 +220,9 @@ sub load_configs
         # load conference configuration
         $ConfConfigs{$conf} = _init_config($home);
         _load_global_config($ConfConfigs{$conf}, $home);
-        _load_config($ConfConfigs{$conf}, catfile($home, 'actdocs', $conf));
+
+        _load_config($ConfConfigs{$conf},
+            catfile($GlobalConfig->general_dir_conferences, $conf, 'actdocs'));
 
         # conference languages
         my (%langs, %variants);
@@ -294,13 +310,16 @@ sub load_configs
 # reload configuration if one of the ini files has changed
 sub reload_configs
 {
+    my $configs_changed = 0;
     while (my ($file, $timestamp) = each %Timestamps) {
         my $mtime = (stat($file))[9];
         if (!defined($mtime) or $mtime > $timestamp) {
+            $configs_changed = 1;
             load_configs();
             last;
         }
     }
+    return $configs_changed;
 }
 # get configuration for current request
 sub get_config
@@ -312,7 +331,7 @@ sub get_config
         my $closed = !$ConfConfigs{$conf}->registration_open;
         # past conference's closing date
         unless ($closed) {
-            my $enddate = DateTime::Format::Pg->parse_timestamp($ConfConfigs{$conf}->talks_end_date);
+            my $enddate = Act::Util::format_datetime_string($ConfConfigs{$conf}->talks_end_date);
             $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
             $closed = ( DateTime->now() > $enddate );
         }
@@ -405,8 +424,12 @@ sub _get
 sub _load_config
 {
     my ($cfg, $dir) = @_;
+
     for my $file (qw< act local >) {
         my $path = catfile($dir, 'conf', "$file.ini");
+        if (-d $path) {
+            die "$path is a directory, please refer to the documentation\n";
+        }
         if (-e $path) {
             open my $fh, '<:encoding(UTF-8)', $path
                 or die "can't open $path: $!\n";
@@ -416,6 +439,7 @@ sub _load_config
         }
     }
 }
+
 sub _load_global_config
 {
     my ($cfg, $dir) = @_;
@@ -425,6 +449,7 @@ sub _load_global_config
     $cfg->set($_ => {}) for qw(api_keys);
     _merge_api_users($cfg);
 }
+
 sub _merge_api_users
 {
     my $cfg = shift;

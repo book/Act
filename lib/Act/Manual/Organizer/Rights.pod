@@ -1,5 +1,7 @@
 =head1 Rights
 
+=encoding utf8
+
 Overview of Act's built-in rights and what powers they grant.
 
 =head2 admin
@@ -123,5 +125,7 @@ enter payments manually
 =item *
 
 export payments to CSV
+
+=back
 
 =cut

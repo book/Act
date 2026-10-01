@@ -1,5 +1,6 @@
 package Act::Handler::User::Register;
 use strict;
+use parent 'Act::Handler';
 
 use Act::Config;
 use Act::Country;
@@ -8,10 +9,8 @@ use Act::Template::HTML;
 use Act::TwoStep;
 use Act::User;
 use Act::Util;
-
-use Apache::Constants qw(FORBIDDEN);
 use DateTime;
-use DateTime::Format::Pg;
+use Plack::Session;
 
 # twostep form
 my $twostep_form = Act::Form->new(
@@ -40,9 +39,17 @@ my $form = Act::Form->new(
 );
 
 sub handler {
+    my ($env) = @_;
     # conference is closed
     if ($Config->closed) {
-        $Request{status} = FORBIDDEN;
+        $Request{status} = 403;
+        my $template = Act::Template::HTML->new();
+        $template->variables(
+            closed   => 1,
+            end_date => format_datetime_string($Config->talks_end_date)->epoch,
+            end_date_fo => format_datetime_string($Config->talks_end_date),
+        );
+        $template->process('user/register');
         return;
     }
 
@@ -60,7 +67,7 @@ sub handler {
         else {
             my $template = Act::Template::HTML->new();
             $template->variables(
-                end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+                end_date => format_datetime_string($Config->talks_end_date)->epoch,
             );
             $template->process('user/register');
             return;
@@ -107,8 +114,8 @@ sub handler {
             	$fields->{timezone} = $Config->general_timezone;
 
                 # generate a random password
-                my ($clear_passwd, $crypt_passwd) = Act::Util::gen_password();
-                $fields->{passwd} = $crypt_passwd;
+                my $clear_passwd = Act::Util::gen_password();
+                $fields->{password} = $clear_passwd;
 
                 # insert user in database
                 # and participation to this conference
@@ -116,8 +123,8 @@ sub handler {
                     %$fields,
                     participation => {
                         tshirt_size => $fields->{tshirt},
-                        datetime    => DateTime::Format::Pg->format_timestamp_without_time_zone(DateTime->now()),
-                        ip          => $Request{r}->connection->remote_ip,
+                        datetime    => format_datetime_string(DateTime->now()),
+                        ip          => $Request{r}->address,
                     },
                 );
 
@@ -125,13 +132,14 @@ sub handler {
                 Act::TwoStep::remove($token);
 
                 # log the user in
-                Act::Util::login($user);
-                
+                Plack::Session->new($env)->set(login => $user->login);
+
                 # display "added page"
                 $template->variables(
                     clear_passwd => $clear_passwd,
                     %$fields
                 );
+                $Request{user} = $user;
                 $template->process('user/added');
                 return;
             }
@@ -177,9 +185,10 @@ sub handler {
         topten    => Act::Country::TopTen(),
         %$fields,
         duplicates => $duplicates,
-        end_date => DateTime::Format::Pg->parse_timestamp($Config->talks_end_date)->epoch,
+        end_date => format_datetime_string($Config->talks_end_date)->epoch,
     );
     $template->process('user/add');
+    return;
 }
 
 1;

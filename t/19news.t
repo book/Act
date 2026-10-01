@@ -1,4 +1,4 @@
-use Test::More tests => 16;
+use Test::More tests => 17;
 use Test::MockObject;
 use DateTime;
 
@@ -7,7 +7,8 @@ use Act::News;
 use Act::Template;
 
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 $Config->set(general_full_uri => 'http://example.com/conf/');
 
@@ -66,7 +67,7 @@ is(Act::News->content($fetched->text), $expected_content, "content as class meth
 $Request{r} = Test::MockObject->new;
 $Request{r}->set_true(qw(send_http_header))
            ->set_always(method => 'GET')
-           ->set_isa('Apache');
+           ->set_isa('Act::Request');
 $Config->set(languages => {});
 $Config->set(name => { en => 'foobar' });
 

@@ -3,15 +3,13 @@
 use strict;
 package Act::Email;
 
-use Encode ();
-#use List::Pairwise qw(mapp);
+use Encode qw(encode);
 
 use Act::Config;
 use Email::Address;
 use Email::Date;
 use Email::MessageID;
 use Email::Send ();
-#use Email::Send::Sendmail;
 use Email::Simple;
 use Email::Simple::Creator;
 
@@ -36,10 +34,13 @@ use Email::Simple::Creator;
 
 my $sender;
 unless ($^C) {
-    $Email::Send::Sendmail::SENDMAIL = $Config->email_sendmail;
-    #$sender = Email::Send->new( { mailer => 'Sendmail' } );
     $sender = Email::Send->new( { mailer => 'SMTP' } );
-    $sender->mailer_args([Host => "127.0.0.1"]);
+    $sender->mailer_args(
+        [
+            Host => $ENV{SMTP_HOST} // $Config->email_hostname,
+            Port => $ENV{SMTP_PORT} // $Config->email_port,
+        ]
+    );
 }
 
 sub send
@@ -67,9 +68,8 @@ sub send
                       );
         $args{body} = $dump . $args{body};
 
-        push @headers, ( To => Email::Address->new('Act tester', $Config->email_test)->format(),
-                         Subject => "[TEST] $args{subject}",
-                       );
+        push @headers, ( To => Email::Address->new('Act tester', $Config->email_test)->format());
+        $args{subject} = "[TEST] $args{subject}";
     }
     else {
         for my $header ( grep { exists $args{$_} } qw( to cc bcc ) )
@@ -81,8 +81,8 @@ sub send
             push @headers,
                 ( ucfirst $header => join ', ', map { $_->format() } @recips );
         }
-        push @headers, ( Subject => $args{subject} );
     }
+    push @headers, ( Subject => encode('MIME-Header', $args{subject}));
 
     my $charset;
     if ( $args{body} =~ /^\p{InBasicLatin}+$/ ) {

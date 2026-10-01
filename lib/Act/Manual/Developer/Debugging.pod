@@ -1,0 +1,76 @@
+=head1 Debugging Helpers
+
+=head2 Via L<Plack::Middleware::Debug>
+
+The dispatcher is wrapping every request in Plack's debugging
+middleware and controls it with the environment variable C<ACT_DEBUG>.
+To enable debugging, set this variable to a space-separated list of
+debugging sections (or "panels", as Plack calls them) like this:
+
+   export ACT_DEBUG="Environment Response Session DBITrace"
+
+The following information sections are available with Plack:
+
+=over
+
+=item Environment
+
+Shows the C<$env> variable which is the input to Acts handlers.  This
+is a bit lengthy because Act pushes the its configuration into the
+environment, but very helpful because of this very fact.
+
+=item Response
+
+The headers created by Plack
+
+=item Timer
+
+How long the request took.
+
+=item Memory
+
+Memory consumption during processing (as you might have guessed).
+
+=item Session
+
+The contents of the Plack session variable.  This is the session as
+managed by Plack in C<< $env-E<gt>{'psgix.session'} >> and I<not> the
+session used by Act, though, so of limited use right now.
+
+=item DBITrace
+
+A trace of database actions for this request.  We have no experience
+with this.
+
+=back
+
+=head3 Now what are these "panels"?
+
+The Plack middleware pushes the diagnostic content into every HTML
+response, for easy access with a browsers (or also by test clients).
+It is a CSS-controlled pop-up menu.  Unfortunately, the CSS
+customization of some conferences make it invisible - you might need
+to adjust (or disable) the style sheets to be able to make use of
+that.
+
+=head2 Logging
+
+The application driver C<app.psgi> enables the
+L<Plack::Middleware::SimpleLogger> which adds some information to
+message it gets and then prints them to the C<psgi.errors> stream.
+PSGI servers usually print that to C<STDERR>.  Per default it prints
+messages of severity C<warn> and higher.
+
+This logger, though enabled, is pretty much unused in the code until
+now.  The only component using it is the authentication module
+L<Act::Middleware::Auth> which prints a rich diagnostig message for
+failed login attempts.
+
+The logger has five levels of severity C<debug info warn error fatal>,
+its usage is documented in L<Plack::Request>:
+
+  $req->logger->({ level => 'debug', message => "This is a debug message" });
+
+Many Act components just C<warn> and hope for the best that someone
+will read the message and be able to act upon it.  Making the logging
+more consistent is considered a B<TODO>.

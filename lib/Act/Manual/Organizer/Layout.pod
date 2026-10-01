@@ -1,5 +1,7 @@
 =head1 The layout of a conference repository
 
+=encoding utf8
+
 An Act-enabled conference web site uses two subdirectories:
 
 =over 4
@@ -29,7 +31,7 @@ The F<actdocs> directory is laid out as follows:
 =item * F<conf/>
 
 Configuration files for the conference: they contain information
-sur as begin and end date, room names, tools enabled (online 
+such as begin and end date, room names, tools enabled (online
 payment, pre-registration, etc), languages enabled, etc.
 
 The files are: F<act.ini> and F<local.ini>.

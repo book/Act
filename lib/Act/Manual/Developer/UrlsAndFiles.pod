@@ -1,3 +1,5 @@
+=encoding utf8
+
 =head1 URL and File Hierarchies in Act
 
 In this section we describe the appearance of an Act installation in
@@ -8,7 +10,8 @@ to modernize the Act software.  It is intended to keep the URL
 hierarchy unchanged throughout this process.  The author has, however,
 no idea about the directory structure on the "original" server
 L<https://act.yapc.eu/>: The layout described here is one which fits
-with some of the current PSGI-based implementations.
+with the PSGI-based implementations at
+L<https://github.com/act-psgi/Act>.
 
 Throughout this document, we use L<https://act.yapc.eu/> as the base
 URL, though Act software has been used on other servers, too.
@@ -40,7 +43,7 @@ Act software at all.
 =item The Conference Homepages
 
 Each conference running their website on Act has a homepage in the
-root directory L<http://act.yapc.eu>/>,
+root directory L<http://act.yapc.eu/>,
 e.g. L<https://act.yapc.eu/gpw2019/> for the German Perl Workshop
 2019.  Some conferences use their own DNS entry,
 e.g. L<http://act.qa-hackathon.org/pts2019/> or
@@ -99,9 +102,10 @@ See L<Act::Manual::Developer::Templates> for more information.
 
 =item C<wwwdocs>
 
-These directories under C<wwwdocs> are served directly under the root
-URL, without further processing.  They contain some images, a pretty
-outdated version of jquery, and some stylesheets.
+These directories under C<wwwdocs> are usually served directly under
+the root URL, without further processing.  They contain some images, a
+pretty outdated version of jquery, and some stylesheets.  Providers
+can supply their own directory by configuring C<general_dir_static>.
 
 Conference organisers may use these documents, or commit their own,
 using the appropriate links.
@@ -121,27 +125,31 @@ can't be changed without disruption.
 =head3 Where Act is looking for them
 
 I<Disclaimer:> The author doesn't know the directory structure on any
-productive Act server.  The following description is based on the PSGI
-based implementation, so may be inaccurate.
+productive Act server.  The following description is based on the
+current psgi based implementation, so may be inaccurate on
+C<act.yapc.eu>.
 
 Act has a "home" directory which is passed as a mandatory environment
-variable C<ACTHOME> to the engine.  All paths are calculated from
+variable C<ACT_HOME> to the engine.  All paths are calculated from
 there.  Every conference has its own subdirectory, denoted as
-C<"$conference">.
+C<"$conference">, under a directory configured as
+C<general_dir_conferences>.
 
 =over
 
 =item Configuration files
 
 The configuration files for each conference are expected under
-C<"$ACTHOME/actdocs/$conference/conf/act.ini"> and
-C<"$ACTHOME/actdocs/$conference/conf/local.ini">. Both are evaluated in
-that order.
+C<"$ACT_HOME/conferences/$conference/actdocs/conf/act.ini"> and
+C<"$ACT_HOME/conferences/$conference/actdocsconf/local.ini">.
+Both are evaluated in that order.
 
 If any of the conference config file changes (identified by its
 modification time), then I<all> configuration files, including the
 global configuration, are re-read.  Changes in the global
 configuration file don't trigger the mechanism.
+
+B<Note:> This does not yet work in the PSGI implementation.
 
 =item Template files
 
@@ -151,14 +159,14 @@ top of the list, so there are no "directory-local links".
 
 The list looks like this:
 
-       "$ACTHOME/actdocs/$conference/static",
-       "$ACTHOME/actdocs/$conference/templates",
-       "$ACTHOME/static",
-       "$ACTHOME/templates"
+       "$ACT_HOME/conferences/$conference/actdocs/static",
+       "$ACT_HOME/conferences/$conference/actdocs/templates",
+       "$ACT_HOME/static",
+       "$ACT_HOME/templates"
 
 So, templates provided by the conference organizers take precedence
 over those provided by Act (or added by the people who run the Act
-server). 
+server).
 
 Template files ending in C<.html> are available as corresponding URLs,
 and any file name can be referenced in the templates with TT's
@@ -171,9 +179,8 @@ L<Act::Manual::Organizer::Templates>.
 
 Images, style sheets, javascript libraries and the like for URLs
 containing a conference name are searched for under
-C<"$ACTHOME/$conference/wwwdocs">.  So, an URL
+C<"$ACT_HOME/conferences/$conference/wwwdocs">.  So, an URL
 C<"/$conference/images/logo.png"> is translated into
-C<"$ACTHOME/$conference/wwwdocs/images/logo.png">.
+C<"$ACT_HOME/conferences/$conference/wwwdocs/images/logo.png">.
 
 =back
-

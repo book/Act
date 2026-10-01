@@ -1,18 +1,19 @@
 use strict;
 package Act::Dispatcher;
 
-use Apache::Constants qw(:common);
-use Apache::Cookie ();
-use Apache::Request;
-use DBI;
-use Encode qw(decode_utf8);
-
 use Act::Config;
-use Act::I18N;
-use Act::User;
+use Act::Handler::Static;
 use Act::Util;
+use Act::Session::Store;
 
-use constant DEFAULT_PAGE => 'index.html';
+use File::Spec::Functions qw(catfile rel2abs);
+use List::Util qw(first);
+use Module::Pluggable::Object;
+use Plack::App::File;
+use Plack::Builder;
+use Plack::Middleware::Debug;
+use Plack::Request;
+use Plack::Session::State::Cookie;
 
 # main dispatch table
 my %public_handlers = (
@@ -24,6 +25,7 @@ my %public_handlers = (
     faces           => 'Act::Handler::User::Faces',
     favtalks        => 'Act::Handler::Talk::Favorites',
     login           => 'Act::Handler::Login',
+    LOGIN           => 'Act::Handler::User::CheckLogin',
     news            => 'Act::Handler::News::List',
     openid          => 'Act::Handler::OpenID',
     proceedings     => 'Act::Handler::Talk::Proceedings',
@@ -38,6 +40,7 @@ my %public_handlers = (
     user            => 'Act::Handler::User::Show',
     wiki            => 'Act::Handler::Wiki',
 );
+
 my %private_handlers = (
     change          => 'Act::Handler::User::Change',
     create          => 'Act::Handler::User::Create',
@@ -72,170 +75,161 @@ my %private_handlers = (
     unregister      => 'Act::Handler::User::Unregister',
     wikiedit        => 'Act::Handler::WikiEdit',
 );
-my %dispatch = ( map( { $_ => { handler => $public_handlers{$_} } } keys %public_handlers),
-                 map( { $_ => { handler => $private_handlers{$_}, private => 1 } } keys %private_handlers)
-               );
 
-# translation handler
-sub trans_handler
-{
-    # the Apache request object
-    my $r = Apache::Request->instance(shift);
-
-    # break it up in components
-    my @c = grep $_, split '/', decode_utf8($r->uri);
-
-    # initialize our per-request variables
-    %Request = (
-        r         => $r,
-        path_info => join('/', @c),
-        base_url  => _base_url($r),
-    );
-
-    # reload configuration if needed
-    Act::Config::reload_configs();
-
-    # connect to database
-    Act::Util::db_connect();
-
-    # URI must start with a conf name
-    unless (@c && (exists $Config->uris->{$c[0]} || exists $Config->conferences->{$c[0]})) {
-        return DECLINED;
-    }
-    # set the correct configuration
-    $Request{conference} = $Config->uris->{$c[0]} || $c[0];
-    shift @c;
-    $Request{path_info}  = join '/', @c;
-    $Config = Act::Config::get_config($Request{conference});
-
-    # default pages a la mod_dir
-    if (!@c && $r->uri =~ m!/$!) {
-        $r->uri(Act::Util::make_uri(DEFAULT_PAGE));
-        $Request{path_info} = DEFAULT_PAGE;
-    }
-    # pseudo-static pages
-    if ($r->uri =~ /\.html$/) {
-        return _dispatch($r, 'Act::Handler::Static');
-    }
-    # we're looking for /x/y where
-    # x is a conference name, and
-    # y is an action key in %dispatch
-    elsif (@c && $Request{conference} && exists $dispatch{$c[0]}) {
-        $Request{action}     = shift @c;
-        $Request{path_info}  = join '/', @c;
-        $Request{private} = $dispatch{$Request{action}}{private};
-        return _dispatch($r, 'Act::Dispatcher');
-    }
-    return DECLINED;
-}
-
-sub _dispatch
-{
-    my ($r, $handler) = @_;
-
-    # per-request initialization
-    $Request{args} = { map { scalar $_ => decode_utf8($r->param($_)) } $r->param };
-    _set_language();
-    Act::Config::finalize_config($Config, $Request{language});
-
-    # redirect language change requests
-    if (delete $Request{args}{language} && !Act::Util::ua_isa_bot()) {
-        return Act::Util::redirect(self_uri(%{$Request{args}}));
-    }
-    # set up content handler
-    $r->handler("perl-script");
-    $r->push_handlers(PerlHandler => $handler);
-    return OK;
-}    
-
-# response handler - it all starts here.
-sub handler
-{
-    # the Apache request object
-    $Request{r} = Apache::Request->instance(shift);
-
-    # dispatch
-    my $pkg = $dispatch{$Request{action}}{handler};
-    my @c = split '::', $pkg;
-    my $handler = 'handler';
-    if ($c[-1] =~ /handler$/) {
-        $handler = pop @c;
-    }
-    $pkg = join '::', @c;
-    eval "require $pkg;";
-    die "require $pkg failed!" if $@;
-
-    $pkg->$handler();
-    return $Request{status} || OK;
-}
-
-sub _set_language
-{
-    my $language = undef;
-    my $sendcookie = 1;
-
-    # see if we have a cookie
-    my $cookie_name = $Config->general_cookie_name;
-    my $cookies = Apache::Cookie->fetch;
-    if (my $c = $cookies->{$cookie_name}) {
-        my %v = $c->value;
-        if ($v{language} && $Config->languages->{$v{language}}) {
-            $language = $v{language};
-            $sendcookie = 0;
-        }
-    }
-
-    # language override supplied in query string
-    my $force_language = $Request{args}{language};
-    if ($force_language && $Config->languages->{$force_language}) {
-        $sendcookie = $force_language ne $language;
-        $language = $force_language;
-    }
-
-    # otherwise try one of the browser's languages
-    unless ($language) {
-        my $h = $Request{r}->header_in('Accept-Language') || '';
-        for (split /,/, $h) {
-            s/;.*$//;
-            s/-.*$//;
-            if ($_ && $Config->languages->{$_}) {
-                $language = $_;
-                $sendcookie = 1;
-                last;
+sub to_app {
+    my $app = act_app();
+    builder {
+        enable sub {
+            my $app = shift;
+            sub {
+                my $env = shift;
+                if (Act::Config::reload_configs()) {
+                    # Re-build the app to cover new conferences
+                    $app = act_app();
+                }
+                $app->($env);
             }
+        };
+        $app;
+    };
+}
+
+sub act_app {
+    builder {
+        enable 'Debug', panels => [split(/\s+/, $ENV{ACT_DEBUG})]
+            if $ENV{ACT_DEBUG};
+        enable 'ReverseProxy';
+        enable sub {
+            my $app = shift;
+            sub {
+                my $env = shift;
+
+                # Make sure there is no trailing slash in base_url
+                my $req = Plack::Request->new($env);
+                my $base_url = $req->base->as_string;
+                $base_url =~ s{/$}{};
+                $env->{'act.base_url'} = $base_url;
+
+                $env->{'act.dbh'}      = Act::Util::db_connect();
+                $app->($env);
+            }
+        };
+        enable 'Session',
+            state       => Plack::Session::State::Cookie->new(
+                session_key => 'act_session',
+                secret      => 'abcddcba',
+                httponly    => 1,
+            ),
+            store       => Act::Session::Store->new(),
+            ;
+        enable '+Act::Middleware::ErrorPage';
+
+        mount "/photos" => root_file_app($Config->general_dir_photos);
+        my %confr = %{ $Config->uris },
+            map { $_ => $_ } %{ $Config->conferences };
+        for my $uri (keys %confr) {
+            my $conference = $confr{$uri};
+            my $conference_app = conference_app($conference);
+            mount "/$uri/" => sub {
+                my $env = shift;
+                $env->{'act.conference'} = $conference;
+                $env->{'act.config'} = Act::Config::get_config($conference);
+                $conference_app->($env);
+            };
+        };
+        mount "/" => sub {
+            my $env  = shift;
+            my $files = Plack::App::File->new(root => $Config->general_dir_static)->to_app;
+            return $files->($env);
+        };
+    };
+}
+
+
+
+sub conference_app {
+    my $conference = shift;
+    my $static_app = builder {
+        enable '+Act::Middleware::Auth';
+        Act::Handler::Static->new->to_app;
+    };
+    builder {
+        enable '+Act::Middleware::Language';
+        enable sub {
+            my $app = shift;
+            sub {
+                $_[0]->{PATH_INFO} =~ s{^/?$}{/index.html};
+                if ($_[0]->{PATH_INFO} =~ /\.html$/) {
+                    return $static_app->(@_);
+                }
+                else {
+                    return $app->(@_);
+                }
+            };
+        };
+        for my $uri ( keys %public_handlers ) {
+            mount "/$uri" => _handler_app($public_handlers{$uri});
+        }
+        for my $uri ( keys %private_handlers ) {
+            mount "/$uri" => _handler_app($private_handlers{$uri},
+                                          private => 1);
+        }
+        mount '/' => sub {
+            my ( $env ) = @_;
+            my $conf = $env->{'act.conference'};
+            my $path = catfile($Config->general_dir_conferences, $conf, 'wwwdocs');
+            my $files = Plack::App::File->new(root => $path)->to_app;
+            my $res = $files->($env);
+            return $res;
+        }
+    };
+}
+
+
+sub root_file_app {
+    my ($rel_path) = @_;
+    my $abs_path = rel2abs($rel_path,$Config->general_root);
+    Plack::App::File->new(root => $abs_path)->to_app;
+}
+
+{
+    my @HANDLERS;
+    my $search_path = 'Act::Handler';
+    sub _load_handler_plugins {
+        if (!@HANDLERS) {
+            my $finder = Module::Pluggable::Object->new(
+                search_path => $search_path,
+                require     => 1,
+            );
+            @HANDLERS = $finder->plugins;
         }
     }
-    # last resort, use our default language
-    $language ||= $Config->general_default_language;
 
-    # use optional variant
-    $language = $Config->language_variants->{$language} || $language;
+    sub _get_handler_plugin {
+        my ($handler) = @_;
 
-    # remember it for this request
-    $Request{language} = $language;
+        my $subhandler;
+        if ($handler =~ s/::(\w+_handler)$//) {
+            $subhandler = $1;
+        }
 
-    # fetch localization handle
-    $Request{loc} = Act::I18N->get_handle($Request{language});
-
-    # send the cookie if needed
-    if ($sendcookie) {
-        my $cookie = Apache::Cookie->new(
-        $Request{r},
-            -name    =>  $cookie_name,
-            -value   =>  { language => $language },
-            -expires =>  '+6M',
-            -path    =>  '/',
-        );
-        $cookie->bake;
+        _load_handler_plugins;
+        if (my $plugin = first { $handler eq $_ } @HANDLERS) {
+            return $handler->new(subhandler => $subhandler) if defined $subhandler;
+            return $handler->new();
+        }
+        die sprintf("Unable to load '%s', not found in search path: '%s'!\n",
+            $handler, $search_path);
     }
 }
 
-sub _base_url
-{
-    my $r = shift;
-    my $url = 'http://' . $r->server->server_hostname;
-    $url .= ':' . $r->server->port if $r->server->port != 80;
-    return $url;
+
+sub _handler_app {
+    my ($handler, %attrs) = @_;
+    builder {
+        enable '+Act::Middleware::Auth', %attrs;
+        return _get_handler_plugin($handler)->to_app;
+    }
 }
 
 1;
@@ -247,6 +241,79 @@ Act::Dispatcher - Dispatch web request
 
 =head1 SYNOPSIS
 
-No user-serviceable parts. Warranty void if open.
+  # Fire up the dispatcher as a PSGI application
+  use Act::Dispatcher;
+  Act::Dispatcher->to_app;
+
+=head1 The URL hierarchy
+
+On top level, the dispatcher serves 1) user photos, 2) the
+conferences, and 3) static files coming with the distributions.
+
+The conferences themselves have their own dispatcher in
+C<conference_app>, which handles 1) HTML files provided by organizers,
+2) "action" handlers from the list of public and private handlers, and
+3) static files provided by organizers.
+
+The handlers themselves in the C<Act::Handler::*> namespace are still
+using the traditional Apache/mod_perl approach: They communicate with
+other components through global variables C<$Config> and
+C<%Request>. The translation between PSGI style C<env> and Apache
+style C<Request> is done in L<Act::Handler>, and L<Act::Config> takes
+care to export them as globals to all modules using it.
+
+The C<LOGIN> url is a special case because it is not an URL you would
+type into a browser but rather the action attribute of a form element.
+In legacy code, this was handled as a special case in the Apache
+configuration, early PSGI implementations handled it in the middleware
+layer.  Today it is a regular Act handler.
+
+
+=head1 Maintainer's Introduction to PSGI and Plack
+
+From bottom to top, the PSGI stack looks like this:
+
+=over
+
+=item The I<Application>
+
+The application does the work to convert data from the HTTP request to
+a response.  It receives the data as a hash reference C<$env> and
+returns the response as a hashref C<[$code,[@headers],[@body]]>.
+
+=item Middleware
+
+Middleware is a bit of a misnomer since it is rather I<aroundware>.
+A middleware component looks like this:
+
+    sub middleware {
+        my ($app,$env) = @_;
+        # Do something with $env
+        my $response = $app($env);
+        # Do something with $response
+        return $response;
+    }
+
+Middleware is extremely powerful and versatile.  As long as it returns
+a C<$response>, nobody knows whether it got this response from calling
+C<$app>, from calling any other application, or from making it up
+itself.
+
+The processing of HTML pages is an example of such a side-stepping
+where the dispatcher uses an inline middleware to call
+L<Act::Handler::Static> instead of the app passed by the caller.
+
+=item Builder
+
+The builders compose an application by distributing URLs between
+different applications (that's what C<mount> is for), and wrap them in
+middleware components (with C<enable>).
+
+As we see in this module, this can be used hierarchically: An
+application C<mount>-ed for some part of URLspace can itself be
+constructed by a C<builder> which wraps it into another set of
+middleware components.
+
+=back
 
 =cut

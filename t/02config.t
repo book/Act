@@ -2,9 +2,9 @@ use strict;
 use Act::Util;
 use DateTime::Locale;
 use Test::More qw(no_plan);
+use File::Spec::Functions qw(catfile);
 
 my @simple = qw(
-    general_cookie_name
     general_dir_photos
     general_max_imgsize
     general_searchlimit
@@ -14,7 +14,6 @@ my @simple = qw(
     database_passwd
     database_pg_dump
     database_dump_file
-    email_sendmail
     email_sender_address
     wiki_dbname
     wiki_dbuser
@@ -37,6 +36,7 @@ my @conf_simple = qw(
 
 BEGIN { use_ok('Act::Language') }
 BEGIN { use_ok('Act::Config') }
+
 ok($Config, "configuration loaded");
 
 ## Act::Config globals
@@ -47,11 +47,6 @@ for my $lang (sort keys %Languages) {
 
 ## global config
 _test_config($Config, 'global');
-
-# optional compiled templates
-if ($Config->general_dir_ttc) {
-    ok(-d $Config->general_dir_ttc, "compiled templates directory exists");
-}
 
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");

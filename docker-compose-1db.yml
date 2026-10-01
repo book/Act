@@ -1,0 +1,70 @@
+version: '3.3'
+services:
+  act:
+    hostname: "actserver"
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    depends_on:
+      - "act-db"
+    networks:
+      - "default"
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    user: "root"
+    environment:
+      - "ACT_HOME=/opt/acthome"
+      - "SMTP_HOST=smtpd"
+      - "SMTP_PORT=1025"
+    volumes:
+      - "./:/opt/act:z"
+      - "filestore:/opt/filestore"
+      # Order is important as docker will override any mount point that
+      # is less specific, directories override mounts and/or existing
+      # files
+      - "./conferences:/opt/acthome/conferences:z"
+      - "./templates:/opt/acthome/templates:z"
+      - "./po:/opt/acthome/po:z"
+      - "./etc:/opt/acthome/conf:z"
+    #LBO >
+    # one-shot to "migrate" Act db from "pre-psgi" ages
+    #entrypoint: "bin/dbupdate"
+    #command: "main"
+    #< LBO
+  act-db:
+    image: "postgres:18"
+    hostname: "act-db"
+    networks:
+      - "default"
+    expose:
+      - "5432"
+    environment:
+      - "POSTGRES_USER=act"
+      - "POSTGRES_PASSWORD=act123"
+      #- "POSTGRES_DB=act"
+      - "ACTDB=act"
+      - "WIKIDB=wiki_act"
+    volumes:
+      - "act_1db:/var/lib/postgresql"
+      - "./db/act/template.sql:/docker-entrypoint-initdb.d/00_init_actdb.sql:z"
+      - "./db/act/initial/10-act_users.sql:/docker-entrypoint-initdb.d/10-act_users.sql:z"
+      - "./db/act/initial/20-act-version.sql:/docker-entrypoint-initdb.d/20-act-version.sql:z"
+      - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/50_init_wikidb.sql:z"
+      - "./db/wiki/initial/10-version.sql:/docker-entrypoint-initdb.d/60-version.sql:z"
+      # comment if you don't want test DBs (for instance: you have a production pod and a test pod)
+      - "./db/act/initial/90-test-db.sql:/docker-entrypoint-initdb.d/90-test-db.sql:z"
+      - "./db/wiki/initial/95-test-db.sql:/docker-entrypoint-initdb.d/95-test-db.sql:z"
+  smtpd:
+    image: mailhog/mailhog:v1.0.0
+    expose:
+      - "1025"
+    ports:
+      - "8025:8025"
+
+volumes:
+  act_1db:
+  filestore:
+networks:
+  default:

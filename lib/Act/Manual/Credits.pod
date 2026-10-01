@@ -1,5 +1,7 @@
 =head1 The people behind Act
 
+=encoding utf8
+
 This section provides a brief history of Act and details the primary
 authors and numerous other people who have contributed to it.
 
@@ -42,9 +44,15 @@ twenty conferences in Europe and in the U.S. between 2004 and 2007.
 However, becoming the official Perl conference software is on the roadmap
 of our world domination plan! C<;-)>
 
+Ten years later it turned out that world domination had to be slightly
+delayed.  Although Act and the French mongers never stopped to help
+organize conferences, the software had accumulated a certain amount of
+patina.  Several teams and individuals have started working on the
+software, and here's the result: Act is still breathing.
+
 =head1 The Name
 
-The name of the toolkit is Act, not ACT. 
+The name of the toolkit is Act, not ACT.
 
 Even if it looks like an acronym (inspired by the one of APL), it is
 more of an inspirational injunction to conference organizers to forget
@@ -62,11 +70,36 @@ conference...
 
 =head2 Code contributors
 
-  Gianni "dakkar" Cecarelli
-  Elizabeth Cortell
-  Thomas Klausner
+  Alexandre Franke
+  Ann Barcomb
+  Arjen Laarhoven
+  Barbie
+  Dagfinn Ilmari Mannsåker
+  Dan Wright
+  David Elbaz
+  David Rigaudiere
+  Dotan Dimet
+  Elbeho
+  Emmanuel Seyman
+  Gianni Ceccarelli
+  Graham Knop
+  Harald Jörg
+  Ilya Chesnokov
+  Joakim
+  Leon Brocard
+  Liz Cortell
+  Martin Barth
+  Michal Wojciechowski
+  Ole Bendik Kvisberg
+  Olivier Mengué
+  Renee
+  Rob Hoelz
+  Sebastien Aperghis-Tramoni
+  Stefan Hornburg (Racke)
+  Sébastien Aperghis-Tramoni
   Tatsuhiko Miyagawa
-  Jesse Vincent
+  Thomas Klausner
+  Wesley Schwengle
 
 =head2 Documentation contributors
 
@@ -75,7 +108,7 @@ conference...
 =head2 Translations
 
   be: Andrei Protasovitski, Taras Ivanyukovich
-  de: Thomas Klausner
+  de: Thomas Klausner, Renée Bäcker
   es: Enrique Nell
   he: Uri Bruck
   hr: Vedran Vukotic, Vlatko Kosturjak
@@ -92,34 +125,66 @@ conference...
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
-  Sébastien Aperghis-Tramoni
-  Farley Balasuriya
-  Ann Barcomb
-  Jim Brandt
-  Luis Motta Campos
-  José Alves de Castro 
-  Gianni "dakkar" Cecarelli
-  Kurt DeMaagd
-  Jeremy Fluhmann
+  Alberto Simões
+  Alexandre Franke
   Anders Hellström
+  Ann Barcomb
+  Arjen Laarhoven
+  Barbie
   Claes Jakobsson
-  Jose Kahan
-  Maroš Kollár
-  Thomas Klausner
-  Roland Lammel
-  David Landgren
+  Dagfinn Ilmari Mannsåker
   Daisuke Maki
-  Tatsuhiko Miyagawa
-  Jonas B. Nielsen
-  Salve J Nilsen
-  Hiroyuki Oyama
-  Dave Rolsky
-  Alberto Simões 
-  Enrico Sorcinelli
-  Ricardo Signes
-  Gábor Szabó
-  Lars Thegler
+  Dan Wright
   Daniel J. Wright
+  Dave Rolsky
+  David Elbaz
+  David Landgren
+  David Rigaudiere
+  Dotan Dimet
+  Elbeho
+  Elizabeth Cortell
+  Emmanuel Seyman
+  Enrico Sorcinelli
+  Farley Balasuriya
+  Gianni "dakkar" Cecarelli
+  Graham Knop
+  Gábor Szabó
+  Harald Jörg
+  Hiroyuki Oyama
+  Ilya Chesnokov
+  Jeremy Fluhmann
+  Jesse Vincent
+  Jim Brandt
+  Joakim
+  Jonas B. Nielsen
+  Jose Kahan
+  José Alves de Castro
+  Kurt DeMaagd
+  Lars Thegler
+  Laurent Boivin
+  Leon Brocard
+  Liz Cortell
+  Luis Motta Campos
+  Maroš Kollár
+  Michal Wojciechowski
+  Ole Bendik Kvisberg
+  Olivier Mengué
+  Patrick Spek
+  Paul Cochrane
+  Renee
+  Ricardo Signes
+  Rob Hoelz
+  Roland Lammel
+  Salve J Nilsen
+  Sawyer X
+  Stefan Hornburg (Racke)
+  Sébastien Aperghis-Tramoni
+  Tatsuhiko Miyagawa
+  Theo van Hoesel
+  Thomas Klausner
+  Todd Rinaldo
+  Tom Bloor
+  Wesley Schwengle
 
 =cut
 

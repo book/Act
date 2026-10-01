@@ -1,6 +1,7 @@
 use strict;
 package Act::Database;
-  
+use Try::Tiny;
+
 my @SCHEMA_UPDATES = (
 #1
   "create table schema (
@@ -83,19 +84,33 @@ my @SCHEMA_UPDATES = (
     alter table talks add column hide_details boolean DEFAULT false NOT NULL;
     alter table talks add column allow_record boolean DEFAULT true  NOT NULL;
   },
+#12
+  # See https://metacpan.org/pod/Plack::Session::Store::DBI
+  q{
+    CREATE TABLE sessions (
+      id             CHAR(72) PRIMARY KEY,
+      session_data   TEXT
+    )
+  },
 );
 
 # returns ( current database schema version, required version )
-sub get_versions
-{
+sub get_versions {
     my $dbh = shift;
+
     my $version;
-    eval {
+    try {
         $version = $dbh->selectrow_array('SELECT current_version FROM schema');
-    };
-    if ($@) {
-        $dbh->rollback;
     }
+    catch {
+        $dbh->rollback;
+        die "Failed to retrieve the schema version:\n",
+            "DB error:   '", $dbh->errstr, "'\n",
+            "eval error: '$_'\n";
+    };
+
+    defined $version
+        or  warn "No database schema version found.\n";
     $version ||= 0;
     return ( $version, required_version() );
 }

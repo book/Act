@@ -1,10 +1,14 @@
-use Test::More tests => 15;
+use open ':std', ':encoding(utf8)';
+use Test::More tests => 16;
+
+use utf8;
 
 use Act::Config;
 use Act::Tag;
 
 use strict;
-use t::Util;
+use Test::Lib;
+use Test::Act::Util;
 
 # create an empty tag
 my $tag = Act::Tag->new();
@@ -41,11 +45,12 @@ my %key = (
 );
 Act::Tag->update_tags(%key, newtags => [ qw(foo bar) ]);
 my @tags = Act::Tag->fetch_tags(%key);
-is_deeply(\@tags, [ qw(bar foo) ], 'fetch_tags');
+is_deeply(\@tags, [ qw(bar foo) ], 'fetch_tags update 1');
 
-Act::Tag->update_tags(%key, oldtags => [ qw(foo bar) ], newtags => [ qw(foo baz) ]);
+Act::Tag->update_tags(%key, oldtags => [ qw(foo bar) ],
+                      newtags => [ qw(foo € baz Σ) ]);
 @tags = Act::Tag->fetch_tags(%key);
-is_deeply(\@tags, [ qw(baz foo) ], 'fetch_tags');
+is_deeply(\@tags, [ qw(baz foo Σ € ) ], 'fetch_tags update 2');
 
 # find_tagged
 delete $key{tagged_id};
@@ -63,9 +68,12 @@ is_deeply(\@ids, [ ], 'find_tagged');
 
 # find_tags
 my $tags = Act::Tag->find_tags(%key);
-is_deeply($tags, [ [bar => 1],[baz => 1],[foo => 2] ], 'find_tags');
+is_deeply($tags, [ ['€' => 1],[bar => 1],[baz => 1],[foo => 2],['Σ' => 1], ],
+          'find_tags');
 $tags = Act::Tag->find_tags(%key, filter => [ 42 ]);
-is_deeply($tags, [ [baz => 1],[foo => 1] ], 'find_tags filtered');
+is_deeply($tags, [ ['€' => 1],[baz => 1],[foo => 1],['Σ' => 1] ],
+          'find_tags filtered');
 
 # split_tags
-is_deeply( [ Act::Tag->split_tags(' foo bar foo ') ], [ qw(bar foo) ], "split_tags");
+is_deeply( [ Act::Tag->split_tags(' foo bar Σ foo ') ], [ qw(bar foo Σ) ],
+           "split_tags");
